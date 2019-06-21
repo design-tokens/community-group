@@ -34,3 +34,5 @@ As vendors adopt the specification and new requirements appear, the working grou
 - Lona
 - Bohemian Coding
 - system-ui
+- style dictionary
+- ex-contributors to Theo
