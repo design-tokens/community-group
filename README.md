@@ -28,7 +28,7 @@ To achieve a v1 of the specification rapidly, its structure is restricted to a s
 
 As vendors adopt the specification and new requirements appear, the working group will consist of additional task forces.
 
-### Companies and open-source projects represented at the DTWG:
+### Companies and open-source projects represented on the DTWG
 
 - Diez
 - Lona
