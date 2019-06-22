@@ -35,3 +35,9 @@ As vendors adopt the specification and new requirements appear, the working grou
 - system-ui
 - style dictionary
 - ex-contributors to Theo
+
+---
+
+We acknowledge that the format specification is only part of an ecosystem, supporting methods and practices that relate to scaling design tokens:
+
+[![@jina’s tweet](https://user-images.githubusercontent.com/85783/59956860-eeb5ee00-9447-11e9-8ea3-3bb6c158bc1a.png)](https://twitter.com/jina/status/1062808011301965825)
