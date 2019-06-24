@@ -36,6 +36,8 @@ As vendors adopt the specification and new requirements appear, the working grou
 - style dictionary
 - ex-contributors to Theo
 
+We are currently reaching out to various design software vendors to get a representative from each one on the working group. 
+
 ---
 
 We acknowledge that the format specification is only part of an ecosystem, supporting methods and practices that relate to scaling design tokens:
