@@ -6,7 +6,7 @@ This is the official DTWG repository for the design tokens specifications.
 
 Design tokens are indivisible pieces of a design system such as colors, spacing, typography scale.
 
-Design tokens were created by Salesforce, and the name comes from [Jina](https://twitter.com/jina).
+Design tokens were created by the Salesforce design system team, and the name comes from them ([Jon](https://twitter.com/jonnylevine) & [Jina](https://twitter.com/jina)).
 
 ## Goal of the DTWG
 
