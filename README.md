@@ -1,6 +1,6 @@
 # Design Tokens Working Group
 
-This is the official DTWG repository for the design tokens specifications.
+This is the official DTWG repository for the design tokens specification.
 
 ## Design tokens
 
