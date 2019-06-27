@@ -31,10 +31,11 @@ As vendors adopt the specification and new requirements appear, the working grou
 ### Companies and open-source projects represented on the DTWG
 
 - Diez
-- Lona
-- system-ui
-- style dictionary
 - ex-contributors to Theo
+- Lona
+- Sketch
+- style dictionary
+- system-ui
 
 We are currently reaching out to various design software vendors to get a representative from each one on the working group. 
 
