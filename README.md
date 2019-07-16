@@ -32,14 +32,21 @@ As vendors adopt the specification and new requirements appear, the working grou
 
 ### Companies and open-source projects represented on the DTWG
 
-- Diez
-- ex-contributors to Theo
-- Lona
-- Sketch
-- style dictionary
-- system-ui
+- [Adobe XD](https://www.adobe.com/products/xd.html)
+- [Diez](https://diez.org)
+- [Framer](https://www.framer.com)
+- [Interplay](https://interplayapp.com)
+- [Lona](https://github.com/airbnb/Lona)
+- [Marvel](https://marvelapp.com)
+- [Modulz](https://www.modulz.app)
+- [Sketch](https://www.sketch.com/)
+- [Style Dictionary](https://amzn.github.io/style-dictionary/#/)
+- [system-ui](https://github.com/system-ui)
+- [Universal Design Tokens](https://github.com/universal-design-tokens/udt)
+- [Zeroheight](https://www.zeroheight.com)
+- ex-contributors to [Theo](https://github.com/salesforce-ux/theo) (by Salesforce)
 
-We are currently reaching out to various design software vendors to get a representative from each one on the working group. 
+We are currently reaching out to various design software vendors to get a representative from each one on the working group.
 
 ---
 
