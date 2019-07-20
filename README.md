@@ -22,6 +22,8 @@ We believe that a common way to share design tokens will unlock efficiency oppor
 
 The DTWG was founded in June 2019. By the end of 2019, our aim is to have a standard working across at least 3 design or prototyping tools.
 
+![timeline](https://user-images.githubusercontent.com/85783/61584564-ba912400-aafe-11e9-919a-c059c50a084e.png)
+
 ## Who sits on the DTWG
 
 The working group is composed of UX professionals, developers, and representants of design tooling vendors.
