@@ -22,7 +22,7 @@ We believe that a common way to share design tokens will unlock efficiency oppor
 
 The DTWG was founded in June 2019. By the end of 2019, our aim is to have a standard working across at least 3 design or prototyping tools.
 
-![timeline](https://user-images.githubusercontent.com/85783/61584753-422c6200-ab02-11e9-8066-e594c8eca946.png)
+![timeline](https://user-images.githubusercontent.com/85783/61584784-6f791000-ab02-11e9-8dfd-896cc9d147ba.png)
 
 ### June 2019
 
