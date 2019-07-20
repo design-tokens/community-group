@@ -22,7 +22,7 @@ We believe that a common way to share design tokens will unlock efficiency oppor
 
 The DTWG was founded in June 2019. By the end of 2019, our aim is to have a standard working across at least 3 design or prototyping tools.
 
-![timeline](https://user-images.githubusercontent.com/85783/61584564-ba912400-aafe-11e9-919a-c059c50a084e.png)
+![timeline](https://user-images.githubusercontent.com/85783/61584753-422c6200-ab02-11e9-8066-e594c8eca946.png)
 
 ### June 2019
 
@@ -54,6 +54,11 @@ The DTWG was founded in June 2019. By the end of 2019, our aim is to have a stan
 - Open source tools (Theo, Style Dictionary, and maybe others like System UI…) build pre-releases to support the working draft
 
 ### November 2019
+
+- Community / public testing
+- Recommendation: format (and maybe theming too, depending on how earlier discussions go)
+
+### December 2019
 
 - Recommendation: colors level 1
 
