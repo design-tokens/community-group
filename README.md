@@ -20,15 +20,19 @@ We believe that a common way to share design tokens will unlock efficiency oppor
 
 ## Roadmap
 
-The DTWG was founded in June 2019. By the end of 2019, our aim is to have a standard working across at least 3 design or prototyping tools.
+The DTWG was founded in June 2019. By the end of 2019, our aim is to have a basic implementation working across:
+
+- at least 3 design or prototyping tools
+- additional design token management tools such as Theo, Style Dictionary, Invision DSM, and Diez
+- various open source community-driven projects
 
 ![timeline](https://user-images.githubusercontent.com/85783/61584784-6f791000-ab02-11e9-8dfd-896cc9d147ba.png)
 
 ### June 2019
 
 - Creation 🎉 
-- [Editor's draft: format](#1)
-- [Editor's draft: theming](#2)
+- [Editor’s draft: format](#1)
+- [Editor’s draft: theming](#2)
 
 ### July 2019
 
