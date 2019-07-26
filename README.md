@@ -34,8 +34,10 @@ As vendors adopt the specification and new requirements appear, the working grou
 
 - [Adobe XD](https://www.adobe.com/products/xd.html)
 - [Diez](https://diez.org)
+- [Figma](https://figma.com)
 - [Framer](https://www.framer.com)
 - [Interplay](https://interplayapp.com)
+- [InVision](https://www.invisionapp.com)
 - [Lona](https://github.com/airbnb/Lona)
 - [Marvel](https://marvelapp.com)
 - [Modulz](https://www.modulz.app)
@@ -43,6 +45,7 @@ As vendors adopt the specification and new requirements appear, the working grou
 - [Style Dictionary](https://amzn.github.io/style-dictionary/#/)
 - [system-ui](https://github.com/system-ui)
 - [Universal Design Tokens](https://github.com/universal-design-tokens/udt)
+- [Zeplin](https://zeplin.io)
 - [Zeroheight](https://www.zeroheight.com)
 - ex-contributors to [Theo](https://github.com/salesforce-ux/theo) (by Salesforce)
 
