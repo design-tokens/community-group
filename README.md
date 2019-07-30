@@ -33,6 +33,7 @@ As vendors adopt the specification and new requirements appear, the working grou
 ### Companies and open-source projects represented on the DTWG
 
 - [Adobe XD](https://www.adobe.com/products/xd.html)
+- [Chroma](https://hichroma.com/)
 - [Diez](https://diez.org)
 - [Figma](https://figma.com)
 - [Framer](https://www.framer.com)
