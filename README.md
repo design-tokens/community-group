@@ -1,8 +1,8 @@
-# Design Tokens Working Group
+# Design Tokens Community Group
 
 [![Gitter](https://badges.gitter.im/design-tokens/community.svg)](https://gitter.im/design-tokens/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-This is the official DTWG repository for the design tokens specification.
+This is the official DTCG repository for the design tokens specification.
 
 ## Design tokens
 
@@ -10,27 +10,27 @@ Design tokens are indivisible pieces of a design system such as colors, spacing,
 
 Design tokens were created by the Salesforce design system team, and the name comes from them ([Jon](https://twitter.com/jonnylevine) & [Jina](https://twitter.com/jina)).
 
-## Goal of the DTWG
+## Goal of the DTCG
 
 Sharing design properties such as a color palette across many tools and platforms should be simple.
 
-The DTWG’s goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.
+The DTCG’s goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.
 
 We believe that a common way to share design tokens will unlock efficiency opportunities for plugins, design system teams, product teams, and end-users of design tools.
 
 ## Roadmap
 
-The DTWG was founded in June 2019. By the end of 2019, our aim is to have a standard working across at least 3 design or prototyping tools.
+The DTCG was founded in June 2019. By the end of 2019, our aim is to have a standard working across at least 3 design or prototyping tools.
 
-## Who sits on the DTWG
+## Who sits on the DTCG
 
-The working group is composed of UX professionals, developers, and representants of design tooling vendors.
+The community group is composed of UX professionals, developers, and representants of design tooling vendors.
 
 To achieve a v1 of the specification rapidly, its structure is restricted to a small, focused amount of people, organized in task forces.
 
-As vendors adopt the specification and new requirements appear, the working group will consist of additional task forces.
+As vendors adopt the specification and new requirements appear, the community group will consist of additional task forces.
 
-### Companies and open-source projects represented on the DTWG
+### Companies and open-source projects represented on the DTCG
 
 - [Adobe XD](https://www.adobe.com/products/xd.html)
 - [Chroma](https://hichroma.com/)
@@ -50,7 +50,7 @@ As vendors adopt the specification and new requirements appear, the working grou
 - [Zeroheight](https://www.zeroheight.com)
 - ex-contributors to [Theo](https://github.com/salesforce-ux/theo) (by Salesforce)
 
-We are currently reaching out to various design software vendors to get a representative from each one on the working group.
+We are currently reaching out to various design software vendors to get a representative from each one on the community group.
 
 ---
 
