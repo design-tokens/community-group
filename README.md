@@ -44,6 +44,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Modulz](https://www.modulz.app)
 - [Sketch](https://www.sketch.com/)
 - [Style Dictionary](https://amzn.github.io/style-dictionary/#/)
+- [Superposition](https://superposition.design)
 - [system-ui](https://github.com/system-ui)
 - [Universal Design Tokens](https://github.com/universal-design-tokens/udt)
 - [Zeplin](https://zeplin.io)
