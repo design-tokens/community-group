@@ -5,5 +5,5 @@ under the
 Contributions to Specifications are made under the
 [W3C CLA](https://www.w3.org/community/about/agreements/cla/).
 
-Contributions to Test Suites and other tooling are made under the
+Contributions to Test Suites and Other Software are made under the
 [W3C 3-clause BSD License](https://www.w3.org/Consortium/Legal/2008/03-bsd-license.html)
