@@ -16,6 +16,8 @@ The DTCG’s goal is to provide standards upon which products and design tools c
 
 We believe that a common way to share design tokens will unlock efficiency opportunities for plugins, design system teams, product teams, and end-users of design tools.
 
+[Read the charter in full](https://github.com/design-tokens/community-group/blob/master/CHARTER.md).
+
 ## Roadmap
 
 The DTCG was founded in June 2019. By the end of 2019, our aim is to have a standard working across at least 3 design or prototyping tools.
@@ -49,7 +51,9 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Zeroheight](https://www.zeroheight.com)
 - ex-contributors to [Theo](https://github.com/salesforce-ux/theo) (by Salesforce)
 
-We are currently reaching out to various design software vendors to get a representative from each one on the community group.
+### Contributing
+
+Read the [Contribution Mechanics section](https://github.com/design-tokens/community-group/blob/master/CHARTER.md#contrib) of the working group’s charter.
 
 ---
 
