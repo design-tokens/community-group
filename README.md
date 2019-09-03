@@ -51,9 +51,9 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Zeroheight](https://www.zeroheight.com)
 - ex-contributors to [Theo](https://github.com/salesforce-ux/theo) (by Salesforce)
 
-### Contributing
+## Contributing
 
-Read the [Contribution Mechanics section](https://github.com/design-tokens/community-group/blob/master/CHARTER.md#contrib) of the working group’s charter.
+See [CONTRIBUTING.md](https://github.com/design-tokens/community-group/blob/master/CONTRIBUTING.md).
 
 ---
 
