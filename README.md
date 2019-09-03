@@ -1,7 +1,5 @@
 # Design Tokens Community Group
 
-[![Gitter](https://badges.gitter.im/design-tokens/community.svg)](https://gitter.im/design-tokens/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
 This is the official DTCG repository for the design tokens specification.
 
 ## Design tokens
