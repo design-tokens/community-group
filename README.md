@@ -1,6 +1,6 @@
-# Design Tokens Community Group
+# Design Tokens W3C Community Group
 
-This is the official DTCG repository for the design tokens specification.
+This is the official DTCG repository for the design tokens specification ([W3C community group page](https://www.w3.org/community/design-tokens/)).
 
 ## Design tokens
 
