@@ -4,6 +4,7 @@
 
 Start Date: Sep 2, 2019
 Last Modifed: Sep 2, 2019
+W3C page: <https://www.w3.org/community/design-tokens/>
 
 The DTCG’s goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.
 
