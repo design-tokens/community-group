@@ -43,6 +43,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Marvel](https://marvelapp.com)
 - [Modulz](https://www.modulz.app)
 - [Sketch](https://www.sketch.com/)
+- [SPECIFY](https://www.specifyapp.com/)
 - [Style Dictionary](https://amzn.github.io/style-dictionary/#/)
 - [Superposition](https://superposition.design)
 - [system-ui](https://github.com/system-ui)
