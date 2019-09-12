@@ -43,6 +43,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Lona](https://github.com/airbnb/Lona)
 - [Marvel](https://marvelapp.com)
 - [Modulz](https://www.modulz.app)
+- [Sass](https://www.sass-lang.com/)
 - [Sketch](https://www.sketch.com/)
 - [Specify](https://www.specifyapp.com/)
 - [Style Dictionary](https://amzn.github.io/style-dictionary/#/)
