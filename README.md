@@ -33,7 +33,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 ### Companies and open-source projects represented on the DTCG
 
 - [Adobe XD](https://www.adobe.com/products/xd.html)
-- [Chroma](https://hichroma.com/)
+- [Chroma](https://hichroma.com)
 - [Diez](https://diez.org)
 - [Figma](https://figma.com)
 - [Framer](https://www.framer.com)
@@ -43,10 +43,11 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Lona](https://github.com/airbnb/Lona)
 - [Marvel](https://marvelapp.com)
 - [Modulz](https://www.modulz.app)
-- [Sass](https://www.sass-lang.com/)
+- [Sass](https://www.sass-lang.com)
+- [Shopify](https://www.shopify.com)
 - [Sketch](https://www.sketch.com/)
 - [Specify](https://www.specifyapp.com/)
-- [Style Dictionary](https://amzn.github.io/style-dictionary/#/)
+- [Style Dictionary](https://amzn.github.io/style-dictionary)
 - [Superposition](https://superposition.design)
 - [system-ui](https://github.com/system-ui)
 - [Universal Design Tokens](https://github.com/universal-design-tokens/udt)
