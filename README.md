@@ -37,6 +37,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Diez](https://diez.org)
 - [Figma](https://figma.com)
 - [Framer](https://www.framer.com)
+- [Google](https://www.google.com)
 - [Herman + Accoutrement](https://oddbird.net/herman/)
 - [Interplay](https://interplayapp.com)
 - [InVision](https://www.invisionapp.com)
