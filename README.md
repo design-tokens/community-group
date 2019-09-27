@@ -52,6 +52,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Superposition](https://superposition.design)
 - [system-ui](https://github.com/system-ui)
 - [Universal Design Tokens](https://github.com/universal-design-tokens/udt)
+- [Zendesk](https://www.zendesk.com)
 - [Zeplin](https://zeplin.io)
 - [Zeroheight](https://www.zeroheight.com)
 - ex-contributors to [Theo](https://github.com/salesforce-ux/theo) (by Salesforce)
