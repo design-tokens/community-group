@@ -33,6 +33,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 ### Companies and open-source projects represented on the DTCG
 
 - [Adobe XD](https://www.adobe.com/products/xd.html)
+- [Basalt](https://www.basalt.io)
 - [Chroma](https://hichroma.com)
 - [Diez](https://diez.org)
 - [Figma](https://figma.com)
