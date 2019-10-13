@@ -32,7 +32,9 @@ As vendors adopt the specification and new requirements appear, the community gr
 
 ### Companies and open-source projects represented on the DTCG
 
-- [Adobe XD](https://www.adobe.com/products/xd.html)
+- [Adobe](https://www.adobe.com)
+- [Amazon](https://www.amazon.com)
+- [Atlassian](https://www.atlassian.com)
 - [Basalt](https://www.basalt.io/)
 - [Chroma](https://hichroma.com)
 - [Diez](https://diez.org)
@@ -45,6 +47,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Lona](https://github.com/airbnb/Lona)
 - [Marvel](https://marvelapp.com)
 - [Modulz](https://www.modulz.app)
+- [Salesforce](https://www.salesforce.com)
 - [Sass](https://www.sass-lang.com)
 - [Shopify](https://www.shopify.com)
 - [Sketch](https://www.sketch.com/)
