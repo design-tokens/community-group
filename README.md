@@ -33,6 +33,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 ### Companies and open-source projects represented on the DTCG
 
 - [Adobe](https://www.adobe.com)
+- [Alaska Airlines](https://www.alaskaair.com)
 - [Amazon](https://www.amazon.com)
 - [Atlassian](https://www.atlassian.com)
 - [Basalt](https://www.basalt.io/)
