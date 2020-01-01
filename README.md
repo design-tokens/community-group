@@ -1,8 +1,6 @@
-# Design Tokens Working Group
+# Design Tokens W3C Community Group
 
-[![Gitter](https://badges.gitter.im/design-tokens/community.svg)](https://gitter.im/design-tokens/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
-This is the official DTWG repository for the design tokens specification.
+This is the official DTCG repository for the design tokens specification ([W3C community group page](https://www.w3.org/community/design-tokens/)).
 
 ## Design tokens
 
@@ -10,13 +8,15 @@ Design tokens are indivisible pieces of a design system such as colors, spacing,
 
 Design tokens were created by the Salesforce design system team, and the name comes from them ([Jon](https://twitter.com/jonnylevine) & [Jina](https://twitter.com/jina)).
 
-## Goal of the DTWG
+## Goal of the DTCG
 
 Sharing design properties such as a color palette across many tools and platforms should be simple.
 
-The DTWG’s goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.
+The DTCG’s goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.
 
 We believe that a common way to share design tokens will unlock efficiency opportunities for plugins, design system teams, product teams, and end-users of design tools.
+
+[Read the charter in full](https://github.com/design-tokens/community-group/blob/master/CHARTER.md).
 
 ## Roadmap
 
@@ -74,31 +74,50 @@ Issue recommendations on additional aspects of design tokens:
 - Colors level 2 (such as gradients, etc)
 - Grid
 
-## Who sits on the DTWG
+## Who sits on the DTCG
 
-The working group is composed of UX professionals, developers, and representants of design tooling vendors.
+The community group is composed of UX professionals, developers, and representants of design tooling vendors.
 
 To achieve a v1 of the specification rapidly, its structure is restricted to a small, focused amount of people, organized in task forces.
 
-As vendors adopt the specification and new requirements appear, the working group will consist of additional task forces.
+As vendors adopt the specification and new requirements appear, the community group will consist of additional task forces.
 
-### Companies and open-source projects represented on the DTWG
+### Companies and open-source projects represented on the DTCG
 
-- [Adobe XD](https://www.adobe.com/products/xd.html)
+- [Adobe](https://www.adobe.com)
+- [Alaska Airlines](https://www.alaskaair.com)
+- [Amazon](https://www.amazon.com)
+- [Atlassian](https://www.atlassian.com)
+- [Basalt](https://www.basalt.io/)
+- [Chroma](https://hichroma.com)
 - [Diez](https://diez.org)
+- [Figma](https://figma.com)
 - [Framer](https://www.framer.com)
+- [Google](https://www.google.com)
+- [Herman + Accoutrement](https://oddbird.net/herman/)
 - [Interplay](https://interplayapp.com)
+- [InVision](https://www.invisionapp.com)
 - [Lona](https://github.com/airbnb/Lona)
 - [Marvel](https://marvelapp.com)
 - [Modulz](https://www.modulz.app)
+- [Salesforce](https://www.salesforce.com)
+- [Sass](https://www.sass-lang.com)
+- [Shopify](https://www.shopify.com)
 - [Sketch](https://www.sketch.com/)
-- [Style Dictionary](https://amzn.github.io/style-dictionary/#/)
+- [Specify](https://www.specifyapp.com/)
+- [Style Dictionary](https://amzn.github.io/style-dictionary)
+- [Superposition](https://superposition.design)
 - [system-ui](https://github.com/system-ui)
+- [Toolabs](https://www.toolabs.com)
 - [Universal Design Tokens](https://github.com/universal-design-tokens/udt)
+- [Zendesk](https://www.zendesk.com)
+- [Zeplin](https://zeplin.io)
 - [Zeroheight](https://www.zeroheight.com)
 - ex-contributors to [Theo](https://github.com/salesforce-ux/theo) (by Salesforce)
 
-We are currently reaching out to various design software vendors to get a representative from each one on the working group.
+## Contributing
+
+See [CONTRIBUTING.md](https://github.com/design-tokens/community-group/blob/master/CONTRIBUTING.md).
 
 ---
 
