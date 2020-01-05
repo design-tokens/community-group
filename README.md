@@ -22,6 +22,24 @@ We believe that a common way to share design tokens will unlock efficiency oppor
 
 The DTCG was founded in June 2019. By the end of 2019, our aim is to have a standard working across at least 3 design or prototyping tools.
 
+## Principles
+
+### 1. Inclusive
+
+Allow anyone to become familiar with design tokens. Empower people, no matter what their skills and tool choices are, as they develop new mental models, acquire skills, and implement tools to scale design in their projects.
+
+Everyone is welcome to join the conversation and share use-cases with the community.
+
+### 2. Focused, yet extensible
+
+Stay focused on the smallest surface area necessary to cover the most commonly referenced use-cases. Be a platform that opens the door to a wide range of possibilities. This small footprint helps maintain simplicity with zero dependencies. 
+
+Extensibility allows the community to incubate new ideas that will define the future of design tokens.
+
+### 3. Stable
+
+Provide a stable foundation that users and tool makers can put in place and depend on in the long term. For example, by using existing and trusted standards (unless conflicting with the two first principles).
+
 ## Who sits on the DTCG
 
 The community group is composed of UX professionals, developers, and representants of design tooling vendors.
