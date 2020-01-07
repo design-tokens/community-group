@@ -66,6 +66,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Lona](https://github.com/airbnb/Lona)
 - [Marvel](https://marvelapp.com)
 - [Modulz](https://www.modulz.app)
+- [Philips Design](https://www.philips.com/a-w/about/philips-design.html)
 - [Salesforce](https://www.salesforce.com)
 - [Sass](https://www.sass-lang.com)
 - [Shopify](https://www.shopify.com)
