@@ -50,6 +50,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 
 ### Companies and open-source projects represented on the DTCG
 
+- [Abstract](https://www.abstract.com)
 - [Adobe](https://www.adobe.com)
 - [Alaska Airlines](https://www.alaskaair.com)
 - [Amazon](https://www.amazon.com)
