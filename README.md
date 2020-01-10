@@ -58,6 +58,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Basalt](https://www.basalt.io/)
 - [Chroma](https://hichroma.com)
 - [Diez](https://diez.org)
+- [Dynatrace](https://www.dynatrace.com)
 - [Figma](https://figma.com)
 - [Framer](https://www.framer.com)
 - [Google](https://www.google.com)
