@@ -32,7 +32,7 @@ Everyone is welcome to join the conversation and share use-cases with the commun
 
 ### 2. Focused, yet extensible
 
-Stay focused on the smallest surface area necessary to cover the most commonly referenced use-cases. Be a platform that opens the door to a wide range of possibilities. This small footprint helps maintain simplicity with zero dependencies. 
+Stay focused on the smallest surface area necessary to cover the most commonly referenced use-cases. Be a platform that opens the door to a wide range of possibilities. This small footprint helps maintain simplicity with zero dependencies.
 
 Extensibility allows the community to incubate new ideas that will define the future of design tokens.
 
@@ -82,7 +82,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Universal Design Tokens](https://github.com/universal-design-tokens/udt)
 - [Zendesk](https://www.zendesk.com)
 - [Zeplin](https://zeplin.io)
-- [Zeroheight](https://www.zeroheight.com)
+- [zeroheight](https://www.zeroheight.com)
 - ex-contributors to [Theo](https://github.com/salesforce-ux/theo) (by Salesforce)
 
 ## Contributing
