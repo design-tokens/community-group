@@ -67,6 +67,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [InVision](https://www.invisionapp.com)
 - [Lona](https://github.com/airbnb/Lona)
 - [Marvel](https://marvelapp.com)
+- [Microsoft](https://www.microsoft.com/)
 - [Modulz](https://www.modulz.app)
 - [Philips Design](https://www.philips.com/a-w/about/philips-design.html)
 - [Salesforce](https://www.salesforce.com)
