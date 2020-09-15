@@ -6,7 +6,7 @@ This is the official DTCG repository for the design tokens specification ([W3C c
 
 Design tokens are indivisible pieces of a design system such as colors, spacing, typography scale.
 
-Design tokens were created by the Salesforce design system team, and the name comes from them ([Jon](https://twitter.com/jonnylevine) & [Jina](https://twitter.com/jina)).
+Design tokens were created by the Salesforce design system team, and the name comes from them ([Jon](https://twitter.com/jonnyl) & [Jina](https://twitter.com/jina)).
 
 ## Goal of the DTCG
 
