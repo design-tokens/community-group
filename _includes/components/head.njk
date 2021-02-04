@@ -1,0 +1,16 @@
+<head>
+  <meta charset="utf-8">
+  <link rel="dns-prefetch" href="https://identity.netlify.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ renderData.title or title or metadata.title }}</title>
+  <meta name="description" content="{{ metaDescription or renderData.metaDescription or metadata.description }}">
+  <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  {% set css %}
+    {% include "assets/css/inline.css" %}
+  {% endset %}
+  <style>{{ css | cssmin | safe }}</style>
+  {% set js %}
+    {% include "assets/js/inline.js" %}
+  {% endset %}
+  <script>{{ js | jsmin | safe }}</script>
+</head>
