@@ -1,0 +1,11 @@
+.footer {
+	padding-top: $spacing-vertical-large;
+	padding-bottom: $spacing-vertical-large;
+	background: $color-background-weak;
+	color: $color-foreground-weak;
+
+	@include dark-mode {
+		background: $color-background-weak-inverse;
+		color: $color-foreground-weak-inverse;
+	}
+}

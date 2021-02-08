@@ -2,6 +2,8 @@
 layout: layouts/base.njk
 section: page
 ---
-<h1>{{ title }}</h1>
+{% include "../components/hero/hero.njk" %}
 
-{{ layoutContent | safe }}
+<main>
+	{{ layoutContent | safe }}
+</main>

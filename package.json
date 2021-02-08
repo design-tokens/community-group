@@ -5,6 +5,7 @@
   "scripts": {
     "build": "npx eleventy",
     "watch": "npx eleventy --watch",
+    "start": "npx eleventy --watch --serve",
     "debug": "DEBUG=* npx eleventy"
   },
   "repository": {
@@ -30,6 +31,7 @@
   "dependencies": {
     "@11ty/eleventy-navigation": "^0.1.6",
     "clean-css": "^4.2.1",
+    "eleventy-plugin-sass": "1.1.1",
     "html-minifier": "^4.0.0",
     "uglify-es": "^3.3.9"
   }

@@ -1,20 +1,19 @@
 ---
-layout: layouts/home.njk
 title: Home
-date: 2016-01-01T00:00:00.000Z
+pageTitle: "About <abbr title=\"Design Tokens Community Group\">DTCG</abbr>"
+date: 2020-05-24
 permalink: /
 eleventyNavigation:
   key: Home
   order: 0
 ---
-# Welcome
+# Principles
 
-This is a template for building a simple blog website with the [Eleventy static site generator](https://www.11ty.io), with deployment to [Netlify](https://www.netlify.com).
+## 1. Inclusive
+Allow anyone to become familiar with design tokens. Empower people, no matter what their skills and tool choices are, as they develop new mental models, acquire skills, and implement tools to scale design in their projects. Everyone is welcome to join the conversation and share use-cases with the community.
 
-Includes [Netlify CMS](https://www.netlifycms.org) for WYSIWYG content editing, and [Netlify Forms](https://www.netlify.com/docs/form-handling) for processing your site's form data.
+## 2. Focused, yet extensible
+Stay focused on the smallest surface area necessary to cover the most commonly referenced use-cases. Be a platform that opens the door to a wide range of possibilities. This small footprint helps maintain simplicity with zero dependencies. Extensibility allows the community to incubate new ideas that will define the future of design tokens.
 
-For more info on installation and usage, view the [project repo]({{ pkg.repository.url }}) on GitHub.
-
-Or click the button below to deploy your own copy of this project to Netlify.
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-netlify-boilerplate&stack=cms)
+## 3. Stable
+Provide a stable foundation that users and tool makers can put in place and depend on in the long term. For example, by using existing and trusted standards (unless conflicting with the two first principles).
