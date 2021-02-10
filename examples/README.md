@@ -41,3 +41,7 @@
       }
     }
     ```
+
+- **`03-grouped-typed-tokens.json`**:
+  - Same as `01-flat-untyped-tokens.json`, except that tokens with values now have an additional `type` property which explicitly sets their type to one of the ones defined in our spec. In some cases, the corresponding values have been tweaked to match the syntax mandated by the draft spec.
+  - Alias tokens inherit the type of the token they reference.
