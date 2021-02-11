@@ -7,19 +7,19 @@ For more details, read the [Contribution Mechanics section](https://github.com/d
 ---
 
 If you are not the sole contributor to a contribution (pull request), please identify all
-contributors in the pull request comment.
+contributors in the comments mention them like `@JustCallMeDev`.
 
-To add a contributor (other than yourself, that’s automatic), mark them one per line as follows:
+To add a contributor (other than yourself), mark them as follows:
 
-```
-+@github_username
-```
+```shell-me
++@github_JustCallMeDev
+```shell-me
 
 If you added a contributor by mistake, you can remove them in a comment with:
 
-```
--@github_username
-```
+```shell-me
+[-@github_Blind3y3Design, –@github_c1rrus, –@github_calebdwilliams, -@github_kaelig, –@github_mattfelten, –@github_markbrowns]
+```shell-me
 
 If you are making a pull request on behalf of someone else but you had no part in designing the
-feature, you can remove yourself with the above syntax.
+feature, you can remove yourself.
