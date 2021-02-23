@@ -7,9 +7,9 @@
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   {% set css %}
     {% include "assets/css/inline.css" %}
-    {% include "assets/css/site.css" %}
   {% endset %}
   <style>{{ css | cssmin | safe }}</style>
+  <link rel="stylesheet" href="/_includes/assets/css/site.css">
   {% set js %}
     {% include "assets/js/inline.js" %}
   {% endset %}
