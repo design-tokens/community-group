@@ -1,15 +1,13 @@
-<header class="header">
-	<em>
-		<a href="{{ '/' | url }}">
-			<img
-				class="header__logo"
-				src="_includes/assets/images/logo.png"
-				width="48"
-				height="48"
-				alt="DTCG Logo"
-			/>
-			{{ metadata.title }}
-		</a>
-	</em>
+<header class="header flex justify-between items-center pa3">
+	<a href="{{ '/' | url }}" class="inline-flex items-center link-button">
+		<img
+			class="header__logo mr3"
+			src="/_includes/assets/images/logo.png"
+			width="48"
+			height="48"
+			alt="DTCG Logo"
+		/>
+		{{ metadata.title }}
+	</a>
 	{% include "../nav.njk" %}
 </header>

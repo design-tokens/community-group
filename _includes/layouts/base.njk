@@ -1,13 +1,30 @@
 <!doctype html>
 <html {% if section %} data-current="{{ section }}"{% endif %} lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="dns-prefetch" href="https://identity.netlify.com">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ renderData.title or title or metadata.title }}</title>
+	<meta name="description" content="{{ metaDescription or renderData.metaDescription or metadata.description }}">
+	<script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+	<link rel="stylesheet" href="/_includes/assets/css/site.css">
+	{% set js %}
+		{% include "assets/js/inline.js" %}
+	{% endset %}
+	<script>{{ js | jsmin | safe }}</script>
+</head>
 
-	{% include "components/head.njk" %}
 
 	<body>
 
 		{% include "components/header/header.njk" %}
 
-		{{ layoutContent | safe }}
+		{% include "../components/hero/hero.njk" %}
+
+		<main class="ph5 pt3 pb5">
+			{{ layoutContent | safe }}
+		</main>
 
 		{% include "components/footer/footer.njk" %}
 

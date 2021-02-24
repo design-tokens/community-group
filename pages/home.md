@@ -1,10 +1,10 @@
 ---
-title: Home
+title: About
 pageTitle: "About <abbr title=\"Design Tokens Community Group\">DTCG</abbr>"
 date: 2020-05-24
 permalink: /
 eleventyNavigation:
-  key: Home
+  key: About
   order: 0
 ---
 # Principles

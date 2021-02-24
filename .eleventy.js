@@ -72,27 +72,31 @@ module.exports = function(eleventyConfig) {
   });
 
   // Don't process folders with static assets e.g. images
-  eleventyConfig.addPassthroughCopy("favicon.ico");
-  eleventyConfig.addPassthroughCopy("static/img");
   eleventyConfig.addPassthroughCopy("admin");
-  eleventyConfig.addPassthroughCopy("_includes/assets/");
-  eleventyConfig.addPassthroughCopy("_includes/components/");
+  eleventyConfig.addPassthroughCopy("_includes/assets/images");
 
   /* Markdown Plugins */
-  let markdownIt = require("markdown-it");
-  let markdownItAnchor = require("markdown-it-anchor");
-  let options = {
+  const markdownIt = require("markdown-it");
+  const markdownItAnchor = require("markdown-it-anchor");
+  const markdownItClass = require('@toycode/markdown-it-class');
+
+  const mdit = markdownIt({
     html: true,
     breaks: true,
     linkify: true
-  };
-  let opts = {
-    permalink: false
-  };
+  });
 
-  eleventyConfig.setLibrary("md", markdownIt(options)
-    .use(markdownItAnchor, opts)
-  );
+    mdit.use(markdownItAnchor, {
+    permalink: false
+  });
+  mdit.use(markdownItClass, {
+    h1: ['h2'],
+    h2: ['h3'],
+    h3: ['h4'],
+    h4: ['h5'],
+  });
+
+  eleventyConfig.setLibrary("md", mdit);
 
   return {
     templateFormats: ["md", "njk", "html", "liquid"],

@@ -9,18 +9,18 @@ $vertical-sides: top, bottom;
 $horizontal-sides: right, left;
 
 $spacing-horizontals: (
-  base: $spacing-base,
-  small: $spacing-horizontal-small,
-  medium: $spacing-horizontal-medium,
-  large: $spacing-horizontal-large,
+	base: $spacing-base,
+	small: $spacing-horizontal-small,
+	medium: $spacing-horizontal-medium,
+	large: $spacing-horizontal-large,
 );
 
 $mq-breakpoints: (
-  small: $sizing-container-small,
-  medium: $sizing-container-medium,
-  large: $sizing-container-large,
-  x-large: $sizing-container-xlarge,
-  xx-large: $sizing-container-xxlarge,
+	small: $sizing-container-small,
+	medium: $sizing-container-medium,
+	large: $sizing-container-large,
+	x-large: $sizing-container-xlarge,
+	xx-large: $sizing-container-xxlarge,
 );
 
 $unquote-font-family-body: unquote($font-family-body);
