@@ -1,38 +1,39 @@
 {
-  "name": "eleventy-netlify-boilerplate",
-  "version": "1.0.3",
-  "description": "A boilerplate for building a fast static website with the Eleventy static site generator, for deployment to Netlify.",
-  "scripts": {
-    "build": "npx eleventy",
-    "watch": "npx eleventy --watch",
-    "start": "npx eleventy --watch --serve",
-    "debug": "DEBUG=* npx eleventy"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate"
-  },
-  "author": {
-    "name": "Dan Urbanowicz",
-    "email": "dan.urbanowicz@gmail.com",
-    "url": "https://www.danurbanowicz.com/"
-  },
-  "license": "MIT",
+  "name": "designtokens.org",
+  "version": "1.0.0",
+  "description": "Source for the designtokens.org website and its design tokens",
+  "author": "Design Token",
+  "license": "SEE LICENSE.MD",
+  "private": true,
+  "repository": "https://github.com/design-tokens/eleventy-designtokens.org.git",
+  "homepage": "https://github.com/design-tokens/eleventy-designtokens.org",
   "bugs": {
-    "url": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate/issues"
+    "url": "https://github.com/design-tokens/eleventy-designtokens.org/issues"
   },
-  "homepage": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate",
+  "scripts": {
+    "build": "run-s eleventy sass --silent",
+    "watch": "run-p eleventy:watch sass:watch --silent",
+    "start": "run-p eleventy:start sass:watch --silent",
+    "debug": "run-p eleventy:debug --silent",
+    "eleventy": "npx eleventy",
+    "eleventy:watch": "npx eleventy --watch",
+    "eleventy:start": "npx eleventy --watch --serve",
+    "eleventy:debug": "DEBUG=* npx eleventy",
+    "sass": "sass _includes/assets/css:_site/_includes/assets/css",
+    "sass:watch": "npm run sass -- --watch"
+  },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
+    "@11ty/eleventy-navigation": "^0.1.6",
+    "@toycode/markdown-it-class": "1.2.4",
+    "html-minifier": "^4.0.0",
     "luxon": "^1.25.0",
     "markdown-it": "^10.0.0",
-    "markdown-it-anchor": "^5.3.0"
-  },
-  "dependencies": {
-    "@11ty/eleventy-navigation": "^0.1.6",
-    "clean-css": "^4.2.1",
-    "eleventy-plugin-sass": "1.1.1",
-    "html-minifier": "^4.0.0",
+    "markdown-it-anchor": "^5.3.0",
+    "npm-run-all": "4.1.5",
+    "prettier": "^2.0.5",
+    "sass": "1.32.8",
+    "tachyons-sass": "4.9.5",
     "uglify-es": "^3.3.9"
   }
 }

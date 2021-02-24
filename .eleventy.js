@@ -1,17 +1,11 @@
 const { DateTime } = require("luxon");
-const CleanCSS = require("clean-css");
 const UglifyJS = require("uglify-es");
 const htmlmin = require("html-minifier");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-const pluginSass = require("eleventy-plugin-sass");
 
 module.exports = function(eleventyConfig) {
 
   eleventyConfig.addShortcode("currentYear", () => `${new Date().getFullYear()}`);
-
-  eleventyConfig.addPlugin(pluginSass, {
-    outputDir: '.'
-  });
 
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
@@ -52,11 +46,6 @@ module.exports = function(eleventyConfig) {
   // Date formatting (machine readable)
   eleventyConfig.addFilter("machineDate", dateObj => {
     return DateTime.fromJSDate(dateObj).toFormat("yyyy-MM-dd");
-  });
-
-  // Minify CSS
-  eleventyConfig.addFilter("cssmin", function(code) {
-    return new CleanCSS({}).minify(code).styles;
   });
 
   // Minify JS
