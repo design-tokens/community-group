@@ -90,10 +90,10 @@ module.exports = function(eleventyConfig) {
     permalink: false
   });
   mdit.use(markdownItClass, {
-    h1: ['h2'],
-    h2: ['h3'],
-    h3: ['h4'],
-    h4: ['h5'],
+    h1: ['heading2'],
+    h2: ['heading3'],
+    h3: ['heading4'],
+    h4: ['heading5'],
   });
 
   eleventyConfig.setLibrary("md", mdit);

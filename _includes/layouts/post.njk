@@ -3,6 +3,12 @@ layout: layouts/base.njk
 section: post
 ---
 
+{% if redirect %}
+<script>
+  window.location = "{{ redirect }}";
+</script>
+{% endif %}
+
 <article>
   <h1>{{ title }}</h1>
   <p>

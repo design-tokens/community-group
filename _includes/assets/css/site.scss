@@ -5,10 +5,11 @@
 @import 'functions';
 @import 'mixins';
 
-@import 'tachyons';
-
 // Global
 @import 'global';
 
 // Components
 @import '../../components';
+
+// Make sure utility CSS loads last
+@import 'tachyons';
