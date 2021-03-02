@@ -1,0 +1,216 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  vertical-align: inherit;
+}
+
+html,
+body {
+  // workaround because gatsby inserts 2 divs
+  height: 100%;
+}
+
+html {
+  font-size: 100%;
+  text-size-adjust: 100%;
+  vertical-align: baseline;
+  word-break: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: $font-size-medium;
+  line-height: 1.5;
+  font-family: $unquote-font-family-body;
+  letter-spacing: $letter-spacing-wide;
+  background: $color-background;
+  color: $color-foreground;
+
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto max-content 1fr auto;
+
+  @include dark-mode {
+    background: $color-background-inverse;
+    color: $color-foreground-inverse;
+  }
+}
+
+::selection {
+  background: rgba(
+    $color-background-strong-inverse,
+    0.99
+  ); // rgba hack avoids translucent selection bg
+
+  color: $color-foreground-strong-inverse;
+  text-shadow: none;
+
+  @include dark-mode {
+    background: rgba(
+      $color-background-strong,
+      0.99
+    ); // rgba hack avoids translucent selection bg
+
+    color: $color-foreground-strong;
+  }
+}
+
+:focus {
+  position: relative; // pop focused elements forward in z-index stacking
+  outline: $spacing-base solid $color-background-strong-inverse;
+  z-index: 9999;
+
+  @include dark-mode {
+    outline-color: $color-background-strong;
+  }
+}
+
+:active {
+  outline: 0 !important;
+}
+
+:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+a,
+button {
+  transition: all 0.25s;
+}
+
+a {
+  box-decoration-break: clone;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  color: $color-foreground-primary-weak;
+
+  @include dark-mode {
+    color: $color-foreground-primary-weak-inverse;
+  }
+
+  &:hover,
+  &:focus {
+    background: $color-background-primary-weak;
+    color: $color-foreground-primary;
+
+    @include dark-mode {
+      background: $color-background-primary-weak-inverse;
+      color: $color-foreground-primary-inverse;
+    }
+  }
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: $stroke-hairline;
+    text-decoration-color: $color-accent-primary-weak;
+    text-decoration-skip-ink: auto;
+
+    @include dark-mode {
+      text-decoration-color: $color-accent-primary-weak-inverse;
+    }
+  }
+
+  &:active {
+    background: $color-background-primary;
+    text-decoration-color: $color-accent-primary;
+    color: $color-foreground-primary-strong;
+
+    @include dark-mode {
+      background: $color-background-primary-inverse;
+      text-decoration-color: $color-accent-primary-inverse;
+      color: $color-foreground-primary-strong-inverse;
+    }
+  }
+}
+
+abbr[title] {
+  border: 0;
+  text-decoration: none !important;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+small {
+  font-size: 80%;
+}
+
+sup {
+  position: relative;
+  top: -0.5em;
+  font-size: 75%;
+  line-height: 0;
+}
+
+p,
+ol,
+ul,
+dl,
+blockquote,
+figure,
+hr {
+  margin-top: $spacing-vertical-medium;
+  margin-bottom: $spacing-vertical-medium;
+}
+
+p,
+li,
+dd {
+  max-width: 50em; // measure for readability
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: $spacing-horizontal-large;
+}
+
+nav ul,
+form ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+dd {
+  margin-left: $spacing-horizontal-large;
+}
+
+main,
+iframe,
+img,
+svg {
+  display: block;
+}
+
+iframe,
+img,
+svg {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+img {
+  max-width: 100%;
+}
+
+hr {
+  display: none;
+}

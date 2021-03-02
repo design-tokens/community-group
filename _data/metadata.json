@@ -1,5 +1,6 @@
 {
-  "title": "Eleventy Netlify Boilerplate",
-  "description": "A template for building a simple blog website with the Eleventy static site generator, Netlify CMS, and with deployment to Netlify.",
-  "url": "https://eleventy-netlify-boilerplate.netlify.app"
+  "title": "Design Tokens W3C Community Group",
+  "htmlTitle": "Design Tokens <abbr title=\"World Wide Web Consortium\">W3C</abbr> Community Group",
+  "description": "The DTCG’s goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.",
+  "url": "https://eleventy-design-tokens.netlify.app"
 }

@@ -1,8 +1,9 @@
 <section>
 	{% for post in postslist | reverse %}
+	{% set link = post.data.redirect if post.data.redirect else post.url %}
 		<article{% if post.url == url %} data-current="current item"{% endif %}>
-			<h3>
-				<a href="{{ post.url | url }}">
+			<h3 class="heading3 mb1">
+				<a href="{{ link | url }}">
 					{% if post.data.title %}
 						{{ post.data.title }}
 					{% else %}
@@ -15,7 +16,7 @@
 					{{ post.data.summary }}
 				</p>
 			{% endif %}
-			<p>
+			<p class="mt0">
 				<time datetime="{{ post.date | machineDate }}">
 					<small>{{ post.date | readableDate }} by <a href="/authors/{{ post.data.author | slug }}/">{{ post.data.author }}</a></small>
 				</time>

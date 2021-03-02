@@ -1,0 +1,11 @@
+// https://gist.github.com/certainlyakey/e9c0d8f5c87ff47e3d5b
+//does not work with colors containing alpha
+@function encodecolor($string) {
+	@if type-of($string) == 'color' {
+	  $hex: str-slice(ie-hex-str($string), 4);
+	  $string: unquote('#{$hex}');
+	}
+
+	$string: '%23' + $string;
+	@return $string;
+}
