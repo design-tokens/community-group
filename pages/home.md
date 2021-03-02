@@ -1,5 +1,5 @@
 ---
-title: About
+title: Home
 pageTitle: 'About <abbr title="Design Tokens Community Group">DTCG</abbr>'
 date: 2020-05-24
 permalink: /
