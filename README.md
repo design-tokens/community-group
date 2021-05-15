@@ -14,7 +14,7 @@ To run the website locally:
 
 ## Deploying the site
 
-Changes to `master` are automatically deployed to https://www.designtokens.org.
+Changes to `main` are automatically deployed to https://www.designtokens.org.
 
 ## Editing the code
 
