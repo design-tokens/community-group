@@ -94,4 +94,5 @@ See [CONTRIBUTING.md](https://github.com/design-tokens/community-group/blob/mast
 
 We acknowledge that the format specification is only part of an ecosystem, supporting methods and practices that relate to scaling design tokens:
 
-[![a tweet by @jina, posted on the 14th of November 2018 – "Design Tokens are a methodology. IMHO, saying “design tokens are just variables” is like saying “responsive design is just media queries”. It’s a technology-agnostic architecture and process for scaling design across multiple platforms and devices, including native, and more."](https://user-images.githubusercontent.com/85783/59956860-eeb5ee00-9447-11e9-8ea3-3bb6c158bc1a.png)](https://twitter.com/jina/status/1062808011301965825)
+> Design Tokens are a methodology. IMHO, saying “design tokens are just variables” is like saying “responsive design is just media queries”. It’s a technology-agnostic architecture and process for scaling design across multiple platforms and devices, including native, and more.
+— [@jina on Twitter](https://twitter.com/jina/status/1062808011301965825)
