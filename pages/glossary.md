@@ -50,7 +50,7 @@ This glossary contains high-level definitions, leaving out technical details on 
   - ### Examples
     CSS custom property
     Sass variable
-    Javascript variable
+    JavaScript variable
     Android resource
 
 - ## Design token name
