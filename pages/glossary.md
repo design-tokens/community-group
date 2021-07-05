@@ -32,7 +32,6 @@ A tool for visual design creation and editing.
 ### Examples
 
 - Photoshop
-- Gimp
 - Illustrator
 - Inkscape
 - XD
