@@ -96,7 +96,7 @@
           "required": true
         },
         "line-height": {
-          "type": "dimension",
+          "type": "number",
           "required": true
         }
       }
