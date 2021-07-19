@@ -4,44 +4,13 @@
 
 ---
 
-- **`01-flat-untyped-tokens.json`**:
-  - Each token has a `"value"` property which has either an explicit value (e.g. `"#fff000"`) or a reference to another token (in the form `"{other-token-name}"`).
-  - There is no explicit type information, values like `"#ff0000"` and `"1px"` are just JSON strings.
-- **`02-grouped-untyped-tokens.json`**:
-
-  - Same as `01-flat-untyped-tokens.json`, except that the tokens have now been nested into groups.
-  - Note: For cases where one of a group of related tokens didn't have a suffix, one has been added. For example:
-
-    ```jsonc
-    {
-      // Flat:
-      "color_accent_strong": {
-        /*...*/
-      },
-      "color_accent": {
-        /*...*/
-      },
-      "color_accent_weak": {
-        /*...*/
-      },
-
-      // Grouped:
-      "color": {
-        "accent": {
-          "strong": {
-            /* ... */
-          },
-          "normal": {
-            /* ... */
-          },
-          "weak": {
-            /* ... */
-          }
-        }
-      }
-    }
-    ```
-
-- **`03-grouped-typed-tokens.json`**:
-  - Same as `01-flat-untyped-tokens.json`, except that tokens with values now have an additional `type` property which explicitly sets their type to one of the ones defined in our spec. In some cases, the corresponding values have been tweaked to match the syntax mandated by the draft spec.
-  - Alias tokens inherit the type of the token they reference.
+- **`01-flat-structure.json`**:
+  - All tokens are defined at the root level.
+  - Each token has a `"value"` property which has either an explicit value (e.g. `"#fff000"`) or a reference to another token (in the form `"{other-token-name}"`) and an explicit type.
+- **`02-grouped-structure.json`**:
+  - Same as above, except that the tokens have now been nested into groups.
+- **`03-composite-tokens.json`**:
+  - Same as above, except that a composite type (`{my-types.text-style}`) has been defined and the individual tokens within the `text-style` group have been converted into 2 tokens (`heading` and `paragraph`) which are of the `{my-types.text-style}` composite type.
+- **`04-group-types.json`**:
+  - Same as above, except that groups containing tokens which are all of the same type, have had that type set at the group level. The tokens within then inherit the nearest parent group's type.
+  - Functionally, this file is identical to the previous example. However, moving the types to the group level makes it less verbose.

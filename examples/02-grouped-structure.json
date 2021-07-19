@@ -1,0 +1,125 @@
+{
+  "brand": {
+    "palette": {
+      "charcoal": {
+        "value": "#212529",
+        "type": "color"
+      },
+      "gold": {
+        "value": "#f59f00",
+        "type": "color"
+      },
+      "cornflower-blue": {
+        "value": "#339af0",
+        "type": "color"
+      }
+    },
+
+    "typeface": {
+      "primary": {
+        "value": "Helvetica Neue",
+        "type": "font"
+      },
+      "secondary": {
+        "value": "Inter",
+        "type": "font"
+      }
+    }
+  },
+
+
+  "text-size": {
+    "scale": {
+      "0": {
+        "value": "1rem",
+        "type": "dimension"
+      },
+      "1": {
+        "value": "1.25rem",
+        "type": "dimension"
+      },
+      "2": {
+        "value": "1.563rem",
+        "type": "dimension"
+      },
+      "3": {
+        "value": "1.953rem",
+        "type": "dimension"
+      }
+    },
+
+    "title": {
+      "value": "{text-size.scale.3}",
+      "type": "dimension"
+    },
+    "heading": {
+      "value": "{text-size.scale.2}",
+      "type": "dimension"
+    },
+    "body-copy": {
+      "value": "{text-size.scale.0}",
+      "type": "dimension"
+    }
+  },
+
+
+  "color":{
+    "text": {
+      "value": "{brand.palette.charcoal}",
+      "type": "color"
+    },
+    "accent": {
+      "value": "{brand.palette.gold}",
+      "type": "color"
+    }
+  },
+
+
+  "text-style": {
+    "heading": {
+      "size": {
+        "value": "{text-size.heading}",
+        "type": "dimension"
+      },
+      "color": {
+        "value": "{color.text}",
+        "type": "color"
+      },
+      "font": {
+        "value": "{brand.typeface.primary}",
+        "type": "font"
+      },
+      "weight": {
+        "value": 700,
+        "type": "font-weight"
+      },
+      "line-height": {
+        "value": 1.2,
+        "type": "number"
+      }
+    },
+
+    "paragraph": {
+      "size": {
+        "value": "{text-size.body-copy}",
+        "type": "dimension"
+      },
+      "color": {
+        "value": "{color.text}",
+        "type": "color"
+      },
+      "font": {
+        "value": "{brand.typeface.secondary}",
+        "type": "font"
+      },
+      "weight": {
+        "value": 400,
+        "type": "font-weight"
+      },
+      "line-height": {
+        "value": 1.5,
+        "type": "number"
+      }
+    }
+  }
+}

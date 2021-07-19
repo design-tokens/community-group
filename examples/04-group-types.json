@@ -1,0 +1,125 @@
+{
+  "brand": {
+    "palette": {
+      "type": "color",
+
+      "charcoal": {
+        "value": "#212529"
+      },
+      "gold": {
+        "value": "#f59f00"
+      },
+      "cornflower-blue": {
+        "value": "#339af0"
+      }
+    },
+
+    "typeface": {
+      "type": "font",
+
+      "primary": {
+        "value": "Helvetica Neue"
+      },
+      "secondary": {
+        "value": "Inter"
+      }
+    }
+  },
+
+
+  "text-size": {
+    "type": "dimension",
+
+    "scale": {
+      "0": {
+        "value": "1rem"
+      },
+      "1": {
+        "value": "1.25rem"
+      },
+      "2": {
+        "value": "1.563rem"
+      },
+      "3": {
+        "value": "1.953rem"
+      }
+    },
+
+    "title": {
+      "value": "{text-size.scale.3}"
+    },
+    "heading": {
+      "value": "{text-size.scale.2}"
+    },
+    "body-copy": {
+      "value": "{text-size.scale.0}"
+    }
+  },
+
+
+  "color":{
+    "type": "color",
+
+    "text": {
+      "value": "{brand.palette.charcoal}"
+    },
+    "accent": {
+      "value": "{brand.palette.gold}"
+    }
+  },
+
+
+  "my-types": {
+    "text-style": {
+      "type": "typedef",
+      "value": {
+        "size": {
+          "type": "dimension",
+          "required": true
+        },
+        "color": {
+          "type": "color",
+          "required": true
+        },
+        "font": {
+          "type": "font",
+          "required": true
+        },
+        "weight": {
+          "type": "font-weight",
+          "required": true
+        },
+        "line-height": {
+          "type": "dimension",
+          "required": true
+        }
+      }
+    }
+  },
+
+
+
+  "text-style": {
+    "type": "{my-types.text-style}",
+
+    "heading": {
+      "value": {
+        "size": "{text-size.heading}",
+        "color": "{color.text}",
+        "font": "{brand.typeface.primary}",
+        "weight": 700,
+        "line-height": 1.2
+      }
+    },
+
+    "paragraph": {
+      "value": {
+        "size": "{text-size.body-copy}",
+        "color": "{color.text}",
+        "font": "{brand.typeface.secondary}",
+        "weight": 400,
+        "line-height": 1.5
+      }
+    }
+  }
+}

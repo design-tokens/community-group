@@ -1,0 +1,106 @@
+{
+  "brand_palette_charcoal": {
+    "value": "#212529",
+    "type": "color"
+  },
+  "brand_palette_gold": {
+    "value": "#f59f00",
+    "type": "color"
+  },
+  "brand_palette_cornflower-blue": {
+    "value": "#339af0",
+    "type": "color"
+  },
+
+  "brand_typeface_primary": {
+    "value": "Helvetica Neue",
+    "type": "font"
+  },
+  "brand_typeface_secondary": {
+    "value": "Inter",
+    "type": "font"
+  },
+
+  "text-size_scale_0": {
+    "value": "1rem",
+    "type": "dimension"
+  },
+  "text-size_scale_1": {
+    "value": "1.25rem",
+    "type": "dimension"
+  },
+  "text-size_scale_2": {
+    "value": "1.563rem",
+    "type": "dimension"
+  },
+  "text-size_scale_3": {
+    "value": "1.953rem",
+    "type": "dimension"
+  },
+
+
+  "text-size_title": {
+    "value": "{text-size_scale_3}",
+    "type": "dimension"
+  },
+  "text-size_heading": {
+    "value": "{text-size_scale_2}",
+    "type": "dimension"
+  },
+  "text-size_body-copy": {
+    "value": "{text-size_scale_0}",
+    "type": "dimension"
+  },
+
+  "color_text": {
+    "value": "{brand_palette_charcoal}",
+    "type": "color"
+  },
+  "color_accent": {
+    "value": "{brand_palette_gold}",
+    "type": "color"
+  },
+
+
+  "text-style_heading_size": {
+    "value": "{text-size_heading}",
+    "type": "dimension"
+  },
+  "text-style_heading_color": {
+    "value": "{color_text}",
+    "type": "color"
+  },
+  "text-style_heading_font": {
+    "value": "{brand_typeface_primary}",
+    "type": "font"
+  },
+  "text-style_heading_weight": {
+    "value": 700,
+    "type": "font-weight"
+  },
+  "text-style_heading_line-height": {
+    "value": 1.2,
+    "type": "number"
+  },
+
+  "text-style_paragraph_size": {
+    "value": "{text-size_body-copy}",
+    "type": "dimension"
+  },
+  "text-style_paragraph_color": {
+    "value": "{color_text}",
+    "type": "color"
+  },
+  "text-style_paragraph_font": {
+    "value": "{brand_typeface_secondary}",
+    "type": "font"
+  },
+  "text-style_paragraph_weight": {
+    "value": 400,
+    "type": "font-weight"
+  },
+  "text-style_paragraph_line-height": {
+    "value": 1.5,
+    "type": "number"
+  }
+}
