@@ -18,10 +18,6 @@ We believe that a common way to share design tokens will unlock efficiency oppor
 
 [Read the charter in full](https://github.com/design-tokens/community-group/blob/master/CHARTER.md).
 
-## Roadmap
-
-The DTCG was founded in June 2019. By the end of 2019, our aim is to have a standard working across at least 3 design or prototyping tools.
-
 ## Principles
 
 ### 1. Inclusive
