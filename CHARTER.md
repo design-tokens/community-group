@@ -37,11 +37,11 @@ The group may produce other Community Group Reports within the scope of this cha
 
 ### Test Suites and Other Software
 
-The group MAY produce test suites to support the Specifications. Please see the GitHub [LICENSE](https://github.com/design-tokens/working-group/blob/master/LICENSE.md) file for test suite contribution licensing information.
+The group MAY produce test suites to support the Specifications. Please see the GitHub [LICENSE](https://github.com/design-tokens/community-group/blob/main/LICENSE.md) file for test suite contribution licensing information.
 
 ## Dependencies or Liaisons
 
-{TBD: List any significant dependencies on other groups (inside or outside W3C) or materials. }
+{TBD: List any significant dependencies on other groups (inside or outside W3C) or materials.}
 
 ## Community and Business Group Process
 
@@ -63,7 +63,7 @@ Specifications created in the Community Group must use the [W3C Software and Doc
 
 Community Group participants agree to make all contributions in the GitHub repo the group is using for the particular document. This may be in the form of a pull request (preferred), by raising an issue, or by adding a comment to an existing issue.
 
-All Github repositories attached to the Community Group must contain a copy of the [CONTRIBUTING](https://github.com/design-tokens/working-group/blob/master/CONTRIBUTING.md) and [LICENSE](https://github.com/design-tokens/working-group/blob/master/LICENSE.md) files.
+All GitHub repositories attached to the Community Group must contain a copy of the [CONTRIBUTING](https://github.com/design-tokens/community-group/blob/main/CONTRIBUTING.md) and [LICENSE](https://github.com/design-tokens/community-group/blob/main/LICENSE.md) files.
 
 ## Transparency
 
