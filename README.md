@@ -16,7 +16,7 @@ The DTCG’s goal is to provide standards upon which products and design tools c
 
 We believe that a common way to share design tokens will unlock efficiency opportunities for plugins, design system teams, product teams, and end-users of design tools.
 
-[Read the charter in full](https://github.com/design-tokens/community-group/blob/master/CHARTER.md).
+[Read the charter in full](https://github.com/design-tokens/community-group/blob/main/CHARTER.md).
 
 ## Roadmap
 
@@ -88,11 +88,11 @@ As vendors adopt the specification and new requirements appear, the community gr
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/design-tokens/community-group/blob/master/CONTRIBUTING.md).
+See [CONTRIBUTING.md](https://github.com/design-tokens/community-group/blob/main/CONTRIBUTING.md).
 
 ---
 
 We acknowledge that the format specification is only part of an ecosystem, supporting methods and practices that relate to scaling design tokens:
 
 > Design Tokens are a methodology. IMHO, saying “design tokens are just variables” is like saying “responsive design is just media queries”. It’s a technology-agnostic architecture and process for scaling design across multiple platforms and devices, including native, and more.
-— [@jina on Twitter](https://twitter.com/jina/status/1062808011301965825)
+> — [@jina on Twitter](https://twitter.com/jina/status/1062808011301965825)

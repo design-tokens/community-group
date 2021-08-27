@@ -1,0 +1,15 @@
+{
+  "name": "design-tokens-community-group",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/design-tokens/community-group.git",
+  "author": "DTCG and Contributors",
+  "license": "SEE LICENSE.md",
+  "private": true,
+  "devDependencies": {
+    "prettier": "^2.3.2"
+  },
+  "scripts": {
+    "lint": "prettier '**/*.{md,yml,json,html}' --check --config ./.prettierrc.json"
+  }
+}
