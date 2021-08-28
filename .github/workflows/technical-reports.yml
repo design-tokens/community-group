@@ -1,0 +1,29 @@
+name: Technical reports
+on:
+  pull_request:
+    paths: ['technical-reports/**']
+  push:
+    branches: ['main']
+    paths: ['technical-reports/**']
+  workflow_dispatch: {}
+
+jobs:
+  main:
+    name: Build and deploy technical reports
+    runs-on: ubuntu-20.04
+    strategy:
+      max-parallel: 1
+      matrix:
+        include:
+          - source: technical-reports/index.html
+            destination: index.html
+          - source: technical-reports/format/index.html
+            destination: format/index.html
+    steps:
+      - uses: actions/checkout@v2
+      - uses: w3c/spec-prod@v2
+        with:
+          TOOLCHAIN: respec
+          SOURCE: ${{ matrix.source }}
+          DESTINATION: ${{ matrix.destination }}
+          GH_PAGES_BRANCH: gh-pages
