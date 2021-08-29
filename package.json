@@ -7,9 +7,11 @@
   "license": "SEE LICENSE.md",
   "private": true,
   "devDependencies": {
+    "live-server": "^1.2.1",
     "prettier": "^2.3.2"
   },
   "scripts": {
-    "lint": "prettier '**/*.{md,yml,json,html}' --check --config ./.prettierrc.json"
+    "lint": "prettier '**/*.{md,yml,json,html}' --check --config ./.prettierrc.json",
+    "dev": "live-server technical-reports"
   }
 }
