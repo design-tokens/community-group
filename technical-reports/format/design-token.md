@@ -1,6 +1,6 @@
 # Design token
 
-## Name and value
+## Name and value and stuff
 
 <aside class="example" title="Minimal file with single design token">
 
