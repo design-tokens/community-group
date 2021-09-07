@@ -467,9 +467,9 @@ What sizing unit(s) make the most sense for implementers to support (pt, px, dp,
 </div></div><p>The “px” and “rem” units are to be interpreted the same way they are in CSS:</p><ul>
 <li><strong>px</strong>: Represents an idealized pixel on the viewport. The equivalent in Android is dp and iOS is pt. Export tools should therefore convert to these or other equivalent units as needed.</li>
 <li><strong>rem</strong>: Represents a multiple of the system’s default font size (which may be configurable by the user). 1rem is 100% of the default font size. The equivalent of 1rem on Android is 16sp. Not all platforms have an equivalent to rem, so export tools may need to do a lossy conversion to a fixed px size by assuming a default font size (usually 16px) for such platforms.</li>
-</ul></section><section id="font-name"><h3 id="x7-3-font-name"><bdi class="secno">7.3 </bdi>Font name<a class="self-link" aria-label="§" href="#font-name"></a></h3><div class="issue" id="issue-container-generatedID-1"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="4"><span>Issue</span></div><div class="">
+</ul></section><section id="font-name"><h3 id="x7-3-font-name"><bdi class="secno">7.3 </bdi>Font name<a class="self-link" aria-label="§" href="#font-name"></a></h3><div class="issue" id="issue-container-number-53"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/53"><span class="issue-number">Issue 53</span></a><span class="issue-label">: [Format] Type: font name</span></div><div class="">
 
-<p>This may be more complicated than it seems due to platform/OS/browser restrictions. Is a naive approach like the one below appropriate for the first stage of the specification, or should we delay it for a future iteration of the specification?</p>
+<p>A naive approach like the one below may be appropriate for the first stage of the specification, but this may be more complicated than it seems due to platform/OS/browser restrictions.</p>
 </div></div><p>Represents a font name or an array of font names (ordered from most to least preferred). The type property must be set to the string “font”. The value must either be a string value containing a single font name or an array of strings, each being a single font name. For example:</p><aside class="example" id="example-6"><div class="marker">
     <a class="self-link" href="#example-6">Example<bdi> 6</bdi></a>
   </div>
@@ -485,7 +485,7 @@ What sizing unit(s) make the most sense for implementers to support (pt, px, dp,
   }
 }
 </code></pre>
-</aside></section><section id="other-types-future-versions-of-the-specification"><h3 id="x7-4-other-types-future-versions-of-the-specification"><bdi class="secno">7.4 </bdi>Other types (future versions of the specification)<a class="self-link" aria-label="§" href="#other-types-future-versions-of-the-specification"></a></h3><div class="issue" id="issue-container-generatedID-2"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="4"><span>Issue</span></div><div class="">
+</aside></section><section id="other-types-future-versions-of-the-specification"><h3 id="x7-4-other-types-future-versions-of-the-specification"><bdi class="secno">7.4 </bdi>Other types (future versions of the specification)<a class="self-link" aria-label="§" href="#other-types-future-versions-of-the-specification"></a></h3><div class="issue" id="issue-container-generatedID-1"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="4"><span>Issue</span></div><div class="">
 For the first iteration of the specification, should any types other than color, dimensions, (and maybe typography) be supported?
 </div></div><p>Types still to be documented here are likely to include:</p><ul>
 <li><strong>Font weight:</strong> might be something like an enum of allowed values ("bold", "normal" etc.) and/or numeric values 0-1000 (like.in variable fonts)</li>
@@ -500,7 +500,7 @@ For the first iteration of the specification, should any types other than color,
 <li><strong>Easing definitions:</strong> for animation</li>
 </ul></section></section>
 
-    <section class="appendix" id="issue-summary"><h2 id="a-issue-summary"><bdi class="secno">A. </bdi>Issue Summary<a class="self-link" aria-label="§" href="#issue-summary"></a></h2><ul><li><a href="#issue-container-number-123">Issue 123</a><span style="text-transform: none">: Object vs Array</span></li><li><a href="#issue-container-number-456">Issue 456</a><span style="text-transform: none">: Unicode range restriction</span></li></ul></section>
+    <section class="appendix" id="issue-summary"><h2 id="a-issue-summary"><bdi class="secno">A. </bdi>Issue Summary<a class="self-link" aria-label="§" href="#issue-summary"></a></h2><ul><li><a href="#issue-container-number-123">Issue 123</a><span style="text-transform: none">: Object vs Array</span></li><li><a href="#issue-container-number-456">Issue 456</a><span style="text-transform: none">: Unicode range restriction</span></li><li><a href="#issue-container-number-53">Issue 53</a><span style="text-transform: none">: [Format] Type: font name</span></li></ul></section>
   
 
 <section id="references" class="appendix"><h2 id="b-references"><bdi class="secno">B. </bdi>References<a class="self-link" aria-label="§" href="#references"></a></h2><section id="normative-references">
