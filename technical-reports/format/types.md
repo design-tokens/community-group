@@ -53,9 +53,9 @@ The “px” and “rem” units are to be interpreted the same way they are in 
 
 ## Font name
 
-<div class="issue">
+<div class="issue" data-number="53">
 
-This may be more complicated than it seems due to platform/OS/browser restrictions. Is a naive approach like the one below appropriate for the first stage of the specification, or should we delay it for a future iteration of the specification?
+A naive approach like the one below may be appropriate for the first stage of the specification, but this may be more complicated than it seems due to platform/OS/browser restrictions.
 
 </div>
 
