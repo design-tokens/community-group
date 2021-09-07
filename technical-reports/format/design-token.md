@@ -70,12 +70,12 @@ The **description** property must be a plain JSON string, for example:
 
 Declares the type of the token. [See “Types”](#types) for more information.
 
-## Vendor
+## Extensions
 
-The **vendor** property is an object where tools MAY add proprietary, vendor-specific data to a design token. When doing so, each tool MUST use a vendor-specific key whose value may be any valid JSON data.
+The **extensions** property is an object where tools MAY add proprietary, user-, team- or vendor-specific data to a design token. When doing so, each tool MUST use a vendor-specific key whose value may be any valid JSON data.
 
-- The vendor-specific keys SHOULD be chosen such that they avoid the likelihood of a naming clash with another vendor’s data. The [reverse domain name notation](https://en.wikipedia.org/wiki/Reverse_domain_name_notation) is recommended for this purpose.
-- Tools that process design token files MUST preserve any vendor data they do not themselves understand. For example, if a design token contains vendor data from tool A and the file containing that data is opened by tool B, then tool B MUST include the original tool A vendor data whenever it saves a new design token file containing that token.
+- The keys SHOULD be chosen such that they avoid the likelihood of a naming clash with another vendor’s data. The [reverse domain name notation](https://en.wikipedia.org/wiki/Reverse_domain_name_notation) is recommended for this purpose.
+- Tools that process design token files MUST preserve any extension data they do not themselves understand. For example, if a design token contains extension data from tool A and the file containing that data is opened by tool B, then tool B MUST include the original tool A extension data whenever it saves a new design token file containing that token.
 
 <aside class="example">
 
@@ -83,7 +83,7 @@ The **vendor** property is an object where tools MAY add proprietary, vendor-spe
 {
   "Button background": {
     "value": "#777777",
-    "vendor": {
+    "extensions": {
       "org.example.tool-a": 42,
       "org.example.tool-b": {
         "turn-up-to-11": true
@@ -95,8 +95,8 @@ The **vendor** property is an object where tools MAY add proprietary, vendor-spe
 
 </aside>
 
-In order to maintain interoperability between tools that support this format, tools should restrict their usage of vendor data to optional meta-data that is not crucial to understanding that token’s value.
+In order to maintain interoperability between tools that support this format, teams and tools should restrict their usage of extension data to optional meta-data that is not crucial to understanding that token’s value.
 
-Tool vendors are encouraged to publicly share specifications of their vendor data wherever possible. That way other tools can add support for them without needing to reverse engineer the vendor data. Popular vendor extensions may also be incorporated as standardized features in future revisions of this specification.
+Tool vendors are encouraged to publicly share specifications of their extension data wherever possible. That way other tools can add support for them without needing to reverse engineer the extension data. Popular extensions may also be incorporated as standardized features in future revisions of this specification.
 
 ## More token properties TBC
