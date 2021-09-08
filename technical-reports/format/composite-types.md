@@ -1,8 +1,13 @@
 # Composite types
 
-<p class="ednote" title="This section will be revisited">
-  Note: this proposal may not be in scope for the first version of the specification and requires further discussion.
-</p>
+<div class="issue" data-number="54" title="Should composites be part of the MVP specification?">
+
+If so, which composites should be included initially?
+
+- Would composites allow for better integration with design tools?
+- How would user-defined composites be rendered within design tools?
+
+</div>
 
 The types described in the previous chapter are all for singular values (a color, a dimension, etc.). However, it can often be useful to group related values as a single token so that they can be used or referenced as a single unit. A typical example of this is a “typography style” as found in many design tools, which is a combination of the font name, weight, style, and color.
 
@@ -207,12 +212,3 @@ The downside is of course that teams need to set up and maintain these configura
 Since composite types are ultimately composed of the core design token types, a design tool could automatically display an appropriate <abbr title="User Interface">UI</abbr> for creating, editing, or previewing them.
 
 For instance, the color pair example above consists of 2 colors, one with the key `foreground` and the other with the key `background`. A design tool could therefore display two color picker widgets using those keys as the respective labels.
-
-<div class="issue" data-number="54" title="Should composites be part of the MVP specification?">
-
-If so, which composites should be included initially?
-
-- Would composites allow for better integration with design tools?
-- How would user-defined composites be rendered within design tools?
-
-</div>
