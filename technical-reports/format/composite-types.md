@@ -10,8 +10,8 @@ AND: A combination of the above two examples. Mutually exclusive composites. (Gr
 
 Other examples might be:
 
-- **color pairs**, e.g. a combo of foreground and background color
-- **shadows**, e.g. a combination of color, blur (a dimension value), x & y offsets (also dimension values),, and opacity (a number value)
+- **color pairs**, e.g. a combination of foreground and background color
+- **shadows**, e.g. a combination of color, blur (a dimension value), x & y offsets (also dimension values), and opacity (a number value)
 - **border styles**, e.g. a combination of color, style & thickness
 - **color schemes**
 - **text styles**, e.g. a combination of font and other font properties
@@ -117,7 +117,7 @@ Using the color pair type as an example, an export tool like Style Dictionary co
 
 </aside>
 
-….might be exported to Sass like this:
+… might be exported to Sass like this:
 
 <aside class="example" title="Sass output with fallback">
 
@@ -128,13 +128,13 @@ $my-token-background: #ffffff;
 
 </aside>
 
-In a similar vein, a GUI tool can "pluck" out the individual values of a composite token and use them as it would normally.
+In a similar vein, a <abbr title="Graphical User Interface">GUI</abbr> tool can "pluck" out the individual values of a composite token and use them as it would normally.
 
 E.g. a design tool like Figma might not have the concept of a color pair, so it can't do anything special with tokens of that type. However, that doesn't prevent it from displaying the foreground and background colors of those tokens alongside any plain color tokens in a color picker.
 
 ### Appending custom type definitions
 
-While a tool that imports a token file containing user-defined type definitions that it doesn't understand might not be able to do anything special with them, there's nothing stopping tools that export or modify token files from adding their own type definitions to the file alongside tokens of that type.
+A tool might not understand certain user-defined type definitions in a token file and therefore can't do anything special with them. However, that tool could export or modify token files by adding their own type definitions.
 
 For example, imagine Sketch wanted to export all layer styles from a Sketch document to a token file. The Sketch app could have a built-in type definition that corresponds to layer styles. Perhaps something like this:
 
@@ -166,7 +166,7 @@ For example, imagine Sketch wanted to export all layer styles from a Sketch docu
 
 </aside>
 
-It could then just save out that type definition into the token file it exports. Other tools could then make use of that same type definition and do useful things with tokens of that type.
+It could then save out that type definition into the token file it exports. Other tools could then make use of that same type definition and do useful things with tokens of that type.
 
 ### Custom configuration
 
@@ -206,11 +206,11 @@ The downside is of course that teams need to set up and maintain these configura
 
 ### GUIs
 
-Since composite types are ultimately composed of the core design token types, a design tool could automatically display an appropriate UI for creating, editing, or previewing them.
+Since composite types are ultimately composed of the core design token types, a design tool could automatically display an appropriate <abbr title="User Interface">UI</abbr> for creating, editing, or previewing them.
 
-For instance, the color pair example above consists of 2 colors, one with the key “foreground” and the other with the key “background”. A design tool could therefore display two color picker widgets using those keys as the respective labels.
+For instance, the color pair example above consists of 2 colors, one with the key <code>foreground</code> and the other with the key <code>background</code>. A design tool could therefore display two color picker widgets using those keys as the respective labels.
 
-<div class="issue" data-number="123" title="Should composites be part of the MVP specification?">
+<div class="issue" data-number="54" title="Should composites be part of the MVP specification?">
 
 If so, which composites should be included initially?
 
