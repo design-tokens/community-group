@@ -207,7 +207,7 @@ The downside is of course that teams need to set up and maintain these configura
 
 Since composite types are ultimately composed of the core design token types, a design tool could automatically display an appropriate <abbr title="User Interface">UI</abbr> for creating, editing, or previewing them.
 
-For instance, the color pair example above consists of 2 colors, one with the key <code>foreground</code> and the other with the key <code>background</code>. A design tool could therefore display two color picker widgets using those keys as the respective labels.
+For instance, the color pair example above consists of 2 colors, one with the key `foreground` and the other with the key `background`. A design tool could therefore display two color picker widgets using those keys as the respective labels.
 
 <div class="issue" data-number="54" title="Should composites be part of the MVP specification?">
 
