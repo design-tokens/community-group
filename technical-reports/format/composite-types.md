@@ -6,7 +6,6 @@
 
 The types described in the previous chapter are all for singular values (a color, a dimension, etc.). However, it can often be useful to group related values as a single token so that they can be used or referenced as a single unit. A typical example of this is a “typography style” as found in many design tools, which is a combination of the font name, weight, style, and color.
 
-
 Other examples might be:
 
 - **color pairs**, e.g. a combination of foreground and background color
