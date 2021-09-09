@@ -21,7 +21,13 @@ The example above therefore defines 1 design token with the following properties
 - Name: “token name”
 - Value: “token value”
 
-<div class="issue" data-number="123" title="Object vs Array">
+Name and value are both **required**.
+
+<div class="issue" data-number="58" title="Token value data types">
+  JSON can support string, number, array, and object value types. Should all of these types be allowed for token values?
+</div>
+
+<div class="issue" data-number="55" title="Object vs Array">
 
 The structure in the example above is a JSON object, an **unordered** set of name/value pairs.
 
@@ -32,10 +38,16 @@ Please raise concerns if these limitations create problems for implementers.
 
 </div>
 
-<div class="issue" data-number="456" title="Unicode range restriction">
+<div class="issue" data-number="59" title="Token name case sensitivity">
+  Should token names be case sensitive?
+</div>
 
-Should the specification restrict the name property to a specific Unicode range or make certain characters invalid at the start/middle/end of a name (such as white space, line breaks…)? If so, what characters and why?
+<div class="issue" data-number="60" title="Unicode range restriction">
+  Should the specification restrict the name property to a specific Unicode range or make certain characters invalid at the start/middle/end of a name (such as white space, line breaks…)? If so, what characters and why?
+</div>
 
+<div class="issue" data-number="61" title="Reserved words">
+  Are there any reserved words that should not be allowed in token names?
 </div>
 
 ## Additional properties
@@ -66,9 +78,17 @@ The **description** property must be a plain JSON string, for example:
 
 </aside>
 
+<div class="issue" data-number="62" title="Token descriptions optional or required">
+  Are token descriptions optional or required?
+</div>
+
 ## Type
 
 Declares the type of the token. [See “Types”](#types) for more information.
+
+<div class="issue" data-number="63" title="Token types optional or required">
+  Are token types optional or required?
+</div>
 
 ## Extensions
 
@@ -98,5 +118,9 @@ The **extensions** property is an object where tools MAY add proprietary, user-,
 In order to maintain interoperability between tools that support this format, teams and tools should restrict their usage of extension data to optional meta-data that is not crucial to understanding that token’s value.
 
 Tool vendors are encouraged to publicly share specifications of their extension data wherever possible. That way other tools can add support for them without needing to reverse engineer the extension data. Popular extensions may also be incorporated as standardized features in future revisions of this specification.
+
+<p class="ednote" title="Extensions section">
+  The extensions section is not limited to vendors. All token users can add additional data in this section for their own purposes.
+</p>
 
 ## More token properties TBC

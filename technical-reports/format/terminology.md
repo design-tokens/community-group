@@ -1,6 +1,6 @@
 # Terminology
 
-These definitions are focused on the technical aspects of the specification, aimed at implementers such as design tools vendors. Definitions aimed at designers and developers using design tokens in their workflows will be available at designtokens.org.
+These definitions are focused on the technical aspects of the specification, aimed at implementers such as design tools vendors. Definitions for designers and developers are available at [designtokens.org](https://www.designtokens.org/glossary/).
 
 ## (Design) Token
 
@@ -11,9 +11,9 @@ Few examples:
 - `color-text-primary: #000000;`
 - `font-size-heading-level-1: 44px;`
 
-The name may be associated with additional Token Properties.
+The name may be associated with additional [Token Properties](#design-token-properties).
 
-## (Design) Token Properties
+<h2 id="design-token-properties">(Design) Token Properties</h2>
 
 Information associated with a token name.
 
@@ -69,8 +69,8 @@ Token tools can use Types to infer the purpose of a token.
 
 For example:
 
-- A translation tool might reference a token’s type to convert the source value into the correct platform-specific format.
-- A visual design tool might reference type to present tokens in the appropriate part of their UI - as in, color tokens are listed in the color picker, font tokens in the text styling UI’s fonts list, and so on.
+- A [translation tool](#translation-tool) might reference a token’s type to convert the source value into the correct platform-specific format.
+- A visual [design tool](#design-tool) might reference type to present tokens in the appropriate part of their UI - as in, color tokens are listed in the color picker, font tokens in the text styling UI’s fonts list, and so on.
 
 ## Groups
 
