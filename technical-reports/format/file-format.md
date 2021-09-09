@@ -30,3 +30,11 @@ The former is more succinct. However, until this format is widely adopted and su
 Tools that can open design token files MAY filter available files (e.g. in an open file dialog) to only show ones using those extensions. It is recommended that also provide users with a way of opening files that do not use those extensions (e.g. a “show all files” option or similar).
 
 Tools that can save design token files SHOULD append one of the recommended file extensions to the filename when saving.
+
+<p class="ednote" title="JSON schema">
+  The group is currently exploring the addition of a JSON Schema to support the spec.
+</p>
+
+<p class="ednote" title="JSON file size limitations">
+  A concern about file size limitations of JSON files was raised by one of the vendors. The working group continues to gather feedback about any limitations the JSON format imposes.
+</p>
