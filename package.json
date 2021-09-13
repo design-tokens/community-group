@@ -7,6 +7,8 @@
   "license": "SEE LICENSE.md",
   "private": true,
   "devDependencies": {
+    "husky": "^7.0.0",
+    "lint-staged": "^11.1.2",
     "live-server": "^1.2.1",
     "prettier": "^2.3.2",
     "respec": "^26.13.4"
@@ -16,6 +18,10 @@
     "validate:index": "respec --localhost technical-reports/index.html --haltonerror --haltonwarn",
     "validate:format": "respec --localhost technical-reports/format/index.html --haltonerror --haltonwarn",
     "validate": "npm run validate:index && npm run validate:format",
-    "dev": "live-server technical-reports"
+    "dev": "live-server technical-reports",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{md,yml,json,html}": "prettier --write"
   }
 }
