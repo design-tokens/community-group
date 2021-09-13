@@ -15,7 +15,7 @@
     "lint": "prettier '**/*.{md,yml,json,html}' --check --config ./.prettierrc.json",
     "validate:index": "respec --localhost technical-reports/index.html --haltonerror --haltonwarn",
     "validate:format": "respec --localhost technical-reports/format/index.html --haltonerror --haltonwarn",
-    "validate": "yarn run validate:index && yarn run validate:format",
+    "validate": "npm run validate:index && npm run validate:format",
     "dev": "live-server technical-reports"
   }
 }
