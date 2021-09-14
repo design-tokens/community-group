@@ -18,14 +18,13 @@ In order to preview edits locally, you will need the following installed on your
 
 - [Node.js](https://nodejs.org/en/) >= 16.8
   - If you use [`nvm`](https://github.com/nvm-sh/nvm), you can run `nvm install` to install and use the recommended version of Node.
-- [Yarn](https://yarnpkg.com/)
 
 ## Initial setup
 
 After cloning this repo, you need to install the dependencies:
 
 ```
-yarn
+npm install
 ```
 
 This step does not need to be repeated unless the dependencies are changed.
@@ -35,7 +34,7 @@ This step does not need to be repeated unless the dependencies are changed.
 To see live previews of local edits to the technical reports run:
 
 ```
-yarn dev
+npm run dev
 ```
 
 ## Editing
@@ -53,6 +52,6 @@ To making editing our format specification more convenient and to reduce the lik
 
 ## Deployments
 
-Any changes to the source files in this directory that get merged into `main` are automatically deployed to [`https://design-tokens.github.io/community-group/`](https://design-tokens.github.io/community-group/) via the [`technical-reports` Github Action](../.github/workflows/technical-reports.yml). They are hosted using Github Pages and the build output can be found in the [`gh-pages` branch](https://github.com/design-tokens/community-group/tree/gh-pages).
+Any changes to the source files in this directory that get merged into `main` are automatically deployed to [`https://design-tokens.github.io/community-group/`](https://design-tokens.github.io/community-group/) via the [`technical-reports` GitHub Action](../.github/workflows/technical-reports.yml). They are hosted using GitHub Pages and the build output can be found in the [`gh-pages` branch](https://github.com/design-tokens/community-group/tree/gh-pages).
 
 Additionally, we use Netlify to generate preview deploys for PRs. Netlify will post a comment to the PR with the URL of the preview once it is ready.
