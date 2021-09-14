@@ -77,7 +77,11 @@ Suggested ways tools may use this property are:
 - A GUI tool that lets users browse or select tokens could display this info alongside the corresponding group or as a tooltip
 - Export tools could output this as a source code comment
 
-### TODO: List all supported properties at the group level
+<div class="issue" data-number="72">
+
+Groups may support additional properties like type and description. Should other properties be supported at the group level?
+
+</div>
 
 ## Use-cases
 
