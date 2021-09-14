@@ -9,7 +9,9 @@ Aliases are useful for:
 
 For a design token to reference another, its value should be a string containing the period-separated (.) path to the token it’s referencing enclosed in curly brackets. For example:
 
-```
+<aside class="example">
+
+```json
 {
   "group name": {
     "token name": {
@@ -21,6 +23,8 @@ For a design token to reference another, its value should be a string containing
   }
 }
 ```
+
+</aside>
 
 When a tool needs the actual value of a token it must resolve the reference - i.e. lookup the token being referenced and fetch its value. In the above example, the "alias name" token’s value would resolve to 1234 because it references the token whose path is `{group name.token name}` which has the value 1234.
 

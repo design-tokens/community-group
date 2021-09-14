@@ -16,9 +16,7 @@ If the `type` property is absent, tools MUST treat values as one of the basic JS
 
 If a `type` is set, but the value does not match the expected syntax then that token is invalid and an appropriate error should be displayed to the user. To put it another way, the type property is a declaration of what kind of values are permissible for the token. (This is similar to typing in programming languages like Java or TypeScript, where a value not compatible with the declared type causes a compilation error).
 
-## Design token types
-
-### Color
+## Color
 
 Represents a 24bit RGB or 24+8bit RGBA color in the sRGB color space. The type property must be set to the string “color”. The value must be a string containing a hex triplet/quartet including the preceding # character. To support other color spaces, such as HSL, export tools should convert color tokens to the equivalent value as needed.
 
@@ -57,7 +55,7 @@ $translucent-shadow: ​hsla(300, 100%, 50%, 0.5);
 
 </aside>
 
-### Dimension
+## Dimension
 
 Represents an amount of distance in a single dimension in the UI, such as a position, width, height, radius, or thickness. The type property must be set to the string “dimension”. The value must be a string containing a number (either integer or floating-point) followed by either a “px” or “rem” unit (future spec iterations may add support for additional units). For example:
 
@@ -79,7 +77,7 @@ The “px” and “rem” units are to be interpreted the same way they are in 
 - **px**: Represents an idealized pixel on the viewport. The equivalent in Android is dp and iOS is pt. Export tools should therefore convert to these or other equivalent units as needed.
 - **rem**: Represents a multiple of the system’s default font size (which may be configurable by the user). 1rem is 100% of the default font size. The equivalent of 1rem on Android is 16sp. Not all platforms have an equivalent to rem, so export tools may need to do a lossy conversion to a fixed px size by assuming a default font size (usually 16px) for such platforms.
 
-### Font name
+## Font name
 
 <div class="issue" data-number="53">
 
@@ -106,7 +104,7 @@ Represents a font name or an array of font names (ordered from most to least pre
 
 </aside>
 
-### Duration
+## Duration
 
 Represents the length of time in milliseconds an animation or animation cycle takes to complete, such as 200 milliseconds. The type property must be set to the string “duration”. The value must be a string containing a number (either integer or floating-point) followed by an “ms” unit. A millisecond is a unit of time equal to one thousandth of a second. For example:
 
@@ -127,7 +125,7 @@ Represents the length of time in milliseconds an animation or animation cycle ta
 
 </aside>
 
-### Cubic Bézier
+## Cubic Bézier
 
 Represents how the value of an animated property progresses towards completion over the duration of an animation, effectively creating visual effects such as acceleration, deceleration, and bounce. The type property must be set to the string “cubic-bezier”. The value must be an array containing four numbers. These numbers represent two points (P1, P2) with one x coordinate and one y coordinate each [P1x, P1y, P2x, P2y]. The y coordinates of P1 and P2 can be any real number in the range [-∞, ∞], but the x coordinates are restricted to the range [0, 1]. For example:
 
@@ -148,7 +146,7 @@ Represents how the value of an animated property progresses towards completion o
 
 </aside>
 
-### Additional types
+## Additional types
 
 <div class="ednote" title="Additional types">
 Types still to be documented here are likely to include:
