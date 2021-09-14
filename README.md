@@ -18,7 +18,7 @@ We believe that a common way to share design tokens will unlock efficiency oppor
 
 [Read the charter in full](https://github.com/design-tokens/community-group/blob/main/CHARTER.md).
 
-[View the latest technical reports](https://design-tokens.github.io/community-group/) ([Instructions for editing technical reports](./technical-reports/README.md)).
+[Browse the latest technical reports](https://design-tokens.github.io/community-group/) ([Instructions for editing technical reports](./technical-reports/README.md)).
 
 ## Roadmap
 
