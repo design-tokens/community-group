@@ -23,9 +23,18 @@ The example above therefore defines 1 design token with the following properties
 
 Name and value are both **required**.
 
-<div class="issue" data-number="58" title="Token value data types">
-  JSON can support string, number, array, and object value types. Should all of these types be allowed for token values?
-</div>
+### Token value type
+
+Token values may be any valid JSON type:
+
+- `string`
+- `number`
+- `array`
+- `object`
+- `boolean`
+- `null`
+
+Additionally, tokens may be defined with a more specific [Token Type](#types)
 
 <div class="issue" data-number="55" title="Object vs Array">
 
