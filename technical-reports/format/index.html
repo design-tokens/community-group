@@ -76,57 +76,20 @@
         <em>This section is non normative</em>
       </p>
       <p>
-        Design tokens are a methodology for expressing design decisions in a
-        platform-agnostic way so that they can be shared across different
-        disciplines, tools, and technologies. They help establish a common
-        vocabulary across organisations.
+        Design tokens establish a common vocabulary across organizations. They
+        are a method for expressing design decisions.
       </p>
       <p>
-        There is a growing ecosystem of tools for design system maintainers and
-        consumers that incorporate design token functionality, or would benefit
-        from doing so:
-      </p>
-      <ul>
-        <li>
-          Design tools have begun allowing designers to label and reference
-          shared values for design properties like colors and sizes.
-        </li>
-        <li>
-          Translation tools exist that can convert source design token data into
-          platform-specific source code that can directly be used by developers.
-        </li>
-        <li>
-          Documentation tools can display design token names rather than the raw
-          values in design specs and style guides.
-        </li>
-      </ul>
-      <p>
-        It is often desirable for design system teams to integrate such tools
-        together, so that design token data can flow between design and
-        development tools. For example:
-      </p>
-      <ul>
-        <li>
-          Extracting design tokens from design files and feeding them into
-          translation tools to then be converted into platform-specific code
-        </li>
-        <li>
-          Maintaining a "single source of truth" for design tokens and
-          automatically keeping design and development tools in sync with it
-        </li>
-      </ul>
-      <p>
-        While many tools now offer APIs to access design tokens or the ability
-        to export design tokens as a file, these are all tool-specific. The
-        burden is therefore on design system teams to create and maintain their
-        own, bespoke "glue" code or workflows. Furthermore, if teams want to
-        migrate to different tools, they will need to update those integrations.
+        Many tools allow importing and exporting design tokens, but formats are
+        tool-specific. The burden of sharing tokens across tools is on design
+        system teams. They must create and maintain their own, bespoke "glue"
+        code or workflows. Migrating to different tools means updating those
+        integrations.
       </p>
       <p>
-        This specification aims to facilitate better interoperability between
-        tools and thus lower the work design system teams need to do to
-        integrate them by defining a standard file format for expressing design
-        token data.
+        The design token format proposes an alternative. One where
+        interoperability is the largest goal. That all design, development, and
+        documentation tools import and export the same format.
       </p>
     </section>
 
