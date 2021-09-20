@@ -20,10 +20,6 @@ We believe that a common way to share design tokens will unlock efficiency oppor
 
 [Browse the latest technical reports](https://design-tokens.github.io/community-group/) ([Instructions for editing technical reports](./technical-reports/README.md)).
 
-## Roadmap
-
-The DTCG was founded in June 2019. By the end of 2019, our aim is to have a standard working across at least 3 design or prototyping tools.
-
 ## Principles
 
 ### 1. Inclusive
