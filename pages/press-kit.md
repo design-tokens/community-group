@@ -48,7 +48,7 @@ Note: the DTCG is not a W3C Working Group. The technical reports published by th
 ## Contributors
 
 - [Adam Sedwick](https://twitter.com/AdamSedwick), UX Engineer, Design Systems @ Discovery Education
-- [Adenkunle Oduye](https://twitter.com/adekunleoduye), Senior Front-end Engineer @ MailChimp
+- [Adekunle Oduye](https://twitter.com/adekunleoduye), Senior Front-end Engineer @ MailChimp
 - Ayesha Mazumdar, Design Technologist @ Pinterest
 - Caleb Williams
 - [Danny Banks](https://twitter.com/dbanks.design), Principal Design Technologist @ AWS
