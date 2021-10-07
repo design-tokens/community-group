@@ -51,7 +51,7 @@ Note: the DTCG is not a W3C Working Group. The technical reports published by th
 - [Adenkunle Oduye](https://twitter.com/adekunleoduye), Senior Front-end Engineer @ MailChimp
 - Ayesha Mazumdar, Design Technologist @ Pinterest
 - Caleb Williams
-- [Danny Banks](https://twitter.com/dbanks.design), Principal Design Technologist @ AWS
+- [Danny Banks](https://twitter.com/dbanksdesign), Principal Design Technologist @ AWS
 - [Donna Vitan](https://twitter.com/donnavitan), Design Lead, Design Systems @ TELUS Digital
 - Garth Braithwaite, Design System Engineer @ Adobe
 - [James Nash](https://cirrus.twiddles.com/), Design Systems Aficionado
