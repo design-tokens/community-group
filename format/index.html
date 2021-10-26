@@ -1,15 +1,14 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 26.13.4">
+<meta name="generator" content="ReSpec 26.16.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
-aside.example,div.example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
+:is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
 div.illegal-example{color:red}
 div.illegal-example p{color:#000}
-aside.example,div.example{padding:.5em;border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
+:is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
 aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
-aside.example div.example span.example-title{color:#999}
 .example pre{background-color:rgba(0,0,0,.03)}
 </style>
 <style>
@@ -70,7 +69,7 @@ dfn{cursor:pointer}
 100%{transform:scale(1,1)}
 }
 .hljs{background:0 0!important}
-a abbr,h1 abbr,h2 abbr,h3 abbr,h4 abbr,h5 abbr,h6 abbr{border:none}
+:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
 dfn{font-weight:700}
 a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
 a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
@@ -112,11 +111,11 @@ details.respec-tests-details>li{padding-left:1em}
 a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 h2,h3,h4,h5,h6{position:relative}
 aside.example .marker>a.self-link{color:inherit}
-h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
-h2>a.self-link::before,h3>a.self-link::before,h4>a.self-link::before,h5>a.self-link::before,h6>a.self-link::before{content:"§";display:block}
+:is(h2,h3,h4,h5,h6)>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
+:is(h2,h3,h4,h5,h6)>a.self-link::before{content:"§";display:block}
 @media (max-width:767px){
 dd{margin-left:0}
-h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{left:auto;top:auto}
+:is(h2,h3,h4,h5,h6)>a.self-link{left:auto;top:auto}
 }
 @media print{
 .removeOnSave{display:none}
@@ -177,8 +176,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     "branch": "main"
   },
   "tocIntroductory": true,
-  "publishISODate": "2021-09-23T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 23 September 2021"
+  "publishISODate": "2021-10-26T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 26 October 2021"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/cg-draft"></head>
   <body class="h-entry"><div class="head">
@@ -186,7 +185,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     
     <h2>
       Draft Community Group Report
-      <time class="dt-published" datetime="2021-09-23">23 September 2021</time>
+      <time class="dt-published" datetime="2021-10-26">26 October 2021</time>
     </h2>
     <dl>
       
@@ -210,15 +209,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </dd>
       
       
-      <dt>Participate:</dt><dd>
-    <a href="https://github.com/design-tokens/community-group/">GitHub design-tokens/community-group</a>
-  </dd><dd>
-    <a href="https://github.com/design-tokens/community-group/issues/">File an issue</a>
-  </dd><dd>
-    <a href="https://github.com/design-tokens/community-group/commits/main">Commit history</a>
-  </dd><dd>
-    <a href="https://github.com/design-tokens/community-group/pulls/">Pull requests</a>
-  </dd>
+      
     </dl>
     
     
@@ -399,8 +390,8 @@ $color-text-primary: $color-palette-black;
   A concern about file size limitations of JSON files was raised by one of the vendors. The working group continues to gather feedback about any limitations the JSON format imposes.
 </p></div></section></section>
 
-    <section id="design-token-0"><h2 id="x5-design-token"><bdi class="secno">5. </bdi>Design token<a class="self-link" aria-label="§" href="#design-token-0"></a></h2><section id="name-and-value"><h3 id="x5-1-name-and-value"><bdi class="secno">5.1 </bdi>Name and value<a class="self-link" aria-label="§" href="#name-and-value"></a></h3><aside class="example" id="example-1-minimal-file-with-single-design-token"><div class="marker">
-    <a class="self-link" href="#example-1-minimal-file-with-single-design-token">Example<bdi> 1</bdi></a><span class="example-title">: Minimal file with single design token</span>
+    <section id="design-token-0"><h2 id="x5-design-token"><bdi class="secno">5. </bdi>Design token<a class="self-link" aria-label="§" href="#design-token-0"></a></h2><section id="name-and-value"><h3 id="x5-1-name-and-value"><bdi class="secno">5.1 </bdi>Name and value<a class="self-link" aria-label="§" href="#name-and-value"></a></h3><aside class="example" id="example-minimal-file-with-single-design-token"><div class="marker">
+    <a class="self-link" href="#example-minimal-file-with-single-design-token">Example<bdi> 1</bdi></a><span class="example-title">: Minimal file with single design token</span>
   </div>
 
 <pre><code class="json hljs" aria-busy="false">{
@@ -449,9 +440,9 @@ $color-text-primary: $color-palette-black;
   }
 }
 </code></pre>
-</aside><div class="issue" id="issue-container-number-62"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/62"><span class="issue-number">Issue 62</span></a><span class="issue-label">: Token descriptions optional or required <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Format+Issue%22" style="background-color: rgb(248, 234, 233); color: rgb(0, 0, 0);" aria-label="GitHub label: Format Issue">Format Issue</a></span></div><div class="">
+</aside><div class="issue closed" id="issue-container-number-62"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/62"><span class="issue-number">Issue 62</span></a><span class="issue-label">: Token descriptions optional or required <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Format+Issue%22" style="background-color: rgb(248, 234, 233); color: rgb(0, 0, 0);" aria-label="GitHub label: Format Issue">Format Issue</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22reviewed+by+editors%22" style="background-color: rgb(112, 105, 34); color: rgb(255, 255, 255);" aria-label="GitHub label: reviewed by editors">reviewed by editors</a></span></div><div class="">
   Are token descriptions optional or required?
-</div></div></section><section id="type-0"><h3 id="x5-4-type"><bdi class="secno">5.4 </bdi>Type<a class="self-link" aria-label="§" href="#type-0"></a></h3><p>Declares the type of the token. <a href="#types">See “Types”</a> for more information.</p><div class="issue" id="issue-container-number-63"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/63"><span class="issue-number">Issue 63</span></a><span class="issue-label">: Token types optional or required <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Format+Issue%22" style="background-color: rgb(248, 234, 233); color: rgb(0, 0, 0);" aria-label="GitHub label: Format Issue">Format Issue</a></span></div><div class="">
+</div></div></section><section id="type-0"><h3 id="x5-4-type"><bdi class="secno">5.4 </bdi>Type<a class="self-link" aria-label="§" href="#type-0"></a></h3><p>Declares the type of the token. <a href="#types">See “Types”</a> for more information.</p><div class="issue" id="issue-container-number-63"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/63"><span class="issue-number">Issue 63</span></a><span class="issue-label">: Token types optional or required <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Format+Issue%22" style="background-color: rgb(248, 234, 233); color: rgb(0, 0, 0);" aria-label="GitHub label: Format Issue">Format Issue</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22reviewed+by+editors%22" style="background-color: rgb(112, 105, 34); color: rgb(255, 255, 255);" aria-label="GitHub label: reviewed by editors">reviewed by editors</a></span></div><div class="">
   Are token types optional or required?
 </div></div></section><section id="extensions"><h3 id="x5-5-extensions"><bdi class="secno">5.5 </bdi>Extensions<a class="self-link" aria-label="§" href="#extensions"></a></h3><p>The <strong>extensions</strong> property is an object where tools <em class="rfc2119">MAY</em> add proprietary, user-, team- or vendor-specific data to a design token. When doing so, each tool <em class="rfc2119">MUST</em> use a vendor-specific key whose value may be any valid JSON data.</p><ul>
 <li>The keys <em class="rfc2119">SHOULD</em> be chosen such that they avoid the likelihood of a naming clash with another vendor’s data. The <a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation">reverse domain name notation</a> is recommended for this purpose.</li>
@@ -596,7 +587,7 @@ $color-text-primary: $color-palette-black;
   }
 }
 </code></pre>
-</aside></section><section id="gui-tools"><h4 id="x6-2-2-gui-tools"><bdi class="secno">6.2.2 </bdi><abbr title="Graphical User Interface">GUI</abbr> tools<a class="self-link" aria-label="§" href="#gui-tools"></a></h4><p>Tools that let users pick or edit tokens via a <abbr title="Graphical User Interface">GUI</abbr> may use the grouping structure to display a suitable form of progressive disclosure, such as a collapsible tree view.</p><p><img src="../group-progressive-disclosure.png" alt="Progressive disclosure groups" height="426" width="506"></p></section><section id="export-tools"><h4 id="x6-2-3-export-tools"><bdi class="secno">6.2.3 </bdi>Export tools<a class="self-link" aria-label="§" href="#export-tools"></a></h4><p>Token names are not guaranteed to be unique within the same file. The same name can be used in different groups. Also, export tools may need to export design tokens in a uniquely identifiable way, such as variables in code. Export tools should therefore use design tokens' paths as these <em>are</em> unique within a file.</p><p>For example, a <a href="#translation-tool">translation tool</a> like <a href="https://amzn.github.io/style-dictionary/">Style Dictionary</a> might use the following design token file:</p><aside class="example" id="example-8"><div class="marker">
+</aside></section><section id="gui-tools"><h4 id="x6-2-2-gui-tools"><bdi class="secno">6.2.2 </bdi><abbr title="Graphical User Interface">GUI</abbr> tools<a class="self-link" aria-label="§" href="#gui-tools"></a></h4><p>Tools that let users pick or edit tokens via a <abbr title="Graphical User Interface">GUI</abbr> may use the grouping structure to display a suitable form of progressive disclosure, such as a collapsible tree view.</p><p><img src="./group-progressive-disclosure.png" alt="Progressive disclosure groups" height="426" width="506"></p></section><section id="export-tools"><h4 id="x6-2-3-export-tools"><bdi class="secno">6.2.3 </bdi>Export tools<a class="self-link" aria-label="§" href="#export-tools"></a></h4><p>Token names are not guaranteed to be unique within the same file. The same name can be used in different groups. Also, export tools may need to export design tokens in a uniquely identifiable way, such as variables in code. Export tools should therefore use design tokens' paths as these <em>are</em> unique within a file.</p><p>For example, a <a href="#translation-tool">translation tool</a> like <a href="https://amzn.github.io/style-dictionary/">Style Dictionary</a> might use the following design token file:</p><aside class="example" id="example-8"><div class="marker">
     <a class="self-link" href="#example-8">Example<bdi> 8</bdi></a>
   </div>
 
@@ -703,7 +694,7 @@ $translucent-shadow: ​hsla(300, 100%, 50%, 0.5);
 </aside><p>The “px” and “rem” units are to be interpreted the same way they are in CSS:</p><ul>
 <li><strong>px</strong>: Represents an idealized pixel on the viewport. The equivalent in Android is dp and iOS is pt. Export tools should therefore convert to these or other equivalent units as needed.</li>
 <li><strong>rem</strong>: Represents a multiple of the system’s default font size (which may be configurable by the user). 1rem is 100% of the default font size. The equivalent of 1rem on Android is 16sp. Not all platforms have an equivalent to rem, so export tools may need to do a lossy conversion to a fixed px size by assuming a default font size (usually 16px) for such platforms.</li>
-</ul></section><section id="font-name"><h3 id="x8-3-font-name"><bdi class="secno">8.3 </bdi>Font name<a class="self-link" aria-label="§" href="#font-name"></a></h3><div class="issue" id="issue-container-number-53"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/53"><span class="issue-number">Issue 53</span></a><span class="issue-label">: Type: font name <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Format+Issue%22" style="background-color: rgb(248, 234, 233); color: rgb(0, 0, 0);" aria-label="GitHub label: Format Issue">Format Issue</a></span></div><div class="">
+</ul></section><section id="font-name"><h3 id="x8-3-font-name"><bdi class="secno">8.3 </bdi>Font name<a class="self-link" aria-label="§" href="#font-name"></a></h3><div class="issue" id="issue-container-number-53"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/53"><span class="issue-number">Issue 53</span></a><span class="issue-label">: Type: font name <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Format+Issue%22" style="background-color: rgb(248, 234, 233); color: rgb(0, 0, 0);" aria-label="GitHub label: Format Issue">Format Issue</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22reviewed+by+editors%22" style="background-color: rgb(112, 105, 34); color: rgb(255, 255, 255);" aria-label="GitHub label: reviewed by editors">reviewed by editors</a></span></div><div class="">
 
 <p>A naive approach like the one below may be appropriate for the first stage of the specification, but this may be more complicated than it seems due to platform/OS/browser restrictions.</p>
 </div></div><p>Represents a font name or an array of font names (ordered from most to least preferred). The type property must be set to the string “font”. The value must either be a string value containing a single font name or an array of strings, each being a single font name. For example:</p><aside class="example" id="example-14"><div class="marker">
@@ -779,8 +770,8 @@ Types still to be documented here are likely to include:
 <li><strong>border styles</strong>, e.g. a combination of color, style &amp; thickness</li>
 <li><strong>color schemes</strong></li>
 <li><strong>text styles</strong>, e.g. a combination of font and other font properties</li>
-</ul><aside class="example" id="example-17-custom-type-definitions"><div class="marker">
-    <a class="self-link" href="#example-17-custom-type-definitions">Example<bdi> 17</bdi></a><span class="example-title">: Custom type definitions</span>
+</ul><aside class="example" id="example-custom-type-definitions"><div class="marker">
+    <a class="self-link" href="#example-custom-type-definitions">Example<bdi> 17</bdi></a><span class="example-title">: Custom type definitions</span>
   </div>
 
 <pre><code class="json hljs" aria-busy="false">{
@@ -830,8 +821,8 @@ Types still to be documented here are likely to include:
 <li>You can think of a composite type as something "inside" an individual token.</li>
 </ul>
 </li>
-</ul></section><section id="type-checking"><h3 id="x9-2-type-checking"><bdi class="secno">9.2 </bdi>Type checking<a class="self-link" aria-label="§" href="#type-checking"></a></h3><p>Just as with “normal” types for tokens, using a custom, composite type will allow tools to check that the values you use match the expected type. In our color pair example above, attempting to do the following would be invalid and tools should ignore the token and show an error to the user, since “Comic Sans MS” is not a valid color value.</p><aside class="example" id="example-18-invalid-type"><div class="marker">
-    <a class="self-link" href="#example-18-invalid-type">Example<bdi> 18</bdi></a><span class="example-title">: Invalid type</span>
+</ul></section><section id="type-checking"><h3 id="x9-2-type-checking"><bdi class="secno">9.2 </bdi>Type checking<a class="self-link" aria-label="§" href="#type-checking"></a></h3><p>Just as with “normal” types for tokens, using a custom, composite type will allow tools to check that the values you use match the expected type. In our color pair example above, attempting to do the following would be invalid and tools should ignore the token and show an error to the user, since “Comic Sans MS” is not a valid color value.</p><aside class="example" id="example-invalid-type"><div class="marker">
+    <a class="self-link" href="#example-invalid-type">Example<bdi> 18</bdi></a><span class="example-title">: Invalid type</span>
   </div>
 
 <pre><code class="json hljs" aria-busy="false">{
@@ -844,8 +835,8 @@ Types still to be documented here are likely to include:
   }
 }
 </code></pre>
-</aside><p>Likewise, IDEs can offer appropriate auto-completions to users that manually author design token files.</p></section><section id="tool-support"><h3 id="x9-3-tool-support"><bdi class="secno">9.3 </bdi>Tool support<a class="self-link" aria-label="§" href="#tool-support"></a></h3><p>Since composite types are user-defined, tools cannot provide specialized handling of them since they have no advanced knowledge of the type declarations. Here are some suggested strategies to get the most value out of user-defined composite types:</p><section id="fallbacks"><h4 id="x9-3-1-fallbacks"><bdi class="secno">9.3.1 </bdi>Fallbacks<a class="self-link" aria-label="§" href="#fallbacks"></a></h4><p>Given that composite types are ultimately composed of the core design token types, tools that encounter unfamiliar composite tokens could fall back to treating their individual values as separate tokens. In effect, the composite token would be treated the same way as a group of tokens.</p><p>Using the color pair type as an example, an export tool like Style Dictionary could just export 2 color variables for it. A token file like this…</p><aside class="example" id="example-19-json-source"><div class="marker">
-    <a class="self-link" href="#example-19-json-source">Example<bdi> 19</bdi></a><span class="example-title">: JSON source</span>
+</aside><p>Likewise, IDEs can offer appropriate auto-completions to users that manually author design token files.</p></section><section id="tool-support"><h3 id="x9-3-tool-support"><bdi class="secno">9.3 </bdi>Tool support<a class="self-link" aria-label="§" href="#tool-support"></a></h3><p>Since composite types are user-defined, tools cannot provide specialized handling of them since they have no advanced knowledge of the type declarations. Here are some suggested strategies to get the most value out of user-defined composite types:</p><section id="fallbacks"><h4 id="x9-3-1-fallbacks"><bdi class="secno">9.3.1 </bdi>Fallbacks<a class="self-link" aria-label="§" href="#fallbacks"></a></h4><p>Given that composite types are ultimately composed of the core design token types, tools that encounter unfamiliar composite tokens could fall back to treating their individual values as separate tokens. In effect, the composite token would be treated the same way as a group of tokens.</p><p>Using the color pair type as an example, an export tool like Style Dictionary could just export 2 color variables for it. A token file like this…</p><aside class="example" id="example-json-source"><div class="marker">
+    <a class="self-link" href="#example-json-source">Example<bdi> 19</bdi></a><span class="example-title">: JSON source</span>
   </div>
 
 <pre><code class="json hljs" aria-busy="false">{
@@ -858,15 +849,15 @@ Types still to be documented here are likely to include:
   }
 }
 </code></pre>
-</aside><p>… might be exported to Sass like this:</p><aside class="example" id="example-20-sass-output-with-fallback"><div class="marker">
-    <a class="self-link" href="#example-20-sass-output-with-fallback">Example<bdi> 20</bdi></a><span class="example-title">: Sass output with fallback</span>
+</aside><p>… might be exported to Sass like this:</p><aside class="example" id="example-sass-output-with-fallback"><div class="marker">
+    <a class="self-link" href="#example-sass-output-with-fallback">Example<bdi> 20</bdi></a><span class="example-title">: Sass output with fallback</span>
   </div>
 
 <pre><code class="css hljs" aria-busy="false">$my-token-foreground: #333333;
 $my-token-background: #ffffff;
 </code></pre>
-</aside><p>In a similar vein, a <abbr title="Graphical User Interface">GUI</abbr> tool can "pluck" out the individual values of a composite token and use them as it would normally.</p><p>E.g. a design tool like Figma might not have the concept of a color pair, so it can't do anything special with tokens of that type. However, that doesn't prevent it from displaying the foreground and background colors of those tokens alongside any plain color tokens in a color picker.</p></section><section id="appending-custom-type-definitions"><h4 id="x9-3-2-appending-custom-type-definitions"><bdi class="secno">9.3.2 </bdi>Appending custom type definitions<a class="self-link" aria-label="§" href="#appending-custom-type-definitions"></a></h4><p>A tool might not understand certain user-defined type definitions in a token file and therefore can't do anything special with them. However, that tool could export or modify token files by adding their own type definitions.</p><p>For example, imagine Sketch wanted to export all layer styles from a Sketch document to a token file. The Sketch app could have a built-in type definition that corresponds to layer styles. Perhaps something like this:</p><aside class="example" id="example-21-custom-type-definitions-for-sketch"><div class="marker">
-    <a class="self-link" href="#example-21-custom-type-definitions-for-sketch">Example<bdi> 21</bdi></a><span class="example-title">: Custom type definitions for Sketch</span>
+</aside><p>In a similar vein, a <abbr title="Graphical User Interface">GUI</abbr> tool can "pluck" out the individual values of a composite token and use them as it would normally.</p><p>E.g. a design tool like Figma might not have the concept of a color pair, so it can't do anything special with tokens of that type. However, that doesn't prevent it from displaying the foreground and background colors of those tokens alongside any plain color tokens in a color picker.</p></section><section id="appending-custom-type-definitions"><h4 id="x9-3-2-appending-custom-type-definitions"><bdi class="secno">9.3.2 </bdi>Appending custom type definitions<a class="self-link" aria-label="§" href="#appending-custom-type-definitions"></a></h4><p>A tool might not understand certain user-defined type definitions in a token file and therefore can't do anything special with them. However, that tool could export or modify token files by adding their own type definitions.</p><p>For example, imagine Sketch wanted to export all layer styles from a Sketch document to a token file. The Sketch app could have a built-in type definition that corresponds to layer styles. Perhaps something like this:</p><aside class="example" id="example-custom-type-definitions-for-sketch"><div class="marker">
+    <a class="self-link" href="#example-custom-type-definitions-for-sketch">Example<bdi> 21</bdi></a><span class="example-title">: Custom type definitions for Sketch</span>
   </div>
 
 <pre><code class="json hljs" aria-busy="false">{
@@ -892,8 +883,8 @@ $my-token-background: #ffffff;
 }
 </code></pre>
 </aside><p>It could then save out that type definition into the token file it exports. Other tools could then make use of that same type definition and do useful things with tokens of that type.</p></section><section id="custom-configuration"><h4 id="x9-3-3-custom-configuration"><bdi class="secno">9.3.3 </bdi>Custom configuration<a class="self-link" aria-label="§" href="#custom-configuration"></a></h4><p>Via configuration files or settings menus, tools could let users define custom behavior for types they have defined. For instance, in an export tool like Style Dictionary, users might be able to configure a custom transform or formatter for their composite types.
-Then, this example...</p><aside class="example" id="example-22-custom-configuration-source"><div class="marker">
-    <a class="self-link" href="#example-22-custom-configuration-source">Example<bdi> 22</bdi></a><span class="example-title">: Custom configuration source</span>
+Then, this example...</p><aside class="example" id="example-custom-configuration-source"><div class="marker">
+    <a class="self-link" href="#example-custom-configuration-source">Example<bdi> 22</bdi></a><span class="example-title">: Custom configuration source</span>
   </div>
 
 <pre><code class="json hljs" aria-busy="false">{
@@ -906,8 +897,8 @@ Then, this example...</p><aside class="example" id="example-22-custom-configurat
   }
 }
 </code></pre>
-</aside><p>...could be configured to export, for example, a mixin instead of 2 variables:</p><aside class="example" id="example-23-custom-configuration-sass-output"><div class="marker">
-    <a class="self-link" href="#example-23-custom-configuration-sass-output">Example<bdi> 23</bdi></a><span class="example-title">: Custom configuration Sass output</span>
+</aside><p>...could be configured to export, for example, a mixin instead of 2 variables:</p><aside class="example" id="example-custom-configuration-sass-output"><div class="marker">
+    <a class="self-link" href="#example-custom-configuration-sass-output">Example<bdi> 23</bdi></a><span class="example-title">: Custom configuration Sass output</span>
   </div>
 
 <pre><code class="css hljs" aria-busy="false"><span class="hljs-keyword">@mixin</span> my-token {
