@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 26.13.4">
+<meta name="generator" content="ReSpec 26.16.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 dfn{cursor:pointer}
@@ -35,7 +35,7 @@ dfn{cursor:pointer}
 100%{transform:scale(1,1)}
 }
 .hljs{background:0 0!important}
-a abbr,h1 abbr,h2 abbr,h3 abbr,h4 abbr,h5 abbr,h6 abbr{border:none}
+:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
 dfn{font-weight:700}
 a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
 a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
@@ -77,11 +77,11 @@ details.respec-tests-details>li{padding-left:1em}
 a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 h2,h3,h4,h5,h6{position:relative}
 aside.example .marker>a.self-link{color:inherit}
-h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
-h2>a.self-link::before,h3>a.self-link::before,h4>a.self-link::before,h5>a.self-link::before,h6>a.self-link::before{content:"§";display:block}
+:is(h2,h3,h4,h5,h6)>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
+:is(h2,h3,h4,h5,h6)>a.self-link::before{content:"§";display:block}
 @media (max-width:767px){
 dd{margin-left:0}
-h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{left:auto;top:auto}
+:is(h2,h3,h4,h5,h6)>a.self-link{left:auto;top:auto}
 }
 @media print{
 .removeOnSave{display:none}
@@ -137,27 +137,29 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     "branch": "main"
   },
   "tocIntroductory": true,
-  "publishISODate": "2021-09-23T00:00:00.000Z",
-  "generatedSubtitle": " 23 September 2021"
+  "publishISODate": "2021-10-26T00:00:00.000Z",
+  "generatedSubtitle": " 26 October 2021"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css"></head>
   <body class="h-entry informative"><div class="head">
      <h1 id="title" class="title">Design Tokens Technical Reports</h1>
     
-    <h2>
-      
-      <time class="dt-published" datetime="2021-09-23">23 September 2021</time>
-    </h2>
-    <dl>
-      
-      
-      
-      
-      
-      
-      
-      <dt>Editors:</dt>
-      <dd class="editor p-author h-card vcard">
+    <h2> <time class="dt-published" datetime="2021-10-26">26 October 2021</time></h2>
+    <details open="">
+      <summary>More details about this document</summary>
+      <dl>
+        
+        
+        <dt>History:</dt><dd>
+        <a href="https://github.com/design-tokens/community-group/commits/main">Commit history</a>
+      </dd>
+        
+        
+        
+        
+        
+        <dt>Editors:</dt>
+        <dd class="editor p-author h-card vcard">
     <span class="p-name fn">Adekunle Oduye</span>
   </dd><dd class="editor p-author h-card vcard">
     <span class="p-name fn">Ayesha Mazumdar</span>
@@ -178,18 +180,17 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </dd><dd class="editor p-author h-card vcard">
     <span class="p-name fn">Val Head</span>
   </dd>
-      
-      
-      <dt>Participate:</dt><dd>
-    <a href="https://github.com/design-tokens/community-group/">GitHub design-tokens/community-group</a>
-  </dd><dd>
-    <a href="https://github.com/design-tokens/community-group/issues/">File an issue</a>
-  </dd><dd>
-    <a href="https://github.com/design-tokens/community-group/commits/main">Commit history</a>
-  </dd><dd>
-    <a href="https://github.com/design-tokens/community-group/pulls/">Pull requests</a>
-  </dd>
-    </dl>
+        
+        
+        <dt>Feedback:</dt><dd>
+        <a href="https://github.com/design-tokens/community-group/">GitHub design-tokens/community-group</a>
+        (<a href="https://github.com/design-tokens/community-group/pulls/">pull requests</a>,
+        <a href="https://github.com/design-tokens/community-group/issues/new/choose">new issue</a>,
+        <a href="https://github.com/design-tokens/community-group/issues/">open issues</a>)
+      </dd>
+        
+      </dl>
+    </details>
     
     
     
@@ -228,7 +229,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <h2 id="a-acknowledgements"><bdi class="secno">A. </bdi>Acknowledgements<a class="self-link" aria-label="§" href="#acknowledgements"></a></h2>
       <p>
         We'd also like to thank the following contributors:
-        <span id="gh-contributors">Ale Muñoz, Chase McCoy, Dale Sande, Dominique Hazael-Massieux, Evan Lovely, Fabian Friedl, Guilherme Nagüeva, Jina Anne, Jon Levine, Kaelig Deloumeau-Prigent, Kilian Valkhof, KLS, Miriam Suzanne, Namık Özgür Aydın, Rob Eisenberg, Robin, Salem Ghoweri, and Stuart Robson</span>.
+        <span id="gh-contributors">Ale Muñoz, Benjamin Kindle, Chase McCoy, Dale Sande, Dominique Hazael-Massieux, Evan Lovely, Fabian Friedl, Guilherme Nagüeva, Jina Anne, Jon Levine, Kaelig Deloumeau-Prigent, Kilian Valkhof, KLS, Miriam Suzanne, Namık Özgür Aydın, Rob Eisenberg, Robin, and Salem Ghoweri</span>.
       </p>
     </section>
   
