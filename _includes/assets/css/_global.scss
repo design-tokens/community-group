@@ -213,3 +213,15 @@ img {
 hr {
   display: none;
 }
+
+// Prevent horizontal overflow on small screens
+// 1. Prevent *grid blowout*
+//    https://css-tricks.com/preventing-a-grid-blowout/
+// 2. Deal with overflowing code samples
+main {
+  min-width: 0; // 1.
+}
+
+pre {
+  overflow-x: auto; // 2.
+}
