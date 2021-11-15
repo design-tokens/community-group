@@ -36,17 +36,6 @@ Token values may be any valid JSON type:
 
 Additionally, tokens may be defined with a more specific [Token Type](#types)
 
-<div class="issue" data-number="55" title="Object vs Array">
-
-The structure in the example above is a JSON object, an **unordered** set of name/value pairs.
-
-- Objects can't contain members with duplicate keys
-- Ordering of object members may not be preserved (as per [RFC 7159](https://tools.ietf.org/html/rfc7159#section-4)), meaning token retrieval may or may not result in the same ordering as the input
-
-Please raise concerns if these limitations create problems for implementers.
-
-</div>
-
 <div class="issue" data-number="59" title="Token name case sensitivity">
   Should token names be case sensitive?
 </div>

@@ -48,6 +48,8 @@ The names of the groups leading to a given token (including that token’s name)
 
 Because groupings are arbitrary, tools MUST NOT use them to infer the type or purpose of design tokens.
 
+Groups are unordered. In other words, there is no implicit order between the tokens and/or nested groups within a group. Therefore, tools that parse or write design token files are not required to preserve the source order of items in a group.
+
 <p class="ednote" title="Naming practices">
   The format editors acknowledge existing best-practices for token naming, but place no direct constraints on naming via the specification.
 </p>
