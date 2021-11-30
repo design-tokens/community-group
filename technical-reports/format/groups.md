@@ -48,7 +48,7 @@ The names of the groups leading to a given token (including that token’s name)
 
 Because groupings are arbitrary, tools MUST NOT use them to infer the type or purpose of design tokens.
 
-Groups are unordered. In other words, there is no implicit order between items (i.e. the tokens and/or nested groups) within a group. Therefore, tools that parse or write design token files are not required to preserve the source order of items in a group.
+Groups items (i.e. the tokens and/or nested groups) are unordered. In other words, there is no implicit order between items within a group. Therefore, tools that parse or write design token files are not required to preserve the source order of items in a group.
 
 The names of items in a group are case sensitive. As per the guidance in the [design token chapter](#name-and-value), tools MAY display a warning to users when groups contain items whose names differ only in case and could therefore lead to naming clashes when exported.
 

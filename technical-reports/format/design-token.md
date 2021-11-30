@@ -50,7 +50,7 @@ $font-size: 16px;
 
 </aside>
 
-Tools therefore MAY display a warning to the user when encountering token names that may cause naming clashes after being exported.
+Tools MAY display a warning when token names differ only by case.
 
 ### Token value type
 
