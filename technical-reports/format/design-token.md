@@ -23,6 +23,14 @@ The example above therefore defines 1 design token with the following properties
 
 Name and value are both **required**.
 
+### Character restrictions
+
+Due to the syntax used for [token aliases](#aliases-references) the following characters cannot be used in a token's **name** property or in a [token group](#groups-0) name:
+
+- `{`
+- `}`
+- `.`
+
 ### Token value type
 
 Token values may be any valid JSON type:
@@ -49,10 +57,6 @@ Please raise concerns if these limitations create problems for implementers.
 
 <div class="issue" data-number="59" title="Token name case sensitivity">
   Should token names be case sensitive?
-</div>
-
-<div class="issue" data-number="60" title="Unicode range restriction">
-  Should the specification restrict the name property to a specific Unicode range or make certain characters invalid at the start/middle/end of a name (such as white space, line breaks…)? If so, what characters and why?
 </div>
 
 <div class="issue" data-number="61" title="Reserved words">
