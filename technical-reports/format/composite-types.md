@@ -95,7 +95,34 @@ Represents a border style. The type property must be set to the string “border
 
 - `color`: The color of the border. The value of this property must be a valid [color value](#color) or a reference to a color token.
 - `width`: The width or thickness of the border. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `style`: The border's style, for example "solid" or "dashed". The value of this property must be a valid JSON string or a reference to another string token.
+- `style`: The border's style, for example "solid" or "dashed". The value of this property must be a valid JSON string or a reference to a string token.
+
+<aside class="example" title="Border composite token examples">
+
+```json
+{
+  "border": {
+    "heavy": {
+      "type": "border",
+      "value": {
+        "color": "#36363600",
+        "width": "3px",
+        "style": "solid"
+      }
+    },
+    "focusring": {
+      "type": "border",
+      "value": {
+        "color": "{color.focusring}",
+        "width": "1px",
+        "style": "dashed"
+      }
+    }
+  }
+}
+```
+
+</aside>
 
 # Transition
 
@@ -115,6 +142,43 @@ Represents a shadow style. The type property must be set to the string “shadow
 
 TO-DO
 
-# Text style
+# Typography
 
-TO-DO
+Represents a typographic style. The type property must be set to the string “typography”. The value must be an object with the following properties:
+
+- `fontName`: The typography's font. The value of this property must be a valid [font name](#font-name) or a reference to a font name token.
+- `fontSize`: The size of the typography. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `fontWeight`: The weight of the typography. The value of this property must be a valid JSON string or a reference to a string token.
+- `letterSpacing`: The horizontal spacing between characters. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `lineHeight`: The vertical spacing between lines of typography. The value of this property must be a valid JSON string or a reference to a string token.
+
+<aside class="example" title="Typography composite token examples">
+
+```json
+{
+  "type styles": {
+    "heading-level-1": {
+      "type": "typography",
+      "value": {
+        "fontName": "Roboto",
+        "fontSize": "42px",
+        "fontWeight": "700",
+        "letterSpacing": "0.1px",
+        "lineHeight": "1.2"
+      }
+    },
+    "microcopy": {
+      "type": "typography",
+      "value": {
+        "fontName": "{font.serif}",
+        "fontSize": "{font.size.smallest}",
+        "fontWeight": "{font.weight.normal}",
+        "letterSpacing": "0px",
+        "lineHeight": "1"
+      }
+    }
+  }
+}
+```
+
+</aside>
