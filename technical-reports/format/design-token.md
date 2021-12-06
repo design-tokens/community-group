@@ -27,9 +27,9 @@ Name and value are both **required**.
 
 Due to the syntax used for [token aliases](#aliases-references) the following characters cannot be used in a token's **name** property or in a [token group](#groups-0) name:
 
-- `{`
-- `}`
-- `.`
+- `{` (left curly bracket)
+- `}` (right curly bracket)
+- `.` (period)
 
 ### Token value type
 
