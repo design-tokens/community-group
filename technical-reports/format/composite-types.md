@@ -91,7 +91,11 @@ At first glance, groups and composite tokens might look very similar. However, t
 
 # Border
 
-TO-DO
+Represents a border style. The type property must be set to the string “border”. The value must be an object with the following properties:
+
+- `color`: The color of the border. The value of this property must be a valid [color value](#color) or a reference to a color token.
+- `width`: The width or thickness of the border. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `style`: The border's style, for example "solid" or "dashed". The value of this property must be a valid JSON string or a reference to another string token.
 
 # Transition
 
