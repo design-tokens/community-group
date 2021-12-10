@@ -10,7 +10,7 @@ trim_trailing_whitespace = true
 end_of_line = lf
 
 # Markdown syntax specifies that trailing whitespaces can be meaningful,
-# so let’s not trim those. e.g. 2 trailing spaces = linebreak (<br />)
+# so let's not trim those. e.g. 2 trailing spaces = linebreak (<br />)
 # See https://daringfireball.net/projects/markdown/syntax#p
 [*.md]
 trim_trailing_whitespace = false

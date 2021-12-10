@@ -6,7 +6,7 @@ Start Date: Sep 2, 2019
 Last Modifed: Sep 2, 2019  
 W3C page: <https://www.w3.org/community/design-tokens/>
 
-The DTCG’s goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.
+The DTCG's goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.
 
 ## Scope of Work
 
@@ -47,7 +47,7 @@ The group MAY produce test suites to support the Specifications. Please see the 
 
 The group operates under the [Community and Business Group Process](https://www.w3.org/community/about/agreements/). Terms in this Charter that conflict with those of the Community and Business Group Process are void.
 
-As with other Community Groups, W3C seeks organizational licensing commitments under the [W3C Community Contributor License Agreement (CLA)](http://www.w3.org/community/about/agreements/cla/). When people request to participate without representing their organization’s legal interests, W3C will in general approve those requests for this group with the following understanding: W3C will seek and expect an organizational commitment under the CLA starting with the individual’s first request to make a contribution to a group [Deliverable](#deliverables). The section on [Contribution Mechanics](#contrib) describes how W3C expects to monitor these contribution requests.
+As with other Community Groups, W3C seeks organizational licensing commitments under the [W3C Community Contributor License Agreement (CLA)](http://www.w3.org/community/about/agreements/cla/). When people request to participate without representing their organization's legal interests, W3C will in general approve those requests for this group with the following understanding: W3C will seek and expect an organizational commitment under the CLA starting with the individual's first request to make a contribution to a group [Deliverable](#deliverables). The section on [Contribution Mechanics](#contrib) describes how W3C expects to monitor these contribution requests.
 
 The [W3C Code of Ethics and Professional Conduct](https://www.w3.org/Consortium/cepc/) applies to participation in this group.
 
@@ -69,17 +69,17 @@ All GitHub repositories attached to the Community Group must contain a copy of t
 
 The group will conduct all of its technical work in public. If the group uses GitHub, all technical work will occur in its GitHub repositories (and not in mailing list discussions). This is to ensure contributions can be tracked through a software tool.
 
-Meetings may be restricted to Community Group participants, but a public summary or minutes must be posted to the group’s public mailing list, or to a GitHub issue if the group uses GitHub.
+Meetings may be restricted to Community Group participants, but a public summary or minutes must be posted to the group's public mailing list, or to a GitHub issue if the group uses GitHub.
 
 ## Decision Process<a name="decision"></a>
 
-This group will seek to make decisions where there is consensus. Groups are free to decide how to make decisions (e.g. Participants who have earned Committer status for a history of useful contributions assess consensus, or the Chair assesses consensus, or where consensus isn’t clear there is a Call for Consensus [CfC] to allow multi-day online feedback for a proposed course of action). It is expected that participants can earn Committer status through a history of valuable contributions as is common in open source projects. After discussion and due consideration of different opinions, a decision should be publicly recorded (where GitHub is used as the resolution of an Issue).
+This group will seek to make decisions where there is consensus. Groups are free to decide how to make decisions (e.g. Participants who have earned Committer status for a history of useful contributions assess consensus, or the Chair assesses consensus, or where consensus isn't clear there is a Call for Consensus [CfC] to allow multi-day online feedback for a proposed course of action). It is expected that participants can earn Committer status through a history of valuable contributions as is common in open source projects. After discussion and due consideration of different opinions, a decision should be publicly recorded (where GitHub is used as the resolution of an Issue).
 
 If substantial disagreement remains (e.g. the group is divided) and the group needs to decide an Issue in order to continue to make progress, the Committers will choose an alternative that had substantial support (with a vote of Committers if necessary). Individuals who disagree with the choice are strongly encouraged to take ownership of their objection by taking ownership of an alternative fork. This is explicitly allowed (and preferred to blocking progress) with a goal of letting implementation experience inform which spec is ultimately chosen by the group to move ahead with.
 
-Any decisions reached at any meeting are tentative and should be recorded in a GitHub Issue for groups that use GitHub and otherwise on the group’s public mail list. Any group participant may object to a decision reached at an online or in-person meeting within 7 days of publication of the decision provided that they include clear technical reasons for their objection. The Chairs will facilitate discussion to try to resolve the objection according to the [decision process](#decision).
+Any decisions reached at any meeting are tentative and should be recorded in a GitHub Issue for groups that use GitHub and otherwise on the group's public mail list. Any group participant may object to a decision reached at an online or in-person meeting within 7 days of publication of the decision provided that they include clear technical reasons for their objection. The Chairs will facilitate discussion to try to resolve the objection according to the [decision process](#decision).
 
-It is the Chairs’ responsibility to ensure that the decision process is fair, respects the consensus of the CG, and does not unreasonably favour or discriminate against any group participant or their employer.
+It is the Chairs' responsibility to ensure that the decision process is fair, respects the consensus of the CG, and does not unreasonably favour or discriminate against any group participant or their employer.
 
 ## Chair Selection
 

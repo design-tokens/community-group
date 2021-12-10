@@ -12,7 +12,7 @@ Design tokens were created by the Salesforce design system team, and the name co
 
 Sharing design properties such as a color palette across many tools and platforms should be simple.
 
-The DTCG’s goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.
+The DTCG's goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.
 
 We believe that a common way to share design tokens will unlock efficiency opportunities for plugins, design system teams, product teams, and end-users of design tools.
 
@@ -92,5 +92,5 @@ See [CONTRIBUTING.md](https://github.com/design-tokens/community-group/blob/main
 
 We acknowledge that the format specification is only part of an ecosystem, supporting methods and practices that relate to scaling design tokens:
 
-> Design Tokens are a methodology. IMHO, saying “design tokens are just variables” is like saying “responsive design is just media queries”. It’s a technology-agnostic architecture and process for scaling design across multiple platforms and devices, including native, and more.
+> Design Tokens are a methodology. IMHO, saying "design tokens are just variables" is like saying "responsive design is just media queries". It's a technology-agnostic architecture and process for scaling design across multiple platforms and devices, including native, and more.
 > — [@jina on Twitter](https://twitter.com/jina/status/1062808011301965825)

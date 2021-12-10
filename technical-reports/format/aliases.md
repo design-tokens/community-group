@@ -7,7 +7,9 @@ Aliases are useful for:
 - Expressing design choices
 - Eliminating repetition of values in token files (DRYing up the code)
 
-For a design token to reference another, its value should be a string containing the period-separated (.) path to the token it’s referencing enclosed in curly brackets. For example:
+For a design token to reference another, its value should be a string containing the period-separated (.) path to the token it's referencing enclosed in curly brackets.
+
+For example:
 
 <aside class="example">
 
@@ -26,7 +28,7 @@ For a design token to reference another, its value should be a string containing
 
 </aside>
 
-When a tool needs the actual value of a token it must resolve the reference - i.e. lookup the token being referenced and fetch its value. In the above example, the "alias name" token’s value would resolve to 1234 because it references the token whose path is `{group name.token name}` which has the value 1234.
+When a tool needs the actual value of a token it must resolve the reference - i.e. lookup the token being referenced and fetch its value. In the above example, the "alias name" token's value would resolve to 1234 because it references the token whose path is `{group name.token name}` which has the value 1234.
 
 Tools should preserve references and therefore only resolve them whenever the actual value needs to be retrieved. For instance, in a design tool, changes to the value of a token being referenced by aliases should be reflected wherever those aliases are being used.
 
