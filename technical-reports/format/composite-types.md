@@ -6,13 +6,14 @@ Every shadow style has the exact same parts (color, X & Y offsets, etc.), but th
 
 Specifically, a composite type has the following characteristics:
 
-- Its value is an object containing sub-values.
-- Each sub-value has a pre-defined name and type.
+- Its value is an object or array containing sub-values.
+- For object values, each sub-value has a pre-defined name and type.
+- For array values, all elements of the array are sub-values that have the same pre-defined type.
 - Sub-values may be explicit values (e.g. `"#ff0000"`) or references to other design tokens that have sub-value's type (e.g. `"{some.other.token}"`).
 
 A design token whose type happens to be a composite type is sometimes also called a composite (design) token. Besides their type, there is nothing special about composite tokens. They can have all the other additional properties like [description](#description) or [extensions](#extensions). They can also be referenced by other design tokens.
 
-<aside class="example" title="Composite token exmple">
+<aside class="example" title="Composite token example">
 
 ```json
 {
@@ -138,9 +139,107 @@ Represents a shadow style. The type property must be set to the string “shadow
 - `blur`: The blur radius that is applied to the shadow. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `spread`: The amount by which to expand or contract the shadow. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
 
+# Gradient Stop
+
+Represents an individual stop on a color gradient. In practice, this type is unlikely to be useful by itself, but it is required by the [gradient type](#gradient). The value must be an object with the following properties:
+
+- `color`: The color value at the stop's position on the gradient. The value of this property must be a valid [color value](#color) or a reference to a color token.
+- `position`: The position of the stop along the gradient's axis. The value of this property must be a valid number value or reference to a number token. The number values must be in the range [0, 1], where 0 represents the start position of the gradient's axis and 1 the end position. If a number value outside of that range is given, it MUST be considered as if it were clamped to the range [0, 1]. For example, a value of 42 should be treated as if it were 1, i.e. the end position of the gradient axis. Similarly, a value of -99 should be treated as if it were 0, i.e. the start position of the gradient axis.
+
 # Gradient
 
-TO-DO
+Represents a color gradient. The value must be an array of [gradient stops](#gradient-stop). If there are no stops at the very beginning or end of the gradient axis (i.e. with `position` 0 or 1, respectively), then the color from the stop closest to each end should be extended to that end of the axis.
+
+<aside class="example" title="Gradient token example">
+
+```json
+{
+  "blue-to-red": {
+    "type": "gradient",
+    "value": [
+      {
+        "color": "#0000ff",
+        "pos": 0
+      },
+      {
+        "color": "#ff0000",
+        "pos": 1
+      }
+    ]
+  }
+}
+```
+
+Describes a gradient that goes from blue to red:
+
+<div style="height: 2rem; background: linear-gradient(90deg, #0000ff, #ff0000);"></div>
+
+</aside>
+
+<aside class="example" title="Gradient token with omitted start stop example">
+
+```json
+{
+  "mostly-yellow": {
+    "type": "gradient",
+    "value": [
+      {
+        "color": "#ffff00",
+        "pos": 0.666
+      },
+      {
+        "color": "#ff0000",
+        "pos": 1
+      }
+    ]
+  }
+}
+```
+
+Describes a gradient that is solid yellow for the first 2/3 and then fades to red:
+
+<div style="height: 2rem; background: linear-gradient(90deg, #ffff00 66.6%, #ff0000);"></div>
+
+</aside>
+
+<aside class="example" title="Gradient token using references example">
+
+```json
+{
+  "brand-primary": {
+    "type": "color",
+    "value": "#99ff66"
+  },
+
+  "position-end": {
+    "value": 1
+  },
+
+  "brand-in-the-middle": {
+    "type": "gradient",
+    "value": [
+      {
+        "color": "#000000",
+        "pos": 0
+      },
+      {
+        "color": "{brand-primary}",
+        "pos": 0.5
+      },
+      {
+        "color": "#000000",
+        "pos": "{position-end}"
+      }
+    ]
+  }
+}
+```
+
+Describes a color token called "brand-primary", which is referenced as the mid-point of a gradient is black at either end.
+
+<div style="height: 2rem; background: linear-gradient(90deg, #000000, #99ff66, #000000);"></div>
+
+</aside>
 
 # Typography
 
