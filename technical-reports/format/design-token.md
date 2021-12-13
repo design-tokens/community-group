@@ -23,12 +23,39 @@ The example above therefore defines 1 design token with the following properties
 
 Name and value are both **required**.
 
+Token names are case-sensitive, so the following example with 2 tokens in the same group whose names only differ in case is valid:
+
+<aside class="example">
+
+```json
+{
+  "font-size": { "value": "3rem" },
+  "FONT-SIZE": { "value": "16px" }
+}
+```
+
+</aside>
+
+However, some tools may need to transform names when exporting to other languages or displaying names to the user, so having token names that differ only in case is likely to cause identical and undesirable duplicates in the output. For example, an export tool that converts these tokens to Sass code may generate problematic output like this:
+
+<aside class="example">
+
+```scss
+$font-size: 3rem;
+$font-size: 16px;
+
+// The 2nd $font-size overrides the 1st one, so the 1st token
+// has essentially been lost.
+```
+
+</aside>
+
+Tools MAY display a warning when token names differ only by case.
 ### Character restrictions
 
 Due to the syntax used for [token aliases](#aliases-references) the following characters cannot be used in a token's **name** property or in a [token group](#groups-0) name:
 
-- `{` (left curly bracket)
-- `}` (right curly bracket)
+- `{` (left curly bracket)- `}` (right curly bracket)
 - `.` (period)
 
 ### Token value type
