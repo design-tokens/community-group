@@ -51,11 +51,13 @@ $font-size: 16px;
 </aside>
 
 Tools MAY display a warning when token names differ only by case.
+
 ### Character restrictions
 
 Due to the syntax used for [token aliases](#aliases-references) the following characters cannot be used in a token's **name** property or in a [token group](#groups-0) name:
 
-- `{` (left curly bracket)- `}` (right curly bracket)
+- `{` (left curly bracket)
+- `}` (right curly bracket)
 - `.` (period)
 
 ### Token value type
@@ -80,10 +82,6 @@ The structure in the example above is a JSON object, an **unordered** set of nam
 
 Please raise concerns if these limitations create problems for implementers.
 
-</div>
-
-<div class="issue" data-number="59" title="Token name case sensitivity">
-  Should token names be case sensitive?
 </div>
 
 <div class="issue" data-number="61" title="Reserved words">
