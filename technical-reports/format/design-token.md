@@ -52,6 +52,14 @@ $font-size: 16px;
 
 Tools MAY display a warning when token names differ only by case.
 
+### Character restrictions
+
+Due to the syntax used for [token aliases](#aliases-references) the following characters cannot be used in a token's **name** property or in a [token group](#groups-0) name:
+
+- `{` (left curly bracket)
+- `}` (right curly bracket)
+- `.` (period)
+
 ### Token value type
 
 Token values may be any valid JSON type:
@@ -65,8 +73,15 @@ Token values may be any valid JSON type:
 
 Additionally, tokens may be defined with a more specific [Token Type](#types)
 
-<div class="issue" data-number="60" title="Unicode range restriction">
-  Should the specification restrict the name property to a specific Unicode range or make certain characters invalid at the start/middle/end of a name (such as white space, line breaks…)? If so, what characters and why?
+<div class="issue" data-number="55" title="Object vs Array">
+
+The structure in the example above is a JSON object, an **unordered** set of name/value pairs.
+
+- Objects can't contain members with duplicate keys
+- Ordering of object members may not be preserved (as per [RFC 7159](https://tools.ietf.org/html/rfc7159#section-4)), meaning token retrieval may or may not result in the same ordering as the input
+
+Please raise concerns if these limitations create problems for implementers.
+
 </div>
 
 <div class="issue" data-number="61" title="Reserved words">
