@@ -112,6 +112,7 @@ The **description** property must be a plain JSON string, for example:
 Design tokens always have an unambiguous type, so that tools can reliably interpret their value.
 
 If a token's type is not explicitly specified via the `type` property, then the token's type MUST be determined as follows:
+
 - If the token's value is a reference, then its type is the type of the token being referenced.
 - Otherwise, if any of the token's parent groups have a `type` property, then the token's type is inherited from the closest parent group with a `type` property.
 - Otherwise, the token's type is whichever of the basic JSON types (`string`, `number`, `boolean`, `object`, `array` or `null`) its value is.
@@ -119,6 +120,7 @@ If a token's type is not explicitly specified via the `type` property, then the 
 Tools MUST NOT attempt to guess the type of a token by inspecting the contents of its value.
 
 The `type` property can be set on different levels:
+
 - at the group level
 - at the token level
 
