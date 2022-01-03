@@ -88,7 +88,7 @@ A naive approach like the one below may be appropriate for the first stage of th
 
 </div>
 
-Represents a font name or an array of font names (ordered from most to least preferred). The `type` property must be set to the string "font". The value must either be a string value containing a single font name or an array of strings, each being a single font name.
+Represents a font name or an array of font names (ordered from most to least preferred). The `type` property must be set to the string "font-name". The value must either be a string value containing a single font name or an array of strings, each being a single font name.
 
 For example:
 
@@ -98,11 +98,51 @@ For example:
 {
   "Primary font": {
     "value": "Comic Sans MS",
-    "type": "font"
+    "type": "font-name"
   },
   "Body font": {
     "value": ["Helvetica", "Arial"],
-    "type": "font"
+    "type": "font-name"
+  }
+}
+```
+
+</aside>
+
+## Font weight
+
+Represents a font weight. The `type` property must be set to the string "font-weight". The value must either be a number value in the range [1, 1000] or one of the pre-defined string values defined in the table below.
+
+Lower numbers represent lighter weights, and higher numbers represent thicker weights, as per the [OpenType `wght` tag specification](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_wght). The pre-defined string values are aliases for specific numeric values. For example `100`, `"thin"` and `"hairline"` are all the exact same value.
+
+| numeric value | string value aliases         |
+| ------------- | ---------------------------- |
+| `100`         | `thin`, `hairline`           |
+| `200`         | `extra-light`, `ultra-light` |
+| `300`         | `light`                      |
+| `400`         | `normal`, `regular`, `book`  |
+| `500`         | `medium`                     |
+| `600`         | `semi-bold`, `demi-bold`     |
+| `700`         | `bold`                       |
+| `800`         | `extra-bold`, `ultra-bold`   |
+| `900`         | `black`, `heavy`             |
+| `950`         | `extra-black`, `ultra-black` |
+
+Number values outside of the [1, 1000] range and any other string values, including ones that differ only in case, are invalid and MUST be rejected by tools.
+
+Example:
+
+<aside class="example">
+
+```json
+{
+  "font-weight-default": {
+    "value": 350,
+    "type": "font-weight"
+  },
+  "font-weight-thick": {
+    "value": "extra-bold",
+    "type": "font-weight"
   }
 }
 ```

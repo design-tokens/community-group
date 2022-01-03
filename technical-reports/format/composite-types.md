@@ -243,7 +243,7 @@ Represents a typographic style. The type property must be set to the string “t
 
 - `fontName`: The typography's font. The value of this property must be a valid [font name](#font-name) or a reference to a font name token.
 - `fontSize`: The size of the typography. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `fontWeight`: The weight of the typography. The value of this property must be a valid JSON string or a reference to a string token.
+- `fontWeight`: The weight of the typography. The value of this property must be a valid [font weight](#font-weight) or a reference to a font weight token.
 - `letterSpacing`: The horizontal spacing between characters. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `lineHeight`: The vertical spacing between lines of typography. The value of this property must be a valid JSON string or a reference to a string token.
 
