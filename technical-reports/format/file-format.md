@@ -4,7 +4,7 @@ Design token files are JSON ([https://www.json.org/](https://www.json.org/)) fil
 
 JSON was chosen as an interchange format on the basis of:
 
-- Broad support in many programming languages’ standard libraries. This is expected to lower barriers to entry for developers writing software that supports design token files.
+- Broad support in many programming languages' standard libraries. This is expected to lower barriers to entry for developers writing software that supports design token files.
 - Current popularity and widespread use. This is expected to lower the learning curve as many people will already be familiar with JSON.
 - Being text-based (rather than binary) allows hand-editing design token files without needing specialized software other than a basic text editor. It also means the files are somewhat human-readable.
 
@@ -25,9 +25,9 @@ When saving design token files on a local file system, it can be useful to have 
 - `.tokens`
 - `.tokens.json`
 
-The former is more succinct. However, until this format is widely adopted and supported, the latter might be useful to make design token files open in users’ preferred JSON editors.
+The former is more succinct. However, until this format is widely adopted and supported, the latter might be useful to make design token files open in users' preferred JSON editors.
 
-Tools that can open design token files MAY filter available files (e.g. in an open file dialog) to only show ones using those extensions. It is recommended that also provide users with a way of opening files that do not use those extensions (e.g. a “show all files” option or similar).
+Tools that can open design token files MAY filter available files (e.g. in an open file dialog) to only show ones using those extensions. It is recommended to also provide users with a way of opening files that do not use those extensions (e.g. a "show all files" option or similar).
 
 Tools that can save design token files SHOULD append one of the recommended file extensions to the filename when saving.
 

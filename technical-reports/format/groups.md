@@ -27,24 +27,24 @@ A file may contain many tokens and they may be nested arbitrarily in groups like
 
 </aside>
 
-The names of the groups leading to a given token (including that token’s name) are that token’s _path_, which is a computed property. **It is not specified in the file**, but parsers that conform to this spec must be able to expose the path of a token. The above example, therefore, defines 4 design tokens with the following properties:
+The names of the groups leading to a given token (including that token's name) are that token's _path_, which is a computed property. **It is not specified in the file**, but parsers that conform to this spec must be able to expose the path of a token. The above example, therefore, defines 4 design tokens with the following properties:
 
 - Token #1
-  - Name: “token uno”
-  - Path: “token uno”
-  - Value: “token value 1”
+  - Name: "token uno"
+  - Path: "token uno"
+  - Value: "token value 1"
 - Token #2
-  - Name: “token dos”
-  - Path: “token group” / “token dos”
-  - Value: “token value 2”
+  - Name: "token dos"
+  - Path: "token group" / "token dos"
+  - Value: "token value 2"
 - Token #3
-  - Name: “token tres”
-  - Path: “token group” / “nested token group” / “token tres”
-  - Value: “token value 3”
+  - Name: "token tres"
+  - Path: "token group" / "nested token group" / "token tres"
+  - Value: "token value 3"
 - Token #4
-  - Name: “token cuatro”
-  - Path: “token group” / “nested token group” / “token cuatro”
-  - Value: “token value 4”
+  - Name: "token cuatro"
+  - Path: "token group" / "nested token group" / "token cuatro"
+  - Value: "token value 4"
 
 Because groupings are arbitrary, tools MUST NOT use them to infer the type or purpose of design tokens.
 
@@ -60,7 +60,9 @@ The names of items in a group are case sensitive. As per the guidance in the [de
 
 ### Description
 
-Groups may include an optional description property. For example:
+Groups may include an optional `description` property.
+
+For example:
 
 <aside class="example">
 
@@ -95,11 +97,40 @@ Groups may support additional properties like type and description. Should other
 
 </div>
 
+### Type
+
+Groups may include an optional `type` property so a type property does not need to be manually added to every token. [See supported "Types"](#types) for more information.
+
+If a group has a `type` property it acts as a default type for any tokens within the group, including ones in nested groups, that do not explicity declare a type via their own `type` property. For the full set of rules by which a design token's type is determined, please refer to the [design token type property chapter](#type-0).
+
+For example:
+
+<aside class="example">
+
+```json
+{
+  "brand": {
+    "type": "color",
+    "color": {
+      "description": "Our brand's primary color palette",
+      "acid green": {
+        "value": "#00ff66"
+      },
+      "hot pink": {
+        "value": "#dd22cc"
+      }
+    }
+  }
+}
+```
+
+</aside>
+
 ## Use-cases
 
 ### File authoring & organization
 
-Groups let token file authors better organize their token files. Related tokens can be nested into groups to align with the team’s naming conventions and/or mental model. When manually authoring files, using groups is also less verbose than a flat list of tokens with repeating prefixes.
+Groups let token file authors better organize their token files. Related tokens can be nested into groups to align with the team's naming conventions and/or mental model. When manually authoring files, using groups is also less verbose than a flat list of tokens with repeating prefixes.
 
 For example:
 

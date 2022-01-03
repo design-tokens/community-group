@@ -9,7 +9,7 @@ If so, which composites should be included initially?
 
 </div>
 
-The types described in the previous chapter are all for singular values (a color, a dimension, etc.). However, it can often be useful to group related values as a single token so that they can be used or referenced as a single unit. A typical example of this is a “typography style” as found in many design tools, which is a combination of the font name, weight, style, and color.
+The types described in the previous chapter are all for singular values (a color, a dimension, etc.). However, it can often be useful to group related values as a single token so that they can be used or referenced as a single unit. A typical example of this is a "typography style" as found in many design tools, which is a combination of the font name, weight, style, and color.
 
 Other examples might be:
 
@@ -74,7 +74,7 @@ At first glance, groups and composite types might look very similar. However, th
 
 ## Type checking
 
-Just as with “normal” types for tokens, using a custom, composite type will allow tools to check that the values you use match the expected type. In our color pair example above, attempting to do the following would be invalid and tools should ignore the token and show an error to the user, since “Comic Sans MS” is not a valid color value.
+Just as with "normal" types for tokens, using a custom, composite type will allow tools to check that the values you use match the expected type. In our color pair example above, attempting to do the following would be invalid and tools should ignore the token and show an error to the user, since "Comic Sans MS" is not a valid color value.
 
 <aside class="example" title="Invalid type">
 

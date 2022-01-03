@@ -57,7 +57,7 @@ Few examples:
 
 ## Type
 
-A token’s type is a predefined categorization applied to the token’s value.
+A token's type is a predefined categorization applied to the token's value.
 
 For example:
 
@@ -69,12 +69,14 @@ Token tools can use Types to infer the purpose of a token.
 
 For example:
 
-- A [translation tool](#translation-tool) might reference a token’s type to convert the source value into the correct platform-specific format.
-- A visual [design tool](#design-tool) might reference type to present tokens in the appropriate part of their UI - as in, color tokens are listed in the color picker, font tokens in the text styling UI’s fonts list, and so on.
+- A [translation tool](#translation-tool) might reference a token's type to convert the source value into the correct platform-specific format.
+- A visual [design tool](#design-tool) might reference type to present tokens in the appropriate part of their UI - as in, color tokens are listed in the color picker, font tokens in the text styling UI's fonts list, and so on.
 
 ## Groups
 
-Sets of tokens belonging to a specific category. For example:
+Sets of tokens belonging to a specific category.
+
+For example:
 
 - Brand
 - Alert
@@ -84,7 +86,7 @@ Groups are arbitrary and tools SHOULD NOT use them to infer the type or purpose 
 
 ## Alias (Reference)
 
-A design token’s value can be a reference to another token. The same value can have multiple names or _aliases_.
+A design token's value can be a reference to another token. The same value can have multiple names or _aliases_.
 
 The following Sass example illustrates this concept:
 
