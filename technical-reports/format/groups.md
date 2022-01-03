@@ -6,18 +6,18 @@ A file may contain many tokens and they may be nested arbitrarily in groups like
 
 ```json
 {
-  "token uno": {
+  "token-uno": {
     "value": "token value 1"
   },
-  "token group": {
-    "token dos": {
+  "token-group": {
+    "token-dos": {
       "value": "token value 2"
     },
-    "nested token group": {
-      "token tres": {
+    "nested-token-group": {
+      "token-tres": {
         "value": "token value 3"
       },
-      "Token cuatro": {
+      "token-cuatro": {
         "value": "token value 4"
       }
     }
@@ -56,11 +56,37 @@ The names of items in a group are case sensitive. As per the guidance in the [de
   The format editors acknowledge existing best-practices for token naming, but place no direct constraints on naming via the specification.
 </p>
 
-## Additional group properties
+## Additional group metadata properties
+
+Groups may include additional metadata properties. To minimize naming clashes with items in the group, all metadata properties are nested inside an object whose key is `metadata`. `metadata` is therefore a reserved word within groups meaning that tokens or nested groups cannot be called `metadata`.
+
+<aside class="example">
+
+```json
+{
+  "space": {
+    "metadata": {
+      "description": "A description for the 'space' group",
+      "type": "dimension"
+    },
+    "small": {
+      "value": "0.5rem"
+    },
+    "medium": {
+      "value": "1rem"
+    },
+    "large": {
+      "value": "2rem"
+    }
+  }
+}
+```
+
+</aside>
 
 ### Description
 
-Groups may include an optional `description` property.
+Groups may include an optional `description` metadata property.
 
 For example:
 
@@ -69,9 +95,13 @@ For example:
 ```json
 {
   "brand": {
-    "description": "Design tokens from our brand guidelines",
+    "metadata": {
+      "description": "Design tokens from our brand guidelines"
+    },
     "color": {
-      "description": "Our brand's primary color palette",
+      "metadata": {
+        "description": "Our brand's primary color palette"
+      },
       "acid green": {
         "value": "#00ff66"
       },
@@ -91,17 +121,11 @@ Suggested ways tools may use this property are:
 - A GUI tool that lets users browse or select tokens could display this info alongside the corresponding group or as a tooltip
 - Export tools could output this as a source code comment
 
-<div class="issue" data-number="72">
-
-Groups may support additional properties like type and description. Should other properties be supported at the group level?
-
-</div>
-
 ### Type
 
-Groups may include an optional `type` property so a type property does not need to be manually added to every token. [See supported "Types"](#types) for more information.
+Groups may include an optional `type` metadata property so a type property does not need to be manually added to every token. [See supported "Types"](#types) for more information.
 
-If a group has a `type` property it acts as a default type for any tokens within the group, including ones in nested groups, that do not explicity declare a type via their own `type` property. For the full set of rules by which a design token's type is determined, please refer to the [design token type property chapter](#type-0).
+If a group has a `type` metadata property it acts as a default type for any tokens within the group, including ones in nested groups, that do not explicity declare a type via their own `type` property. For the full set of rules by which a design token's type is determined, please refer to the [design token type property chapter](#type-0).
 
 For example:
 
@@ -110,9 +134,10 @@ For example:
 ```json
 {
   "brand": {
-    "type": "color",
+    "metadata": {
+      "type": "color"
+    },
     "color": {
-      "description": "Our brand's primary color palette",
       "acid green": {
         "value": "#00ff66"
       },
