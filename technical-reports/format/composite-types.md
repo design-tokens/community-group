@@ -88,13 +88,118 @@ At first glance, groups and composite tokens might look very similar. However, t
   - Their type must be one of the composite types defined in this specification. Therefore their names and types of their sub-values are pre-defined. Adding additional sub-values or setting values that don't have the correct type make the composite token invalid.
   - Tools MAY provide specialised functionality for composite tokens. For example, a design tool may let the user pick from a list of all available shadow tokens when applying a drop shadow effect to an element.
 
+## Stroke style
+
+Represents the style applied to lines or borders. The `type` property must be set to the string `"stroke-style"`. The value must be either:
+
+- a string value as defined in the corresponding section below, or
+- an object value as defined in the corresponding section below
+
+### String value
+
+String stroke style values MUST be set to one of the following, pre-defined values:
+
+- `solid`
+- `dashed`
+- `dotted`
+- `double`
+- `groove`
+- `ridge`
+- `outset`
+- `inset`
+
+These values have the same meaning as the equivalent ["line style" values in CSS](https://drafts.csswg.org/css-backgrounds/#typedef-line-style). As per the CSS spec, their exact rendering is therefore implementation specific. For example, the length of dashes and gaps in the `dashed` style may vary between different tools.
+
+<aside class="example" title="String stroke style example">
+
+```json
+{
+  "focus-ring-style": {
+    "type": "stroke-style",
+    "value": "dashed"
+  }
+}
+```
+
+</aside>
+
+### Object value
+
+Object stroke style values MUST have the following properties:
+
+- `dash-array`: An array of [dimension values](#dimension) and/or references to dimension tokens, which specify the lengths of alternating dashes and gaps. If an odd number of values is provided, then the list of values is repeated to yield an even number of values.
+- `line-cap`: One of the following pre-defined string values: `"round"`, `"butt"` or `"square"`. These values have the same meaning as those of [the `stroke-linecap` attribute in SVG](https://www.w3.org/TR/SVG11/painting.html#StrokeLinecapProperty).
+
+<aside class="example" title="Object stroke style example">
+
+```json
+{
+  "alert-border-style": {
+    "type": "stroke-style",
+    "value": {
+      "dash-array": ["0.5rem", "0.25rem"],
+      "line-cap": "round"
+    }
+  }
+}
+```
+
+</aside>
+
+<aside class="example" title="Object stroke style example using references" id="example-stroke-style-obj-ref">
+
+```json
+{
+  "notification-border-style": {
+    "type": "stroke-style",
+    "value": {
+      "dash-array": ["{dash-length-medium}", "0.25rem"],
+      "line-cap": "butt"
+    }
+  },
+
+  "dash-length-medium": {
+    "type": "dimension",
+    "value": "10px"
+  }
+}
+```
+
+</aside>
+
+### Fallbacks
+
+The string and object values are mutually exclusive means of expressing stroke styles. For example, some of the string values like `inset` or `groove` cannot be expressed in terms of a `dash-array` and `line-cap` as they require some implementation-specific means of lightening or darkening the _color_ for portions of a border or outline. Conversely, a precisely defined combination of `dash-array` and `line-cap` sub-values is not guaranteed to produce the same visual result as the `dashed` or `dotted` keywords as they are implementation-specific.
+
+Furthermore, some tools and platforms may not support the full range of stroke styles that design tokens of this type can represent. When displaying or exporting a `stroke-style` token whose value they don't natively support, they should therefore fallback to the closest approximation that they do support.
+
+The specifics of how a "closest approximation" is chosen are implementation-specific. However, the following examples illustrate what fallbacks tools MAY use in some scenarios.
+
+<aside class="example" title="Fallback for object stroke style">
+
+CSS does not allow detailed control of the dash pattern or line caps on dashed borders. So, a tool exporting the `"notification-border-style"` design token from the [example in the previous section](#example-stroke-style-obj-ref), might use the CSS `dashed` line style as a fallback:
+
+```css
+:root {
+  --notification-border-style: dashed;
+}
+```
+
+</aside>
+
+<aside class="example" title="Fallback for string stroke style">
+
+Some design tools like Figma don't support inset, outset or double style lines. When a user applies a `stroke-style` token with those values, such tools might therefore fallback to displaying a solid line instead.
+
+</aside>
+
 ## Border
 
 Represents a border style. The type property must be set to the string “border”. The value must be an object with the following properties:
 
 - `color`: The color of the border. The value of this property must be a valid [color value](#color) or a reference to a color token.
 - `width`: The width or thickness of the border. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `style`: The border's style, for example "solid" or "dashed". The value of this property must be a valid JSON string or a reference to a string token.
+- `style`: The border's style. The value of this property must be a valid [stroke style value](#stroke-style) or a reference to a stroke style token.
 
 <aside class="example" title="Border composite token examples">
 
@@ -114,7 +219,10 @@ Represents a border style. The type property must be set to the string “border
       "value": {
         "color": "{color.focusring}",
         "width": "1px",
-        "style": "dashed"
+        "style": {
+          "dash-array": ["0.5rem", "0.25rem"],
+          "line-cap": "round"
+        }
       }
     }
   }
