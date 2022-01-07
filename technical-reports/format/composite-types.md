@@ -19,8 +19,8 @@ A design token whose type happens to be a composite type is sometimes also calle
     "type": "shadow",
     "value": {
       "color": "#00000088",
-      "x": "0.5rem",
-      "y": "0.5rem",
+      "offset-x": "0.5rem",
+      "offset-y": "0.5rem",
       "blur": "1.5rem",
       "spread": "0rem"
     }
@@ -54,8 +54,8 @@ A design token whose type happens to be a composite type is sometimes also calle
       "description": "A composite token where some sub-values are references to tokens that have the correct type and others are explicit values",
       "value": {
         "color": "{color.shadow-050}",
-        "x": "{space.small}",
-        "y": "{space.small}",
+        "offset-x": "{space.small}",
+        "offset-y": "{space.small}",
         "blur": "1.5rem",
         "spread": "0rem"
       }
@@ -240,10 +240,29 @@ TO-DO
 Represents a shadow style. The type property must be set to the string “shadow”. The value must be an object with the following properties:
 
 - `color`: The color of the shadow. The value of this property must be a valid [color value](#color) or a reference to a color token.
-- `x`: The horizontal offset that shadow has from the element it is applied to. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `y`: The vertical offset that shadow has from the element it is applied to. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `offset-x`: The horizontal offset that shadow has from the element it is applied to. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `offset-y`: The vertical offset that shadow has from the element it is applied to. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `blur`: The blur radius that is applied to the shadow. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `spread`: The amount by which to expand or contract the shadow. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
+
+<aside class="example" title="Shadow token example">
+
+```json
+{
+  "shadow-token": {
+    "type": "shadow",
+    "value": {
+      "color": "#00000088",
+      "offset-x": "0.5rem",
+      "offset-y": "0.5rem",
+      "blur": "1.5rem",
+      "spread": "0rem"
+    }
+  }
+}
+```
+
+</aside>
 
 ## Gradient
 
