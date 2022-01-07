@@ -203,7 +203,6 @@ Types still to be documented here are likely to include:
 - **Font weight:** might be something like an enum of allowed values ("bold", "normal" etc.) and/or numeric values 0-1000 (like in variable fonts)
 - **Font style:** might be an enum of allowed values like ("normal", "italic"...)
 - **Border style/stroke style:** maybe an enum (solid, dashed, dotted, etc.) and/or a way to specify dash & gap lengths?
-- **Duration:** a time duration, in seconds or milliseconds, e.g. for animations, delays, etc.
 - **Percentage/ratio:** e.g. for opacity values, relative dimensions, aspect ratios, etc.
   - Not 100% sure about this since these are really "just" numbers. An alternative might be that we expand the permitted syntax for the "number" type, so for example "1:2", "50%" and 0.5 are all equivalent. People can then use whichever syntax they like best for a given token.
 - **File:** for assets - might just be a relative file path / URL (or should we let people also express the mime-type?)
