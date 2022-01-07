@@ -200,7 +200,6 @@ For example:
 <div class="ednote" title="Additional types">
 Types still to be documented here are likely to include:
 
-- **Font weight:** might be something like an enum of allowed values ("bold", "normal" etc.) and/or numeric values 0-1000 (like in variable fonts)
 - **Font style:** might be an enum of allowed values like ("normal", "italic"...)
 - **Border style/stroke style:** maybe an enum (solid, dashed, dotted, etc.) and/or a way to specify dash & gap lengths?
 - **Percentage/ratio:** e.g. for opacity values, relative dimensions, aspect ratios, etc.
