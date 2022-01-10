@@ -36,7 +36,7 @@ Token names are case-sensitive, so the following example with 2 tokens in the sa
 
 </aside>
 
-However, some tools may need to transform names when exporting to other languages or displaying names to the user, so having token names that differ only in case is likely to cause identical and undesirable duplicates in the output. For example, an export tool that converts these tokens to Sass code may generate problematic output like this:
+However, some tools MAY need to transform names when exporting to other languages or displaying names to the user, so having token names that differ only in case is likely to cause identical and undesirable duplicates in the output. For example, an export tool that converts these tokens to Sass code would generate problematic output like this:
 
 <aside class="example">
 
@@ -62,7 +62,7 @@ Due to the syntax used for [token aliases](#aliases-references) the following ch
 
 ### Token value type
 
-Token values may be any valid JSON type:
+Token values MUST be a valid JSON type:
 
 - `string`
 - `number`
@@ -71,14 +71,14 @@ Token values may be any valid JSON type:
 - `boolean`
 - `null`
 
-Additionally, tokens may be defined with a more specific [Token Type](#types)
+Additionally, tokens MAY be defined with a more specific [Token Type](#types)
 
 <div class="issue" data-number="55" title="Object vs Array">
 
 The structure in the example above is a JSON object, an **unordered** set of name/value pairs.
 
 - Objects can't contain members with duplicate keys
-- Ordering of object members may not be preserved (as per [RFC 7159](https://tools.ietf.org/html/rfc7159#section-4)), meaning token retrieval may or may not result in the same ordering as the input
+- Ordering of object members MAY NOT be preserved (as per [RFC 7159](https://tools.ietf.org/html/rfc7159#section-4)), meaning token retrieval MAY or MAY NOT result in the same ordering as the input
 
 Please raise concerns if these limitations create problems for implementers.
 
@@ -90,7 +90,7 @@ Please raise concerns if these limitations create problems for implementers.
 
 ## Additional properties
 
-While "value" is the only required property for a token, a number of additional properties may be added:
+While "value" is the only required property for a token, a number of additional properties MAY be added:
 
 ## Description
 
@@ -98,12 +98,12 @@ A plain text description explaining the token's purpose. Tools MAY use the descr
 
 For example:
 
-- Style guide generators could display the description text alongside a visual preview of the token
-- IDEs might display the description as a tooltip for auto-completion (similar to how API docs are displayed)
-- Design tools might display the description as a tooltip or alongside tokens wherever they can be selected
-- Export tools might render the description to a source code comment alongside the variable or constant they export.
+- Style guide generators MAY display the description text alongside a visual preview of the token
+- IDEs MAY display the description as a tooltip for auto-completion (similar to how API docs are displayed)
+- Design tools MAY display the description as a tooltip or alongside tokens wherever they can be selected
+- Export tools MAY render the description to a source code comment alongside the variable or constant they export.
 
-The **description** property must be a plain JSON string, for example:
+The **description** property MUST be a plain JSON string, for example:
 
 <aside class="example">
 
@@ -139,7 +139,7 @@ The `type` property can be set on different levels:
 - at the group level
 - at the token level
 
-The `type` property must be a plain JSON string, whose value is one of the [types](#types) defined in this specification.
+The `type` property MUST be a plain JSON string, whose value is one of the [types](#types) defined in this specification.
 
 For example:
 
@@ -158,7 +158,7 @@ For example:
 
 ## Extensions
 
-The **extensions** property is an object where tools MAY add proprietary, user-, team- or vendor-specific data to a design token. When doing so, each tool MUST use a vendor-specific key whose value may be any valid JSON data.
+The **extensions** property is an object where tools MAY add proprietary, user-, team- or vendor-specific data to a design token. When doing so, each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
 
 - The keys SHOULD be chosen such that they avoid the likelihood of a naming clash with another vendor's data. The [reverse domain name notation](https://en.wikipedia.org/wiki/Reverse_domain_name_notation) is recommended for this purpose.
 - Tools that process design token files MUST preserve any extension data they do not themselves understand. For example, if a design token contains extension data from tool A and the file containing that data is opened by tool B, then tool B MUST include the original tool A extension data whenever it saves a new design token file containing that token.
@@ -181,9 +181,9 @@ The **extensions** property is an object where tools MAY add proprietary, user-,
 
 </aside>
 
-In order to maintain interoperability between tools that support this format, teams and tools should restrict their usage of extension data to optional meta-data that is not crucial to understanding that token's value.
+In order to maintain interoperability between tools that support this format, teams and tools SHOULD restrict their usage of extension data to optional meta-data that is not crucial to understanding that token's value.
 
-Tool vendors are encouraged to publicly share specifications of their extension data wherever possible. That way other tools can add support for them without needing to reverse engineer the extension data. Popular extensions may also be incorporated as standardized features in future revisions of this specification.
+Tool vendors are encouraged to publicly share specifications of their extension data wherever possible. That way other tools can add support for them without needing to reverse engineer the extension data. Popular extensions could also be incorporated as standardized features in future revisions of this specification.
 
 <p class="ednote" title="Extensions section">
   The extensions section is not limited to vendors. All token users can add additional data in this section for their own purposes.
