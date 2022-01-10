@@ -26,5 +26,8 @@
   },
   "overrides": {
     "colors": "1.4.0"
+  },
+  "resolutions": {
+    "colors": "1.4.0"
   }
 }
