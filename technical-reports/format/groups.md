@@ -58,7 +58,7 @@ The names of items in a group are case sensitive. As per the guidance in the [de
 
 ## Additional group metadata properties
 
-Groups may include additional metadata properties. To minimize naming clashes with items in the group, all metadata properties are nested inside an object whose key is `metadata`. `metadata` is therefore a reserved word within groups meaning that tokens or nested groups cannot be called `metadata`.
+Groups MAY include additional metadata properties. To minimize naming collisions with items in the group, all metadata properties are nested inside an object whose key is `metadata`. `metadata` is therefore a reserved word within groups, meaning that tokens and nested groups MUST NOT be called `metadata`.
 
 <aside class="example">
 
