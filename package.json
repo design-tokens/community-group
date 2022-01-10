@@ -7,11 +7,11 @@
   "license": "SEE LICENSE.md",
   "private": true,
   "devDependencies": {
-    "husky": "^7.0.0",
-    "lint-staged": "^11.1.2",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.7",
     "live-server": "^1.2.1",
-    "prettier": "^2.3.2",
-    "respec": "^26.13.4"
+    "prettier": "^2.5.1",
+    "respec": "^28.1.0"
   },
   "scripts": {
     "lint": "prettier '**/*.{md,yml,json,html}' --check --config ./.prettierrc.json",
@@ -23,5 +23,8 @@
   },
   "lint-staged": {
     "*.{md,yml,json,html}": "prettier --write"
+  },
+  "overrides": {
+    "colors": "1.4.0"
   }
 }
