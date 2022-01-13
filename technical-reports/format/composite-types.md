@@ -95,6 +95,10 @@ Represents the style applied to lines or borders. The `type` property must be se
 - a string value as defined in the corresponding section below, or
 - an object value as defined in the corresponding section below
 
+<div class="issue" data-number="98" title="Stroke style type feedback">
+  Is the current specification for stroke styles fit for purpose? Does it need more sub-values (e.g. equivalents to SVG's `stroke-linejoin`, `stroke-miterlimit` and `stroke-dashoffset` attributes)? 
+</div>
+
 ### String value
 
 String stroke style values MUST be set to one of the following, pre-defined values:
@@ -231,9 +235,40 @@ Represents a border style. The type property must be set to the string “border
 
 </aside>
 
+<div class="issue" data-number="99" title="Border type feedback">
+  Is the current specification for borders fit for purpose? Does it need more sub-values to account for features like outset, border images, multiple borders, etc. that some platforms an design tools have?
+</div>
+
 ## Transition
 
-TO-DO
+Represents a animated transition between two states. The type property must be set to the string "transition". The value must be an object with the following properties:
+
+- `duration`: The duration of the transition. The value of this property must be a valid [duration](#duration) value or a reference to a duration token.
+- `delay`: The time to wait before the transition begins. The value of this property must be a valid [duration](#duration) value or a reference to a duration token.
+- `timing-function`: The color of the shadow. The value of this property must be a valid [cubic bézier](#cubic-bezier) value or a reference to a cubic bézier token.
+
+<aside class="example" title="Transition composite token examples">
+
+```json
+{
+  "transition": {
+    "emphasis": {
+      "type": "transition",
+      "value": {
+        "duration": "200ms",
+        "delay": "0ms",
+        "timing-function": [0.5, 0, 1, 1]
+      }
+    }
+  }
+}
+```
+
+</aside>
+
+<div class="issue" data-number="103" title="Transition type feedback">
+  Is the current specification for transitions fit for purpose? Are these transitions parameters by themselves useful considering that they don't let you specify what aspect of a UI is being transitioned and what the start and end states are?
+</div>
 
 ## Shadow
 
@@ -263,6 +298,10 @@ Represents a shadow style. The type property must be set to the string “shadow
 ```
 
 </aside>
+
+<div class="issue" data-number="100" title="Shadow type feedback">
+  Is the current specification for shadows fit for purpose? Does it need to support multiple shadows, as some tools and platforms do? 
+</div>
 
 ## Gradient
 
@@ -364,6 +403,10 @@ Describes a color token called "brand-primary", which is referenced as the mid-p
 
 </aside>
 
+<div class="issue" data-number="101" title="Gradient type feedback">
+  Is the current specification for gradients fit for purpose? Does it need to also specify the type of gradient (.e.g linear, radial, concial, etc.)?
+</div>
+
 ## Typography
 
 Represents a typographic style. The type property must be set to the string “typography”. The value must be an object with the following properties:
@@ -404,3 +447,9 @@ Represents a typographic style. The type property must be set to the string “t
 ```
 
 </aside>
+
+<div class="issue" data-number="102" title="Typography type feedback">
+
+Is the current specification for typography styles fit for purpose? [Should the `lineHeight` sub-value use a number value, dimension or a new line-height type](https://github.com/design-tokens/community-group/pull/86#discussion_r768137006)?
+
+</div>
