@@ -7,7 +7,7 @@ Aliases are useful for:
 - Expressing design choices
 - Eliminating repetition of values in token files (DRYing up the code)
 
-For a design token to reference another, its value SHOULD be a string containing the period-separated (.) path to the token it's referencing enclosed in curly brackets.
+For a design token to reference another, its value MUST be a string containing the period-separated (.) path to the token it's referencing enclosed in curly brackets.
 
 For example:
 
@@ -32,7 +32,7 @@ When a tool needs the actual value of a token it MUST resolve the reference - i.
 
 Tools SHOULD preserve references and therefore only resolve them whenever the actual value needs to be retrieved. For instance, in a design tool, changes to the value of a token being referenced by aliases SHOULD be reflected wherever those aliases are being used.
 
-Aliases MAY reference other aliases. In this case, tools SHOULD follow each reference until they find a token with an explicit value. Circular references are not allowed. If a design token file contains circular references, then the value of all tokens in that chain is unknown and an appropriate error or warning message SHOULD be displayed to the user.
+Aliases MAY reference other aliases. In this case, tools MUST follow each reference until they find a token with an explicit value. Circular references are not allowed. If a design token file contains circular references, then the value of all tokens in that chain is unknown and an appropriate error or warning message SHOULD be displayed to the user.
 
 <p class="ednote" title="JSON Pointer syntax">
   The format editors are currently researching JSON Pointer syntax to inform the exact syntax for aliases in tokens. <a href="https://datatracker.ietf.org/doc/html/rfc6901#section-5">https://datatracker.ietf.org/doc/html/rfc6901#section-5</a>

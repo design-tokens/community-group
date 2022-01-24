@@ -11,7 +11,7 @@ Few examples:
 - `color-text-primary: #000000;`
 - `font-size-heading-level-1: 44px;`
 
-The name MAY be associated with additional [Token Properties](#design-token-properties).
+The name may be associated with additional [Token Properties](#design-token-properties).
 
 <h2 id="design-token-properties">(Design) Token Properties</h2>
 

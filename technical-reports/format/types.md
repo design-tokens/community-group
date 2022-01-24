@@ -58,7 +58,7 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 
 ## Dimension
 
-Represents an amount of distance in a single dimension in the UI, such as a position, width, height, radius, or thickness. The `type` property must be set to the string "dimension". The value must be a string containing a number (either integer or floating-point) followed by either a "px" or "rem" unit (future spec iterations MAY add support for additional units).
+Represents an amount of distance in a single dimension in the UI, such as a position, width, height, radius, or thickness. The `type` property must be set to the string "dimension". The value must be a string containing a number (either integer or floating-point) followed by either a "px" or "rem" unit (future spec iterations may add support for additional units).
 
 For example:
 
@@ -84,7 +84,7 @@ The "px" and "rem" units are to be interpreted the same way they are in CSS:
 
 <div class="issue" data-number="53">
 
-A naive approach like the one below MAY be appropriate for the first stage of the specification, but this could be more complicated than it seems due to platform/OS/browser restrictions.
+A naive approach like the one below may be appropriate for the first stage of the specification, but this could be more complicated than it seems due to platform/OS/browser restrictions.
 
 </div>
 
