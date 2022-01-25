@@ -1,6 +1,6 @@
 # Groups
 
-A file may contain many tokens and they may be nested arbitrarily in groups like so:
+A file MAY contain many tokens and they MAY be nested arbitrarily in groups like so:
 
 <aside class="example">
 
@@ -27,7 +27,7 @@ A file may contain many tokens and they may be nested arbitrarily in groups like
 
 </aside>
 
-The names of the groups leading to a given token (including that token's name) are that token's _path_, which is a computed property. **It is not specified in the file**, but parsers that conform to this spec must be able to expose the path of a token. The above example, therefore, defines 4 design tokens with the following properties:
+The names of the groups leading to a given token (including that token's name) are that token's _path_, which is a computed property. **It is not specified in the file**, but parsers that conform to this spec MUST be able to expose the path of a token. The above example, therefore, defines 4 design tokens with the following properties:
 
 - Token #1
   - Name: "token uno"
@@ -60,7 +60,7 @@ The names of items in a group are case sensitive. As per the guidance in the [de
 
 ### Description
 
-Groups may include an optional `description` property.
+Groups MAY include an optional `description` property.
 
 For example:
 
@@ -85,7 +85,7 @@ For example:
 
 </aside>
 
-Suggested ways tools may use this property are:
+Suggested ways tools MAY use this property are:
 
 - A style guide generator could render a section for each group and use the description as an introductory paragraph
 - A GUI tool that lets users browse or select tokens could display this info alongside the corresponding group or as a tooltip
@@ -99,7 +99,7 @@ Groups may support additional properties like type and description. Should other
 
 ### Type
 
-Groups may include an optional `type` property so a type property does not need to be manually added to every token. [See supported "Types"](#types) for more information.
+Groups MAY include an optional `type` property so a type property does not need to be manually added to every token. [See supported "Types"](#types) for more information.
 
 If a group has a `type` property it acts as a default type for any tokens within the group, including ones in nested groups, that do not explicity declare a type via their own `type` property. For the full set of rules by which a design token's type is determined, please refer to the [design token type property chapter](#type-0).
 
@@ -186,13 +186,13 @@ For example:
 
 ### GUI tools
 
-Tools that let users pick or edit tokens via a GUI may use the grouping structure to display a suitable form of progressive disclosure, such as a collapsible tree view.
+Tools that let users pick or edit tokens via a GUI MAY use the grouping structure to display a suitable form of progressive disclosure, such as a collapsible tree view.
 
 ![Progressive disclosure groups](./group-progressive-disclosure.png)
 
 ### Export tools
 
-Token names are not guaranteed to be unique within the same file. The same name can be used in different groups. Also, export tools may need to export design tokens in a uniquely identifiable way, such as variables in code. Export tools should therefore use design tokens' paths as these _are_ unique within a file.
+Token names are not guaranteed to be unique within the same file. The same name can be used in different groups. Also, export tools MAY need to export design tokens in a uniquely identifiable way, such as variables in code. Export tools SHOULD therefore use design tokens' paths as these _are_ unique within a file.
 
 For example, a [translation tool](#translation-tool) like [Style Dictionary](https://amzn.github.io/style-dictionary/) might use the following design token file:
 
