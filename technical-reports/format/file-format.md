@@ -10,11 +10,11 @@ JSON was chosen as an interchange format on the basis of:
 
 ## Media type (MIME type)
 
-When serving design token files via HTTP / HTTPS or in any other scenario where a media type (formerly known as MIME type) needs to be specified, the following MIME type should be used for design token files:
+When serving design token files via HTTP / HTTPS or in any other scenario where a media type (formerly known as MIME type) needs to be specified, the following MIME type SHOULD be used for design token files:
 
 - `application/design-tokens+json`
 
-However, since every design token file is a valid JSON file and it may not always be possible to configure web servers as needed, it is also acceptable to use the plain JSON media type: `application/json`. The above, more specific media type is preferred and should be used wherever possible.
+However, since every design token file is a valid JSON file, they MAY be served using the JSON media type: `application/json`. The above, more specific media type is preferred and SHOULD be used wherever possible.
 
 Tools that can open design token files MUST support both media types.
 
