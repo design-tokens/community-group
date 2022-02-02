@@ -411,7 +411,7 @@ Describes a color token called "brand-primary", which is referenced as the mid-p
 
 Represents a typographic style. The type property must be set to the string “typography”. The value must be an object with the following properties:
 
-- `fontName`: The typography's font. The value of this property must be a valid [font name](#font-name) or a reference to a font name token.
+- `fontFamily`: The typography's font. The value of this property must be a valid [fontFamily](#font-family) or a reference to a font name token.
 - `fontSize`: The size of the typography. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `fontWeight`: The weight of the typography. The value of this property must be a valid [font weight](#font-weight) or a reference to a font weight token.
 - `letterSpacing`: The horizontal spacing between characters. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
@@ -425,7 +425,7 @@ Represents a typographic style. The type property must be set to the string “t
     "heading-level-1": {
       "type": "typography",
       "value": {
-        "fontName": "Roboto",
+        "fontFamily": "Roboto",
         "fontSize": "42px",
         "fontWeight": "700",
         "letterSpacing": "0.1px",
@@ -435,7 +435,7 @@ Represents a typographic style. The type property must be set to the string “t
     "microcopy": {
       "type": "typography",
       "value": {
-        "fontName": "{font.serif}",
+        "fontFamily": "{font.serif}",
         "fontSize": "{font.size.smallest}",
         "fontWeight": "{font.weight.normal}",
         "letterSpacing": "0px",
