@@ -80,7 +80,7 @@ The "px" and "rem" units are to be interpreted the same way they are in CSS:
 - **px**: Represents an idealized pixel on the viewport. The equivalent in Android is dp and iOS is pt. Export tools SHOULD therefore convert to these or other equivalent units as needed.
 - **rem**: Represents a multiple of the system's default font size (which MAY be configurable by the user). 1rem is 100% of the default font size. The equivalent of 1rem on Android is 16sp. Not all platforms have an equivalent to rem, so export tools MAY need to do a lossy conversion to a fixed px size by assuming a default font size (usually 16px) for such platforms.
 
-## Font name
+## Font family
 
 <div class="issue" data-number="53">
 
@@ -88,7 +88,7 @@ A naive approach like the one below may be appropriate for the first stage of th
 
 </div>
 
-Represents a font name or an array of font names (ordered from most to least preferred). The `type` property MUST be set to the string "font-name". The value MUST either be a string value containing a single font name or an array of strings, each being a single font name.
+Represents a font name or an array of font names (ordered from most to least preferred). The `type` property MUST be set to the string "fontFamily". The value MUST either be a string value containing a single font name or an array of strings, each being a single font name.
 
 For example:
 
@@ -98,11 +98,11 @@ For example:
 {
   "Primary font": {
     "value": "Comic Sans MS",
-    "type": "font-name"
+    "type": "fontFamily"
   },
   "Body font": {
     "value": ["Helvetica", "Arial"],
-    "type": "font-name"
+    "type": "fontFamily"
   }
 }
 ```
