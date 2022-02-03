@@ -80,7 +80,7 @@ The "px" and "rem" units are to be interpreted the same way they are in CSS:
 - **px**: Represents an idealized pixel on the viewport. The equivalent in Android is dp and iOS is pt. Export tools SHOULD therefore convert to these or other equivalent units as needed.
 - **rem**: Represents a multiple of the system's default font size (which MAY be configurable by the user). 1rem is 100% of the default font size. The equivalent of 1rem on Android is 16sp. Not all platforms have an equivalent to rem, so export tools MAY need to do a lossy conversion to a fixed px size by assuming a default font size (usually 16px) for such platforms.
 
-## Font name
+## Font family
 
 <div class="issue" data-number="53">
 
@@ -88,7 +88,7 @@ A naive approach like the one below may be appropriate for the first stage of th
 
 </div>
 
-Represents a font name or an array of font names (ordered from most to least preferred). The `type` property MUST be set to the string "font". The value MUST either be a string value containing a single font name or an array of strings, each being a single font name.
+Represents a font name or an array of font names (ordered from most to least preferred). The `type` property MUST be set to the string "fontFamily". The value MUST either be a string value containing a single font name or an array of strings, each being a single font name.
 
 For example:
 
@@ -98,11 +98,51 @@ For example:
 {
   "Primary font": {
     "value": "Comic Sans MS",
-    "type": "font"
+    "type": "fontFamily"
   },
   "Body font": {
     "value": ["Helvetica", "Arial"],
-    "type": "font"
+    "type": "fontFamily"
+  }
+}
+```
+
+</aside>
+
+## Font weight
+
+Represents a font weight. The `type` property must be set to the string "font-weight". The value must either be a number value in the range [1, 1000] or one of the pre-defined string values defined in the table below.
+
+Lower numbers represent lighter weights, and higher numbers represent thicker weights, as per the [OpenType `wght` tag specification](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_wght). The pre-defined string values are aliases for specific numeric values. For example `100`, `"thin"` and `"hairline"` are all the exact same value.
+
+| numeric value | string value aliases         |
+| ------------- | ---------------------------- |
+| `100`         | `thin`, `hairline`           |
+| `200`         | `extra-light`, `ultra-light` |
+| `300`         | `light`                      |
+| `400`         | `normal`, `regular`, `book`  |
+| `500`         | `medium`                     |
+| `600`         | `semi-bold`, `demi-bold`     |
+| `700`         | `bold`                       |
+| `800`         | `extra-bold`, `ultra-bold`   |
+| `900`         | `black`, `heavy`             |
+| `950`         | `extra-black`, `ultra-black` |
+
+Number values outside of the [1, 1000] range and any other string values, including ones that differ only in case, are invalid and MUST be rejected by tools.
+
+Example:
+
+<aside class="example">
+
+```json
+{
+  "font-weight-default": {
+    "value": 350,
+    "type": "font-weight"
+  },
+  "font-weight-thick": {
+    "value": "extra-bold",
+    "type": "font-weight"
   }
 }
 ```
@@ -161,9 +201,7 @@ For example:
 
 Types still to be documented here are likely to include:
 
-- **Font weight:** might be something like an enum of allowed values ("bold", "normal" etc.) and/or numeric values 0-1000 (like in variable fonts)
 - **Font style:** might be an enum of allowed values like ("normal", "italic"...)
-- **Border style/stroke style:** maybe an enum (solid, dashed, dotted, etc.) and/or a way to specify dash & gap lengths?
 - **Percentage/ratio:** e.g. for opacity values, relative dimensions, aspect ratios, etc.
   - Not 100% sure about this since these are really "just" numbers. An alternative might be that we expand the permitted syntax for the "number" type, so for example "1:2", "50%" and 0.5 are all equivalent. People can then use whichever syntax they like best for a given token.
 - **File:** for assets - might just be a relative file path / URL (or should we let people also express the mime-type?)
