@@ -9,15 +9,15 @@ Specifically, a composite type has the following characteristics:
 - Its value is an object or array, potentially containing nested objects or arrays, following a pre-defined structure where the properties of the (nested) object(s) or the elements of the (nested) arrays are sub-values.
 - Sub-values may be explicit values (e.g. `"#ff0000"`) or references to other design tokens that have sub-value's type (e.g. `"{some.other.token}"`).
 
-A design token whose type happens to be a composite type is sometimes also called a composite (design) token. Besides their type, there is nothing special about composite tokens. They can have all the other additional properties like [description](#description) or [extensions](#extensions). They can also be referenced by other design tokens.
+A design token whose type happens to be a composite type is sometimes also called a composite (design) token. Besides their type, there is nothing special about composite tokens. They can have all the other additional properties like [`$description`](#description) or [`$extensions`](#extensions). They can also be referenced by other design tokens.
 
 <aside class="example" title="Composite token example">
 
 ```json
 {
   "shadow-token": {
-    "type": "shadow",
-    "value": {
+    "$type": "shadow",
+    "$value": {
       "color": "#00000088",
       "offsetX": "0.5rem",
       "offsetY": "0.5rem",
@@ -36,23 +36,23 @@ A design token whose type happens to be a composite type is sometimes also calle
 {
   "space": {
     "small": {
-      "type": "dimension",
-      "value": "0.5rem"
+      "$type": "dimension",
+      "$value": "0.5rem"
     }
   },
 
   "color": {
     "shadow-050": {
-      "type": "color",
-      "value": "#00000088"
+      "$type": "color",
+      "$value": "#00000088"
     }
   },
 
   "shadow": {
     "medium": {
-      "type": "shadow",
-      "description": "A composite token where some sub-values are references to tokens that have the correct type and others are explicit values",
-      "value": {
+      "$type": "shadow",
+      "$description": "A composite token where some sub-values are references to tokens that have the correct type and others are explicit values",
+      "$value": {
         "color": "{color.shadow-050}",
         "offsetX": "{space.small}",
         "offsetY": "{space.small}",
@@ -65,8 +65,8 @@ A design token whose type happens to be a composite type is sometimes also calle
   "component": {
     "card": {
       "box-shadow": {
-        "description": "This token is an alias for the composite token {shadow.medium}",
-        "value": "{shadow.medium}"
+        "$description": "This token is an alias for the composite token {shadow.medium}",
+        "$value": "{shadow.medium}"
       }
     }
   }
@@ -90,7 +90,7 @@ At first glance, groups and composite tokens might look very similar. However, t
 
 ## Stroke style
 
-Represents the style applied to lines or borders. The `type` property MUST be set to the string `strokeStyle`. The value MUST be either:
+Represents the style applied to lines or borders. The `$type` property MUST be set to the string `strokeStyle`. The value MUST be either:
 
 - a string value as defined in the corresponding section below, or
 - an object value as defined in the corresponding section below
@@ -119,8 +119,8 @@ These values have the same meaning as the equivalent ["line style" values in CSS
 ```json
 {
   "focus-ring-style": {
-    "type": "strokeStyle",
-    "value": "dashed"
+    "$type": "strokeStyle",
+    "$value": "dashed"
   }
 }
 ```
@@ -139,8 +139,8 @@ Object stroke style values MUST have the following properties:
 ```json
 {
   "alert-border-style": {
-    "type": "strokeStyle",
-    "value": {
+    "$type": "strokeStyle",
+    "$value": {
       "dashArray": ["0.5rem", "0.25rem"],
       "lineCap": "round"
     }
@@ -155,16 +155,16 @@ Object stroke style values MUST have the following properties:
 ```json
 {
   "notification-border-style": {
-    "type": "strokeStyle",
-    "value": {
+    "$type": "strokeStyle",
+    "$value": {
       "dashArray": ["{dash-length-medium}", "0.25rem"],
       "lineCap": "butt"
     }
   },
 
   "dash-length-medium": {
-    "type": "dimension",
-    "value": "10px"
+    "$type": "dimension",
+    "$value": "10px"
   }
 }
 ```
@@ -199,7 +199,7 @@ Some design tools like Figma don't support inset, outset or double style lines. 
 
 ## Border
 
-Represents a border style. The `type` property MUST be set to the string `border`. The value MUST be an object with the following properties:
+Represents a border style. The `$type` property MUST be set to the string `border`. The value MUST be an object with the following properties:
 
 - `color`: The color of the border. The value of this property MUST be a valid [color value](#color) or a reference to a color token.
 - `width`: The width or thickness of the border. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
@@ -211,16 +211,16 @@ Represents a border style. The `type` property MUST be set to the string `border
 {
   "border": {
     "heavy": {
-      "type": "border",
-      "value": {
+      "$type": "border",
+      "$value": {
         "color": "#36363600",
         "width": "3px",
         "style": "solid"
       }
     },
     "focusring": {
-      "type": "border",
-      "value": {
+      "$type": "border",
+      "$value": {
         "color": "{color.focusring}",
         "width": "1px",
         "style": {
@@ -241,7 +241,7 @@ Represents a border style. The `type` property MUST be set to the string `border
 
 ## Transition
 
-Represents a animated transition between two states. The `type` property MUST be set to the string `transition`. The value MUST be an object with the following properties:
+Represents a animated transition between two states. The `$type` property MUST be set to the string `transition`. The value MUST be an object with the following properties:
 
 - `duration`: The duration of the transition. The value of this property MUST be a valid [duration](#duration) value or a reference to a duration token.
 - `delay`: The time to wait before the transition begins. The value of this property MUST be a valid [duration](#duration) value or a reference to a duration token.
@@ -253,8 +253,8 @@ Represents a animated transition between two states. The `type` property MUST be
 {
   "transition": {
     "emphasis": {
-      "type": "transition",
-      "value": {
+      "$type": "transition",
+      "$value": {
         "duration": "200ms",
         "delay": "0ms",
         "timingFunction": [0.5, 0, 1, 1]
@@ -272,7 +272,7 @@ Represents a animated transition between two states. The `type` property MUST be
 
 ## Shadow
 
-Represents a shadow style. The `type` property MUST be set to the string `shadow`. The value must be an object with the following properties:
+Represents a shadow style. The `$type` property MUST be set to the string `shadow`. The value must be an object with the following properties:
 
 - `color`: The color of the shadow. The value of this property MUST be a valid [color value](#color) or a reference to a color token.
 - `offsetX`: The horizontal offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
@@ -285,8 +285,8 @@ Represents a shadow style. The `type` property MUST be set to the string `shadow
 ```json
 {
   "shadow-token": {
-    "type": "shadow",
-    "value": {
+    "$type": "shadow",
+    "$value": {
       "color": "#00000088",
       "offsetX": "0.5rem",
       "offsetY": "0.5rem",
@@ -305,7 +305,7 @@ Represents a shadow style. The `type` property MUST be set to the string `shadow
 
 ## Gradient
 
-Represents a color gradient. The `type` property MUST be set to the string `gradient`. The value MUST be an array of objects representing gradient stops that have the following structure:
+Represents a color gradient. The `$type` property MUST be set to the string `gradient`. The value MUST be an array of objects representing gradient stops that have the following structure:
 
 - `color`: The color value at the stop's position on the gradient. The value of this property MUST be a valid [color value](#color) or a reference to a color token.
 - `position`: The position of the stop along the gradient's axis. The value of this property MUST be a valid number value or reference to a number token. The number values must be in the range [0, 1], where 0 represents the start position of the gradient's axis and 1 the end position. If a number value outside of that range is given, it MUST be considered as if it were clamped to the range [0, 1]. For example, a value of 42 should be treated as if it were 1, i.e. the end position of the gradient axis. Similarly, a value of -99 should be treated as if it were 0, i.e. the start position of the gradient axis.
@@ -317,8 +317,8 @@ If there are no stops at the very beginning or end of the gradient axis (i.e. wi
 ```json
 {
   "blue-to-red": {
-    "type": "gradient",
-    "value": [
+    "$type": "gradient",
+    "$value": [
       {
         "color": "#0000ff",
         "position": 0
@@ -343,8 +343,8 @@ Describes a gradient that goes from blue to red:
 ```json
 {
   "mostly-yellow": {
-    "type": "gradient",
-    "value": [
+    "$type": "gradient",
+    "$value": [
       {
         "color": "#ffff00",
         "position": 0.666
@@ -369,17 +369,17 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
 ```json
 {
   "brand-primary": {
-    "type": "color",
-    "value": "#99ff66"
+    "$type": "color",
+    "$value": "#99ff66"
   },
 
   "position-end": {
-    "value": 1
+    "$value": 1
   },
 
   "brand-in-the-middle": {
-    "type": "gradient",
-    "value": [
+    "$type": "gradient",
+    "$value": [
       {
         "color": "#000000",
         "position": 0
@@ -409,7 +409,7 @@ Describes a color token called "brand-primary", which is referenced as the mid-p
 
 ## Typography
 
-Represents a typographic style. The `type` property MUST be set to the string `typography`. The value MUST be an object with the following properties:
+Represents a typographic style. The `$type` property MUST be set to the string `typography`. The value MUST be an object with the following properties:
 
 - `fontFamily`: The typography's font. The value of this property MUST be a valid [font family value](#font-family) or a reference to a font family token.
 - `fontSize`: The size of the typography. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
@@ -423,8 +423,8 @@ Represents a typographic style. The `type` property MUST be set to the string `t
 {
   "type styles": {
     "heading-level-1": {
-      "type": "typography",
-      "value": {
+      "$type": "typography",
+      "$value": {
         "fontFamily": "Roboto",
         "fontSize": "42px",
         "fontWeight": "700",
@@ -433,8 +433,8 @@ Represents a typographic style. The `type` property MUST be set to the string `t
       }
     },
     "microcopy": {
-      "type": "typography",
-      "value": {
+      "$type": "typography",
+      "$value": {
         "fontFamily": "{font.serif}",
         "fontSize": "{font.size.smallest}",
         "fontWeight": "{font.weight.normal}",

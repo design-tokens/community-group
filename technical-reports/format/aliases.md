@@ -17,11 +17,11 @@ For example:
 {
   "group name": {
     "token name": {
-      "value": 1234
+      "$value": 1234
     }
   },
   "alias name": {
-    "value": "{group name.token name}"
+    "$value": "{group name.token name}"
   }
 }
 ```
