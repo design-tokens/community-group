@@ -19,8 +19,8 @@ A design token whose type happens to be a composite type is sometimes also calle
     "type": "shadow",
     "value": {
       "color": "#00000088",
-      "offset-x": "0.5rem",
-      "offset-y": "0.5rem",
+      "offsetX": "0.5rem",
+      "offsetY": "0.5rem",
       "blur": "1.5rem",
       "spread": "0rem"
     }
@@ -54,8 +54,8 @@ A design token whose type happens to be a composite type is sometimes also calle
       "description": "A composite token where some sub-values are references to tokens that have the correct type and others are explicit values",
       "value": {
         "color": "{color.shadow-050}",
-        "offset-x": "{space.small}",
-        "offset-y": "{space.small}",
+        "offsetX": "{space.small}",
+        "offsetY": "{space.small}",
         "blur": "1.5rem",
         "spread": "0rem"
       }
@@ -90,7 +90,7 @@ At first glance, groups and composite tokens might look very similar. However, t
 
 ## Stroke style
 
-Represents the style applied to lines or borders. The `type` property must be set to the string `"stroke-style"`. The value must be either:
+Represents the style applied to lines or borders. The `type` property MUST be set to the string `strokeStyle`. The value MUST be either:
 
 - a string value as defined in the corresponding section below, or
 - an object value as defined in the corresponding section below
@@ -119,7 +119,7 @@ These values have the same meaning as the equivalent ["line style" values in CSS
 ```json
 {
   "focus-ring-style": {
-    "type": "stroke-style",
+    "type": "strokeStyle",
     "value": "dashed"
   }
 }
@@ -131,18 +131,18 @@ These values have the same meaning as the equivalent ["line style" values in CSS
 
 Object stroke style values MUST have the following properties:
 
-- `dash-array`: An array of [dimension values](#dimension) and/or references to dimension tokens, which specify the lengths of alternating dashes and gaps. If an odd number of values is provided, then the list of values is repeated to yield an even number of values.
-- `line-cap`: One of the following pre-defined string values: `"round"`, `"butt"` or `"square"`. These values have the same meaning as those of [the `stroke-linecap` attribute in SVG](https://www.w3.org/TR/SVG11/painting.html#StrokeLinecapProperty).
+- `dashArray`: An array of [dimension values](#dimension) and/or references to dimension tokens, which specify the lengths of alternating dashes and gaps. If an odd number of values is provided, then the list of values is repeated to yield an even number of values.
+- `lineCap`: One of the following pre-defined string values: `"round"`, `"butt"` or `"square"`. These values have the same meaning as those of [the `stroke-linecap` attribute in SVG](https://www.w3.org/TR/SVG11/painting.html#StrokeLinecapProperty).
 
 <aside class="example" title="Object stroke style example">
 
 ```json
 {
   "alert-border-style": {
-    "type": "stroke-style",
+    "type": "strokeStyle",
     "value": {
-      "dash-array": ["0.5rem", "0.25rem"],
-      "line-cap": "round"
+      "dashArray": ["0.5rem", "0.25rem"],
+      "lineCap": "round"
     }
   }
 }
@@ -155,10 +155,10 @@ Object stroke style values MUST have the following properties:
 ```json
 {
   "notification-border-style": {
-    "type": "stroke-style",
+    "type": "strokeStyle",
     "value": {
-      "dash-array": ["{dash-length-medium}", "0.25rem"],
-      "line-cap": "butt"
+      "dashArray": ["{dash-length-medium}", "0.25rem"],
+      "lineCap": "butt"
     }
   },
 
@@ -173,9 +173,9 @@ Object stroke style values MUST have the following properties:
 
 ### Fallbacks
 
-The string and object values are mutually exclusive means of expressing stroke styles. For example, some of the string values like `inset` or `groove` cannot be expressed in terms of a `dash-array` and `line-cap` as they require some implementation-specific means of lightening or darkening the _color_ for portions of a border or outline. Conversely, a precisely defined combination of `dash-array` and `line-cap` sub-values is not guaranteed to produce the same visual result as the `dashed` or `dotted` keywords as they are implementation-specific.
+The string and object values are mutually exclusive means of expressing stroke styles. For example, some of the string values like `inset` or `groove` cannot be expressed in terms of a `dashArray` and `lineCap` as they require some implementation-specific means of lightening or darkening the _color_ for portions of a border or outline. Conversely, a precisely defined combination of `dashArray` and `lineCap` sub-values is not guaranteed to produce the same visual result as the `dashed` or `dotted` keywords as they are implementation-specific.
 
-Furthermore, some tools and platforms may not support the full range of stroke styles that design tokens of this type can represent. When displaying or exporting a `stroke-style` token whose value they don't natively support, they should therefore fallback to the closest approximation that they do support.
+Furthermore, some tools and platforms may not support the full range of stroke styles that design tokens of this type can represent. When displaying or exporting a `strokeStyle` token whose value they don't natively support, they should therefore fallback to the closest approximation that they do support.
 
 The specifics of how a "closest approximation" is chosen are implementation-specific. However, the following examples illustrate what fallbacks tools MAY use in some scenarios.
 
@@ -199,11 +199,11 @@ Some design tools like Figma don't support inset, outset or double style lines. 
 
 ## Border
 
-Represents a border style. The type property must be set to the string “border”. The value must be an object with the following properties:
+Represents a border style. The `type` property MUST be set to the string `border`. The value MUST be an object with the following properties:
 
-- `color`: The color of the border. The value of this property must be a valid [color value](#color) or a reference to a color token.
-- `width`: The width or thickness of the border. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `style`: The border's style. The value of this property must be a valid [stroke style value](#stroke-style) or a reference to a stroke style token.
+- `color`: The color of the border. The value of this property MUST be a valid [color value](#color) or a reference to a color token.
+- `width`: The width or thickness of the border. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `style`: The border's style. The value of this property MUST be a valid [stroke style value](#stroke-style) or a reference to a stroke style token.
 
 <aside class="example" title="Border composite token examples">
 
@@ -224,8 +224,8 @@ Represents a border style. The type property must be set to the string “border
         "color": "{color.focusring}",
         "width": "1px",
         "style": {
-          "dash-array": ["0.5rem", "0.25rem"],
-          "line-cap": "round"
+          "dashArray": ["0.5rem", "0.25rem"],
+          "lineCap": "round"
         }
       }
     }
@@ -241,11 +241,11 @@ Represents a border style. The type property must be set to the string “border
 
 ## Transition
 
-Represents a animated transition between two states. The type property must be set to the string "transition". The value must be an object with the following properties:
+Represents a animated transition between two states. The `type` property MUST be set to the string `transition`. The value MUST be an object with the following properties:
 
-- `duration`: The duration of the transition. The value of this property must be a valid [duration](#duration) value or a reference to a duration token.
-- `delay`: The time to wait before the transition begins. The value of this property must be a valid [duration](#duration) value or a reference to a duration token.
-- `timing-function`: The color of the shadow. The value of this property must be a valid [cubic bézier](#cubic-bezier) value or a reference to a cubic bézier token.
+- `duration`: The duration of the transition. The value of this property MUST be a valid [duration](#duration) value or a reference to a duration token.
+- `delay`: The time to wait before the transition begins. The value of this property MUST be a valid [duration](#duration) value or a reference to a duration token.
+- `timingFunction`: The color of the shadow. The value of this property MUST be a valid [cubic bézier](#cubic-bezier) value or a reference to a cubic bézier token.
 
 <aside class="example" title="Transition composite token examples">
 
@@ -257,7 +257,7 @@ Represents a animated transition between two states. The type property must be s
       "value": {
         "duration": "200ms",
         "delay": "0ms",
-        "timing-function": [0.5, 0, 1, 1]
+        "timingFunction": [0.5, 0, 1, 1]
       }
     }
   }
@@ -272,13 +272,13 @@ Represents a animated transition between two states. The type property must be s
 
 ## Shadow
 
-Represents a shadow style. The type property must be set to the string “shadow”. The value must be an object with the following properties:
+Represents a shadow style. The `type` property MUST be set to the string `shadow`. The value must be an object with the following properties:
 
-- `color`: The color of the shadow. The value of this property must be a valid [color value](#color) or a reference to a color token.
-- `offset-x`: The horizontal offset that shadow has from the element it is applied to. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `offset-y`: The vertical offset that shadow has from the element it is applied to. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `blur`: The blur radius that is applied to the shadow. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `spread`: The amount by which to expand or contract the shadow. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `color`: The color of the shadow. The value of this property MUST be a valid [color value](#color) or a reference to a color token.
+- `offsetX`: The horizontal offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `offsetY`: The vertical offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `blur`: The blur radius that is applied to the shadow. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `spread`: The amount by which to expand or contract the shadow. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 
 <aside class="example" title="Shadow token example">
 
@@ -288,8 +288,8 @@ Represents a shadow style. The type property must be set to the string “shadow
     "type": "shadow",
     "value": {
       "color": "#00000088",
-      "offset-x": "0.5rem",
-      "offset-y": "0.5rem",
+      "offsetX": "0.5rem",
+      "offsetY": "0.5rem",
       "blur": "1.5rem",
       "spread": "0rem"
     }
@@ -305,10 +305,10 @@ Represents a shadow style. The type property must be set to the string “shadow
 
 ## Gradient
 
-Represents a color gradient. The value must be an array of objects representing gradient stops that have the following structure:
+Represents a color gradient. The `type` property MUST be set to the string `gradient`. The value MUST be an array of objects representing gradient stops that have the following structure:
 
-- `color`: The color value at the stop's position on the gradient. The value of this property must be a valid [color value](#color) or a reference to a color token.
-- `position`: The position of the stop along the gradient's axis. The value of this property must be a valid number value or reference to a number token. The number values must be in the range [0, 1], where 0 represents the start position of the gradient's axis and 1 the end position. If a number value outside of that range is given, it MUST be considered as if it were clamped to the range [0, 1]. For example, a value of 42 should be treated as if it were 1, i.e. the end position of the gradient axis. Similarly, a value of -99 should be treated as if it were 0, i.e. the start position of the gradient axis.
+- `color`: The color value at the stop's position on the gradient. The value of this property MUST be a valid [color value](#color) or a reference to a color token.
+- `position`: The position of the stop along the gradient's axis. The value of this property MUST be a valid number value or reference to a number token. The number values must be in the range [0, 1], where 0 represents the start position of the gradient's axis and 1 the end position. If a number value outside of that range is given, it MUST be considered as if it were clamped to the range [0, 1]. For example, a value of 42 should be treated as if it were 1, i.e. the end position of the gradient axis. Similarly, a value of -99 should be treated as if it were 0, i.e. the start position of the gradient axis.
 
 If there are no stops at the very beginning or end of the gradient axis (i.e. with `position` 0 or 1, respectively), then the color from the stop closest to each end should be extended to that end of the axis.
 
@@ -409,13 +409,13 @@ Describes a color token called "brand-primary", which is referenced as the mid-p
 
 ## Typography
 
-Represents a typographic style. The type property must be set to the string “typography”. The value must be an object with the following properties:
+Represents a typographic style. The `type` property MUST be set to the string `typography`. The value MUST be an object with the following properties:
 
-- `fontFamily`: The typography's font. The value of this property must be a valid [fontFamily value](#font-family) or a reference to a font family token.
-- `fontSize`: The size of the typography. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `fontWeight`: The weight of the typography. The value of this property must be a valid [font weight](#font-weight) or a reference to a font weight token.
-- `letterSpacing`: The horizontal spacing between characters. The value of this property must be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `lineHeight`: The vertical spacing between lines of typography. The value of this property must be a valid JSON string or a reference to a string token.
+- `fontFamily`: The typography's font. The value of this property MUST be a valid [font family value](#font-family) or a reference to a font family token.
+- `fontSize`: The size of the typography. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `fontWeight`: The weight of the typography. The value of this property MUST be a valid [font weight](#font-weight) or a reference to a font weight token.
+- `letterSpacing`: The horizontal spacing between characters. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `lineHeight`: The vertical spacing between lines of typography. The value of this property MUST be a valid JSON string or a reference to a string token.
 
 <aside class="example" title="Typography composite token examples">
 
@@ -450,6 +450,6 @@ Represents a typographic style. The type property must be set to the string “t
 
 <div class="issue" data-number="102" title="Typography type feedback">
 
-Is the current specification for typography styles fit for purpose? [Should the `lineHeight` sub-value use a number value, dimension or a new line-height type](https://github.com/design-tokens/community-group/pull/86#discussion_r768137006)?
+Is the current specification for typography styles fit for purpose? [Should the `lineHeight` sub-value use a number value, dimension or a new lineHeight type](https://github.com/design-tokens/community-group/pull/86#discussion_r768137006)?
 
 </div>

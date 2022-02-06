@@ -14,7 +14,7 @@
 
 </aside>
 
-An object with a "**value**" property is a token. Thus, "value" is a reserved word in our spec, meaning you can't have a token whose name is "value". The parent object's key is the token name.
+An object with a **`value`** property is a token. Thus, `value` is a reserved word in our spec, meaning you can't have a token whose name is "value". The parent object's key is the token name.
 
 The example above therefore defines 1 design token with the following properties:
 
@@ -60,28 +60,17 @@ Due to the syntax used for [token aliases](#aliases-references) the following ch
 - `}` (right curly bracket)
 - `.` (period)
 
-<div class="issue" data-number="55" title="Object vs Array">
-
-The structure in the example above is a JSON object, an **unordered** set of name/value pairs.
-
-- Objects can't contain members with duplicate keys
-- Ordering of object members is not guaranteed (as per [RFC 7159](https://tools.ietf.org/html/rfc7159#section-4))
-
-Please raise concerns if these limitations create problems for implementers.
-
-</div>
-
 <div class="issue" data-number="61" title="Reserved words">
   Are there any reserved words that should not be allowed in token names?
 </div>
 
 ## Additional properties
 
-While "value" is the only required property for a token, a number of additional properties MAY be added:
+While `value` is the only required property for a token, a number of additional properties MAY be added:
 
 ## Description
 
-A plain text description explaining the token's purpose. Tools MAY use the description in various ways.
+An optional plain text description explaining the token's purpose. Tools MAY use the description in various ways.
 
 For example:
 
@@ -90,7 +79,7 @@ For example:
 - Design tools MAY display the description as a tooltip or alongside tokens wherever they can be selected
 - Export tools MAY render the description to a source code comment alongside the variable or constant they export.
 
-The **description** property MUST be a plain JSON string, for example:
+The **`description`** property MUST be a plain JSON string, for example:
 
 <aside class="example">
 
@@ -104,10 +93,6 @@ The **description** property MUST be a plain JSON string, for example:
 ```
 
 </aside>
-
-<div class="issue" data-number="62" title="Token descriptions optional or required">
-  Are token descriptions optional or required?
-</div>
 
 ## Type
 
@@ -145,7 +130,7 @@ For example:
 
 ## Extensions
 
-The **extensions** property is an object where tools MAY add proprietary, user-, team- or vendor-specific data to a design token. When doing so, each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
+The **`extensions`** property is an object where tools MAY add proprietary, user-, team- or vendor-specific data to a design token. When doing so, each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
 
 - The keys SHOULD be chosen such that they avoid the likelihood of a naming clash with another vendor's data. The [reverse domain name notation](https://en.wikipedia.org/wiki/Reverse_domain_name_notation) is recommended for this purpose.
 - Tools that process design token files MUST preserve any extension data they do not themselves understand. For example, if a design token contains extension data from tool A and the file containing that data is opened by tool B, then tool B MUST include the original tool A extension data whenever it saves a new design token file containing that token.

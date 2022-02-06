@@ -19,7 +19,7 @@ If a `type` is set, but the value does not match the expected syntax then that t
 
 ## Color
 
-Represents a 24bit RGB or 24+8bit RGBA color in the sRGB color space. The `type` property MUST be set to the string "color". The value MUST be a string containing a hex triplet/quartet including the preceding # character. To support other color spaces, such as HSL, export tools SHOULD convert color tokens to the equivalent value as needed.
+Represents a 24bit RGB or 24+8bit RGBA color in the sRGB color space. The `type` property MUST be set to the string `color`. The value MUST be a string containing a hex triplet/quartet including the preceding # character. To support other color spaces, such as HSL, export tools SHOULD convert color tokens to the equivalent value as needed.
 
 For example, initially the color tokens MAY be defined as such:
 
@@ -58,7 +58,7 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 
 ## Dimension
 
-Represents an amount of distance in a single dimension in the UI, such as a position, width, height, radius, or thickness. The `type` property must be set to the string "dimension". The value must be a string containing a number (either integer or floating-point) followed by either a "px" or "rem" unit (future spec iterations may add support for additional units).
+Represents an amount of distance in a single dimension in the UI, such as a position, width, height, radius, or thickness. The `type` property MUST be set to the string `dimension`. The value must be a string containing a number (either integer or floating-point) followed by either a "px" or "rem" unit (future spec iterations may add support for additional units).
 
 For example:
 
@@ -88,7 +88,7 @@ A naive approach like the one below may be appropriate for the first stage of th
 
 </div>
 
-Represents a font name or an array of font names (ordered from most to least preferred). The `type` property MUST be set to the string "fontFamily". The value MUST either be a string value containing a single font name or an array of strings, each being a single font name.
+Represents a font name or an array of font names (ordered from most to least preferred). The `type` property MUST be set to the string `fontFamily`. The value MUST either be a string value containing a single font name or an array of strings, each being a single font name.
 
 For example:
 
@@ -111,7 +111,7 @@ For example:
 
 ## Font weight
 
-Represents a font weight. The `type` property must be set to the string "font-weight". The value must either be a number value in the range [1, 1000] or one of the pre-defined string values defined in the table below.
+Represents a font weight. The `type` property MUST be set to the string `fontWeight`. The value must either be a number value in the range [1, 1000] or one of the pre-defined string values defined in the table below.
 
 Lower numbers represent lighter weights, and higher numbers represent thicker weights, as per the [OpenType `wght` tag specification](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_wght). The pre-defined string values are aliases for specific numeric values. For example `100`, `"thin"` and `"hairline"` are all the exact same value.
 
@@ -138,11 +138,11 @@ Example:
 {
   "font-weight-default": {
     "value": 350,
-    "type": "font-weight"
+    "type": "fontWeight"
   },
   "font-weight-thick": {
     "value": "extra-bold",
-    "type": "font-weight"
+    "type": "fontWeight"
   }
 }
 ```
@@ -151,7 +151,7 @@ Example:
 
 ## Duration
 
-Represents the length of time in milliseconds an animation or animation cycle takes to complete, such as 200 milliseconds. The `type` property MUST be set to the string "duration". The value MUST be a string containing a number (either integer or floating-point) followed by an "ms" unit. A millisecond is a unit of time equal to one thousandth of a second.
+Represents the length of time in milliseconds an animation or animation cycle takes to complete, such as 200 milliseconds. The `type` property MUST be set to the string `duration`. The value MUST be a string containing a number (either integer or floating-point) followed by an "ms" unit. A millisecond is a unit of time equal to one thousandth of a second.
 
 For example:
 
@@ -174,7 +174,7 @@ For example:
 
 ## Cubic Bézier
 
-Represents how the value of an animated property progresses towards completion over the duration of an animation, effectively creating visual effects such as acceleration, deceleration, and bounce. The `type` property MUST be set to the string "cubic-bezier". The value MUST be an array containing four numbers. These numbers represent two points (P1, P2) with one x coordinate and one y coordinate each [P1x, P1y, P2x, P2y]. The y coordinates of P1 and P2 can be any real number in the range [-∞, ∞], but the x coordinates are restricted to the range [0, 1].
+Represents how the value of an animated property progresses towards completion over the duration of an animation, effectively creating visual effects such as acceleration, deceleration, and bounce. The `type` property MUST be set to the string `cubicBezier`. The value MUST be an array containing four numbers. These numbers represent two points (P1, P2) with one x coordinate and one y coordinate each [P1x, P1y, P2x, P2y]. The y coordinates of P1 and P2 can be any real number in the range [-∞, ∞], but the x coordinates are restricted to the range [0, 1].
 
 For example:
 
@@ -184,11 +184,11 @@ For example:
 {
   "Accelerate": {
     "value": [0.5, 0, 1, 1],
-    "type": "cubic-bezier"
+    "type": "cubicBezier"
   },
   "Decelerate": {
     "value": [0, 0, 0.5, 1],
-    "type": "cubic-bezier"
+    "type": "cubicBezier"
   }
 }
 ```
@@ -205,6 +205,5 @@ Types still to be documented here are likely to include:
 - **Percentage/ratio:** e.g. for opacity values, relative dimensions, aspect ratios, etc.
   - Not 100% sure about this since these are really "just" numbers. An alternative might be that we expand the permitted syntax for the "number" type, so for example "1:2", "50%" and 0.5 are all equivalent. People can then use whichever syntax they like best for a given token.
 - **File:** for assets - might just be a relative file path / URL (or should we let people also express the mime-type?)
-- **Easing definitions:** for animation
 
 </section>
