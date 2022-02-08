@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 29.0.5">
+<meta name="generator" content="ReSpec 30.0.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 dfn{cursor:pointer}
@@ -73,13 +73,16 @@ details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin 
 details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
 details.respec-tests-details>ul{width:100%;margin-top:-.3em}
 details.respec-tests-details>li{padding-left:1em}
-a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
-:is(h2,h3,h4,h5,h6)+a.self-link{border:none;color:inherit;position:relative;top:-2.75em;left:-1.4em;margin-bottom:-2em;display:block;font-size:100%}
-:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";opacity:.5;text-decoration:none;line-height:1.2em;vertical-align:middle}
+.header-wrapper{display:flex;align-items:center}
+:is(h2,h3,h4,h5,h6):not(#toch2,#abstracth2,#sotdh2){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;top:.8rem;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+:is(h4,h5,h6)+a.self-link{top:.6rem}
 @media (max-width:767px){
 dd{margin-left:0}
-:is(h2,h3,h4,h5,h6)+a.self-link{left:101%}
 }
 @media print{
 .removeOnSave{display:none}
@@ -134,14 +137,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     "branch": "main"
   },
   "tocIntroductory": true,
-  "publishISODate": "2022-02-03T00:00:00.000Z",
-  "generatedSubtitle": " 03 February 2022"
+  "publishISODate": "2022-02-08T00:00:00.000Z",
+  "generatedSubtitle": "08 February 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/base.css"></head>
   <body class="h-entry informative"><div class="head">
      <h1 id="title" class="title">Design Tokens Technical Reports</h1>
     
-    <p id="w3c-state"> <time class="dt-published" datetime="2022-02-03">03 February 2022</time></p>
+    <p id="w3c-state"> <time class="dt-published" datetime="2022-02-08">08 February 2022</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
@@ -195,7 +198,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <hr title="Separator for header">
   </div>
     
-    <section id="abstract" class="introductory"><h2 id="abstract-0">Abstract</h2><a class="self-link" href="#abstract" aria-label="Permalink for this Section"></a>
+    <section id="abstract" class="introductory"><h2>Abstract</h2>
       <p>
         Design tokens are indivisible pieces of a design system such as colors,
         spacing, typography scale.
@@ -207,7 +210,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <a href="https://twitter.com/jina">Jina</a>).
       </p>
     </section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#modules"><bdi class="secno">1. </bdi>Modules</a></li><li class="tocline"><a class="tocxref" href="#resources"><bdi class="secno">2. </bdi>Resources</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">A. </bdi>Acknowledgements</a></li></ol></nav>
-    <section id="modules"><h2 id="x1-modules"><bdi class="secno">1. </bdi>Modules</h2><a class="self-link" href="#modules" aria-label="Permalink for Section 1."></a>
+    <section id="modules"><div class="header-wrapper"><h2 id="x1-modules"><bdi class="secno">1. </bdi>Modules</h2><a class="self-link" href="#modules" aria-label="Permalink for Section 1."></a></div>
       
       <p>The Design Tokens specification is composed of multiple modules:</p>
       <ul>
@@ -218,13 +221,13 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <li>Animations (coming soon)</li>
       </ul>
     </section>
-    <section id="resources"><h2 id="x2-resources"><bdi class="secno">2. </bdi>Resources</h2><a class="self-link" href="#resources" aria-label="Permalink for Section 2."></a>
+    <section id="resources"><div class="header-wrapper"><h2 id="x2-resources"><bdi class="secno">2. </bdi>Resources</h2><a class="self-link" href="#resources" aria-label="Permalink for Section 2."></a></div>
 <ul>
 <li><a href="https://github.com/design-tokens/community-group/blob/main/CODE_OF_CONDUCT.md">Code of conduct</a></li>
 </ul>
 </section>
 
-    <section class="appendix" id="acknowledgements"><h2 id="a-acknowledgements"><bdi class="secno">A. </bdi>Acknowledgements</h2><a class="self-link" href="#acknowledgements" aria-label="Permalink for Appendix A."></a>
+    <section class="appendix" id="acknowledgements"><div class="header-wrapper"><h2 id="a-acknowledgements"><bdi class="secno">A. </bdi>Acknowledgements</h2><a class="self-link" href="#acknowledgements" aria-label="Permalink for Appendix A."></a></div>
       
       <p>
         We'd also like to thank the following contributors:
