@@ -7,18 +7,18 @@ A file MAY contain many tokens and they MAY be nested arbitrarily in groups like
 ```json
 {
   "token uno": {
-    "value": "token value 1"
+    "$value": "token value 1"
   },
   "token group": {
     "token dos": {
-      "value": "token value 2"
+      "$value": "token value 2"
     },
     "nested token group": {
       "token tres": {
-        "value": "token value 3"
+        "$value": "token value 3"
       },
       "Token cuatro": {
-        "value": "token value 4"
+        "$value": "token value 4"
       }
     }
   }
@@ -60,7 +60,7 @@ The names of items in a group are case sensitive. As per the guidance in the [de
 
 ### Description
 
-Groups MAY include an optional `description` property.
+Groups MAY include an optional `$description` property, whose value MUST be a plain JSON string. Its purpose is to describe the group itself.
 
 For example:
 
@@ -69,14 +69,14 @@ For example:
 ```json
 {
   "brand": {
-    "description": "Design tokens from our brand guidelines",
+    "$description": "Design tokens from our brand guidelines",
     "color": {
-      "description": "Our brand's primary color palette",
+      "$description": "Our brand's primary color palette",
       "acid green": {
-        "value": "#00ff66"
+        "$value": "#00ff66"
       },
       "hot pink": {
-        "value": "#dd22cc"
+        "$value": "#dd22cc"
       }
     }
   }
@@ -99,9 +99,9 @@ Groups may support additional properties like type and description. Should other
 
 ### Type
 
-Groups MAY include an optional `type` property so a type property does not need to be manually added to every token. [See supported "Types"](#types) for more information.
+Groups MAY include an optional `$type` property so a type property does not need to be manually added to every token. [See supported "Types"](#types) for more information.
 
-If a group has a `type` property it acts as a default type for any tokens within the group, including ones in nested groups, that do not explicity declare a type via their own `type` property. For the full set of rules by which a design token's type is determined, please refer to the [design token type property chapter](#type-0).
+If a group has a `$type` property it acts as a default type for any tokens within the group, including ones in nested groups, that do not explicity declare a type via their own `$type` property. For the full set of rules by which a design token's type is determined, please refer to the [design token type property chapter](#type-0).
 
 For example:
 
@@ -110,14 +110,13 @@ For example:
 ```json
 {
   "brand": {
-    "type": "color",
+    "$type": "color",
     "color": {
-      "description": "Our brand's primary color palette",
       "acid green": {
-        "value": "#00ff66"
+        "$value": "#00ff66"
       },
       "hot pink": {
-        "value": "#dd22cc"
+        "$value": "#dd22cc"
       }
     }
   }
@@ -140,19 +139,21 @@ For example:
 {
   "brand": {
     "color": {
+      "$type": "color",
       "acid green": {
-        "value": "#00ff66"
+        "$value": "#00ff66"
       },
       "hot pink": {
-        "value": "#dd22cc"
+        "$value": "#dd22cc"
       }
     },
     "typeface": {
+      "$type": "fontFamily",
       "primary": {
-        "value": "Comic Sans MS"
+        "$value": "Comic Sans MS"
       },
       "secondary": {
-        "value": "Times New Roman"
+        "$value": "Times New Roman"
       }
     }
   }
@@ -168,16 +169,20 @@ For example:
 ```json
 {
   "brand-color-acid-green": {
-    "value": "#00ff66"
+    "$value": "#00ff66",
+    "$type": "color"
   },
   "brand-color-hot-pink": {
-    "value": "#dd22cc"
+    "$value": "#dd22cc",
+    "$type": "color"
   },
   "brand-typeface-primary": {
-    "value": "Comic Sans MS"
+    "$value": "Comic Sans MS",
+    "$type": "fontFamily"
   },
   "brand-typeface-secondary": {
-    "value": "Times New Roman"
+    "$value": "Times New Roman",
+    "$type": "fontFamily"
   }
 }
 ```
@@ -202,19 +207,21 @@ For example, a [translation tool](#translation-tool) like [Style Dictionary](htt
 {
   "brand": {
     "color": {
+      "$type": "color",
       "acid green": {
-        "value": "#00ff66"
+        "$value": "#00ff66"
       },
       "hot pink": {
-        "value": "#dd22cc"
+        "$value": "#dd22cc"
       }
     },
     "typeface": {
+      "$type": "fontFamily",
       "primary": {
-        "value": "Comic Sans MS"
+        "$value": "Comic Sans MS"
       },
       "secondary": {
-        "value": "Times New Roman"
+        "$value": "Times New Roman"
       }
     }
   }

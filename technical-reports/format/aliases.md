@@ -7,7 +7,7 @@ Aliases are useful for:
 - Expressing design choices
 - Eliminating repetition of values in token files (DRYing up the code)
 
-For a design token to reference another, its value MUST be a string containing the period-separated (.) path to the token it's referencing enclosed in curly brackets.
+For a design token to reference another, its value MUST be a string containing the period-separated (`.`) path to the token it's referencing enclosed in curly brackets.
 
 For example:
 
@@ -17,11 +17,11 @@ For example:
 {
   "group name": {
     "token name": {
-      "value": 1234
+      "$value": 1234
     }
   },
   "alias name": {
-    "value": "{group name.token name}"
+    "$value": "{group name.token name}"
   }
 }
 ```
