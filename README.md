@@ -54,7 +54,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Amazon](https://www.amazon.com)
 - [Atlassian](https://www.atlassian.com)
 - [Chroma](https://hichroma.com)
-- [Diez](https://diez.org)
+- [Divriots](https://divriots.com/)
 - [Dynatrace](https://www.dynatrace.com)
 - [Figma](https://figma.com)
 - [Framer](https://www.framer.com)
