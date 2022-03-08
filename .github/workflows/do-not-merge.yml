@@ -10,4 +10,4 @@ jobs:
         with:
           mode: exactly
           count: 0
-          labels: "Do not merge"
+          labels: 'Do not merge'
