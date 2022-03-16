@@ -10,7 +10,7 @@ For example, initially the color tokens MAY be defined as such:
 {
   "Majestic magenta": {
     "$value": "#ff00ff",
-    "$ype": "color"
+    "$type": "color"
   },
   "Translucent shadow": {
     "$value": "#00000088",
