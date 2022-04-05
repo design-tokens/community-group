@@ -100,3 +100,19 @@ The value of `$color-text-primary` is `#000000`, because `$color-text-primary` _
 ## Composite (Design) Token
 
 A design token whose value is made up of multiple, named child values. Composite tokens are useful for closely related style properties that are always applied together. For example, a typography style might be made up of a font name, font size, line height, and color.
+
+Here's [an example of a composite shadow token](https://design-tokens.github.io/community-group/format/#example-composite-token-example):
+```
+{
+  "shadow-token": {
+    "$type": "shadow",
+    "$value": {
+      "color": "#00000088",
+      "offsetX": "0.5rem",
+      "offsetY": "0.5rem",
+      "blur": "1.5rem",
+      "spread": "0rem"
+    }
+  }
+}
+```
