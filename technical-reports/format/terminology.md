@@ -6,7 +6,7 @@ These definitions are focused on the technical aspects of the specification, aim
 
 Information associated with a name, at minimum a name/value pair.
 
-Few examples:
+For example:
 
 - `color-text-primary: #000000;`
 - `font-size-heading-level-1: 44px;`
@@ -48,7 +48,7 @@ This includes:
 
 Token translation tools are tools that translate token data from one format to another.
 
-Few examples:
+For example:
 
 - [Theo](https://github.com/salesforce-ux/theo)
 - [Style Dictionary](https://amzn.github.io/style-dictionary/)
