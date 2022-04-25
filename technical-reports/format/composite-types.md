@@ -86,7 +86,7 @@ At first glance, groups and composite tokens might look very similar. However, t
 - **Composite tokens** are individual design tokens whose values are made up of several sub-values.
   - Since they are design tokens, they can be referenced by other design tokens. This is not true for groups.
   - Their type must be one of the composite types defined in this specification. Therefore their names and types of their sub-values are pre-defined. Adding additional sub-values or setting values that don't have the correct type make the composite token invalid.
-  - Tools MAY provide specialised functionality for composite tokens. For example, a design tool may let the user pick from a list of all available shadow tokens when applying a drop shadow effect to an element.
+  - Tools MAY provide specialised functionality for composite tokens. For example, a [=design tool=] may let the user pick from a list of all available shadow tokens when applying a drop shadow effect to an element.
 
 ## Stroke style
 
@@ -193,7 +193,7 @@ CSS does not allow detailed control of the dash pattern or line caps on dashed b
 
 <aside class="example" title="Fallback for string stroke style">
 
-Some design tools like Figma don't support inset, outset or double style lines. When a user applies a `stroke-style` token with those values, such tools might therefore fallback to displaying a solid line instead.
+Some [=design tools=] like Figma don't support inset, outset or double style lines. When a user applies a `stroke-style` token with those values, such tools might therefore fallback to displaying a solid line instead.
 
 </aside>
 
@@ -236,7 +236,7 @@ Represents a border style. The `$type` property MUST be set to the string `borde
 </aside>
 
 <div class="issue" data-number="99" title="Border type feedback">
-  Is the current specification for borders fit for purpose? Does it need more sub-values to account for features like outset, border images, multiple borders, etc. that some platforms an design tools have?
+  Is the current specification for borders fit for purpose? Does it need more sub-values to account for features like outset, border images, multiple borders, etc. that some platforms and [=design tools=] have?
 </div>
 
 ## Transition
