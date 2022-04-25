@@ -62,6 +62,10 @@ Furthermore, due to the syntax used for [token aliases](#aliases-references) the
 - `}` (right curly bracket)
 - `.` (period)
 
+<p class="ednote" title="'$' Prefix Rationale">
+  In order to prevent collisions with token names, all token properties are prefixed with a dollar sign (`$`). The alternative to this approach would be to maintain a list of reserved words that could not be used as token names. Using a prefix eliminates the need for the list of reserved words and provides a more future-proof spec.
+</p>
+
 ## Additional properties
 
 While `$value` is the only required property for a token, a number of additional properties MAY be added:
