@@ -44,7 +44,7 @@ This includes:
   - Figma
   - ...
 
-## Translation tool
+## <dfn>Translation tool</dfn>
 
 Token translation tools are tools that translate token data from one format to another.
 
@@ -69,7 +69,7 @@ Token tools can use Types to infer the purpose of a token.
 
 For example:
 
-- A [translation tool](#translation-tool) might reference a token's type to convert the source value into the correct platform-specific format.
+- A [=translation tool=] might reference a token's type to convert the source value into the correct platform-specific format.
 - A visual [=design tool=] might reference type to present tokens in the appropriate part of their UI - as in, color tokens are listed in the color picker, font tokens in the text styling UI's fonts list, and so on.
 
 ## Groups
