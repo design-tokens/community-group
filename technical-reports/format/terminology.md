@@ -1,6 +1,6 @@
 # Terminology
 
-These definitions are focused on the technical aspects of the specification, aimed at implementers such as design tools vendors. Definitions for designers and developers are available at [designtokens.org](https://www.designtokens.org/glossary/).
+These definitions are focused on the technical aspects of the specification, aimed at implementers such as [=design tool=] vendors. Definitions for designers and developers are available at [designtokens.org](https://www.designtokens.org/glossary/).
 
 ## (Design) Token
 
@@ -24,7 +24,7 @@ For example:
 - Metadata
 - Description
 
-## Design tool
+## <dfn>Design tool</dfn>
 
 Visual design creation and editing tools.
 
@@ -44,7 +44,7 @@ This includes:
   - Figma
   - ...
 
-## Translation tool
+## <dfn>Translation tool</dfn>
 
 Token translation tools are tools that translate token data from one format to another.
 
@@ -69,8 +69,8 @@ Token tools can use Types to infer the purpose of a token.
 
 For example:
 
-- A [translation tool](#translation-tool) might reference a token's type to convert the source value into the correct platform-specific format.
-- A visual [design tool](#design-tool) might reference type to present tokens in the appropriate part of their UI - as in, color tokens are listed in the color picker, font tokens in the text styling UI's fonts list, and so on.
+- A [=translation tool=] might reference a token's type to convert the source value into the correct platform-specific format.
+- A visual [=design tool=] might reference type to present tokens in the appropriate part of their UI - as in, color tokens are listed in the color picker, font tokens in the text styling UI's fonts list, and so on.
 
 ## Groups
 

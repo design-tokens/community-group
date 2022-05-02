@@ -74,7 +74,7 @@ For example:
 
 - Style guide generators MAY display the description text alongside a visual preview of the token
 - IDEs MAY display the description as a tooltip for auto-completion (similar to how API docs are displayed)
-- Design tools MAY display the description as a tooltip or alongside tokens wherever they can be selected
+- [=Design tools=] MAY display the description as a tooltip or alongside tokens wherever they can be selected
 - Export tools MAY render the description to a source code comment alongside the variable or constant they export.
 
 The value of the `$description` property MUST be a plain JSON string, for example:
