@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.1.2">
+<meta name="generator" content="ReSpec 32.1.6">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -25,7 +25,7 @@ input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
 </style>
 <style>
 dfn{cursor:pointer}
-.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
 .dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
 .dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
@@ -177,8 +177,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     "branch": "main"
   },
   "tocIntroductory": true,
-  "publishISODate": "2022-04-05T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 05 April 2022"
+  "publishISODate": "2022-05-02T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 02 May 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
   <body class="h-entry"><div class="head">
@@ -186,7 +186,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Design Tokens Format Module</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2022-04-05">05 April 2022</time>
+      <time class="dt-published" datetime="2022-05-02">02 May 2022</time>
     </p>
     <dl>
       
@@ -263,7 +263,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           discussion of this specification.
         
     
-  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">2. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">3. </bdi>Terminology</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#design-token"><bdi class="secno">3.1 </bdi>(Design) Token</a></li><li class="tocline"><a class="tocxref" href="#design-token-properties"><bdi class="secno">3.2 </bdi>(Design) Token Properties</a></li><li class="tocline"><a class="tocxref" href="#design-tool"><bdi class="secno">3.3 </bdi>Design tool</a></li><li class="tocline"><a class="tocxref" href="#translation-tool"><bdi class="secno">3.4 </bdi>Translation tool</a></li><li class="tocline"><a class="tocxref" href="#type"><bdi class="secno">3.5 </bdi>Type</a></li><li class="tocline"><a class="tocxref" href="#groups"><bdi class="secno">3.6 </bdi>Groups</a></li><li class="tocline"><a class="tocxref" href="#alias-reference"><bdi class="secno">3.7 </bdi>Alias (Reference)</a></li><li class="tocline"><a class="tocxref" href="#composite-design-token"><bdi class="secno">3.8 </bdi>Composite (Design) Token</a></li></ol></li><li class="tocline"><a class="tocxref" href="#file-format"><bdi class="secno">4. </bdi>File format</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#media-type-mime-type"><bdi class="secno">4.1 </bdi>Media type (MIME type)</a></li><li class="tocline"><a class="tocxref" href="#file-extensions"><bdi class="secno">4.2 </bdi>File extensions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#design-token-0"><bdi class="secno">5. </bdi>Design token</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#name-and-value"><bdi class="secno">5.1 </bdi>Name and value</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#character-restrictions"><bdi class="secno">5.1.1 </bdi>Character restrictions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#additional-properties"><bdi class="secno">5.2 </bdi>Additional properties</a></li><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">5.3 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#type-0"><bdi class="secno">5.4 </bdi>Type</a></li><li class="tocline"><a class="tocxref" href="#extensions"><bdi class="secno">5.5 </bdi>Extensions</a></li><li class="tocline"><a class="tocxref" href="#more-token-properties-tbc"><bdi class="secno">5.6 </bdi>More token properties TBC</a></li></ol></li><li class="tocline"><a class="tocxref" href="#groups-0"><bdi class="secno">6. </bdi>Groups</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#additional-group-properties"><bdi class="secno">6.1 </bdi>Additional group properties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">6.1.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#type-1"><bdi class="secno">6.1.2 </bdi>Type</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">6.2 </bdi>Use-cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#file-authoring-organization"><bdi class="secno">6.2.1 </bdi>File authoring &amp; organization</a></li><li class="tocline"><a class="tocxref" href="#gui-tools"><bdi class="secno">6.2.2 </bdi>GUI tools</a></li><li class="tocline"><a class="tocxref" href="#export-tools"><bdi class="secno">6.2.3 </bdi>Export tools</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#aliases-references"><bdi class="secno">7. </bdi>Aliases / references</a></li><li class="tocline"><a class="tocxref" href="#types"><bdi class="secno">8. </bdi>Types</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#color"><bdi class="secno">8.1 </bdi>Color</a></li><li class="tocline"><a class="tocxref" href="#dimension"><bdi class="secno">8.2 </bdi>Dimension</a></li><li class="tocline"><a class="tocxref" href="#font-family"><bdi class="secno">8.3 </bdi>Font family</a></li><li class="tocline"><a class="tocxref" href="#font-weight"><bdi class="secno">8.4 </bdi>Font weight</a></li><li class="tocline"><a class="tocxref" href="#duration"><bdi class="secno">8.5 </bdi>Duration</a></li><li class="tocline"><a class="tocxref" href="#cubic-bezier"><bdi class="secno">8.6 </bdi>Cubic Bézier</a></li><li class="tocline"><a class="tocxref" href="#additional-types"><bdi class="secno">8.7 </bdi>Additional types</a></li></ol></li><li class="tocline"><a class="tocxref" href="#composite-types"><bdi class="secno">9. </bdi>Composite types</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#groups-versus-composite-tokens"><bdi class="secno">9.1 </bdi>Groups versus composite tokens</a></li><li class="tocline"><a class="tocxref" href="#stroke-style"><bdi class="secno">9.2 </bdi>Stroke style</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#string-value"><bdi class="secno">9.2.1 </bdi>String value</a></li><li class="tocline"><a class="tocxref" href="#object-value"><bdi class="secno">9.2.2 </bdi>Object value</a></li><li class="tocline"><a class="tocxref" href="#fallbacks"><bdi class="secno">9.2.3 </bdi>Fallbacks</a></li></ol></li><li class="tocline"><a class="tocxref" href="#border"><bdi class="secno">9.3 </bdi>Border</a></li><li class="tocline"><a class="tocxref" href="#transition"><bdi class="secno">9.4 </bdi>Transition</a></li><li class="tocline"><a class="tocxref" href="#shadow"><bdi class="secno">9.5 </bdi>Shadow</a></li><li class="tocline"><a class="tocxref" href="#gradient"><bdi class="secno">9.6 </bdi>Gradient</a></li><li class="tocline"><a class="tocxref" href="#typography"><bdi class="secno">9.7 </bdi>Typography</a></li></ol></li><li class="tocline"><a class="tocxref" href="#issue-summary"><bdi class="secno">A. </bdi>Issue summary</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">B.1 </bdi>Normative references</a></li></ol></li></ol></nav>
+  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">2. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">3. </bdi>Terminology</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#design-token"><bdi class="secno">3.1 </bdi>(Design) Token</a></li><li class="tocline"><a class="tocxref" href="#design-token-properties"><bdi class="secno">3.2 </bdi>(Design) Token Properties</a></li><li class="tocline"><a class="tocxref" href="#design-tool"><bdi class="secno">3.3 </bdi><span data-plurals="design tools">Design tool</span></a></li><li class="tocline"><a class="tocxref" href="#translation-tool"><bdi class="secno">3.4 </bdi><span data-plurals="translation tools">Translation tool</span></a></li><li class="tocline"><a class="tocxref" href="#type"><bdi class="secno">3.5 </bdi>Type</a></li><li class="tocline"><a class="tocxref" href="#groups"><bdi class="secno">3.6 </bdi>Groups</a></li><li class="tocline"><a class="tocxref" href="#alias-reference"><bdi class="secno">3.7 </bdi>Alias (Reference)</a></li><li class="tocline"><a class="tocxref" href="#composite-design-token"><bdi class="secno">3.8 </bdi>Composite (Design) Token</a></li></ol></li><li class="tocline"><a class="tocxref" href="#file-format"><bdi class="secno">4. </bdi>File format</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#media-type-mime-type"><bdi class="secno">4.1 </bdi>Media type (MIME type)</a></li><li class="tocline"><a class="tocxref" href="#file-extensions"><bdi class="secno">4.2 </bdi>File extensions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#design-token-0"><bdi class="secno">5. </bdi>Design token</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#name-and-value"><bdi class="secno">5.1 </bdi>Name and value</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#character-restrictions"><bdi class="secno">5.1.1 </bdi>Character restrictions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#additional-properties"><bdi class="secno">5.2 </bdi>Additional properties</a></li><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">5.3 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#type-0"><bdi class="secno">5.4 </bdi>Type</a></li><li class="tocline"><a class="tocxref" href="#extensions"><bdi class="secno">5.5 </bdi>Extensions</a></li><li class="tocline"><a class="tocxref" href="#more-token-properties-tbc"><bdi class="secno">5.6 </bdi>More token properties TBC</a></li></ol></li><li class="tocline"><a class="tocxref" href="#groups-0"><bdi class="secno">6. </bdi>Groups</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#additional-group-properties"><bdi class="secno">6.1 </bdi>Additional group properties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">6.1.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#type-1"><bdi class="secno">6.1.2 </bdi>Type</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">6.2 </bdi>Use-cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#file-authoring-organization"><bdi class="secno">6.2.1 </bdi>File authoring &amp; organization</a></li><li class="tocline"><a class="tocxref" href="#gui-tools"><bdi class="secno">6.2.2 </bdi>GUI tools</a></li><li class="tocline"><a class="tocxref" href="#export-tools"><bdi class="secno">6.2.3 </bdi>Export tools</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#aliases-references"><bdi class="secno">7. </bdi>Aliases / references</a></li><li class="tocline"><a class="tocxref" href="#types"><bdi class="secno">8. </bdi>Types</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#color"><bdi class="secno">8.1 </bdi>Color</a></li><li class="tocline"><a class="tocxref" href="#dimension"><bdi class="secno">8.2 </bdi>Dimension</a></li><li class="tocline"><a class="tocxref" href="#font-family"><bdi class="secno">8.3 </bdi>Font family</a></li><li class="tocline"><a class="tocxref" href="#font-weight"><bdi class="secno">8.4 </bdi>Font weight</a></li><li class="tocline"><a class="tocxref" href="#duration"><bdi class="secno">8.5 </bdi>Duration</a></li><li class="tocline"><a class="tocxref" href="#cubic-bezier"><bdi class="secno">8.6 </bdi>Cubic Bézier</a></li><li class="tocline"><a class="tocxref" href="#additional-types"><bdi class="secno">8.7 </bdi>Additional types</a></li></ol></li><li class="tocline"><a class="tocxref" href="#composite-types"><bdi class="secno">9. </bdi>Composite types</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#groups-versus-composite-tokens"><bdi class="secno">9.1 </bdi>Groups versus composite tokens</a></li><li class="tocline"><a class="tocxref" href="#stroke-style"><bdi class="secno">9.2 </bdi>Stroke style</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#string-value"><bdi class="secno">9.2.1 </bdi>String value</a></li><li class="tocline"><a class="tocxref" href="#object-value"><bdi class="secno">9.2.2 </bdi>Object value</a></li><li class="tocline"><a class="tocxref" href="#fallbacks"><bdi class="secno">9.2.3 </bdi>Fallbacks</a></li></ol></li><li class="tocline"><a class="tocxref" href="#border"><bdi class="secno">9.3 </bdi>Border</a></li><li class="tocline"><a class="tocxref" href="#transition"><bdi class="secno">9.4 </bdi>Transition</a></li><li class="tocline"><a class="tocxref" href="#shadow"><bdi class="secno">9.5 </bdi>Shadow</a></li><li class="tocline"><a class="tocxref" href="#gradient"><bdi class="secno">9.6 </bdi>Gradient</a></li><li class="tocline"><a class="tocxref" href="#typography"><bdi class="secno">9.7 </bdi>Typography</a></li></ol></li><li class="tocline"><a class="tocxref" href="#issue-summary"><bdi class="secno">A. </bdi>Issue summary</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">B.1 </bdi>Normative references</a></li></ol></li></ol></nav>
 
     <section id="conformance"><div class="header-wrapper"><h2 id="x1-conformance"><bdi class="secno">1. </bdi>Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 1."></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
         The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, <em class="rfc2119">MUST NOT</em>, <em class="rfc2119">SHOULD</em>, and <em class="rfc2119">SHOULD NOT</em> in this document
@@ -292,12 +292,13 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </p>
       <ul>
         <li>
-          Design tools have begun allowing designers to label and reference
+          <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-1">Design tools</a> have begun allowing designers to label and reference
           shared values for design properties like colors and sizes.
         </li>
         <li>
-          Translation tools exist that can convert source design token data into
-          platform-specific source code that can directly be used by developers.
+          <a data-link-type="dfn" href="#dfn-translation-tool" class="internalDFN" id="ref-for-dfn-translation-tool-1">Translation tools</a> exist that can convert source design token data
+          into platform-specific source code that can directly be used by
+          developers.
         </li>
         <li>
           Documentation tools can display design token names rather than the raw
@@ -313,7 +314,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <ul>
         <li>
           Extracting design tokens from design files and feeding them into
-          translation tools to then be converted into platform-specific code
+          <a data-link-type="dfn" href="#dfn-translation-tool" class="internalDFN" id="ref-for-dfn-translation-tool-2">translation tools</a> to then be converted into platform-specific code
         </li>
         <li>
           Maintaining a "single source of truth" for design tokens and
@@ -336,7 +337,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     </section>
 
     <section id="terminology"><div class="header-wrapper"><h2 id="x3-terminology"><bdi class="secno">3. </bdi>Terminology</h2><a class="self-link" href="#terminology" aria-label="Permalink for Section 3."></a></div>
-<p>These definitions are focused on the technical aspects of the specification, aimed at implementers such as design tools vendors. Definitions for designers and developers are available at <a href="https://www.designtokens.org/glossary/">designtokens.org</a>.</p>
+<p>These definitions are focused on the technical aspects of the specification, aimed at implementers such as <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-2">design tool</a> vendors. Definitions for designers and developers are available at <a href="https://www.designtokens.org/glossary/">designtokens.org</a>.</p>
 <section id="design-token"><div class="header-wrapper"><h3 id="x3-1-design-token"><bdi class="secno">3.1 </bdi>(Design) Token</h3><a class="self-link" href="#design-token" aria-label="Permalink for Section 3.1"></a></div>
 <p>Information associated with a name, at minimum a name/value pair.</p>
 <p>Few examples:</p>
@@ -355,7 +356,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 <li>Metadata</li>
 <li>Description</li>
 </ul>
-</section><section id="design-tool"><div class="header-wrapper"><h3 id="x3-3-design-tool"><bdi class="secno">3.3 </bdi>Design tool</h3><a class="self-link" href="#design-tool" aria-label="Permalink for Section 3.3"></a></div>
+</section><section id="design-tool"><div class="header-wrapper"><h3 id="x3-3-design-tool"><bdi class="secno">3.3 </bdi><dfn data-plurals="design tools" id="dfn-design-tool" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Design tool</dfn></h3><a class="self-link" href="#design-tool" aria-label="Permalink for Section 3.3"></a></div>
 <p>Visual design creation and editing tools.</p>
 <p>This includes:</p>
 <ul>
@@ -379,7 +380,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </ul>
 </li>
 </ul>
-</section><section id="translation-tool"><div class="header-wrapper"><h3 id="x3-4-translation-tool"><bdi class="secno">3.4 </bdi>Translation tool</h3><a class="self-link" href="#translation-tool" aria-label="Permalink for Section 3.4"></a></div>
+</section><section id="translation-tool"><div class="header-wrapper"><h3 id="x3-4-translation-tool"><bdi class="secno">3.4 </bdi><dfn data-plurals="translation tools" id="dfn-translation-tool" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Translation tool</dfn></h3><a class="self-link" href="#translation-tool" aria-label="Permalink for Section 3.4"></a></div>
 <p>Token translation tools are tools that translate token data from one format to another.</p>
 <p>Few examples:</p>
 <ul>
@@ -399,8 +400,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 <p>Token tools can use Types to infer the purpose of a token.</p>
 <p>For example:</p>
 <ul>
-<li>A <a href="#translation-tool">translation tool</a> might reference a token's type to convert the source value into the correct platform-specific format.</li>
-<li>A visual <a href="#design-tool">design tool</a> might reference type to present tokens in the appropriate part of their UI - as in, color tokens are listed in the color picker, font tokens in the text styling UI's fonts list, and so on.</li>
+<li>A <a data-link-type="dfn" href="#dfn-translation-tool" class="internalDFN" id="ref-for-dfn-translation-tool-3">translation tool</a> might reference a token's type to convert the source value into the correct platform-specific format.</li>
+<li>A visual <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-3">design tool</a> might reference type to present tokens in the appropriate part of their UI - as in, color tokens are listed in the color picker, font tokens in the text styling UI's fonts list, and so on.</li>
 </ul>
 </section><section id="groups"><div class="header-wrapper"><h3 id="x3-6-groups"><bdi class="secno">3.6 </bdi>Groups</h3><a class="self-link" href="#groups" aria-label="Permalink for Section 3.6"></a></div>
 <p>Sets of tokens belonging to a specific category.</p>
@@ -517,7 +518,7 @@ $font-size: 16px;
 <ul>
 <li>Style guide generators <em class="rfc2119">MAY</em> display the description text alongside a visual preview of the token</li>
 <li>IDEs <em class="rfc2119">MAY</em> display the description as a tooltip for auto-completion (similar to how API docs are displayed)</li>
-<li>Design tools <em class="rfc2119">MAY</em> display the description as a tooltip or alongside tokens wherever they can be selected</li>
+<li><a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-4">Design tools</a> <em class="rfc2119">MAY</em> display the description as a tooltip or alongside tokens wherever they can be selected</li>
 <li>Export tools <em class="rfc2119">MAY</em> render the description to a source code comment alongside the variable or constant they export.</li>
 </ul>
 <p>The value of the <code>$description</code> property <em class="rfc2119">MUST</em> be a plain JSON string, for example:</p>
@@ -781,7 +782,7 @@ $font-size: 16px;
 <p><img src="./group-progressive-disclosure.png" alt="Progressive disclosure groups" height="426" width="506"></p>
 </section><section id="export-tools"><div class="header-wrapper"><h4 id="x6-2-3-export-tools"><bdi class="secno">6.2.3 </bdi>Export tools</h4><a class="self-link" href="#export-tools" aria-label="Permalink for Section 6.2.3"></a></div>
 <p>Token names are not guaranteed to be unique within the same file. The same name can be used in different groups. Also, export tools <em class="rfc2119">MAY</em> need to export design tokens in a uniquely identifiable way, such as variables in code. Export tools <em class="rfc2119">SHOULD</em> therefore use design tokens' paths as these <em>are</em> unique within a file.</p>
-<p>For example, a <a href="#translation-tool">translation tool</a> like <a href="https://amzn.github.io/style-dictionary/">Style Dictionary</a> might use the following design token file:</p>
+<p>For example, a <a data-link-type="dfn" href="#dfn-translation-tool" class="internalDFN" id="ref-for-dfn-translation-tool-4">translation tool</a> like <a href="https://amzn.github.io/style-dictionary/">Style Dictionary</a> might use the following design token file:</p>
 <aside class="example" id="example-12"><div class="marker">
     <a class="self-link" href="#example-12">Example<bdi> 12</bdi></a>
   </div>
@@ -850,14 +851,14 @@ $brand-typeface-secondary: 'Times New Roman';
 </aside>
 
 <p>When a tool needs the actual value of a token it <em class="rfc2119">MUST</em> resolve the reference - i.e. lookup the token being referenced and fetch its value. In the above example, the "alias name" token's value would resolve to 1234 because it references the token whose path is <code>{group name.token name}</code> which has the value 1234.</p>
-<p>Tools <em class="rfc2119">SHOULD</em> preserve references and therefore only resolve them whenever the actual value needs to be retrieved. For instance, in a design tool, changes to the value of a token being referenced by aliases <em class="rfc2119">SHOULD</em> be reflected wherever those aliases are being used.</p>
+<p>Tools <em class="rfc2119">SHOULD</em> preserve references and therefore only resolve them whenever the actual value needs to be retrieved. For instance, in a <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-5">design tool</a>, changes to the value of a token being referenced by aliases <em class="rfc2119">SHOULD</em> be reflected wherever those aliases are being used.</p>
 <p>Aliases <em class="rfc2119">MAY</em> reference other aliases. In this case, tools <em class="rfc2119">MUST</em> follow each reference until they find a token with an explicit value. Circular references are not allowed. If a design token file contains circular references, then the value of all tokens in that chain is unknown and an appropriate error or warning message <em class="rfc2119">SHOULD</em> be displayed to the user.</p>
 <div class="note" id="issue-container-generatedID-3"><div role="heading" class="ednote-title marker" id="h-ednote-3" aria-level="3"><span>Editor's note</span><span class="issue-label">: JSON Pointer syntax</span></div><p class="">
   The format editors are currently researching JSON Pointer syntax to inform the exact syntax for aliases in tokens. <a href="https://datatracker.ietf.org/doc/html/rfc6901#section-5">https://datatracker.ietf.org/doc/html/rfc6901#section-5</a>
 </p></div></section>
 
     <section id="types"><div class="header-wrapper"><h2 id="x8-types"><bdi class="secno">8. </bdi>Types</h2><a class="self-link" href="#types" aria-label="Permalink for Section 8."></a></div>
-<p>Many tools need to know what kind of value a given token represents to process it sensibly. Export tools <em class="rfc2119">MAY</em> need to convert or format tokens differently depending on their type. Design tools <em class="rfc2119">MAY</em> present the user with different kinds of input when editing tokens of a certain type (such as color picker, slider, text input, etc.). Style guide generators <em class="rfc2119">MAY</em> use different kinds of previews for different types of tokens.</p>
+<p>Many tools need to know what kind of value a given token represents to process it sensibly. Export tools <em class="rfc2119">MAY</em> need to convert or format tokens differently depending on their type. <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-6">Design tools</a> <em class="rfc2119">MAY</em> present the user with different kinds of input when editing tokens of a certain type (such as color picker, slider, text input, etc.). Style guide generators <em class="rfc2119">MAY</em> use different kinds of previews for different types of tokens.</p>
 <p>Since design token files are JSON files, all the basic JSON types are available:</p>
 <ul>
 <li>String</li>
@@ -1160,7 +1161,7 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 <li><strong>Composite tokens</strong> are individual design tokens whose values are made up of several sub-values.<ul>
 <li>Since they are design tokens, they can be referenced by other design tokens. This is not true for groups.</li>
 <li>Their type must be one of the composite types defined in this specification. Therefore their names and types of their sub-values are pre-defined. Adding additional sub-values or setting values that don't have the correct type make the composite token invalid.</li>
-<li>Tools <em class="rfc2119">MAY</em> provide specialised functionality for composite tokens. For example, a design tool may let the user pick from a list of all available shadow tokens when applying a drop shadow effect to an element.</li>
+<li>Tools <em class="rfc2119">MAY</em> provide specialised functionality for composite tokens. For example, a <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-7">design tool</a> may let the user pick from a list of all available shadow tokens when applying a drop shadow effect to an element.</li>
 </ul>
 </li>
 </ul>
@@ -1262,7 +1263,7 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
     <a class="self-link" href="#example-fallback-for-string-stroke-style">Example<bdi> 28</bdi></a><span class="example-title">: Fallback for string stroke style</span>
   </div>
 
-<p>Some design tools like Figma don't support inset, outset or double style lines. When a user applies a <code>stroke-style</code> token with those values, such tools might therefore fallback to displaying a solid line instead.</p>
+<p>Some <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-8">design tools</a> like Figma don't support inset, outset or double style lines. When a user applies a <code>stroke-style</code> token with those values, such tools might therefore fallback to displaying a solid line instead.</p>
 </aside>
 
 </section></section><section id="border"><div class="header-wrapper"><h3 id="x9-3-border"><bdi class="secno">9.3 </bdi>Border</h3><a class="self-link" href="#border" aria-label="Permalink for Section 9.3"></a></div>
@@ -1303,7 +1304,7 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 </aside>
 
 <div class="issue" id="issue-container-number-99"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/99"><span class="issue-number">Issue 99</span></a><span class="issue-label">: Border type feedback <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Needs+Feedback%2FReview%22" style="background-color: rgb(83, 25, 231); color: rgb(255, 255, 255);" aria-label="GitHub label: Needs Feedback/Review">Needs Feedback/Review</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22dtcg-format%22" style="background-color: rgb(191, 212, 242); color: rgb(0, 0, 0);" aria-label="GitHub label: dtcg-format">dtcg-format</a></span></div><div class="">
-  Is the current specification for borders fit for purpose? Does it need more sub-values to account for features like outset, border images, multiple borders, etc. that some platforms an design tools have?
+  Is the current specification for borders fit for purpose? Does it need more sub-values to account for features like outset, border images, multiple borders, etc. that some platforms and <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-9">design tools</a> have?
 </div></div>
 
 </section><section id="transition"><div class="header-wrapper"><h3 id="x9-4-transition"><bdi class="secno">9.4 </bdi>Transition</h3><a class="self-link" href="#transition" aria-label="Permalink for Section 9.4"></a></div>
@@ -1524,7 +1525,51 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
     </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
-  </p><script id="respec-dfn-panel">(() => {
+  </p><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-design-tool" aria-label="Links in this document to definition: Design tool">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-design-tool" aria-label="Permalink for definition: Design tool. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-design-tool-1" title="§ 2. Introduction">§ 2. Introduction</a> 
+  </li><li>
+    <a href="#ref-for-dfn-design-tool-2" title="§ 3. Terminology">§ 3. Terminology</a> 
+  </li><li>
+    <a href="#ref-for-dfn-design-tool-3" title="§ 3.5 Type">§ 3.5 Type</a> 
+  </li><li>
+    <a href="#ref-for-dfn-design-tool-4" title="§ 5.3 Description">§ 5.3 Description</a> 
+  </li><li>
+    <a href="#ref-for-dfn-design-tool-5" title="§ 7. Aliases / references">§ 7. Aliases / references</a> 
+  </li><li>
+    <a href="#ref-for-dfn-design-tool-6" title="§ 8. Types">§ 8. Types</a> 
+  </li><li>
+    <a href="#ref-for-dfn-design-tool-7" title="§ 9.1 Groups versus composite tokens">§ 9.1 Groups versus composite tokens</a> 
+  </li><li>
+    <a href="#ref-for-dfn-design-tool-8" title="§ 9.2.3 Fallbacks">§ 9.2.3 Fallbacks</a> 
+  </li><li>
+    <a href="#ref-for-dfn-design-tool-9" title="§ 9.3 Border">§ 9.3 Border</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-translation-tool" aria-label="Links in this document to definition: Translation tool">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-translation-tool" aria-label="Permalink for definition: Translation tool. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-translation-tool-1" title="§ 2. Introduction">§ 2. Introduction</a> <a href="#ref-for-dfn-translation-tool-2" title="Reference 2">(2)</a> 
+  </li><li>
+    <a href="#ref-for-dfn-translation-tool-3" title="§ 3.5 Type">§ 3.5 Type</a> 
+  </li><li>
+    <a href="#ref-for-dfn-translation-tool-4" title="§ 6.2.3 Export tools">§ 6.2.3 Export tools</a> 
+  </li>
+  </ul>
+    </div><script id="respec-dfn-panel">(() => {
 // @ts-check
 if (document.respec) {
   document.respec.ready.then(setupPanel);
