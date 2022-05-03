@@ -63,7 +63,7 @@ Furthermore, due to the syntax used for [token aliases](#aliases-references) the
 - `.` (period)
 
 <p class="ednote" title="'$' Prefix Rationale">
-  In order to prevent collisions with token names, all token properties are prefixed with a dollar sign (`$`). The alternative to this approach would be to maintain a list of reserved words that could not be used as token names. Using a prefix eliminates the need for the list of reserved words and provides a more future-proof spec.
+  Because of the <a href="#additional-group-properties">decision to prefix group properties with a dollar sign</a> (`$`), token properties will also use a dollar sign prefix. This provides a consistent syntax across the spec.
 </p>
 
 ## Additional properties
