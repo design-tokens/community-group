@@ -1,0 +1,8 @@
+# For previews, we publish an unbuilt version of the website
+[build]
+  publish = "technical-reports/"
+
+# The production branch is gh-pages, which is pre-built
+[context.production]
+  publish = "/"
+

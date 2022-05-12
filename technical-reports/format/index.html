@@ -9,10 +9,15 @@
       defer
     ></script>
     <script class="remove">
-      var respecConfig = {
+      const respecConfig = {
         specStatus: 'CG-DRAFT',
         group: 'design-tokens',
-        latestVersion: null,
+        // In PR preview apps, shows an annoying red box to the document,
+        // warning unsuspecting readers that they should not cite or
+        // reference this version of the specification.
+        isPreview: document.location.host.includes('preview'),
+        latestVersion:
+          'https://design-tokens.github.io/community-group/format/',
         edDraftURI: null,
         editors: [
           { name: 'Daniel Banks', url: 'https://twitter.com/dbanksDesign' },
@@ -27,6 +32,16 @@
           branch: 'main',
         },
         tocIntroductory: true,
+        logos: [
+          {
+            src: '/logo_128_2x.png',
+            url: 'https://www.designtokens.org',
+            alt: 'Design Tokens W3C Community Group',
+            width: 128,
+            height: 128,
+            id: 'dtcg-logo',
+          },
+        ],
       };
     </script>
     <style>
