@@ -1,6 +1,6 @@
 # Types
 
-Many tools need to know what kind of value a given token represents to process it sensibly. Export tools MAY need to convert or format tokens differently depending on their type. Design tools MAY present the user with different kinds of input when editing tokens of a certain type (such as color picker, slider, text input, etc.). Style guide generators MAY use different kinds of previews for different types of tokens.
+Many tools need to know what kind of value a given token represents to process it sensibly. Export tools MAY need to convert or format tokens differently depending on their type. [=Design tools=] MAY present the user with different kinds of input when editing tokens of a certain type (such as color picker, slider, text input, etc.). Style guide generators MAY use different kinds of previews for different types of tokens.
 
 Since design token files are JSON files, all the basic JSON types are available:
 

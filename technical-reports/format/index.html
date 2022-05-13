@@ -9,10 +9,14 @@
       defer
     ></script>
     <script class="remove">
-      var respecConfig = {
+      const respecConfig = {
         specStatus: 'CG-DRAFT',
         group: 'design-tokens',
-        latestVersion: null,
+        // In PR preview apps, shows an annoying red box to the document,
+        // warning unsuspecting readers that they should not cite or
+        // reference this version of the specification.
+        isPreview: document.location.host.includes('preview'),
+        latestVersion: 'https://tr.designtokens.org/format/',
         edDraftURI: null,
         editors: [
           { name: 'Daniel Banks', url: 'https://twitter.com/dbanksDesign' },
@@ -27,6 +31,16 @@
           branch: 'main',
         },
         tocIntroductory: true,
+        logos: [
+          {
+            src: '/logo_128_2x.png',
+            url: 'https://www.designtokens.org',
+            alt: 'Design Tokens W3C Community Group',
+            width: 128,
+            height: 128,
+            id: 'dtcg-logo',
+          },
+        ],
       };
     </script>
     <style>
@@ -92,12 +106,13 @@
       </p>
       <ul>
         <li>
-          Design tools have begun allowing designers to label and reference
+          [=Design tools=] have begun allowing designers to label and reference
           shared values for design properties like colors and sizes.
         </li>
         <li>
-          Translation tools exist that can convert source design token data into
-          platform-specific source code that can directly be used by developers.
+          [=Translation tools=] exist that can convert source design token data
+          into platform-specific source code that can directly be used by
+          developers.
         </li>
         <li>
           Documentation tools can display design token names rather than the raw
@@ -113,7 +128,7 @@
       <ul>
         <li>
           Extracting design tokens from design files and feeding them into
-          translation tools to then be converted into platform-specific code
+          [=translation tools=] to then be converted into platform-specific code
         </li>
         <li>
           Maintaining a "single source of truth" for design tokens and

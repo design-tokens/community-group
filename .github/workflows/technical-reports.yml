@@ -1,7 +1,5 @@
 name: Technical reports
 on:
-  pull_request:
-    paths: ['technical-reports/**']
   push:
     branches: ['main']
     paths: ['technical-reports/**']
