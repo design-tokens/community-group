@@ -1,6 +1,6 @@
 # DTCG Technical Reports
 
-This directory contains the source code for the [Design Token Community Group's (DTCG) technical reports](https://design-tokens.github.io/community-group/).
+This directory contains the source code for the [Design Token Community Group's (DTCG) technical reports](https://tr.designtokens.org/).
 
 <!-- TOC depthfrom:2 -->
 
@@ -54,6 +54,6 @@ For example:
 
 ## Deployments
 
-Any changes to the source files in this directory that get merged into `main` are automatically deployed to [`https://design-tokens.github.io/community-group/`](https://design-tokens.github.io/community-group/) via the [`technical-reports` GitHub Action](../.github/workflows/technical-reports.yml). They are hosted using GitHub Pages and the build output can be found in the [`gh-pages` branch](https://github.com/design-tokens/community-group/tree/gh-pages).
+Any changes to the source files in this directory that get merged into `main` are automatically deployed to [`https://tr.designtokens.org/`](https://tr.designtokens.org/) via the [`technical-reports` GitHub Action](../.github/workflows/technical-reports.yml). They are hosted using GitHub Pages and the build output can be found in the [`gh-pages` branch](https://github.com/design-tokens/community-group/tree/gh-pages).
 
 Additionally, we use Netlify to generate preview deploys for PRs. Netlify will post a comment to the PR with the URL of the preview once it is ready.
