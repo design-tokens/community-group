@@ -8,10 +8,10 @@
   "private": true,
   "devDependencies": {
     "husky": "^8.0.1",
-    "lint-staged": "^12.4.1",
+    "lint-staged": "^13.0.1",
     "live-server": "^1.2.2",
     "prettier": "^2.6.2",
-    "respec": "^32.1.6"
+    "respec": "^32.1.8"
   },
   "scripts": {
     "lint": "prettier '**/*.{md,yml,json,html}' --check --config ./.prettierrc.json",
