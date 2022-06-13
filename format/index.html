@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.1.6">
+<meta name="generator" content="ReSpec 32.1.8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -188,8 +188,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "dtcg-logo"
     }
   ],
-  "publishISODate": "2022-05-13T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 13 May 2022"
+  "publishISODate": "2022-06-13T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 13 June 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
   <body class="h-entry"><div class="head">
@@ -198,7 +198,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Design Tokens Format Module</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2022-05-13">13 May 2022</time>
+      <time class="dt-published" datetime="2022-06-13">13 June 2022</time>
     </p>
     <dl>
       
@@ -522,6 +522,10 @@ $font-size: 16px;
 <li><code>}</code> (right curly bracket)</li>
 <li><code>.</code> (period)</li>
 </ul>
+<div class="note" id="issue-container-generatedID-1"><div role="heading" class="ednote-title marker" id="h-ednote-1" aria-level="5"><span>Editor's note</span><span class="issue-label">: '$' Prefix Rationale</span></div><p class="">
+  Because of the <a href="#additional-group-properties">decision to prefix group properties with a dollar sign</a> (<code>$</code>), token properties will also use a dollar sign prefix. This provides a consistent syntax across the spec.
+</p></div>
+
 </section></section><section id="additional-properties"><div class="header-wrapper"><h3 id="x5-2-additional-properties"><bdi class="secno">5.2 </bdi>Additional properties</h3><a class="self-link" href="#additional-properties" aria-label="Permalink for Section 5.2"></a></div>
 <p>While <code>$value</code> is the only required property for a token, a number of additional properties <em class="rfc2119">MAY</em> be added:</p>
 </section><section id="description"><div class="header-wrapper"><h3 id="x5-3-description"><bdi class="secno">5.3 </bdi>Description</h3><a class="self-link" href="#description" aria-label="Permalink for Section 5.3"></a></div>
@@ -602,7 +606,7 @@ $font-size: 16px;
 
 <p>In order to maintain interoperability between tools that support this format, teams and tools <em class="rfc2119">SHOULD</em> restrict their usage of extension data to optional meta-data that is not crucial to understanding that token's value.</p>
 <p>Tool vendors are encouraged to publicly share specifications of their extension data wherever possible. That way other tools can add support for them without needing to reverse engineer the extension data. Popular extensions could also be incorporated as standardized features in future revisions of this specification.</p>
-<div class="note" id="issue-container-generatedID-1"><div role="heading" class="ednote-title marker" id="h-ednote-1" aria-level="4"><span>Editor's note</span><span class="issue-label">: Extensions section</span></div><p class="">
+<div class="note" id="issue-container-generatedID-2"><div role="heading" class="ednote-title marker" id="h-ednote-2" aria-level="4"><span>Editor's note</span><span class="issue-label">: Extensions section</span></div><p class="">
   The extensions section is not limited to vendors. All token users can add additional data in this section for their own purposes.
 </p></div>
 
@@ -666,11 +670,49 @@ $font-size: 16px;
 <p>Because groupings are arbitrary, tools <em class="rfc2119">MUST NOT</em> use them to infer the type or purpose of design tokens.</p>
 <p>Groups items (i.e. the tokens and/or nested groups) are unordered. In other words, there is no implicit order between items within a group. Therefore, tools that parse or write design token files are not required to preserve the source order of items in a group.</p>
 <p>The names of items in a group are case sensitive. As per the guidance in the <a href="#name-and-value">design token chapter</a>, tools <em class="rfc2119">MAY</em> display a warning to users when groups contain items whose names differ only in case and could therefore lead to naming clashes when exported.</p>
-<div class="note" id="issue-container-generatedID-2"><div role="heading" class="ednote-title marker" id="h-ednote-2" aria-level="3"><span>Editor's note</span><span class="issue-label">: Naming practices</span></div><p class="">
+<div class="note" id="issue-container-generatedID-3"><div role="heading" class="ednote-title marker" id="h-ednote-3" aria-level="3"><span>Editor's note</span><span class="issue-label">: Naming practices</span></div><p class="">
   The format editors acknowledge existing best-practices for token naming, but place no direct constraints on naming via the specification.
 </p></div>
 
 <section id="additional-group-properties"><div class="header-wrapper"><h3 id="x6-1-additional-group-properties"><bdi class="secno">6.1 </bdi>Additional group properties</h3><a class="self-link" href="#additional-group-properties" aria-label="Permalink for Section 6.1"></a></div>
+<div class="note" id="issue-container-generatedID-4"><div role="heading" class="ednote-title marker" id="h-ednote-4" aria-level="4"><span>Editor's note</span><span class="issue-label">: Group properties vs. nested group and token names</span></div><div class="">
+  <p>
+    To prevent collisions with token names, token properties are prefixed with a dollar sign (<code>$</code>). Using this prefix eliminates the need for a reserved words list and helps future-proof the spec.
+  </p>
+  <p>
+    Group keys without a dollar sign (<code>$</code>) prefix denote:
+  </p>
+  <ul>
+    <li>
+      <strong>A token name:</strong> distinguishable by containing a <code>$value</code> property
+      <pre>      <code aria-busy="false" class="hljs json">
+{
+  <span class="hljs-attr">"Group of tokens"</span>: {
+    <span class="hljs-attr">"$description"</span>: <span class="hljs-string">"This is an example of a group containing a single token"</span>,
+    <span class="hljs-attr">"Token name"</span>: {
+      <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"#000000"</span>
+    }
+  }
+}
+      </code></pre>
+    </li>
+    <li>
+      <strong>A nested group name:</strong> distinguishable by <em>not</em> having a <code>$value</code> property
+      <pre>      <code aria-busy="false" class="hljs css">
+{
+  "Group of tokens": {
+    <span class="hljs-string">"$description"</span>: <span class="hljs-string">"This is an example of a group containing a nested group"</span>,
+    <span class="hljs-string">"Subgroup of tokens"</span>: {
+      <span class="hljs-string">"Token 1 name"</span>: { ... },
+      "Token <span class="hljs-number">2</span> name": { ...}
+    }
+  }
+}
+      </code></pre>
+    </li>
+  </ul>
+</div></div>
+
 <section id="description-0"><div class="header-wrapper"><h4 id="x6-1-1-description"><bdi class="secno">6.1.1 </bdi>Description</h4><a class="self-link" href="#description-0" aria-label="Permalink for Section 6.1.1"></a></div>
 <p>Groups <em class="rfc2119">MAY</em> include an optional <code>$description</code> property, whose value <em class="rfc2119">MUST</em> be a plain JSON string. Its purpose is to describe the group itself.</p>
 <p>For example:</p>
@@ -865,7 +907,7 @@ $brand-typeface-secondary: 'Times New Roman';
 <p>When a tool needs the actual value of a token it <em class="rfc2119">MUST</em> resolve the reference - i.e. lookup the token being referenced and fetch its value. In the above example, the "alias name" token's value would resolve to 1234 because it references the token whose path is <code>{group name.token name}</code> which has the value 1234.</p>
 <p>Tools <em class="rfc2119">SHOULD</em> preserve references and therefore only resolve them whenever the actual value needs to be retrieved. For instance, in a <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-5">design tool</a>, changes to the value of a token being referenced by aliases <em class="rfc2119">SHOULD</em> be reflected wherever those aliases are being used.</p>
 <p>Aliases <em class="rfc2119">MAY</em> reference other aliases. In this case, tools <em class="rfc2119">MUST</em> follow each reference until they find a token with an explicit value. Circular references are not allowed. If a design token file contains circular references, then the value of all tokens in that chain is unknown and an appropriate error or warning message <em class="rfc2119">SHOULD</em> be displayed to the user.</p>
-<div class="note" id="issue-container-generatedID-3"><div role="heading" class="ednote-title marker" id="h-ednote-3" aria-level="3"><span>Editor's note</span><span class="issue-label">: JSON Pointer syntax</span></div><p class="">
+<div class="note" id="issue-container-generatedID-5"><div role="heading" class="ednote-title marker" id="h-ednote-5" aria-level="3"><span>Editor's note</span><span class="issue-label">: JSON Pointer syntax</span></div><p class="">
   The format editors are currently researching JSON Pointer syntax to inform the exact syntax for aliases in tokens. <a href="https://datatracker.ietf.org/doc/html/rfc6901#section-5">https://datatracker.ietf.org/doc/html/rfc6901#section-5</a>
 </p></div></section>
 
