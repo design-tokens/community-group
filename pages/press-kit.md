@@ -36,7 +36,9 @@ Note: the DTCG is **not** a W3C Working Group. The technical reports published b
 - [DesignTokens.org](https://designtokens.org/): Official home of the Design Tokens Community Group where you can learn more about the group, the principles we value, glossary, blog, and links to other resources
 - [GitHub design-tokens/community-group](https://github.com/design-tokens/community-group): Official GitHub DTCG repository for the design tokens specifications
 - [w3.org/community/design-tokens](https://www.w3.org/community/design-tokens/): Official W3C home of the DTCG for announcements, reports, and contributors
-- [twitter.com/DesignTokens](https://twitter.com/DesignTokens): Official Twitter account for social media communications
+- [Twitter: @DesignTokens](https://twitter.com/DesignTokens): Official Twitter account for DTCG social media communications
+- [LinkedIn](https://www.linkedin.com/company/design-tokens-community-group/): Official LinkedIn account for DTCG social media communications
+- [Open Collective](https://opencollective.com/design-tokens): Where people and companies can donate to the DTCG
 - [Design Tokens Community Group Glossary](https://www.designtokens.org/glossary/): High-level definitions to provide a common language during discussions
 
 ## Chairs
