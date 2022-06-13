@@ -6,7 +6,7 @@ These definitions are focused on the technical aspects of the specification, aim
 
 Information associated with a name, at minimum a name/value pair.
 
-Few examples:
+For example:
 
 - `color-text-primary: #000000;`
 - `font-size-heading-level-1: 44px;`
@@ -48,7 +48,7 @@ This includes:
 
 Token translation tools are tools that translate token data from one format to another.
 
-Few examples:
+For example:
 
 - [Theo](https://github.com/salesforce-ux/theo)
 - [Style Dictionary](https://amzn.github.io/style-dictionary/)
@@ -100,3 +100,20 @@ The value of `$color-text-primary` is `#000000`, because `$color-text-primary` _
 ## Composite (Design) Token
 
 A design token whose value is made up of multiple, named child values. Composite tokens are useful for closely related style properties that are always applied together. For example, a typography style might be made up of a font name, font size, line height, and color.
+
+Here's [an example of a composite shadow token](https://design-tokens.github.io/community-group/format/#example-composite-token-example):
+
+```json
+{
+  "shadow-token": {
+    "$type": "shadow",
+    "$value": {
+      "color": "#00000088",
+      "offsetX": "0.5rem",
+      "offsetY": "0.5rem",
+      "blur": "1.5rem",
+      "spread": "0rem"
+    }
+  }
+}
+```
