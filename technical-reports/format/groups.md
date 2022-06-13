@@ -58,6 +58,48 @@ The names of items in a group are case sensitive. As per the guidance in the [de
 
 ## Additional group properties
 
+<div class="ednote" title="Group properties vs. nested group and token names">
+  <p>
+    To prevent collisions with token names, token properties are prefixed with a dollar sign (`$`). Using this prefix eliminates the need for a reserved words list and helps future-proof the spec.
+  </p>
+  <p>
+    Group keys without a dollar sign (`$`) prefix denote:
+  </p>
+  <ul>
+    <li>
+      <strong>A token name:</strong> distinguishable by containing a `$value` property
+      <pre>
+      <code>
+{
+  "Group of tokens": {
+    "$description": "This is an example of a group containing a single token",
+    "Token name": {
+      "$value": "#000000"
+    }
+  }
+}
+      </code>
+      </pre>
+    </li>
+    <li>
+      <strong>A nested group name:</strong> distinguishable by <em>not</em> having a `$value` property
+      <pre>
+      <code>
+{
+  "Group of tokens": {
+    "$description": "This is an example of a group containing a nested group",
+    "Subgroup of tokens": {
+      "Token 1 name": { ... },
+      "Token 2 name": { ...}
+    }
+  }
+}
+      </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
 ### Description
 
 Groups MAY include an optional `$description` property, whose value MUST be a plain JSON string. Its purpose is to describe the group itself.
