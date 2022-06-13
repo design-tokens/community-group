@@ -72,7 +72,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Sass](https://www.sass-lang.com)
 - [Shopify](https://www.shopify.com)
 - [Sketch](https://www.sketch.com/)
-- [Specify](https://www.specifyapp.com/)
+- [Specify](https://specifyapp.com/)
 - [Sprout Social](https://sproutsocial.com/seeds)
 - [Style Dictionary](https://amzn.github.io/style-dictionary)
 - [Superposition](https://superposition.design)
