@@ -352,7 +352,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 <p>These definitions are focused on the technical aspects of the specification, aimed at implementers such as <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-2">design tool</a> vendors. Definitions for designers and developers are available at <a href="https://www.designtokens.org/glossary/">designtokens.org</a>.</p>
 <section id="design-token"><div class="header-wrapper"><h3 id="x3-1-design-token"><bdi class="secno">3.1 </bdi>(Design) Token</h3><a class="self-link" href="#design-token" aria-label="Permalink for Section 3.1"></a></div>
 <p>Information associated with a name, at minimum a name/value pair.</p>
-<p>Few examples:</p>
+<p>For example:</p>
 <ul>
 <li><code>color-text-primary: #000000;</code></li>
 <li><code>font-size-heading-level-1: 44px;</code></li>
@@ -394,7 +394,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </ul>
 </section><section id="translation-tool"><div class="header-wrapper"><h3 id="x3-4-translation-tool"><bdi class="secno">3.4 </bdi><dfn data-plurals="translation tools" id="dfn-translation-tool" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Translation tool</dfn></h3><a class="self-link" href="#translation-tool" aria-label="Permalink for Section 3.4"></a></div>
 <p>Token translation tools are tools that translate token data from one format to another.</p>
-<p>Few examples:</p>
+<p>For example:</p>
 <ul>
 <li><a href="https://github.com/salesforce-ux/theo">Theo</a></li>
 <li><a href="https://amzn.github.io/style-dictionary/">Style Dictionary</a></li>
@@ -433,6 +433,20 @@ $color-text-primary: $color-palette-black;
 <p>The value of <code>$color-text-primary</code> is <code>#000000</code>, because <code>$color-text-primary</code> <em>references <code>$color-palette-black</code></em>. We can also say <code>$color-text-primary</code> is an <em>alias</em> for <code>$color-palette-black.</code></p>
 </section><section id="composite-design-token"><div class="header-wrapper"><h3 id="x3-8-composite-design-token"><bdi class="secno">3.8 </bdi>Composite (Design) Token</h3><a class="self-link" href="#composite-design-token" aria-label="Permalink for Section 3.8"></a></div>
 <p>A design token whose value is made up of multiple, named child values. Composite tokens are useful for closely related style properties that are always applied together. For example, a typography style might be made up of a font name, font size, line height, and color.</p>
+<p>Here's <a href="https://design-tokens.github.io/community-group/format/#example-composite-token-example">an example of a composite shadow token</a>:</p>
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"shadow-token"</span>: {
+    <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"shadow"</span>,
+    <span class="hljs-attr">"$value"</span>: {
+      <span class="hljs-attr">"color"</span>: <span class="hljs-string">"#00000088"</span>,
+      <span class="hljs-attr">"offsetX"</span>: <span class="hljs-string">"0.5rem"</span>,
+      <span class="hljs-attr">"offsetY"</span>: <span class="hljs-string">"0.5rem"</span>,
+      <span class="hljs-attr">"blur"</span>: <span class="hljs-string">"1.5rem"</span>,
+      <span class="hljs-attr">"spread"</span>: <span class="hljs-string">"0rem"</span>
+    }
+  }
+}
+</code></pre>
 </section></section>
 
     <section id="file-format"><div class="header-wrapper"><h2 id="x4-file-format"><bdi class="secno">4. </bdi>File format</h2><a class="self-link" href="#file-format" aria-label="Permalink for Section 4."></a></div>
