@@ -17,8 +17,6 @@ jobs:
             destination: index.html
           - source: technical-reports/format/index.html
             destination: format/index.html
-          - source: technical-reports/color/index.html
-            destination: color/index.html
     steps:
       - uses: actions/checkout@v2
       - uses: w3c/spec-prod@v2
