@@ -188,8 +188,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "dtcg-logo"
     }
   ],
-  "publishISODate": "2022-06-13T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 13 June 2022"
+  "publishISODate": "2022-06-14T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 14 June 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
   <body class="h-entry"><div class="head">
@@ -198,7 +198,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Design Tokens Format Module</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2022-06-13">13 June 2022</time>
+      <time class="dt-published" datetime="2022-06-14">14 June 2022</time>
     </p>
     <dl>
       
@@ -689,17 +689,12 @@ $font-size: 16px;
 
 <section id="additional-group-properties"><div class="header-wrapper"><h3 id="x6-1-additional-group-properties"><bdi class="secno">6.1 </bdi>Additional group properties</h3><a class="self-link" href="#additional-group-properties" aria-label="Permalink for Section 6.1"></a></div>
 <div class="note" id="issue-container-generatedID-4"><div role="heading" class="ednote-title marker" id="h-ednote-4" aria-level="4"><span>Editor's note</span><span class="issue-label">: Group properties vs. nested group and token names</span></div><div class="">
-  <p>
-    To prevent collisions with token names, token properties are prefixed with a dollar sign (<code>$</code>). Using this prefix eliminates the need for a reserved words list and helps future-proof the spec.
-  </p>
-  <p>
-    Group keys without a dollar sign (<code>$</code>) prefix denote:
-  </p>
-  <ul>
-    <li>
-      <strong>A token name:</strong> distinguishable by containing a <code>$value</code> property
-      <pre>      <code aria-busy="false" class="hljs json">
-{
+
+<p>To prevent collisions with token names, token properties are prefixed with a dollar sign (<code>$</code>). Using this prefix eliminates the need for a reserved words list and helps future-proof the spec.</p>
+<p>Group keys without a dollar sign (<code>$</code>) prefix denote:</p>
+<ul>
+<li><p><strong>A token name:</strong> distinguishable by containing a <code>$value</code> property</p>
+<pre><code class="json hljs" aria-busy="false">{
   <span class="hljs-attr">"Group of tokens"</span>: {
     <span class="hljs-attr">"$description"</span>: <span class="hljs-string">"This is an example of a group containing a single token"</span>,
     <span class="hljs-attr">"Token name"</span>: {
@@ -707,23 +702,25 @@ $font-size: 16px;
     }
   }
 }
-      </code></pre>
-    </li>
-    <li>
-      <strong>A nested group name:</strong> distinguishable by <em>not</em> having a <code>$value</code> property
-      <pre>      <code aria-busy="false" class="hljs css">
-{
-  "Group of tokens": {
-    <span class="hljs-string">"$description"</span>: <span class="hljs-string">"This is an example of a group containing a nested group"</span>,
-    <span class="hljs-string">"Subgroup of tokens"</span>: {
-      <span class="hljs-string">"Token 1 name"</span>: { ... },
-      "Token <span class="hljs-number">2</span> name": { ...}
+</code></pre>
+</li>
+<li><p><strong>A nested group name:</strong> distinguishable by <em>not</em> having a <code>$value</code> property</p>
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"Group of tokens"</span>: {
+    <span class="hljs-attr">"$description"</span>: <span class="hljs-string">"This is an example of a group containing a nested group"</span>,
+    <span class="hljs-attr">"Subgroup of tokens"</span>: {
+      <span class="hljs-attr">"Token 1 name"</span>: {
+        <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"#aabbcc"</span>
+      },
+      <span class="hljs-attr">"Token 2 name"</span>: {
+        <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"#ddeeff"</span>
+      }
     }
   }
 }
-      </code></pre>
-    </li>
-  </ul>
+</code></pre>
+</li>
+</ul>
 </div></div>
 
 <section id="description-0"><div class="header-wrapper"><h4 id="x6-1-1-description"><bdi class="secno">6.1.1 </bdi>Description</h4><a class="self-link" href="#description-0" aria-label="Permalink for Section 6.1.1"></a></div>
@@ -756,7 +753,7 @@ $font-size: 16px;
 <li>A GUI tool that lets users browse or select tokens could display this info alongside the corresponding group or as a tooltip</li>
 <li>Export tools could output this as a source code comment</li>
 </ul>
-<div class="issue" id="issue-container-number-72"><div role="heading" class="issue-title marker" id="h-issue" aria-level="5"><a href="https://github.com/design-tokens/community-group/issues/72"><span class="issue-number">Issue 72</span></a><span class="issue-label">: Group &amp; file level properties <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22dtcg-format%22" style="background-color: rgb(191, 212, 242); color: rgb(0, 0, 0);" aria-label="GitHub label: dtcg-format">dtcg-format</a></span></div><div class="">
+<div class="issue closed" id="issue-container-number-72"><div role="heading" class="issue-title marker" id="h-issue" aria-level="5"><a href="https://github.com/design-tokens/community-group/issues/72"><span class="issue-number">Issue 72</span></a><span class="issue-label">: Group &amp; file level properties <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22dtcg-format%22" style="background-color: rgb(191, 212, 242); color: rgb(0, 0, 0);" aria-label="GitHub label: dtcg-format">dtcg-format</a></span></div><div class="">
 
 <p>Groups may support additional properties like type and description. Should other properties be supported at the group level?</p>
 </div></div>
@@ -995,7 +992,7 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 <li><strong>rem</strong>: Represents a multiple of the system's default font size (which <em class="rfc2119">MAY</em> be configurable by the user). 1rem is 100% of the default font size. The equivalent of 1rem on Android is 16sp. Not all platforms have an equivalent to rem, so export tools <em class="rfc2119">MAY</em> need to do a lossy conversion to a fixed px size by assuming a default font size (usually 16px) for such platforms.</li>
 </ul>
 </section><section id="font-family"><div class="header-wrapper"><h3 id="x8-3-font-family"><bdi class="secno">8.3 </bdi>Font family</h3><a class="self-link" href="#font-family" aria-label="Permalink for Section 8.3"></a></div>
-<div class="issue" id="issue-container-number-53"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/53"><span class="issue-number">Issue 53</span></a><span class="issue-label">: Type: font name <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Needs+Feedback%2FReview%22" style="background-color: rgb(83, 25, 231); color: rgb(255, 255, 255);" aria-label="GitHub label: Needs Feedback/Review">Needs Feedback/Review</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22dtcg-format%22" style="background-color: rgb(191, 212, 242); color: rgb(0, 0, 0);" aria-label="GitHub label: dtcg-format">dtcg-format</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Reviewed+by+editors%22" style="background-color: rgb(112, 105, 34); color: rgb(255, 255, 255);" aria-label="GitHub label: Reviewed by editors">Reviewed by editors</a></span></div><div class="">
+<div class="issue" id="issue-container-number-53"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/53"><span class="issue-number">Issue 53</span></a><span class="issue-label">: Type: font family <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Needs+Feedback%2FReview%22" style="background-color: rgb(83, 25, 231); color: rgb(255, 255, 255);" aria-label="GitHub label: Needs Feedback/Review">Needs Feedback/Review</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22dtcg-format%22" style="background-color: rgb(191, 212, 242); color: rgb(0, 0, 0);" aria-label="GitHub label: dtcg-format">dtcg-format</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Reviewed+by+editors%22" style="background-color: rgb(112, 105, 34); color: rgb(255, 255, 255);" aria-label="GitHub label: Reviewed by editors">Reviewed by editors</a></span></div><div class="">
 
 <p>A naive approach like the one below may be appropriate for the first stage of the specification, but this could be more complicated than it seems due to platform/OS/browser restrictions.</p>
 </div></div>
@@ -1580,7 +1577,7 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 <p>Is the current specification for typography styles fit for purpose? <a href="https://github.com/design-tokens/community-group/pull/86#discussion_r768137006">Should the <code>lineHeight</code> sub-value use a number value, dimension or a new lineHeight type</a>?</p>
 </div></div></section></section>
 
-    <section class="appendix" id="issue-summary"><div class="header-wrapper"><h2 id="a-issue-summary"><bdi class="secno">A. </bdi>Issue summary</h2><a class="self-link" href="#issue-summary" aria-label="Permalink for Appendix A."></a></div><ul><li><a href="#issue-container-number-72">Issue 72</a><span style="text-transform: none">: Group &amp; file level properties</span></li><li><a href="#issue-container-number-53">Issue 53</a><span style="text-transform: none">: Type: font name</span></li><li><a href="#issue-container-number-98">Issue 98</a><span style="text-transform: none">: Stroke style type feedback</span></li><li><a href="#issue-container-number-99">Issue 99</a><span style="text-transform: none">: Border type feedback</span></li><li><a href="#issue-container-number-103">Issue 103</a><span style="text-transform: none">: Transition type feedback</span></li><li><a href="#issue-container-number-100">Issue 100</a><span style="text-transform: none">: Shadow type feedback</span></li><li><a href="#issue-container-number-101">Issue 101</a><span style="text-transform: none">: Gradient type feedback</span></li><li><a href="#issue-container-number-102">Issue 102</a><span style="text-transform: none">: Typography type feedback</span></li></ul></section>
+    <section class="appendix" id="issue-summary"><div class="header-wrapper"><h2 id="a-issue-summary"><bdi class="secno">A. </bdi>Issue summary</h2><a class="self-link" href="#issue-summary" aria-label="Permalink for Appendix A."></a></div><ul><li><a href="#issue-container-number-72">Issue 72</a><span style="text-transform: none">: Group &amp; file level properties</span></li><li><a href="#issue-container-number-53">Issue 53</a><span style="text-transform: none">: Type: font family</span></li><li><a href="#issue-container-number-98">Issue 98</a><span style="text-transform: none">: Stroke style type feedback</span></li><li><a href="#issue-container-number-99">Issue 99</a><span style="text-transform: none">: Border type feedback</span></li><li><a href="#issue-container-number-103">Issue 103</a><span style="text-transform: none">: Transition type feedback</span></li><li><a href="#issue-container-number-100">Issue 100</a><span style="text-transform: none">: Shadow type feedback</span></li><li><a href="#issue-container-number-101">Issue 101</a><span style="text-transform: none">: Gradient type feedback</span></li><li><a href="#issue-container-number-102">Issue 102</a><span style="text-transform: none">: Typography type feedback</span></li></ul></section>
   
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="b-references"><bdi class="secno">B. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix B."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="b-1-normative-references"><bdi class="secno">B.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix B.1"></a></div>
