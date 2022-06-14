@@ -9,18 +9,14 @@
       defer
     ></script>
     <script class="remove">
-      const respecConfig = {
+      var respecConfig = {
         specStatus: 'CG-DRAFT',
-        thisVersion: 'https://second-editors-draft.tr.designtokens.org/format/',
+        subtitle: 'First Editors’ Draft',
+        group: 'design-tokens',
+        publishDate: '2021-09-23',
+        thisVersion: 'https://first-editors-draft.tr.designtokens.org/',
         latestVersion: 'https://tr.designtokens.org/',
         edDraftURI: null,
-        subtitle: 'Second Editors’ Draft',
-        group: 'design-tokens',
-        publishDate: '2022-06-14',
-        // In PR preview apps, shows an annoying red box to the document,
-        // warning unsuspecting readers that they should not cite or
-        // reference this version of the specification.
-        isPreview: document.location.host.includes('preview'),
         editors: [
           { name: 'Daniel Banks', url: 'https://twitter.com/dbanksDesign' },
           { name: 'Donna Vitan', url: 'http://twitter.com/donnavitan' },
@@ -31,19 +27,9 @@
 
         github: {
           repoURL: 'https://github.com/design-tokens/community-group',
-          branch: 'second-editors-draft',
+          branch: 'first-editors-draft',
         },
-        tocIntroductory: false,
-        logos: [
-          {
-            src: '/logo_128_2x.png',
-            url: 'https://www.designtokens.org',
-            alt: 'Design Tokens Community Group',
-            width: 128,
-            height: 128,
-            id: 'dtcg-logo',
-          },
-        ],
+        tocIntroductory: true,
       };
     </script>
     <style>
@@ -69,14 +55,15 @@
 
     <section id="sotd">
       <p>
-        This is a snapshot of the editors' draft. It is provided for discussion
+        This is a snapshot of the editors’ draft. It is provided for discussion
         only and may change at any moment. Its publication here does not imply
-        endorsement of its contents by W3C or the Design Tokens Community Group
-        Membership. Don't cite this document other than as work in progress.
+        endorsement of its contents by W3C or the Design Tokens W3C Community
+        Group Membership. Don’t cite this document other than as work in
+        progress.
       </p>
       <p>This document has been published to facilitate Wide Review.</p>
       <p>
-        This document was produced by the Design Tokens Community Group, and
+        This document was produced by the Design Tokens W3C Community Group, and
         contributions to this draft are governed by
         <a href="https://www.w3.org/community/about/process/cla">
           Community Contributor License Agreement (CLA)</a
@@ -108,13 +95,12 @@
       </p>
       <ul>
         <li>
-          [=Design tools=] have begun allowing designers to label and reference
+          Design tools have begun allowing designers to label and reference
           shared values for design properties like colors and sizes.
         </li>
         <li>
-          [=Translation tools=] exist that can convert source design token data
-          into platform-specific source code that can directly be used by
-          developers.
+          Translation tools exist that can convert source design token data into
+          platform-specific source code that can directly be used by developers.
         </li>
         <li>
           Documentation tools can display design token names rather than the raw
@@ -124,13 +110,12 @@
       <p>
         It is often desirable for design system teams to integrate such tools
         together, so that design token data can flow between design and
-        development tools.
+        development tools. For example:
       </p>
-      <p>For example:</p>
       <ul>
         <li>
           Extracting design tokens from design files and feeding them into
-          [=translation tools=] to then be converted into platform-specific code
+          translation tools to then be converted into platform-specific code
         </li>
         <li>
           Maintaining a "single source of truth" for design tokens and

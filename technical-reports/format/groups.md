@@ -1,24 +1,24 @@
 # Groups
 
-A file MAY contain many tokens and they MAY be nested arbitrarily in groups like so:
+A file may contain many tokens and they may be nested arbitrarily in groups like so:
 
 <aside class="example">
 
 ```json
 {
   "token uno": {
-    "$value": "token value 1"
+    "value": "token value 1"
   },
   "token group": {
     "token dos": {
-      "$value": "token value 2"
+      "value": "token value 2"
     },
     "nested token group": {
       "token tres": {
-        "$value": "token value 3"
+        "value": "token value 3"
       },
       "Token cuatro": {
-        "$value": "token value 4"
+        "value": "token value 4"
       }
     }
   }
@@ -27,30 +27,26 @@ A file MAY contain many tokens and they MAY be nested arbitrarily in groups like
 
 </aside>
 
-The names of the groups leading to a given token (including that token's name) are that token's _path_, which is a computed property. **It is not specified in the file**, but parsers that conform to this spec MUST be able to expose the path of a token. The above example, therefore, defines 4 design tokens with the following properties:
+The names of the groups leading to a given token (including that token’s name) are that token’s _path_, which is a computed property. **It is not specified in the file**, but parsers that conform to this spec must be able to expose the path of a token. The above example, therefore, defines 4 design tokens with the following properties:
 
 - Token #1
-  - Name: "token uno"
-  - Path: "token uno"
-  - Value: "token value 1"
+  - Name: “token uno”
+  - Path: “token uno”
+  - Value: “token value 1”
 - Token #2
-  - Name: "token dos"
-  - Path: "token group" / "token dos"
-  - Value: "token value 2"
+  - Name: “token dos”
+  - Path: “token group” / “token dos”
+  - Value: “token value 2”
 - Token #3
-  - Name: "token tres"
-  - Path: "token group" / "nested token group" / "token tres"
-  - Value: "token value 3"
+  - Name: “token tres”
+  - Path: “token group” / “nested token group” / “token tres”
+  - Value: “token value 3”
 - Token #4
-  - Name: "token cuatro"
-  - Path: "token group" / "nested token group" / "token cuatro"
-  - Value: "token value 4"
+  - Name: “token cuatro”
+  - Path: “token group” / “nested token group” / “token cuatro”
+  - Value: “token value 4”
 
 Because groupings are arbitrary, tools MUST NOT use them to infer the type or purpose of design tokens.
-
-Groups items (i.e. the tokens and/or nested groups) are unordered. In other words, there is no implicit order between items within a group. Therefore, tools that parse or write design token files are not required to preserve the source order of items in a group.
-
-The names of items in a group are case sensitive. As per the guidance in the [design token chapter](#name-and-value), tools MAY display a warning to users when groups contain items whose names differ only in case and could therefore lead to naming clashes when exported.
 
 <p class="ednote" title="Naming practices">
   The format editors acknowledge existing best-practices for token naming, but place no direct constraints on naming via the specification.
@@ -58,64 +54,23 @@ The names of items in a group are case sensitive. As per the guidance in the [de
 
 ## Additional group properties
 
-<div class="ednote" title="Group properties vs. nested group and token names">
-
-To prevent collisions with token names, token properties are prefixed with a dollar sign (`$`). Using this prefix eliminates the need for a reserved words list and helps future-proof the spec.
-
-Group keys without a dollar sign (`$`) prefix denote:
-
-- **A token name:** distinguishable by containing a `$value` property
-
-  ```json
-  {
-    "Group of tokens": {
-      "$description": "This is an example of a group containing a single token",
-      "Token name": {
-        "$value": "#000000"
-      }
-    }
-  }
-  ```
-
-- **A nested group name:** distinguishable by _not_ having a `$value` property
-
-  ```json
-  {
-    "Group of tokens": {
-      "$description": "This is an example of a group containing a nested group",
-      "Subgroup of tokens": {
-        "Token 1 name": {
-          "$value": "#aabbcc"
-        },
-        "Token 2 name": {
-          "$value": "#ddeeff"
-        }
-      }
-    }
-  }
-  ```
-
-</div>
-
 ### Description
 
-Groups MAY include an optional `$description` property, whose value MUST be a plain JSON string. Its purpose is to describe the group itself.
-
-For example:
+Groups may include an optional description property. For example:
 
 <aside class="example">
 
 ```json
 {
   "brand": {
-    "$description": "Design tokens from our brand guidelines",
+    "description": "Design tokens from our brand guidelines",
     "color": {
-      "$description": "Our brand's primary color palette",
+      "description": "Our brand's primary color palette",
       "acid green": {
-        "$value": "#00ff66"
+        "value": "#00ff66"
       },
       "hot pink": {
-        "$value": "#dd22cc"
+        "value": "#dd22cc"
       }
     }
   }
@@ -124,7 +79,7 @@ For example:
 
 </aside>
 
-Suggested ways tools MAY use this property are:
+Suggested ways tools may use this property are:
 
 - A style guide generator could render a section for each group and use the description as an introductory paragraph
 - A GUI tool that lets users browse or select tokens could display this info alongside the corresponding group or as a tooltip
@@ -136,39 +91,11 @@ Groups may support additional properties like type and description. Should other
 
 </div>
 
-### Type
-
-Groups MAY include an optional `$type` property so a type property does not need to be manually added to every token. [See supported "Types"](#types) for more information.
-
-If a group has a `$type` property it acts as a default type for any tokens within the group, including ones in nested groups, that do not explicity declare a type via their own `$type` property. For the full set of rules by which a design token's type is determined, please refer to the [design token type property chapter](#type-0).
-
-For example:
-
-<aside class="example">
-
-```json
-{
-  "brand": {
-    "$type": "color",
-    "color": {
-      "acid green": {
-        "$value": "#00ff66"
-      },
-      "hot pink": {
-        "$value": "#dd22cc"
-      }
-    }
-  }
-}
-```
-
-</aside>
-
 ## Use-cases
 
 ### File authoring & organization
 
-Groups let token file authors better organize their token files. Related tokens can be nested into groups to align with the team's naming conventions and/or mental model. When manually authoring files, using groups is also less verbose than a flat list of tokens with repeating prefixes.
+Groups let token file authors better organize their token files. Related tokens can be nested into groups to align with the team’s naming conventions and/or mental model. When manually authoring files, using groups is also less verbose than a flat list of tokens with repeating prefixes.
 
 For example:
 
@@ -178,21 +105,19 @@ For example:
 {
   "brand": {
     "color": {
-      "$type": "color",
       "acid green": {
-        "$value": "#00ff66"
+        "value": "#00ff66"
       },
       "hot pink": {
-        "$value": "#dd22cc"
+        "value": "#dd22cc"
       }
     },
     "typeface": {
-      "$type": "fontFamily",
       "primary": {
-        "$value": "Comic Sans MS"
+        "value": "Comic Sans MS"
       },
       "secondary": {
-        "$value": "Times New Roman"
+        "value": "Times New Roman"
       }
     }
   }
@@ -208,20 +133,16 @@ For example:
 ```json
 {
   "brand-color-acid-green": {
-    "$value": "#00ff66",
-    "$type": "color"
+    "value": "#00ff66"
   },
   "brand-color-hot-pink": {
-    "$value": "#dd22cc",
-    "$type": "color"
+    "value": "#dd22cc"
   },
   "brand-typeface-primary": {
-    "$value": "Comic Sans MS",
-    "$type": "fontFamily"
+    "value": "Comic Sans MS"
   },
   "brand-typeface-secondary": {
-    "$value": "Times New Roman",
-    "$type": "fontFamily"
+    "value": "Times New Roman"
   }
 }
 ```
@@ -230,15 +151,15 @@ For example:
 
 ### GUI tools
 
-Tools that let users pick or edit tokens via a GUI MAY use the grouping structure to display a suitable form of progressive disclosure, such as a collapsible tree view.
+Tools that let users pick or edit tokens via a GUI may use the grouping structure to display a suitable form of progressive disclosure, such as a collapsible tree view.
 
-![Progressive disclosure groups](./group-progressive-disclosure.png)
+![Progressive disclosure groups](../group-progressive-disclosure.png)
 
 ### Export tools
 
-Token names are not guaranteed to be unique within the same file. The same name can be used in different groups. Also, export tools MAY need to export design tokens in a uniquely identifiable way, such as variables in code. Export tools SHOULD therefore use design tokens' paths as these _are_ unique within a file.
+Token names are not guaranteed to be unique within the same file. The same name can be used in different groups. Also, export tools may need to export design tokens in a uniquely identifiable way, such as variables in code. Export tools should therefore use design tokens' paths as these _are_ unique within a file.
 
-For example, a [=translation tool=] like [Style Dictionary](https://amzn.github.io/style-dictionary/) might use the following design token file:
+For example, a [translation tool](#translation-tool) like [Style Dictionary](https://amzn.github.io/style-dictionary/) might use the following design token file:
 
 <aside class="example">
 
@@ -246,21 +167,19 @@ For example, a [=translation tool=] like [Style Dictionary](https://amzn.github.
 {
   "brand": {
     "color": {
-      "$type": "color",
       "acid green": {
-        "$value": "#00ff66"
+        "value": "#00ff66"
       },
       "hot pink": {
-        "$value": "#dd22cc"
+        "value": "#dd22cc"
       }
     },
     "typeface": {
-      "$type": "fontFamily",
       "primary": {
-        "$value": "Comic Sans MS"
+        "value": "Comic Sans MS"
       },
       "secondary": {
-        "$value": "Times New Roman"
+        "value": "Times New Roman"
       }
     }
   }
