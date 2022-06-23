@@ -1,7 +1,6 @@
-### Color Type
+# Color Type
 
 Colors can be represented through various formats. For color, the type property must be set to the string “color”. For the value, the most common format to represent color through design tokens is a hex triplet. A hex triplet is a 6-digit, 24 bit, hexadecimal number that represents Red, Green, and Blue values as #RRGGBB.   
-
 
 <table>
   <tr>
@@ -20,9 +19,7 @@ Colors can be represented through various formats. For color, the type property 
   </tr>
 </table>
 
-
 For example, initially color tokens may be defined as such:
-
 
 ```
 {
@@ -37,9 +34,7 @@ For example, initially color tokens may be defined as such:
 }
 ```
 
-
 Then, the output from a tool’s conversion to HSL may look something like: 
-
 
 ```
 // colors-hex.scss
@@ -50,16 +45,11 @@ $simple-sage: #abcabc;
 $majestic-magenta: ​hsl(300, 100%, 50%);
 $translucent-shadow: ​hsl(153, 23%, 73%);
 ```
+## Other value options:
 
+### RGBA
 
-
-#### Other value options:
-
-
-##### RGBA
-
-Formated in R (red), G (green), B (blue) and (A) alpha. Red, green, and blue values can range from 0 to 255 and alpha values can range from 0 and 1 (i.e 0.5) or a percentage (i.e 50%) where 1 or %100 is full opacity.
-
+Formatted in R (red), G (green), B (blue) and (A) alpha. Red, green, and blue values can range from 0 to 255 and alpha values can range from 0 and 1 (i.e 0.5) or a percentage (i.e 50%) where 1 or %100 is full opacity.
 
 <table>
   <tr>
@@ -69,23 +59,19 @@ Formated in R (red), G (green), B (blue) and (A) alpha. Red, green, and blue val
    </td>
   </tr>
   <tr>
+    <td>
+      <ul>
+        <li>Can define alpha value with color</li>
+        <li>Alpha value is easy to comprehend at a glance</li>
+      </ul>
+    </td>
    <td>
-<ul>
-
-<li>Can define alpha value with color
-
-<li>Alpha value is easy to comprehend at a glance
-</li>
-</ul>
-   </td>
-   <td>? 
+    ? 
    </td>
   </tr>
 </table>
 
-
 For example, initially color tokens may be defined as such:
-
 
 ```
 {
@@ -120,13 +106,9 @@ Then, the output from a tool’s conversion to RGBA may look something like:
 $majestic-magenta: rgba(255, 0, 255, 1.0);
 $translucent-shadow: rgba(171, 202, 188, 50%);
 ```
+### HSL
 
-
-
-##### HSL
-
-Formated in H (hue),  S (saturation), L (lightness) and an optional (A) alpha. Hue values range from 0 to 360, saturation and lightness are percentage values that go from 0% to 100%, and alpha value can range from 0 and 1 (i.e 0.5) or a percentage  (i.e 50%) where 1 or %100 is full opacity (which is the default value if a value isn’t provided).
-
+Formatted in H (hue),  S (saturation), L (lightness) and an optional (A) alpha. Hue values range from 0 to 360, saturation and lightness are percentage values that go from 0% to 100%, and alpha value can range from 0 and 1 (i.e 0.5) or a percentage  (i.e 50%) where 1 or %100 is full opacity (which is the default value if a value isn’t provided).
 
 <table>
   <tr>
@@ -178,9 +160,7 @@ Example:
 }
 ```
 
-
 Then, the output variables may look like: 
-
 
 ```
 // colors-rgba.scss
@@ -188,12 +168,9 @@ $majestic-magenta: hsl(300, 100%, 50%, 1);
 $simple-sage: hsl(152, 22%, 73%, 1);
 ```
 
-
-
-##### Hex8
+### Hex8
 
 Hex8 uses two extra digits, known as the alpha value, to change the transparency of the color. The format follows #RRGGBBAA. [Learn more about alpha values in hex.](https://www.digitalocean.com/community/tutorials/css-hex-code-colors-alpha-values#adding-an-alpha-value-to-css-hex-codes)
-
 
 <table>
   <tr>
@@ -203,30 +180,23 @@ Hex8 uses two extra digits, known as the alpha value, to change the transparency
    </td>
   </tr>
   <tr>
-   <td>
-<ul>
-
-<li>Can define alpha value with color
-</li>
-</ul>
+    <td>
+    <ul>
+      <li>Can define alpha value with color</li>
+    </ul>
    </td>
-   <td>
-<ul>
-
-<li>Less commonly used
-
-<li>Alpha value is not immediately obvious (needs calculation)
-
-<li>Not available in older versions of internet explorer (<a href="https://caniuse.com/css-rrggbbaa">caniuse reference</a>) 
-</li>
-</ul>
+  <td>
+    <ul>
+      <li>Less commonly used
+      <li>Alpha value is not immediately obvious (needs calculation)
+      <li>Not available in older versions of internet explorer (<a href="https://caniuse.com/css-rrggbbaa">caniuse reference</a>) 
+      </li>
+    </ul>
    </td>
   </tr>
 </table>
 
-
 Example:
-
 
 ```
 {
@@ -241,9 +211,7 @@ Example:
 }
 ```
 
-
 Then, the output variables may look like: 
-
 
 ```
 // colors-hex.scss
@@ -254,13 +222,9 @@ $simple-sage: #abcabc80;
 $majestic-magenta: rgba(255, 0, 255, 0.5);
 $simple-sage: rgba(171, 202, 188, 0.5);
 ```
+### LCH (Lightness Chroma Hue)
 
-
-
-##### LCH (Lightness Chroma Hue)
-
-Formated in L (lightness),  C (chroma), H (hue) and an optional (A) alpha. Hue values range from 0 to 360, saturation and lightness are percentage values that go from 0% to 100%, and alpha value can range from 0 and 1 (i.e 0.5) or a percentage  (i.e 50%) where 1 or %100 is full opacity (which is the default value if a value isn’t provided).
-
+Formatted in L (lightness),  C (chroma), H (hue) and an optional (A) alpha. Hue values range from 0 to 360, saturation and lightness are percentage values that go from 0% to 100%, and alpha value can range from 0 and 1 (i.e 0.5) or a percentage  (i.e 50%) where 1 or %100 is full opacity (which is the default value if a value isn’t provided).
 
 <table>
   <tr>
@@ -291,13 +255,8 @@ Formated in L (lightness),  C (chroma), H (hue) and an optional (A) alpha. Hue v
   </tr>
 </table>
 
-
-
 ---
 
-
-#### Using [Experimental?] Color Spaces
-
-
+## Using [Experimental?] Color Spaces
 
 * Using color spaces like OKLCH, OKLAB, CAM16, Display P-3, etc. may result in lack of support from tools, so plan to have a hex back-up
