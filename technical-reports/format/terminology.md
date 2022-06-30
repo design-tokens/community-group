@@ -4,7 +4,7 @@ These definitions are focused on the technical aspects of the specification, aim
 
 ## (Design) Token
 
-Information associated with a name, at minimum a name/value pair.
+A (Design) Token is an information associated with a name, at minimum a name/value pair.
 
 For example:
 
@@ -26,7 +26,7 @@ For example:
 
 ## <dfn>Design tool</dfn>
 
-Design tools are tools for visual design creation and editing.
+A Design tool is a tool for visual design creation and editing.
 
 For example:
 
@@ -46,7 +46,7 @@ For example:
 
 ## <dfn>Translation tool</dfn>
 
-Token translation tools are tools that translate token data from one format to another.
+A token's translation tool is a tool that translates token data from one format to another.
 
 For example:
 
@@ -58,7 +58,7 @@ For example:
 
 ## <dfn>Documentation tool</dfn>
 
-Documentation tools are tools for documenting design tokens usage.
+A documentation tool is a tool for documenting design tokens usage.
 
 For example:
 
@@ -84,9 +84,9 @@ For example:
 - A [=translation tool=] might reference a token's type to convert the source value into the correct platform-specific format.
 - A visual [=design tool=] might reference type to present tokens in the appropriate part of their UI - as in, color tokens are listed in the color picker, font tokens in the text styling UI's fonts list, and so on.
 
-## Groups
+## Group
 
-Sets of tokens belonging to a specific category.
+A group is a set of tokens belonging to a specific category.
 
 For example:
 
