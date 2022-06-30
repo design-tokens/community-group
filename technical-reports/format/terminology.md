@@ -26,22 +26,22 @@ For example:
 
 ## <dfn>Design tool</dfn>
 
-Visual design creation and editing tools.
+Design tools are tools for visual design creation and editing.
 
-This includes:
+For example:
 
 - Bitmap image manipulation programs:
-  - Photoshop
-  - Affinity Photo
-  - Paint.net
+  - [Photoshop](https://www.adobe.com/products/photoshop.html)
+  - [Affinity Photo](https://affinity.serif.com/photo)
+  - [Paint.net](https://www.getpaint.net/)
 - Vector graphics tools:
-  - Illustrator
-  - Inkscape
-- UI design and prototyping tools:
-  - Adobe XD
-  - UXPin
-  - Sketch
-  - Figma
+  - [Illustrator](https://www.adobe.com/products/illustrator.html)
+  - [Inkscape](https://inkscape.org/)
+- UI design, wireframing and prototyping tools:
+  - [Adobe XD](https://www.adobe.com/products/xd.html)
+  - [UXPin](https://www.uxpin.com/)
+  - [Sketch](https://www.sketch.com/)
+  - [Figma]https://www.figma.com/()
   - ...
 
 ## <dfn>Translation tool</dfn>
@@ -54,6 +54,18 @@ For example:
 - [Style Dictionary](https://amzn.github.io/style-dictionary/)
 - [Diez](https://diez.org/)
 - [Specify](https://specifyapp.com/)
+- ...
+
+## <dfn>Documentation tool</dfn>
+
+Documentation tools are tools for documenting design tokens usage.
+
+For example:
+
+- [Storybook](https://github.com/salesforce-ux/theo)
+- [Zeroheight](https://amzn.github.io/style-dictionary/)
+- [Backlight](https://backlight.dev/)
+- ...
 
 ## Type
 
