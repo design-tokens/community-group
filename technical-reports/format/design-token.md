@@ -36,7 +36,7 @@ Token names are case-sensitive, so the following example with 2 tokens in the sa
 
 </aside>
 
-However, some tools MAY need to transform names when exporting to other languages or displaying names to the user, so having token names that differ only in case is likely to cause identical and undesirable duplicates in the output. For example, an export tool that converts these tokens to Sass code would generate problematic output like this:
+However, some tools MAY need to transform names when exporting to other languages or displaying names to the user, so having token names that differ only in case is likely to cause identical and undesirable duplicates in the output. For example, a translation tool that converts these tokens to Sass code would generate problematic output like this:
 
 <aside class="example">
 
@@ -79,7 +79,7 @@ For example:
 - Style guide generators MAY display the description text alongside a visual preview of the token
 - IDEs MAY display the description as a tooltip for auto-completion (similar to how API docs are displayed)
 - [=Design tools=] MAY display the description as a tooltip or alongside tokens wherever they can be selected
-- Export tools MAY render the description to a source code comment alongside the variable or constant they export.
+- Translation tools MAY render the description to a source code comment alongside the variable or constant they export.
 
 The value of the `$description` property MUST be a plain JSON string, for example:
 
