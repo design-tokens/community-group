@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.1.8">
+<meta name="generator" content="ReSpec 32.1.10">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -17,6 +17,7 @@ aside.example div.example{border-left-width:.1em;border-color:#999;background:#f
 .warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
 span.warning{padding:.1em .5em .15em}
 .issue.closed span.issue-number{text-decoration:line-through}
+.issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
 .warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
 .warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
 li.task-list-item{list-style:none}
@@ -188,8 +189,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "dtcg-logo"
     }
   ],
-  "publishISODate": "2022-06-14T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 14 June 2022"
+  "publishISODate": "2022-07-06T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 06 July 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
   <body class="h-entry"><div class="head">
@@ -198,7 +199,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Design Tokens Format Module</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2022-06-14">14 June 2022</time>
+      <time class="dt-published" datetime="2022-07-06">06 July 2022</time>
     </p>
     <dl>
       
@@ -843,7 +844,11 @@ $font-size: 16px;
 
 </section><section id="gui-tools"><div class="header-wrapper"><h4 id="x6-2-2-gui-tools"><bdi class="secno">6.2.2 </bdi>GUI tools</h4><a class="self-link" href="#gui-tools" aria-label="Permalink for Section 6.2.2"></a></div>
 <p>Tools that let users pick or edit tokens via a GUI <em class="rfc2119">MAY</em> use the grouping structure to display a suitable form of progressive disclosure, such as a collapsible tree view.</p>
-<p><img src="./group-progressive-disclosure.png" alt="Progressive disclosure groups" height="426" width="506"></p>
+<figure id="figure-group-progressive-disclosure">
+  <img src="./group-progressive-disclosure.png" alt="" height="426" width="506">
+  <figcaption>Figure <bdi class="figno">1</bdi> <span class="fig-title">Progressive disclosure groups</span></figcaption>
+</figure>
+
 </section><section id="export-tools"><div class="header-wrapper"><h4 id="x6-2-3-export-tools"><bdi class="secno">6.2.3 </bdi>Export tools</h4><a class="self-link" href="#export-tools" aria-label="Permalink for Section 6.2.3"></a></div>
 <p>Token names are not guaranteed to be unique within the same file. The same name can be used in different groups. Also, export tools <em class="rfc2119">MAY</em> need to export design tokens in a uniquely identifiable way, such as variables in code. Export tools <em class="rfc2119">SHOULD</em> therefore use design tokens' paths as these <em>are</em> unique within a file.</p>
 <p>For example, a <a data-link-type="dfn" href="#dfn-translation-tool" class="internalDFN" id="ref-for-dfn-translation-tool-4">translation tool</a> like <a href="https://amzn.github.io/style-dictionary/">Style Dictionary</a> might use the following design token file:</p>
