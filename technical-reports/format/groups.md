@@ -232,7 +232,10 @@ For example:
 
 Tools that let users pick or edit tokens via a GUI MAY use the grouping structure to display a suitable form of progressive disclosure, such as a collapsible tree view.
 
-<img src="./group-progressive-disclosure.png" alt="Progressive disclosure groups" style="width:100%; height: auto;" />
+<figure id="figure-group-progressive-disclosure">
+  <img src="./group-progressive-disclosure.png" alt="" />
+  <figcaption>Progressive disclosure groups</figcaption>
+</figure>
 
 ### Export tools
 
