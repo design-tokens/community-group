@@ -65,6 +65,9 @@ For example:
 - [Storybook](https://storybook.js.org/)
 - [Zeroheight](https://zeroheight.com)
 - [Backlight](https://backlight.dev/)
+- [Specify](https://specifyapp.com/)
+- [Supernova](https://www.supernova.io/)
+- [Knapsack](https://www.knapsack.cloud/)
 - ...
 
 ## Type
