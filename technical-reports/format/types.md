@@ -151,7 +151,16 @@ Example:
 
 ## Duration
 
-Represents the length of time in milliseconds an animation or animation cycle takes to complete, such as 200 milliseconds. The `$type` property MUST be set to the string `duration`. The value MUST be a string containing a number (either integer or floating-point) followed by an "ms" unit. A millisecond is a unit of time equal to one thousandth of a second.
+Represents the length of time in milliseconds an animation or animation cycle takes to complete, such as 200 milliseconds.
+
+The `$type` property MUST be set to the string `duration`.
+
+The `$value` property MUST be a string containing either:
+
+- a number (either integer or floating-point) followed by an "ms" unit.
+  A millisecond is a unit of time equal to one thousandth of a second.
+- an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) duration expression.
+  Such a duration MUST satisfy the following regex `^P(?!$)(\d+(?:\.\d+)?Y)?(\d+(?:\.\d+)?M)?(\d+(?:\.\d+)?W)?(\d+(?:\.\d+)?D)?(T(?=\d)(\d+(?:\.\d+)?H)?(\d+(?:\.\d+)?M)?(\d+(?:\.\d+)?S)?)?$`
 
 For example:
 
@@ -163,8 +172,8 @@ For example:
     "$value": "100ms",
     "$type": "duration"
   },
-  "Duration-200": {
-    "$value": "200ms",
+  "Duration-1000": {
+    "$value": "PT1S",
     "$type": "duration"
   }
 }
