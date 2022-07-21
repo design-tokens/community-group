@@ -26,7 +26,7 @@ For example:
 
 ## <dfn>Design tool</dfn>
 
-A Design tool is a tool for visual design creation and editing.
+A design tool is a tool for visual design creation and editing.
 
 For example:
 
@@ -41,12 +41,12 @@ For example:
   - [Adobe XD](https://www.adobe.com/products/xd.html)
   - [UXPin](https://www.uxpin.com/)
   - [Sketch](https://www.sketch.com/)
-  - [Figma]https://www.figma.com/()
+  - [Figma](https://www.figma.com/)
   - ...
 
 ## <dfn>Translation tool</dfn>
 
-A token's translation tool is a tool that translates token data from one format to another.
+Design token translation tools translate token data from one format to another.
 
 For example:
 
