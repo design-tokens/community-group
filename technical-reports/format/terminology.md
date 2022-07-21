@@ -62,8 +62,8 @@ A documentation tool is a tool for documenting design tokens usage.
 
 For example:
 
-- [Storybook](https://github.com/salesforce-ux/theo)
-- [Zeroheight](https://amzn.github.io/style-dictionary/)
+- [Storybook](https://storybook.js.org/)
+- [Zeroheight](https://zeroheight.com)
 - [Backlight](https://backlight.dev/)
 - ...
 
