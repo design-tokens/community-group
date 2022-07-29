@@ -4,7 +4,7 @@ These definitions are focused on the technical aspects of the specification, aim
 
 ## (Design) Token
 
-Information associated with a name, at minimum a name/value pair.
+A (Design) Token is an information associated with a name, at minimum a name/value pair.
 
 For example:
 
@@ -26,27 +26,27 @@ For example:
 
 ## <dfn>Design tool</dfn>
 
-Visual design creation and editing tools.
+A design tool is a tool for visual design creation and editing.
 
-This includes:
+For example:
 
 - Bitmap image manipulation programs:
-  - Photoshop
-  - Affinity Photo
-  - Paint.net
+  - [Photoshop](https://www.adobe.com/products/photoshop.html)
+  - [Affinity Photo](https://affinity.serif.com/photo)
+  - [Paint.net](https://www.getpaint.net/)
 - Vector graphics tools:
-  - Illustrator
-  - Inkscape
-- UI design and prototyping tools:
-  - Adobe XD
-  - UXPin
-  - Sketch
-  - Figma
+  - [Illustrator](https://www.adobe.com/products/illustrator.html)
+  - [Inkscape](https://inkscape.org/)
+- UI design, wireframing and prototyping tools:
+  - [Adobe XD](https://www.adobe.com/products/xd.html)
+  - [UXPin](https://www.uxpin.com/)
+  - [Sketch](https://www.sketch.com/)
+  - [Figma](https://www.figma.com/)
   - ...
 
 ## <dfn>Translation tool</dfn>
 
-Token translation tools are tools that translate token data from one format to another.
+Design token translation tools translate token data from one format to another.
 
 For example:
 
@@ -54,6 +54,21 @@ For example:
 - [Style Dictionary](https://amzn.github.io/style-dictionary/)
 - [Diez](https://diez.org/)
 - [Specify](https://specifyapp.com/)
+- ...
+
+## <dfn>Documentation tool</dfn>
+
+A documentation tool is a tool for documenting design tokens usage.
+
+For example:
+
+- [Storybook](https://storybook.js.org/)
+- [Zeroheight](https://zeroheight.com)
+- [Backlight](https://backlight.dev/)
+- [Specify](https://specifyapp.com/)
+- [Supernova](https://www.supernova.io/)
+- [Knapsack](https://www.knapsack.cloud/)
+- ...
 
 ## Type
 
@@ -72,9 +87,9 @@ For example:
 - A [=translation tool=] might reference a token's type to convert the source value into the correct platform-specific format.
 - A visual [=design tool=] might reference type to present tokens in the appropriate part of their UI - as in, color tokens are listed in the color picker, font tokens in the text styling UI's fonts list, and so on.
 
-## Groups
+## Group
 
-Sets of tokens belonging to a specific category.
+A group is a set of tokens belonging to a specific category.
 
 For example:
 
