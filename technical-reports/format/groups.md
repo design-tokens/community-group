@@ -127,7 +127,7 @@ For example:
 Suggested ways tools MAY use this property are:
 
 - A style guide generator could render a section for each group and use the description as an introductory paragraph
-- A Design tool that lets users browse or select tokens could display this info alongside the corresponding group or as a tooltip
+- A GUI tool that lets users browse or select tokens could display this info alongside the corresponding group or as a tooltip
 - Translation tools could output this as a source code comment
 
 <div class="issue" data-number="72">
@@ -228,7 +228,7 @@ For example:
 
 </aside>
 
-### Design tools
+### GUI tools
 
 Tools that let users pick or edit tokens via a GUI MAY use the grouping structure to display a suitable form of progressive disclosure, such as a collapsible tree view.
 
