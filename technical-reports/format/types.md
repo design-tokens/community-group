@@ -1,6 +1,6 @@
 # Types
 
-Many tools need to know what kind of value a given token represents to process it sensibly. Export tools MAY need to convert or format tokens differently depending on their type. [=Design tools=] MAY present the user with different kinds of input when editing tokens of a certain type (such as color picker, slider, text input, etc.). Style guide generators MAY use different kinds of previews for different types of tokens.
+Many tools need to know what kind of value a given token represents to process it sensibly. Translation tools MAY need to convert or format tokens differently depending on their type. [=Design tools=] MAY present the user with different kinds of input when editing tokens of a certain type (such as color picker, slider, text input, etc.). Style guide generators MAY use different kinds of previews for different types of tokens.
 
 Since design token files are JSON files, all the basic JSON types are available:
 
@@ -19,7 +19,7 @@ If an explicit type is set, but the value does not match the expected syntax the
 
 ## Color
 
-Represents a 24bit RGB or 24+8bit RGBA color in the sRGB color space. The `$type` property MUST be set to the string `color`. The value MUST be a string containing a hex triplet/quartet including the preceding `#` character. To support other color spaces, such as HSL, export tools SHOULD convert color tokens to the equivalent value as needed.
+Represents a 24bit RGB or 24+8bit RGBA color in the sRGB color space. The `$type` property MUST be set to the string `color`. The value MUST be a string containing a hex triplet/quartet including the preceding `#` character. To support other color spaces, such as HSL, translation tools SHOULD convert color tokens to the equivalent value as needed.
 
 For example, initially the color tokens MAY be defined as such:
 
@@ -77,8 +77,8 @@ For example:
 
 The "px" and "rem" units are to be interpreted the same way they are in CSS:
 
-- **px**: Represents an idealized pixel on the viewport. The equivalent in Android is dp and iOS is pt. Export tools SHOULD therefore convert to these or other equivalent units as needed.
-- **rem**: Represents a multiple of the system's default font size (which MAY be configurable by the user). 1rem is 100% of the default font size. The equivalent of 1rem on Android is 16sp. Not all platforms have an equivalent to rem, so export tools MAY need to do a lossy conversion to a fixed px size by assuming a default font size (usually 16px) for such platforms.
+- **px**: Represents an idealized pixel on the viewport. The equivalent in Android is dp and iOS is pt. Translation tools SHOULD therefore convert to these or other equivalent units as needed.
+- **rem**: Represents a multiple of the system's default font size (which MAY be configurable by the user). 1rem is 100% of the default font size. The equivalent of 1rem on Android is 16sp. Not all platforms have an equivalent to rem, so translation tools MAY need to do a lossy conversion to a fixed px size by assuming a default font size (usually 16px) for such platforms.
 
 ## Font family
 
