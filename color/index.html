@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.2.1">
+<meta name="generator" content="ReSpec 32.2.2">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -69,8 +69,6 @@ a.bibref{text-decoration:none}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
 cite .bibref{font-style:normal}
-code{color:#c63501}
-th code{color:inherit}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 .toc a,.tof a{text-decoration:none}
@@ -157,8 +155,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     "branch": "color"
   },
   "tocIntroductory": true,
-  "publishISODate": "2022-07-29T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 29 July 2022"
+  "publishISODate": "2022-08-10T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 10 August 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
   <body class="h-entry"><div class="head">
@@ -166,7 +164,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Design Tokens Color Module</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2022-07-29">29 July 2022</time>
+      <time class="dt-published" datetime="2022-08-10">10 August 2022</time>
     </p>
     <dl>
       
@@ -259,7 +257,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     </section>
 
     <section id="the-color-type"><div class="header-wrapper"><h2 id="x3-the-color-type"><bdi class="secno">3. </bdi>The color type</h2><a class="self-link" href="#the-color-type" aria-label="Permalink for Section 3."></a></div>
-<p>Represents a 24bit RGB or 24+8bit RGBA color in the sRGB color space. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>color</code>. The value <em class="rfc2119">MUST</em> be a string containing a hex triplet/quartet including the preceding <code>#</code> character. To support other color spaces, such as HSL, export tools <em class="rfc2119">SHOULD</em> convert color tokens to the equivalent value as needed.</p>
+<p>Represents a 24bit RGB or 24+8bit RGBA color in the sRGB color space. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>color</code>. The value <em class="rfc2119">MUST</em> be a string containing a hex triplet/quartet including the preceding <code>#</code> character. To support other color spaces, such as HSL, translation tools <em class="rfc2119">SHOULD</em> convert color tokens to the equivalent value as needed.</p>
 <p>For example, initially the color tokens <em class="rfc2119">MAY</em> be defined as such:</p>
 <aside class="example" id="example-1"><div class="marker">
     <a class="self-link" href="#example-1">Example<bdi> 1</bdi></a>
