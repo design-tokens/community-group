@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.2.2">
+<meta name="generator" content="ReSpec 32.2.3">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -187,8 +187,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "dtcg-logo"
     }
   ],
-  "publishISODate": "2022-08-10T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 10 August 2022"
+  "publishISODate": "2022-08-31T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 31 August 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
   <body class="h-entry"><div class="head">
@@ -197,7 +197,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Design Tokens Format Module</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2022-08-10">10 August 2022</time>
+      <time class="dt-published" datetime="2022-08-31">31 August 2022</time>
     </p>
     <dl>
       
@@ -961,7 +961,7 @@ $brand-typeface-secondary: 'Times New Roman';
 <pre><code class="json hljs" aria-busy="false">{
   <span class="hljs-attr">"Majestic magenta"</span>: {
     <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"#ff00ff"</span>,
-    <span class="hljs-attr">"$ype"</span>: <span class="hljs-string">"color"</span>
+    <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"color"</span>
   },
   <span class="hljs-attr">"Translucent shadow"</span>: {
     <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"#00000088"</span>,
@@ -1392,7 +1392,7 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 <ul>
 <li><code>duration</code>: The duration of the transition. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#duration">duration</a> value or a reference to a duration token.</li>
 <li><code>delay</code>: The time to wait before the transition begins. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#duration">duration</a> value or a reference to a duration token.</li>
-<li><code>timingFunction</code>: The color of the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#cubic-bezier">cubic bézier</a> value or a reference to a cubic bézier token.</li>
+<li><code>timingFunction</code>: The timing function of the transition. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#cubic-bezier">cubic bézier</a> value or a reference to a cubic bézier token.</li>
 </ul>
 <aside class="example" id="example-transition-composite-token-examples"><div class="marker">
     <a class="self-link" href="#example-transition-composite-token-examples">Example<bdi> 30</bdi></a><span class="example-title">: Transition composite token examples</span>
