@@ -1,134 +1,129 @@
-# Token Naming
+# Token naming
 
 ## Categorization
 
-There are 3 main categories of design tokens that we will continue to reference in this specification. 
+There are 3 main categories of design tokens that we will continue to reference in this specification.
 
 ### Base
 
-Base tokens are the lowest level tokens and typically consist of a name and [hexadecimal](https://www.w3.org/TR/css-color-4/#hex-notation) value pair. 
+Base tokens are the lowest level tokens and typically consist of a name and [hexadecimal](https://www.w3.org/TR/css-color-4/#hex-notation) value pair.
 
-Example:
+<aside class="example">
 
-```
+```scss
 $color-green-500: #abcabc;
 $color-shadow-translucent: #00000088;
 ```
+
+</aside>
 
 ### Alias
 
 A design token’s value can be a _reference_ to another token. The same value can have multiple names or aliases.
 
-Example:
+<aside class="example">
 
-```
+```scss
 $color-palette-black: #000000;
 $color-text-base: $color-palette-black;
 ```
+
+</aside>
 
 ### Component
 
 Component-specific tokens provide design decisions at the component level and improve the separation of concerns in your token architecture.
 
-Example:
+<aside class="example">
 
-
-```
+```scss
 $color-button-primary: $color-brand-primary;
 $color-banner-background: $color-palette-black;
 ```
 
+</aside>
 
-
-## Naming Strategies
+## Naming strategies
 
 There are many naming options when it comes to design tokens, especially color type tokens. We’ve identified two that seem to be most commonly implemented, **descriptive and numerical**.
 
 ### Base Tokens
 
-For **Base tokens**, here’s how they may be represented in each version: 
+For **Base tokens**, here’s how they may be represented in each version:
 
 #### Descriptive
 
 Descriptive names can be more emotional and human-friendly because they often relate to tangible things that people interact with, like grass or watermelons.
 
+| Pros                                                                                              | Cons                                                                                                              |
+| ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Easier for people to identify with, could be used to distinguish Brand colors from product colors | Harder to determine the scale of colors (i.e. which ones are lighter vs. darker, and how they pair well together) |
 
-<table>
-  <tr>
-   <td><strong>Pros</strong>
-   </td>
-   <td><strong>Cons</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>Easier for people to identify with, could be used to distinguish Brand colors from product colors
-   </td>
-   <td>Harder to determine the scale of colors (i.e. which ones are lighter vs. darker, and how they pair well together)
-   </td>
-  </tr>
-</table>
+<aside class="example">
 
-Example:
-
-```
+```scss
 $color-grass: #abcabc;
-$color-brand-watermelon: #;
+$color-brand-watermelon: #e8476a;
 ```
+
+</aside>
 
 #### Numerical
 
-**Ordered Scales**
+**Ordered scales**
 
-Numerical tokens often follow a scale to help delineate how the colors progress. For example, when using an ordered scale, $color-blue-500 may be the base color, where the lightest color value is $color-blue-100, and the darkest value could be $color-blue-900, and these values are ordered in increments of 100s in between. We recommend not using sequential numbers (ex: 1, 2, 3, 4) for scalability in case future colors need to be added in between two existing colors. 
+Numerical tokens often follow a scale to help delineate how the colors progress. For example, when using an ordered scale, $color-blue-500 may be the base color, where the lightest color value is $color-blue-100, and the darkest value could be $color-blue-900, and these values are ordered in increments of 100s in between. We recommend not using sequential numbers (ex: 1, 2, 3, 4) for scalability in case future colors need to be added in between two existing colors.
 
-Example:
+<aside class="example">
 
-
-```
+```scss
 $color-green-400: #____;
 $color-green-500: #268e6c;
 $color-green-600: #12805c;
 ```
 
+</aside>
 
-Numerical token names can also allow for further specificity when needed. For example, when creating neutral palette tokens (like grays), the scale may increase by increments of 25 instead of 100 at the lightest values, and then increment by 100 thereafter. 
+Numerical token names can also allow for further specificity when needed. For example, when creating neutral palette tokens (like grays), the scale may increase by increments of 25 instead of 100 at the lightest values, and then increment by 100 thereafter.
 
-Example:
+<aside class="example">
 
-
-```
-$color-gray-25:  #268e6c;
-$color-gray-50:  #12805c;
-$color-gray-75:  #12805c;
+```scss
+$color-gray-25: #268e6c;
+$color-gray-50: #12805c;
+$color-gray-75: #12805c;
 $color-gray-100: #12805c;
 $color-gray-200: #_____;
 ```
 
+</aside>
 
-**Bounded Scales**
+**Bounded scales**
 
-Numerical tokens can also be named through** bounded scales**. These tokens utilize a distinguishing value based on the actual color used for the token, such as in HSL’s lightness value to vary shades of a tint. 
+Numerical tokens can also be named through **bounded scales**. These tokens utilize a distinguishing value based on the actual color used for the token, such as in HSL’s lightness value to vary shades of a tint.
 
-Example:
+<aside class="example">
 
-```
-$color-gray-22:  #268e6c;
-$color-gray-49:  #12805c;
-$color-gray-73:  #12805c;
+```scss
+$color-gray-22: #268e6c;
+$color-gray-49: #12805c;
+$color-gray-73: #12805c;
 $color-gray-99: #_____;
 ```
 
-**Computer Generated Scales**
+</aside>
+
+**Computer generated scales**
 
 Token names may also be generated by tools, where the user specifies the base name, and the tool appends scale numbers based on changes to the underlying value.
 
-Example:
+<aside class="example">
 
-```
+```scss
 // User specified name
 $color-green
 
-// Tool generated names for 6 steps of opacity 
+// Tool generated names for 6 steps of opacity
 $color-green-10: rgba(32,178,170, 0.10);
 $color-green-20: rgba(32,178,170, 0.20);
 $color-green-30: rgba(32,178,170, 0.30);
@@ -137,83 +132,69 @@ $color-green-50: rgba(32,178,170, 0.50);
 $color-green-60: rgba(32,178,170, 0.60);
 ```
 
-<table>
-  <tr>
-   <td><strong>Pros</strong>
-   </td>
-   <td><strong>Cons</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>Easy mapping between different tokens for color contrast. For example, all 100-400 tokens pair with 500-900 tokens in order to create accessible color combinations.
+</aside>
 
-If using bounded scales, the token name can help indicate something about the underlying value 
-   </td>
-   <td>Less memorable and less obvious difference between tokens
-   </td>
-  </tr>
-</table>
+| Pros                                                                                                                                                                 | Cons                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| Easy mapping between different tokens for color contrast. For example, all 100-400 tokens pair with 500-900 tokens in order to create accessible color combinations. | Less memorable and less obvious difference between tokens |
+| If using bounded scales, the token name can help indicate something about the underlying value                                                                       |                                                           |
 
-### Alias Tokens 
+### Alias Tokens
 
-For **Alias tokens**, we recommend grouping tokens with similar intentions by prioritizing the category + property within the name. For example, all background color Alias tokens would likely start with** $color-background-XXX**.
+For **Alias Tokens**, we recommend grouping tokens with similar intentions by prioritizing the category + property within the name. For example, all background color Alias tokens would likely start with `$color-background-XXX`.
 
-We recommend avoiding abbreviations. For example, use “background” instead of “bg”, to help with clarity. Some exceptions may be 
+We recommend avoiding abbreviations. For example, use “background” instead of “bg”, to help with clarity.
 
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "design system prefixes"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+Here’s how alias tokens may be represented:
 
-[design system prefixes](#heading=h.279mf43yevt0). 
+<aside class="example">
 
-Here’s how alias tokens may be represented: 
-
-Example:
-
-
-```
+```scss
 $color-background-error: $color-red-600;
 $color-background-success: $color-green-400;
 $color-text-base: $color-palette-black; // Token with variant
 $color-text-error-hover: $color-red-700; // Token with variant and state
 ```
 
+</aside>
 
 Color alias tokens could also be grouped by concept, like so:
 
-Example:
+<aside class="example">
 
-
-```
+```scss
 // These can be used for background, border, or text colors
-$color-feedback-error: $color-red-600; 
-$color-feedback-success: $color-green-400; 
+$color-feedback-error: $color-red-600;
+$color-feedback-success: $color-green-400;
 ```
 
-### Component Specific Tokens
+</aside>
 
-Component specific names should start with the component that they support, and be located close to the component code. They commonly refer to alias tokens under the hood, and can be helpful when trying to use consistent styles across components while still maintaining separation of concerns. 
+### Component-specific Tokens
 
-Example:
+Component specific names should start with the component that they support, and be located close to the component code. They commonly refer to alias tokens under the hood, and can be helpful when trying to use consistent styles across components while still maintaining separation of concerns.
 
+<aside class="example">
 
-```
+```scss
 $badge-color-background-error: $color-background-error or $color-feedback-error;
 $badge-color-background-success: $color-background-success;
 $badge-color-text-error: $color-text-error or $color-feedback-error;
 ```
 
+</aside>
 
-
-### Supporting Color Modes
+### Supporting color modes
 
 Design tokens can be matched with multiple values to support various color modes, like a light mode and dark mode, as an example. This can be implemented in multiple ways, as demonstrated below.
 
-
 #### Single declaration
 
-In this case, the **$color-text-default** token is defined once, and “value” is considered the default for light mode, and the “darkValue” is used in dark mode.  
+In this case, the **$color-text-default** token is defined once, and “value” is considered the default for light mode, and the “darkValue” is used in dark mode.
 
+<aside class="example">
 
-```
+```json
 // tokens/color/alias.json
 {
   "color": {
@@ -228,14 +209,15 @@ In this case, the **$color-text-default** token is defined once, and “value”
 }
 ```
 
+</aside>
 
+#### Multi-file declaration
 
-#### Multi-file declaration 
+In this case, the **$color-text-default** token is defined in two separate files, in different folders.
 
-In this case, the **$color-text-default** token is defined in two separate files, in different folders. 
+<aside class="example">
 
-
-```
+```json
 // tokens/color/alias.json
 {
   "color": {
@@ -249,9 +231,11 @@ In this case, the **$color-text-default** token is defined in two separate files
 }
 ```
 
+</aside>
 
+<aside class="example">
 
-```
+```json
 //tokens/theme/dark/color/alias.json
 {
   "color": {
@@ -265,20 +249,21 @@ In this case, the **$color-text-default** token is defined in two separate files
 }
 ```
 
+</aside>
 
+### Example of supporting multiple themes and brands in React
 
-### Example of Supporting Multiple Themes and Brands in React
+<aside class="example">
 
-
-```
-// _theme.less
+```scss
+// _theme.scss
 
 :root {
- --color-interactive: #007c89;
+  --color-interactive: #007c89;
 }
 
 :global(.dark-mode) {
- --color-interactive: #133232;
+  --color-interactive: #133232;
 }
 
 // button.less
@@ -286,15 +271,15 @@ In this case, the **$color-text-default** token is defined in two separate files
 .primary {
   color-background-primary: var(--color-interactive);
 }
-
-
 ```
 
+</aside>
 
 Theme.js
 
+<aside class="example">
 
-```
+```jsx
 import React, { useContext } from 'react';
 
 export const ThemeContext = React.createContext();
@@ -302,7 +287,7 @@ export const SubbrandContext = React.createContext();
 
 const Theme = React.forwardRef(function Theme(
   { theme = 'light', subbrand, children },
-  forwardedRef,
+  forwardedRef
 ) {
   return (
     <SubbrandContext.Provider value={subbrand}>
@@ -315,24 +300,24 @@ const Theme = React.forwardRef(function Theme(
   );
 });
 
-
 const useThemeContext = () => useContext(ThemeContext);
 const useSubbrandContext = () => useContext(SubbrandContext);
 
 export default Theme;
 export { useThemeContext, useSubbrandContext };
-
 ```
 
+</aside>
 
 Portal.js
 
+<aside class="example">
 
-```
+```jsx
 import Theme, {
   useThemeContext,
   useSubbrandContext,
-} from '@mc/wink/components/Theme';
+} from '@design-system/components/Theme';
 
 
 const Portal = ({ children, ...props }) => {
@@ -352,11 +337,13 @@ export default Portal;
 
 ```
 
+</aside>
 
 Consumer
 
+<aside class="example">
 
-```
+```less
 // subbrand.less
 
 .valentinesDay {
@@ -368,11 +355,13 @@ Consumer
     --color-text-base: #cdbfbf;
   }
 }
-
 ```
 
+</aside>
 
-```
+<aside class="example">
+
+```jsx
 import {Theme} from "@design-system"
 
 import subbrand from "subbrand.less";
@@ -384,3 +373,5 @@ return (
   </Theme>
 )
 ```
+
+</aside>
