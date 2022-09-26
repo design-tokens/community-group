@@ -1,6 +1,8 @@
 # Color type
 
-Colors can be represented through various formats. For color, the type property must be set to the string “color”. For the value, the most common format to represent color through design tokens is a hex triplet. A hex triplet is a 6-digit, 24 bit, hexadecimal number that represents Red, Green, and Blue values as `#RRGGBB`.
+## Hex - required support
+
+Colors can be represented through various formats. For color tokens, the type property must be set to the string “color”. For the value, the most common format to represent color through design tokens is a hex triplet. A hex triplet is a 6-digit, 24 bit, hexadecimal number that represents Red, Green, and Blue values as `#RRGGBB`. For the initial version of this spec, we expect tools to support Hex values, at minimum.
 
 | Pros                                       | Cons                                   |
 | ------------------------------------------ | -------------------------------------- |
@@ -47,21 +49,10 @@ $translucent-shadow: ​hsl(153, 23%, 73%);
 
 Formatted in R (red), G (green), B (blue) and (A) alpha. Red, green, and blue values can range from 0 to 255 and alpha values can range from 0 and 1 (i.e 0.5) or a percentage (i.e 50%) where 1 or %100 is full opacity.
 
-<table>
-  <tr>
-    <td><strong>Pros</strong></td>
-    <td><strong>Cons</strong></td>
-  </tr>
-  <tr>
-    <td>
-      <ul>
-        <li>Can define alpha value with color</li>
-        <li>Alpha value is easy to comprehend at a glance</li>
-      </ul>
-    </td>
-    <td>?</td>
-  </tr>
-</table>
+| Pros                                          | Cons |
+| --------------------------------------------- | ---- |
+| Can define alpha value with color             | ?    |
+| Alpha value is easy to comprehend at a glance |      |
 
 For example, initially color tokens may be defined as such:
 
@@ -108,25 +99,9 @@ $translucent-shadow: rgba(171, 202, 188, 50%);
 
 Formatted in H (hue), S (saturation), L (lightness) and an optional (A) alpha. Hue values range from 0 to 360, saturation and lightness are percentage values that go from 0% to 100%, and alpha value can range from 0 and 1 (i.e 0.5) or a percentage (i.e 50%) where 1 or %100 is full opacity (which is the default value if a value isn’t provided).
 
-<table>
-  <tr>
-    <td><strong>Pros</strong></td>
-    <td><strong>Cons</strong></td>
-  </tr>
-  <tr>
-    <td>
-      <ul>
-        <li>It is easy to understand compare to other formats</li>
-        <li>Easy to predict value changes</li>
-      </ul>
-    </td>
-    <td>
-      <ul>
-        <li>No supported in older browsers</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+| Pros                                                  | Cons                                 |
+| ----------------------------------------------------- | ------------------------------------ |
+| It is easy to understand and compare to other formats | Limited browser support (XXXXX only) |
 
 <aside class="example">
 
@@ -167,31 +142,11 @@ $simple-sage: hsl(152, 2
 
 Hex8 uses two extra digits, known as the alpha value, to change the transparency of the color. The format follows `#RRGGBBAA`. [Learn more about alpha values in hex.](https://www.digitalocean.com/community/tutorials/css-hex-code-colors-alpha-values#adding-an-alpha-value-to-css-hex-codes)
 
-<table>
-  <tr>
-    <td><strong>Pros</strong></td>
-    <td><strong>Cons</strong></td>
-  </tr>
-  <tr>
-    <td>
-      <ul>
-        <li>Can define alpha value with color</li>
-      </ul>
-    </td>
-    <td>
-      <ul>
-        <li>Less commonly used</li>
-        <li>Alpha value is not immediately obvious (needs calculation)</li>
-        <li>
-          Not available in older versions of internet explorer (<a
-            href="https://caniuse.com/css-rrggbbaa"
-            >caniuse reference</a
-          >)
-        </li>
-      </ul>
-    </td>
-  </tr>
-</table>
+| Pros                              | Cons                                                                                                         |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Can define alpha value with color | Less commonly used                                                                                           |
+|                                   | Alpha value is not immediately obvious (needs calculation)                                                   |
+|                                   | Not available in older versions of Internet Explorer ([caniuse reference](https://caniuse.com/css-rrggbbaa)) |
 
 <aside class="example">
 
@@ -228,30 +183,18 @@ $simple-sage: rgba(171, 202, 188, 0.5);
 
 ### LCH (Lightness Chroma Hue)
 
-Formatted in L (lightness), C (chroma), H (hue) and an optional (A) alpha. Hue values range from 0 to 360, saturation and lightness are percentage values that go from 0% to 100%, and alpha value can range from 0 and 1 (i.e 0.5) or a percentage (i.e 50%) where 1 or %100 is full opacity (which is the default value if a value isn’t provided).
+Formatted in L (lightness), C (chroma), H (hue) and an optional (A) alpha. Hue values range from 0 to 360, saturation and lightness are percentage values that go from 0% to 100%, and alpha value can range from 0 and 1 (i.e., 0.5) or a percentage (i.e., 50%) where 1 or %100 is full opacity (which is the default value if a value isn’t provided).
 
-<table>
-  <tr>
-    <td><strong>Pros</strong></td>
-    <td><strong>Cons</strong></td>
-  </tr>
-  <tr>
-    <td>
-      <ul>
-        <li>Access to 50% more colors (P3 color space)</li>
-        <li>Colors more perceptually uniform</li>
-      </ul>
-    </td>
-    <td>
-      <ul>
-        <li>No fully supported (only safari)</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+| Pros                                       | Cons                                                                        |
+| ------------------------------------------ | --------------------------------------------------------------------------- |
+| Access to 50% more colors (P3 color space) | Colors more perceptually uniform, so it can be harder to distinguish values |
 
 ---
 
-## Using [Experimental?] color spaces
+## Future color type support
 
-- Using color spaces like OKLCH, OKLAB, CAM16, Display P-3, etc. may result in lack of support from tools, so plan to have a hex back-up
+The initial version of the Design Token format will focus on widely-supported color spaces (i.e., Hex, RGB, HSL and Hex8). Support for Hex is required, while other format options are optional.
+
+### Backwards compatibility
+
+While future versions of this spec may add support for color spaces like OKLCH, OKLAB, CAM16, Display P-3, etc., using these color spaces may result in a lack of support from tools. We plan to rely on a Hex back-up when colors need to be downgraded due to lack of support. Please keep this in mind when defining tokens in these more experimental color spaces.

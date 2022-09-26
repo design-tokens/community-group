@@ -53,11 +53,12 @@ For **Base tokens**, here’s how they may be represented in each version:
 
 #### Descriptive
 
-Descriptive names can be more emotional and human-friendly because they often relate to tangible things that people interact with, like grass or watermelons.
+Descriptive names can be more emotional and human-friendly because they often relate to tangible things that people interact with, like grass or watermelon.
 
-| Pros                                                                                              | Cons                                                                                                              |
-| ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Easier for people to identify with, could be used to distinguish Brand colors from product colors | Harder to determine the scale of colors (i.e. which ones are lighter vs. darker, and how they pair well together) |
+| Pros                                                                                                   | Cons                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| Easier for some people to identify with, could be used to distinguish Brand colors from product colors | Harder to determine the scale of colors (i.e., which ones are lighter vs. darker, and how they pair well together)            |
+|                                                                                                        | Names may not be easily recognized by non-English speakers. For teams working across languages, this may not be a good choice |
 
 <aside class="example">
 
@@ -170,7 +171,7 @@ $color-feedback-success: $color-green-400;
 
 </aside>
 
-### Component-specific Tokens
+### Component Tokens
 
 Component specific names should start with the component that they support, and be located close to the component code. They commonly refer to alias tokens under the hood, and can be helpful when trying to use consistent styles across components while still maintaining separation of concerns.
 
