@@ -130,6 +130,36 @@ For example:
 
 </aside>
 
+## Private
+
+Marks a token as private.
+
+Private tokens can be used to create aliases and other token combinations, reducing duplication and simplifying token outputs. Tools can resolve private tokens internally, but should not look to make them publicly available by default.
+
+A token's visibility can be specified by the optional `$private` property. If the `$private` property is not set to `true` on a token, then the token's visibility is visible.
+
+The `$private` property can be set on different levels:
+
+- at the group level
+- at the token level
+
+The value of the `$private` property MUST be a boolean, whose value is either `true` or `false`.
+
+For example:
+
+<aside class="example">
+
+```json
+{
+  "Button background": {
+    "$value": "#777777",
+    "$private": true
+  }
+}
+```
+
+</aside>
+
 ## Extensions
 
 The optional **`$extensions`** property is an object where tools MAY add proprietary, user-, team- or vendor-specific data to a design token. When doing so, each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
