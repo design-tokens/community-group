@@ -49,10 +49,10 @@ $translucent-shadow: ​hsl(153, 23%, 73%);
 
 Formatted in R (red), G (green), B (blue) and (A) alpha. Red, green, and blue values can range from 0 to 255 and alpha values can range from 0 and 1 (i.e 0.5) or a percentage (i.e 50%) where 1 or %100 is full opacity.
 
-| Pros                                          | Cons |
-| --------------------------------------------- | ---- |
-| Can define alpha value with color             | ?    |
-| Alpha value is easy to comprehend at a glance |      |
+| Pros                                          | Cons                                                                                                                                                                                                                                          |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Can define alpha value with color directly    | It is not perceptually uniform, and is difficult to create variants (lighter or darker, more or less vivid etc) by tweaking its parameters. [Learn more about RGBA issues.](https://lea.verou.me/2020/04/lch-colors-in-css-what-why-and-how/) |
+| Alpha value is easy to comprehend at a glance |                                                                                                                                                                                                                                               |
 
 For example, initially color tokens may be defined as such:
 
@@ -97,11 +97,11 @@ $translucent-shadow: rgba(171, 202, 188, 50%);
 
 ### HSL
 
-Formatted in H (hue), S (saturation), L (lightness) and an optional (A) alpha. Hue values range from 0 to 360, saturation and lightness are percentage values that go from 0% to 100%, and alpha value can range from 0 and 1 (i.e 0.5) or a percentage (i.e 50%) where 1 or %100 is full opacity (which is the default value if a value isn’t provided).
+Formatted in H (hue), S (saturation), L (lightness) and an optional (A) alpha. Hue values range from 0 to 360, saturation and lightness are percentage values that go from 0% to 100%, and alpha value can range from 0 and 1 (i.e 0.5) or a percentage (i.e 50%) where 1 or 100% is full opacity (which is the default value if a value isn’t provided).
 
-| Pros                                                  | Cons                                 |
-| ----------------------------------------------------- | ------------------------------------ |
-| It is easy to understand and compare to other formats | Limited browser support (XXXXX only) |
+| Pros                                                  | Cons                                  |
+| ----------------------------------------------------- | ------------------------------------- |
+| It is easy to understand and compare to other formats | Not supported in all browsers (IE 11) |
 
 <aside class="example">
 
@@ -115,9 +115,9 @@ Formatted in H (hue), S (saturation), L (lightness) and an optional (A) alpha. H
     "type": "color"
   },
   "Simple sage": {
-    "h": 152,
-    "s": "22%",
-    "l": "73%",
+    "h": 100,
+    "s": "27%",
+    "l": "57%",
     "a": "100%",
     "type": "color"
   }
@@ -133,7 +133,7 @@ Then, the output variables may look like:
 ```scss
 // colors-rgba.scss
 $majestic-magenta: hsl(300, 100%, 50%, 1);
-$simple-sage: hsl(152, 2
+$simple-sage: hsl(100, 27%, 57%);
 ```
 
 </aside>
@@ -188,6 +188,7 @@ Formatted in L (lightness), C (chroma), H (hue) and an optional (A) alpha. Hue v
 | Pros                                       | Cons                                                                        |
 | ------------------------------------------ | --------------------------------------------------------------------------- |
 | Access to 50% more colors (P3 color space) | Colors more perceptually uniform, so it can be harder to distinguish values |
+|                                            | Limited browser support (Safari only)                                       |
 
 ---
 

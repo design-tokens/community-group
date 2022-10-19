@@ -73,12 +73,12 @@ $color-brand-watermelon: #e8476a;
 
 **Ordered scales**
 
-Numerical tokens often follow a scale to help delineate how the colors progress. For example, when using an ordered scale, $color-blue-500 may be the base color, where the lightest color value is $color-blue-100, and the darkest value could be $color-blue-900, and these values are ordered in increments of 100s in between. We recommend not using sequential numbers (ex: 1, 2, 3, 4) for scalability in case future colors need to be added in between two existing colors.
+Numerical tokens often follow a scale to help delineate how the colors progress. For example, when using an ordered scale, `$color-blue-500` may be the base color, where the lightest color value is `$color-blue-100`, and the darkest value could be `$color-blue-900`, and these values are ordered in increments of 100s in between. We recommend not using sequential numbers (ex: 1, 2, 3, 4) for scalability in case future colors need to be added in between two existing colors.
 
 <aside class="example">
 
 ```scss
-$color-green-400: #____;
+$color-green-400: #6abaa0;
 $color-green-500: #268e6c;
 $color-green-600: #12805c;
 ```
@@ -90,11 +90,11 @@ Numerical token names can also allow for further specificity when needed. For ex
 <aside class="example">
 
 ```scss
-$color-gray-25: #268e6c;
-$color-gray-50: #12805c;
-$color-gray-75: #12805c;
-$color-gray-100: #12805c;
-$color-gray-200: #_____;
+$color-gray-25: #eeeeee;
+$color-gray-50: #dddddd;
+$color-gray-75: #cccccc;
+$color-gray-100: #bbbbbb;
+$color-gray-200: #9a9a9a;
 ```
 
 </aside>
@@ -106,10 +106,10 @@ Numerical tokens can also be named through **bounded scales**. These tokens util
 <aside class="example">
 
 ```scss
-$color-gray-22: #268e6c;
-$color-gray-49: #12805c;
-$color-gray-73: #12805c;
-$color-gray-99: #_____;
+$color-gray-22: hsl(0, 0%, 22%);
+$color-gray-49: hsl(0, 0%, 49%);
+$color-gray-73: hsl(0, 0%, 73%);
+$color-gray-99: hsl(0, 0%, 99%);
 ```
 
 </aside>
