@@ -2,7 +2,7 @@
 
 ## Hex - required support
 
-Colors can be represented through various formats. For color tokens, the `$type` property MUST be set to the string `color`. For the value, the most common format to represent color through design tokens is a hex triplet. A hex triplet is a 6-digit, 24 bit, hexadecimal number that represents Red, Green, and Blue values as `#RRGGBB`. For the initial version of this spec, we expect tools to support Hex values, at minimum.  The value MUST be a string containing a hex triplet, including the preceding `#` character. To support other color spaces, such as HSL, translation tools SHOULD convert color tokens to the equivalent value as needed.
+Colors can be represented through various formats. For color tokens, the `$type` property MUST be set to the string `color`. For the value, the most common format to represent color through design tokens is a hex triplet. A hex triplet is a 6-digit, 24 bit, hexadecimal number that represents Red, Green, and Blue values as `#RRGGBB`. For the initial version of this spec, we expect tools to support Hex values, at minimum. The value MUST be a string containing a hex triplet, including the preceding `#` character. To support other color spaces, such as HSL, translation tools SHOULD convert color tokens to the equivalent value as needed.
 
 | Pros                                       | Cons                                   |
 | ------------------------------------------ | -------------------------------------- |
