@@ -21,8 +21,9 @@ For example:
 
 - Value
 - Type
-- Metadata
 - Description
+
+Additional metadata may be added by tools and design systems to extend the format as needed.
 
 ## <dfn>Design tool</dfn>
 
