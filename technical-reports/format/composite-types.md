@@ -404,7 +404,7 @@ Describes a color token called "brand-primary", which is referenced as the mid-p
 </aside>
 
 <div class="issue" data-number="101" title="Gradient type feedback">
-  Is the current specification for gradients fit for purpose? Does it need to also specify the type of gradient (.e.g linear, radial, concial, etc.)?
+  Is the current specification for gradients fit for purpose? Does it need to also specify the type of gradient (.e.g linear, radial, conical, etc.)?
 </div>
 
 ## Typography
