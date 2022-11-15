@@ -140,7 +140,7 @@ Groups may support additional properties like type and description. Should other
 
 Groups MAY include an optional `$type` property so a type property does not need to be manually added to every token. [See supported "Types"](#types) for more information.
 
-If a group has a `$type` property it acts as a default type for any tokens within the group, including ones in nested groups, that do not explicity declare a type via their own `$type` property. For the full set of rules by which a design token's type is determined, please refer to the [design token type property chapter](#type-0).
+If a group has a `$type` property it acts as a default type for any tokens within the group, including ones in nested groups, that do not explicitly declare a type via their own `$type` property. For the full set of rules by which a design token's type is determined, please refer to the [design token type property chapter](#type-0).
 
 For example:
 
