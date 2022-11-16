@@ -18,7 +18,7 @@ A design token whose type happens to be a composite type is sometimes also calle
   "shadow-token": {
     "$type": "shadow",
     "$value": {
-      "color": "#00000088",
+      "color": "#00000080",
       "offsetX": "0.5rem",
       "offsetY": "0.5rem",
       "blur": "1.5rem",
@@ -44,7 +44,7 @@ A design token whose type happens to be a composite type is sometimes also calle
   "color": {
     "shadow-050": {
       "$type": "color",
-      "$value": "#00000088"
+      "$value": "#00000080"
     }
   },
 
@@ -287,7 +287,7 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
   "shadow-token": {
     "$type": "shadow",
     "$value": {
-      "color": "#00000088",
+      "color": "#00000080",
       "offsetX": "0.5rem",
       "offsetY": "0.5rem",
       "blur": "1.5rem",
