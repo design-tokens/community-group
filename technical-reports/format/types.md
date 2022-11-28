@@ -66,7 +66,11 @@ For example:
 
 ```json
 {
-  "spacingStack1X": {
+  "spacing-stack-0": {
+    "$value": "0rem",
+    "$type": "dimension"
+  },
+  "spacing-stack-1": {
     "$value": "0.25rem",
     "$type": "dimension"
   }
