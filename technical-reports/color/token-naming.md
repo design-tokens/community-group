@@ -199,11 +199,12 @@ In this case, the **$color-text-default** token is defined once, and “value”
 // tokens/color/alias.json
 {
   "color": {
+    "$type": "color",
     "text": {
       "default": {
-        "value": "#111111",
-        "darkValue": "#ffffff",
-        "comment": "Default text color"
+        "$value": "#111111",
+        "$darkValue": "#ffffff",
+        "$description": "Default text color"
       }
     }
   }
@@ -222,10 +223,11 @@ In this case, the **$color-text-default** token is defined in two separate files
 // tokens/color/alias.json
 {
   "color": {
+    "$type": "color",
     "text": {
       "default": {
-        "value": "#111111",
-        "comment": "Default text color"
+        "$value": "#111111",
+        "$description": "Default text color"
       }
     }
   }
@@ -240,10 +242,11 @@ In this case, the **$color-text-default** token is defined in two separate files
 //tokens/theme/dark/color/alias.json
 {
   "color": {
+    "$type": "color",
     "text": {
       "default": {
-        "value": "#ffffff",
-        "comment": "Default text color"
+        "$value": "#ffffff",
+        "$description": "Default text color"
       }
     }
   }

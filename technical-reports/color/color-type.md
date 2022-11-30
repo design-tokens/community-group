@@ -15,12 +15,12 @@ For example, initially color tokens may be defined as such:
 ```json
 {
   "Majestic magenta": {
-    "value": "#ff00ff",
-    "type": "color"
+    "$value": "#ff00ff",
+    "$type": "color"
   },
   "Simple sage": {
-    "value": "#abcabc",
-    "type": "color"
+    "$value": "#abcabc",
+    "$type": "color"
   }
 }
 ```
@@ -61,22 +61,22 @@ For example, initially color tokens may be defined as such:
 ```json
 {
   "Majestic magenta": {
-    "value": {
+    "$value": {
       "red": 255,
       "green": 0,
       "blue": 255,
       "alpha": 1
     },
-    "type": "color"
+    "$type": "color"
   },
   "Simple sage": {
-    "value": {
+    "$value": {
       "red": 171,
       "green": 202,
       "blue": 188,
       "alpha": "50%"
     },
-    "type": "color"
+    "$type": "color"
   }
 }
 ```
@@ -112,14 +112,14 @@ Formatted in H (hue), S (saturation), L (lightness) and an optional (A) alpha. H
     "s": "100%",
     "l": "50%",
     "a": "100%",
-    "type": "color"
+    "$type": "color"
   },
   "Simple sage": {
     "h": 100,
     "s": "27%",
     "l": "57%",
     "a": "100%",
-    "type": "color"
+    "$type": "color"
   }
 }
 ```
@@ -153,12 +153,12 @@ Hex8 uses two extra digits, known as the alpha value, to change the transparency
 ```json
 {
   "Majestic magenta": {
-    "value": "#ff00ff80",
-    "type": "color"
+    "$value": "#ff00ff80",
+    "$type": "color"
   },
   "Simple sage": {
-    "value": "#abcabc80",
-    "type": "color"
+    "$value": "#abcabc80",
+    "$type": "color"
   }
 }
 ```
