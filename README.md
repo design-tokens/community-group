@@ -62,6 +62,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Herman + Accoutrement](https://oddbird.net/herman/)
 - [Interplay](https://interplayapp.com)
 - [InVision](https://www.invisionapp.com)
+- [Kaspersky](https://kaspersky.com)
 - [Knapsack](https://www.knapsack.cloud)
 - [Lona](https://github.com/airbnb/Lona)
 - [Marvel](https://marvelapp.com)
