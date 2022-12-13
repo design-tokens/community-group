@@ -32,7 +32,7 @@ For example, initially the color tokens MAY be defined as such:
     "$type": "color"
   },
   "Translucent shadow": {
-    "$value": "#00000088",
+    "$value": "#00000080",
     "$type": "color"
   }
 }
