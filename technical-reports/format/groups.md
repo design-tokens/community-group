@@ -7,18 +7,22 @@ A file MAY contain many tokens and they MAY be nested arbitrarily in groups like
 ```json
 {
   "token uno": {
-    "$value": "token value 1"
+    "$value": "#111111",
+    "$type": "color"
   },
   "token group": {
     "token dos": {
-      "$value": "token value 2"
+      "$value": "2rem",
+      "$type": "dimension"
     },
     "nested token group": {
       "token tres": {
-        "$value": "token value 3"
+        "$value": 33,
+        "$type": "number"
       },
       "Token cuatro": {
-        "$value": "token value 4"
+        "$value": 444,
+        "$type": "fontWeight"
       }
     }
   }
@@ -32,19 +36,23 @@ The names of the groups leading to a given token (including that token's name) a
 - Token #1
   - Name: "token uno"
   - Path: "token uno"
-  - Value: "token value 1"
+  - Value: "#111111"
+  - Type: "color"
 - Token #2
   - Name: "token dos"
   - Path: "token group" / "token dos"
-  - Value: "token value 2"
+  - Value: "2rem"
+  - Type: "dimension"
 - Token #3
   - Name: "token tres"
   - Path: "token group" / "nested token group" / "token tres"
-  - Value: "token value 3"
+  - Value: 33
+  - Type: "number"
 - Token #4
   - Name: "token cuatro"
   - Path: "token group" / "nested token group" / "token cuatro"
-  - Value: "token value 4"
+  - Value: 444
+  - Type: "fontWeight"
 
 Because groupings are arbitrary, tools MUST NOT use them to infer the type or purpose of design tokens.
 

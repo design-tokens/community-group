@@ -7,10 +7,13 @@
 ```json
 {
   "token name": {
-    "$value": "token value"
+    "$value": "#fff000",
+    "$type": "color"
   }
 }
 ```
+
+Note: The `$type` property has been added to ensure this example is valid. Please refer to the [type chapter](#type-0) for more details.
 
 </aside>
 
@@ -19,7 +22,8 @@ An object with a **`$value`** property is a token. Thus, `$value` is a reserved 
 The example above therefore defines 1 design token with the following properties:
 
 - Name: "token name"
-- Value: "token value"
+- Value: "#fff000"
+- Type: "color"
 
 Name and value are both **required**.
 
@@ -29,8 +33,15 @@ Token names are case-sensitive, so the following example with 2 tokens in the sa
 
 ```json
 {
-  "font-size": { "$value": "3rem" },
-  "FONT-SIZE": { "$value": "16px" }
+  "font-size": {
+    "$value": "3rem",
+    "$type": "dimension"
+  },
+
+  "FONT-SIZE": {
+    "$value": "16px",
+    "$type": "dimension"
+  }
 }
 ```
 
@@ -89,6 +100,7 @@ The value of the `$description` property MUST be a plain JSON string, for exampl
 {
   "Button background": {
     "$value": "#777777",
+    "$type": "color",
     "$description": "The background color for buttons in their normal state."
   }
 }
@@ -102,9 +114,9 @@ Design tokens always have an unambiguous type, so that tools can reliably interp
 
 A token's type can be specified by the optional `$type` property. If the `$type` property is not set on a token, then the token's type MUST be determined as follows:
 
-- If the token's value is a reference, then its type is the type of the token being referenced.
+- If the token's value is a reference, then its type is the resolved type of the token being referenced.
 - Otherwise, if any of the token's parent groups have a `$type` property, then the token's type is inherited from the closest parent group with a `$type` property.
-- Otherwise, the token's type is whichever of the basic JSON types (`string`, `number`, `boolean`, `object`, `array` or `null`) its value is.
+- Otherwise, if none of the parent groups have a `$type` property, the token's type cannot be determined and the token MUST be considered invalid.
 
 Tools MUST NOT attempt to guess the type of a token by inspecting the contents of its value.
 
@@ -113,7 +125,7 @@ The `$type` property can be set on different levels:
 - at the group level
 - at the token level
 
-The `$type` property MUST be a plain JSON string, whose value is `string`, `number`, `boolean`, `object`, `array`, `null` or one of the values specified in respective [type chapters](#types). The value of `$type` is case-sensitive.
+The `$type` property MUST be a plain JSON string, whose value is one of the values specified in respective [type chapters](#types). The value of `$type` is case-sensitive.
 
 For example:
 
@@ -143,6 +155,7 @@ The optional **`$extensions`** property is an object where tools MAY add proprie
 {
   "Button background": {
     "$value": "#777777",
+    "$type": "color",
     "$extensions": {
       "org.example.tool-a": 42,
       "org.example.tool-b": {
