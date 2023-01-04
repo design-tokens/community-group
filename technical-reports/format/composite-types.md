@@ -416,7 +416,7 @@ Represents a typographic style. The `$type` property MUST be set to the string `
 - `fontSize`: The size of the typography. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `fontWeight`: The weight of the typography. The value of this property MUST be a valid [font weight](#font-weight) or a reference to a font weight token.
 - `letterSpacing`: The horizontal spacing between characters. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `lineHeight`: The vertical spacing between lines of typography. The value of this property MUST be a valid [dimension value](#dimension) or [number value](#number) (in which case it should be interpreted as a unitless line height), or a reference to a dimension or number token.
+- `lineHeight`: The vertical spacing between lines of typography. The value of this property MUST be a valid [number value](#number) or a reference to a number token. The number SHOULD be interpreted as a multiplier of the `fontSize`.
 
 <aside class="example" title="Typography composite token examples">
 
@@ -440,7 +440,7 @@ Represents a typographic style. The `$type` property MUST be set to the string `
         "fontSize": "{font.size.smallest}",
         "fontWeight": "{font.weight.normal}",
         "letterSpacing": "0px",
-        "lineHeight": "24px"
+        "lineHeight": 1
       }
     }
   }
