@@ -13,7 +13,7 @@
 }
 ```
 
-Note: The `$type` property has been added to ensure this example is valid. Please refer to the [type chapter](#type-0) for more details.
+Note: The `$type` property has been added to ensure this example is valid. Please refer to the [design token type chapter](#type-0) for more details.
 
 </aside>
 
@@ -125,7 +125,7 @@ The `$type` property can be set on different levels:
 - at the group level
 - at the token level
 
-The `$type` property MUST be a plain JSON string, whose value is one of the values specified in respective [type chapters](#types). The value of `$type` is case-sensitive.
+The `$type` property MUST be a plain JSON string, whose value is one of the values specified in this specification's respective type definitios. The value of `$type` is case-sensitive.
 
 For example:
 
