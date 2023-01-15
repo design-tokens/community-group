@@ -125,7 +125,7 @@ The `$type` property can be set on different levels:
 - at the group level
 - at the token level
 
-The `$type` property MUST be a plain JSON string, whose value is one of the values specified in this specification's respective type definitios. The value of `$type` is case-sensitive.
+The `$type` property MUST be a plain JSON string, whose value is one of the values specified in this specification's respective type definitions. The value of `$type` is case-sensitive.
 
 For example:
 
