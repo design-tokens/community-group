@@ -77,6 +77,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Sprout Social](https://sproutsocial.com/seeds)
 - [Style Dictionary](https://amzn.github.io/style-dictionary)
 - [Superposition](https://superposition.design)
+- [Supernova](https://supernova.io)
 - [system-ui](https://github.com/system-ui)
 - [Toolabs](https://www.toolabs.com)
 - [Universal Design Tokens](https://github.com/universal-design-tokens/udt)
