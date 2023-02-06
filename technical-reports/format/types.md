@@ -105,7 +105,7 @@ For example:
     "$type": "fontFamily"
   },
   "Body font": {
-    "$value": ["Helvetica", "Arial"],
+    "$value": ["Helvetica", "Arial", "sans-serif"],
     "$type": "fontFamily"
   }
 }
