@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.5.0">
+<meta name="generator" content="ReSpec 32.7.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -187,8 +187,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "dtcg-logo"
     }
   ],
-  "publishISODate": "2022-12-13T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 13 December 2022"
+  "publishISODate": "2023-02-06T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 06 February 2023"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
   <body class="h-entry"><div class="head">
@@ -197,7 +197,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Design Tokens Format Module</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2022-12-13">13 December 2022</time>
+      <time class="dt-published" datetime="2023-02-06">06 February 2023</time>
     </p>
     <dl>
       
@@ -987,14 +987,18 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 </aside>
 
 </section><section id="dimension"><div class="header-wrapper"><h3 id="x8-2-dimension"><bdi class="secno">8.2 </bdi>Dimension</h3><a class="self-link" href="#dimension" aria-label="Permalink for Section 8.2"></a></div>
-<p>Represents an amount of distance in a single dimension in the UI, such as a position, width, height, radius, or thickness. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>dimension</code>. The value must be a string containing a number (either integer or floating-point) followed by either a "px" or "rem" unit (future spec iterations may add support for additional units).</p>
+<p>Represents an amount of distance in a single dimension in the UI, such as a position, width, height, radius, or thickness. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>dimension</code>. The value must be a string containing a number (either integer or floating-point) followed by either a "px" or "rem" unit (future spec iterations may add support for additional units). This includes <code>0</code> which also <em class="rfc2119">MUST</em> be followed by either a "px" or "rem" unit.</p>
 <p>For example:</p>
 <aside class="example" id="example-17"><div class="marker">
     <a class="self-link" href="#example-17">Example<bdi> 17</bdi></a>
   </div>
 
 <pre><code class="json hljs" aria-busy="false">{
-  <span class="hljs-attr">"spacingStack1X"</span>: {
+  <span class="hljs-attr">"spacing-stack-0"</span>: {
+    <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"0rem"</span>,
+    <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"dimension"</span>
+  },
+  <span class="hljs-attr">"spacing-stack-1"</span>: {
     <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"0.25rem"</span>,
     <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"dimension"</span>
   }
