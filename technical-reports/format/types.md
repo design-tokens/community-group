@@ -58,7 +58,7 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 
 ## Dimension
 
-Represents an amount of distance in a single dimension in the UI, such as a position, width, height, radius, or thickness. The `$type` property MUST be set to the string `dimension`. The value must be a string containing a number (either integer or floating-point) followed by either a "px" or "rem" unit (future spec iterations may add support for additional units).
+Represents an amount of distance in a single dimension in the UI, such as a position, width, height, radius, or thickness. The `$type` property MUST be set to the string `dimension`. The value must be a string containing a number (either integer or floating-point) followed by either a "px" or "rem" unit (future spec iterations may add support for additional units). This includes `0` which also MUST be followed by either a "px" or "rem" unit.
 
 For example:
 
@@ -66,7 +66,11 @@ For example:
 
 ```json
 {
-  "spacingStack1X": {
+  "spacing-stack-0": {
+    "$value": "0rem",
+    "$type": "dimension"
+  },
+  "spacing-stack-1": {
     "$value": "0.25rem",
     "$type": "dimension"
   }
