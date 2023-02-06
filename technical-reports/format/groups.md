@@ -167,7 +167,7 @@ Group extensions follow the same rules as [design token extensions](#extensions)
 - The keys SHOULD be chosen such that they avoid the likelihood of a naming clash with another vendor's data. The [reverse domain name notation](https://en.wikipedia.org/wiki/Reverse_domain_name_notation) is recommended for this purpose.
 - Tools that process design token files MUST preserve any extension data they do not themselves understand. For example, if a group contains extension data from tool A and the file containing that data is opened by tool B, then tool B MUST include the original tool A extension data whenever it saves a new design token file containing that group.
 
-Note that, since a group's `$extensions` only relate to that group, they do not have any effect on nested groups or tokens. However, if an extension author wants their extension to be inherited by nested groups or tokens like a group's `$type` is, then they MAY implement that behaviour in whatever tools support their extension.
+Note that, since a group's `$extensions` only relate to that group, they do not have any effect on nested groups or tokens.
 
 <aside class="example">
 
