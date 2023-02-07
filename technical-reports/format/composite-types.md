@@ -374,6 +374,7 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
   },
 
   "position-end": {
+    "$type": "number",
     "$value": 1
   },
 
@@ -415,7 +416,7 @@ Represents a typographic style. The `$type` property MUST be set to the string `
 - `fontSize`: The size of the typography. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `fontWeight`: The weight of the typography. The value of this property MUST be a valid [font weight](#font-weight) or a reference to a font weight token.
 - `letterSpacing`: The horizontal spacing between characters. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `lineHeight`: The vertical spacing between lines of typography. The value of this property MUST be a valid JSON string or a reference to a string token.
+- `lineHeight`: The vertical spacing between lines of typography. The value of this property MUST be a valid [number value](#number) or a reference to a number token. The number SHOULD be interpreted as a multiplier of the `fontSize`.
 
 <aside class="example" title="Typography composite token examples">
 
@@ -429,7 +430,7 @@ Represents a typographic style. The `$type` property MUST be set to the string `
         "fontSize": "42px",
         "fontWeight": "700",
         "letterSpacing": "0.1px",
-        "lineHeight": "1.2"
+        "lineHeight": 1.2
       }
     },
     "microcopy": {
@@ -439,7 +440,7 @@ Represents a typographic style. The `$type` property MUST be set to the string `
         "fontSize": "{font.size.smallest}",
         "fontWeight": "{font.weight.normal}",
         "letterSpacing": "0px",
-        "lineHeight": "1"
+        "lineHeight": 1
       }
     }
   }

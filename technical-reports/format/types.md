@@ -2,18 +2,11 @@
 
 Many tools need to know what kind of value a given token represents to process it sensibly. Translation tools MAY need to convert or format tokens differently depending on their type. [=Design tools=] MAY present the user with different kinds of input when editing tokens of a certain type (such as color picker, slider, text input, etc.). Style guide generators MAY use different kinds of previews for different types of tokens.
 
-Since design token files are JSON files, all the basic JSON types are available:
+This spec defines a number of design-focused types and every design token MUST use one of these types. Furthermore, that token's value MUST then follow rules and syntax for the chosen type as defined by this spec.
 
-- String
-- Number
-- Object
-- Array
-- Boolean
-- Null
+A token's type can be set directly by giving it a `$type` property specifying the chosen type. Alternatively, it can inherit a type from one of its parent groups, or be an alias of a token that has the desired type.
 
-Additionally, this spec defines a number of more design-focused types. To set a token to one of these types, it MUST either have a `$type` property specifying the chosen type, inherit a type from one of its parent groups, or be an alias of a token that has the desired type. Furthermore, that token's value MUST then follow rules and syntax for the chosen type as defined by this spec.
-
-If no explicit type has been set for a token, tools MUST treat values as one of the basic JSON types and not attempt to infer any other type from the value.
+If no explicit type has been set for a token, tools MUST consider the token invalid and not attempt to infer any other type from the value.
 
 If an explicit type is set, but the value does not match the expected syntax then that token is invalid and an appropriate error SHOULD be displayed to the user. To put it another way, the `$type` property is a declaration of what kind of values are permissible for the token. (This is similar to typing in programming languages like Java or TypeScript, where a value not compatible with the declared type causes a compilation error).
 
@@ -193,6 +186,23 @@ For example:
   "Decelerate": {
     "$value": [0, 0, 0.5, 1],
     "$type": "cubicBezier"
+  }
+}
+```
+
+</aside>
+
+## Number
+
+Represents a number. Numbers can be positive, negative and have fractions. Example uses for number tokens are [gradient stop positions](#gradient) or unitless line heights. The `$type` property MUST be set to the string `number`. The value MUST be a JSON number value.
+
+<aside class="example">
+
+```json
+{
+  "line-height-large": {
+    "$value": 2.3,
+    "$type": "number"
   }
 }
 ```
