@@ -428,7 +428,7 @@ Represents a typographic style. The `$type` property MUST be set to the string `
       "$value": {
         "fontFamily": "Roboto",
         "fontSize": "42px",
-        "fontWeight": "700",
+        "fontWeight": 700,
         "letterSpacing": "0.1px",
         "lineHeight": 1.2
       }
