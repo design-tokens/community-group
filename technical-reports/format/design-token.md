@@ -6,7 +6,7 @@
 
 ```json
 {
-  "token name": {
+  "token-name": {
     "$value": "#fff000",
     "$type": "color"
   }
@@ -16,6 +16,8 @@
 Note: The `$type` property has been added to ensure this example is valid. Please refer to the [design token type chapter](#type-0) for more details.
 
 </aside>
+
+The name of your design token must not include any whitespace. Otherwise your design token is considered as invalid.
 
 An object with a **`$value`** property is a token. Thus, `$value` is a reserved word in our spec, meaning you can't have a token whose name is "$value". The parent object's key is the token name.
 
@@ -98,7 +100,7 @@ The value of the `$description` property MUST be a plain JSON string, for exampl
 
 ```json
 {
-  "Button background": {
+  "button-background": {
     "$value": "#777777",
     "$type": "color",
     "$description": "The background color for buttons in their normal state."
@@ -133,7 +135,7 @@ For example:
 
 ```json
 {
-  "Button background": {
+  "button-background": {
     "$value": "#777777",
     "$type": "color"
   }
@@ -153,7 +155,7 @@ The optional **`$extensions`** property is an object where tools MAY add proprie
 
 ```json
 {
-  "Button background": {
+  "button-background": {
     "$value": "#777777",
     "$type": "color",
     "$extensions": {

@@ -11,16 +11,16 @@ A file MAY contain many tokens and they MAY be nested arbitrarily in groups like
     "$type": "color"
   },
   "token group": {
-    "token dos": {
+    "token-dos": {
       "$value": "2rem",
       "$type": "dimension"
     },
     "nested token group": {
-      "token tres": {
+      "token-tres": {
         "$value": 33,
         "$type": "number"
       },
-      "Token cuatro": {
+      "Token-cuatro": {
         "$value": 444,
         "$type": "fontWeight"
       }
@@ -78,7 +78,7 @@ Group keys without a dollar sign (`$`) prefix denote:
   {
     "Group of tokens": {
       "$description": "This is an example of a group containing a single token",
-      "Token name": {
+      "token-name": {
         "$value": "#000000"
       }
     }
@@ -92,10 +92,10 @@ Group keys without a dollar sign (`$`) prefix denote:
     "Group of tokens": {
       "$description": "This is an example of a group containing a nested group",
       "Subgroup of tokens": {
-        "Token 1 name": {
+        "token-1-name": {
           "$value": "#aabbcc"
         },
-        "Token 2 name": {
+        "token-2-name": {
           "$value": "#ddeeff"
         }
       }
@@ -119,10 +119,10 @@ For example:
     "$description": "Design tokens from our brand guidelines",
     "color": {
       "$description": "Our brand's primary color palette",
-      "acid green": {
+      "acid-green": {
         "$value": "#00ff66"
       },
-      "hot pink": {
+      "hot-pink": {
         "$value": "#dd22cc"
       }
     }
@@ -159,10 +159,10 @@ For example:
   "brand": {
     "$type": "color",
     "color": {
-      "acid green": {
+      "acid-green": {
         "$value": "#00ff66"
       },
-      "hot pink": {
+      "hot-pink": {
         "$value": "#dd22cc"
       }
     }
@@ -187,10 +187,10 @@ For example:
   "brand": {
     "color": {
       "$type": "color",
-      "acid green": {
+      "acid-green": {
         "$value": "#00ff66"
       },
-      "hot pink": {
+      "hot-pink": {
         "$value": "#dd22cc"
       }
     },
@@ -258,10 +258,10 @@ For example, a [=translation tool=] like [Style Dictionary](https://amzn.github.
   "brand": {
     "color": {
       "$type": "color",
-      "acid green": {
+      "acid-green": {
         "$value": "#00ff66"
       },
-      "hot pink": {
+      "hot-pink": {
         "$value": "#dd22cc"
       }
     },

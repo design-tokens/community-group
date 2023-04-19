@@ -16,12 +16,12 @@ For example:
 ```json
 {
   "group name": {
-    "token name": {
+    "token-name": {
       "$value": 1234,
       "$type": "number"
     }
   },
-  "alias name": {
+  "alias-name": {
     "$value": "{group name.token name}"
   }
 }
