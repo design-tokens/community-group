@@ -47,7 +47,7 @@ $translucent-shadow: ​hsl(153, 23%, 73%);
 
 ### RGBA
 
-Formatted in R (red), G (green), B (blue) and (A) alpha. Red, green, and blue values can range from 0 to 255 and alpha values can range from 0 and 1 (i.e 0.5) or a percentage (i.e 50%) where 1 or %100 is full opacity.
+Formatted in R (red), G (green), B (blue) and (A) alpha. Red, green, and blue values can range from `0` to `255`, and the alpha value ranges from `0` to `1` (such as `0.5`) or a percentage (such as `50%`) where `1` or `100%` is full opacity.
 
 | Pros                                          | Cons                                                                                                                                                                                                                                          |
 | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
