@@ -21,8 +21,9 @@ For example:
 
 - Value
 - Type
-- Metadata
 - Description
+
+Additional metadata may be added by tools and design systems to extend the format as needed.
 
 ## <dfn>Design tool</dfn>
 
@@ -123,7 +124,7 @@ Here's [an example of a composite shadow token](https://design-tokens.github.io/
   "shadow-token": {
     "$type": "shadow",
     "$value": {
-      "color": "#00000088",
+      "color": "#00000080",
       "offsetX": "0.5rem",
       "offsetY": "0.5rem",
       "blur": "1.5rem",

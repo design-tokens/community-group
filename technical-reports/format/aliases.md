@@ -17,7 +17,8 @@ For example:
 {
   "group name": {
     "token name": {
-      "$value": 1234
+      "$value": 1234,
+      "$type": "number"
     }
   },
   "alias name": {

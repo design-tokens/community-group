@@ -18,8 +18,8 @@ For example, initially color tokens may be defined as such:
     "$value": "#ff00ff",
     "$type": "color"
   },
-  "Simple sage": {
-    "$value": "#abcabc",
+  "Translucent shadow": {
+    "$value": "#00000080",
     "$type": "color"
   }
 }
@@ -34,7 +34,7 @@ Then, the output from a tool’s conversion to HSL may look something like:
 ```scss
 // colors-hex.scss
 $majestic-magenta: #ff00ff;
-$simple-sage: #abcabc;
+$translucent-shadow: #00000080;
 
 // colors-hsl.scss
 $majestic-magenta: ​hsl(300, 100%, 50%);
