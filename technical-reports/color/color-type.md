@@ -140,7 +140,7 @@ $simple-sage: hsl(100, 27%, 57%);
 
 ### Hex8
 
-Hex8 uses two extra digits, known as the alpha value, to change the transparency of the color. The format follows `#RRGGBBAA`. [Learn more about alpha values in hex.](https://www.digitalocean.com/community/tutorials/css-hex-code-colors-alpha-values#adding-an-alpha-value-to-css-hex-codes)
+Hex8 uses two extra digits, known as the alpha value, to change the transparency of the color. The format follows `#RRGGBBAA`. [Learn more about alpha values in hex codes](https://www.digitalocean.com/community/tutorials/css-hex-code-colors-alpha-values#adding-an-alpha-value-to-css-hex-codes).
 
 | Pros                              | Cons                                                                                                         |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------ |
