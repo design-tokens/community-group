@@ -366,7 +366,7 @@ Consumer
 <aside class="example">
 
 ```jsx
-import {Theme} from "@design-system"
+import Theme from "@design-system/components/Theme";
 
 import subbrand from "subbrand.less";
 
