@@ -57,7 +57,7 @@ Descriptive names can be more emotional and human-friendly because they often re
 
 | Pros                                                                                                   | Cons                                                                                                                          |
 | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| Easier for some people to identify with, could be used to distinguish Brand colors from product colors | Harder to determine the scale of colors (i.e., which ones are lighter vs. darker, and how they pair well together)            |
+| Easier for some people to identify with, could be used to distinguish brand colors from product colors | Harder to determine the scale of colors (for example: which ones are lighter vs. darker? How well do they pair together?)            |
 |                                                                                                        | Names may not be easily recognized by non-English speakers. For teams working across languages, this may not be a good choice |
 
 <aside class="example">
