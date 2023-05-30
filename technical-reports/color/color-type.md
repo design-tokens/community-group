@@ -194,7 +194,7 @@ Formatted in L (lightness), C (chroma), H (hue) and an optional (A) alpha. Hue v
 
 ## Future color type support
 
-The initial version of the Design Token format will focus on widely-supported color spaces (i.e., Hex, RGB, HSL and Hex8). Support for Hex is required, while other format options are optional.
+The initial version of the Design Token format will focus on widely-supported color spaces (such as Hex, RGB, HSL, and Hex8). Support for Hex is required, while other format options are optional.
 
 ### Backwards compatibility
 
