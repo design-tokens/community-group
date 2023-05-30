@@ -173,7 +173,7 @@ $color-feedback-success: $color-green-400;
 
 ### Component Tokens
 
-Component specific names should start with the component that they support, and be located close to the component code. They commonly refer to alias tokens under the hood, and can be helpful when trying to use consistent styles across components while still maintaining separation of concerns.
+Component-specific names should start with the component they support and be located close to the component code. They commonly refer to alias tokens and can be helpful when trying to use consistent styles across components while still maintaining separation of concerns.
 
 <aside class="example">
 
