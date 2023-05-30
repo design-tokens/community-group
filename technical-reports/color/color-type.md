@@ -183,7 +183,7 @@ $simple-sage: rgba(171, 202, 188, 0.5);
 
 ### LCH (Lightness Chroma Hue)
 
-Formatted in L (lightness), C (chroma), H (hue) and an optional (A) alpha. Hue values range from 0 to 360, saturation and lightness are percentage values that go from 0% to 100%, and alpha value can range from 0 and 1 (i.e., 0.5) or a percentage (i.e., 50%) where 1 or %100 is full opacity (which is the default value if a value isn’t provided).
+Formatted in L (lightness), C (chroma), H (hue) and an optional (A) alpha. Hue ranges from `0` to `360`, saturation and lightness are percentage values that range from `0%` to `100%`, and the optional alpha value ranges from `0` and `1` (such as `0.5`) or as a percentage (such as `50%`) where `1` or `100%` is full opacity (which is the default value if a value isn’t provided).
 
 | Pros                                       | Cons                                                                        |
 | ------------------------------------------ | --------------------------------------------------------------------------- |
