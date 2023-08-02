@@ -1,4 +1,4 @@
-# Gradient 
+# Gradient
 
 Below are instances of implementing various types of gradients:
 
@@ -29,8 +29,8 @@ Below are instances of implementing various types of gradients:
 }
 ```
 
-
 ## Linear using RGB
+
 ```json
 {
   "red-to-blue": {
@@ -70,8 +70,6 @@ Below are instances of implementing various types of gradients:
 }
 ```
 
-
-
 ## Radial
 
 ```json
@@ -85,24 +83,23 @@ Below are instances of implementing various types of gradients:
       "$colors": [
         {
           "$value": {
-              "$hex": "#bbc101",
-              "$alpha": 1,
+            "$hex": "#bbc101",
+            "$alpha": 1
           },
-          "$position": 0,
+          "$position": 0
         },
         {
           "$value": {
-              "$hex": "#fff",
-              "$alpha": 0.75,
+            "$hex": "#fff",
+            "$alpha": 0.75
           },
-          "$position": 1,
-        },
-      ],
-    },
+          "$position": 1
+        }
+      ]
+    }
   }
 }
 ```
-
 
 ## Conic
 
@@ -129,9 +126,9 @@ Below are instances of implementing various types of gradients:
           "$value": "#310059",
           "$position": 1,
           "$alpha": 1
-        },
-      ],
-    },
+        }
+      ]
+    }
   }
 }
 ```

@@ -2,19 +2,20 @@
 
 ## Format
 
-Colors can be represented through various formats. For color tokens, the `$type` property MUST be set to the string `color`. The `$value` property can then be used to specify the details of the color, including color space, alpha settings, and more. The `$value` object contains the following properties: 
+Colors can be represented through various formats. For color tokens, the `$type` property MUST be set to the string `color`. The `$value` property can then be used to specify the details of the color, including color space, alpha settings, and more. The `$value` object contains the following properties:
 
-  - `$hex` (required): the hex color to use as the default or a guaranteed fallback
-  - `$colorSpace` (optional): An object detailing an alternative color space to be used to interpret the color, if supported
+- `$hex` (required): the hex color to use as the default or a guaranteed fallback
+- `$colorSpace` (optional): An object detailing an alternative color space to be used to interpret the color, if supported
 
 The `$colorSpace` object has the following properties:
-  - `$name` (required): the name of the color space (either rgb, srgb, hsl, or lch)
-  - `$components` (required): the non-alpha pieces of the color, listed as an array of floating-point numbers or integers
-  - `$alpha` (optional): the alpha component of the color, listed as a floating-point number integer in the range of 0 to 1. If omitted, color is assumed to be fully opaque
+
+- `$name` (required): the name of the color space (either rgb, srgb, hsl, or lch)
+- `$components` (required): the non-alpha pieces of the color, listed as an array of floating-point numbers or integers
+- `$alpha` (optional): the alpha component of the color, listed as a floating-point number integer in the range of 0 to 1. If omitted, color is assumed to be fully opaque
 
 ## Hex - required support
 
- For the color value, the required fallback format to represent color through design tokens is a hex or hex8 value. A hex triplet is a 6-digit, 24 bit, hexadecimal number that represents Red, Green, and Blue values as `#RRGGBB`. An eight-character hex will include the alpha value in the last 2 characters. If no alpha value is specified, it is assumed the color if fully opaque.
+For the color value, the required fallback format to represent color through design tokens is a hex or hex8 value. A hex triplet is a 6-digit, 24 bit, hexadecimal number that represents Red, Green, and Blue values as `#RRGGBB`. An eight-character hex will include the alpha value in the last 2 characters. If no alpha value is specified, it is assumed the color if fully opaque.
 
 For the initial version of this spec, we expect tools to support Hex values, at minimum. The `$value` property is an object that MUST include a `$hex` property containing a hex value, including the preceding `#` character. To support other color spaces, such as HSL, additional properties can be specified, as demonstrated below.
 
@@ -31,14 +32,14 @@ For example, initially color tokens may be defined as such:
   "Majestic magenta": {
     "$type": "color",
     "$value": {
-      "$hex": "#ff00ff",
-    },
+      "$hex": "#ff00ff"
+    }
   },
   "Translucent shadow": {
     "$type": "color",
     "$value": {
-      "$hex": "#00000080",
-    },
+      "$hex": "#00000080"
+    }
   }
 }
 ```
@@ -80,11 +81,7 @@ For example, initially color tokens may be defined as such:
       "$hex": "#c44587",
       "$colorSpace": {
         "name": "srgb",
-        "$components": [
-          196,
-          69,
-          135,
-        ]
+        "$components": [196, 69, 135]
       }
     }
   },
@@ -94,11 +91,7 @@ For example, initially color tokens may be defined as such:
       "$hex": "#b4d8a7",
       "$colorSpace": {
         "name": "srgb",
-        "$components": [
-          180,
-          216,
-          167,
-        ],
+        "$components": [180, 216, 167],
         "$alpha": 0.75
       }
     }
@@ -124,8 +117,8 @@ $simple-sage: rgba(180, 216, 167, 0.75);
 
 Formatted in H (hue), S (saturation), L (lightness) and an optional (A) alpha. Hue ranges from `0` to `360`, saturation and lightness are percentage values that range from `0` to `1`, where `0.5` would equal `50%`. The optional alpha value also ranges from `0` to `1` (such as `0.8`) where `1` is full opacity (which is the default value if a value isn’t provided).
 
-| Pros                                                  | Cons                                  |
-| ----------------------------------------------------- | ------------------------------------- |
+| Pros                                                  | Cons                                                                                                                    |
+| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | It is easy to understand and compare to other formats | Alpha parameter is not supported in all browsers [(IE 11)](https://caniuse.com/mdn-css_types_color_hsl_alpha_parameter) |
 
 <aside class="example">
@@ -138,11 +131,7 @@ Formatted in H (hue), S (saturation), L (lightness) and an optional (A) alpha. H
       "$hex": "#c44587",
       "$colorSpace": {
         "name": "hsl",
-        "$components": [
-          329,
-          0.52,
-          0.52,
-        ]
+        "$components": [329, 0.52, 0.52]
       }
     }
   },
@@ -152,11 +141,7 @@ Formatted in H (hue), S (saturation), L (lightness) and an optional (A) alpha. H
       "$hex": "#b4d8a7",
       "$colorSpace": {
         "name": "hsl",
-        "$components": [
-          104,
-          0.39,
-          0.75,
-        ],
+        "$components": [104, 0.39, 0.75],
         "$alpha": 0.75
       }
     }
