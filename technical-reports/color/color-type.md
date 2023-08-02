@@ -217,7 +217,6 @@ Formatted in L (lightness), C (chroma), H (hue) and an optional (A) alpha. Hue r
 | Pros                                       | Cons                                                                        |
 | ------------------------------------------ | --------------------------------------------------------------------------- |
 | Access to 50% more colors (P3 color space) | Colors more perceptually uniform, so it can be harder to distinguish values |
-|                                            | Limited browser support (Safari only)                                       |
 
 ---
 
