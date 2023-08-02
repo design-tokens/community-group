@@ -202,9 +202,13 @@ In this case, the **$color-text-default** token is defined once, and “value”
     "$type": "color",
     "text": {
       "default": {
-        "$value": "#111111",
-        "$darkValue": "#ffffff",
-        "$description": "Default text color"
+        "$description": "Default text color",
+        "$value": {
+          "$hex": "#111111",
+        },
+        "$darkValue": {
+          "$hex": "#ffffff"
+        },
       }
     }
   }
@@ -226,8 +230,10 @@ In this case, the **$color-text-default** token is defined in two separate files
     "$type": "color",
     "text": {
       "default": {
-        "$value": "#111111",
-        "$description": "Default text color"
+        "$description": "Default text color",
+        "$value": {
+          "$hex": "#111111",
+        },
       }
     }
   }
@@ -245,8 +251,10 @@ In this case, the **$color-text-default** token is defined in two separate files
     "$type": "color",
     "text": {
       "default": {
-        "$value": "#ffffff",
-        "$description": "Default text color"
+        "$description": "Default text color",
+        "$value": {
+          "$hex": "#FFFFFF",
+        },
       }
     }
   }
