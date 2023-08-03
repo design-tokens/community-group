@@ -57,7 +57,7 @@ Descriptive names can be more emotional and human-friendly because they often re
 
 | Pros                                                                                                   | Cons                                                                                                                          |
 | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| Easier for some people to identify with, could be used to distinguish brand colors from product colors | Harder to determine the scale of colors (for example: which ones are lighter vs. darker? How well do they pair together?)            |
+| Easier for some people to identify with, could be used to distinguish brand colors from product colors | Harder to determine the scale of colors (for example: which ones are lighter vs. darker? How well do they pair together?)     |
 |                                                                                                        | Names may not be easily recognized by non-English speakers. For teams working across languages, this may not be a good choice |
 
 <aside class="example">
@@ -204,11 +204,11 @@ In this case, the **$color-text-default** token is defined once, and “value”
       "default": {
         "$description": "Default text color",
         "$value": {
-          "$hex": "#111111",
+          "$hex": "#111111"
         },
         "$darkValue": {
           "$hex": "#ffffff"
-        },
+        }
       }
     }
   }
@@ -232,8 +232,8 @@ In this case, the **$color-text-default** token is defined in two separate files
       "default": {
         "$description": "Default text color",
         "$value": {
-          "$hex": "#111111",
-        },
+          "$hex": "#111111"
+        }
       }
     }
   }
@@ -253,8 +253,8 @@ In this case, the **$color-text-default** token is defined in two separate files
       "default": {
         "$description": "Default text color",
         "$value": {
-          "$hex": "#FFFFFF",
-        },
+          "$hex": "#FFFFFF"
+        }
       }
     }
   }
@@ -299,7 +299,7 @@ export const SubbrandContext = React.createContext();
 
 const Theme = React.forwardRef(function Theme(
   { theme = 'light', subbrand, children },
-  forwardedRef
+  forwardedRef,
 ) {
   return (
     <SubbrandContext.Provider value={subbrand}>
