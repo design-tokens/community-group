@@ -1,6 +1,7 @@
 .header {
 	background: $color-background-strong;
 	color: $color-foreground-strong;
+	text-wrap: balance;	
 
 	@include dark-mode {
 	  background: $color-background-strong-inverse;

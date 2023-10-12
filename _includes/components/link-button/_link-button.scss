@@ -27,6 +27,14 @@
 	}
 }
 
+.link-button--small-on-mobile {
+	@include mq($until: medium) {
+		font-size: $font-size-small !important;
+		padding: $spacing-base $spacing-horizontal-small;
+		margin-inline: $spacing-horizontal-small;
+	}
+}
+
 a.link-button {
 	cursor: pointer;
 }
