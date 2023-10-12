@@ -23,8 +23,8 @@
     "sass:watch": "npm run sass -- --watch"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.1",
-    "@11ty/eleventy-navigation": "^0.1.6",
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-navigation": "^0.3.5",
     "@toycode/markdown-it-class": "1.2.4",
     "html-minifier": "^4.0.0",
     "luxon": "3.4.3",
