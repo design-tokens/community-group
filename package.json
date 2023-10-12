@@ -27,13 +27,13 @@
     "@11ty/eleventy-navigation": "^0.1.6",
     "@toycode/markdown-it-class": "1.2.4",
     "html-minifier": "^4.0.0",
-    "luxon": "1.26.0",
-    "markdown-it": "12.0.4",
-    "markdown-it-anchor": "7.0.2",
+    "luxon": "3.4.3",
+    "markdown-it": "13.0.2",
+    "markdown-it-anchor": "8.6.7",
     "npm-run-all": "4.1.5",
-    "prettier": "2.2.1",
-    "sass": "1.32.8",
-    "tachyons-sass": "4.9.5",
+    "prettier": "3.0.3",
+    "sass": "1.69.3",
+    "tachyons-sass": "github:tachyons-css/tachyons-sass#2dce89b83729bddb9f4498c7d6f82b73d60d6538",
     "uglify-es": "^3.3.9"
   }
 }

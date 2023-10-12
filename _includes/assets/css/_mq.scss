@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // Sass MQ v5.0.1
 // https://github.com/sass-mq/sass-mq
 // Copyright (c) 2013-2018 Guardian Media Group and contributors
@@ -127,7 +129,7 @@ $mq-media-type: all !default;
   } @else if unit($px) == em {
     @return $px;
   }
-  @return ($px / $base-font-size) * 1em;
+  @return math.div($px, $base-font-size) * 1em;
 }
 
 /// Get a breakpoint's width
