@@ -111,22 +111,17 @@ a {
   &:hover {
     text-decoration: underline;
     text-decoration-thickness: $stroke-hairline;
-    text-decoration-color: $color-accent-primary-weak;
+    text-decoration-color: currentColor;
     text-decoration-skip-ink: auto;
-
-    @include dark-mode {
-      text-decoration-color: $color-accent-primary-weak-inverse;
-    }
+    text-underline-offset: 2px;
   }
 
   &:active {
     background: $color-background-primary;
-    text-decoration-color: $color-accent-primary;
     color: $color-foreground-primary-strong;
 
     @include dark-mode {
       background: $color-background-primary-inverse;
-      text-decoration-color: $color-accent-primary-inverse;
       color: $color-foreground-primary-strong-inverse;
     }
   }
