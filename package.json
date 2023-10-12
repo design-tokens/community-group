@@ -19,7 +19,7 @@
     "eleventy:watch": "npx eleventy --watch",
     "eleventy:start": "npx eleventy --watch --serve",
     "eleventy:debug": "DEBUG=* npx eleventy",
-    "sass": "sass _includes/assets/css:_site/_includes/assets/css",
+    "sass": "sass _includes:_site/_includes",
     "sass:watch": "npm run sass -- --watch"
   },
   "devDependencies": {
