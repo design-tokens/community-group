@@ -91,7 +91,7 @@ a {
   text-decoration: none;
   background: transparent;
   cursor: pointer;
-  color: $color-foreground-primary-weak;
+  color: $color-foreground-primary-strong;
 
   @include dark-mode {
     color: $color-foreground-primary-weak-inverse;
