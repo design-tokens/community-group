@@ -69,6 +69,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Microsoft](https://www.microsoft.com/)
 - [Modulz](https://www.modulz.app)
 - [Open edX](https://openedx.org/)
+- [Penpot](https://penpot.app/)
 - [Philips Design](https://www.philips.com/a-w/about/philips-design.html)
 - [Salesforce](https://www.salesforce.com)
 - [Sass](https://www.sass-lang.com)
