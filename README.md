@@ -67,7 +67,6 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Lona](https://github.com/airbnb/Lona)
 - [Marvel](https://marvelapp.com)
 - [Microsoft](https://www.microsoft.com/)
-- [Modulz](https://www.modulz.app)
 - [Open edX](https://openedx.org/)
 - [Penpot](https://penpot.app/)
 - [Philips Design](https://www.philips.com/a-w/about/philips-design.html)
