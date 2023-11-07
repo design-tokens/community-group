@@ -20,11 +20,11 @@ For example, initially the color tokens MAY be defined as such:
 
 ```json
 {
-  "Majestic magenta": {
+  "majestic-magenta": {
     "$value": "#ff00ff",
     "$type": "color"
   },
-  "Translucent shadow": {
+  "translucent-shadow": {
     "$value": "#00000080",
     "$type": "color"
   }
@@ -93,11 +93,11 @@ For example:
 
 ```json
 {
-  "Primary font": {
+  "primary-font": {
     "$value": "Comic Sans MS",
     "$type": "fontFamily"
   },
-  "Body font": {
+  "body-font": {
     "$value": ["Helvetica", "Arial", "sans-serif"],
     "$type": "fontFamily"
   }
