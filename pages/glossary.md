@@ -20,10 +20,10 @@ A tool that translates token sets from one format (such as YAML) to a range of o
 
 ### Examples
 
-- Theo
 - Style Dictionary
-- Diez
+- Cobalt
 - Specify
+- Theo
 
 ## Design tool
 
@@ -34,7 +34,6 @@ A tool for visual design creation and editing.
 - Photoshop
 - Illustrator
 - Inkscape
-- XD
 - UXPin
 - Sketch
 - Figma
