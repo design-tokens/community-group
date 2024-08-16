@@ -51,7 +51,12 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 
 ## Dimension
 
-Represents an amount of distance in a single dimension in the UI, such as a position, width, height, radius, or thickness. The `$type` property MUST be set to the string `dimension`. The value must be a string containing a number (either integer or floating-point) followed by either a "px" or "rem" unit (future spec iterations may add support for additional units). This includes `0` which also MUST be followed by either a "px" or "rem" unit.
+Represents an amount of distance in a single dimension in the UI, such as a position, width, height, radius, or thickness. The `$type` property MUST be set to the string `dimension`. The value MUST be an object with `value` and `unit` keys.
+
+| Key     |   Type   | Required | Description                                                        |
+| :------ | :------: | :------: | :----------------------------------------------------------------- |
+| `value` | `number` |    Y     | An integer or floating-point value representing the numeric value. |
+| `unit`  | `string` |    Y     | A string specifying the units of measurement                       |
 
 For example:
 
@@ -60,11 +65,17 @@ For example:
 ```json
 {
   "spacing-stack-0": {
-    "$value": "0rem",
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
     "$type": "dimension"
   },
   "spacing-stack-1": {
-    "$value": "0.25rem",
+    "$value": {
+      "value": 0.5,
+      "unit": "rem"
+    },
     "$type": "dimension"
   }
 }
@@ -72,10 +83,11 @@ For example:
 
 </aside>
 
-The "px" and "rem" units are to be interpreted the same way they are in CSS:
+### Validation
 
-- **px**: Represents an idealized pixel on the viewport. The equivalent in Android is dp and iOS is pt. Translation tools SHOULD therefore convert to these or other equivalent units as needed.
-- **rem**: Represents a multiple of the system's default font size (which MAY be configurable by the user). 1rem is 100% of the default font size. The equivalent of 1rem on Android is 16sp. Not all platforms have an equivalent to rem, so translation tools MAY need to do a lossy conversion to a fixed px size by assuming a default font size (usually 16px) for such platforms.
+- `$value.unit` may be any string. It is up to tooling to translate units into the appropriate platform.
+- `$value.unit` may NOT be an empty string (`""`).
+- `$value.unit` is still requird even if `$value.value` is `0`.
 
 ## Font family
 
@@ -148,7 +160,12 @@ Example:
 
 ## Duration
 
-Represents the length of time in milliseconds an animation or animation cycle takes to complete, such as 200 milliseconds. The `$type` property MUST be set to the string `duration`. The value MUST be a string containing a number (either integer or floating-point) followed by an "ms" unit. A millisecond is a unit of time equal to one thousandth of a second.
+Represents the length of time in milliseconds an animation or animation cycle takes to complete, such as 200 milliseconds. The `$type` property MUST be set to the string `duration`. The value MUST be an object containin a numeric `value` (either integer or floating-point) and optionally a `unit` to specify milliseconds (`"ms"`) or seconds (`"s"`). A millisecond is a unit of time equal to one thousandth of a second.
+
+| Key     |   Type   | Required | Description                                                            |
+| :------ | :------: | :------: | :--------------------------------------------------------------------- |
+| `value` | `number` |    Y     | An integer or floating-point value representing the numeric value.     |
+| `unit`  | `string` |          | The unit of time. Only `"ms"`, `"s`", or (undefined) are valid values. |
 
 For example:
 
@@ -157,17 +174,25 @@ For example:
 ```json
 {
   "Duration-100": {
-    "$value": "100ms",
+    "$value": {
+      "value": 100,
+      "unit": "ms"
+    },
     "$type": "duration"
   },
   "Duration-200": {
-    "$value": "200ms",
+    "$value": { "value": 200 },
     "$type": "duration"
   }
 }
 ```
 
 </aside>
+
+### Validation
+
+- `$value.unit` may only be `"ms"`, `"s"`, or omitted (`"ms"`)
+- `$value.unit`, if omitted, is parsed as if it’s `"ms"`
 
 ## Cubic Bézier
 
