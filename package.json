@@ -7,12 +7,12 @@
   "license": "SEE LICENSE.md",
   "private": true,
   "devDependencies": {
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.1",
-    "live-server": "^1.2.2",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.9",
+    "live-server": "^1.2.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.6.2",
-    "respec": "^32.1.8"
+    "prettier": "^3.3.3",
+    "respec": "^35.1.1"
   },
   "scripts": {
     "lint": "prettier '**/*.{md,yml,json,html}' --check --config ./.prettierrc.json",
@@ -20,7 +20,7 @@
     "validate:format": "respec --localhost technical-reports/format/index.html --haltonerror --haltonwarn",
     "validate": "npm run validate:index && npm run validate:format",
     "dev": "live-server --cors technical-reports",
-    "prepare": "husky install",
+    "prepare": "husky",
     "build": "npm-run-all \"build:*\"",
     "build:index": "respec technical-reports/index.html technical-reports/index.html --localhost --disable-sandbox",
     "build:format": "respec technical-reports/format/index.html technical-reports/format/index.html --localhost --disable-sandbox"
