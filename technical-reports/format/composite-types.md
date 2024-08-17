@@ -96,7 +96,7 @@ Represents the style applied to lines or borders. The `$type` property MUST be s
 - an object value as defined in the corresponding section below
 
 <div class="issue" data-number="98" title="Stroke style type feedback">
-  Is the current specification for stroke styles fit for purpose? Does it need more sub-values (e.g. equivalents to SVG's `stroke-linejoin`, `stroke-miterlimit` and `stroke-dashoffset` attributes)? 
+  Is the current specification for stroke styles fit for purpose? Does it need more sub-values (e.g. equivalents to SVG's `stroke-linejoin`, `stroke-miterlimit` and `stroke-dashoffset` attributes)?
 </div>
 
 ### String value
@@ -272,13 +272,14 @@ Represents a animated transition between two states. The `$type` property MUST b
 
 ## Shadow
 
-Represents a shadow style. The `$type` property MUST be set to the string `shadow`. The value must be an object with the following properties:
+Represents a shadow style. The `$type` property MUST be set to the string `shadow`. The value MUST contain a single object or an array of objects with the following properties:
 
 - `color`: The color of the shadow. The value of this property MUST be a valid [color value](#color) or a reference to a color token.
 - `offsetX`: The horizontal offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `offsetY`: The vertical offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `blur`: The blur radius that is applied to the shadow. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `spread`: The amount by which to expand or contract the shadow. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `inset`: (optional) Whether this shadow is inside the containing shape (“inner shadow”), rather than a “drop shadow” or “box shadow” which is rendered outside the container (default, or `false`).
 
 <aside class="example" title="Shadow token example">
 
@@ -293,15 +294,48 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
       "blur": "1.5rem",
       "spread": "0rem"
     }
+  },
+  "layered-shadow": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "color": "#00000005",
+        "offsetX": "0px",
+        "offsetY": "24px",
+        "blur": "22px",
+        "spread": "0px"
+      },
+      {
+        "color": "#0000000a",
+        "offsetX": "0px",
+        "offsetY": "42.9px",
+        "blur": "44px",
+        "spread": "0px"
+      },
+      {
+        "color": "#0000000f",
+        "offsetX": "0px",
+        "offsetY": "64px",
+        "blur": "64px",
+        "spread": "0px"
+      }
+    ]
+  },
+  "inner-shadow": {
+    "$type": "shadow",
+    "$value": {
+      "color": "#00000010",
+      "offsetX": "2px",
+      "offsetY": "2px",
+      "blur": "4px",
+      "spread": "0px",
+      "inset": true
+    }
   }
 }
 ```
 
 </aside>
-
-<div class="issue" data-number="100" title="Shadow type feedback">
-  Is the current specification for shadows fit for purpose? Does it need to support multiple shadows, as some tools and platforms do? 
-</div>
 
 ## Gradient
 
