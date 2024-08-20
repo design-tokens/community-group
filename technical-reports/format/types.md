@@ -174,15 +174,15 @@ For example:
 
 ```json
 {
-  "Duration-100": {
+  "Duration-Quick": {
     "$value": {
       "value": 100,
       "unit": "ms"
     },
     "$type": "duration"
   },
-  "Duration-200": {
-    "$value": { "value": 200 },
+  "Duration-Long": {
+    "$value": { "value": 1.5, "unit": "s" },
     "$type": "duration"
   }
 }
@@ -192,8 +192,7 @@ For example:
 
 ### Validation
 
-- `$value.unit` may only be `"ms"`, `"s"`, or omitted (`"ms"`)
-- `$value.unit`, if omitted, is parsed as if it’s `"ms"`
+- `$value.unit` may only be `"ms"` or `"s"`
 
 ## Cubic Bézier
 
