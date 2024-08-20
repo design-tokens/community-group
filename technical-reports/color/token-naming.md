@@ -299,7 +299,7 @@ export const SubbrandContext = React.createContext();
 
 const Theme = React.forwardRef(function Theme(
   { theme = 'light', subbrand, children },
-  forwardedRef,
+  forwardedRef
 ) {
   return (
     <SubbrandContext.Provider value={subbrand}>
