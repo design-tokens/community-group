@@ -278,7 +278,7 @@ In this case, the **$color-text-default** token is defined in two separate files
   --color-interactive: #133232;
 }
 
-// button.less
+// Button.less
 
 .primary {
   color-background-primary: var(--color-interactive);
