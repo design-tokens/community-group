@@ -236,7 +236,10 @@ Represents a border style. The `$type` property MUST be set to the string `borde
           "unit": "px"
         },
         "style": {
-          "dashArray": [{ "value": 0.5, "unit": "rem" }, "0.25rem"],
+          "dashArray": [
+            { "value": 0.5, "unit": "rem" },
+            { "value": 0.25, "unit": "rem" }
+          ],
           "lineCap": "round"
         }
       }
@@ -268,7 +271,7 @@ Represents a animated transition between two states. The `$type` property MUST b
       "$type": "transition",
       "$value": {
         "duration": { "value": 200, "unit": "ms" },
-        "delay": { "value": 0 },
+        "delay": { "value": 0, "unit": "ms" },
         "timingFunction": [0.5, 0, 1, 1]
       }
     }
