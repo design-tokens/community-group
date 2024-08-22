@@ -16,9 +16,9 @@ The DTCG's goal is to provide standards upon which products and design tools can
 
 We believe that a common way to share design tokens will unlock efficiency opportunities for plugins, design system teams, product teams, and end-users of design tools.
 
-[Read the charter in full](https://github.com/design-tokens/community-group/blob/main/CHARTER.md).
-
-[Browse the latest technical reports](https://tr.designtokens.org/) ([Instructions for editing technical reports](./technical-reports/README.md)).
+- [Full charter](https://github.com/design-tokens/community-group/blob/main/CHARTER.md)
+- [Living technical reports drafts](https://tr.designtokens.org/) ([Instructions for editing technical reports](./technical-reports/README.md))
+- [Format Module meeting notes](https://docs.google.com/document/d/1sfiVmnIxgeiA20JJ4IOkm8da_CM9hTnsL2gpzO8vEOM/edit?usp=sharing)
 
 ## Principles
 
