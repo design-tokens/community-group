@@ -176,8 +176,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "dtcg-logo"
     }
   ],
-  "publishISODate": "2024-08-21T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 21 August 2024"
+  "publishISODate": "2024-08-22T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 22 August 2024"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
   <body class="h-entry"><div class="head">
@@ -186,7 +186,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Design Tokens Format Module</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2024-08-21">21 August 2024</time>
+      <time class="dt-published" datetime="2024-08-22">22 August 2024</time>
     </p>
     <dl>
       
@@ -1305,7 +1305,7 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 <li>an object value as defined in the corresponding section below</li>
 </ul>
 <div class="issue" id="issue-container-number-98"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/98"><span class="issue-number">Issue 98</span></a><span class="issue-label">: Stroke style type feedback <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Composite+Type+Feedback%22" style="background-color: rgb(238, 240, 235); color: rgb(0, 0, 0);" aria-label="GitHub label: Composite Type Feedback">Composite Type Feedback</a></span></div><div class="">
-  Is the current specification for stroke styles fit for purpose? Does it need more sub-values (e.g. equivalents to SVG's <code>stroke-linejoin</code>, <code>stroke-miterlimit</code> and <code>stroke-dashoffset</code> attributes)? 
+  Is the current specification for stroke styles fit for purpose? Does it need more sub-values (e.g. equivalents to SVG's <code>stroke-linejoin</code>, <code>stroke-miterlimit</code> and <code>stroke-dashoffset</code> attributes)?
 </div></div>
 
 <section id="string-value"><div class="header-wrapper"><h4 id="x9-2-1-string-value"><bdi class="secno">9.2.1 </bdi>String value</h4><a class="self-link" href="#string-value" aria-label="Permalink for Section 9.2.1"></a></div>
@@ -1471,13 +1471,14 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 </div></div>
 
 </section><section id="shadow"><div class="header-wrapper"><h3 id="x9-5-shadow"><bdi class="secno">9.5 </bdi>Shadow</h3><a class="self-link" href="#shadow" aria-label="Permalink for Section 9.5"></a></div>
-<p>Represents a shadow style. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>shadow</code>. The value must be an object with the following properties:</p>
+<p>Represents a shadow style. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>shadow</code>. The value <em class="rfc2119">MUST</em> contain a single object or an array of objects with the following properties:</p>
 <ul>
 <li><code>color</code>: The color of the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#color">color value</a> or a reference to a color token.</li>
 <li><code>offsetX</code>: The horizontal offset that shadow has from the element it is applied to. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
 <li><code>offsetY</code>: The vertical offset that shadow has from the element it is applied to. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
 <li><code>blur</code>: The blur radius that is applied to the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
 <li><code>spread</code>: The amount by which to expand or contract the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>inset</code>: (optional) Whether this shadow is inside the containing shape (“inner shadow”), rather than a “drop shadow” or “box shadow” which is rendered outside the container (default, or <code>false</code>).</li>
 </ul>
 <aside class="example" id="example-shadow-token-example"><div class="marker">
     <a class="self-link" href="#example-shadow-token-example">Example<bdi> 33</bdi></a><span class="example-title">: Shadow token example</span>
@@ -1493,14 +1494,47 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
       <span class="hljs-attr">"blur"</span>: <span class="hljs-string">"1.5rem"</span>,
       <span class="hljs-attr">"spread"</span>: <span class="hljs-string">"0rem"</span>
     }
+  },
+  <span class="hljs-attr">"layered-shadow"</span>: {
+    <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"shadow"</span>,
+    <span class="hljs-attr">"$value"</span>: [
+      {
+        <span class="hljs-attr">"color"</span>: <span class="hljs-string">"#00000005"</span>,
+        <span class="hljs-attr">"offsetX"</span>: <span class="hljs-string">"0px"</span>,
+        <span class="hljs-attr">"offsetY"</span>: <span class="hljs-string">"24px"</span>,
+        <span class="hljs-attr">"blur"</span>: <span class="hljs-string">"22px"</span>,
+        <span class="hljs-attr">"spread"</span>: <span class="hljs-string">"0px"</span>
+      },
+      {
+        <span class="hljs-attr">"color"</span>: <span class="hljs-string">"#0000000a"</span>,
+        <span class="hljs-attr">"offsetX"</span>: <span class="hljs-string">"0px"</span>,
+        <span class="hljs-attr">"offsetY"</span>: <span class="hljs-string">"42.9px"</span>,
+        <span class="hljs-attr">"blur"</span>: <span class="hljs-string">"44px"</span>,
+        <span class="hljs-attr">"spread"</span>: <span class="hljs-string">"0px"</span>
+      },
+      {
+        <span class="hljs-attr">"color"</span>: <span class="hljs-string">"#0000000f"</span>,
+        <span class="hljs-attr">"offsetX"</span>: <span class="hljs-string">"0px"</span>,
+        <span class="hljs-attr">"offsetY"</span>: <span class="hljs-string">"64px"</span>,
+        <span class="hljs-attr">"blur"</span>: <span class="hljs-string">"64px"</span>,
+        <span class="hljs-attr">"spread"</span>: <span class="hljs-string">"0px"</span>
+      }
+    ]
+  },
+  <span class="hljs-attr">"inner-shadow"</span>: {
+    <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"shadow"</span>,
+    <span class="hljs-attr">"$value"</span>: {
+      <span class="hljs-attr">"color"</span>: <span class="hljs-string">"#00000010"</span>,
+      <span class="hljs-attr">"offsetX"</span>: <span class="hljs-string">"2px"</span>,
+      <span class="hljs-attr">"offsetY"</span>: <span class="hljs-string">"2px"</span>,
+      <span class="hljs-attr">"blur"</span>: <span class="hljs-string">"4px"</span>,
+      <span class="hljs-attr">"spread"</span>: <span class="hljs-string">"0px"</span>,
+      <span class="hljs-attr">"inset"</span>: <span class="hljs-literal">true</span>
+    }
   }
 }
 </code></pre>
 </aside>
-
-<div class="issue" id="issue-container-number-100"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/100"><span class="issue-number">Issue 100</span></a><span class="issue-label">: Shadow type feedback <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Composite+Type+Feedback%22" style="background-color: rgb(238, 240, 235); color: rgb(0, 0, 0);" aria-label="GitHub label: Composite Type Feedback">Composite Type Feedback</a></span></div><div class="">
-  Is the current specification for shadows fit for purpose? Does it need to support multiple shadows, as some tools and platforms do? 
-</div></div>
 
 </section><section id="gradient"><div class="header-wrapper"><h3 id="x9-6-gradient"><bdi class="secno">9.6 </bdi>Gradient</h3><a class="self-link" href="#gradient" aria-label="Permalink for Section 9.6"></a></div>
 <p>Represents a color gradient. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>gradient</code>. The value <em class="rfc2119">MUST</em> be an array of objects representing gradient stops that have the following structure:</p>
@@ -1598,7 +1632,7 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 
 </aside>
 
-<div class="issue" id="issue-container-number-101"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/101"><span class="issue-number">Issue 101</span></a><span class="issue-label">: Gradient type feedback <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Color+Type+Enhancements%22" style="background-color: rgb(197, 162, 204); color: rgb(0, 0, 0);" aria-label="GitHub label: Color Type Enhancements">Color Type Enhancements</a></span></div><div class="">
+<div class="issue" id="issue-container-number-101"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/101"><span class="issue-number">Issue 101</span></a><span class="issue-label">: Gradient type feedback <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Color+Type+Enhancements%22" style="background-color: rgb(197, 162, 204); color: rgb(0, 0, 0);" aria-label="GitHub label: Color Type Enhancements">Color Type Enhancements</a></span></div><div class="">
   Is the current specification for gradients fit for purpose? Does it need to also specify the type of gradient (.e.g linear, radial, conical, etc.)?
 </div></div>
 
@@ -1642,12 +1676,12 @@ $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 </code></pre>
 </aside>
 
-<div class="issue" id="issue-container-number-102"><div role="heading" class="issue-title marker" id="h-issue-5" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/102"><span class="issue-number">Issue 102</span></a><span class="issue-label">: Typography type feedback <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Typography+Type+Enhancements%22" style="background-color: rgb(212, 163, 47); color: rgb(0, 0, 0);" aria-label="GitHub label: Typography Type Enhancements">Typography Type Enhancements</a></span></div><div class="">
+<div class="issue" id="issue-container-number-102"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/102"><span class="issue-number">Issue 102</span></a><span class="issue-label">: Typography type feedback <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Typography+Type+Enhancements%22" style="background-color: rgb(212, 163, 47); color: rgb(0, 0, 0);" aria-label="GitHub label: Typography Type Enhancements">Typography Type Enhancements</a></span></div><div class="">
 
 <p>Is the current specification for typography styles fit for purpose? <a href="https://github.com/design-tokens/community-group/pull/86#discussion_r768137006">Should the <code>lineHeight</code> sub-value use a number value, dimension or a new lineHeight type</a>?</p>
 </div></div></section></section>
 
-    <section class="appendix" id="issue-summary"><div class="header-wrapper"><h2 id="a-issue-summary"><bdi class="secno">A. </bdi>Issue summary</h2><a class="self-link" href="#issue-summary" aria-label="Permalink for Appendix A."></a></div><ul><li><a href="#issue-container-number-53">Issue 53</a><span style="text-transform: none">: Type: font family</span></li><li><a href="#issue-container-number-98">Issue 98</a><span style="text-transform: none">: Stroke style type feedback</span></li><li><a href="#issue-container-number-99">Issue 99</a><span style="text-transform: none">: Border type feedback</span></li><li><a href="#issue-container-number-103">Issue 103</a><span style="text-transform: none">: Transition type feedback</span></li><li><a href="#issue-container-number-100">Issue 100</a><span style="text-transform: none">: Shadow type feedback</span></li><li><a href="#issue-container-number-101">Issue 101</a><span style="text-transform: none">: Gradient type feedback</span></li><li><a href="#issue-container-number-102">Issue 102</a><span style="text-transform: none">: Typography type feedback</span></li></ul></section>
+    <section class="appendix" id="issue-summary"><div class="header-wrapper"><h2 id="a-issue-summary"><bdi class="secno">A. </bdi>Issue summary</h2><a class="self-link" href="#issue-summary" aria-label="Permalink for Appendix A."></a></div><ul><li><a href="#issue-container-number-53">Issue 53</a><span style="text-transform: none">: Type: font family</span></li><li><a href="#issue-container-number-98">Issue 98</a><span style="text-transform: none">: Stroke style type feedback</span></li><li><a href="#issue-container-number-99">Issue 99</a><span style="text-transform: none">: Border type feedback</span></li><li><a href="#issue-container-number-103">Issue 103</a><span style="text-transform: none">: Transition type feedback</span></li><li><a href="#issue-container-number-101">Issue 101</a><span style="text-transform: none">: Gradient type feedback</span></li><li><a href="#issue-container-number-102">Issue 102</a><span style="text-transform: none">: Typography type feedback</span></li></ul></section>
   
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="b-references"><bdi class="secno">B. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix B."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="b-1-normative-references"><bdi class="secno">B.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix B.1"></a></div>
