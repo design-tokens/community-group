@@ -34,12 +34,15 @@ Token names are case-sensitive, so the following example with 2 tokens in the sa
 ```json
 {
   "font-size": {
-    "$value": "3rem",
+    "$value": { "value": 3, "unit": "rem" },
     "$type": "dimension"
   },
 
   "FONT-SIZE": {
-    "$value": "16px",
+    "$value": {
+      "value": 16,
+      "unit": "px"
+    },
     "$type": "dimension"
   }
 }

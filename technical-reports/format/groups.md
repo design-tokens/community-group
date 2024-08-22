@@ -12,7 +12,7 @@ A file MAY contain many tokens and they MAY be nested arbitrarily in groups like
   },
   "token group": {
     "token dos": {
-      "$value": "2rem",
+      "$value": { "value": 2, "unit": "rem" },
       "$type": "dimension"
     },
     "nested token group": {
@@ -41,7 +41,7 @@ The names of the groups leading to a given token (including that token's name) a
 - Token #2
   - Name: "token dos"
   - Path: "token group" / "token dos"
-  - Value: "2rem"
+  - Value: { "value": 2, "unit": "rem" }
   - Type: "dimension"
 - Token #3
   - Name: "token tres"
