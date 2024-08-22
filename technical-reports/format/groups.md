@@ -79,7 +79,8 @@ Group keys without a dollar sign (`$`) prefix denote:
     "Group of tokens": {
       "$description": "This is an example of a group containing a single token",
       "Token name": {
-        "$value": "#000000"
+        "$value": "#000000",
+        "$type": "color",
       }
     }
   }
@@ -93,10 +94,12 @@ Group keys without a dollar sign (`$`) prefix denote:
       "$description": "This is an example of a group containing a nested group",
       "Subgroup of tokens": {
         "Token 1 name": {
-          "$value": "#aabbcc"
+          "$value": "#aabbcc",
+          "$type": "color",
         },
         "Token 2 name": {
-          "$value": "#ddeeff"
+          "$value": "#ddeeff",
+          "$type": "color",
         }
       }
     }
@@ -120,10 +123,12 @@ For example:
     "color": {
       "$description": "Our brand's primary color palette",
       "acid green": {
-        "$value": "#00ff66"
+        "$value": "#00ff66",
+        "$type": "color"
       },
       "hot pink": {
-        "$value": "#dd22cc"
+        "$value": "#dd22cc",
+        "$type": "color"
       }
     }
   }

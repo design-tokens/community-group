@@ -15,7 +15,7 @@ The `$colorSpace` object has the following properties:
 
 ## Hex - required support
 
-For the color value, the required fallback format to represent color through design tokens is a hex or hex8 value. A hex triplet is a 6-digit, 24 bit, hexadecimal number that represents Red, Green, and Blue values as `#RRGGBB`. An eight-character hex will include the alpha value in the last 2 characters. If no alpha value is specified, it is assumed the color if fully opaque.
+For the color value, the required fallback format to represent color through design tokens is a [hex triplet/quartet](https://www.w3.org/TR/css-color-4/#typedef-hex-color) value. A hex triplet is a 6-digit, 24 bit, hexadecimal number that represents Red, Green, and Blue values as `#RRGGBB`. An eight-character hex will include the alpha value in the last 2 characters. If no alpha value is specified, it is assumed the color if fully opaque.
 
 For the initial version of this spec, we expect tools to support Hex values, at minimum. The `$value` property is an object that MUST include a `$hex` property containing a hex value, including the preceding `#` character. To support other color spaces, such as HSL, additional properties can be specified, as demonstrated below.
 
