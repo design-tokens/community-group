@@ -64,6 +64,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [InVision](https://www.invisionapp.com)
 - [Kaspersky](https://kaspersky.com)
 - [Knapsack](https://www.knapsack.cloud)
+- [Liferay](https://liferay.com)
 - [Lona](https://github.com/airbnb/Lona)
 - [Marvel](https://marvelapp.com)
 - [Microsoft](https://www.microsoft.com/)
