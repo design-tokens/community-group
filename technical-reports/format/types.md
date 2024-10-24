@@ -88,7 +88,7 @@ For example:
 - `$value.unit` may only be `"px"` or `"rem"`.
   - **px**: Represents an idealized pixel on the viewport. The equivalent in Android is `dp` and iOS is `pt`. Translation tools SHOULD therefore convert to these or other equivalent units as needed.
   - **rem**: Represents a multiple of the system's default font size (which MAY be configurable by the user). 1rem is 100% of the default font size. The equivalent of 1rem on Android is 16sp. Not all platforms have an equivalent to rem, so translation tools MAY need to do a lossy conversion to a fixed px size by assuming a default font size (usually 16px) for such platforms.
-- `$value.unit` is still requird even if `$value.value` is `0`.
+- `$value.unit` is still required even if `$value.value` is `0`.
 
 ## Font family
 
