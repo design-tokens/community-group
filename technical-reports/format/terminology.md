@@ -125,10 +125,10 @@ Here's [an example of a composite shadow token](https://design-tokens.github.io/
     "$type": "shadow",
     "$value": {
       "color": "#00000080",
-      "offsetX": "0.5rem",
-      "offsetY": "0.5rem",
-      "blur": "1.5rem",
-      "spread": "0rem"
+      "offsetX": { "value": 0.5, "unit": "rem" },
+      "offsetY": { "value": 0.5, "unit": "rem" },
+      "blur": { "value": 1.5, "unit": "rem" },
+      "spread": { "value": 0, "unit": "rem" }
     }
   }
 }
