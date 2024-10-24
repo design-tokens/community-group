@@ -178,3 +178,36 @@ Tool vendors are encouraged to publicly share specifications of their extension 
 <p class="ednote" title="Extensions section">
   The extensions section is not limited to vendors. All token users can add additional data in this section for their own purposes.
 </p>
+
+### Deprecated
+
+The optional **`$deprecated`** property is a boolean or string where tooks MAY specify deprecated tokens. A token MAY be marked deprecated in any of the following scenarios:
+
+- A future update to the design system will remove this token
+- Removing the token now may break existing support
+- This token is discouraged from future use
+
+<aside class="example">
+
+```json
+{
+  "Button background": {
+    "$value": "#777777",
+    "$type": "color",
+    "$deprecated": true
+  },
+  "Button focus": {
+    "$value": "#70c0ff",
+    "$type": "color",
+    "$deprecated": "Please use {button.activeBorder} instead."
+  }
+}
+```
+
+</aside>
+
+| Value    | Explanation                                                 |
+| :------- | :---------------------------------------------------------- |
+| `true`   | This token is deprecated (no explanation provided).         |
+| `String` | This token is deprecated AND this is an explanation.        |
+| `false`  | This token is NOT deprecated (may override group defaults). |
