@@ -208,7 +208,7 @@ In this example, the "brand" group has 2 extensions: `org.example.tool-a` and `o
 
 ### Deprecated
 
-The optional **`$deprecated`** property is a boolean or string where tooks MAY specify all tokens within the group are deprecated. A token MAY be marked deprecated in any of the following scenarios:
+The optional **`$deprecated`** property is a boolean or string where tools MAY specify all tokens within the group are deprecated. A token MAY be marked deprecated in any of the following scenarios:
 
 - A future update to the design system will remove this token
 - Removing the token now may break existing support

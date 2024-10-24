@@ -181,7 +181,7 @@ Tool vendors are encouraged to publicly share specifications of their extension 
 
 ### Deprecated
 
-The optional **`$deprecated`** property is a boolean or string where tooks MAY specify deprecated tokens. A token MAY be marked deprecated in any of the following scenarios:
+The optional **`$deprecated`** property is a boolean or string where tools MAY specify deprecated tokens. A token MAY be marked deprecated in any of the following scenarios:
 
 - A future update to the design system will remove this token
 - Removing the token now may break existing support
