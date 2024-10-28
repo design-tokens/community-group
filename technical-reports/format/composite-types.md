@@ -336,17 +336,17 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
     }
   ]
 }
-  "inner-shadow": {
-    "$type": "shadow",
-    "$value": {
-      "color": "#00000010",
-      "offsetX": "2px",
-      "offsetY": "2px",
-      "blur": "4px",
-      "spread": "0px",
-      "inset": true
-    }
+"inner-shadow": {
+  "$type": "shadow",
+  "$value": {
+    "color": "#00000010",
+    "offsetX": { "value": 2, "unit": "px" },
+    "offsetY": { "value": 2, "unit": "px" },
+    "blur": { "value": 4, "unit": "px" },
+    "spread": { "value": 0, "unit": "px" },
+    "inset": true
   }
+}
 }
 ```
 
