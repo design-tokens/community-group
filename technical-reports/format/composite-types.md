@@ -310,43 +310,43 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
       "spread": { "value": 0, "unit": "rem" }
     }
   },
-  "layered-shadow": {
-    "$type": "shadow",
-    "$value": [
-      {
-        "color": "#00000005",
-        "offsetX": "0px",
-        "offsetY": "24px",
-        "blur": "22px",
-        "spread": "0px"
-      },
-      {
-        "color": "#0000000a",
-        "offsetX": "0px",
-        "offsetY": "42.9px",
-        "blur": "44px",
-        "spread": "0px"
-      },
-      {
-        "color": "#0000000f",
-        "offsetX": "0px",
-        "offsetY": "64px",
-        "blur": "64px",
-        "spread": "0px"
-      }
-    ]
-  },
-  "inner-shadow": {
-    "$type": "shadow",
-    "$value": {
-      "color": "#00000010",
-      "offsetX": "2px",
-      "offsetY": "2px",
-      "blur": "4px",
-      "spread": "0px",
-      "inset": true
+"layered-shadow": {
+  "$type": "shadow",
+  "$value": [
+    {
+      "color": "#00000005",
+      "offsetX": { "value": 0, "unit": "px" },
+      "offsetY": { "value": 24, "unit": "px" },
+      "blur": { "value": 22, "unit": "px" },
+      "spread": { "value": 0, "unit": "px" }
+    },
+    {
+      "color": "#0000000a",
+      "offsetX": { "value": 0, "unit": "px" },
+      "offsetY": { "value": 42.9, "unit": "px" },
+      "blur": { "value": 44, "unit": "px" },
+      "spread": { "value": 0, "unit": "px" }
+    },
+    {
+      "color": "#0000000f",
+      "offsetX": { "value": 0, "unit": "px" },
+      "offsetY": { "value": 64, "unit": "px" },
+      "blur": { "value": 64, "unit": "px" },
+      "spread": { "value": 0, "unit": "px" }
     }
+  ]
+}
+"inner-shadow": {
+  "$type": "shadow",
+  "$value": {
+    "color": "#00000010",
+    "offsetX": { "value": 2, "unit": "px" },
+    "offsetY": { "value": 2, "unit": "px" },
+    "blur": { "value": 4, "unit": "px" },
+    "spread": { "value": 0, "unit": "px" },
+    "inset": true
   }
+}
 }
 ```
 
