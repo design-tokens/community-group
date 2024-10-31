@@ -34,12 +34,15 @@ Token names are case-sensitive, so the following example with 2 tokens in the sa
 ```json
 {
   "font-size": {
-    "$value": "3rem",
+    "$value": { "value": 3, "unit": "rem" },
     "$type": "dimension"
   },
 
   "FONT-SIZE": {
-    "$value": "16px",
+    "$value": {
+      "value": 16,
+      "unit": "px"
+    },
     "$type": "dimension"
   }
 }
@@ -81,7 +84,7 @@ Furthermore, due to the syntax used for [token aliases](#aliases-references) the
 
 While `$value` is the only required property for a token, a number of additional properties MAY be added:
 
-## Description
+### Description
 
 A plain text description explaining the token's purpose can be provided via the optional `$description` property. Tools MAY use the description in various ways.
 
@@ -108,7 +111,7 @@ The value of the `$description` property MUST be a plain JSON string, for exampl
 
 </aside>
 
-## Type
+### Type
 
 Design tokens always have an unambiguous type, so that tools can reliably interpret their value.
 
@@ -142,7 +145,7 @@ For example:
 
 </aside>
 
-## Extensions
+### Extensions
 
 The optional **`$extensions`** property is an object where tools MAY add proprietary, user-, team- or vendor-specific data to a design token. When doing so, each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
 
@@ -175,5 +178,3 @@ Tool vendors are encouraged to publicly share specifications of their extension 
 <p class="ednote" title="Extensions section">
   The extensions section is not limited to vendors. All token users can add additional data in this section for their own purposes.
 </p>
-
-## More token properties TBC
