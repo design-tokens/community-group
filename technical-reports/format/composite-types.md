@@ -19,10 +19,10 @@ A design token whose type happens to be a composite type is sometimes also calle
     "$type": "shadow",
     "$value": {
       "color": "#00000080",
-      "offsetX": "0.5rem",
-      "offsetY": "0.5rem",
-      "blur": "1.5rem",
-      "spread": "0rem"
+      "offsetX": { "value": 0.5, "unit": "rem" },
+      "offsetY": { "value": 0.5, "unit": "rem" },
+      "blur": { "value": 1.5, "unit": "rem" },
+      "spread": { "value": 0, "unit": "rem" }
     }
   }
 }
@@ -37,7 +37,7 @@ A design token whose type happens to be a composite type is sometimes also calle
   "space": {
     "small": {
       "$type": "dimension",
-      "$value": "0.5rem"
+      "$value": { "value": 0.5, "unit": "rem" }
     }
   },
 
@@ -56,8 +56,8 @@ A design token whose type happens to be a composite type is sometimes also calle
         "color": "{color.shadow-050}",
         "offsetX": "{space.small}",
         "offsetY": "{space.small}",
-        "blur": "1.5rem",
-        "spread": "0rem"
+        "blur": { "value": 1.5, "unit": "rem" },
+        "spread": { "value": 0, "unit": "rem" }
       }
     }
   },
@@ -141,7 +141,10 @@ Object stroke style values MUST have the following properties:
   "alert-border-style": {
     "$type": "strokeStyle",
     "$value": {
-      "dashArray": ["0.5rem", "0.25rem"],
+      "dashArray": [
+        { "value": 0.5, "unit": "rem" },
+        { "value": 0.25, "unit": "rem" }
+      ],
       "lineCap": "round"
     }
   }
@@ -157,14 +160,17 @@ Object stroke style values MUST have the following properties:
   "notification-border-style": {
     "$type": "strokeStyle",
     "$value": {
-      "dashArray": ["{dash-length-medium}", "0.25rem"],
+      "dashArray": ["{dash-length-medium}", { "value": 0.25, "unit": "rem" }],
       "lineCap": "butt"
     }
   },
 
   "dash-length-medium": {
     "$type": "dimension",
-    "$value": "10px"
+    "$value": {
+      "value": 10,
+      "unit": "px"
+    }
   }
 }
 ```
@@ -214,7 +220,10 @@ Represents a border style. The `$type` property MUST be set to the string `borde
       "$type": "border",
       "$value": {
         "color": "#36363600",
-        "width": "3px",
+        "width": {
+          "value": 3,
+          "unit": "px"
+        },
         "style": "solid"
       }
     },
@@ -222,9 +231,15 @@ Represents a border style. The `$type` property MUST be set to the string `borde
       "$type": "border",
       "$value": {
         "color": "{color.focusring}",
-        "width": "1px",
+        "width": {
+          "value": 1,
+          "unit": "px"
+        },
         "style": {
-          "dashArray": ["0.5rem", "0.25rem"],
+          "dashArray": [
+            { "value": 0.5, "unit": "rem" },
+            { "value": 0.25, "unit": "rem" }
+          ],
           "lineCap": "round"
         }
       }
@@ -255,8 +270,8 @@ Represents a animated transition between two states. The `$type` property MUST b
     "emphasis": {
       "$type": "transition",
       "$value": {
-        "duration": "200ms",
-        "delay": "0ms",
+        "duration": { "value": 200, "unit": "ms" },
+        "delay": { "value": 0, "unit": "ms" },
         "timingFunction": [0.5, 0, 1, 1]
       }
     }
@@ -289,53 +304,57 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
     "$type": "shadow",
     "$value": {
       "color": "#00000080",
-      "offsetX": "0.5rem",
-      "offsetY": "0.5rem",
-      "blur": "1.5rem",
-      "spread": "0rem"
+      "offsetX": { "value": 0.5, "unit": "rem" },
+      "offsetY": { "value": 0.5, "unit": "rem" },
+      "blur": { "value": 1.5, "unit": "rem" },
+      "spread": { "value": 0, "unit": "rem" }
     }
   },
-  "layered-shadow": {
-    "$type": "shadow",
-    "$value": [
-      {
-        "color": "#00000005",
-        "offsetX": "0px",
-        "offsetY": "24px",
-        "blur": "22px",
-        "spread": "0px"
-      },
-      {
-        "color": "#0000000a",
-        "offsetX": "0px",
-        "offsetY": "42.9px",
-        "blur": "44px",
-        "spread": "0px"
-      },
-      {
-        "color": "#0000000f",
-        "offsetX": "0px",
-        "offsetY": "64px",
-        "blur": "64px",
-        "spread": "0px"
-      }
-    ]
-  },
-  "inner-shadow": {
-    "$type": "shadow",
-    "$value": {
-      "color": "#00000010",
-      "offsetX": "2px",
-      "offsetY": "2px",
-      "blur": "4px",
-      "spread": "0px",
-      "inset": true
+"layered-shadow": {
+  "$type": "shadow",
+  "$value": [
+    {
+      "color": "#00000005",
+      "offsetX": { "value": 0, "unit": "px" },
+      "offsetY": { "value": 24, "unit": "px" },
+      "blur": { "value": 22, "unit": "px" },
+      "spread": { "value": 0, "unit": "px" }
+    },
+    {
+      "color": "#0000000a",
+      "offsetX": { "value": 0, "unit": "px" },
+      "offsetY": { "value": 42.9, "unit": "px" },
+      "blur": { "value": 44, "unit": "px" },
+      "spread": { "value": 0, "unit": "px" }
+    },
+    {
+      "color": "#0000000f",
+      "offsetX": { "value": 0, "unit": "px" },
+      "offsetY": { "value": 64, "unit": "px" },
+      "blur": { "value": 64, "unit": "px" },
+      "spread": { "value": 0, "unit": "px" }
     }
+  ]
+}
+"inner-shadow": {
+  "$type": "shadow",
+  "$value": {
+    "color": "#00000010",
+    "offsetX": { "value": 2, "unit": "px" },
+    "offsetY": { "value": 2, "unit": "px" },
+    "blur": { "value": 4, "unit": "px" },
+    "spread": { "value": 0, "unit": "px" },
+    "inset": true
   }
+}
 }
 ```
 
 </aside>
+
+<div class="issue" data-number="100" title="Shadow type feedback">
+  Is the current specification for shadows fit for purpose? Does it need to support multiple shadows, as some tools and platforms do?
+</div>
 
 ## Gradient
 
@@ -461,9 +480,15 @@ Represents a typographic style. The `$type` property MUST be set to the string `
       "$type": "typography",
       "$value": {
         "fontFamily": "Roboto",
-        "fontSize": "42px",
+        "fontSize": {
+          "value": 42,
+          "unit": "px"
+        },
         "fontWeight": 700,
-        "letterSpacing": "0.1px",
+        "letterSpacing": {
+          "value": 0.1,
+          "unit": "px"
+        },
         "lineHeight": 1.2
       }
     },
@@ -473,7 +498,10 @@ Represents a typographic style. The `$type` property MUST be set to the string `
         "fontFamily": "{font.serif}",
         "fontSize": "{font.size.smallest}",
         "fontWeight": "{font.weight.normal}",
-        "letterSpacing": "0px",
+        "letterSpacing": {
+          "value": 0,
+          "unit": "px"
+        },
         "lineHeight": 1
       }
     }
