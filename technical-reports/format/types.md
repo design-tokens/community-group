@@ -43,7 +43,7 @@ $hot-pink: #ff00ff;
 $translucent-shadow: #00000080;
 
 // colors-hsl.scss
-$majestic-magenta: hsl(300, 100%, 50%);
+$hot-pink: hsl(300, 100%, 50%);
 $translucent-shadow: hsla(300, 100%, 50%, 0.5);
 ```
 
