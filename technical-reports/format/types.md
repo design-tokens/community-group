@@ -12,7 +12,15 @@ If an explicit type is set, but the value does not match the expected syntax the
 
 ## Color
 
-Represents a 24bit RGB or 24+8bit RGBA color in the sRGB color space. The `$type` property MUST be set to the string `color`. The `$value` property MUST be a string containing a [hex triplet/quartet](https://www.w3.org/TR/css-color-4/#typedef-hex-color) including the preceding `#` character. To support other color spaces, such as HSL, translation tools SHOULD convert color tokens to the equivalent value as needed.
+Represents a color in the UI. The `$type` property MUST be set to the string `color`. The `$value` property MUST be an object string containing a string `colorSpace`, a numeric `coordinates` array, optional numeric `alpha`, string `colorProfile`, and string `fallback` to support legacy color spaces as needed.
+
+| Key     |   Type   | Required | Description                                                        |
+| :------ | :------: | :------: | :----------------------------------------------------------------- |
+| `colorSpace` | `string` |    Y     | An string representing the color space. |
+| `colorProfile`  | `string` |         | String representing url of color profile. |
+| `coordinates`  | `number array` |    Y     | An array of numeric values representing individual color coordinates.               |
+| `alpha` | `number` |         | An integer or floating-point value representing the numeric value. |
+| `fallback`  | `string` |         | Unit of distance. Supported values: [HEX 6](https://www.w3.org/TR/css-color-4/#typedef-hex-color) including the preceding `#` character.               |
 
 For example, initially the color tokens MAY be defined as such:
 
@@ -21,12 +29,25 @@ For example, initially the color tokens MAY be defined as such:
 ```json
 {
   "Hot pink": {
-    "$value": "#ff00ff",
-    "$type": "color"
+    "$type": "color",
+    "$value": {
+      "colorSpace": "display-p3",
+      "colorProfile": "http://example.org/display-p3.icc",
+      "coordinates": [0.92, 0.2, 0.97],
+      "alpha": 1,
+      "fallback": "#ff00ff", // HEX 6 supported only
+    }
   },
   "Translucent shadow": {
-    "$value": "#00000080",
-    "$type": "color"
+    "$value": "#000000",
+    "$type": "color",
+    "$value": {
+      "colorSpace": "display-p3",
+      "colorProfile": "http://example.org/display-p3.icc",
+      "coordinates": [0, 0, 0],
+      "alpha": 0.5,
+      "fallback": "#000000", // HEX 6 supported only
+    }
   }
 }
 ```
@@ -44,7 +65,7 @@ $translucent-shadow: #00000080;
 
 // colors-hsl.scss
 $hot-pink: hsl(300, 100%, 50%);
-$translucent-shadow: hsla(300, 100%, 50%, 0.5);
+$translucent-shadow: hsla(0, 0%, 0%, 0.5);
 ```
 
 </aside>
