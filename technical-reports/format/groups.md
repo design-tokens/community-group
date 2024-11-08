@@ -80,7 +80,7 @@ Group keys without a dollar sign (`$`) prefix denote:
       "$description": "This is an example of a group containing a single token",
       "Token name": {
         "$value": "#000000",
-        "$type": "color",
+        "$type": "color"
       }
     }
   }
@@ -95,11 +95,11 @@ Group keys without a dollar sign (`$`) prefix denote:
       "Subgroup of tokens": {
         "Token 1 name": {
           "$value": "#aabbcc",
-          "$type": "color",
+          "$type": "color"
         },
         "Token 2 name": {
           "$value": "#ddeeff",
-          "$type": "color",
+          "$type": "color"
         }
       }
     }
