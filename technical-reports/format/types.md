@@ -20,7 +20,7 @@ For example, initially the color tokens MAY be defined as such:
 
 ```json
 {
-  "Majestic magenta": {
+  "Hot pink": {
     "$value": "#ff00ff",
     "$type": "color"
   },
@@ -39,7 +39,7 @@ Then, the output from a tool's conversion to HSL(A) MAY look something like:
 
 ```scss
 // colors-hex.scss
-$majestic-magenta: #ff00ff;
+$hot-pink: #ff00ff;
 $translucent-shadow: #00000080;
 
 // colors-hsl.scss

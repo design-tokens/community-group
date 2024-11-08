@@ -423,7 +423,7 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
 {
   "brand-primary": {
     "$type": "color",
-    "$value": "#99ff66"
+    "$value": "#00ff66"
   },
 
   "position-end": {
@@ -453,7 +453,7 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
 
 Describes a color token called "brand-primary", which is referenced as the mid-point of a gradient is black at either end.
 
-<div style="height: 2rem; background: linear-gradient(90deg, #000000, #99ff66, #000000);"></div>
+<div style="height: 2rem; background: linear-gradient(90deg, #000000, #00ff66, #000000);"></div>
 
 </aside>
 
