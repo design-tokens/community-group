@@ -29,7 +29,7 @@ For example, initially color tokens may be defined as such:
 
 ```json
 {
-  "Majestic magenta": {
+  "Hot pink": {
     "$type": "color",
     "$value": {
       "$hex": "#ff00ff"
@@ -52,7 +52,7 @@ Then, the output file may look something like:
 
 ```scss
 // colors-hex.scss
-$majestic-magenta: #ff00ff;
+$hot-pink: #ff00ff;
 $translucent-shadow: #00000080;
 ```
 
@@ -75,20 +75,20 @@ For example, initially color tokens may be defined as such:
 
 ```json
 {
-  "Majestic magenta": {
+  "Hot pink": {
     "$type": "color",
     "$value": {
-      "$hex": "#c44587",
+      "$hex": "#ff00ff",
       "$colorSpace": {
         "name": "srgb",
         "$components": [196, 69, 135]
       }
     }
   },
-  "Simple sage": {
+  "Acid green": {
     "$type": "color",
     "$value": {
-      "$hex": "#b4d8a7",
+      "$hex": "#00ff66",
       "$colorSpace": {
         "name": "srgb",
         "$components": [180, 216, 167],
@@ -107,8 +107,8 @@ Then, the output from a tool’s conversion to RGBA may look something like:
 
 ```scss
 // colors-rgba.scss
-$majestic-magenta: rgba(196, 69, 135, 1);
-$simple-sage: rgba(180, 216, 167, 0.75);
+$hot-pink: rgba(255, 0, 255, 1);
+$acid-green: rgba(0, 255, 102, 1);
 ```
 
 </aside>
@@ -125,20 +125,20 @@ Formatted in H (hue), S (saturation), L (lightness) and an optional (A) alpha. H
 
 ```json
 {
-  "Majestic magenta": {
+  "Hot pink": {
     "$type": "color",
     "$value": {
-      "$hex": "#c44587",
+      "$hex": "#ff00ff",
       "$colorSpace": {
         "name": "hsl",
         "$components": [329, 0.52, 0.52]
       }
     }
   },
-  "Simple sage": {
+  "Acid green": {
     "$type": "color",
     "$value": {
-      "$hex": "#b4d8a7",
+      "$hex": "#00ff66",
       "$colorSpace": {
         "name": "hsl",
         "$components": [104, 0.39, 0.75],
@@ -157,8 +157,8 @@ Then, the output variables may look like:
 
 ```scss
 // colors-hsl.scss
-$majestic-magenta: hsl(329, 52%, 52%);
-$simple-sage: hsl(104, 39%, 74%, 0.75);
+$hot-pink: hsl(300, 100%, 50%);
+$acid-green: hsl(144, 100%, 50%, 0.75);
 ```
 
 </aside>
@@ -177,16 +177,16 @@ Hex8 uses two extra digits, known as the alpha value, to change the transparency
 
 ```json
 {
-  "Majestic magenta": {
+  "Hot pink": {
     "$type": "color",
     "$value": {
-      "$hex": "#c4458780"
+      "$hex": "#ff00ff"
     }
   },
-  "Simple sage": {
+  "Acid green": {
     "$type": "color",
     "$value": {
-      "$hex": "#b4d8a780"
+      "$hex": "#00ff66"
     }
   }
 }
@@ -200,12 +200,12 @@ Then, the output variables may look like:
 
 ```scss
 // colors-hex.scss
-$majestic-magenta: #c4458780;
-$simple-sage: #b4d8a780;
+$hot-pink: #ff00ff;
+$acid-green: #00ff66;
 
 // colors-rgba.scss
-$majestic-magenta: rgba(196, 69, 135, 0.5);
-$simple-sage: rgba(180, 216, 167, 0.5);
+$hot-pink: rgba(255, 0, 255, 1);
+$acid-green: rgba(0, 255, 102, 1);
 ```
 
 </aside>
