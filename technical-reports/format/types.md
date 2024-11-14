@@ -14,19 +14,19 @@ If an explicit type is set, but the value does not match the expected syntax the
 
 Represents a color in the UI. The `$type` property MUST be set to the string `color`. The `$value` property MUST be an object string containing a string `colorSpace`, a numeric `coordinates` array, optional numeric `alpha`, string `colorProfile`, and string `fallback` to support legacy color spaces as needed.
 
-| Key            |      Type      | Required | Description                                                                                                                              |
-| :------------- | :------------: | :------: | :--------------------------------------------------------------------------------------------------------------------------------------- |
-| `colorSpace`   |    `string`    |    Y     | An string representing the color space.                                                                                                  |
-| `colorProfile` |    `string`    |          | String representing url of color profile.                                                                                                |
-| `coordinates`  | `number array` |    Y     | An array of numeric values representing individual color coordinates.                                                                    |
-| `alpha`        |    `number`    |          | An integer or floating-point value representing the numeric value.                                                                       |
-| `fallback`     |    `string`    |          | Unit of distance. Supported values: [HEX 6](https://www.w3.org/TR/css-color-4/#typedef-hex-color) including the preceding `#` character. |
+| Key            |   Type   | Required | Description                                                                                                                                                                                                        |
+| :------------- | :------: | :------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `colorSpace`   | `string` |    Y     | An string representing the color space.                                                                                                                                                                            |
+| `colorProfile` | `string` |          | String representing url of color profile.                                                                                                                                                                          |
+| `channels`     | `array`  |    Y     | Tuple of 3 values representing the 3 channel components of the color space. Allowed value types include number or the `none` keyword, and ranges depend on the `colorSpace`. specified.                            |
+| `alpha`        | `number` |          | An integer or floating-point value representing the numeric value.                                                                                                                                                 |
+| `hex`          | `string` |          | Fallback sRGB-8 color for colors using higher gamuts or higher bit depths. MUST be in the format of a [HEX 6](https://www.w3.org/TR/css-color-4/#typedef-hex-color) string, including the preceding `#` character. |
 
 For example, initially the color tokens MAY be defined as such:
 
 <aside class="example">
 
-```json
+```jsonc
 {
   "Hot pink": {
     "$type": "color",
@@ -35,8 +35,8 @@ For example, initially the color tokens MAY be defined as such:
       "colorProfile": "http://example.org/display-p3.icc",
       "coordinates": [0.92, 0.2, 0.97],
       "alpha": 1,
-      "fallback": "#ff00ff" // HEX 6 supported only
-    }
+      "fallback": "#ff00ff", // HEX 6 supported only
+    },
   },
   "Translucent shadow": {
     "$value": "#000000",
@@ -46,9 +46,9 @@ For example, initially the color tokens MAY be defined as such:
       "colorProfile": "http://example.org/display-p3.icc",
       "coordinates": [0, 0, 0],
       "alpha": 0.5,
-      "fallback": "#000000" // HEX 6 supported only
-    }
-  }
+      "fallback": "#000000", // HEX 6 supported only
+    },
+  },
 }
 ```
 
