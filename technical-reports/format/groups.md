@@ -79,8 +79,10 @@ Group keys without a dollar sign (`$`) prefix denote:
     "Group of tokens": {
       "$description": "This is an example of a group containing a single token",
       "Token name": {
-        "$value": "#000000",
-        "$type": "color"
+        "$value": {
+          "colorSpace": "srgb",
+          "channels": [0, 0, 0]
+        }
       }
     }
   }
