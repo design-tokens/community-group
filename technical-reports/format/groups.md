@@ -206,6 +206,32 @@ In this example, the "brand" group has 2 extensions: `org.example.tool-a` and `o
 
 </aside>
 
+### Deprecated
+
+The **`$deprecated`** property MAY be used to mark a group as deprecated, which extends to all child tokens within. This property may also optionally give a reason.
+
+<aside class="example">
+
+```json
+{
+  "Button": {
+    "$deprecated": "Please use tokens in the Action group instead.",
+    "Foreground": { "$value": "#202020", "$type": "color" },
+    "Background": { "$value": "#ffffff", "$type": "color" }
+  }
+}
+```
+
+</aside>
+
+In the context of a group, adding `$deprecated` will apply to all tokens within that group, unless a token explicitly sets a value of `false`. Any value provided by a token will override the group default.
+
+| Value    | Explanation                                                 |
+| :------- | :---------------------------------------------------------- |
+| `true`   | This token is deprecated (no explanation provided).         |
+| `String` | This token is deprecated AND this is an explanation.        |
+| `false`  | This token is NOT deprecated (may override group defaults). |
+
 ## Use-cases
 
 ### File authoring & organization
