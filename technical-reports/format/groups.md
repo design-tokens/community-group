@@ -208,18 +208,14 @@ In this example, the "brand" group has 2 extensions: `org.example.tool-a` and `o
 
 ### Deprecated
 
-The optional **`$deprecated`** property is a boolean or string where tools MAY specify all tokens within the group are deprecated. A token MAY be marked deprecated in any of the following scenarios:
-
-- A future update to the design system will remove this token
-- Removing the token now may break existing support
-- This token is discouraged from future use
+The **`$deprecated`** property MAY be used to mark a group as deprecated, which extends to all child tokens within. This property may also optionally give a reason.
 
 <aside class="example">
 
 ```json
 {
   "Button": {
-    "$deprecated": "Please use {action.*} tokens instead.",
+    "$deprecated": "Please use tokens in the Action group instead.",
     "Foreground": { "$value": "#202020", "$type": "color" },
     "Background": { "$value": "#ffffff", "$type": "color" }
   }

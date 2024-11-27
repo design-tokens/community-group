@@ -181,7 +181,7 @@ Tool vendors are encouraged to publicly share specifications of their extension 
 
 ### Deprecated
 
-The optional **`$deprecated`** property is a boolean or string where tools MAY specify deprecated tokens. A token MAY be marked deprecated in any of the following scenarios:
+The **`$deprecated`** property MAY be used to mark a token as deprecated, and optionally explain the reason. Reasons to deprecate tokens include but are not limited to the following:
 
 - A future update to the design system will remove this token
 - Removing the token now may break existing support
@@ -199,7 +199,7 @@ The optional **`$deprecated`** property is a boolean or string where tools MAY s
   "Button focus": {
     "$value": "#70c0ff",
     "$type": "color",
-    "$deprecated": "Please use {button.activeBorder} instead."
+    "$deprecated": "Please use the border style for active buttons instead."
   }
 }
 ```
@@ -211,3 +211,27 @@ The optional **`$deprecated`** property is a boolean or string where tools MAY s
 | `true`   | This token is deprecated (no explanation provided).         |
 | `String` | This token is deprecated AND this is an explanation.        |
 | `false`  | This token is NOT deprecated (may override group defaults). |
+
+Tool makers MAY augment the string when it contains aliases such as the one given as an example. A tool could potentially resolve the token, and link to docs, code, or render a visual representation of it and link to the new token inside a UI. For example, “Please use {button.activeBorder} instead“ could be output in JS as:
+
+<aside class="example">
+
+```js
+/**
+ * @deprecated Please use {@link file://./my-tokens.js:85 button.activeBorder} instead.
+ */
+```
+
+</aside>
+
+Or
+
+<aside class="example">
+
+```js
+/**
+ * @deprecated Please use {@link https://docs.ds/tokens/#button-activeborder button.activeBorder} instead.
+ */
+```
+
+</aside>
