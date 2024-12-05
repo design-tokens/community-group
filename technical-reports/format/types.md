@@ -19,7 +19,7 @@ Represents a color in the UI. The `$type` property MUST be set to the string `co
 | `colorSpace`   | `string` |    Y     | An string representing the color space.                                                                                                                                                                            |
 | `colorProfile` | `string` |          | String representing url of color profile.                                                                                                                                                                          |
 | `channels`     | `array`  |    Y     | Tuple of 3 values representing the 3 channel components of the color space. Allowed value types include number or the `none` keyword, and ranges depend on the `colorSpace`. specified.                            |
-| `alpha`        | `number` |          | An integer or floating-point value representing the numeric value.                                                                                                                                                 |
+| `alpha`        | `number` |          | An integer or floating-point value representing the numeric value. This MUST be in the range of (0, 1) (inclusive). 0 = 0%, 1 = 100%.                                                                              |
 | `hex`          | `string` |          | Fallback sRGB-8 color for colors using higher gamuts or higher bit depths. MUST be in the format of a [HEX 6](https://www.w3.org/TR/css-color-4/#typedef-hex-color) string, including the preceding `#` character. |
 
 For example, initially the color tokens MAY be defined as such:

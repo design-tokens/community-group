@@ -223,6 +223,8 @@ For example:
 
 <aside class="example">
 
+<!-- TODO: Align on JSON format here and in color-type.md, how are we defining color names and integrating coloSpace notation, etc.? -->
+
 ```json
 {
   "brand": {
@@ -251,6 +253,8 @@ For example:
 </aside>
 
 ...is likely to be more convenient to type and, arguably, easier to read, than:
+
+<!-- TODO: Align here as well -->
 
 <aside class="example">
 
@@ -291,6 +295,8 @@ Tools that let users pick or edit tokens via a GUI MAY use the grouping structur
 Token names are not guaranteed to be unique within the same file. The same name can be used in different groups. Also, translation tools MAY need to export design tokens in a uniquely identifiable way, such as variables in code. Translation tools SHOULD therefore use design tokens' paths as these _are_ unique within a file.
 
 For example, a [=translation tool=] like [Style Dictionary](https://amzn.github.io/style-dictionary/) might use the following design token file:
+
+<!-- TODO: This is documentation on Translation tools. Should these tools use the colorSpace key/val and such? -->
 
 <aside class="example">
 

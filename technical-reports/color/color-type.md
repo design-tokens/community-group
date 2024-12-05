@@ -25,6 +25,8 @@ For the initial version of this spec, we expect tools to support Hex values, at 
 
 For example, initially color tokens may be defined as such:
 
+<!-- TODO: determine if we will standardize to use all lowercase, kebab case for all colorSpace values -->
+
 <aside class="example">
 
 ```json
@@ -32,13 +34,16 @@ For example, initially color tokens may be defined as such:
   "Hot pink": {
     "$type": "color",
     "$value": {
+      "colorSpace": "srgb",
       "$hex": "#ff00ff"
     }
   },
   "Translucent shadow": {
     "$type": "color",
     "$value": {
-      "$hex": "#00000080"
+      "colorSpace": "srgb",
+      "alpha": 0.5,
+      "hex": "#00000080"
     }
   }
 }
@@ -78,22 +83,18 @@ For example, initially color tokens may be defined as such:
   "Hot pink": {
     "$type": "color",
     "$value": {
-      "$hex": "#ff00ff",
-      "$colorSpace": {
-        "name": "srgb",
-        "$components": [196, 69, 135]
-      }
+      "colorSpace": "srgb",
+      "components": [196, 69, 135]
+      "fallback": "#ff00ff"
     }
   },
   "Acid green": {
     "$type": "color",
     "$value": {
       "$hex": "#00ff66",
-      "$colorSpace": {
-        "name": "srgb",
-        "$components": [180, 216, 167],
-        "$alpha": 0.75
-      }
+      "colorSpace": "srgb",
+      "components": [180, 216, 167]
+      "alpha": 0.75
     }
   }
 }
@@ -128,22 +129,19 @@ Formatted in H (hue), S (saturation), L (lightness) and an optional (A) alpha. H
   "Hot pink": {
     "$type": "color",
     "$value": {
-      "$hex": "#ff00ff",
-      "$colorSpace": {
-        "name": "hsl",
-        "$components": [329, 0.52, 0.52]
-      }
+      "colorSpace": "hsl",
+      "components": [300, 100, 0.5],
+      "alpha": 0.75
+      "fallback": "#ff00ff",
     }
   },
   "Acid green": {
     "$type": "color",
     "$value": {
-      "$hex": "#00ff66",
-      "$colorSpace": {
-        "name": "hsl",
-        "$components": [104, 0.39, 0.75],
-        "$alpha": 0.75
-      }
+      "colorSpace": "hsl",
+      "components": [144, 100, 0.5],
+      "alpha": 0.75,
+      "fallback": "#00ff66",
     }
   }
 }
@@ -163,6 +161,8 @@ $acid-green: hsl(144, 100%, 50%, 0.75);
 
 </aside>
 
+<!-- TODO: We're dropping HEX8 in lieu of HEX6. We should also make a paragraph about how Web HEX8 differs from Android HEX8, especially in terms of where the Alpha values show up in the HEX value, and you syould use tools to make the conversions to add alpha to any HEX6 value. -->
+
 ### Hex8
 
 Hex8 uses two extra digits, known as the alpha value, to change the transparency of the color. The format follows `#RRGGBBAA`. [Learn more about alpha values in hex codes](https://www.digitalocean.com/community/tutorials/css-hex-code-colors-alpha-values#adding-an-alpha-value-to-css-hex-codes).
@@ -180,13 +180,17 @@ Hex8 uses two extra digits, known as the alpha value, to change the transparency
   "Hot pink": {
     "$type": "color",
     "$value": {
-      "$hex": "#ff00ff"
+      "colorSpace": "srgb",
+      "components": [196, 69, 135],
+      "fallback": "#ff00ff"
     }
   },
   "Acid green": {
     "$type": "color",
     "$value": {
-      "$hex": "#00ff66"
+      "$hex": "#00ff66",
+      "colorSpace": "srgb",
+      "components": [180, 216, 167]
     }
   }
 }
@@ -220,10 +224,39 @@ Formatted in L (lightness), C (chroma), H (hue) and an optional (A) alpha. Hue r
 
 ---
 
+<!-- TODO: Add OKLCH, OKLAB, CAM16, Display P3 JSON examples -->
+
+### OKLAB (Lightness Chroma Hue)
+
+A color in Oklab is represented with three coordinates, similar to how CIELAB works, but with better perceptual properties. Oklab uses a D65 whitepoint, since this is what sRGB and other common color spaces use.
+Source:[A perceptual color space for image processing](https://bottosson.github.io/posts/oklab/)
+
+### OKLCH (Lightness Chroma Hue)
+
+The polar (Hue, Chroma) form of OK Lab
+Source:[A perceptual color space for image processing](https://bottosson.github.io/posts/oklab/)
+
+<!-- TODO: Is it CAM16 or CAM16-JMh that we should use here? -->
+
+### CAM16-JMh
+
+Source: [Colorjs.io](https://bottosson.github.io/posts/oklab/)
+Source: [Comprehensive color solutions: CAM16, CAT16, and CAM16-UCS](https://bottosson.github.io/posts/oklab/))
+
+### Display P3
+
+The color space of most commercial wide gamut screens today. 50% larger gamut (by volume) than sRGB. CSS Color level 4 allowed these colors to be used in stylesheets for the first time. It is derived from a digital cinema projector standard, DCI-P3 but the transfer curve, whitepoint and viewing conditions are the same as for sRGB.
+
+Source: [Colorjs.io](https://colorjs.io/docs/spaces#p3)
+
+<!-- TODO: Adjust these two paragraphs to recommend adding HEX fallback when using modern color spaces to support legacy devices and allow more precision in color mapping when gamut clipping, etc. comes into play -->
+
 ## Future color type support
 
 The initial version of the Design Token format will focus on widely-supported color spaces (such as Hex, RGB, HSL, and Hex8). Support for Hex is required, while other format options are optional.
 
+<!-- TODO: Decide whether we need this callout if the above paragraph satisfies the intended message -->
+
 ### Backwards compatibility
 
-While future versions of this spec may add support for color spaces like LCH, OKLCH, OKLAB, CAM16, Display P-3, etc., using these color spaces may result in a lack of support from tools. We plan to rely on a Hex back-up when colors need to be downgraded due to lack of support. Please keep this in mind when defining tokens in these more experimental color spaces.
+While future versions of this spec may add support for color spaces like LCH, OKLCH, OKLAB, CAM16-JMh, Display P-3, etc., using these color spaces may result in a lack of support from tools. We plan to rely on a Hex back-up when colors need to be downgraded due to lack of support. Please keep this in mind when defining tokens in these more experimental color spaces.
