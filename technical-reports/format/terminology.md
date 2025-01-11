@@ -4,7 +4,7 @@ These definitions are focused on the technical aspects of the specification, aim
 
 ## (Design) Token
 
-A (Design) Token is information associated with a human readable name, at minimum a name/value pair. 
+A (Design) Token is information associated with a human readable name, at minimum a name/value pair.
 
 For example:
 

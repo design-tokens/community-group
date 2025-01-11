@@ -7,7 +7,7 @@ Every shadow style has the exact same parts (color, X & Y offsets, etc.), but th
 Specifically, a composite type has the following characteristics:
 
 - Its value is an object or array, potentially containing nested objects or arrays, following a pre-defined structure where the properties of the (nested) object(s) or the elements of the (nested) arrays are sub-values.
-- Sub-values may be explicit values (e.g. `"#ff0000"`) or references to other design tokens that have sub-value's type (e.g. `"{some.other.token}"`).
+- Sub-values may be explicit values (e.g. `"#ff0000"`) or references to other design tokens that have sub-value's type (e.g. `{ "$ref": "#/some/other/token" }`).
 
 A design token whose type happens to be a composite type is sometimes also called a composite (design) token. Besides their type, there is nothing special about composite tokens. They can have all the other additional properties like [`$description`](#description) or [`$extensions`](#extensions). They can also be referenced by other design tokens.
 
@@ -53,9 +53,9 @@ A design token whose type happens to be a composite type is sometimes also calle
       "$type": "shadow",
       "$description": "A composite token where some sub-values are references to tokens that have the correct type and others are explicit values",
       "$value": {
-        "color": "{color.shadow-050}",
-        "offsetX": "{space.small}",
-        "offsetY": "{space.small}",
+        "color": { "$ref": "#/color/shadow-050" },
+        "offsetX": { "$ref": "#/space/small" },
+        "offsetY": { "$ref": "#/space/small" },
         "blur": { "value": 1.5, "unit": "rem" },
         "spread": { "value": 0, "unit": "rem" }
       }
@@ -65,8 +65,8 @@ A design token whose type happens to be a composite type is sometimes also calle
   "component": {
     "card": {
       "box-shadow": {
-        "$description": "This token is an alias for the composite token {shadow.medium}",
-        "$value": "{shadow.medium}"
+        "$description": "This token is an alias for the composite token #/shadow/medium",
+        "$value": { "$ref": "#/shadow/medium" }
       }
     }
   }
@@ -160,7 +160,10 @@ Object stroke style values MUST have the following properties:
   "notification-border-style": {
     "$type": "strokeStyle",
     "$value": {
-      "dashArray": ["{dash-length-medium}", { "value": 0.25, "unit": "rem" }],
+      "dashArray": [
+        { "$ref": "#/dash-length-medium" },
+        { "value": 0.25, "unit": "rem" }
+      ],
       "lineCap": "butt"
     }
   },
@@ -230,7 +233,7 @@ Represents a border style. The `$type` property MUST be set to the string `borde
     "focusring": {
       "$type": "border",
       "$value": {
-        "color": "{color.focusring}",
+        "color": { "$ref": "#/color/focusring" },
         "width": {
           "value": 1,
           "unit": "px"
@@ -439,12 +442,12 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
         "position": 0
       },
       {
-        "color": "{brand-primary}",
+        "color": { "$ref": "#/brand-primary" },
         "position": 0.5
       },
       {
         "color": "#000000",
-        "position": "{position-end}"
+        "position": { "$ref": "#/position-end" }
       }
     ]
   }
@@ -495,9 +498,9 @@ Represents a typographic style. The `$type` property MUST be set to the string `
     "microcopy": {
       "$type": "typography",
       "$value": {
-        "fontFamily": "{font.serif}",
-        "fontSize": "{font.size.smallest}",
-        "fontWeight": "{font.weight.normal}",
+        "fontFamily": { "$ref": "#/font/serif" },
+        "fontSize": { "$ref": "#/font/size/smallest" },
+        "fontWeight": { "$ref": "#/font/weight/normal" },
         "letterSpacing": {
           "value": 0,
           "unit": "px"
