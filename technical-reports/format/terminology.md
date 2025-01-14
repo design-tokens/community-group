@@ -104,14 +104,33 @@ Groups are arbitrary and tools SHOULD NOT use them to infer the type or purpose 
 
 A design token's value can be a reference to another token. The same value can have multiple names or _aliases_.
 
-The following Sass example illustrates this concept:
+The following CSS example illustrates this concept:
 
-```scss
-$color-palette-black: #000000;
-$color-text-primary: $color-palette-black;
+```css
+:root {
+  --color-palette-black: #000000;
+  --color-text-primary: var(--color-palette-black);
+}
 ```
 
-The value of `$color-text-primary` is `#000000`, because `$color-text-primary` _references `$color-palette-black`_. We can also say `$color-text-primary` is an _alias_ for `$color-palette-black.`
+The value of `--color-text-primary` is `#000000`, because `--color-text-primary` _references `--color-palette-black`_. We can also say `--color-text-primary` is an _alias_ for `--color-palette-black.`
+
+In JSON notation, we define an alias the same way as [JSON Schema references](https://json-schema.org/draft/2020-12/json-schema-core#name-schema-references):
+
+```json
+{
+  "color": {
+    "palette": {
+      "black": { "$value": "#000000", "$type": "color" }
+    },
+    "text": {
+      "primary": { "$ref": "#/color/palette/black" }
+    }
+  }
+}
+```
+
+To learn more about syntax and uses, see [the definition on Aliases](#aliases-references).
 
 ## Composite (Design) Token
 
