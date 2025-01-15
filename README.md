@@ -80,6 +80,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Style Dictionary](https://amzn.github.io/style-dictionary)
 - [Superposition](https://superposition.design)
 - [Supernova](https://supernova.io)
+- [Synology](https://www.synology.com)
 - [system-ui](https://github.com/system-ui)
 - [Toolabs](https://www.toolabs.com)
 - [Tokens Studio](https://www.tokens.studio)
