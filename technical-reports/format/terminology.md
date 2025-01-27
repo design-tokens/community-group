@@ -51,10 +51,8 @@ Design token translation tools translate token data from one format to another.
 
 For example:
 
-- [Theo](https://github.com/salesforce-ux/theo)
 - [Style Dictionary](https://amzn.github.io/style-dictionary/)
-- [Diez](https://diez.org/)
-- [Specify](https://specifyapp.com/)
+- [Terrazzo](https://github.com/terrazzoapp/terrazzo)
 - ...
 
 ## <dfn>Documentation tool</dfn>
