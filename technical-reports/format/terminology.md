@@ -51,10 +51,8 @@ Design token translation tools translate token data from one format to another.
 
 For example:
 
-- [Theo](https://github.com/salesforce-ux/theo)
 - [Style Dictionary](https://amzn.github.io/style-dictionary/)
-- [Diez](https://diez.org/)
-- [Specify](https://specifyapp.com/)
+- [Terrazzo](https://github.com/terrazzoapp/terrazzo)
 - ...
 
 ## <dfn>Documentation tool</dfn>
@@ -66,7 +64,6 @@ For example:
 - [Storybook](https://storybook.js.org/)
 - [Zeroheight](https://zeroheight.com)
 - [Backlight](https://backlight.dev/)
-- [Specify](https://specifyapp.com/)
 - [Supernova](https://www.supernova.io/)
 - [Knapsack](https://www.knapsack.cloud/)
 - ...
