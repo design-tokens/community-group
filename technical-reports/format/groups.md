@@ -7,8 +7,11 @@ A file MAY contain many tokens and they MAY be nested arbitrarily in groups like
 ```json
 {
   "token uno": {
-    "$value": "#111111",
-    "$type": "color"
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [17, 17, 17]
+    }
   },
   "token group": {
     "token dos": {
@@ -36,7 +39,7 @@ The names of the groups leading to a given token (including that token's name) a
 - Token #1
   - Name: "token uno"
   - Path: "token uno"
-  - Value: "#111111"
+  - Value: { "colorSpace": "srgb", "components": [17, 17, 17] }
   - Type: "color"
 - Token #2
   - Name: "token dos"
@@ -96,12 +99,18 @@ Group keys without a dollar sign (`$`) prefix denote:
       "$description": "This is an example of a group containing a nested group",
       "Subgroup of tokens": {
         "Token 1 name": {
-          "$value": "#aabbcc",
-          "$type": "color"
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "channels": [170, 187, 204]
+          }
         },
         "Token 2 name": {
-          "$value": "#ddeeff",
-          "$type": "color"
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "channels": [221, 238, 255]
+          }
         }
       }
     }
@@ -125,12 +134,18 @@ For example:
     "color": {
       "$description": "Our brand's primary color palette",
       "acid green": {
-        "$value": "#00ff66",
-        "$type": "color"
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 255, 102]
+        }
       },
       "hot pink": {
-        "$value": "#ff00ff",
-        "$type": "color"
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [255, 0, 255]
+        }
       }
     }
   }
@@ -161,10 +176,16 @@ For example:
     "$type": "color",
     "color": {
       "acid green": {
-        "$value": "#00ff66"
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 255, 102]
+        }
       },
       "hot pink": {
-        "$value": "#ff00ff"
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [255, 0, 255]
+        }
       }
     }
   }
@@ -197,12 +218,18 @@ Note that, since a group's `$extensions` only relate to that group, they do not 
     },
     "color": {
       "acid green": {
-        "$value": "#00ff66",
-        "$type": "color"
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 255, 102]
+        }
       },
       "hot pink": {
-        "$value": "#ff00ff",
-        "$type": "color"
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [255, 0, 255]
+        }
       }
     }
   }
@@ -229,10 +256,16 @@ For example:
     "color": {
       "$type": "color",
       "acid green": {
-        "$value": "#00ff66"
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 255, 102]
+        }
       },
       "hot pink": {
-        "$value": "#ff00ff"
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [255, 0, 255]
+        }
       }
     },
     "typeface": {
@@ -257,12 +290,18 @@ For example:
 ```json
 {
   "brand-color-acid-green": {
-    "$value": "#00ff66",
-    "$type": "color"
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 255, 102]
+    }
   },
   "brand-color-hot-pink": {
-    "$value": "#ff00ff",
-    "$type": "color"
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [255, 0, 255]
+    }
   },
   "brand-typeface-primary": {
     "$value": "Comic Sans MS",
@@ -300,10 +339,16 @@ For example, a [=translation tool=] like [Style Dictionary](https://amzn.github.
     "color": {
       "$type": "color",
       "acid green": {
-        "$value": "#00ff66"
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 255, 102]
+        }
       },
       "hot pink": {
-        "$value": "#ff00ff"
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [255, 0, 255]
+        }
       }
     },
     "typeface": {

@@ -7,7 +7,7 @@ Every shadow style has the exact same parts (color, X & Y offsets, etc.), but th
 Specifically, a composite type has the following characteristics:
 
 - Its value is an object or array, potentially containing nested objects or arrays, following a pre-defined structure where the properties of the (nested) object(s) or the elements of the (nested) arrays are sub-values.
-- Sub-values may be explicit values (e.g. `"#ff0000"`) or references to other design tokens that have sub-value's type (e.g. `"{some.other.token}"`).
+- Sub-values may be explicit `color` values or references to other design tokens that have sub-value's type (e.g. `"{some.other.token}"`).
 
 A design token whose type happens to be a composite type is sometimes also called a composite (design) token. Besides their type, there is nothing special about composite tokens. They can have all the other additional properties like [`$description`](#description) or [`$extensions`](#extensions). They can also be referenced by other design tokens.
 
@@ -18,7 +18,15 @@ A design token whose type happens to be a composite type is sometimes also calle
   "shadow-token": {
     "$type": "shadow",
     "$value": {
-      "color": "#00000080",
+      "color": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "alpha": 0.5,
+          "fallback": "#000000"
+        }
+      },
       "offsetX": { "value": 0.5, "unit": "rem" },
       "offsetY": { "value": 0.5, "unit": "rem" },
       "blur": { "value": 1.5, "unit": "rem" },
@@ -44,7 +52,12 @@ A design token whose type happens to be a composite type is sometimes also calle
   "color": {
     "shadow-050": {
       "$type": "color",
-      "$value": "#00000080"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0],
+        "alpha": 0.5,
+        "fallback": "#000000"
+      }
     }
   },
 
@@ -219,7 +232,13 @@ Represents a border style. The `$type` property MUST be set to the string `borde
     "heavy": {
       "$type": "border",
       "$value": {
-        "color": "#36363600",
+        "color": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [54, 54, 54]
+          }
+        },
         "width": {
           "value": 3,
           "unit": "px"
@@ -303,7 +322,14 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
   "shadow-token": {
     "$type": "shadow",
     "$value": {
-      "color": "#00000080",
+      "color": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "alpha": 0.5,
+        }
+      },
       "offsetX": { "value": 0.5, "unit": "rem" },
       "offsetY": { "value": 0.5, "unit": "rem" },
       "blur": { "value": 1.5, "unit": "rem" },
@@ -314,21 +340,42 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
   "$type": "shadow",
   "$value": [
     {
-      "color": "#00000005",
+      "color": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "alpha": 0.1,
+        }
+      },
       "offsetX": { "value": 0, "unit": "px" },
       "offsetY": { "value": 24, "unit": "px" },
       "blur": { "value": 22, "unit": "px" },
       "spread": { "value": 0, "unit": "px" }
     },
     {
-      "color": "#0000000a",
+      "color": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "alpha": 0.2,
+        }
+      },
       "offsetX": { "value": 0, "unit": "px" },
       "offsetY": { "value": 42.9, "unit": "px" },
       "blur": { "value": 44, "unit": "px" },
       "spread": { "value": 0, "unit": "px" }
     },
     {
-      "color": "#0000000f",
+      "color": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "alpha": 0.3,
+        }
+      },
       "offsetX": { "value": 0, "unit": "px" },
       "offsetY": { "value": 64, "unit": "px" },
       "blur": { "value": 64, "unit": "px" },
@@ -339,7 +386,14 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
 "inner-shadow": {
   "$type": "shadow",
   "$value": {
-    "color": "#00000010",
+    "color": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0],
+        "alpha": 0.5,
+      }
+    },
     "offsetX": { "value": 2, "unit": "px" },
     "offsetY": { "value": 2, "unit": "px" },
     "blur": { "value": 4, "unit": "px" },
@@ -373,11 +427,23 @@ If there are no stops at the very beginning or end of the gradient axis (i.e. wi
     "$type": "gradient",
     "$value": [
       {
-        "color": "#0000ff",
+        "color": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 255],
+          }
+        },
         "position": 0
       },
       {
-        "color": "#ff0000",
+        "color": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [255, 0, 0],
+          }
+        }
         "position": 1
       }
     ]
@@ -399,11 +465,23 @@ Describes a gradient that goes from blue to red:
     "$type": "gradient",
     "$value": [
       {
-        "color": "#ffff00",
+        "color": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [255, 255, 0]
+          }
+        },
         "position": 0.666
       },
       {
-        "color": "#ff0000",
+        "color": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [255, 0, 0]
+          }
+        },
         "position": 1
       }
     ]
@@ -423,7 +501,10 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
 {
   "brand-primary": {
     "$type": "color",
-    "$value": "#00ff66"
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 255, 102]
+    }
   },
 
   "position-end": {
@@ -435,7 +516,13 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
     "$type": "gradient",
     "$value": [
       {
-        "color": "#000000",
+        "color": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0]
+          }
+        },
         "position": 0
       },
       {

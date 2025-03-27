@@ -12,63 +12,7 @@ If an explicit type is set, but the value does not match the expected syntax the
 
 ## Color
 
-Represents a color in the UI. The `$type` property MUST be set to the string `color`. The `$value` property MUST be an object string containing a string `colorSpace`, a numeric `coordinates` array, optional numeric `alpha`, string `colorProfile`, and string `fallback` to support legacy color spaces as needed.
-
-| Key            |   Type   | Required | Description                                                                                                                                                                                                        |
-| :------------- | :------: | :------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `colorSpace`   | `string` |    Y     | An string representing the color space.                                                                                                                                                                            |
-| `colorProfile` | `string` |          | String representing url of color profile.                                                                                                                                                                          |
-| `channels`     | `array`  |    Y     | Tuple of 3 values representing the 3 channel components of the color space. Allowed value types include number or the `none` keyword, and ranges depend on the `colorSpace`. specified.                            |
-| `alpha`        | `number` |          | An integer or floating-point value representing the numeric value.                                                                                                                                                 |
-| `hex`          | `string` |          | Fallback sRGB-8 color for colors using higher gamuts or higher bit depths. MUST be in the format of a [HEX 6](https://www.w3.org/TR/css-color-4/#typedef-hex-color) string, including the preceding `#` character. |
-
-For example, initially the color tokens MAY be defined as such:
-
-<aside class="example">
-
-```jsonc
-{
-  "Hot pink": {
-    "$type": "color",
-    "$value": {
-      "colorSpace": "display-p3",
-      "colorProfile": "http://example.org/display-p3.icc",
-      "coordinates": [0.92, 0.2, 0.97],
-      "alpha": 1,
-      "fallback": "#ff00ff", // HEX 6 supported only
-    },
-  },
-  "Translucent shadow": {
-    "$value": "#000000",
-    "$type": "color",
-    "$value": {
-      "colorSpace": "display-p3",
-      "colorProfile": "http://example.org/display-p3.icc",
-      "coordinates": [0, 0, 0],
-      "alpha": 0.5,
-      "fallback": "#000000", // HEX 6 supported only
-    },
-  },
-}
-```
-
-</aside>
-
-Then, the output from a tool's conversion to HSL(A) MAY look something like:
-
-<aside class="example">
-
-```scss
-// colors-hex.scss
-$hot-pink: #ff00ff;
-$translucent-shadow: #00000080;
-
-// colors-hsl.scss
-$hot-pink: hsl(300, 100%, 50%);
-$translucent-shadow: hsla(0, 0%, 0%, 0.5);
-```
-
-</aside>
+Represents a color in the UI. For details on how to represent colors, see the [Color](../color) module.
 
 ## Dimension
 

@@ -2,28 +2,16 @@
 
 ## Format
 
-Colors can be represented through various formats. For color tokens, the `$type` property MUST be set to the string `color`. The `$value` property can then be used to specify the details of the color, including color space, alpha settings, and more. The `$value` object contains the following properties:
+For color tokens, the `$type` property MUST be set to the string `color`.
 
-- `$hex` (required): the hex color to use as the default or a guaranteed fallback
-- `$colorSpace` (optional): An object detailing an alternative color space to be used to interpret the color, if supported
+The `$value` property can then be used to specify the details of the color, The `$value` object contains the following properties:
 
-The `$colorSpace` object has the following properties:
-
-- `$name` (required): the name of the color space (either rgb, srgb, hsl, or lch)
-- `$components` (required): the non-alpha pieces of the color, listed as an array of floating-point numbers or integers
-- `$alpha` (optional): the alpha component of the color, listed as a floating-point number integer in the range of 0 to 1. If omitted, color is assumed to be fully opaque
-
-## Hex - required support
-
-For the color value, the required fallback format to represent color through design tokens is a [hex triplet/quartet](https://www.w3.org/TR/css-color-4/#typedef-hex-color) value. A hex triplet is a 6-digit, 24 bit, hexadecimal number that represents Red, Green, and Blue values as `#RRGGBB`. An eight-character hex will include the alpha value in the last 2 characters. If no alpha value is specified, it is assumed the color if fully opaque.
-
-For the initial version of this spec, we expect tools to support Hex values, at minimum. The `$value` property is an object that MUST include a `$hex` property containing a hex value, including the preceding `#` character. To support other color spaces, such as HSL, additional properties can be specified, as demonstrated below.
-
-| Pros                                       | Cons                                   |
-| ------------------------------------------ | -------------------------------------- |
-| Easily recognized among tools and browsers | Cannot specify alpha value for opacity |
-
-For example, initially color tokens may be defined as such:
+- `colorSpace` (required): A string that specifices the color space. For supported color spaces, see the [supported color spaces](#supported-color-spaces) section below.
+- `components` (required): An array representing the color components. The number of components depends on the color space. Each element of the array can be either:
+  - A number
+  - The 'none' keyword
+- `alpha` (optional): A number that represents the alpha value of the color. This value is between `0` and `1`, where `0` is fully transparent and `1` is fully opaque.
+- `fallback` (optional): A string that represents a fallback value of the color in [CSS hex color notation](https://www.w3.org/TR/css-color-4/#hex-notation) format. The fallback color MUST omit the alpha value, since alpha is specified in the `alpha` property. The fallback value is used when the color cannot be represented in the specified color space.
 
 <aside class="example">
 
@@ -32,13 +20,19 @@ For example, initially color tokens may be defined as such:
   "Hot pink": {
     "$type": "color",
     "$value": {
-      "$hex": "#ff00ff"
+      "colorSpace": "srgb",
+      "components": [255, 0, 255],
+      "alpha": 1,
+      "hex": "#ff00ff"
     }
   },
   "Translucent shadow": {
     "$type": "color",
     "$value": {
-      "$hex": "#00000080"
+      "colorSpace": "srgb",
+      "components": [0, 0, 0],
+      "alpha": 0.5,
+      "hex": "#00000080"
     }
   }
 }
@@ -46,184 +40,315 @@ For example, initially color tokens may be defined as such:
 
 </aside>
 
-Then, the output file may look something like:
+### The `none` keyword
+
+The `none` keyword can be used in the `components` array to indicate that a component is not applicable or not specified. This is useful for colors that do not require all components to be specified.
+For example, in the HSL color space, the `none` keyword can be used to indicate that there is no angle value for the color, which may be interpretted differently from a color with a hue angle of 0.
 
 <aside class="example">
 
-```scss
-// colors-hex.scss
-$hot-pink: #ff00ff;
-$translucent-shadow: #00000080;
+```json
+{
+  "White": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "hsl",
+      "components": ["none", 0, 100],
+      "alpha": 1,
+      "hex": "#ffffff"
+    }
+  },
+  "Black": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "hsl",
+      "components": ["none", 0, 0],
+      "alpha": 1,
+      "hex": "#000000"
+    }
+  }
+}
 ```
 
 </aside>
 
-## Other color space options
+## Supported Color spaces
+
+The following values are supported for the `colorSpace` property. The `components` array will vary depending on the color space.
+
+| Color space | Value         |
+| ----------- | ------------- |
+| sRGB        | `srgb`, `rgb` |
+| HSL         | `hsl`         |
+| HWB         | `hwb`         |
+| LAB         | `lab`         |
+| LCH         | `lch`         |
+| OKLAB       | `oklab`       |
+| OKLCH       | `oklch`       |
+| Display P3  | `display-p3`  |
+| XYZ         | `xyz`         |
+
+<details class="note">
+<summary>A note about precision in examples</summary>
+<p>The examples below have varying degrees of precision (i.e. numbers after the decimal). This is done to ensure that the 'fallback' color is exactly the same as the defined color when converted to HEX. In practice, the numbers used to define each component can have any degree of precision.</p>
+</details>
 
 ### sRGB
 
-Formatted in R (red), G (green), B (blue) and (A) alpha. Red, green, and blue values can range from `0` to `255`, and the alpha value ranges from `0` to `1` (such as `0.5`) or a percentage (such as `50%`) where `1` or `100%` is full opacity.
+sRGB was the standard color space for all CSS colors before CSS Color Module 4. It is the most widely used color space on the web, and is the default color space for most design tools.
 
-| Pros                                          | Cons                                                                                                                                                                                                                                          |
-| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Can define alpha value with color directly    | It is not perceptually uniform, and is difficult to create variants (lighter or darker, more or less vivid etc) by tweaking its parameters. [Learn more about RGBA issues.](https://lea.verou.me/2020/04/lch-colors-in-css-what-why-and-how/) |
-| Alpha value is easy to comprehend at a glance |                                                                                                                                                                                                                                               |
+#### Components
 
-For example, initially color tokens may be defined as such:
+`[Red, Green, Blue]`
 
-<aside class="example">
+- Red: A number between `0` and `255` representing the red component of the color.
+- Green: A number between `0` and `255` representing the green component of the color.
+- Blue: A number between `0` and `255` representing the blue component of the color.
+
+#### Example
 
 ```json
 {
   "Hot pink": {
     "$type": "color",
     "$value": {
-      "$hex": "#ff00ff",
-      "$colorSpace": {
-        "name": "srgb",
-        "$components": [196, 69, 135]
-      }
-    }
-  },
-  "Acid green": {
-    "$type": "color",
-    "$value": {
-      "$hex": "#00ff66",
-      "$colorSpace": {
-        "name": "srgb",
-        "$components": [180, 216, 167],
-        "$alpha": 0.75
-      }
+      "colorSpace": "srgb",
+      "components": [255, 0, 255],
+      "alpha": 1,
+      "fallback": "#ff00ff"
     }
   }
 }
 ```
-
-</aside>
-
-Then, the output from a tool’s conversion to RGBA may look something like:
-
-<aside class="example">
-
-```scss
-// colors-rgba.scss
-$hot-pink: rgba(255, 0, 255, 1);
-$acid-green: rgba(0, 255, 102, 1);
-```
-
-</aside>
 
 ### HSL
 
-Formatted in H (hue), S (saturation), L (lightness) and an optional (A) alpha. Hue ranges from `0` to `360`, saturation and lightness are percentage values that range from `0` to `1`, where `0.5` would equal `50%`. The optional alpha value also ranges from `0` to `1` (such as `0.8`) where `1` is full opacity (which is the default value if a value isn’t provided).
+HSL is a polar transformation of sRGB, supported as early as CSS Color Level 3.
 
-| Pros                                                  | Cons                                                                                                                    |
-| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| It is easy to understand and compare to other formats | Alpha parameter is not supported in all browsers [(IE 11)](https://caniuse.com/mdn-css_types_color_hsl_alpha_parameter) |
+#### Components
 
-<aside class="example">
+`[Hue, Saturation, Lightness]`
 
-```json
-{
-  "Hot pink": {
-    "$type": "color",
-    "$value": {
-      "$hex": "#ff00ff",
-      "$colorSpace": {
-        "name": "hsl",
-        "$components": [329, 0.52, 0.52]
-      }
-    }
-  },
-  "Acid green": {
-    "$type": "color",
-    "$value": {
-      "$hex": "#00ff66",
-      "$colorSpace": {
-        "name": "hsl",
-        "$components": [104, 0.39, 0.75],
-        "$alpha": 0.75
-      }
-    }
-  }
-}
-```
+- Hue: A number between `0` and `360` representing the angle of the color on the color wheel.
+- Saturation: A number between `0` and `100` representing the percentage of color saturation.
+- Lightness: A number between `0` and `100` representing the percentage of lightness.
 
-</aside>
-
-Then, the output variables may look like:
-
-<aside class="example">
-
-```scss
-// colors-hsl.scss
-$hot-pink: hsl(300, 100%, 50%);
-$acid-green: hsl(144, 100%, 50%, 0.75);
-```
-
-</aside>
-
-### Hex8
-
-Hex8 uses two extra digits, known as the alpha value, to change the transparency of the color. The format follows `#RRGGBBAA`. [Learn more about alpha values in hex codes](https://www.digitalocean.com/community/tutorials/css-hex-code-colors-alpha-values#adding-an-alpha-value-to-css-hex-codes).
-
-| Pros                              | Cons                                                                                                         |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Can define alpha value with color | Less commonly used                                                                                           |
-|                                   | Alpha value is not immediately obvious (needs calculation)                                                   |
-|                                   | Not available in older versions of Internet Explorer ([caniuse reference](https://caniuse.com/css-rrggbbaa)) |
-
-<aside class="example">
+#### Example
 
 ```json
 {
   "Hot pink": {
     "$type": "color",
     "$value": {
-      "$hex": "#ff00ff"
-    }
-  },
-  "Acid green": {
-    "$type": "color",
-    "$value": {
-      "$hex": "#00ff66"
+      "colorSpace": "hsl",
+      "components": [330, 100, 50],
+      "alpha": 1,
+      "fallback": "#ff00ff"
     }
   }
 }
 ```
 
-</aside>
+### HWB
 
-Then, the output variables may look like:
+Another polar transformation of sRGB.
 
-<aside class="example">
+#### Components
 
-```scss
-// colors-hex.scss
-$hot-pink: #ff00ff;
-$acid-green: #00ff66;
+`[Hue, Whiteness, Blackness]`
 
-// colors-rgba.scss
-$hot-pink: rgba(255, 0, 255, 1);
-$acid-green: rgba(0, 255, 102, 1);
+- Hue: A number between `0` and `360` representing the angle of the color on the color wheel.
+- Whiteness: A number between `0` and `100` representing the percentage of white in the color.
+- Blackness: A number between `0` and `100` representing the percentage of black in the color.
+
+#### Example
+
+```json
+{
+  "Hot pink": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "hwb",
+      "components": [330, 0, 0],
+      "alpha": 1,
+      "fallback": "#ff00ff"
+    }
+  }
+}
 ```
 
-</aside>
+### LAB
 
-### LCH (Lightness Chroma Hue)
+cieLAB is a color space that is designed to be perceptually uniform.
 
-Formatted in L (lightness), C (chroma), H (hue) and an optional (A) alpha. Hue ranges from `0` to `360`, saturation and lightness are percentage values that range from `0%` to `100%`, and the optional alpha value ranges from `0` and `1` (such as `0.5`) or as a percentage (such as `50%`) where `1` or `100%` is full opacity (which is the default value if a value isn’t provided).
+#### Components
 
-| Pros                                       | Cons                                                                        |
-| ------------------------------------------ | --------------------------------------------------------------------------- |
-| Access to 50% more colors (P3 color space) | Colors more perceptually uniform, so it can be harder to distinguish values |
+`[L, A, B]`
 
----
+- L: A number between `0` and `100` representing the lightness of the color.
+- A: A signed number between representing the green-red axis of the color.
+- B: A signed number between representing the blue-yellow axis of the color.
 
-## Future color type support
+A and B are theoretically unbounded, but in practice don't exceed -160 to 160.
 
-The initial version of the Design Token format will focus on widely-supported color spaces (such as Hex, RGB, HSL, and Hex8). Support for Hex is required, while other format options are optional.
+#### Example
 
-### Backwards compatibility
+```json
+{
+  "Hot pink": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "lab",
+      "components": [60.17, 93.54, -60.5],
+      "alpha": 1,
+      "fallback": "#ff00ff"
+    }
+  }
+}
+```
 
-While future versions of this spec may add support for color spaces like LCH, OKLCH, OKLAB, CAM16, Display P-3, etc., using these color spaces may result in a lack of support from tools. We plan to rely on a Hex back-up when colors need to be downgraded due to lack of support. Please keep this in mind when defining tokens in these more experimental color spaces.
+### LCH
+
+LCH is a cylindrical representation of cieLAB.
+
+#### Components
+
+`[L, Chroma, Hue]`
+
+- L: A number between `0` and `100` representing the lightness of the color.
+- Chroma: A number representing the chroma of the color.
+- Hue: A number between `0` and `360` representing the angle of the color on the color wheel.
+
+#### Example
+
+```json
+{
+  "Hot pink": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "lch",
+      "components": [60.17, 111.4, 327.11],
+      "alpha": 1,
+      "fallback": "#ff00ff"
+    }
+  }
+}
+```
+
+### OKLAB
+
+OKLAB is a perceptually uniform color space that is designed to be more accurate than cieLAB.
+
+#### Components
+
+`[L, A, B]`
+
+- L: A number between `0` and `1` representing the lightness of the color.
+- A: A signed number between representing the green-red axis of the color.
+- B: A signed number between representing the blue-yellow axis of the color.
+
+Like in LAB, A and B are theoretically unbounded, but in practice don't exceed -0.5 to 0.5.
+
+#### Example
+
+```json
+{
+  "Hot pink": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "oklab",
+      "components": [0.701, 0.2746, -0.169],
+      "alpha": 1,
+      "fallback": "#ff00ff"
+    }
+  }
+}
+```
+
+### OKLCH
+
+OKLCH is a cylindrical representation of OKLAB.
+
+#### Components
+
+`[L, Chroma, Hue]`
+
+- L: A number between `0` and `1` representing the lightness of the color.
+- Chroma: A number representing the chroma of the color.
+- Hue: A number between `0` and `360` representing the angle of the color on the color wheel.
+
+#### Example
+
+```json
+{
+  "Hot pink": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "oklch",
+      "components": [0.7016, 0.3225, 328.363],
+      "alpha": 1,
+      "fallback": "#ff00ff"
+    }
+  }
+}
+```
+
+### Display P3
+
+Display P3 is a color space that is designed to be used in displays with a wide color gamut. It is based on the P3 color space used in digital cinema.
+
+#### Components
+
+`[Red, Green, Blue]`
+
+- Red: A number between `0` and `1` representing the red component of the color.
+- Green: A number between `0` and `1` representing the green component of the color.
+- Blue: A number between `0` and `1` representing the blue component of the color.
+
+#### Example
+
+```json
+{
+  "Hot pink": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "display-p3",
+      "components": [1, 0, 1],
+      "alpha": 1,
+      "fallback": "#ff00ff"
+    }
+  }
+}
+```
+
+### XYZ
+
+XYZ is a color space that is designed to be able to represent all colors that can be perceived by the human eye. It is a fundamental color space — all other spaces can be converted to and from XYZ. It is based on the CIE 1931 color space, using the D65 illuminant. XYZ is not commonly used in design tools, but is useful for color conversions.
+
+#### Components
+
+`[X, Y, Z]`
+
+- X: A number between `0` and `1` representing the X component of the color.
+- Y: A number between `0` and `1` representing the Y component of the color.
+- Z: A number between `0` and `1` representing the Z component of the color.
+
+#### Example
+
+```json
+{
+  "Hot pink": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "xyz",
+      "components": [0.5929, 0.2848, 0.9699],
+      "alpha": 1,
+      "fallback": "#ff00ff"
+    }
+  }
+}
+```
+
+## Future color space support
+
+Future versions of this spec may add support for additional color spaces, depending on adoption and support in design tools.
