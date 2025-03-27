@@ -530,7 +530,13 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
         "position": 0.5
       },
       {
-        "color": "#000000",
+        "color": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [0, 0, 0]
+          }
+        },
         "position": "{position-end}"
       }
     ]

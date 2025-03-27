@@ -7,8 +7,11 @@
 ```json
 {
   "token name": {
-    "$value": "#fff000",
-    "$type": "color"
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [255, 0, 0]
+    }
   }
 }
 ```
@@ -22,8 +25,8 @@ An object with a **`$value`** property is a token. Thus, `$value` is a reserved 
 The example above therefore defines 1 design token with the following properties:
 
 - Name: "token name"
-- Value: "#fff000"
 - Type: "color"
+- Value: "#ff0000" (red in sRGB color space)
 
 Name and value are both **required**.
 
@@ -102,9 +105,12 @@ The value of the `$description` property MUST be a plain JSON string, for exampl
 ```json
 {
   "Button background": {
-    "$value": "#777777",
     "$type": "color",
-    "$description": "The background color for buttons in their normal state."
+    "$description": "The background color for buttons in their normal state.",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [119, 119, 119]
+    }
   }
 }
 ```
@@ -137,8 +143,11 @@ For example:
 ```json
 {
   "Button background": {
-    "$value": "#777777",
-    "$type": "color"
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [119, 119, 119]
+    }
   }
 }
 ```
@@ -157,8 +166,11 @@ The optional **`$extensions`** property is an object where tools MAY add proprie
 ```json
 {
   "Button background": {
-    "$value": "#777777",
     "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [119, 119, 119]
+    },
     "$extensions": {
       "org.example.tool-a": 42,
       "org.example.tool-b": {
