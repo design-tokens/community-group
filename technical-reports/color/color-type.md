@@ -1,5 +1,7 @@
 # Color type
 
+Represents a color.
+
 ## Format
 
 For color tokens, the `$type` property MUST be set to the string `color`.
@@ -7,7 +9,7 @@ For color tokens, the `$type` property MUST be set to the string `color`.
 The `$value` property can then be used to specify the details of the color, The `$value` object contains the following properties:
 
 - `colorSpace` (required): A string that specifices the color space. For supported color spaces, see the [supported color spaces](#supported-color-spaces) section below.
-- `components` (required): An array representing the color components. The number of components depends on the color space. Each element of the array can be either:
+- `components` (required): An array representing the color components. The number of components depends on the color space. Each element of the array MUST be either:
   - A number
   - The 'none' keyword
 - `alpha` (optional): A number that represents the alpha value of the color. This value is between `0` and `1`, where `0` is fully transparent and `1` is fully opaque.
@@ -42,8 +44,8 @@ The `$value` property can then be used to specify the details of the color, The 
 
 ### The `none` keyword
 
-The `none` keyword can be used in the `components` array to indicate that a component is not applicable or not specified. This is useful for colors that do not require all components to be specified.
-For example, in the HSL color space, the `none` keyword can be used to indicate that there is no angle value for the color, which may be interpretted differently from a color with a hue angle of 0.
+The `none` keyword MAY be used in the `components` array to indicate that a component is not applicable or not specified. This is useful for colors that do not require all components to be specified.
+For example, in the HSL color space, the `none` keyword MAY be used to indicate that there is no angle value for the color, which will be interpretted differently from a color with a hue angle of 0.
 
 <aside class="example">
 
@@ -76,17 +78,22 @@ For example, in the HSL color space, the `none` keyword can be used to indicate 
 
 The following values are supported for the `colorSpace` property. The `components` array will vary depending on the color space.
 
-| Color space | Value         |
-| ----------- | ------------- |
-| sRGB        | `srgb`, `rgb` |
-| HSL         | `hsl`         |
-| HWB         | `hwb`         |
-| LAB         | `lab`         |
-| LCH         | `lch`         |
-| OKLAB       | `oklab`       |
-| OKLCH       | `oklch`       |
-| Display P3  | `display-p3`  |
-| XYZ         | `xyz`         |
+| Color space  | Value            |
+| ------------ | ---------------- |
+| sRGB         | `srgb`, `rgb`    |
+| sRGB linear  | `srgb-linear`    |
+| HSL          | `hsl`            |
+| HWB          | `hwb`            |
+| CIELAB       | `lab`            |
+| LCH          | `lch`            |
+| OKLAB        | `oklab`          |
+| OKLCH        | `oklch`          |
+| Display P3   | `display-p3`     |
+| A98 RGB      | `a98-rgb`        |
+| ProPhoto RGB | `prophoto-rgb`   |
+| Rec 2020     | `rec2020`        |
+| XYZ-D65      | `xyz-d65`, `xyz` |
+| XYZ-D50      | `xyz-d50`        |
 
 <details class="note">
 <summary>A note about precision in examples</summary>
@@ -101,9 +108,9 @@ sRGB was the standard color space for all CSS colors before CSS Color Module 4. 
 
 `[Red, Green, Blue]`
 
-- Red: A number between `0` and `255` representing the red component of the color.
-- Green: A number between `0` and `255` representing the green component of the color.
-- Blue: A number between `0` and `255` representing the blue component of the color.
+- Red: A number between `0` and `1` representing the red component of the color.
+- Green: A number between `0` and `1` representing the green component of the color.
+- Blue: A number between `0` and `1` representing the blue component of the color.
 
 #### Example
 
@@ -113,9 +120,37 @@ sRGB was the standard color space for all CSS colors before CSS Color Module 4. 
     "$type": "color",
     "$value": {
       "colorSpace": "srgb",
-      "components": [255, 0, 255],
+      "components": [1, 0, 1],
       "alpha": 1,
-      "fallback": "#ff00ff"
+      "hex": "#ff00ff"
+    }
+  }
+}
+```
+
+### sRGB linear
+
+sRGB linear is a linearized version of sRGB. It is used in some design tools to represent colors in a linear color space.
+
+#### Components
+
+`[Red, Green, Blue]`
+
+- Red: A number between `0` and `1` representing the red component of the color.
+- Green: A number between `0` and `1` representing the green component of the color.
+- Blue: A number between `0` and `1` representing the blue component of the color.
+
+#### Example
+
+```json
+{
+  "Hot pink": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb-linear",
+      "components": [1, 0, 1],
+      "alpha": 1,
+      "hex": "#ff00ff"
     }
   }
 }
@@ -143,7 +178,7 @@ HSL is a polar transformation of sRGB, supported as early as CSS Color Level 3.
       "colorSpace": "hsl",
       "components": [330, 100, 50],
       "alpha": 1,
-      "fallback": "#ff00ff"
+      "hex": "#ff00ff"
     }
   }
 }
@@ -171,21 +206,21 @@ Another polar transformation of sRGB.
       "colorSpace": "hwb",
       "components": [330, 0, 0],
       "alpha": 1,
-      "fallback": "#ff00ff"
+      "hex": "#ff00ff"
     }
   }
 }
 ```
 
-### LAB
+### CIELAB
 
-cieLAB is a color space that is designed to be perceptually uniform.
+CIELAB is a color space that is designed to be perceptually uniform.
 
 #### Components
 
 `[L, A, B]`
 
-- L: A number between `0` and `100` representing the lightness of the color.
+- L: A number between `0` and `100` representing the percentage of lightness of the color.
 - A: A signed number between representing the green-red axis of the color.
 - B: A signed number between representing the blue-yellow axis of the color.
 
@@ -201,7 +236,7 @@ A and B are theoretically unbounded, but in practice don't exceed -160 to 160.
       "colorSpace": "lab",
       "components": [60.17, 93.54, -60.5],
       "alpha": 1,
-      "fallback": "#ff00ff"
+      "hex": "#ff00ff"
     }
   }
 }
@@ -209,15 +244,17 @@ A and B are theoretically unbounded, but in practice don't exceed -160 to 160.
 
 ### LCH
 
-LCH is a cylindrical representation of cieLAB.
+LCH is a cylindrical representation of CIELAB.
 
 #### Components
 
-`[L, Chroma, Hue]`
+`[L, C, Hue]`
 
-- L: A number between `0` and `100` representing the lightness of the color.
-- Chroma: A number representing the chroma of the color.
+- L: A number between `0` and `100` representing the percentage of lightness of the color.
+- C: A number representing the chroma of the color.
 - Hue: A number between `0` and `360` representing the angle of the color on the color wheel.
+
+The minimum value of C is `0`, which represents a neutral color (gray), and its maximum is theoretically unbounded, but in practice doesn't exceed 230.
 
 #### Example
 
@@ -229,7 +266,7 @@ LCH is a cylindrical representation of cieLAB.
       "colorSpace": "lch",
       "components": [60.17, 111.4, 327.11],
       "alpha": 1,
-      "fallback": "#ff00ff"
+      "hex": "#ff00ff"
     }
   }
 }
@@ -237,7 +274,7 @@ LCH is a cylindrical representation of cieLAB.
 
 ### OKLAB
 
-OKLAB is a perceptually uniform color space that is designed to be more accurate than cieLAB.
+OKLAB is a perceptually uniform color space that is designed to be more accurate than CIELAB.
 
 #### Components
 
@@ -247,7 +284,7 @@ OKLAB is a perceptually uniform color space that is designed to be more accurate
 - A: A signed number between representing the green-red axis of the color.
 - B: A signed number between representing the blue-yellow axis of the color.
 
-Like in LAB, A and B are theoretically unbounded, but in practice don't exceed -0.5 to 0.5.
+Like in CIELAB, A and B are theoretically unbounded, but in practice don't exceed -0.5 to 0.5.
 
 #### Example
 
@@ -259,7 +296,7 @@ Like in LAB, A and B are theoretically unbounded, but in practice don't exceed -
       "colorSpace": "oklab",
       "components": [0.701, 0.2746, -0.169],
       "alpha": 1,
-      "fallback": "#ff00ff"
+      "hex": "#ff00ff"
     }
   }
 }
@@ -287,7 +324,7 @@ OKLCH is a cylindrical representation of OKLAB.
       "colorSpace": "oklch",
       "components": [0.7016, 0.3225, 328.363],
       "alpha": 1,
-      "fallback": "#ff00ff"
+      "hex": "#ff00ff"
     }
   }
 }
@@ -315,15 +352,99 @@ Display P3 is a color space that is designed to be used in displays with a wide 
       "colorSpace": "display-p3",
       "components": [1, 0, 1],
       "alpha": 1,
-      "fallback": "#ff00ff"
+      "hex": "#ff00ff"
     }
   }
 }
 ```
 
-### XYZ
+### A98 RGB
 
-XYZ is a color space that is designed to be able to represent all colors that can be perceived by the human eye. It is a fundamental color space — all other spaces can be converted to and from XYZ. It is based on the CIE 1931 color space, using the D65 illuminant. XYZ is not commonly used in design tools, but is useful for color conversions.
+A98 RGB is a color space that is designed to be used in displays with a wide color gamut. It is based on the Adobe RGB color space.
+
+#### Components
+
+`[Red, Green, Blue]`
+
+- Red: A number between `0` and `1` representing the red component of the color.
+- Green: A number between `0` and `1` representing the green component of the color.
+- Blue: A number between `0` and `1` representing the blue component of the color.
+
+#### Example
+
+```json
+{
+  "Hot pink": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "a98-rgb",
+      "components": [1, 0, 1],
+      "alpha": 1,
+      "hex": "#ff00ff"
+    }
+  }
+}
+```
+
+### ProPhoto RGB
+
+ProPhoto RGB is a color space that is designed to be used in displays with a wide color gamut. It is based on the ProPhoto RGB color space.
+
+#### Components
+
+`[Red, Green, Blue]`
+
+- Red: A number between `0` and `1` representing the red component of the color.
+- Green: A number between `0` and `1` representing the green component of the color.
+- Blue: A number between `0` and `1` representing the blue component of the color.
+
+#### Example
+
+```json
+{
+  "Hot pink": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "prophoto-rgb",
+      "components": [1, 0, 1],
+      "alpha": 1,
+      "hex": "#ff00ff"
+    }
+  }
+}
+```
+
+### Rec 2020
+
+Rec 2020 is a color space that is designed to be used in displays with a wide color gamut. It is based on the Rec 2020 color space.
+
+#### Components
+
+`[Red, Green, Blue]`
+
+- Red: A number between `0` and `1` representing the red component of the color.
+- Green: A number between `0` and `1` representing the green component of the color.
+- Blue: A number between `0` and `1` representing the blue component of the color.
+
+#### Example
+
+```json
+{
+  "Hot pink": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "rec2020",
+      "components": [1, 0, 1],
+      "alpha": 1,
+      "hex": "#ff00ff"
+    }
+  }
+}
+```
+
+### XYZ-D65
+
+XYZ-D65 is a color space that is designed to be able to represent all colors that can be perceived by the human eye. It is a fundamental color space — all other spaces can be converted to and from XYZ. It is based on the CIE 1931 color space, using the D65 illuminant. XYZ is not commonly used in design tools, but is useful for color conversions.
 
 #### Components
 
@@ -343,7 +464,35 @@ XYZ is a color space that is designed to be able to represent all colors that ca
       "colorSpace": "xyz",
       "components": [0.5929, 0.2848, 0.9699],
       "alpha": 1,
-      "fallback": "#ff00ff"
+      "hex": "#ff00ff"
+    }
+  }
+}
+```
+
+### XYZ-D50
+
+XYZ-D50 is similar to XYZ-D65, but uses the D50 illuminant.
+
+#### Components
+
+`[X, Y, Z]`
+
+- X: A number between `0` and `1` representing the X component of the color.
+- Y: A number between `0` and `1` representing the Y component of the color.
+- Z: A number between `0` and `1` representing the Z component of the color.
+
+#### Example
+
+```json
+{
+  "Hot pink": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "xyz-d50",
+      "components": [0.5791, 0.2831, 0.728],
+      "alpha": 1,
+      "hex": "#ff00ff"
     }
   }
 }
@@ -351,4 +500,4 @@ XYZ is a color space that is designed to be able to represent all colors that ca
 
 ## Future color space support
 
-Future versions of this spec may add support for additional color spaces, depending on adoption and support in design tools.
+Future versions of this spec MAY add support for additional color spaces, depending on adoption and support in design tools.
