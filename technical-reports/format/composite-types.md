@@ -24,7 +24,7 @@ A design token whose type happens to be a composite type is sometimes also calle
           "colorSpace": "srgb",
           "components": [0, 0, 0],
           "alpha": 0.5,
-          "fallback": "#000000"
+          "hex": "#000000"
         }
       },
       "offsetX": { "value": 0.5, "unit": "rem" },
@@ -56,7 +56,7 @@ A design token whose type happens to be a composite type is sometimes also calle
         "colorSpace": "srgb",
         "components": [0, 0, 0],
         "alpha": 0.5,
-        "fallback": "#000000"
+        "hex": "#000000"
       }
     }
   },
