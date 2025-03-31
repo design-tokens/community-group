@@ -59,14 +59,25 @@ For example, in the HSL color space, the `none` keyword MAY be used to indicate 
       "alpha": 1,
       "hex": "#ffffff"
     }
-  },
-  "Black": {
+  }
+}
+```
+
+</aside>
+
+Contrast this with the following example where the Hue is specified as 0:
+
+<aside class="example">
+
+```json
+{
+  "White": {
     "$type": "color",
     "$value": {
       "colorSpace": "hsl",
-      "components": [180, "none", 0],
+      "components": [0, 0, 100],
       "alpha": 1,
-      "hex": "#000000"
+      "hex": "#ffffff"
     }
   }
 }
@@ -74,30 +85,254 @@ For example, in the HSL color space, the `none` keyword MAY be used to indicate 
 
 </aside>
 
+While both examples will render as white, the first example is more explicit about the fact that the hue is not applicable. This is important when interpolating between colors or mixing colors, as using each color in a can yield different results.
+
 ## Supported Color spaces
 
 The following values are supported for the `colorSpace` property. The `components` array will vary depending on the color space.
 
-| Color space  | Value            |
-| ------------ | ---------------- |
-| sRGB         | `srgb`, `rgb`    |
-| sRGB linear  | `srgb-linear`    |
-| HSL          | `hsl`            |
-| HWB          | `hwb`            |
-| CIELAB       | `lab`            |
-| LCH          | `lch`            |
-| OKLAB        | `oklab`          |
-| OKLCH        | `oklch`          |
-| Display P3   | `display-p3`     |
-| A98 RGB      | `a98-rgb`        |
-| ProPhoto RGB | `prophoto-rgb`   |
-| Rec 2020     | `rec2020`        |
-| XYZ-D65      | `xyz-d65`, `xyz` |
-| XYZ-D50      | `xyz-d50`        |
+<table class="def">
+    <thead>
+        <tr>
+            <th scope="col">Color Space</th>
+            <th scope="col">Key</th>
+            <th scope="col" colspan="2">Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- sRGB -->
+        <tr>
+            <th scope="rowgroup" rowspan="3">sRGB</th>
+            <td rowspan="3">`"srgb"`</td>
+            <td>Red</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Green</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Blue</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <!-- sRGB linear -->
+        <tr>
+            <th scope="rowgroup" rowspan="3">sRGB linear</th>
+            <td rowspan="3">`"srgb-linear"`</td>
+            <td>Red</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Green</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Blue</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <!-- HSL -->
+        <tr>
+            <th scope="rowgroup" rowspan="3">HSL</th>
+            <td rowspan="3">`"hsl"`</td>
+            <td>Hue</td>
+            <td>[0 - 360)</td>
+        </tr>
+        <tr>
+            <td>Saturation</td>
+            <td>[0 - 100]</td>
+        </tr>
+        <tr>
+            <td>Lightness</td>
+            <td>[0 - 100]</td>
+        </tr>
+        <!-- HWB -->
+        <tr>
+            <th scope="rowgroup" rowspan="3">HWB</th>
+            <td rowspan="3">`"hwb"`</td>
+            <td>Hue</td>
+            <td>[0 - 360)</td>
+        </tr>
+        <tr>
+            <td>Whiteness</td>
+            <td>[0 - 100]</td>
+        </tr>
+        <tr>
+            <td>Blackness</td>
+            <td>[0 - 100]</td>
+        </tr>
+        <!-- CIELAB -->
+        <tr>
+            <th scope="rowgroup" rowspan="3">CIELAB</th>
+            <td rowspan="3">`"lab"`</td>
+            <td>L</td>
+            <td>[0 - 100]</td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>[-Infinity - Infinity]*</td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>[-Infinity - Infinity]*</td>
+        </tr>
+        <!-- LCH -->
+        <tr>
+            <th scope="rowgroup" rowspan="3">LCH</th>
+            <td rowspan="3">`"lch"`</td>
+            <td>L</td>
+            <td>[0 - 100]</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>[0-Infinity]**</td>
+        </tr>
+        <tr>
+            <td>Hue</td>
+            <td>[0-360]</td>
+        </tr>
+        <!-- OKLAB -->
+        <tr>
+            <th scope="rowgroup" rowspan="3">OKLAB</th>
+            <td rowspan="3">`"oklab"`</td>
+            <td>L</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>[-Infinity to Infinity]**</td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>[-Infinity to Infinity]†</td>
+        </tr>
+        <!-- OKLCH -->
+        <tr>
+            <th scope="rowgroup" rowspan="3">OKLCH</th>
+            <td rowspan="3">`"oklch"`</td>
+            <td>L</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Chroma</td>
+            <td>[0 - Infinity]‡</td>
+        </tr>
+        <tr>
+            <td>Hue</td>
+            <td>[0 - 360)</td>
+        </tr>
+        <!-- Display P3 -->
+        <tr>
+            <th scope="rowgroup" rowspan="3">Display P3</th>
+            <td rowspan="3">`"display-p3"`</td>
+            <td>Red</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Green</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Blue</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <!-- A98 RGB -->
+        <tr>
+            <th scope="rowgroup" rowspan="3">A98 RGB</th>
+            <td rowspan="3">`"a98-rgb"`</td>
+            <td>Red</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Green</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Blue</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <!-- ProPhoto RGB -->
+        <tr>
+            <th scope="rowgroup" rowspan="3">ProPhoto RGB</th>
+            <td rowspan="3">`"prophoto-rgb"`</td>
+            <td>Red</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Green</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Blue</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <!-- Rec 2020 -->
+        <tr>
+            <th scope="rowgroup" rowspan="3">Rec 2020</th>
+            <td rowspan="3">`"rec2020"`</td>
+            <td>Red</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Green</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Blue</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <!-- XYZ-D65 -->
+        <tr>
+            <th scope="rowgroup" rowspan="3">XYZ-D65</th>
+            <td rowspan="3">`"xyz"`</td>
+            <td>X</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Y</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Z</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <!-- XYZ-D50 -->
+        <tr>
+            <th scope="rowgroup" rowspan="3">XYZ-D50</th>
+            <td rowspan="3">`"xyz-d50"`</td>
+            <td>X</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Y</td>
+            <td>[0 - 1]</td>
+        </tr>
+        <tr>
+            <td>Z</td>
+            <td>[0 - 1]</td>
+        </tr>
+    </tbody>
+</table>
+<div>
+  <span>* In CIELAB, A and B are unbounded but in practice don't exceed -160 to 160</span><br />
+  <span>** In LCH, C is unbounded but in practice doesn't exceed 230</span><br />
+  <span>† In OKLAB, A and B are unbounded but in practice don't exceed -0.5 to 0.5</span>
+  <span>‡ In OKLCH, Chroma is unbounded but in practice doesn't exceed 0.5</span>
+</div>
 
 <details class="note">
 <summary>A note about precision in examples</summary>
 <p>The examples below have varying degrees of precision (i.e. numbers after the decimal). This is done to ensure that the 'fallback' color is exactly the same as the defined color when converted to HEX. In practice, the numbers used to define each component can have any degree of precision.</p>
+</details>
+
+<details class="note">
+<summary>How does this conform to CSS Color Module 4?</summary>
+<p>To provide a logically consistent approach without creating ambiguity around the format, this spec takes the following approach:</p>
+<ul> 
+<li>If CSS Color Module 4 allows a color space to be referenced by **both** a named function (like `srgb()`) **and** a keyword in the `color()` function, use the format intended for the `color()` function.</li>
+<li>If CSS Color Module 4 only defines a color space **either** as a named function (like `hwb()`) **or** a keyword in the `color()` function (like `rec-2020`), use the syntax indicated.</li>
+<li>If CSS Color Module 4 allows **both** unit values (like `50`) **and** percentages (like `50%`) for a component, use the unit value.</li>
+</ul>
+<p>Using this spec as a reference allows us to focus on the design and implementation of the tokens themselves, rather than the underlying color science.</p>
 </details>
 
 ### sRGB
@@ -112,7 +347,7 @@ sRGB was the standard color space for all CSS colors before CSS Color Module 4. 
 - Green: A number between `0` and `1` representing the green component of the color.
 - Blue: A number between `0` and `1` representing the blue component of the color.
 
-#### Example
+<aside class="example">
 
 ```json
 {
@@ -128,6 +363,8 @@ sRGB was the standard color space for all CSS colors before CSS Color Module 4. 
 }
 ```
 
+</aside>
+
 ### sRGB linear
 
 sRGB linear is a linearized version of sRGB. It is used in some design tools to represent colors in a linear color space.
@@ -140,7 +377,7 @@ sRGB linear is a linearized version of sRGB. It is used in some design tools to 
 - Green: A number between `0` and `1` representing the green component of the color.
 - Blue: A number between `0` and `1` representing the blue component of the color.
 
-#### Example
+<aside class="example">
 
 ```json
 {
@@ -156,6 +393,8 @@ sRGB linear is a linearized version of sRGB. It is used in some design tools to 
 }
 ```
 
+</aside>
+
 ### HSL
 
 HSL is a polar transformation of sRGB, supported as early as CSS Color Level 3.
@@ -164,11 +403,11 @@ HSL is a polar transformation of sRGB, supported as early as CSS Color Level 3.
 
 `[Hue, Saturation, Lightness]`
 
-- Hue: A number between `0` and `360` representing the angle of the color on the color wheel.
+- Hue: A number between `0` (inclusive) and `360` (exclusive) representing the angle of the color on the color wheel.
 - Saturation: A number between `0` and `100` representing the percentage of color saturation.
 - Lightness: A number between `0` and `100` representing the percentage of lightness.
 
-#### Example
+<aside class="example">
 
 ```json
 {
@@ -184,6 +423,8 @@ HSL is a polar transformation of sRGB, supported as early as CSS Color Level 3.
 }
 ```
 
+</aside>
+
 ### HWB
 
 Another polar transformation of sRGB.
@@ -192,11 +433,11 @@ Another polar transformation of sRGB.
 
 `[Hue, Whiteness, Blackness]`
 
-- Hue: A number between `0` and `360` representing the angle of the color on the color wheel.
+- Hue: A number between `0` (inclusive) and `360` (exclusive) representing the angle of the color on the color wheel.
 - Whiteness: A number between `0` and `100` representing the percentage of white in the color.
 - Blackness: A number between `0` and `100` representing the percentage of black in the color.
 
-#### Example
+<aside class="example">
 
 ```json
 {
@@ -212,6 +453,8 @@ Another polar transformation of sRGB.
 }
 ```
 
+</aside>
+
 ### CIELAB
 
 CIELAB is a color space that is designed to be perceptually uniform.
@@ -226,7 +469,7 @@ CIELAB is a color space that is designed to be perceptually uniform.
 
 A and B are theoretically unbounded, but in practice don't exceed -160 to 160.
 
-#### Example
+<aside class="example">
 
 ```json
 {
@@ -242,6 +485,8 @@ A and B are theoretically unbounded, but in practice don't exceed -160 to 160.
 }
 ```
 
+</aside>
+
 ### LCH
 
 LCH is a cylindrical representation of CIELAB.
@@ -252,11 +497,11 @@ LCH is a cylindrical representation of CIELAB.
 
 - L: A number between `0` and `100` representing the percentage of lightness of the color.
 - C: A number representing the chroma of the color.
-- Hue: A number between `0` and `360` representing the angle of the color on the color wheel.
+- Hue: A number between `0` (inclusive) and `360` (exclusive) representing the angle of the color on the color wheel.
 
 The minimum value of C is `0`, which represents a neutral color (gray), and its maximum is theoretically unbounded, but in practice doesn't exceed 230.
 
-#### Example
+<aside class="example">
 
 ```json
 {
@@ -272,6 +517,8 @@ The minimum value of C is `0`, which represents a neutral color (gray), and its 
 }
 ```
 
+</aside>
+
 ### OKLAB
 
 OKLAB is a perceptually uniform color space that is designed to be more accurate than CIELAB.
@@ -286,7 +533,7 @@ OKLAB is a perceptually uniform color space that is designed to be more accurate
 
 Like in CIELAB, A and B are theoretically unbounded, but in practice don't exceed -0.5 to 0.5.
 
-#### Example
+<aside class="example">
 
 ```json
 {
@@ -302,6 +549,8 @@ Like in CIELAB, A and B are theoretically unbounded, but in practice don't excee
 }
 ```
 
+</aside>
+
 ### OKLCH
 
 OKLCH is a cylindrical representation of OKLAB.
@@ -312,9 +561,11 @@ OKLCH is a cylindrical representation of OKLAB.
 
 - L: A number between `0` and `1` representing the lightness of the color.
 - Chroma: A number representing the chroma of the color.
-- Hue: A number between `0` and `360` representing the angle of the color on the color wheel.
+- Hue: A number between `0` (inclusive) and `360` (exclusive) representing the angle of the color on the color wheel.
 
-#### Example
+Like in LCH, the minimum value of Chroma is `0`, which represents a neutral color (gray), and its maximum is theoretically unbounded, but in practice doesn't exceed 0.5.
+
+<aside class="example">
 
 ```json
 {
@@ -330,6 +581,8 @@ OKLCH is a cylindrical representation of OKLAB.
 }
 ```
 
+</aside>
+
 ### Display P3
 
 Display P3 is a color space that is designed to be used in displays with a wide color gamut. It is based on the P3 color space used in digital cinema.
@@ -342,7 +595,7 @@ Display P3 is a color space that is designed to be used in displays with a wide 
 - Green: A number between `0` and `1` representing the green component of the color.
 - Blue: A number between `0` and `1` representing the blue component of the color.
 
-#### Example
+<aside class="example">
 
 ```json
 {
@@ -358,6 +611,8 @@ Display P3 is a color space that is designed to be used in displays with a wide 
 }
 ```
 
+</aside>
+
 ### A98 RGB
 
 A98 RGB is a color space that is designed to be used in displays with a wide color gamut. It is based on the Adobe RGB color space.
@@ -370,7 +625,7 @@ A98 RGB is a color space that is designed to be used in displays with a wide col
 - Green: A number between `0` and `1` representing the green component of the color.
 - Blue: A number between `0` and `1` representing the blue component of the color.
 
-#### Example
+<aside class="example">
 
 ```json
 {
@@ -386,6 +641,8 @@ A98 RGB is a color space that is designed to be used in displays with a wide col
 }
 ```
 
+</aside>
+
 ### ProPhoto RGB
 
 ProPhoto RGB is a color space that is designed to be used in displays with a wide color gamut. It is based on the ProPhoto RGB color space.
@@ -398,7 +655,7 @@ ProPhoto RGB is a color space that is designed to be used in displays with a wid
 - Green: A number between `0` and `1` representing the green component of the color.
 - Blue: A number between `0` and `1` representing the blue component of the color.
 
-#### Example
+<aside class="example">
 
 ```json
 {
@@ -414,6 +671,8 @@ ProPhoto RGB is a color space that is designed to be used in displays with a wid
 }
 ```
 
+</aside>
+
 ### Rec 2020
 
 Rec 2020 is a color space that is designed to be used in displays with a wide color gamut. It is based on the Rec 2020 color space.
@@ -426,7 +685,7 @@ Rec 2020 is a color space that is designed to be used in displays with a wide co
 - Green: A number between `0` and `1` representing the green component of the color.
 - Blue: A number between `0` and `1` representing the blue component of the color.
 
-#### Example
+<aside class="example">
 
 ```json
 {
@@ -442,6 +701,8 @@ Rec 2020 is a color space that is designed to be used in displays with a wide co
 }
 ```
 
+</aside>
+
 ### XYZ-D65
 
 XYZ-D65 is a color space that is designed to be able to represent all colors that can be perceived by the human eye. It is a fundamental color space — all other spaces can be converted to and from XYZ. It is based on the CIE 1931 color space, using the D65 illuminant. XYZ is not commonly used in design tools, but is useful for color conversions.
@@ -454,7 +715,7 @@ XYZ-D65 is a color space that is designed to be able to represent all colors tha
 - Y: A number between `0` and `1` representing the Y component of the color.
 - Z: A number between `0` and `1` representing the Z component of the color.
 
-#### Example
+<aside class="example">
 
 ```json
 {
@@ -470,6 +731,8 @@ XYZ-D65 is a color space that is designed to be able to represent all colors tha
 }
 ```
 
+</aside>
+
 ### XYZ-D50
 
 XYZ-D50 is similar to XYZ-D65, but uses the D50 illuminant.
@@ -482,7 +745,7 @@ XYZ-D50 is similar to XYZ-D65, but uses the D50 illuminant.
 - Y: A number between `0` and `1` representing the Y component of the color.
 - Z: A number between `0` and `1` representing the Z component of the color.
 
-#### Example
+<aside class="example">
 
 ```json
 {
@@ -497,6 +760,8 @@ XYZ-D50 is similar to XYZ-D65, but uses the D50 illuminant.
   }
 }
 ```
+
+</aside>
 
 ## Future color space support
 
