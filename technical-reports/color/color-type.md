@@ -23,7 +23,7 @@ The `$value` property can then be used to specify the details of the color, The 
     "$type": "color",
     "$value": {
       "colorSpace": "srgb",
-      "components": [255, 0, 255],
+      "components": [1, 0, 1],
       "alpha": 1,
       "hex": "#ff00ff"
     }
@@ -283,7 +283,7 @@ The following values are supported for the `colorSpace` property. The `component
         <!-- XYZ-D65 -->
         <tr>
             <th scope="rowgroup" rowspan="3">XYZ-D65</th>
-            <td rowspan="3">`"xyz"`</td>
+            <td rowspan="3">`"xyz-d65"`</td>
             <td>X</td>
             <td>[0 - 1]</td>
         </tr>
@@ -722,7 +722,7 @@ XYZ-D65 is a color space that is designed to be able to represent all colors tha
   "Hot pink": {
     "$type": "color",
     "$value": {
-      "colorSpace": "xyz",
+      "colorSpace": "xyz-d65",
       "components": [0.5929, 0.2848, 0.9699],
       "alpha": 1,
       "hex": "#ff00ff"
