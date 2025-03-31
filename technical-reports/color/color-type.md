@@ -184,11 +184,11 @@ The following values are supported for the `colorSpace` property. The `component
         </tr>
         <tr>
             <td>C</td>
-            <td>[0-Infinity]**</td>
+            <td>[0 - Infinity]**</td>
         </tr>
         <tr>
             <td>Hue</td>
-            <td>[0-360]</td>
+            <td>[0 - 360)</td>
         </tr>
         <!-- OKLAB -->
         <tr>
@@ -199,11 +199,11 @@ The following values are supported for the `colorSpace` property. The `component
         </tr>
         <tr>
             <td>A</td>
-            <td>[-Infinity to Infinity]**</td>
+            <td>[-Infinity - Infinity]**</td>
         </tr>
         <tr>
             <td>B</td>
-            <td>[-Infinity to Infinity]†</td>
+            <td>[-Infinity - Infinity]†</td>
         </tr>
         <!-- OKLCH -->
         <tr>
