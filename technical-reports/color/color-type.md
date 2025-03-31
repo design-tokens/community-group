@@ -13,7 +13,7 @@ The `$value` property can then be used to specify the details of the color, The 
   - A number
   - The 'none' keyword
 - `alpha` (optional): A number that represents the alpha value of the color. This value is between `0` and `1`, where `0` is fully transparent and `1` is fully opaque.
-- `fallback` (optional): A string that represents a fallback value of the color in [CSS hex color notation](https://www.w3.org/TR/css-color-4/#hex-notation) format. The fallback color MUST omit the alpha value, since alpha is specified in the `alpha` property. The fallback value is used when the color cannot be represented in the specified color space.
+- `hex` (optional): A string that represents a fallback value of the color. The fallback color MUST be formatted in [6 digit CSS hex color notation](https://www.w3.org/TR/css-color-4/#hex-notation) format to avoid conflicts with the provided alpha value.
 
 <aside class="example">
 
@@ -34,7 +34,7 @@ The `$value` property can then be used to specify the details of the color, The 
       "colorSpace": "srgb",
       "components": [0, 0, 0],
       "alpha": 0.5,
-      "hex": "#00000080"
+      "hex": "#000000"
     }
   }
 }
@@ -64,7 +64,7 @@ For example, in the HSL color space, the `none` keyword MAY be used to indicate 
     "$type": "color",
     "$value": {
       "colorSpace": "hsl",
-      "components": ["none", 0, 0],
+      "components": [180, "none", 0],
       "alpha": 1,
       "hex": "#000000"
     }
