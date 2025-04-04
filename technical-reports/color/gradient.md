@@ -1,3 +1,5 @@
+<!-- TODO: Align with Format group on Gradient JSON shape -->
+
 # Gradient
 
 Below are instances of implementing various types of gradients:
@@ -132,3 +134,5 @@ Below are instances of implementing various types of gradients:
   }
 }
 ```
+
+<!-- TODO: Add paragraph on Gradient clipping and browser support, link to sources -->

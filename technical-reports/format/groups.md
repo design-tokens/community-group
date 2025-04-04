@@ -79,8 +79,10 @@ Group keys without a dollar sign (`$`) prefix denote:
     "Group of tokens": {
       "$description": "This is an example of a group containing a single token",
       "Token name": {
-        "$value": "#000000",
-        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "channels": [0, 0, 0]
+        }
       }
     }
   }
@@ -95,11 +97,11 @@ Group keys without a dollar sign (`$`) prefix denote:
       "Subgroup of tokens": {
         "Token 1 name": {
           "$value": "#aabbcc",
-          "$type": "color",
+          "$type": "color"
         },
         "Token 2 name": {
           "$value": "#ddeeff",
-          "$type": "color",
+          "$type": "color"
         }
       }
     }
@@ -127,7 +129,7 @@ For example:
         "$type": "color"
       },
       "hot pink": {
-        "$value": "#dd22cc",
+        "$value": "#ff00ff",
         "$type": "color"
       }
     }
@@ -162,7 +164,7 @@ For example:
         "$value": "#00ff66"
       },
       "hot pink": {
-        "$value": "#dd22cc"
+        "$value": "#ff00ff"
       }
     }
   }
@@ -199,7 +201,7 @@ Note that, since a group's `$extensions` only relate to that group, they do not 
         "$type": "color"
       },
       "hot pink": {
-        "$value": "#dd22cc",
+        "$value": "#ff00ff",
         "$type": "color"
       }
     }
@@ -221,6 +223,8 @@ For example:
 
 <aside class="example">
 
+<!-- TODO: Align on JSON format here and in color-type.md, how are we defining color names and integrating coloSpace notation, etc.? -->
+
 ```json
 {
   "brand": {
@@ -230,7 +234,7 @@ For example:
         "$value": "#00ff66"
       },
       "hot pink": {
-        "$value": "#dd22cc"
+        "$value": "#ff00ff"
       }
     },
     "typeface": {
@@ -250,6 +254,8 @@ For example:
 
 ...is likely to be more convenient to type and, arguably, easier to read, than:
 
+<!-- TODO: Align here as well -->
+
 <aside class="example">
 
 ```json
@@ -259,7 +265,7 @@ For example:
     "$type": "color"
   },
   "brand-color-hot-pink": {
-    "$value": "#dd22cc",
+    "$value": "#ff00ff",
     "$type": "color"
   },
   "brand-typeface-primary": {
@@ -290,6 +296,8 @@ Token names are not guaranteed to be unique within the same file. The same name 
 
 For example, a [=translation tool=] like [Style Dictionary](https://amzn.github.io/style-dictionary/) might use the following design token file:
 
+<!-- TODO: This is documentation on Translation tools. Should these tools use the colorSpace key/val and such? -->
+
 <aside class="example">
 
 ```json
@@ -301,7 +309,7 @@ For example, a [=translation tool=] like [Style Dictionary](https://amzn.github.
         "$value": "#00ff66"
       },
       "hot pink": {
-        "$value": "#dd22cc"
+        "$value": "#ff00ff"
       }
     },
     "typeface": {
@@ -325,7 +333,7 @@ For example, a [=translation tool=] like [Style Dictionary](https://amzn.github.
 
 ```scss
 $brand-color-acid-green: #00ff66;
-$brand-color-hot-pink: #dd22cc;
+$brand-color-hot-pink: #ff00ff;
 $brand-typeface-primary: 'Comic Sans MS';
 $brand-typeface-secondary: 'Times New Roman';
 ```

@@ -32,6 +32,8 @@ A design token whose type happens to be a composite type is sometimes also calle
 
 <aside class="example" title="Advanced composite token example">
 
+<!-- TODO: Adjust color object to new notation? -->
+
 ```json
 {
   "space": {
@@ -356,6 +358,8 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
   Is the current specification for shadows fit for purpose? Does it need to support multiple shadows, as some tools and platforms do?
 </div>
 
+<!-- TODO: Align on JSON format here and in color-type.md -->
+
 ## Gradient
 
 Represents a color gradient. The `$type` property MUST be set to the string `gradient`. The value MUST be an array of objects representing gradient stops that have the following structure:
@@ -419,11 +423,13 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
 
 <aside class="example" title="Gradient token using references example">
 
+<!-- TODO: Align on JSON format here and in color-type.md -->
+
 ```json
 {
   "brand-primary": {
     "$type": "color",
-    "$value": "#99ff66"
+    "$value": "#00ff66"
   },
 
   "position-end": {
@@ -453,7 +459,7 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
 
 Describes a color token called "brand-primary", which is referenced as the mid-point of a gradient is black at either end.
 
-<div style="height: 2rem; background: linear-gradient(90deg, #000000, #99ff66, #000000);"></div>
+<div style="height: 2rem; background: linear-gradient(90deg, #000000, #00ff66, #000000);"></div>
 
 </aside>
 
