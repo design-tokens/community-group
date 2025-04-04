@@ -93,7 +93,7 @@ For example, initially color tokens may be defined as such:
     "$value": {
       "$hex": "#00ff66",
       "colorSpace": "srgb",
-      "components": [180, 216, 167]
+      "components": [180, 216, 167]q
       "alpha": 0.75
     }
   }
