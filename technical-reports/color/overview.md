@@ -2,11 +2,11 @@
 
 Color tokens can be used to represent colors in different color spaces. Colors represented in tokens can then be converted to other color spaces by translation tools.
 
-Generally speaking, this module uses the [CSS Color Module Level 4](https://drafts.csswg.org/css-color-4/) for reference to concepts and terminology. The CSS Color Module Level 4 is a W3C Working Draft and is not a final specification. It is subject to change and may not be implemented in all browsers or platforms.
+Generally speaking, this module uses [[[css-color-4]]] for reference to concepts and terminology. [[[css-color-4]]] is a W3C Working Draft and is not a final specification. It is subject to change and may not be implemented in all browsers or platforms.
 
 <details class="note">
 <summary>Why CSS Color Module Level 4?</summary>
-<p>Color is a complex topic. The CSS Color module Level 4 provides a comprehensive baseline:</p>
+<p>Color is a complex topic. [[[css-color-4]]] provides a comprehensive baseline:</p>
 <ul> 
 <li>It provides a definition of common color spaces, including gamuts and component coordinates</li>
 <li>It gives technical specifications for translating colors between color spaces</li>

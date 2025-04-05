@@ -8,11 +8,11 @@ For color tokens, the `$type` property MUST be set to the string `color`.
 
 The `$value` property can then be used to specify the details of the color, The `$value` object contains the following properties:
 
-- `colorSpace` (required): A string that specifices the color space. For supported color spaces, see the [supported color spaces](#supported-color-spaces) section below.
-- `components` (required): An array representing the color components. The number of components depends on the color space. Each element of the array MUST be either:
+- `colorSpace` (required): A string that specifices the [=color space=] or [=color model=]. For supported color spaces, see the [supported color spaces](#supported-color-spaces) section below.
+- `components` (required): An array representing the color [=components=]. The number of components depends on the color space. Each element of the array MUST be either:
   - A number
   - The 'none' keyword
-- `alpha` (optional): A number that represents the alpha value of the color. This value is between `0` and `1`, where `0` is fully transparent and `1` is fully opaque.
+- `alpha` (optional): A number that represents the [=alpha=] value of the color. This value is between `0` and `1`, where `0` is fully transparent and `1` is fully opaque.
 - `hex` (optional): A string that represents a fallback value of the color. The fallback color MUST be formatted in [6 digit CSS hex color notation](https://www.w3.org/TR/css-color-4/#hex-notation) format to avoid conflicts with the provided alpha value.
 
 <aside class="example">
@@ -44,8 +44,15 @@ The `$value` property can then be used to specify the details of the color, The 
 
 ### The `none` keyword
 
-The `none` keyword MAY be used in the `components` array to indicate that a component is not applicable or not specified. This is useful for colors that do not require all components to be specified.
-For example, in the HSL color space, the `none` keyword MAY be used to indicate that there is no angle value for the color, which will be interpretted differently from a color with a hue angle of 0.
+When specifying a color in some color spaces, a value of `0` could be ambiguous. For example, in the HSL color space, colors with a [=hue=] of `0` are red; while a single color like `hsl(0, 0, 50)` would not be rendered as red, it may be treated as a completely desaturated red when interpolated with other colors. Therefore, in certain color spaces, `0` is insufficient to indicate that there is no value for a given component.
+
+[[[css-color-4]]] has introduced the `none` keyword to indicate that a component is missing, or not applicable. For example, in the HSL color space, the `none` keyword may be used to indicate that there is no angle value for the color, which will be interpretted differently from a color with a hue angle of 0.
+
+For more information about interpolating colors with missing components, see the relevant section of [CSS Color Module Level 4](https://www.w3.org/TR/css-color-4/#interpolation-missing).
+
+#### Using the `none` keyword
+
+The `none` keyword MAY be used in the `components` array to indicate that a component is not applicable or not specified.
 
 <aside class="example">
 
@@ -91,7 +98,9 @@ While both examples will render as white, the first example is more explicit abo
 
 The following values are supported for the `colorSpace` property. The `components` array will vary depending on the color space.
 
-<table class="def">
+In this table, brackets `[]` indicate that an extrema are included, parentheses `()` indicate that the extrema are excluded. For example, in the HSL color space, hue is in the range of [0 - 360), which means that `0` MAY be used but `360` MUST NOT be used.
+
+<table class="data">
     <thead>
         <tr>
             <th scope="col">Color Space</th>
@@ -315,7 +324,7 @@ The following values are supported for the `colorSpace` property. The `component
 <div>
   <span>* In CIELAB, A and B are unbounded but in practice don't exceed -160 to 160</span><br />
   <span>** In LCH, C is unbounded but in practice doesn't exceed 230</span><br />
-  <span>† In OKLAB, A and B are unbounded but in practice don't exceed -0.5 to 0.5</span>
+  <span>† In OKLAB, A and B are unbounded but in practice don't exceed -0.5 to 0.5</span><br/>
   <span>‡ In OKLCH, Chroma is unbounded but in practice doesn't exceed 0.5</span>
 </div>
 
@@ -365,6 +374,8 @@ sRGB was the standard color space for all CSS colors before CSS Color Module 4. 
 
 </aside>
 
+For more information on the sRGB color space, see [[[srgb]]].
+
 ### sRGB linear
 
 sRGB linear is a linearized version of sRGB. It is used in some design tools to represent colors in a linear color space.
@@ -395,17 +406,19 @@ sRGB linear is a linearized version of sRGB. It is used in some design tools to 
 
 </aside>
 
+For more information on the sRGB linear color space, see [[[srgb]]].
+
 ### HSL
 
-HSL is a polar transformation of sRGB, supported as early as CSS Color Level 3.
+HSL is a [=color model=] that is a polar transformation of sRGB, supported as early as CSS Color Level 3.
 
 #### Components
 
 `[Hue, Saturation, Lightness]`
 
-- Hue: A number between `0` (inclusive) and `360` (exclusive) representing the angle of the color on the color wheel.
-- Saturation: A number between `0` and `100` representing the percentage of color saturation.
-- Lightness: A number between `0` and `100` representing the percentage of lightness.
+- Hue: A number between `0` (inclusive) and `360` (exclusive) representing the [=hue=] angle of the color on the color wheel.
+- Saturation: A number between `0` and `100` representing the percentage of color [=saturation=].
+- Lightness: A number between `0` and `100` representing the percentage of [=lightness=].
 
 <aside class="example">
 
@@ -425,9 +438,11 @@ HSL is a polar transformation of sRGB, supported as early as CSS Color Level 3.
 
 </aside>
 
+For more information on the HSL color space, see [[[hsl]]].
+
 ### HWB
 
-Another polar transformation of sRGB.
+Another [=color model=], a polar transformation of sRGB.
 
 #### Components
 
@@ -454,6 +469,8 @@ Another polar transformation of sRGB.
 ```
 
 </aside>
+
+For more information on the HWB color space, see [HWB — A More Intuitive Hue-Based Color Model](http://alvyray.com/Papers/CG/HWB_JGTv208.pdf).
 
 ### CIELAB
 
@@ -487,6 +504,8 @@ A and B are theoretically unbounded, but in practice don't exceed -160 to 160.
 
 </aside>
 
+For more information on the CIELAB color space, see [[[cielab]]].
+
 ### LCH
 
 LCH is a cylindrical representation of CIELAB.
@@ -519,9 +538,11 @@ The minimum value of C is `0`, which represents a neutral color (gray), and its 
 
 </aside>
 
+For more information on the LCH color space, see [the CIELAB and LCH section of CSS Color Module Level 4](https://www.w3.org/TR/css-color-4/#cie-lab).
+
 ### OKLAB
 
-OKLAB is a perceptually uniform color space that is designed to be more accurate than CIELAB.
+OKLAB is a perceptually uniform [=color space=] that is designed to be more accurate than CIELAB.
 
 #### Components
 
@@ -551,9 +572,11 @@ Like in CIELAB, A and B are theoretically unbounded, but in practice don't excee
 
 </aside>
 
+For more information on the OKLAB color space, see [OKLAB: A Perceptually Uniform Color Space](https://bottosson.github.io/posts/oklab/).
+
 ### OKLCH
 
-OKLCH is a cylindrical representation of OKLAB.
+OKLCH is a cylindrical [=color model=] of OKLAB.
 
 #### Components
 
@@ -583,9 +606,11 @@ Like in LCH, the minimum value of Chroma is `0`, which represents a neutral colo
 
 </aside>
 
+For more information on the OKLCH color space, see [OKLAB: A Perceptually Uniform Color Space](https://bottosson.github.io/posts/oklab/).
+
 ### Display P3
 
-Display P3 is a color space that is designed to be used in displays with a wide color gamut. It is based on the P3 color space used in digital cinema.
+Display P3 is a [=color space=] that is designed to be used in displays with a wide color [=gamut=]. It is based on the P3 color space used in digital cinema.
 
 #### Components
 
@@ -612,6 +637,8 @@ Display P3 is a color space that is designed to be used in displays with a wide 
 ```
 
 </aside>
+
+For more information on the Display P3 color space, see [the definition of Display P3](https://www.color.org/chardata/rgb/DisplayP3.xalter).
 
 ### A98 RGB
 
@@ -643,6 +670,8 @@ A98 RGB is a color space that is designed to be used in displays with a wide col
 
 </aside>
 
+To learn more about the A98 color space, see the [Adobe RGB color space article on Wikipedia](https://en.wikipedia.org/wiki/Adobe_RGB_color_space).
+
 ### ProPhoto RGB
 
 ProPhoto RGB is a color space that is designed to be used in displays with a wide color gamut. It is based on the ProPhoto RGB color space.
@@ -672,6 +701,9 @@ ProPhoto RGB is a color space that is designed to be used in displays with a wid
 ```
 
 </aside>
+
+For more information on the ProPhoto RGB color space, see [Design and Optimization of the ProPhoto RGB Color Encodings
+](https://www.realtimerendering.com/blog/2011-color-and-imaging-conference-part-vi-special-session/).
 
 ### Rec 2020
 
@@ -703,6 +735,8 @@ Rec 2020 is a color space that is designed to be used in displays with a wide co
 
 </aside>
 
+For more information on the Rec 2020 color space, see [[[Rec.2020]]].
+
 ### XYZ-D65
 
 XYZ-D65 is a color space that is designed to be able to represent all colors that can be perceived by the human eye. It is a fundamental color space — all other spaces can be converted to and from XYZ. It is based on the CIE 1931 color space, using the D65 illuminant. XYZ is not commonly used in design tools, but is useful for color conversions.
@@ -733,6 +767,8 @@ XYZ-D65 is a color space that is designed to be able to represent all colors tha
 
 </aside>
 
+For more information on the XYZ-D65 color space, see [[[COLORIMETRY]]].
+
 ### XYZ-D50
 
 XYZ-D50 is similar to XYZ-D65, but uses the D50 illuminant.
@@ -762,6 +798,8 @@ XYZ-D50 is similar to XYZ-D65, but uses the D50 illuminant.
 ```
 
 </aside>
+
+For more information on the XYZ-D50 color space, see [[[COLORIMETRY]]].
 
 ## Future color space support
 
