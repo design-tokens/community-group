@@ -12,7 +12,7 @@ The `$value` property can then be used to specify the details of the color, The 
 - `components` (required): An array representing the color [=components=]. The number of components depends on the color space. Each element of the array MUST be either:
   - A number
   - The 'none' keyword
-- `alpha` (optional): A number that represents the [=alpha=] value of the color. This value is between `0` and `1`, where `0` is fully transparent and `1` is fully opaque.
+- `alpha` (optional): A number that represents the [=alpha=] value of the color. This value is between `0` and `1`, where `0` is fully transparent and `1` is fully opaque. If omitted, the alpha value of the color MUST be assumed to be 1 (fully opaque).
 - `hex` (optional): A string that represents a fallback value of the color. The fallback color MUST be formatted in [6 digit CSS hex color notation](https://www.w3.org/TR/css-color-4/#hex-notation) format to avoid conflicts with the provided alpha value.
 
 <aside class="example">
@@ -46,9 +46,7 @@ The `$value` property can then be used to specify the details of the color, The 
 
 When specifying a color in some color spaces, a value of `0` could be ambiguous. For example, in the HSL color space, colors with a [=hue=] of `0` are red; while a single color like `hsl(0, 0, 50)` would not be rendered as red, it may be treated as a completely desaturated red when interpolated with other colors. Therefore, in certain color spaces, `0` is insufficient to indicate that there is no value for a given component.
 
-[[[css-color-4]]] has introduced the `none` keyword to indicate that a component is missing, or not applicable. For example, in the HSL color space, the `none` keyword may be used to indicate that there is no angle value for the color, which will be interpretted differently from a color with a hue angle of 0.
-
-For more information about interpolating colors with missing components, see the relevant section of [CSS Color Module Level 4](https://www.w3.org/TR/css-color-4/#interpolation-missing).
+[[[css-color-4]]] has introduced the `none` keyword to indicate that a component is missing, or not applicable. For example, in the HSL color space, the `none` keyword may be used to indicate that there is no angle value for the color; a color with a hue value of `none` MAY be rendered differently from a color with a hue angle of 0, or result in different colors when [interpolating](https://www.w3.org/TR/css-color-4/#interpolation-missing).
 
 #### Using the `none` keyword
 
@@ -98,7 +96,13 @@ While both examples will render as white, the first example is more explicit abo
 
 The following values are supported for the `colorSpace` property. The `components` array will vary depending on the color space.
 
-In this table, brackets `[]` indicate that an extrema are included, parentheses `()` indicate that the extrema are excluded. For example, in the HSL color space, hue is in the range of [0 - 360), which means that `0` MAY be used but `360` MUST NOT be used.
+<aside class="note", title="Syntax for expressing ranges">
+<p>
+
+In this table, brackets `[]` indicate that an extrema are included, parentheses `()` indicate that the [extrema](https://en.wikipedia.org/wiki/Maximum_and_minimum) are excluded. For example, in the HSL color space, [hue is in the range of \[0 - 360\)](https://www.w3.org/TR/css-color-4/#hue-syntax), which means that `0` MAY be used but `360` MUST NOT be used.
+
+</p>
+</aside>
 
 <table class="data">
     <thead>
@@ -173,27 +177,27 @@ In this table, brackets `[]` indicate that an extrema are included, parentheses 
         <tr>
             <th scope="rowgroup" rowspan="3">CIELAB</th>
             <td rowspan="3">`"lab"`</td>
-            <td>L</td>
+            <td>Lightness</td>
             <td>[0 - 100]</td>
         </tr>
         <tr>
             <td>A</td>
-            <td>[-Infinity - Infinity]*</td>
+            <td>[-Infinity - Infinity]<a href="#fn-1">*</a></td>
         </tr>
         <tr>
             <td>B</td>
-            <td>[-Infinity - Infinity]*</td>
+            <td>[-Infinity - Infinity]<a href="#fn-1">*</a></td>
         </tr>
         <!-- LCH -->
         <tr>
             <th scope="rowgroup" rowspan="3">LCH</th>
             <td rowspan="3">`"lch"`</td>
-            <td>L</td>
+            <td>Lightness</td>
             <td>[0 - 100]</td>
         </tr>
         <tr>
-            <td>C</td>
-            <td>[0 - Infinity]**</td>
+            <td>Chroma</td>
+            <td>[0 - Infinity]<a href="#fn-2">**</a></td>
         </tr>
         <tr>
             <td>Hue</td>
@@ -203,27 +207,27 @@ In this table, brackets `[]` indicate that an extrema are included, parentheses 
         <tr>
             <th scope="rowgroup" rowspan="3">OKLAB</th>
             <td rowspan="3">`"oklab"`</td>
-            <td>L</td>
+            <td>Lightness</td>
             <td>[0 - 1]</td>
         </tr>
         <tr>
             <td>A</td>
-            <td>[-Infinity - Infinity]**</td>
+            <td>[-Infinity - Infinity]<a href="#fn-3">†</a></td>
         </tr>
         <tr>
             <td>B</td>
-            <td>[-Infinity - Infinity]†</td>
+            <td>[-Infinity - Infinity]<a href="#fn-3">†</a></td>
         </tr>
         <!-- OKLCH -->
         <tr>
             <th scope="rowgroup" rowspan="3">OKLCH</th>
             <td rowspan="3">`"oklch"`</td>
-            <td>L</td>
+            <td>Lightness</td>
             <td>[0 - 1]</td>
         </tr>
         <tr>
             <td>Chroma</td>
-            <td>[0 - Infinity]‡</td>
+            <td>[0 - Infinity]<a href="#fn-4">‡</td>
         </tr>
         <tr>
             <td>Hue</td>
@@ -322,19 +326,21 @@ In this table, brackets `[]` indicate that an extrema are included, parentheses 
     </tbody>
 </table>
 <div>
-  <span>* In CIELAB, A and B are unbounded but in practice don't exceed -160 to 160</span><br />
-  <span>** In LCH, C is unbounded but in practice doesn't exceed 230</span><br />
-  <span>† In OKLAB, A and B are unbounded but in practice don't exceed -0.5 to 0.5</span><br/>
-  <span>‡ In OKLCH, Chroma is unbounded but in practice doesn't exceed 0.5</span>
+  <span><span id="fn-1">*</span> In CIELAB, A and B are unbounded but in practice don't exceed -160 to 160</span><br />
+  <span><span id="fn-2">**</span> In LCH, C is unbounded but in practice doesn't exceed 230</span><br />
+  <span><span id="fn-3">†</span> In OKLAB, A and B are unbounded but in practice don't exceed -0.5 to 0.5</span><br/>
+  <span><span id="fn-4">‡</span> In OKLCH, Chroma is unbounded but in practice doesn't exceed 0.5</span>
 </div>
 
-<details class="note">
-<summary>A note about precision in examples</summary>
+<aside class="note" title="Precision in examples">
 <p>The examples below have varying degrees of precision (i.e. numbers after the decimal). This is done to ensure that the 'fallback' color is exactly the same as the defined color when converted to HEX. In practice, the numbers used to define each component can have any degree of precision.</p>
-</details>
+</aside>
 
-<details class="note">
-<summary>How does this conform to CSS Color Module 4?</summary>
+<aside class="note" title="Optional values in examples">
+<p>The examples below are given with all optional values (alpha, hex) included for the purpose of completness. Defining the alpha property for fully-opaque colors is not required, see [[[#format]]].</p>
+</aside>
+
+<aside class="note" title="How does this conform to CSS Color Module 4?">
 <p>To provide a logically consistent approach without creating ambiguity around the format, this spec takes the following approach:</p>
 <ul> 
 <li>If CSS Color Module 4 allows a color space to be referenced by **both** a named function (like `srgb()`) **and** a keyword in the `color()` function, use the format intended for the `color()` function.</li>
@@ -342,7 +348,7 @@ In this table, brackets `[]` indicate that an extrema are included, parentheses 
 <li>If CSS Color Module 4 allows **both** unit values (like `50`) **and** percentages (like `50%`) for a component, use the unit value.</li>
 </ul>
 <p>Using this spec as a reference allows us to focus on the design and implementation of the tokens themselves, rather than the underlying color science.</p>
-</details>
+</aside>
 
 ### sRGB
 
@@ -416,7 +422,7 @@ HSL is a [=color model=] that is a polar transformation of sRGB, supported as ea
 
 `[Hue, Saturation, Lightness]`
 
-- Hue: A number between `0` (inclusive) and `360` (exclusive) representing the [=hue=] angle of the color on the color wheel.
+- Hue: A number from `0` up to (but not including) `360`, but representing the [=hue=] angle of the color on the color wheel.
 - Saturation: A number between `0` and `100` representing the percentage of color [=saturation=].
 - Lightness: A number between `0` and `100` representing the percentage of [=lightness=].
 
@@ -448,7 +454,7 @@ Another [=color model=], a polar transformation of sRGB.
 
 `[Hue, Whiteness, Blackness]`
 
-- Hue: A number between `0` (inclusive) and `360` (exclusive) representing the angle of the color on the color wheel.
+- Hue: A number from `0` up to (but not including) `360` representing the angle of the color on the color wheel.
 - Whiteness: A number between `0` and `100` representing the percentage of white in the color.
 - Blackness: A number between `0` and `100` representing the percentage of black in the color.
 
@@ -516,7 +522,7 @@ LCH is a cylindrical representation of CIELAB.
 
 - L: A number between `0` and `100` representing the percentage of lightness of the color.
 - C: A number representing the chroma of the color.
-- Hue: A number between `0` (inclusive) and `360` (exclusive) representing the angle of the color on the color wheel.
+- Hue: A number from `0` up to (but not including) `360` representing the angle of the color on the color wheel.
 
 The minimum value of C is `0`, which represents a neutral color (gray), and its maximum is theoretically unbounded, but in practice doesn't exceed 230.
 
@@ -584,7 +590,7 @@ OKLCH is a cylindrical [=color model=] of OKLAB.
 
 - L: A number between `0` and `1` representing the lightness of the color.
 - Chroma: A number representing the chroma of the color.
-- Hue: A number between `0` (inclusive) and `360` (exclusive) representing the angle of the color on the color wheel.
+- Hue: A number from `0` up to (but not including) `360` representing the angle of the color on the color wheel.
 
 Like in LCH, the minimum value of Chroma is `0`, which represents a neutral color (gray), and its maximum is theoretically unbounded, but in practice doesn't exceed 0.5.
 

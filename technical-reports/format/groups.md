@@ -10,7 +10,7 @@ A file MAY contain many tokens and they MAY be nested arbitrarily in groups like
     "$type": "color",
     "$value": {
       "colorSpace": "srgb",
-      "components": [17, 17, 17]
+      "components": [0.07, 0.07, 0.07]
     }
   },
   "token group": {
@@ -102,14 +102,14 @@ Group keys without a dollar sign (`$`) prefix denote:
           "$type": "color",
           "$value": {
             "colorSpace": "srgb",
-            "channels": [170, 187, 204]
+            "channels": [0.667, 0.733, 0.8]
           }
         },
         "Token 2 name": {
           "$type": "color",
           "$value": {
             "colorSpace": "srgb",
-            "channels": [221, 238, 255]
+            "channels": [0.867, 0.933, 1]
           }
         }
       }
@@ -137,14 +137,14 @@ For example:
         "$type": "color",
         "$value": {
           "colorSpace": "srgb",
-          "components": [0, 255, 102]
+          "components": [0, 1, 0.4]
         }
       },
       "hot pink": {
         "$type": "color",
         "$value": {
           "colorSpace": "srgb",
-          "components": [255, 0, 255]
+          "components": [1, 0, 1]
         }
       }
     }
@@ -178,13 +178,13 @@ For example:
       "acid green": {
         "$value": {
           "colorSpace": "srgb",
-          "components": [0, 255, 102]
+          "components": [0, 1, 0.4]
         }
       },
       "hot pink": {
         "$value": {
           "colorSpace": "srgb",
-          "components": [255, 0, 255]
+          "components": [1, 0, 1]
         }
       }
     }
@@ -221,14 +221,14 @@ Note that, since a group's `$extensions` only relate to that group, they do not 
         "$type": "color",
         "$value": {
           "colorSpace": "srgb",
-          "components": [0, 255, 102]
+          "components": [0, 1, 0.4]
         }
       },
       "hot pink": {
         "$type": "color",
         "$value": {
           "colorSpace": "srgb",
-          "components": [255, 0, 255]
+          "components": [1, 0, 1]
         }
       }
     }
@@ -284,13 +284,13 @@ For example:
       "acid green": {
         "$value": {
           "colorSpace": "srgb",
-          "components": [0, 255, 102]
+          "components": [0, 1, 0.4]
         }
       },
       "hot pink": {
         "$value": {
           "colorSpace": "srgb",
-          "components": [255, 0, 255]
+          "components": [1, 0, 1]
         }
       }
     },
@@ -319,14 +319,14 @@ For example:
     "$type": "color",
     "$value": {
       "colorSpace": "srgb",
-      "components": [0, 255, 102]
+      "components": [0, 1, 0.4]
     }
   },
   "brand-color-hot-pink": {
     "$type": "color",
     "$value": {
       "colorSpace": "srgb",
-      "components": [255, 0, 255]
+      "components": [1, 0, 1]
     }
   },
   "brand-typeface-primary": {
@@ -367,13 +367,13 @@ For example, a [=translation tool=] like [Style Dictionary](https://amzn.github.
       "acid green": {
         "$value": {
           "colorSpace": "srgb",
-          "components": [0, 255, 102]
+          "components": [0, 1, 0.4]
         }
       },
       "hot pink": {
         "$value": {
           "colorSpace": "srgb",
-          "components": [255, 0, 255]
+          "components": [1, 0, 1]
         }
       }
     },

@@ -10,7 +10,7 @@
     "$type": "color",
     "$value": {
       "colorSpace": "srgb",
-      "components": [255, 0, 0]
+      "components": [1, 0, 0]
     }
   }
 }
@@ -26,7 +26,9 @@ The example above therefore defines 1 design token with the following properties
 
 - Name: "token name"
 - Type: "color"
-- Value: "#ff0000" (red in sRGB color space)
+- Value:
+  - Color Space: "srgb"
+  - Components: [1, 0, 0]
 
 Name and value are both **required**.
 
@@ -109,7 +111,7 @@ The value of the `$description` property MUST be a plain JSON string, for exampl
     "$description": "The background color for buttons in their normal state.",
     "$value": {
       "colorSpace": "srgb",
-      "components": [119, 119, 119]
+      "components": [0.467, 0.467, 0.467]
     }
   }
 }
@@ -146,7 +148,7 @@ For example:
     "$type": "color",
     "$value": {
       "colorSpace": "srgb",
-      "components": [119, 119, 119]
+      "components": [0.467, 0.467, 0.467]
     }
   }
 }
@@ -169,7 +171,7 @@ The optional **`$extensions`** property is an object where tools MAY add proprie
     "$type": "color",
     "$value": {
       "colorSpace": "srgb",
-      "components": [119, 119, 119]
+      "components": [0.467, 0.467, 0.467]
     },
     "$extensions": {
       "org.example.tool-a": 42,

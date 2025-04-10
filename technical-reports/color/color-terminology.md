@@ -1,6 +1,6 @@
 # Color terminology
 
-This section provides a high-level overview of the terminology used in the specification and how it relates to color science.
+This section provides a high-level overview of the terminology used in the specification and how it relates to [color science](https://en.wikipedia.org/wiki/Color_science) and [colorimetry](https://en.wikipedia.org/wiki/Colorimetry).
 
 <dfn>Color space<dfn>
 
@@ -32,7 +32,7 @@ Lightness is the perceived brightness of a color. It describes how light or dark
 
 <dfn>Chroma<dfn>
 
-Chroma refers to the colorfulness of a color relative to the brightness of a similarly illuminated white. It measures how pure or intense a color appears. In the CIE LCh° color space (Lightness, Chroma, Hue), Chroma is independent of lightness and expresses how far a color is from neutral gray along the chromatic axis.
+Chroma refers to the colorfulness of a color relative to the brightness of a similarly illuminated white. It measures how pure or intense a color appears. In the CIE LCH color model (Lightness, Chroma, Hue), Chroma is independent of lightness and expresses how far a color is from neutral gray along the chromatic axis.
 
 <dfn>Alpha<dfn>
 

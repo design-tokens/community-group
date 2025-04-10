@@ -236,7 +236,7 @@ Represents a border style. The `$type` property MUST be set to the string `borde
           "$type": "color",
           "$value": {
             "colorSpace": "srgb",
-            "components": [54, 54, 54]
+            "components": [0.218, 0.218, 0.218]
           }
         },
         "width": {
@@ -431,7 +431,7 @@ If there are no stops at the very beginning or end of the gradient axis (i.e. wi
           "$type": "color",
           "$value": {
             "colorSpace": "srgb",
-            "components": [0, 0, 255],
+            "components": [0, 0, 1],
           }
         },
         "position": 0
@@ -441,7 +441,7 @@ If there are no stops at the very beginning or end of the gradient axis (i.e. wi
           "$type": "color",
           "$value": {
             "colorSpace": "srgb",
-            "components": [255, 0, 0],
+            "components": [1, 0, 0],
           }
         }
         "position": 1
@@ -469,7 +469,7 @@ Describes a gradient that goes from blue to red:
           "$type": "color",
           "$value": {
             "colorSpace": "srgb",
-            "components": [255, 255, 0]
+            "components": [1, 1, 0]
           }
         },
         "position": 0.666
@@ -479,7 +479,7 @@ Describes a gradient that goes from blue to red:
           "$type": "color",
           "$value": {
             "colorSpace": "srgb",
-            "components": [255, 0, 0]
+            "components": [1, 0, 0]
           }
         },
         "position": 1
@@ -503,7 +503,7 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
     "$type": "color",
     "$value": {
       "colorSpace": "srgb",
-      "components": [0, 255, 102]
+      "components": [0, 1, 0.4]
     }
   },
 
