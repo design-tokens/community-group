@@ -96,9 +96,8 @@ While both examples will render as white, the first example is more explicit abo
 
 The following values are supported for the `colorSpace` property. The `components` array will vary depending on the color space.
 
-<aside class="note", title="Syntax for expressing ranges">
+<aside class="ednote" title="Syntax for expressing ranges">
 <p>
-
 In this table, brackets `[]` indicate that an extrema are included, parentheses `()` indicate that the [extrema](https://en.wikipedia.org/wiki/Maximum_and_minimum) are excluded. For example, in the HSL color space, [hue is in the range of \[0 - 360\)](https://www.w3.org/TR/css-color-4/#hue-syntax), which means that `0` MAY be used but `360` MUST NOT be used.
 
 </p>
@@ -332,15 +331,15 @@ In this table, brackets `[]` indicate that an extrema are included, parentheses 
   <span><span id="fn-4">‡</span> In OKLCH, Chroma is unbounded but in practice doesn't exceed 0.5</span>
 </div>
 
-<aside class="note" title="Precision in examples">
+<aside class="ednote" title="Precision in examples">
 <p>The examples below have varying degrees of precision (i.e. numbers after the decimal). This is done to ensure that the 'fallback' color is exactly the same as the defined color when converted to HEX. In practice, the numbers used to define each component can have any degree of precision.</p>
 </aside>
 
-<aside class="note" title="Optional values in examples">
+<aside class="ednote" title="Optional values in examples">
 <p>The examples below are given with all optional values (alpha, hex) included for the purpose of completness. Defining the alpha property for fully-opaque colors is not required, see [[[#format]]].</p>
 </aside>
 
-<aside class="note" title="How does this conform to CSS Color Module 4?">
+<aside class="ednote" title="How does this conform to CSS Color Module 4?">
 <p>To provide a logically consistent approach without creating ambiguity around the format, this spec takes the following approach:</p>
 <ul> 
 <li>If CSS Color Module 4 allows a color space to be referenced by **both** a named function (like `srgb()`) **and** a keyword in the `color()` function, use the format intended for the `color()` function.</li>

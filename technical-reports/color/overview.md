@@ -4,7 +4,7 @@ Color tokens can be used to represent colors in different color spaces. Colors r
 
 Generally speaking, this module uses [[[css-color-4]]] for reference to concepts and terminology. [[[css-color-4]]] is a W3C Working Draft and is not a final specification. It is subject to change and may not be implemented in all browsers or platforms.
 
-<aside class="note" title="Why CSS Color Module Level 4?">
+<aside class="ednote" title="Why CSS Color Module Level 4?">
 <p>Color is a complex topic. [[[css-color-4]]] provides a comprehensive baseline:</p>
 <ul> 
 <li>It provides a definition of common color spaces, including gamuts and component coordinates</li>
