@@ -46,7 +46,7 @@ The `$value` property can then be used to specify the details of the color, The 
 
 When specifying a color in some color spaces, a value of `0` could be ambiguous. For example, in the HSL color space, colors with a [=hue=] of `0` are red; while a single color like `hsl(0, 0, 50)` would not be rendered as red, it may be treated as a completely desaturated red when interpolated with other colors. Therefore, in certain color spaces, `0` is insufficient to indicate that there is no value for a given component.
 
-[[[css-color-4]]] has introduced the `none` keyword to indicate that a component is missing, or not applicable. For example, in the HSL color space, the `none` keyword may be used to indicate that there is no angle value for the color; a color with a hue value of `none` MAY be rendered differently from a color with a hue angle of 0, or result in different colors when [interpolating](https://www.w3.org/TR/css-color-4/#interpolation-missing).
+[[[css-color-4]]] has introduced the `none` keyword to indicate that a component is missing, or not applicable. For example, in the HSL color space, the `none` keyword may be used to indicate that there is no angle value for the color; a color with a hue value of `none` MAY be rendered differently from a color with a hue angle of `0`, or result in different colors when [interpolating](https://www.w3.org/TR/css-color-4/#interpolation-missing).
 
 #### Using the `none` keyword
 
@@ -70,7 +70,7 @@ The `none` keyword MAY be used in the `components` array to indicate that a comp
 
 </aside>
 
-Contrast this with the following example where the Hue is specified as 0:
+Contrast this with the following example where the Hue is specified as `0`:
 
 <aside class="example">
 
@@ -90,7 +90,7 @@ Contrast this with the following example where the Hue is specified as 0:
 
 </aside>
 
-While both examples will render as white, the first example is more explicit about the fact that the hue is not applicable. This is important when interpolating between colors or mixing colors, as using each color in a can yield different results.
+While both examples will render as white, the first example is more explicit about the fact that the hue is not applicable. This is important when interpolating between colors or mixing colors, where using colors with components of `0` or `none` can yield different results.
 
 ## Supported Color spaces
 
@@ -486,8 +486,8 @@ CIELAB is a color space that is designed to be perceptually uniform.
 `[L, A, B]`
 
 - L: A number between `0` and `100` representing the percentage of lightness of the color.
-- A: A signed number between representing the green-red axis of the color.
-- B: A signed number between representing the blue-yellow axis of the color.
+- A: A signed number representing the green-red axis of the color.
+- B: A signed number representing the blue-yellow axis of the color.
 
 A and B are theoretically unbounded, but in practice don't exceed -160 to 160.
 
@@ -554,8 +554,8 @@ OKLAB is a perceptually uniform [=color space=] that is designed to be more accu
 `[L, A, B]`
 
 - L: A number between `0` and `1` representing the lightness of the color.
-- A: A signed number between representing the green-red axis of the color.
-- B: A signed number between representing the blue-yellow axis of the color.
+- A: A signed number representing the green-red axis of the color.
+- B: A signed number representing the blue-yellow axis of the color.
 
 Like in CIELAB, A and B are theoretically unbounded, but in practice don't exceed -0.5 to 0.5.
 
@@ -808,4 +808,4 @@ For more information on the XYZ-D50 color space, see [[[COLORIMETRY]]].
 
 ## Future color space support
 
-Future versions of this spec MAY add support for additional color spaces, depending on adoption and support in design tools.
+Future versions of this spec may add support for additional color spaces, depending on adoption and support in design tools.

@@ -6,7 +6,7 @@ There are 3 main categories of design tokens that we will continue to reference 
 
 ### Base
 
-Base tokens are the lowest level tokens and typically consist of a name and [hexadecimal](https://www.w3.org/TR/css-color-4/#hex-notation) value pair.
+Base tokens are the lowest level tokens.
 
 <aside class="example">
 
@@ -308,7 +308,7 @@ For **Alias Tokens**, we recommend grouping tokens with similar intentions by pr
 
 We recommend avoiding abbreviations. For example, use “background” instead of “bg”, to help with clarity.
 
-Here’s how alias tokens MAY be represented:
+Here’s how alias tokens may be represented:
 
 <aside class="example">
 
