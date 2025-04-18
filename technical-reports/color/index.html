@@ -15,17 +15,18 @@
         latestVersion: null,
         edDraftURI: null,
         editors: [
-          { name: 'Adekunle Oduye', url: 'http://twitter.com/adekunleoduye' },
+          { name: 'Adekunle Oduye', url: 'https://www.adekunleoduye.com/' },
           {
             name: 'Ayesha Mazrana (Mazumdar)',
-            url: 'https://twitter.com/AyeshaKMaz',
+            url: ' https://github.com/ayeshakmaz',
           },
-          { name: 'Kathleen McMahon', url: 'https://twitter.com/resource11' },
+          { name: 'Kathleen McMahon', url: 'https://kathleenmcmahon.dev' },
+          { name: 'Matt Ström-Awn', url: 'https://matthewstrom.com' },
         ],
 
         github: {
           repoURL: 'https://github.com/design-tokens/community-group',
-          branch: 'color',
+          branch: 'color-first-draft',
         },
         tocIntroductory: true,
       };
@@ -35,12 +36,14 @@
         /* Remove watermark negatively impacting readability */
         --unofficial-watermark: none !important;
       }
+
       .rfc2119 {
         font-style: normal;
         font-size: 0.875em;
       }
     </style>
   </head>
+
   <body>
     <p class="copyright remove"></p>
 
@@ -76,16 +79,38 @@
     <section id="introduction">
       <h1>Introduction</h1>
 
-      <p>
-        <em>This section is non normative</em>
-      </p>
-
-      <p>Work in progress.</p>
+      <section
+        data-include="./overview.md"
+        data-include-format="markdown"
+      ></section>
     </section>
+
+    <section
+      data-include="./color-terminology.md"
+      data-include-format="markdown"
+    ></section>
 
     <section
       data-include="./color-type.md"
       data-include-format="markdown"
+    ></section>
+
+    <section
+      data-include="./gamut-mapping.md"
+      data-include-format="markdown"
+      class="informative"
+    ></section>
+
+    <section
+      data-include="./interpolation.md"
+      data-include-format="markdown"
+      class="informative"
+    ></section>
+
+    <section
+      data-include="./token-naming.md"
+      data-include-format="markdown"
+      class="informative"
     ></section>
 
     <section class="appendix" id="issue-summary"></section>
