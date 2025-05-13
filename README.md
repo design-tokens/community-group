@@ -90,6 +90,18 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [zeroheight](https://www.zeroheight.com)
 - ex-contributors to [Theo](https://github.com/salesforce-ux/theo) (by Salesforce)
 
+## Versions
+
+Here's an overview of all of the published versions of this draft specification:
+
+| name            | url                                      | date       |
+| --------------- | ---------------------------------------- | ---------- |
+| editors-draft/1 | first-editors-draft.tr.designtokens.org  | 2021-09-23 |
+| editors-draft/2 | second-editors-draft.tr.designtokens.org | 2022-06-14 |
+| living-draft    | tr.designtokens.org                      | 2025-04-18 |
+
+> Note: tools can use the date as a version number to signify compliance. For example: `20250418`.
+
 ## Contributing
 
 See [CONTRIBUTING.md](https://github.com/design-tokens/community-group/blob/main/CONTRIBUTING.md).
