@@ -6,7 +6,7 @@ This is the official DTCG repository for the design tokens specification ([W3C c
 
 Design tokens are indivisible pieces of a design system such as colors, spacing, typography scale.
 
-Design tokens were created by the Salesforce design system team, and the name comes from them ([Jon](https://twitter.com/jonnyl) & [Jina](https://twitter.com/jina)).
+Design tokens were created by the Salesforce design system team, and the name comes from them ([Jon](https://x.com/jonnyl) & [Jina](https://x.com/jina)).
 
 ## Goal of the DTCG
 
@@ -99,4 +99,4 @@ See [CONTRIBUTING.md](https://github.com/design-tokens/community-group/blob/main
 We acknowledge that the format specification is only part of an ecosystem, supporting methods and practices that relate to scaling design tokens:
 
 > Design Tokens are a methodology. IMHO, saying "design tokens are just variables" is like saying "responsive design is just media queries". It's a technology-agnostic architecture and process for scaling design across multiple platforms and devices, including native, and more.
-> — [@jina on Twitter](https://twitter.com/jina/status/1062808011301965825)
+> — [@jina on X](https://x.com/jina/status/1062808011301965825)
