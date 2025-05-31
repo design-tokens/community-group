@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.3.0">
+<meta name="generator" content="ReSpec 35.4.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 dfn{cursor:pointer}
@@ -44,7 +44,7 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
-cite .bibref{font-style:normal}
+cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
@@ -102,40 +102,52 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 <script id="initialUserConfig" type="application/json">{
   "specStatus": "base",
   "latestVersion": "https://tr.designtokens.org/",
+  "prevED": "https://second-editors-draft.tr.designtokens.org/",
   "edDraftURI": null,
   "editors": [
     {
-      "name": "Adekunle Oduye"
+      "name": "Adekunle Oduye",
+      "url": "https://www.adekunleoduye.com"
     },
     {
-      "name": "Ayesha Mazumdar"
+      "name": "Ayesha Mazrana (Mazumdar)",
+      "url": "https://x.com/AyeshaKMaz"
     },
     {
-      "name": "Donna Vitan"
+      "name": "Donna Vitan",
+      "url": "https://www.donnavitan.com"
     },
     {
-      "name": "James Nash"
+      "name": "James Nash",
+      "url": "https://cirrus.twiddles.com"
     },
     {
-      "name": "Johan Stromqvist"
+      "name": "Johan Stromqvist",
+      "url": "https://x.com/stromqvist"
     },
     {
-      "name": "Kathleen McMahon"
+      "name": "Kathleen McMahon",
+      "url": "https://kathleenmcmahon.dev"
     },
     {
-      "name": "Kevin Powell"
+      "name": "Kevin Powell",
+      "url": "https://x.com/kevinmpowell"
     },
     {
-      "name": "Louis Chenais"
+      "name": "Louis Chenais",
+      "url": "https://bsky.app/profile/lucho.cool"
     },
     {
-      "name": "Matt Felten"
+      "name": "Matt Felten",
+      "url": "https://mattfelten.com"
     },
     {
-      "name": "Val Head"
+      "name": "Matthew Ström",
+      "url": "https://matthewstrom.com"
     },
     {
-      "name": "Matt Ström-Awn"
+      "name": "Val Head",
+      "url": "https://valhead.com"
     }
   ],
   "github": {
@@ -153,8 +165,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "dtcg-logo"
     }
   ],
-  "publishISODate": "2025-04-18T00:00:00.000Z",
-  "generatedSubtitle": "18 April 2025"
+  "publishISODate": "2025-05-31T00:00:00.000Z",
+  "generatedSubtitle": "31 May 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/base.css"></head>
 
@@ -162,7 +174,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <p class="logos"><a class="logo" href="https://www.designtokens.org"><img crossorigin="" alt="Design Tokens Community Group" height="128" id="dtcg-logo" src="/logo_128_2x.png" width="128">
   </a></p>
     <h1 id="title" class="title">Design Tokens Technical Reports</h1> 
-    <p id="w3c-state"> <time class="dt-published" datetime="2025-04-18">18 April 2025</time></p>
+    <p id="w3c-state"> <time class="dt-published" datetime="2025-05-31">31 May 2025</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
@@ -176,31 +188,31 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                   </dd>
         
         
-        
+        <dt>Previous editor's draft:</dt><dd><a href="https://second-editors-draft.tr.designtokens.org/">https://second-editors-draft.tr.designtokens.org/</a></dd>
         
         
         <dt>Editors:</dt><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Adekunle Oduye</span>
+    <a class="u-url url p-name fn" href="https://www.adekunleoduye.com">Adekunle Oduye</a>
   </dd><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Ayesha Mazumdar</span>
+    <a class="u-url url p-name fn" href="https://x.com/AyeshaKMaz">Ayesha Mazrana (Mazumdar)</a>
   </dd><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Donna Vitan</span>
+    <a class="u-url url p-name fn" href="https://www.donnavitan.com">Donna Vitan</a>
   </dd><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">James Nash</span>
+    <a class="u-url url p-name fn" href="https://cirrus.twiddles.com">James Nash</a>
   </dd><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Johan Stromqvist</span>
+    <a class="u-url url p-name fn" href="https://x.com/stromqvist">Johan Stromqvist</a>
   </dd><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Kathleen McMahon</span>
+    <a class="u-url url p-name fn" href="https://kathleenmcmahon.dev">Kathleen McMahon</a>
   </dd><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Kevin Powell</span>
+    <a class="u-url url p-name fn" href="https://x.com/kevinmpowell">Kevin Powell</a>
   </dd><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Louis Chenais</span>
+    <a class="u-url url p-name fn" href="https://bsky.app/profile/lucho.cool">Louis Chenais</a>
   </dd><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Matt Felten</span>
+    <a class="u-url url p-name fn" href="https://mattfelten.com">Matt Felten</a>
   </dd><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Val Head</span>
+    <a class="u-url url p-name fn" href="https://matthewstrom.com">Matthew Ström</a>
   </dd><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Matt Ström-Awn</span>
+    <a class="u-url url p-name fn" href="https://valhead.com">Val Head</a>
   </dd>
         
         
@@ -228,8 +240,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
       <p>
         Design tokens were created by the Salesforce design system team, and the
-        name comes from them (<a href="https://twitter.com/jonnyl">Jon</a> &amp;
-        <a href="https://twitter.com/jina">Jina</a>).
+        name comes from them (<a href="https://x.com/jonnyl">Jon</a> &amp;
+        <a href="https://x.com/jina">Jina</a>).
       </p>
     </section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#modules"><bdi class="secno">1. </bdi>Modules</a></li><li class="tocline"><a class="tocxref" href="#resources"><bdi class="secno">2. </bdi>Resources</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">A. </bdi>Acknowledgements</a></li></ol></nav>
     <section id="modules"><div class="header-wrapper"><h2 id="x1-modules"><bdi class="secno">1. </bdi>Modules</h2><a class="self-link" href="#modules" aria-label="Permalink for Section 1."></a></div>
@@ -253,7 +265,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       
       <p>
         We'd also like to thank the following contributors:
-        <span id="gh-contributors">Abhishek Warokar, Adam Stankiewicz, Ale Muñoz, Asher, Benjamin Kindle, Bjørn Madsen, Chase McCoy, Dale Sande, Daniel Flynn, Daniel Rinehart, Dominique Hazael-Massieux, Drew Powers, Evan Lovely, Fabian Friedl, Guilherme Nagüeva, Guy Lepage, Ivan Maksimovic, Jan Toman, Jina Anne, Jon Levine, Kaelig Deloumeau-Prigent, Kilian Valkhof, KLS, Laurent Thiebault, Lukas Oppermann, Marcos Castro, Mark Tomlinson, Mike Kamminga, Miriam Suzanne, Namık Özgür Aydın, Pavel Laptev, Pavel Vostrikov, Red Huang, Rob Eisenberg, Robin, Roman Komarov, Salem Cobalt, Sébastien Barbieri, Sigurd Fosseng, and Zhihao Cui</span>.
+        <span id="gh-contributors">Abhishek Warokar, Adam Stankiewicz, Ale Muñoz, Asher, Benjamin Kindle, Bjørn Madsen, Chase McCoy, Dale Sande, Daniel Flynn, Daniel Rinehart, Dominique Hazael-Massieux, Drew Powers, Evan Lovely, Fabian Friedl, Guilherme Nagüeva, Guy Lepage, Ivan Maksimovic, Jan Toman, Jina Anne, Jon Levine, Joren Broekema, Kaelig Deloumeau-Prigent, Kilian Valkhof, KLS, Laurent Thiebault, Lukas Oppermann, Marcos Castro, Mark Tomlinson, Mike Kamminga, Miriam Suzanne, Namık Özgür Aydın, Pavel Laptev, Pavel Vostrikov, Red Huang, Rob Eisenberg, Robin, Roman Komarov, Salem Cobalt, Sébastien Barbieri, Sigurd Fosseng, and Zhihao Cui</span>.
       </p>
     </section>
   
