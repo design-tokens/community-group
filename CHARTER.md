@@ -2,8 +2,8 @@
 
 [Document based off of this template](https://w3c.github.io/cg-charter/CGCharter.html)
 
-Start Date: Sep 2, 2019  
-Last Modifed: Sep 2, 2019  
+Start Date: Sep 2, 2019
+Last Modifed: Sep 2, 2019
 W3C page: <https://www.w3.org/community/design-tokens/>
 
 The DTCG's goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.
@@ -47,7 +47,7 @@ The group MAY produce test suites to support the Specifications. Please see the 
 
 The group operates under the [Community and Business Group Process](https://www.w3.org/community/about/agreements/). Terms in this Charter that conflict with those of the Community and Business Group Process are void.
 
-As with other Community Groups, W3C seeks organizational licensing commitments under the [W3C Community Contributor License Agreement (CLA)](http://www.w3.org/community/about/agreements/cla/). When people request to participate without representing their organization's legal interests, W3C will in general approve those requests for this group with the following understanding: W3C will seek and expect an organizational commitment under the CLA starting with the individual's first request to make a contribution to a group [Deliverable](#deliverables). The section on [Contribution Mechanics](#contrib) describes how W3C expects to monitor these contribution requests.
+As with other Community Groups, W3C seeks organizational licensing commitments under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). When people request to participate without representing their organization's legal interests, W3C will in general approve those requests for this group with the following understanding: W3C will seek and expect an organizational commitment under the CLA starting with the individual's first request to make a contribution to a group [Deliverable](#deliverables). The section on [Contribution Mechanics](#contrib) describes how W3C expects to monitor these contribution requests.
 
 The [W3C Code of Ethics and Professional Conduct](https://www.w3.org/Consortium/cepc/) applies to participation in this group.
 
@@ -57,9 +57,9 @@ The group will not publish Specifications on topics other than those listed unde
 
 ## Contribution Mechanics<a name="contrib"></a>
 
-Substantive Contributions to Specifications can only be made by Community Group Participants who have agreed to the [W3C Community Contributor License Agreement (CLA)](http://www.w3.org/community/about/agreements/cla/).
+Substantive Contributions to Specifications can only be made by Community Group Participants who have agreed to the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/).
 
-Specifications created in the Community Group must use the [W3C Software and Document License](http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document). All other documents produced by the group should use that License where possible.
+Specifications created in the Community Group must use the [W3C Software and Document License](https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document). All other documents produced by the group should use that License where possible.
 
 Community Group participants agree to make all contributions in the GitHub repo the group is using for the particular document. This may be in the form of a pull request (preferred), by raising an issue, or by adding a comment to an existing issue.
 
