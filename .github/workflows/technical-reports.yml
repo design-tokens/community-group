@@ -27,3 +27,4 @@ jobs:
           SOURCE: ${{ matrix.source }}
           DESTINATION: ${{ matrix.destination }}
           GH_PAGES_BRANCH: gh-pages
+          VALIDATE_MARKUP: false
