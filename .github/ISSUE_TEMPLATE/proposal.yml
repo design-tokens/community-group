@@ -25,8 +25,6 @@ body:
     attributes:
       label: Problem & motivation
       description: In detail, what are the problem(s) you’re attempting to solve, either in your own design system or with the current specification syntax? List specific examples of how the current syntax doesn’t meet your needs.
-    validations:
-      required: true
   - type: textarea
     id: syntax
     attributes:
@@ -40,22 +38,16 @@ body:
     attributes:
       label: Prior art
       description: List prior art—any relevant technical specifications, books, blog posts, conference talks from experts on the subject.
-    validations:
-      required: true
   - type: textarea
     id: pros_cons
     attributes:
       label: Pros & cons
       description: What are the pros and cons of the change? If this is a backwards compatible change, list it as a “pro,” otherwise, list it as a “con.”
-    validations:
-      required: true
   - type: textarea
     id: alternatives
     attributes:
       label: Alternatives
       description: What are alternate proposals that may address the same problem? If this is not backwards compatible, what could a backwards compatible version look like? For each, describe why it’s not considered.
-    validations:
-      required: true
   - type: checkboxes
     id: required_checks
     attributes:

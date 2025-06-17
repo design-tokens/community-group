@@ -26,8 +26,6 @@ body:
     attributes:
       label: Suggested fix
       description: What’s the suggested fix here?
-    validations:
-      required: true
   - type: checkboxes
     id: required_checks
     attributes:
