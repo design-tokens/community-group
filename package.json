@@ -1,37 +1,30 @@
 {
-  "name": "design-tokens-community-group",
+  "name": "@dtcg/monorepo",
+  "private": true,
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/design-tokens/community-group.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/design-tokens/community-group.git"
+  },
   "author": "DTCG and Contributors",
   "license": "SEE LICENSE.md",
-  "private": true,
-  "devDependencies": {
-    "husky": "^9.1.4",
-    "lint-staged": "^15.2.9",
-    "live-server": "^1.2.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^3.3.3",
-    "respec": "^35.1.1"
-  },
+  "packageManager": "pnpm@10.12.1",
   "scripts": {
-    "lint": "prettier '**/*.{md,yml,json,html}' --check --config ./.prettierrc.json",
-    "validate:index": "respec --localhost technical-reports/index.html --haltonerror --haltonwarn",
-    "validate:format": "respec --localhost technical-reports/format/index.html --haltonerror --haltonwarn",
-    "validate": "npm run validate:index && npm run validate:format",
-    "dev": "live-server --cors technical-reports",
+    "build": "pnpm --filter @dtcg/www run build",
+    "dev": "pnpm --filter @dtcg/www run dev",
+    "lint": "pnpm --recursive --parallel --stream --if-present run lint",
+    "format": "pnpm --recursive --parallel --stream --if-present run format",
     "prepare": "husky",
-    "build": "npm-run-all \"build:*\"",
-    "build:index": "respec technical-reports/index.html technical-reports/index.html --localhost --disable-sandbox",
-    "build:format": "respec technical-reports/format/index.html technical-reports/format/index.html --localhost --disable-sandbox"
+    "install-browsers": "puppeteer browsers install chrome@137"
   },
   "lint-staged": {
     "*.{md,yml,json,html}": "prettier --write"
   },
-  "overrides": {
-    "colors": "1.4.0"
-  },
-  "resolutions": {
-    "colors": "1.4.0"
+  "devDependencies": {
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.9",
+    "live-server": "^1.2.0",
+    "prettier": "^3.5.3",
+    "puppeteer": "^24.10.2"
   }
 }
