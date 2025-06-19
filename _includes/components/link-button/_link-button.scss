@@ -1,0 +1,40 @@
+.link-button {
+	@include button;
+
+	&.primary {
+		background: rgba($color-background-strong, 0.25);
+
+		@include dark-mode {
+			background: rgba($color-background-strong-inverse, 0.25);
+		}
+	}
+
+	&:hover,
+	&:focus {
+		background: rgba($color-background-strong, 0.5);
+
+		@include dark-mode {
+			background: rgba($color-background-strong-inverse, 0.25);
+		}
+	}
+
+	&:active {
+		background: $color-background-strong;
+
+		@include dark-mode {
+			background: $color-background-strong-inverse;
+		}
+	}
+}
+
+.link-button--small-on-mobile {
+	@include mq($until: medium) {
+		font-size: $font-size-small !important;
+		padding: $spacing-base $spacing-horizontal-small;
+		margin-inline: $spacing-horizontal-small;
+	}
+}
+
+a.link-button {
+	cursor: pointer;
+}

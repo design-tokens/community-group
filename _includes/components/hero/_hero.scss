@@ -1,0 +1,38 @@
+.hero {
+	position: relative;
+	padding-right: $spacing-horizontal-large;
+	padding-left: $spacing-horizontal-large;
+	min-height: $spacing-vertical-large;
+	background: rgba(black, 0.0625);
+	color: $color-foreground-strong;
+	z-index: 1;
+	overflow: hidden;
+
+	h1 + h2 {
+	  margin-top: -$spacing-vertical-medium;
+	}
+
+	@include dark-mode {
+	  background: rgba(white, 0.03125);
+	  color: $color-foreground-strong-inverse;
+	}
+
+	&::before {
+	  @include flower-of-life(white);
+
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+	  opacity: 0.5;
+	  content: ' ';
+	  z-index: -1;
+
+	  @include dark-mode {
+		@include flower-of-life(black);
+
+		opacity: 0.25;
+	  }
+	}
+  }

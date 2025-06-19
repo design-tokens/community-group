@@ -1,0 +1,10 @@
+<nav>
+  {% set navPages = collections.all | eleventyNavigation %}
+  <ul class="list f6 f5-ns">
+    {%- for entry in navPages %}
+      <li class="dib">
+        <a href="{{ entry.url | url }}" class="link-button link-button--small-on-mobile {% if entry.url == page.url %}primary{% endif %}">{{ entry.title }}</a>
+      </li>
+    {%- endfor %}
+  </ul>
+</nav>
