@@ -84,7 +84,7 @@ Group keys without a dollar sign (`$`) prefix denote:
       "Token name": {
         "$value": {
           "colorSpace": "srgb",
-          "channels": [0, 0, 0]
+          "components": [0, 0, 0]
         }
       }
     }
@@ -102,14 +102,14 @@ Group keys without a dollar sign (`$`) prefix denote:
           "$type": "color",
           "$value": {
             "colorSpace": "srgb",
-            "channels": [0.667, 0.733, 0.8]
+            "components": [0.667, 0.733, 0.8]
           }
         },
         "Token 2 name": {
           "$type": "color",
           "$value": {
             "colorSpace": "srgb",
-            "channels": [0.867, 0.933, 1]
+            "components": [0.867, 0.933, 1]
           }
         }
       }
