@@ -1,0 +1,56 @@
+name: Proposal
+description: Suggest an addition or modification to the existing spec
+body:
+  - type: checkboxes
+    id: before_starting
+    attributes:
+      label: Before starting
+      options:
+        - label: I have searched [existing issues](https://github.com/design-tokens/community-group/issues) and there is not already an open issue on the subject.
+          required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Summarize your proposal in a few sentences.
+    validations:
+      required: true
+  - type: dropdown
+    id: versions
+    attributes:
+      label: Version
+      description: What version(s) of the spec are you using?
+      multiple: true
+      options:
+        - First Editor’s Draft
+        - Second Editor’s Draft
+        - Third Editor’s Draft
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: Problem & motivation
+      description: In detail, what problem(s) are you attempting to solve? List out all relevant JSON syntax. [GitHub markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) is supported.
+  - type: textarea
+    id: prior_art
+    attributes:
+      label: Prior art
+      description: List any relevant technical specifications, books, blog posts, conference talks from experts on the subject.
+  - type: textarea
+    id: pros_cons
+    attributes:
+      label: Pros & cons
+      description: What are the pros and cons of the change? If this is a backwards compatible change, list it as a “pro,” otherwise, list it as a “con.”
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: List out alternatives to your proposal. Why were they not considered? If this is not backwards compatible, what could a backwards compatible version look like?
+  - type: checkboxes
+    id: required_checks
+    attributes:
+      label: Required
+      options:
+        - label: I have read and agree to abide by the [CODE_OF_CONDUCT](https://github.com/design-tokens/community-group/blob/CODE_OF_CONDUCT.md)
+          required: true

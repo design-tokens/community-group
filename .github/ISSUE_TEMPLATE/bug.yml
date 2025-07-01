@@ -1,0 +1,37 @@
+name: Bug
+description: Suggest an issue or typo either in the specification, or on the website
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Problem area
+      description: What is this an issue with?
+      multiple: true
+      options:
+        - Specification
+        - designtokens.org
+        - GitHub repo
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Problem
+      description: Describe the issue in detail.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Suggested fix
+      description: What’s the suggested fix here?
+  - type: checkboxes
+    id: required_checks
+    attributes:
+      label: Required
+      options:
+        - label: I have searched [existing issues](https://github.com/design-tokens/community-group/issues) and there is not already an open issue on the subject.
+          required: true
+        - label: I have read and agree to abide by the [CODE_OF_CONDUCT](https://github.com/design-tokens/community-group/blob/CODE_OF_CONDUCT.md)
+          required: true
