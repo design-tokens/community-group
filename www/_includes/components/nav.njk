@@ -6,5 +6,8 @@
         <a href="{{ entry.url | url }}" class="link-button link-button--small-on-mobile {% if entry.url == page.url %}primary{% endif %}">{{ entry.title }}</a>
       </li>
     {%- endfor %}
+    <li class="dib">
+      <a href="/TR/drafts/" class="link-button link-button--small-on-mobile">Technical Reports</a>
+    </li>
   </ul>
 </nav>
