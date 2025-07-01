@@ -10,9 +10,9 @@
   },
   "scripts": {
     "build": "pnpm run build:index && pnpm run build:format && pnpm run build:color",
-    "build:index": "mkdir -p ../www/TR/preview && respec index.html ../www/TR/preview/index.html --localhost --disable-sandbox",
-    "build:format": "mkdir -p ../www/TR/preview && mkdir -p ../www/TR/preview/format && respec format/index.html ../www/TR/preview/format/index.html --localhost --disable-sandbox",
-    "build:color": "mkdir -p ../www/TR/preview && mkdir -p ../www/TR/preview/color && respec color/index.html ../www/TR/preview/color/index.html --localhost --disable-sandbox",
+    "build:index": "mkdir -p ../www/TR/drafts && respec index.html ../www/TR/drafts/index.html --localhost --disable-sandbox",
+    "build:format": "mkdir -p ../www/TR/drafts && mkdir -p ../www/TR/drafts/format && respec format/index.html ../www/TR/drafts/format/index.html --localhost --disable-sandbox",
+    "build:color": "mkdir -p ../www/TR/drafts && mkdir -p ../www/TR/drafts/color && respec color/index.html ../www/TR/drafts/color/index.html --localhost --disable-sandbox",
     "dev": "chokidar \"**/*.{html,md}\" -c \"pnpm run build\" -d 2000",
     "lint": "prettier . --check",
     "format": "prettier . --format --write",
