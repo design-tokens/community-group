@@ -96,7 +96,7 @@ Represents the style applied to lines or borders. The `$type` property MUST be s
 - an object value as defined in the corresponding section below
 
 <div class="issue" data-number="98" title="Stroke style type feedback">
-  Is the current specification for stroke styles fit for purpose? Does it need more sub-values (e.g. equivalents to SVG's `stroke-linejoin`, `stroke-miterlimit` and `stroke-dashoffset` attributes)? 
+  Is the current specification for stroke styles fit for purpose? Does it need more sub-values (e.g. equivalents to SVG's `stroke-linejoin`, `stroke-miterlimit` and `stroke-dashoffset` attributes)?
 </div>
 
 ### String value
@@ -245,7 +245,7 @@ Represents a animated transition between two states. The `$type` property MUST b
 
 - `duration`: The duration of the transition. The value of this property MUST be a valid [duration](#duration) value or a reference to a duration token.
 - `delay`: The time to wait before the transition begins. The value of this property MUST be a valid [duration](#duration) value or a reference to a duration token.
-- `timingFunction`: The color of the shadow. The value of this property MUST be a valid [cubic bézier](#cubic-bezier) value or a reference to a cubic bézier token.
+- `timingFunction`: The timing function of the transition. The value of this property MUST be a valid [cubic bézier](#cubic-bezier) value or a reference to a cubic bézier token.
 
 <aside class="example" title="Transition composite token examples">
 
@@ -300,7 +300,7 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
 </aside>
 
 <div class="issue" data-number="100" title="Shadow type feedback">
-  Is the current specification for shadows fit for purpose? Does it need to support multiple shadows, as some tools and platforms do? 
+  Is the current specification for shadows fit for purpose? Does it need to support multiple shadows, as some tools and platforms do?
 </div>
 
 ## Gradient
