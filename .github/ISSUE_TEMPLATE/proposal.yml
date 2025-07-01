@@ -1,6 +1,13 @@
 name: Proposal
 description: Suggest an addition or modification to the existing spec
 body:
+  - type: checkboxes
+    id: before_starting
+    attributes:
+      label: Before starting
+      options:
+        - label: I have searched [existing issues](https://github.com/design-tokens/community-group/issues) and there is not already an open issue on the subject.
+          required: true
   - type: textarea
     id: summary
     attributes:
@@ -21,23 +28,15 @@ body:
     validations:
       required: true
   - type: textarea
-    id: problem
+    id: detail
     attributes:
       label: Problem & motivation
-      description: In detail, what are the problem(s) you’re attempting to solve, either in your own design system or with the current specification syntax? List specific examples of how the current syntax doesn’t meet your needs.
-  - type: textarea
-    id: syntax
-    attributes:
-      label: Syntax
-      description: Describe the proposed syntax, in JSON format
-      render: json
-    validations:
-      required: true
+      description: In detail, what problem(s) are you attempting to solve? List out all relevant JSON syntax. [GitHub markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) is supported.
   - type: textarea
     id: prior_art
     attributes:
       label: Prior art
-      description: List prior art—any relevant technical specifications, books, blog posts, conference talks from experts on the subject.
+      description: List any relevant technical specifications, books, blog posts, conference talks from experts on the subject.
   - type: textarea
     id: pros_cons
     attributes:
@@ -47,13 +46,11 @@ body:
     id: alternatives
     attributes:
       label: Alternatives
-      description: What are alternate proposals that may address the same problem? If this is not backwards compatible, what could a backwards compatible version look like? For each, describe why it’s not considered.
+      description: List out alternatives to your proposal. Why were they not considered? If this is not backwards compatible, what could a backwards compatible version look like?
   - type: checkboxes
     id: required_checks
     attributes:
       label: Required
       options:
-        - label: I have searched [existing issues](https://github.com/design-tokens/community-group/issues) and there is not already an open issue on the subject.
-          required: true
         - label: I have read and agree to abide by the [CODE_OF_CONDUCT](https://github.com/design-tokens/community-group/blob/CODE_OF_CONDUCT.md)
           required: true
