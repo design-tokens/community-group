@@ -14,15 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/cache@v4
+      - uses: pnpm/action-setup@v4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          run_install: true
       - uses: actions/setup-node@v4
         with:
-          cache: npm
           node-version-file: .nvmrc
-      - run: npm ci
-      - run: npm run lint
+      - run: pnpm run lint

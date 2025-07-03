@@ -1,0 +1,14 @@
+$spacing-copy-separator: $spacing-base;
+$spacing-extra-small: $spacing-xsmall;
+$spacing-small: $spacing-small;
+$spacing-medium: $spacing-medium;
+$spacing-large: $spacing-large;
+$spacing-extra-large: $spacing-xlarge;
+$spacing-extra-extra-large: $spacing-xxlarge;
+$spacing-extra-extra-extra-large: $spacing-xxxlarge;
+
+$breakpoint-not-small: "screen and (min-width: #{$breakpoint-small})";
+$breakpoint-medium: "screen and (min-width: #{$breakpoint-small}) and (max-width: #{$breakpoint-large})";
+$breakpoint-large: "screen and (min-width: #{$breakpoint-large})";
+
+@import "../../../node_modules/tachyons-sass/tachyons.scss";

@@ -1,7 +1,7 @@
 # For previews, we publish an unbuilt version of the website
 [build]
-  publish = "technical-reports/"
-  command = "npx puppeteer browsers install chrome && npm run build"
+  publish = "www/_site"
+  command = "pnpm run install-browsers && pnpm run build"
 [build.processing]
   skip_processing = false
 [build.processing.css]

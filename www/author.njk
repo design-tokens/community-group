@@ -1,0 +1,54 @@
+---
+title: Author archive
+layout: layouts/base.njk
+pagination:
+  data: collections.authors
+  size: 1
+  alias: author
+permalink: "authors/{{ author | slug }}/"
+renderData:
+  author: "{{ author }}"
+  title: "Posts by {{ author }}"
+  metaDescription: "An archive of all posts by the author: {{ author }}."
+---
+
+<h1>{{ renderData.title | safe }}</h1>
+
+<section>
+	{% for post in collections.authors[author] | reverse %}
+		<article{% if post.page.url == url %} data-current="current item"{% endif %}>
+			<h3>
+				<a href="{{ post.page.url | url }}">
+					{% if post.title %}
+						{{ post.title }}
+					{% else %}
+						Untitled
+					{% endif %}
+				</a>
+			</h3>
+			{% if post.summary %}
+				<p>
+					{{ post.summary }}
+				</p>
+			{% endif %}
+			<p>
+				<time datetime="{{ post.date | machineDate }}">
+					<small>{{ post.date | readableDate }} by <a href="/authors/{{ post.author | slug }}/">{{ post.author }}</a></small>
+				</time>
+			</p>
+			{% if post.tags %}
+				<p>
+					{% for tag in post.tags %}
+		  			{%- if tag != "post" -%}
+		  				{% set tagUrl %}/tags/{{ tag }}/{% endset %}
+		  			<a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
+		  			{%- endif -%}
+					{% endfor %}
+				</p>
+			{% endif %}
+		</article>
+	{% endfor %}
+  <nav>
+    <a href="{{ '/authors/' | url }}">← Authors index</a>
+  </nav>
+</section>
