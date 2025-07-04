@@ -8,7 +8,7 @@ For color tokens, the `$type` property MUST be set to the string `color`.
 
 The `$value` property can then be used to specify the details of the color, The `$value` object contains the following properties:
 
-- `colorSpace` (required): A string that specifices the [=color space=] or [=color model=]. For supported color spaces, see the [supported color spaces](#supported-color-spaces) section below.
+- `colorSpace` (required): A string that specifies the [=color space=] or [=color model=]. For supported color spaces, see the [supported color spaces](#supported-color-spaces) section below.
 - `components` (required): An array representing the color [=components=]. The number of components depends on the color space. Each element of the array MUST be either:
   - A number
   - The 'none' keyword
@@ -336,7 +336,7 @@ In this table, brackets `[]` indicate that an extrema are included, parentheses 
 </aside>
 
 <aside class="ednote" title="Optional values in examples">
-<p>The examples below are given with all optional values (alpha, hex) included for the purpose of completness. Defining the alpha property for fully-opaque colors is not required, see [[[#format]]].</p>
+<p>The examples below are given with all optional values (alpha, hex) included for the purpose of completeness. Defining the alpha property for fully-opaque colors is not required, see [[[#format]]].</p>
 </aside>
 
 <aside class="ednote" title="How does this conform to CSS Color Module 4?">
