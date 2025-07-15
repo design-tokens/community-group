@@ -94,11 +94,11 @@ As vendors adopt the specification and new requirements appear, the community gr
 
 Here's an overview of all of the published versions of this draft specification:
 
-| name            | url                                       | date       |
-| --------------- | ----------------------------------------- | ---------- |
-| editors-draft/1 | designtokens.org/TR/first-editors-draft/  | 2021-09-23 |
-| editors-draft/2 | designtokens.org/TR/second-editors-draft/ | 2022-06-14 |
-| living-draft    | www.designtokens.org/TR/drafts/           | 2025-04-18 |
+| name            | url                                           | date       |
+| --------------- | --------------------------------------------- | ---------- |
+| editors-draft/1 | www.designtokens.org/TR/first-editors-draft/  | 2021-09-23 |
+| editors-draft/2 | www.designtokens.org/TR/second-editors-draft/ | 2022-06-14 |
+| living-draft    | www.designtokens.org/TR/drafts/               | 2025-04-18 |
 
 > Note: tools can use the date as a version number to signify compliance. For example: `20250418`.
 
