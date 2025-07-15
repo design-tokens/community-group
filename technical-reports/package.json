@@ -1,0 +1,28 @@
+{
+  "name": "@dtcg/tr",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Technical reports for the design tokens specification.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/design-tokens/community-group.git",
+    "directory": "technical-reports"
+  },
+  "scripts": {
+    "build": "pnpm run build:index && pnpm run build:format && pnpm run build:color",
+    "build:index": "mkdir -p ../www/TR/drafts && respec index.html ../www/TR/drafts/index.html --localhost --disable-sandbox",
+    "build:format": "mkdir -p ../www/TR/drafts && mkdir -p ../www/TR/drafts/format && respec format/index.html ../www/TR/drafts/format/index.html --localhost --disable-sandbox",
+    "build:color": "mkdir -p ../www/TR/drafts && mkdir -p ../www/TR/drafts/color && respec color/index.html ../www/TR/drafts/color/index.html --localhost --disable-sandbox",
+    "dev": "chokidar \"**/*.{html,md}\" -c \"pnpm run build\" -d 2000",
+    "lint": "prettier . --check",
+    "format": "prettier . --format --write",
+    "validate": "pnpm run validate:index && pnpm run validate:format",
+    "validate:index": "respec --localhost index.html --haltonerror --haltonwarn",
+    "validate:format": "respec --localhost format/index.html --haltonerror --haltonwarn"
+  },
+  "devDependencies": {
+    "chokidar": "^4.0.3",
+    "chokidar-cli": "^3.0.0",
+    "respec": "^35.4.1"
+  }
+}

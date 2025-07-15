@@ -1,41 +1,24 @@
 # DTCG Technical Reports
 
-This directory contains the source code for the [Design Token Community Group's (DTCG) technical reports](https://tr.designtokens.org/).
+This directory contains the source code for the [Design Token Community Group's (DTCG) technical reports](https://www.designtokens.org/TR/drafts/).
 
 <!-- TOC depthfrom:2 -->
 
-- [Pre-requisites](#pre-requisites)
-- [Initial setup](#initial-setup)
 - [Local previews](#local-previews)
 - [Editing](#editing)
 - [Deployments](#deployments)
 
 <!-- /TOC -->
 
-## Pre-requisites
-
-In order to preview edits locally, you will need the following installed on your machine:
-
-- [Node.js](https://nodejs.org/en/) >= 16.8
-  - If you use [`nvm`](https://github.com/nvm-sh/nvm), you can run `nvm install` to install and use the recommended version of Node.
-
-## Initial setup
-
-After cloning this repo, you need to install the dependencies:
-
-```
-npm install
-```
-
-This step does not need to be repeated unless the dependencies are changed.
-
 ## Local previews
 
-To see live previews of local edits to the technical reports run:
+To see live previews of local edits to the technical reports run (at the root of the repository):
 
 ```
-npm run dev
+pnpm run dev
 ```
+
+Open <http://localhost:8080/TR/drafts/>.
 
 ## Editing
 
@@ -54,6 +37,6 @@ For example:
 
 ## Deployments
 
-Any changes to the source files in this directory that get merged into `main` are automatically deployed to [`https://tr.designtokens.org/`](https://tr.designtokens.org/) via the [`technical-reports` GitHub Action](../.github/workflows/technical-reports.yml). They are hosted using GitHub Pages and the build output can be found in the [`gh-pages` branch](https://github.com/design-tokens/community-group/tree/gh-pages).
+Any changes to the source files in this directory that get merged into `main` are automatically deployed to [`https://www.designtokens.org/TR/drafts/`](https://www.designtokens.org/TR/drafts/) via the [`technical-reports` GitHub Action](../.github/workflows/technical-reports.yml). They are hosted using GitHub Pages and the build output can be found in the [`gh-pages` branch](https://github.com/design-tokens/community-group/tree/gh-pages).
 
 Additionally, we use Netlify to generate preview deploys for PRs. Netlify will post a comment to the PR with the URL of the preview once it is ready.
