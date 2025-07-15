@@ -43,14 +43,14 @@
   .dfn-panel li{margin-left:1em}
   .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
   </style>
-      
-      
+
+
   <title>Design Tokens Format Module</title>
-      
-      
-      
+
+
+
   <style>
-  
+
         :root {
           /* Remove watermark negatively impacting readability */
           --unofficial-watermark: none !important;
@@ -59,9 +59,9 @@
           font-style: normal;
           font-size: 0.875em;
         }
-      
+
   </style>
-    
+
   <style id="respec-mainstyle">
   @keyframes pop{
   0%{transform:scale(1,1)}
@@ -147,9 +147,9 @@
   </style>
   <script id="initialUserConfig" type="application/json">{
     "specStatus": "CG-DRAFT",
-    "thisVersion": "https://second-editors-draft.tr.designtokens.org/format/",
-    "prevVersion": "https://first-editors-draft.tr.designtokens.org/format/",
-    "latestVersion": "https://tr.designtokens.org/format/",
+    "thisVersion": "https://www.designtokens.org/TR/second-editors-draft/format/",
+    "prevVersion": "https://www.designtokens.org/TR/first-editors-draft/format/",
+    "latestVersion": "https://www.designtokens.org/TR/drafts/format/",
     "edDraftURI": null,
     "subtitle": "Second Editors’ Draft",
     "group": "design-tokens",
@@ -184,7 +184,7 @@
     "tocIntroductory": false,
     "logos": [
       {
-        "src": "/logo_128_2x.png",
+        "src": "/_includes/assets/images/logo_128_2x.png",
         "url": "https://www.designtokens.org",
         "alt": "Design Tokens Community Group",
         "width": 128,
@@ -206,16 +206,16 @@
       </p>
       <dl>
         <dt>This version:</dt><dd>
-                <a class="u-url" href="https://second-editors-draft.tr.designtokens.org/format/">https://second-editors-draft.tr.designtokens.org/format/</a>
+                <a class="u-url" href="https://www.designtokens.org/TR/second-editors-draft/format/">https://www.designtokens.org/TR/second-editors-draft/format/</a>
               </dd>
         <dt>Latest published version:</dt><dd>
-                <a href="https://tr.designtokens.org/format/">https://tr.designtokens.org/format/</a>
+                <a href="https://www.designtokens.org/TR/drafts/format/">https://www.designtokens.org/TR/drafts/format/</a>
               </dd>
-        
-        
-        
-        <dt>Previous version:</dt><dd><a href="https://first-editors-draft.tr.designtokens.org/format/">https://first-editors-draft.tr.designtokens.org/format/</a></dd>
-        
+
+
+
+        <dt>Previous version:</dt><dd><a href="https://www.designtokens.org/TR/first-editors-draft/format/">https://www.designtokens.org/TR/first-editors-draft/format/</a></dd>
+
         <dt>Editors:</dt><dd class="editor p-author h-card vcard">
       <a class="u-url url p-name fn" href="https://twitter.com/dbanksDesign">Daniel Banks</a>
     </dd><dd class="editor p-author h-card vcard">
@@ -227,8 +227,8 @@
     </dd><dd class="editor p-author h-card vcard">
       <a class="u-url url p-name fn" href="https://twitter.com/chuckn0risk">Louis Chenais</a>
     </dd>
-        
-        
+
+
         <dt>Feedback:</dt><dd>
           <a href="https://github.com/design-tokens/community-group/">GitHub design-tokens/community-group</a>
           (<a href="https://github.com/design-tokens/community-group/pulls/">pull requests</a>,
@@ -236,28 +236,28 @@
           <a href="https://github.com/design-tokens/community-group/issues/">open issues</a>)
         </dd>
       </dl>
-      
-      
+
+
       <hr title="Separator for header">
     </div>
-      
-  
+
+
       <section id="abstract" class="introductory"><h2>Abstract</h2>
         <p>
           This document describes the technical specification for a file format to
           exchange design tokens between different tools.
         </p>
       </section>
-  
+
       <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>
         This specification was published by the
         <a href="https://www.w3.org/groups/cg/design-tokens">Design Tokens Community Group</a>. It is not a W3C Standard nor is it
         on the W3C Standards Track.
-        
+
               Please note that under the
               <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
               there is a limited opt-out and other conditions apply.
-            
+
         Learn more about
         <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
       </p>
@@ -278,10 +278,10 @@
       <p>
       <a href="https://github.com/design-tokens/community-group/issues/">GitHub Issues</a> are preferred for
             discussion of this specification.
-          
-      
+
+
     </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">2. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">3. </bdi>Terminology</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#design-token"><bdi class="secno">3.1 </bdi>(Design) Token</a></li><li class="tocline"><a class="tocxref" href="#design-token-properties"><bdi class="secno">3.2 </bdi>(Design) Token Properties</a></li><li class="tocline"><a class="tocxref" href="#design-tool"><bdi class="secno">3.3 </bdi><span data-plurals="design tools">Design tool</span></a></li><li class="tocline"><a class="tocxref" href="#translation-tool"><bdi class="secno">3.4 </bdi><span data-plurals="translation tools">Translation tool</span></a></li><li class="tocline"><a class="tocxref" href="#type"><bdi class="secno">3.5 </bdi>Type</a></li><li class="tocline"><a class="tocxref" href="#groups"><bdi class="secno">3.6 </bdi>Groups</a></li><li class="tocline"><a class="tocxref" href="#alias-reference"><bdi class="secno">3.7 </bdi>Alias (Reference)</a></li><li class="tocline"><a class="tocxref" href="#composite-design-token"><bdi class="secno">3.8 </bdi>Composite (Design) Token</a></li></ol></li><li class="tocline"><a class="tocxref" href="#file-format"><bdi class="secno">4. </bdi>File format</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#media-type-mime-type"><bdi class="secno">4.1 </bdi>Media type (MIME type)</a></li><li class="tocline"><a class="tocxref" href="#file-extensions"><bdi class="secno">4.2 </bdi>File extensions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#design-token-0"><bdi class="secno">5. </bdi>Design token</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#name-and-value"><bdi class="secno">5.1 </bdi>Name and value</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#character-restrictions"><bdi class="secno">5.1.1 </bdi>Character restrictions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#additional-properties"><bdi class="secno">5.2 </bdi>Additional properties</a></li><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">5.3 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#type-0"><bdi class="secno">5.4 </bdi>Type</a></li><li class="tocline"><a class="tocxref" href="#extensions"><bdi class="secno">5.5 </bdi>Extensions</a></li><li class="tocline"><a class="tocxref" href="#more-token-properties-tbc"><bdi class="secno">5.6 </bdi>More token properties TBC</a></li></ol></li><li class="tocline"><a class="tocxref" href="#groups-0"><bdi class="secno">6. </bdi>Groups</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#additional-group-properties"><bdi class="secno">6.1 </bdi>Additional group properties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">6.1.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#type-1"><bdi class="secno">6.1.2 </bdi>Type</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">6.2 </bdi>Use-cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#file-authoring-organization"><bdi class="secno">6.2.1 </bdi>File authoring &amp; organization</a></li><li class="tocline"><a class="tocxref" href="#gui-tools"><bdi class="secno">6.2.2 </bdi>GUI tools</a></li><li class="tocline"><a class="tocxref" href="#export-tools"><bdi class="secno">6.2.3 </bdi>Export tools</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#aliases-references"><bdi class="secno">7. </bdi>Aliases / references</a></li><li class="tocline"><a class="tocxref" href="#types"><bdi class="secno">8. </bdi>Types</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#color"><bdi class="secno">8.1 </bdi>Color</a></li><li class="tocline"><a class="tocxref" href="#dimension"><bdi class="secno">8.2 </bdi>Dimension</a></li><li class="tocline"><a class="tocxref" href="#font-family"><bdi class="secno">8.3 </bdi>Font family</a></li><li class="tocline"><a class="tocxref" href="#font-weight"><bdi class="secno">8.4 </bdi>Font weight</a></li><li class="tocline"><a class="tocxref" href="#duration"><bdi class="secno">8.5 </bdi>Duration</a></li><li class="tocline"><a class="tocxref" href="#cubic-bezier"><bdi class="secno">8.6 </bdi>Cubic Bézier</a></li><li class="tocline"><a class="tocxref" href="#additional-types"><bdi class="secno">8.7 </bdi>Additional types</a></li></ol></li><li class="tocline"><a class="tocxref" href="#composite-types"><bdi class="secno">9. </bdi>Composite types</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#groups-versus-composite-tokens"><bdi class="secno">9.1 </bdi>Groups versus composite tokens</a></li><li class="tocline"><a class="tocxref" href="#stroke-style"><bdi class="secno">9.2 </bdi>Stroke style</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#string-value"><bdi class="secno">9.2.1 </bdi>String value</a></li><li class="tocline"><a class="tocxref" href="#object-value"><bdi class="secno">9.2.2 </bdi>Object value</a></li><li class="tocline"><a class="tocxref" href="#fallbacks"><bdi class="secno">9.2.3 </bdi>Fallbacks</a></li></ol></li><li class="tocline"><a class="tocxref" href="#border"><bdi class="secno">9.3 </bdi>Border</a></li><li class="tocline"><a class="tocxref" href="#transition"><bdi class="secno">9.4 </bdi>Transition</a></li><li class="tocline"><a class="tocxref" href="#shadow"><bdi class="secno">9.5 </bdi>Shadow</a></li><li class="tocline"><a class="tocxref" href="#gradient"><bdi class="secno">9.6 </bdi>Gradient</a></li><li class="tocline"><a class="tocxref" href="#typography"><bdi class="secno">9.7 </bdi>Typography</a></li></ol></li><li class="tocline"><a class="tocxref" href="#issue-summary"><bdi class="secno">A. </bdi>Issue summary</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">B.1 </bdi>Normative references</a></li></ol></li></ol></nav>
-  
+
       <section id="conformance"><div class="header-wrapper"><h2 id="x1-conformance"><bdi class="secno">1. </bdi>Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 1."></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
           The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, <em class="rfc2119">MUST NOT</em>, <em class="rfc2119">SHOULD</em>, and <em class="rfc2119">SHOULD NOT</em> in this document
           are to be interpreted as described in
@@ -289,10 +289,10 @@
           [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
           when, and only when, they appear in all capitals, as shown here.
         </p></section>
-  
+
       <section id="introduction"><div class="header-wrapper"><h2 id="x2-introduction"><bdi class="secno">2. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 2."></a></div>
-        
-  
+
+
         <p>
           <em>This section is non normative</em>
         </p>
@@ -352,7 +352,7 @@
           token data.
         </p>
       </section>
-  
+
       <section id="terminology"><div class="header-wrapper"><h2 id="x3-terminology"><bdi class="secno">3. </bdi>Terminology</h2><a class="self-link" href="#terminology" aria-label="Permalink for Section 3."></a></div>
   <p>These definitions are focused on the technical aspects of the specification, aimed at implementers such as <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-2">design tool</a> vendors. Definitions for designers and developers are available at <a href="https://www.designtokens.org/glossary/">designtokens.org</a>.</p>
   <section id="design-token"><div class="header-wrapper"><h3 id="x3-1-design-token"><bdi class="secno">3.1 </bdi>(Design) Token</h3><a class="self-link" href="#design-token" aria-label="Permalink for Section 3.1"></a></div>
@@ -364,7 +364,7 @@
   </ul>
   <p>The name may be associated with additional <a href="#design-token-properties">Token Properties</a>.</p>
   </section><section id="design-token-properties-0"><div class="header-wrapper"><h3 id="design-token-properties"><bdi class="secno">3.2 </bdi>(Design) Token Properties</h3><a class="self-link" href="#design-token-properties" aria-label="Permalink for Section 3.2"></a></div>
-  
+
   <p>Information associated with a token name.</p>
   <p>For example:</p>
   <ul>
@@ -453,7 +453,7 @@
   }
   </code></pre>
   </section></section>
-  
+
       <section id="file-format"><div class="header-wrapper"><h2 id="x4-file-format"><bdi class="secno">4. </bdi>File format</h2><a class="self-link" href="#file-format" aria-label="Permalink for Section 4."></a></div>
   <p>Design token files are JSON (<a href="https://www.json.org/">https://www.json.org/</a>) files that adhere to the structure described in this specification.</p>
   <p>JSON was chosen as an interchange format on the basis of:</p>
@@ -481,17 +481,17 @@
   <div class="note" id="issue-container-generatedID"><div role="heading" class="ednote-title marker" id="h-ednote" aria-level="4"><span>Editor's note</span><span class="issue-label">: JSON schema</span></div><p class="">
     The group is currently exploring the addition of a JSON Schema to support the spec.
   </p></div>
-  
+
   <div class="note" id="issue-container-generatedID-0"><div role="heading" class="ednote-title marker" id="h-ednote-0" aria-level="4"><span>Editor's note</span><span class="issue-label">: JSON file size limitations</span></div><p class="">
     A concern about file size limitations of JSON files was raised by one of the vendors. The working group continues to gather feedback about any limitations the JSON format imposes.
   </p></div></section></section>
-  
+
       <section id="design-token-0"><div class="header-wrapper"><h2 id="x5-design-token"><bdi class="secno">5. </bdi>Design token</h2><a class="self-link" href="#design-token-0" aria-label="Permalink for Section 5."></a></div>
   <section id="name-and-value"><div class="header-wrapper"><h3 id="x5-1-name-and-value"><bdi class="secno">5.1 </bdi>Name and value</h3><a class="self-link" href="#name-and-value" aria-label="Permalink for Section 5.1"></a></div>
   <aside class="example" id="example-minimal-file-with-single-design-token"><div class="marker">
       <a class="self-link" href="#example-minimal-file-with-single-design-token">Example<bdi> 1</bdi></a><span class="example-title">: Minimal file with single design token</span>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"token name"</span>: {
       <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"token value"</span>
@@ -499,7 +499,7 @@
   }
   </code></pre>
   </aside>
-  
+
   <p>An object with a <strong><code>$value</code></strong> property is a token. Thus, <code>$value</code> is a reserved word in our spec, meaning you can't have a token whose name is "$value". The parent object's key is the token name.</p>
   <p>The example above therefore defines 1 design token with the following properties:</p>
   <ul>
@@ -511,27 +511,27 @@
   <aside class="example" id="example-2"><div class="marker">
       <a class="self-link" href="#example-2">Example<bdi> 2</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"font-size"</span>: { <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"3rem"</span> },
     <span class="hljs-attr">"FONT-SIZE"</span>: { <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"16px"</span> }
   }
   </code></pre>
   </aside>
-  
+
   <p>However, some tools <em class="rfc2119">MAY</em> need to transform names when exporting to other languages or displaying names to the user, so having token names that differ only in case is likely to cause identical and undesirable duplicates in the output. For example, an export tool that converts these tokens to Sass code would generate problematic output like this:</p>
   <aside class="example" id="example-3"><div class="marker">
       <a class="self-link" href="#example-3">Example<bdi> 3</bdi></a>
     </div>
-  
+
   <pre><code class="scss hljs" aria-busy="false">$font-size: 3rem;
   $font-size: 16px;
-  
+
   // The 2nd $font-size overrides the 1st one, so the 1st token
   // has essentially been lost.
   </code></pre>
   </aside>
-  
+
   <p>Tools <em class="rfc2119">MAY</em> display a warning when token names differ only by case.</p>
   <section id="character-restrictions"><div class="header-wrapper"><h4 id="x5-1-1-character-restrictions"><bdi class="secno">5.1.1 </bdi>Character restrictions</h4><a class="self-link" href="#character-restrictions" aria-label="Permalink for Section 5.1.1"></a></div>
   <p>All properties defined by this format are prefixed with the dollar sign (<code>$</code>). This convention will also be used for any new properties introduced by future versions of this spec. Therefore, token and <a href="#groups-0">group</a> names <em class="rfc2119">MUST NOT</em> begin with the <code>$</code> character.</p>
@@ -544,7 +544,7 @@
   <div class="note" id="issue-container-generatedID-1"><div role="heading" class="ednote-title marker" id="h-ednote-1" aria-level="5"><span>Editor's note</span><span class="issue-label">: '$' Prefix Rationale</span></div><p class="">
     Because of the <a href="#additional-group-properties">decision to prefix group properties with a dollar sign</a> (<code>$</code>), token properties will also use a dollar sign prefix. This provides a consistent syntax across the spec.
   </p></div>
-  
+
   </section></section><section id="additional-properties"><div class="header-wrapper"><h3 id="x5-2-additional-properties"><bdi class="secno">5.2 </bdi>Additional properties</h3><a class="self-link" href="#additional-properties" aria-label="Permalink for Section 5.2"></a></div>
   <p>While <code>$value</code> is the only required property for a token, a number of additional properties <em class="rfc2119">MAY</em> be added:</p>
   </section><section id="description"><div class="header-wrapper"><h3 id="x5-3-description"><bdi class="secno">5.3 </bdi>Description</h3><a class="self-link" href="#description" aria-label="Permalink for Section 5.3"></a></div>
@@ -560,7 +560,7 @@
   <aside class="example" id="example-4"><div class="marker">
       <a class="self-link" href="#example-4">Example<bdi> 4</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"Button background"</span>: {
       <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"#777777"</span>,
@@ -569,7 +569,7 @@
   }
   </code></pre>
   </aside>
-  
+
   </section><section id="type-0"><div class="header-wrapper"><h3 id="x5-4-type"><bdi class="secno">5.4 </bdi>Type</h3><a class="self-link" href="#type-0" aria-label="Permalink for Section 5.4"></a></div>
   <p>Design tokens always have an unambiguous type, so that tools can reliably interpret their value.</p>
   <p>A token's type can be specified by the optional <code>$type</code> property. If the <code>$type</code> property is not set on a token, then the token's type <em class="rfc2119">MUST</em> be determined as follows:</p>
@@ -589,7 +589,7 @@
   <aside class="example" id="example-5"><div class="marker">
       <a class="self-link" href="#example-5">Example<bdi> 5</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"Button background"</span>: {
       <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"#777777"</span>,
@@ -598,7 +598,7 @@
   }
   </code></pre>
   </aside>
-  
+
   </section><section id="extensions"><div class="header-wrapper"><h3 id="x5-5-extensions"><bdi class="secno">5.5 </bdi>Extensions</h3><a class="self-link" href="#extensions" aria-label="Permalink for Section 5.5"></a></div>
   <p>The optional <strong><code>$extensions</code></strong> property is an object where tools <em class="rfc2119">MAY</em> add proprietary, user-, team- or vendor-specific data to a design token. When doing so, each tool <em class="rfc2119">MUST</em> use a vendor-specific key whose value <em class="rfc2119">MAY</em> be any valid JSON data.</p>
   <ul>
@@ -608,7 +608,7 @@
   <aside class="example" id="example-6"><div class="marker">
       <a class="self-link" href="#example-6">Example<bdi> 6</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"Button background"</span>: {
       <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"#777777"</span>,
@@ -622,22 +622,22 @@
   }
   </code></pre>
   </aside>
-  
+
   <p>In order to maintain interoperability between tools that support this format, teams and tools <em class="rfc2119">SHOULD</em> restrict their usage of extension data to optional meta-data that is not crucial to understanding that token's value.</p>
   <p>Tool vendors are encouraged to publicly share specifications of their extension data wherever possible. That way other tools can add support for them without needing to reverse engineer the extension data. Popular extensions could also be incorporated as standardized features in future revisions of this specification.</p>
   <div class="note" id="issue-container-generatedID-2"><div role="heading" class="ednote-title marker" id="h-ednote-2" aria-level="4"><span>Editor's note</span><span class="issue-label">: Extensions section</span></div><p class="">
     The extensions section is not limited to vendors. All token users can add additional data in this section for their own purposes.
   </p></div>
-  
+
   </section><section id="more-token-properties-tbc"><div class="header-wrapper"><h3 id="x5-6-more-token-properties-tbc"><bdi class="secno">5.6 </bdi>More token properties TBC</h3><a class="self-link" href="#more-token-properties-tbc" aria-label="Permalink for Section 5.6"></a></div>
   </section></section>
-  
+
       <section id="groups-0"><div class="header-wrapper"><h2 id="x6-groups"><bdi class="secno">6. </bdi>Groups</h2><a class="self-link" href="#groups-0" aria-label="Permalink for Section 6."></a></div>
   <p>A file <em class="rfc2119">MAY</em> contain many tokens and they <em class="rfc2119">MAY</em> be nested arbitrarily in groups like so:</p>
   <aside class="example" id="example-7"><div class="marker">
       <a class="self-link" href="#example-7">Example<bdi> 7</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"token uno"</span>: {
       <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"token value 1"</span>
@@ -658,7 +658,7 @@
   }
   </code></pre>
   </aside>
-  
+
   <p>The names of the groups leading to a given token (including that token's name) are that token's <em>path</em>, which is a computed property. <strong>It is not specified in the file</strong>, but parsers that conform to this spec <em class="rfc2119">MUST</em> be able to expose the path of a token. The above example, therefore, defines 4 design tokens with the following properties:</p>
   <ul>
   <li>Token #1<ul>
@@ -692,10 +692,10 @@
   <div class="note" id="issue-container-generatedID-3"><div role="heading" class="ednote-title marker" id="h-ednote-3" aria-level="3"><span>Editor's note</span><span class="issue-label">: Naming practices</span></div><p class="">
     The format editors acknowledge existing best-practices for token naming, but place no direct constraints on naming via the specification.
   </p></div>
-  
+
   <section id="additional-group-properties"><div class="header-wrapper"><h3 id="x6-1-additional-group-properties"><bdi class="secno">6.1 </bdi>Additional group properties</h3><a class="self-link" href="#additional-group-properties" aria-label="Permalink for Section 6.1"></a></div>
   <div class="note" id="issue-container-generatedID-4"><div role="heading" class="ednote-title marker" id="h-ednote-4" aria-level="4"><span>Editor's note</span><span class="issue-label">: Group properties vs. nested group and token names</span></div><div class="">
-  
+
   <p>To prevent collisions with token names, token properties are prefixed with a dollar sign (<code>$</code>). Using this prefix eliminates the need for a reserved words list and helps future-proof the spec.</p>
   <p>Group keys without a dollar sign (<code>$</code>) prefix denote:</p>
   <ul>
@@ -728,14 +728,14 @@
   </li>
   </ul>
   </div></div>
-  
+
   <section id="description-0"><div class="header-wrapper"><h4 id="x6-1-1-description"><bdi class="secno">6.1.1 </bdi>Description</h4><a class="self-link" href="#description-0" aria-label="Permalink for Section 6.1.1"></a></div>
   <p>Groups <em class="rfc2119">MAY</em> include an optional <code>$description</code> property, whose value <em class="rfc2119">MUST</em> be a plain JSON string. Its purpose is to describe the group itself.</p>
   <p>For example:</p>
   <aside class="example" id="example-8"><div class="marker">
       <a class="self-link" href="#example-8">Example<bdi> 8</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"brand"</span>: {
       <span class="hljs-attr">"$description"</span>: <span class="hljs-string">"Design tokens from our brand guidelines"</span>,
@@ -752,7 +752,7 @@
   }
   </code></pre>
   </aside>
-  
+
   <p>Suggested ways tools <em class="rfc2119">MAY</em> use this property are:</p>
   <ul>
   <li>A style guide generator could render a section for each group and use the description as an introductory paragraph</li>
@@ -760,10 +760,10 @@
   <li>Export tools could output this as a source code comment</li>
   </ul>
   <div class="issue closed" id="issue-container-number-72"><div role="heading" class="issue-title marker" id="h-issue" aria-level="5"><a href="https://github.com/design-tokens/community-group/issues/72"><span class="issue-number">Issue 72</span></a><span class="issue-label">: Group &amp; file level properties <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22dtcg-format%22" style="background-color: rgb(191, 212, 242); color: rgb(0, 0, 0);" aria-label="GitHub label: dtcg-format">dtcg-format</a></span></div><div class="">
-  
+
   <p>Groups may support additional properties like type and description. Should other properties be supported at the group level?</p>
   </div></div>
-  
+
   </section><section id="type-1"><div class="header-wrapper"><h4 id="x6-1-2-type"><bdi class="secno">6.1.2 </bdi>Type</h4><a class="self-link" href="#type-1" aria-label="Permalink for Section 6.1.2"></a></div>
   <p>Groups <em class="rfc2119">MAY</em> include an optional <code>$type</code> property so a type property does not need to be manually added to every token. <a href="#types">See supported "Types"</a> for more information.</p>
   <p>If a group has a <code>$type</code> property it acts as a default type for any tokens within the group, including ones in nested groups, that do not explicity declare a type via their own <code>$type</code> property. For the full set of rules by which a design token's type is determined, please refer to the <a href="#type-0">design token type property chapter</a>.</p>
@@ -771,7 +771,7 @@
   <aside class="example" id="example-9"><div class="marker">
       <a class="self-link" href="#example-9">Example<bdi> 9</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"brand"</span>: {
       <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"color"</span>,
@@ -787,7 +787,7 @@
   }
   </code></pre>
   </aside>
-  
+
   </section></section><section id="use-cases"><div class="header-wrapper"><h3 id="x6-2-use-cases"><bdi class="secno">6.2 </bdi>Use-cases</h3><a class="self-link" href="#use-cases" aria-label="Permalink for Section 6.2"></a></div>
   <section id="file-authoring-organization"><div class="header-wrapper"><h4 id="x6-2-1-file-authoring-organization"><bdi class="secno">6.2.1 </bdi>File authoring &amp; organization</h4><a class="self-link" href="#file-authoring-organization" aria-label="Permalink for Section 6.2.1"></a></div>
   <p>Groups let token file authors better organize their token files. Related tokens can be nested into groups to align with the team's naming conventions and/or mental model. When manually authoring files, using groups is also less verbose than a flat list of tokens with repeating prefixes.</p>
@@ -795,7 +795,7 @@
   <aside class="example" id="example-10"><div class="marker">
       <a class="self-link" href="#example-10">Example<bdi> 10</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"brand"</span>: {
       <span class="hljs-attr">"color"</span>: {
@@ -820,12 +820,12 @@
   }
   </code></pre>
   </aside>
-  
+
   <p>...is likely to be more convenient to type and, arguably, easier to read, than:</p>
   <aside class="example" id="example-11"><div class="marker">
       <a class="self-link" href="#example-11">Example<bdi> 11</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"brand-color-acid-green"</span>: {
       <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"#00ff66"</span>,
@@ -846,7 +846,7 @@
   }
   </code></pre>
   </aside>
-  
+
   </section><section id="gui-tools"><div class="header-wrapper"><h4 id="x6-2-2-gui-tools"><bdi class="secno">6.2.2 </bdi>GUI tools</h4><a class="self-link" href="#gui-tools" aria-label="Permalink for Section 6.2.2"></a></div>
   <p>Tools that let users pick or edit tokens via a GUI <em class="rfc2119">MAY</em> use the grouping structure to display a suitable form of progressive disclosure, such as a collapsible tree view.</p>
   <p><img src="./group-progressive-disclosure.png" alt="Progressive disclosure groups" height="426" width="506"></p>
@@ -856,7 +856,7 @@
   <aside class="example" id="example-12"><div class="marker">
       <a class="self-link" href="#example-12">Example<bdi> 12</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"brand"</span>: {
       <span class="hljs-attr">"color"</span>: {
@@ -881,19 +881,19 @@
   }
   </code></pre>
   </aside>
-  
+
   <p>...and output it as Sass variables like so by concatenating the path to create variable names:</p>
   <aside class="example" id="example-13"><div class="marker">
       <a class="self-link" href="#example-13">Example<bdi> 13</bdi></a>
     </div>
-  
+
   <pre><code class="scss hljs" aria-busy="false">$brand-color-acid-green: #00ff66;
   $brand-color-hot-pink: #dd22cc;
   $brand-typeface-primary: 'Comic Sans MS';
   $brand-typeface-secondary: 'Times New Roman';
   </code></pre>
   </aside></section></section></section>
-  
+
       <section id="aliases-references"><div class="header-wrapper"><h2 id="x7-aliases-references"><bdi class="secno">7. </bdi>Aliases / references</h2><a class="self-link" href="#aliases-references" aria-label="Permalink for Section 7."></a></div>
   <p>Instead of having explicit values, tokens can reference the value of another token. To put it another way, a token can be an alias for another token. This spec considers the terms "alias" and "reference" to be synonyms and uses them interchangeably.</p>
   <p>Aliases are useful for:</p>
@@ -906,7 +906,7 @@
   <aside class="example" id="example-14"><div class="marker">
       <a class="self-link" href="#example-14">Example<bdi> 14</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"group name"</span>: {
       <span class="hljs-attr">"token name"</span>: {
@@ -919,14 +919,14 @@
   }
   </code></pre>
   </aside>
-  
+
   <p>When a tool needs the actual value of a token it <em class="rfc2119">MUST</em> resolve the reference - i.e. lookup the token being referenced and fetch its value. In the above example, the "alias name" token's value would resolve to 1234 because it references the token whose path is <code>{group name.token name}</code> which has the value 1234.</p>
   <p>Tools <em class="rfc2119">SHOULD</em> preserve references and therefore only resolve them whenever the actual value needs to be retrieved. For instance, in a <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-5">design tool</a>, changes to the value of a token being referenced by aliases <em class="rfc2119">SHOULD</em> be reflected wherever those aliases are being used.</p>
   <p>Aliases <em class="rfc2119">MAY</em> reference other aliases. In this case, tools <em class="rfc2119">MUST</em> follow each reference until they find a token with an explicit value. Circular references are not allowed. If a design token file contains circular references, then the value of all tokens in that chain is unknown and an appropriate error or warning message <em class="rfc2119">SHOULD</em> be displayed to the user.</p>
   <div class="note" id="issue-container-generatedID-5"><div role="heading" class="ednote-title marker" id="h-ednote-5" aria-level="3"><span>Editor's note</span><span class="issue-label">: JSON Pointer syntax</span></div><p class="">
     The format editors are currently researching JSON Pointer syntax to inform the exact syntax for aliases in tokens. <a href="https://datatracker.ietf.org/doc/html/rfc6901#section-5">https://datatracker.ietf.org/doc/html/rfc6901#section-5</a>
   </p></div></section>
-  
+
       <section id="types"><div class="header-wrapper"><h2 id="x8-types"><bdi class="secno">8. </bdi>Types</h2><a class="self-link" href="#types" aria-label="Permalink for Section 8."></a></div>
   <p>Many tools need to know what kind of value a given token represents to process it sensibly. Export tools <em class="rfc2119">MAY</em> need to convert or format tokens differently depending on their type. <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-6">Design tools</a> <em class="rfc2119">MAY</em> present the user with different kinds of input when editing tokens of a certain type (such as color picker, slider, text input, etc.). Style guide generators <em class="rfc2119">MAY</em> use different kinds of previews for different types of tokens.</p>
   <p>Since design token files are JSON files, all the basic JSON types are available:</p>
@@ -947,7 +947,7 @@
   <aside class="example" id="example-15"><div class="marker">
       <a class="self-link" href="#example-15">Example<bdi> 15</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"Majestic magenta"</span>: {
       <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"#ff00ff"</span>,
@@ -960,29 +960,29 @@
   }
   </code></pre>
   </aside>
-  
+
   <p>Then, the output from a tool's conversion to HSL(A) <em class="rfc2119">MAY</em> look something like:</p>
   <aside class="example" id="example-16"><div class="marker">
       <a class="self-link" href="#example-16">Example<bdi> 16</bdi></a>
     </div>
-  
+
   <pre><code class="scss hljs" aria-busy="false">// colors-hex.scss
   $majestic-magenta: #ff00ff;
   $translucent-shadow: #00000080;
-  
+
   // colors-hsl.scss
   $majestic-magenta: hsl(300, 100%, 50%);
   $translucent-shadow: hsla(300, 100%, 50%, 0.5);
   </code></pre>
   </aside>
-  
+
   </section><section id="dimension"><div class="header-wrapper"><h3 id="x8-2-dimension"><bdi class="secno">8.2 </bdi>Dimension</h3><a class="self-link" href="#dimension" aria-label="Permalink for Section 8.2"></a></div>
   <p>Represents an amount of distance in a single dimension in the UI, such as a position, width, height, radius, or thickness. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>dimension</code>. The value must be a string containing a number (either integer or floating-point) followed by either a "px" or "rem" unit (future spec iterations may add support for additional units).</p>
   <p>For example:</p>
   <aside class="example" id="example-17"><div class="marker">
       <a class="self-link" href="#example-17">Example<bdi> 17</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"spacingStack1X"</span>: {
       <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"0.25rem"</span>,
@@ -991,7 +991,7 @@
   }
   </code></pre>
   </aside>
-  
+
   <p>The "px" and "rem" units are to be interpreted the same way they are in CSS:</p>
   <ul>
   <li><strong>px</strong>: Represents an idealized pixel on the viewport. The equivalent in Android is dp and iOS is pt. Export tools <em class="rfc2119">SHOULD</em> therefore convert to these or other equivalent units as needed.</li>
@@ -999,16 +999,16 @@
   </ul>
   </section><section id="font-family"><div class="header-wrapper"><h3 id="x8-3-font-family"><bdi class="secno">8.3 </bdi>Font family</h3><a class="self-link" href="#font-family" aria-label="Permalink for Section 8.3"></a></div>
   <div class="issue" id="issue-container-number-53"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/53"><span class="issue-number">Issue 53</span></a><span class="issue-label">: Type: font family <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Needs+Feedback%2FReview%22" style="background-color: rgb(83, 25, 231); color: rgb(255, 255, 255);" aria-label="GitHub label: Needs Feedback/Review">Needs Feedback/Review</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22dtcg-format%22" style="background-color: rgb(191, 212, 242); color: rgb(0, 0, 0);" aria-label="GitHub label: dtcg-format">dtcg-format</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Reviewed+by+editors%22" style="background-color: rgb(112, 105, 34); color: rgb(255, 255, 255);" aria-label="GitHub label: Reviewed by editors">Reviewed by editors</a></span></div><div class="">
-  
+
   <p>A naive approach like the one below may be appropriate for the first stage of the specification, but this could be more complicated than it seems due to platform/OS/browser restrictions.</p>
   </div></div>
-  
+
   <p>Represents a font name or an array of font names (ordered from most to least preferred). The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>fontFamily</code>. The value <em class="rfc2119">MUST</em> either be a string value containing a single font name or an array of strings, each being a single font name.</p>
   <p>For example:</p>
   <aside class="example" id="example-18"><div class="marker">
       <a class="self-link" href="#example-18">Example<bdi> 18</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"Primary font"</span>: {
       <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"Comic Sans MS"</span>,
@@ -1021,7 +1021,7 @@
   }
   </code></pre>
   </aside>
-  
+
   </section><section id="font-weight"><div class="header-wrapper"><h3 id="x8-4-font-weight"><bdi class="secno">8.4 </bdi>Font weight</h3><a class="self-link" href="#font-weight" aria-label="Permalink for Section 8.4"></a></div>
   <p>Represents a font weight. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>fontWeight</code>. The value must either be a number value in the range [1, 1000] or one of the pre-defined string values defined in the table below.</p>
   <p>Lower numbers represent lighter weights, and higher numbers represent thicker weights, as per the <a href="https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_wght">OpenType <code>wght</code> tag specification</a>. The pre-defined string values are aliases for specific numeric values. For example <code>100</code>, <code>"thin"</code> and <code>"hairline"</code> are all the exact same value.</p>
@@ -1078,7 +1078,7 @@
   <aside class="example" id="example-19"><div class="marker">
       <a class="self-link" href="#example-19">Example<bdi> 19</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"font-weight-default"</span>: {
       <span class="hljs-attr">"$value"</span>: <span class="hljs-number">350</span>,
@@ -1091,14 +1091,14 @@
   }
   </code></pre>
   </aside>
-  
+
   </section><section id="duration"><div class="header-wrapper"><h3 id="x8-5-duration"><bdi class="secno">8.5 </bdi>Duration</h3><a class="self-link" href="#duration" aria-label="Permalink for Section 8.5"></a></div>
   <p>Represents the length of time in milliseconds an animation or animation cycle takes to complete, such as 200 milliseconds. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>duration</code>. The value <em class="rfc2119">MUST</em> be a string containing a number (either integer or floating-point) followed by an "ms" unit. A millisecond is a unit of time equal to one thousandth of a second.</p>
   <p>For example:</p>
   <aside class="example" id="example-20"><div class="marker">
       <a class="self-link" href="#example-20">Example<bdi> 20</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"Duration-100"</span>: {
       <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"100ms"</span>,
@@ -1111,14 +1111,14 @@
   }
   </code></pre>
   </aside>
-  
+
   </section><section id="cubic-bezier"><div class="header-wrapper"><h3 id="x8-6-cubic-bezier"><bdi class="secno">8.6 </bdi>Cubic Bézier</h3><a class="self-link" href="#cubic-bezier" aria-label="Permalink for Section 8.6"></a></div>
   <p>Represents how the value of an animated property progresses towards completion over the duration of an animation, effectively creating visual effects such as acceleration, deceleration, and bounce. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>cubicBezier</code>. The value <em class="rfc2119">MUST</em> be an array containing four numbers. These numbers represent two points (P1, P2) with one x coordinate and one y coordinate each [P1x, P1y, P2x, P2y]. The y coordinates of P1 and P2 can be any real number in the range [-∞, ∞], but the x coordinates are restricted to the range [0, 1].</p>
   <p>For example:</p>
   <aside class="example" id="example-21"><div class="marker">
       <a class="self-link" href="#example-21">Example<bdi> 21</bdi></a>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"Accelerate"</span>: {
       <span class="hljs-attr">"$value"</span>: [<span class="hljs-number">0.5</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>],
@@ -1131,10 +1131,10 @@
   }
   </code></pre>
   </aside>
-  
+
   </section><section class="informative" id="additional-types"><div class="header-wrapper"><h3 id="x8-7-additional-types"><bdi class="secno">8.7 </bdi>Additional types</h3><a class="self-link" href="#additional-types" aria-label="Permalink for Section 8.7"></a></div><p><em>This section is non-normative.</em></p>
-  
-  
+
+
   <p>Types still to be documented here are likely to include:</p>
   <ul>
   <li><strong>Font style:</strong> might be an enum of allowed values like ("normal", "italic"...)</li>
@@ -1145,7 +1145,7 @@
   <li><strong>File:</strong> for assets - might just be a relative file path / URL (or should we let people also express the mime-type?)</li>
   </ul>
   </section></section>
-  
+
       <section id="composite-types"><div class="header-wrapper"><h2 id="x9-composite-types"><bdi class="secno">9. </bdi>Composite types</h2><a class="self-link" href="#composite-types" aria-label="Permalink for Section 9."></a></div>
   <p>The types defined in the previous chapters such as color and dimension all have singular values. For example, the value of a color token is <em>one</em> color. However, there are other aspects of UI designs that are a combination of multiple values. For instance, a shadow style is a combination of a color, X &amp; Y offsets, a blur radius and a spread radius.</p>
   <p>Every shadow style has the exact same parts (color, X &amp; Y offsets, etc.), but their respective values will differ. Furthermore, each part's value (which is also known as a "sub-value") is always of the same type. A shadow's color must always be a <a href="#color">color</a> value, its X offset must always be a <a href="#dimension">dimension</a> value, and so on. Shadow styles are therefore combinations of values <em>that follow a pre-defined structure</em>. In other words, shadow styles are themselves a type. Types like this are called <strong>composite types</strong>.</p>
@@ -1158,7 +1158,7 @@
   <aside class="example" id="example-composite-token-example"><div class="marker">
       <a class="self-link" href="#example-composite-token-example">Example<bdi> 22</bdi></a><span class="example-title">: Composite token example</span>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"shadow-token"</span>: {
       <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"shadow"</span>,
@@ -1173,11 +1173,11 @@
   }
   </code></pre>
   </aside>
-  
+
   <aside class="example" id="example-advanced-composite-token-example"><div class="marker">
       <a class="self-link" href="#example-advanced-composite-token-example">Example<bdi> 23</bdi></a><span class="example-title">: Advanced composite token example</span>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"space"</span>: {
       <span class="hljs-attr">"small"</span>: {
@@ -1185,14 +1185,14 @@
         <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"0.5rem"</span>
       }
     },
-  
+
     <span class="hljs-attr">"color"</span>: {
       <span class="hljs-attr">"shadow-050"</span>: {
         <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"color"</span>,
         <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"#00000088"</span>
       }
     },
-  
+
     <span class="hljs-attr">"shadow"</span>: {
       <span class="hljs-attr">"medium"</span>: {
         <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"shadow"</span>,
@@ -1206,7 +1206,7 @@
         }
       }
     },
-  
+
     <span class="hljs-attr">"component"</span>: {
       <span class="hljs-attr">"card"</span>: {
         <span class="hljs-attr">"box-shadow"</span>: {
@@ -1218,7 +1218,7 @@
   }
   </code></pre>
   </aside>
-  
+
   <section id="groups-versus-composite-tokens"><div class="header-wrapper"><h3 id="x9-1-groups-versus-composite-tokens"><bdi class="secno">9.1 </bdi>Groups versus composite tokens</h3><a class="self-link" href="#groups-versus-composite-tokens" aria-label="Permalink for Section 9.1"></a></div>
   <p>At first glance, groups and composite tokens might look very similar. However, they are intended to solve different problems and therefore have some important differences:</p>
   <ul>
@@ -1242,9 +1242,9 @@
   <li>an object value as defined in the corresponding section below</li>
   </ul>
   <div class="issue" id="issue-container-number-98"><div role="heading" class="issue-title marker" id="h-issue-1" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/98"><span class="issue-number">Issue 98</span></a><span class="issue-label">: Stroke style type feedback <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Needs+Feedback%2FReview%22" style="background-color: rgb(83, 25, 231); color: rgb(255, 255, 255);" aria-label="GitHub label: Needs Feedback/Review">Needs Feedback/Review</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22dtcg-format%22" style="background-color: rgb(191, 212, 242); color: rgb(0, 0, 0);" aria-label="GitHub label: dtcg-format">dtcg-format</a></span></div><div class="">
-    Is the current specification for stroke styles fit for purpose? Does it need more sub-values (e.g. equivalents to SVG's <code>stroke-linejoin</code>, <code>stroke-miterlimit</code> and <code>stroke-dashoffset</code> attributes)? 
+    Is the current specification for stroke styles fit for purpose? Does it need more sub-values (e.g. equivalents to SVG's <code>stroke-linejoin</code>, <code>stroke-miterlimit</code> and <code>stroke-dashoffset</code> attributes)?
   </div></div>
-  
+
   <section id="string-value"><div class="header-wrapper"><h4 id="x9-2-1-string-value"><bdi class="secno">9.2.1 </bdi>String value</h4><a class="self-link" href="#string-value" aria-label="Permalink for Section 9.2.1"></a></div>
   <p>String stroke style values <em class="rfc2119">MUST</em> be set to one of the following, pre-defined values:</p>
   <ul>
@@ -1261,7 +1261,7 @@
   <aside class="example" id="example-string-stroke-style-example"><div class="marker">
       <a class="self-link" href="#example-string-stroke-style-example">Example<bdi> 24</bdi></a><span class="example-title">: String stroke style example</span>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"focus-ring-style"</span>: {
       <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"strokeStyle"</span>,
@@ -1270,7 +1270,7 @@
   }
   </code></pre>
   </aside>
-  
+
   </section><section id="object-value"><div class="header-wrapper"><h4 id="x9-2-2-object-value"><bdi class="secno">9.2.2 </bdi>Object value</h4><a class="self-link" href="#object-value" aria-label="Permalink for Section 9.2.2"></a></div>
   <p>Object stroke style values <em class="rfc2119">MUST</em> have the following properties:</p>
   <ul>
@@ -1280,7 +1280,7 @@
   <aside class="example" id="example-object-stroke-style-example"><div class="marker">
       <a class="self-link" href="#example-object-stroke-style-example">Example<bdi> 25</bdi></a><span class="example-title">: Object stroke style example</span>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"alert-border-style"</span>: {
       <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"strokeStyle"</span>,
@@ -1292,11 +1292,11 @@
   }
   </code></pre>
   </aside>
-  
+
   <aside class="example" id="example-stroke-style-obj-ref"><div class="marker">
       <a class="self-link" href="#example-stroke-style-obj-ref">Example<bdi> 26</bdi></a><span class="example-title">: Object stroke style example using references</span>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"notification-border-style"</span>: {
       <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"strokeStyle"</span>,
@@ -1305,7 +1305,7 @@
         <span class="hljs-attr">"lineCap"</span>: <span class="hljs-string">"butt"</span>
       }
     },
-  
+
     <span class="hljs-attr">"dash-length-medium"</span>: {
       <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"dimension"</span>,
       <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"10px"</span>
@@ -1313,7 +1313,7 @@
   }
   </code></pre>
   </aside>
-  
+
   </section><section id="fallbacks"><div class="header-wrapper"><h4 id="x9-2-3-fallbacks"><bdi class="secno">9.2.3 </bdi>Fallbacks</h4><a class="self-link" href="#fallbacks" aria-label="Permalink for Section 9.2.3"></a></div>
   <p>The string and object values are mutually exclusive means of expressing stroke styles. For example, some of the string values like <code>inset</code> or <code>groove</code> cannot be expressed in terms of a <code>dashArray</code> and <code>lineCap</code> as they require some implementation-specific means of lightening or darkening the <em>color</em> for portions of a border or outline. Conversely, a precisely defined combination of <code>dashArray</code> and <code>lineCap</code> sub-values is not guaranteed to produce the same visual result as the <code>dashed</code> or <code>dotted</code> keywords as they are implementation-specific.</p>
   <p>Furthermore, some tools and platforms may not support the full range of stroke styles that design tokens of this type can represent. When displaying or exporting a <code>strokeStyle</code> token whose value they don't natively support, they should therefore fallback to the closest approximation that they do support.</p>
@@ -1321,21 +1321,21 @@
   <aside class="example" id="example-fallback-for-object-stroke-style"><div class="marker">
       <a class="self-link" href="#example-fallback-for-object-stroke-style">Example<bdi> 27</bdi></a><span class="example-title">: Fallback for object stroke style</span>
     </div>
-  
+
   <p>CSS does not allow detailed control of the dash pattern or line caps on dashed borders. So, a tool exporting the <code>"notification-border-style"</code> design token from the <a href="#example-stroke-style-obj-ref">example in the previous section</a>, might use the CSS <code>dashed</code> line style as a fallback:</p>
   <pre><code class="css hljs" aria-busy="false"><span class="hljs-selector-pseudo">:root</span> {
     --notification-<span class="hljs-attribute">border-style</span>: dashed;
   }
   </code></pre>
   </aside>
-  
+
   <aside class="example" id="example-fallback-for-string-stroke-style"><div class="marker">
       <a class="self-link" href="#example-fallback-for-string-stroke-style">Example<bdi> 28</bdi></a><span class="example-title">: Fallback for string stroke style</span>
     </div>
-  
+
   <p>Some <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-8">design tools</a> like Figma don't support inset, outset or double style lines. When a user applies a <code>stroke-style</code> token with those values, such tools might therefore fallback to displaying a solid line instead.</p>
   </aside>
-  
+
   </section></section><section id="border"><div class="header-wrapper"><h3 id="x9-3-border"><bdi class="secno">9.3 </bdi>Border</h3><a class="self-link" href="#border" aria-label="Permalink for Section 9.3"></a></div>
   <p>Represents a border style. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>border</code>. The value <em class="rfc2119">MUST</em> be an object with the following properties:</p>
   <ul>
@@ -1346,7 +1346,7 @@
   <aside class="example" id="example-border-composite-token-examples"><div class="marker">
       <a class="self-link" href="#example-border-composite-token-examples">Example<bdi> 29</bdi></a><span class="example-title">: Border composite token examples</span>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"border"</span>: {
       <span class="hljs-attr">"heavy"</span>: {
@@ -1372,11 +1372,11 @@
   }
   </code></pre>
   </aside>
-  
+
   <div class="issue" id="issue-container-number-99"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/99"><span class="issue-number">Issue 99</span></a><span class="issue-label">: Border type feedback <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Needs+Feedback%2FReview%22" style="background-color: rgb(83, 25, 231); color: rgb(255, 255, 255);" aria-label="GitHub label: Needs Feedback/Review">Needs Feedback/Review</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22dtcg-format%22" style="background-color: rgb(191, 212, 242); color: rgb(0, 0, 0);" aria-label="GitHub label: dtcg-format">dtcg-format</a></span></div><div class="">
     Is the current specification for borders fit for purpose? Does it need more sub-values to account for features like outset, border images, multiple borders, etc. that some platforms and <a data-link-type="dfn" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-9">design tools</a> have?
   </div></div>
-  
+
   </section><section id="transition"><div class="header-wrapper"><h3 id="x9-4-transition"><bdi class="secno">9.4 </bdi>Transition</h3><a class="self-link" href="#transition" aria-label="Permalink for Section 9.4"></a></div>
   <p>Represents a animated transition between two states. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>transition</code>. The value <em class="rfc2119">MUST</em> be an object with the following properties:</p>
   <ul>
@@ -1387,7 +1387,7 @@
   <aside class="example" id="example-transition-composite-token-examples"><div class="marker">
       <a class="self-link" href="#example-transition-composite-token-examples">Example<bdi> 30</bdi></a><span class="example-title">: Transition composite token examples</span>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"transition"</span>: {
       <span class="hljs-attr">"emphasis"</span>: {
@@ -1402,11 +1402,11 @@
   }
   </code></pre>
   </aside>
-  
+
   <div class="issue" id="issue-container-number-103"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/103"><span class="issue-number">Issue 103</span></a><span class="issue-label">: Transition type feedback <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Needs+Feedback%2FReview%22" style="background-color: rgb(83, 25, 231); color: rgb(255, 255, 255);" aria-label="GitHub label: Needs Feedback/Review">Needs Feedback/Review</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22dtcg-format%22" style="background-color: rgb(191, 212, 242); color: rgb(0, 0, 0);" aria-label="GitHub label: dtcg-format">dtcg-format</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22dtcg-animation%22" style="background-color: rgb(191, 212, 242); color: rgb(0, 0, 0);" aria-label="GitHub label: dtcg-animation">dtcg-animation</a></span></div><div class="">
     Is the current specification for transitions fit for purpose? Are these transitions parameters by themselves useful considering that they don't let you specify what aspect of a UI is being transitioned and what the start and end states are?
   </div></div>
-  
+
   </section><section id="shadow"><div class="header-wrapper"><h3 id="x9-5-shadow"><bdi class="secno">9.5 </bdi>Shadow</h3><a class="self-link" href="#shadow" aria-label="Permalink for Section 9.5"></a></div>
   <p>Represents a shadow style. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>shadow</code>. The value must be an object with the following properties:</p>
   <ul>
@@ -1419,7 +1419,7 @@
   <aside class="example" id="example-shadow-token-example"><div class="marker">
       <a class="self-link" href="#example-shadow-token-example">Example<bdi> 31</bdi></a><span class="example-title">: Shadow token example</span>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"shadow-token"</span>: {
       <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"shadow"</span>,
@@ -1434,11 +1434,11 @@
   }
   </code></pre>
   </aside>
-  
+
   <div class="issue" id="issue-container-number-100"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/100"><span class="issue-number">Issue 100</span></a><span class="issue-label">: Shadow type feedback <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Needs+Feedback%2FReview%22" style="background-color: rgb(83, 25, 231); color: rgb(255, 255, 255);" aria-label="GitHub label: Needs Feedback/Review">Needs Feedback/Review</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22dtcg-format%22" style="background-color: rgb(191, 212, 242); color: rgb(0, 0, 0);" aria-label="GitHub label: dtcg-format">dtcg-format</a></span></div><div class="">
-    Is the current specification for shadows fit for purpose? Does it need to support multiple shadows, as some tools and platforms do? 
+    Is the current specification for shadows fit for purpose? Does it need to support multiple shadows, as some tools and platforms do?
   </div></div>
-  
+
   </section><section id="gradient"><div class="header-wrapper"><h3 id="x9-6-gradient"><bdi class="secno">9.6 </bdi>Gradient</h3><a class="self-link" href="#gradient" aria-label="Permalink for Section 9.6"></a></div>
   <p>Represents a color gradient. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>gradient</code>. The value <em class="rfc2119">MUST</em> be an array of objects representing gradient stops that have the following structure:</p>
   <ul>
@@ -1449,7 +1449,7 @@
   <aside class="example" id="example-gradient-token-example"><div class="marker">
       <a class="self-link" href="#example-gradient-token-example">Example<bdi> 32</bdi></a><span class="example-title">: Gradient token example</span>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"blue-to-red"</span>: {
       <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"gradient"</span>,
@@ -1468,13 +1468,13 @@
   </code></pre>
   <p>Describes a gradient that goes from blue to red:</p>
   <div style="height: 2rem; background: linear-gradient(90deg, #0000ff, #ff0000);"></div>
-  
+
   </aside>
-  
+
   <aside class="example" id="example-gradient-token-with-omitted-start-stop-example"><div class="marker">
       <a class="self-link" href="#example-gradient-token-with-omitted-start-stop-example">Example<bdi> 33</bdi></a><span class="example-title">: Gradient token with omitted start stop example</span>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"mostly-yellow"</span>: {
       <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"gradient"</span>,
@@ -1493,23 +1493,23 @@
   </code></pre>
   <p>Describes a gradient that is solid yellow for the first 2/3 and then fades to red:</p>
   <div style="height: 2rem; background: linear-gradient(90deg, #ffff00 66.6%, #ff0000);"></div>
-  
+
   </aside>
-  
+
   <aside class="example" id="example-gradient-token-using-references-example"><div class="marker">
       <a class="self-link" href="#example-gradient-token-using-references-example">Example<bdi> 34</bdi></a><span class="example-title">: Gradient token using references example</span>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"brand-primary"</span>: {
       <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"color"</span>,
       <span class="hljs-attr">"$value"</span>: <span class="hljs-string">"#99ff66"</span>
     },
-  
+
     <span class="hljs-attr">"position-end"</span>: {
       <span class="hljs-attr">"$value"</span>: <span class="hljs-number">1</span>
     },
-  
+
     <span class="hljs-attr">"brand-in-the-middle"</span>: {
       <span class="hljs-attr">"$type"</span>: <span class="hljs-string">"gradient"</span>,
       <span class="hljs-attr">"$value"</span>: [
@@ -1531,13 +1531,13 @@
   </code></pre>
   <p>Describes a color token called "brand-primary", which is referenced as the mid-point of a gradient is black at either end.</p>
   <div style="height: 2rem; background: linear-gradient(90deg, #000000, #99ff66, #000000);"></div>
-  
+
   </aside>
-  
+
   <div class="issue" id="issue-container-number-101"><div role="heading" class="issue-title marker" id="h-issue-5" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/101"><span class="issue-number">Issue 101</span></a><span class="issue-label">: Gradient type feedback <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Needs+Feedback%2FReview%22" style="background-color: rgb(83, 25, 231); color: rgb(255, 255, 255);" aria-label="GitHub label: Needs Feedback/Review">Needs Feedback/Review</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22dtcg-format%22" style="background-color: rgb(191, 212, 242); color: rgb(0, 0, 0);" aria-label="GitHub label: dtcg-format">dtcg-format</a></span></div><div class="">
     Is the current specification for gradients fit for purpose? Does it need to also specify the type of gradient (.e.g linear, radial, concial, etc.)?
   </div></div>
-  
+
   </section><section id="typography"><div class="header-wrapper"><h3 id="x9-7-typography"><bdi class="secno">9.7 </bdi>Typography</h3><a class="self-link" href="#typography" aria-label="Permalink for Section 9.7"></a></div>
   <p>Represents a typographic style. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>typography</code>. The value <em class="rfc2119">MUST</em> be an object with the following properties:</p>
   <ul>
@@ -1550,7 +1550,7 @@
   <aside class="example" id="example-typography-composite-token-examples"><div class="marker">
       <a class="self-link" href="#example-typography-composite-token-examples">Example<bdi> 35</bdi></a><span class="example-title">: Typography composite token examples</span>
     </div>
-  
+
   <pre><code class="json hljs" aria-busy="false">{
     <span class="hljs-attr">"type styles"</span>: {
       <span class="hljs-attr">"heading-level-1"</span>: {
@@ -1577,17 +1577,17 @@
   }
   </code></pre>
   </aside>
-  
+
   <div class="issue" id="issue-container-number-102"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="4"><a href="https://github.com/design-tokens/community-group/issues/102"><span class="issue-number">Issue 102</span></a><span class="issue-label">: Typography type feedback <a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Needs+Feedback%2FReview%22" style="background-color: rgb(83, 25, 231); color: rgb(255, 255, 255);" aria-label="GitHub label: Needs Feedback/Review">Needs Feedback/Review</a><a class="respec-gh-label" href="https://github.com/design-tokens/community-group/issues/?q=is%3Aissue+is%3Aopen+label%3A%22dtcg-format%22" style="background-color: rgb(191, 212, 242); color: rgb(0, 0, 0);" aria-label="GitHub label: dtcg-format">dtcg-format</a></span></div><div class="">
-  
+
   <p>Is the current specification for typography styles fit for purpose? <a href="https://github.com/design-tokens/community-group/pull/86#discussion_r768137006">Should the <code>lineHeight</code> sub-value use a number value, dimension or a new lineHeight type</a>?</p>
   </div></div></section></section>
-  
+
       <section class="appendix" id="issue-summary"><div class="header-wrapper"><h2 id="a-issue-summary"><bdi class="secno">A. </bdi>Issue summary</h2><a class="self-link" href="#issue-summary" aria-label="Permalink for Appendix A."></a></div><ul><li><a href="#issue-container-number-72">Issue 72</a><span style="text-transform: none">: Group &amp; file level properties</span></li><li><a href="#issue-container-number-53">Issue 53</a><span style="text-transform: none">: Type: font family</span></li><li><a href="#issue-container-number-98">Issue 98</a><span style="text-transform: none">: Stroke style type feedback</span></li><li><a href="#issue-container-number-99">Issue 99</a><span style="text-transform: none">: Border type feedback</span></li><li><a href="#issue-container-number-103">Issue 103</a><span style="text-transform: none">: Transition type feedback</span></li><li><a href="#issue-container-number-100">Issue 100</a><span style="text-transform: none">: Shadow type feedback</span></li><li><a href="#issue-container-number-101">Issue 101</a><span style="text-transform: none">: Gradient type feedback</span></li><li><a href="#issue-container-number-102">Issue 102</a><span style="text-transform: none">: Typography type feedback</span></li></ul></section>
-    
-  
+
+
   <section id="references" class="appendix"><div class="header-wrapper"><h2 id="b-references"><bdi class="secno">B. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix B."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="b-1-normative-references"><bdi class="secno">B.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix B.1"></a></div>
-      
+
       <dl class="bibliography"><dt id="bib-rfc2119">[RFC2119]</dt><dd>
         <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
       </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
@@ -1599,44 +1599,44 @@
         <span class="caret"></span>
         <div>
           <a class="self-link" href="#dfn-design-tool" aria-label="Permalink for definition: Design tool. Activate to close this dialog.">Permalink</a>
-           
+
         </div>
         <p><b>Referenced in:</b></p>
         <ul>
       <li>
-      <a href="#ref-for-dfn-design-tool-1" title="§ 2. Introduction">§ 2. Introduction</a> 
+      <a href="#ref-for-dfn-design-tool-1" title="§ 2. Introduction">§ 2. Introduction</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-2" title="§ 3. Terminology">§ 3. Terminology</a> 
+      <a href="#ref-for-dfn-design-tool-2" title="§ 3. Terminology">§ 3. Terminology</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-3" title="§ 3.5 Type">§ 3.5 Type</a> 
+      <a href="#ref-for-dfn-design-tool-3" title="§ 3.5 Type">§ 3.5 Type</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-4" title="§ 5.3 Description">§ 5.3 Description</a> 
+      <a href="#ref-for-dfn-design-tool-4" title="§ 5.3 Description">§ 5.3 Description</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-5" title="§ 7. Aliases / references">§ 7. Aliases / references</a> 
+      <a href="#ref-for-dfn-design-tool-5" title="§ 7. Aliases / references">§ 7. Aliases / references</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-6" title="§ 8. Types">§ 8. Types</a> 
+      <a href="#ref-for-dfn-design-tool-6" title="§ 8. Types">§ 8. Types</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-7" title="§ 9.1 Groups versus composite tokens">§ 9.1 Groups versus composite tokens</a> 
+      <a href="#ref-for-dfn-design-tool-7" title="§ 9.1 Groups versus composite tokens">§ 9.1 Groups versus composite tokens</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-8" title="§ 9.2.3 Fallbacks">§ 9.2.3 Fallbacks</a> 
+      <a href="#ref-for-dfn-design-tool-8" title="§ 9.2.3 Fallbacks">§ 9.2.3 Fallbacks</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-9" title="§ 9.3 Border">§ 9.3 Border</a> 
+      <a href="#ref-for-dfn-design-tool-9" title="§ 9.3 Border">§ 9.3 Border</a>
     </li>
     </ul>
       </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-translation-tool" aria-label="Links in this document to definition: Translation tool">
         <span class="caret"></span>
         <div>
           <a class="self-link" href="#dfn-translation-tool" aria-label="Permalink for definition: Translation tool. Activate to close this dialog.">Permalink</a>
-           
+
         </div>
         <p><b>Referenced in:</b></p>
         <ul>
       <li>
-      <a href="#ref-for-dfn-translation-tool-1" title="§ 2. Introduction">§ 2. Introduction</a> <a href="#ref-for-dfn-translation-tool-2" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-translation-tool-1" title="§ 2. Introduction">§ 2. Introduction</a> <a href="#ref-for-dfn-translation-tool-2" title="Reference 2">(2)</a>
     </li><li>
-      <a href="#ref-for-dfn-translation-tool-3" title="§ 3.5 Type">§ 3.5 Type</a> 
+      <a href="#ref-for-dfn-translation-tool-3" title="§ 3.5 Type">§ 3.5 Type</a>
     </li><li>
-      <a href="#ref-for-dfn-translation-tool-4" title="§ 6.2.3 Export tools">§ 6.2.3 Export tools</a> 
+      <a href="#ref-for-dfn-translation-tool-4" title="§ 6.2.3 Export tools">§ 6.2.3 Export tools</a>
     </li>
     </ul>
       </div><script id="respec-dfn-panel">(() => {
@@ -1646,27 +1646,27 @@
   } else {
     setupPanel();
   }
-  
+
   function setupPanel() {
     const listener = panelListener();
     document.body.addEventListener("keydown", listener);
     document.body.addEventListener("click", listener);
   }
-  
+
   function panelListener() {
     /** @type {HTMLElement} */
     let panel = null;
     return event => {
       const { target, type } = event;
-  
+
       if (!(target instanceof HTMLElement)) return;
-  
+
       // For keys, we only care about Enter key to activate the panel
       // otherwise it's activated via a click.
       if (type === "keydown" && event.key !== "Enter") return;
-  
+
       const action = deriveAction(event);
-  
+
       switch (action) {
         case "show": {
           hidePanel(panel);
@@ -1691,13 +1691,13 @@
       }
     };
   }
-  
+
   /**
    * @param {MouseEvent|KeyboardEvent} event
    */
   function deriveCoordinates(event) {
     const target = /** @type HTMLElement */ (event.target);
-  
+
     // We prevent synthetic AT clicks from putting
     // the dialog in a weird place. The AT events sometimes
     // lack coordinates, so they have clientX/Y = 0
@@ -1710,14 +1710,14 @@
       // The event probably happened inside the bounding rect...
       return { x: event.clientX, y: event.clientY };
     }
-  
+
     // Offset to the middle of the element
     const x = rect.x + rect.width / 2;
     // Placed at the bottom of the element
     const y = rect.y + rect.height;
     return { x, y };
   }
-  
+
   /**
    * @param {Event} event
    */
@@ -1739,7 +1739,7 @@
     }
     return "none";
   }
-  
+
   /**
    * @param {HTMLElement} dfn
    * @param {HTMLElement} panel
@@ -1749,7 +1749,7 @@
     panel.hidden = false;
     // distance (px) between edge of panel and the pointing triangle (caret)
     const MARGIN = 20;
-  
+
     const dfnRects = dfn.getClientRects();
     // Find the `top` offset when the `dfn` can be spread across multiple lines
     let closestTop = 0;
@@ -1762,12 +1762,12 @@
         closestTop = top;
       }
     }
-  
+
     const top = window.scrollY + closestTop + dfnRects[0].height;
     const left = x - MARGIN;
     panel.style.left = `${left}px`;
     panel.style.top = `${top}px`;
-  
+
     // Find if the panel is flowing out of the window
     const panelRect = panel.getBoundingClientRect();
     const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
@@ -1779,13 +1779,13 @@
       const caret = panel.querySelector(".caret");
       caret.style.left = `${newCaretOffset}px`;
     }
-  
+
     // As it's a dialog, we trap focus.
     // TODO: when <dialog> becomes a implemented, we should really
     // use that.
     trapFocus(panel, dfn);
   }
-  
+
   /**
    * @param {HTMLElement} panel
    * @param {HTMLElement} dfn
@@ -1796,14 +1796,14 @@
     const anchors = panel.querySelectorAll("a[href]");
     // No need to trap focus
     if (!anchors.length) return;
-  
+
     // Move focus to first anchor element
     const first = anchors.item(0);
     first.focus();
-  
+
     const trapListener = createTrapListener(anchors, panel, dfn);
     panel.addEventListener("keydown", trapListener);
-  
+
     // Hiding the panel releases the trap
     const mo = new MutationObserver(records => {
       const [record] = records;
@@ -1815,7 +1815,7 @@
     });
     mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
   }
-  
+
   /**
    *
    * @param {NodeListOf<HTMLAnchorElement>} anchors
@@ -1840,12 +1840,12 @@
           anchors.item(currentIndex).focus();
           break;
         }
-  
+
         // Hitting "Enter" on an anchor releases the trap.
         case "Enter":
           hidePanel(panel);
           break;
-  
+
         // Hitting "Escape" returns focus to dfn.
         case "Escape":
           hidePanel(panel);
@@ -1854,7 +1854,7 @@
       }
     };
   }
-  
+
   /** @param {HTMLElement} panel */
   function hidePanel(panel) {
     if (!panel) return;

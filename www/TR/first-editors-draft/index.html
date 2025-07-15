@@ -22,12 +22,12 @@
   .dfn-panel li{margin-left:1em}
   .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
   </style>
-      
-      
+
+
   <title>Design Tokens Technical Reports</title>
-      
-      
-    
+
+
+
   <style id="respec-mainstyle">
   @keyframes pop{
   0%{transform:scale(1,1)}
@@ -99,8 +99,8 @@
   </style>
   <script id="initialUserConfig" type="application/json">{
     "specStatus": "base",
-    "thisVersion": "https://first-editors-draft.tr.designtokens.org/",
-    "latestVersion": "https://tr.designtokens.org/",
+    "thisVersion": "https://designtokens.org/TR/first-editors-draft/",
+    "latestVersion": "https://www.designtokens.org/TR/drafts/",
     "edDraftURI": null,
     "publishDate": "2021-09-23",
     "subtitle": "First Editors’ Draft",
@@ -147,7 +147,7 @@
   }</script>
   <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
     <body class="h-entry informative"><div class="head">
-      
+
       <h1 id="title" class="title">Design Tokens Technical Reports</h1> <h2 id="subtitle" class="subtitle">First Editors’ Draft</h2>
       <p id="w3c-state">
         <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
@@ -155,16 +155,16 @@
       </p>
       <dl>
         <dt>This version:</dt><dd>
-                <a class="u-url" href="https://first-editors-draft.tr.designtokens.org/">https://first-editors-draft.tr.designtokens.org/</a>
+                <a class="u-url" href="https://www.designtokens.org/TR/first-editors-draft/">https://www.designtokens.org/TR/first-editors-draft/</a>
               </dd>
         <dt>Latest published version:</dt><dd>
-                <a href="https://tr.designtokens.org/">https://tr.designtokens.org/</a>
+                <a href="https://www.designtokens.org/TR/drafts/">https://www.designtokens.org/TR/drafts/</a>
               </dd>
-        
-        
-        
-        
-        
+
+
+
+
+
         <dt>Editors:</dt><dd class="editor p-author h-card vcard">
       <span class="p-name fn">Adekunle Oduye</span>
     </dd><dd class="editor p-author h-card vcard">
@@ -186,8 +186,8 @@
     </dd><dd class="editor p-author h-card vcard">
       <span class="p-name fn">Val Head</span>
     </dd>
-        
-        
+
+
         <dt>Feedback:</dt><dd>
           <a href="https://github.com/design-tokens/community-group/">GitHub design-tokens/community-group</a>
           (<a href="https://github.com/design-tokens/community-group/pulls/">pull requests</a>,
@@ -195,17 +195,17 @@
           <a href="https://github.com/design-tokens/community-group/issues/">open issues</a>)
         </dd>
       </dl>
-      
-      
+
+
       <hr title="Separator for header">
     </div>
-      
+
       <section id="abstract" class="introductory"><h2>Abstract</h2>
         <p>
           Design tokens are indivisible pieces of a design system such as colors,
           spacing, typography scale.
         </p>
-  
+
         <p>
           Design tokens were created by the Salesforce design system team, and the
           name comes from them (<a href="https://twitter.com/jonnyl">Jon</a> &amp;
@@ -213,7 +213,7 @@
         </p>
       </section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#modules"><bdi class="secno">1. </bdi>Modules</a></li><li class="tocline"><a class="tocxref" href="#resources"><bdi class="secno">2. </bdi>Resources</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">A. </bdi>Acknowledgements</a></li></ol></nav>
       <section id="modules"><div class="header-wrapper"><h2 id="x1-modules"><bdi class="secno">1. </bdi>Modules</h2><a class="self-link" href="#modules" aria-label="Permalink for Section 1."></a></div>
-        
+
         <p>The Design Tokens specification is composed of multiple modules:</p>
         <ul>
           <li>
@@ -226,16 +226,16 @@
   <li><a href="https://github.com/design-tokens/community-group/blob/main/CODE_OF_CONDUCT.md">Code of conduct</a></li>
   </ul>
   </section>
-  
+
       <section class="appendix" id="acknowledgements"><div class="header-wrapper"><h2 id="a-acknowledgements"><bdi class="secno">A. </bdi>Acknowledgements</h2><a class="self-link" href="#acknowledgements" aria-label="Permalink for Appendix A."></a></div>
-        
+
         <p>
           We'd also like to thank the following contributors:
           <span id="gh-contributors">Abhishek Warokar, Ale Muñoz, Benjamin Kindle, Bjørn Madsen, Chase McCoy, Dale Sande, Dominique Hazael-Massieux, Evan Lovely, Fabian Friedl, Guilherme Nagüeva, Ivan Maksimovic, Jina Anne, Jon Levine, Kaelig Deloumeau-Prigent, Kilian Valkhof, KLS, Miriam Suzanne, Namık Özgür Aydın, Rob Eisenberg, Robin, and Salem Cobalt</span>.
         </p>
       </section>
-    
-  
+
+
   <p role="navigation" id="back-to-top">
       <a href="#title"><abbr title="Back to Top">↑</abbr></a>
     </p><script id="respec-dfn-panel">(() => {
@@ -245,27 +245,27 @@
   } else {
     setupPanel();
   }
-  
+
   function setupPanel() {
     const listener = panelListener();
     document.body.addEventListener("keydown", listener);
     document.body.addEventListener("click", listener);
   }
-  
+
   function panelListener() {
     /** @type {HTMLElement} */
     let panel = null;
     return event => {
       const { target, type } = event;
-  
+
       if (!(target instanceof HTMLElement)) return;
-  
+
       // For keys, we only care about Enter key to activate the panel
       // otherwise it's activated via a click.
       if (type === "keydown" && event.key !== "Enter") return;
-  
+
       const action = deriveAction(event);
-  
+
       switch (action) {
         case "show": {
           hidePanel(panel);
@@ -290,13 +290,13 @@
       }
     };
   }
-  
+
   /**
    * @param {MouseEvent|KeyboardEvent} event
    */
   function deriveCoordinates(event) {
     const target = /** @type HTMLElement */ (event.target);
-  
+
     // We prevent synthetic AT clicks from putting
     // the dialog in a weird place. The AT events sometimes
     // lack coordinates, so they have clientX/Y = 0
@@ -309,14 +309,14 @@
       // The event probably happened inside the bounding rect...
       return { x: event.clientX, y: event.clientY };
     }
-  
+
     // Offset to the middle of the element
     const x = rect.x + rect.width / 2;
     // Placed at the bottom of the element
     const y = rect.y + rect.height;
     return { x, y };
   }
-  
+
   /**
    * @param {Event} event
    */
@@ -338,7 +338,7 @@
     }
     return "none";
   }
-  
+
   /**
    * @param {HTMLElement} dfn
    * @param {HTMLElement} panel
@@ -348,7 +348,7 @@
     panel.hidden = false;
     // distance (px) between edge of panel and the pointing triangle (caret)
     const MARGIN = 20;
-  
+
     const dfnRects = dfn.getClientRects();
     // Find the `top` offset when the `dfn` can be spread across multiple lines
     let closestTop = 0;
@@ -361,12 +361,12 @@
         closestTop = top;
       }
     }
-  
+
     const top = window.scrollY + closestTop + dfnRects[0].height;
     const left = x - MARGIN;
     panel.style.left = `${left}px`;
     panel.style.top = `${top}px`;
-  
+
     // Find if the panel is flowing out of the window
     const panelRect = panel.getBoundingClientRect();
     const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
@@ -378,13 +378,13 @@
       const caret = panel.querySelector(".caret");
       caret.style.left = `${newCaretOffset}px`;
     }
-  
+
     // As it's a dialog, we trap focus.
     // TODO: when <dialog> becomes a implemented, we should really
     // use that.
     trapFocus(panel, dfn);
   }
-  
+
   /**
    * @param {HTMLElement} panel
    * @param {HTMLElement} dfn
@@ -395,14 +395,14 @@
     const anchors = panel.querySelectorAll("a[href]");
     // No need to trap focus
     if (!anchors.length) return;
-  
+
     // Move focus to first anchor element
     const first = anchors.item(0);
     first.focus();
-  
+
     const trapListener = createTrapListener(anchors, panel, dfn);
     panel.addEventListener("keydown", trapListener);
-  
+
     // Hiding the panel releases the trap
     const mo = new MutationObserver(records => {
       const [record] = records;
@@ -414,7 +414,7 @@
     });
     mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
   }
-  
+
   /**
    *
    * @param {NodeListOf<HTMLAnchorElement>} anchors
@@ -439,12 +439,12 @@
           anchors.item(currentIndex).focus();
           break;
         }
-  
+
         // Hitting "Enter" on an anchor releases the trap.
         case "Enter":
           hidePanel(panel);
           break;
-  
+
         // Hitting "Escape" returns focus to dfn.
         case "Escape":
           hidePanel(panel);
@@ -453,7 +453,7 @@
       }
     };
   }
-  
+
   /** @param {HTMLElement} panel */
   function hidePanel(panel) {
     if (!panel) return;
