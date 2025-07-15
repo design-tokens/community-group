@@ -12,6 +12,8 @@ Guidelines and assets to help the public talk about the Design Tokens Community 
 
 ## About the Design Tokens W3C Community Group
 
+This change is made to test Netlify Deploy Previews.
+
 The Design Tokens Community Group's goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.
 
 In long-form content, you may use this language:
