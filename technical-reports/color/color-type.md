@@ -97,10 +97,7 @@ While both examples will render as white, the first example is more explicit abo
 The following values are supported for the `colorSpace` property. The `components` array will vary depending on the color space.
 
 <aside class="ednote" title="Syntax for expressing ranges">
-<p>
-In this table, brackets `[]` indicate that an extrema are included, parentheses `()` indicate that the [extrema](https://en.wikipedia.org/wiki/Maximum_and_minimum) are excluded. For example, in the HSL color space, [hue is in the range of \[0 - 360\)](https://www.w3.org/TR/css-color-4/#hue-syntax), which means that `0` MAY be used but `360` MUST NOT be used.
-
-</p>
+<p>In this table, brackets <code>[]</code> indicate that an extrema are included, parentheses <code>()</code> indicate that the <a href="https://en.wikipedia.org/wiki/Maximum_and_minimum">extrema</a> are excluded. For example, in the HSL color space, [hue is in the range of [0 - 360)](<a href="https://www.w3.org/TR/css-color-4/#hue-syntax">https://www.w3.org/TR/css-color-4/#hue-syntax</a>), which means that <code>0</code> MAY be used but <code>360</code> MUST NOT be used.</p>
 </aside>
 
 <table class="data">
