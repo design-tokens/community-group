@@ -2,6 +2,8 @@
 
 ## Name and value
 
+This change is made to test Netlify Deploy Previews when only a technical report is modified.
+
 <aside class="example" title="Minimal file with single design token">
 
 ```json
