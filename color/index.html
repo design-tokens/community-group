@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.4.0">
+<meta name="generator" content="ReSpec 35.4.2">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -179,8 +179,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     "branch": "color-first-draft"
   },
   "tocIntroductory": true,
-  "publishISODate": "2025-06-03T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 03 June 2025"
+  "publishISODate": "2025-07-15T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 15 July 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
 
@@ -189,7 +189,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Design Tokens Color Module</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2025-06-03">03 June 2025</time>
+      <time class="dt-published" datetime="2025-07-15">15 July 2025</time>
     </p>
     <dl>
       
@@ -296,23 +296,23 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
     <section id="color-terminology"><div class="header-wrapper"><h2 id="x3-color-terminology"><bdi class="secno">3. </bdi>Color terminology</h2><a class="self-link" href="#color-terminology" aria-label="Permalink for Section 3."></a></div>
 <p>This section provides a high-level overview of the terminology used in the specification and how it relates to <a href="https://en.wikipedia.org/wiki/Color_science">color science</a> and <a href="https://en.wikipedia.org/wiki/Colorimetry">colorimetry</a>.</p>
-<p><dfn data-plurals="color spaces" id="dfn-color-space" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Color space<dfn data-lt="" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;&quot;, but nothing links to it. This is usually a spec bug!" id="respec-offender-found-definition-for-but-nothing-links-to-it-this-is-usually-a-spec-bug"></dfn></dfn></p>
+<p><dfn data-plurals="color spaces" id="dfn-color-space" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Color space</dfn></p>
 <p>A color space is a specific organization of colors, which helps in the reproduction of color in both physical and digital realms. It defines a range of colors that can be represented and manipulated.</p>
-<p><dfn id="dfn-color-model" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Color model<dfn data-lt="" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;&quot;, but nothing links to it. This is usually a spec bug!" id="respec-offender-found-definition-for-but-nothing-links-to-it-this-is-usually-a-spec-bug-0"></dfn></dfn></p>
+<p><dfn id="dfn-color-model" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Color model</dfn></p>
 <p>A color model is a mathematical representation of colors within a specific <a data-link-type="dfn|abstract-op" href="#dfn-color-space" class="internalDFN" id="ref-for-dfn-color-space-1">color space</a>. It defines how colors are represented as numerical values, typically using components.</p>
-<p><dfn data-lt="gamut|Color gamut" id="dfn-gamut" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Color gamut<dfn data-lt="" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;&quot;, but nothing links to it. This is usually a spec bug!" id="respec-offender-found-definition-for-but-nothing-links-to-it-this-is-usually-a-spec-bug-1"></dfn></dfn></p>
+<p><dfn data-lt="gamut|Color gamut" id="dfn-gamut" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Color gamut</dfn></p>
 <p>A color gamut is the complete range of colors that can be represented in a specific color space. It defines the limits of color reproduction for that space.</p>
-<p><dfn data-lt="components|Component" id="dfn-components" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Component<dfn data-lt="" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;&quot;, but nothing links to it. This is usually a spec bug!" id="respec-offender-found-definition-for-but-nothing-links-to-it-this-is-usually-a-spec-bug-2"></dfn></dfn></p>
+<p><dfn data-lt="components|Component" id="dfn-components" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Component</dfn></p>
 <p>A component is a single value that defines a part of a color in a specific color space. For example, in the RGB color space, the components are red, green, and blue.</p>
-<p><dfn id="dfn-hue" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Hue<dfn data-lt="" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;&quot;, but nothing links to it. This is usually a spec bug!" id="respec-offender-found-definition-for-but-nothing-links-to-it-this-is-usually-a-spec-bug-3"></dfn></dfn></p>
+<p><dfn id="dfn-hue" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Hue</dfn></p>
 <p>Hue is the attribute of a color that allows it to be classified as red, green, blue, etc. In many color spaces, hue is represented as an angle on a color wheel. Different color spaces may position colors differently on the wheel.</p>
-<p><dfn id="dfn-saturation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Saturation<dfn data-lt="" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;&quot;, but nothing links to it. This is usually a spec bug!" id="respec-offender-found-definition-for-but-nothing-links-to-it-this-is-usually-a-spec-bug-4"></dfn></dfn></p>
+<p><dfn id="dfn-saturation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Saturation</dfn></p>
 <p>Saturation is the colorfulness of a color relative to its own brightness. It describes how much gray is present in a color. A fully saturated color has no gray, while a desaturated color appears more grayish. It is inherently tied to both <a data-link-type="dfn|abstract-op" href="#dfn-chroma" class="internalDFN" id="ref-for-dfn-chroma-1">chroma</a> and <a data-link-type="dfn|abstract-op" href="#dfn-lightness" class="internalDFN" id="ref-for-dfn-lightness-1">lightness</a>, especially in models like HSL or HSV. A color can be highly saturated but still appear light or dark depending on its lightness.</p>
-<p><dfn id="dfn-lightness" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Lightness<dfn data-lt="" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;&quot;, but nothing links to it. This is usually a spec bug!" id="respec-offender-found-definition-for-but-nothing-links-to-it-this-is-usually-a-spec-bug-5"></dfn></dfn></p>
+<p><dfn id="dfn-lightness" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Lightness</dfn></p>
 <p>Lightness is the perceived brightness of a color. It describes how light or dark a color appears.</p>
-<p><dfn id="dfn-chroma" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Chroma<dfn data-lt="" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;&quot;, but nothing links to it. This is usually a spec bug!" id="respec-offender-found-definition-for-but-nothing-links-to-it-this-is-usually-a-spec-bug-6"></dfn></dfn></p>
+<p><dfn id="dfn-chroma" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Chroma</dfn></p>
 <p>Chroma refers to the colorfulness of a color relative to the brightness of a similarly illuminated white. It measures how pure or intense a color appears. In the CIE LCH color model (Lightness, Chroma, Hue), Chroma is independent of lightness and expresses how far a color is from neutral gray along the chromatic axis.</p>
-<p><dfn id="dfn-alpha" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Alpha<dfn data-lt="" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;&quot;, but nothing links to it. This is usually a spec bug!" id="respec-offender-found-definition-for-but-nothing-links-to-it-this-is-usually-a-spec-bug-7"></dfn></dfn></p>
+<p><dfn id="dfn-alpha" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Alpha</dfn></p>
 <p>Alpha is a component that represents the transparency of a color. It defines how opaque or transparent a color is, with the minimum value (usually 0) being fully transparent and the maximum value (usually 1) being fully opaque.</p>
 </section>
 
@@ -322,7 +322,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 <p>For color tokens, the <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>color</code>.</p>
 <p>The <code>$value</code> property can then be used to specify the details of the color, The <code>$value</code> object contains the following properties:</p>
 <ul>
-<li><code>colorSpace</code> (required): A string that specifices the <a data-link-type="dfn|abstract-op" href="#dfn-color-space" class="internalDFN" id="ref-for-dfn-color-space-2">color space</a> or <a data-link-type="dfn|abstract-op" href="#dfn-color-model" class="internalDFN" id="ref-for-dfn-color-model-1">color model</a>. For supported color spaces, see the <a href="#supported-color-spaces">supported color spaces</a> section below.</li>
+<li><code>colorSpace</code> (required): A string that specifies the <a data-link-type="dfn|abstract-op" href="#dfn-color-space" class="internalDFN" id="ref-for-dfn-color-space-2">color space</a> or <a data-link-type="dfn|abstract-op" href="#dfn-color-model" class="internalDFN" id="ref-for-dfn-color-model-1">color model</a>. For supported color spaces, see the <a href="#supported-color-spaces">supported color spaces</a> section below.</li>
 <li><code>components</code> (required): An array representing the color <a data-link-type="dfn|abstract-op" href="#dfn-components" class="internalDFN" id="ref-for-dfn-components-1">components</a>. The number of components depends on the color space. Each element of the array <em class="rfc2119">MUST</em> be either:<ul>
 <li>A number</li>
 <li>The 'none' keyword</li>
@@ -643,7 +643,7 @@ In this table, brackets <code>[]</code> indicate that an extrema are included, p
 </aside></div>
 
 <div class="note" id="issue-container-generatedID-2"><div role="heading" class="ednote-title marker" id="h-ednote-2" aria-level="4"><span>Editor's note</span><span class="issue-label">: Optional values in examples</span></div><aside class="">
-<p>The examples below are given with all optional values (alpha, hex) included for the purpose of completness. Defining the alpha property for fully-opaque colors is not required, see <a href="#format" data-matched-text="[[[#format]]]" class="sec-ref"><bdi class="secno">4.1 </bdi>Format</a>.</p>
+<p>The examples below are given with all optional values (alpha, hex) included for the purpose of completeness. Defining the alpha property for fully-opaque colors is not required, see <a href="#format" data-matched-text="[[[#format]]]" class="sec-ref"><bdi class="secno">4.1 </bdi>Format</a>.</p>
 </aside></div>
 
 <div class="note" id="issue-container-generatedID-3"><div role="heading" class="ednote-title marker" id="h-ednote-3" aria-level="4"><span>Editor's note</span><span class="issue-label">: How does this conform to CSS Color Module 4?</span></div><aside class="">
