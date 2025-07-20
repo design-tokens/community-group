@@ -220,3 +220,33 @@ main {
 pre {
   overflow-x: auto; // 2.
 }
+
+main table {
+  border-collapse: collapse;
+}
+
+main th {
+  border-bottom: 1px solid
+    color-mix(in oklch, #{$color-foreground}, transparent 75%);
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+
+  @include dark-mode {
+    border-bottom-color: color-mix(
+      in oklch,
+      #{$color-foreground-inverse},
+      transparent 75%
+    );
+  }
+}
+
+main td {
+  padding: 0.25rem 0.5rem;
+}
+
+main tr:nth-of-type(even) td {
+  background-color: $color-background-weak;
+  @include dark-mode {
+    background-color: $color-background-weak-inverse;
+  }
+}
