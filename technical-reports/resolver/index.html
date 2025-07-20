@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Design Tokens Resolver Module</title>
+    <script
+      src="https://www.w3.org/Tools/respec/respec-w3c"
+      class="remove"
+      defer
+    ></script>
+    <script class="remove">
+      const respecConfig = {
+        specStatus: 'CG-DRAFT',
+        isPreview: true,
+        subtitle: 'Preview',
+        group: 'design-tokens',
+        latestVersion: null,
+        prevVersion: null,
+        edDraftURI: null,
+        editors: [
+          { name: 'Joren Broekema' },
+          { name: 'Louis Chenais', url: 'https://bsky.app/profile/lucho.cool' },
+          { name: 'Mike Kamminga', url: 'https://x.com/mikekamminga' },
+          { name: 'Andrew L’Homme' },
+          { name: 'James Nash', url: 'https://cirrus.twiddles.com/' },
+          { name: 'Drew Powers', url: 'https://pow.rs' },
+        ],
+        github: {
+          repoURL: 'https://github.com/design-tokens/community-group',
+          branch: 'main',
+        },
+        tocIntroductory: true,
+        logos: [
+          {
+            src: '/_includes/assets/images/logo_128_2x.png',
+            url: 'https://www.designtokens.org',
+            alt: 'Design Tokens Community Group',
+            width: 128,
+            height: 128,
+            id: 'dtcg-logo',
+          },
+        ],
+      };
+    </script>
+  </head>
+
+  <body>
+    <p class="copyright remove"></p>
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p>
+        This specification describes a JSON schema for combining multiple
+        <a href="../format/">Design Tokens Format</a> JSON files into a
+        flattened collection of <a href="../format/#design-token">Tokens</a>.
+      </p>
+    </section>
+    <section id="sotd">
+      <p>
+        This is a public copy of the editors’ draft. It is provided for
+        discussion only and may change at any moment. It is the product of a W3C
+        Community group and is not affiliated with the W3C directly. Don’t cite
+        this document other than as work in progress.
+      </p>
+    </section>
+
+    <section
+      data-include="./terminology.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      data-include="./syntax.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      data-include="./resolution.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      data-include="./orthogonality.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      id="conformance"
+      data-include="./conformance.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section class="appendix">
+      <h2>Acknowledgements</h2>
+      <p>
+        We'd also like to thank the following contributors:
+        <span id="gh-contributors"><!-- filled by ReSpec --></span>.
+      </p>
+    </section>
+  </body>
+</html>
