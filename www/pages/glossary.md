@@ -21,8 +21,7 @@ A tool that translates token sets from one format (such as YAML) to a range of o
 ### Examples
 
 - Style Dictionary
-- Cobalt
-- Specify
+- Terrazzo
 - Theo
 
 ## Design tool
