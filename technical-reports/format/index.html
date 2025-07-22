@@ -11,12 +11,13 @@
     <script class="remove">
       const respecConfig = {
         specStatus: 'CG-DRAFT',
+        isPreview: true,
+        subtitle: 'Preview',
         group: 'design-tokens',
-        // In PR preview apps, shows an annoying red box to the document,
-        // warning unsuspecting readers that they should not cite or
-        // reference this version of the specification.
-        isPreview: document.location.host.includes('preview'),
-        latestVersion: 'https://www.designtokens.org/TR/drafts/format/',
+        latestVersion:
+          'https://www.designtokens.org/TR/third-editors-draft/format/',
+        prevVersion:
+          'https://www.designtokens.org/TR/second-editors-draft/format/',
         edDraftURI: null,
         editors: [
           { name: 'Adekunle Oduye', url: 'https://www.adekunleoduye.com' },
