@@ -206,12 +206,20 @@ The **`$deprecated`** property MAY be used to mark a token as deprecated, and op
 ```json
 {
   "Button background": {
-    "$value": "#777777",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0.467, 0.467, 0.467],
+      "hex": "#777777"
+    },
     "$type": "color",
     "$deprecated": true
   },
   "Button focus": {
-    "$value": "#70c0ff",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0.44, 0.753, 1],
+      "hex": "#70c0ff"
+    },
     "$type": "color",
     "$deprecated": "Please use the border style for active buttons instead."
   }
