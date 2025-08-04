@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Design Tokens Resolver Module</title>
+    <script
+      src="https://www.w3.org/Tools/respec/respec-w3c"
+      class="remove"
+    ></script>
+    <script class="remove">
+      var respecConfig = {
+        specStatus: 'CG-DRAFT',
+        group: 'design-tokens',
+        // In PR preview apps, shows an annoying red box to the document,
+        // warning unsuspecting readers that they should not cite or
+        // reference this version of the specification.
+        isPreview: document.location.host.includes('preview'),
+        editors: [
+          { name: "Andrew L'Homme", email: 'andrew@hyma.io' },
+          { name: 'Drew Powers' },
+          { name: 'Esther Cheran', email: 'esther@hyma.io' },
+          { name: 'James Nash' },
+          { name: 'Joren Broekema', email: 'joren@hyma.io' },
+          { name: 'Louis Chenais' },
+          { name: 'Mike Kamminga', email: 'mike@hyma.io' },
+        ],
+        shortName: 'design-tokens-resolvers',
+        cg: 'Design Tokens W3C Community Group',
+        cgURI: 'https://github.com/design-tokens/community-group',
+        github: {
+          repoURL: 'https://github.com/design-tokens/community-group',
+          branch: 'main',
+        },
+        tocIntroductory: true,
+        logos: [
+          {
+            src: '/_includes/assets/images/logo_128_2x.png',
+            url: 'https://www.designtokens.org',
+            alt: 'Design Tokens Community Group',
+            width: 128,
+            height: 128,
+            id: 'dtcg-logo',
+          },
+        ],
+      };
+    </script>
+  </head>
+  <body>
+    <section id="abstract">
+      <p>
+        This document describes the technical specification for a resolver
+        mechanism used to manage and resolve design tokens in complex scenarios
+        involving themes, modes, brands, and other modifiers. It extends the
+        Design Tokens Format Specification by introducing a structured way to
+        combine and override token sets to produce a final, resolved set of
+        tokens for consumption by design tools and platforms.
+      </p>
+    </section>
+
+    <section id="sotd">
+      <p>
+        This is a snapshot of the editors’ draft. It is provided for discussion
+        only and may change at any moment. Its publication here does not imply
+        endorsement of its contents by W3C or the Design Tokens W3C Community
+        Group Membership. Don’t cite this document other than as work in
+        progress.
+      </p>
+      <p>This document has been published to facilitate Wide Review.</p>
+      <p>
+        This document was produced by the Design Tokens W3C Community Group, and
+        contributions to this draft are governed by
+        <a href="https://www.w3.org/community/about/process/cla"
+          >Community Contributor License Agreement (CLA)</a
+        >, as specified by the
+        <a href="https://www.w3.org/community/about/process/#cgroups"
+          >W3C Community Group Process</a
+        >.
+      </p>
+    </section>
+
+    <section
+      class="informative"
+      data-include="./introduction.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      class="informative"
+      data-include="./rationale.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      class="informative"
+      data-include="./terminology.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      class="informative"
+      data-include="./file-format.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      class="informative"
+      data-include="./resolution-aliasing.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      class="informative"
+      data-include="./resolution-logic.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      data-include="./resolution-example.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      class="informative"
+      data-include="./use-cases.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      class="informative"
+      data-include="./orthogonality.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      class="informative"
+      data-include="./future-extensions.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      id="conformance"
+      data-include="./conformance.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section id="acknowledgements" class="appendix informative">
+      <h2>Acknowledgments</h2>
+      <p>
+        We thank the members of the Design Tokens Community Group for their
+        contributions and feedback, including:
+      </p>
+      <ul>
+        <li>[Contributors' Names]</li>
+      </ul>
+    </section>
+
+    <section
+      class="appendix informative"
+      data-include="./additional-context-and-information.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      class="appendix informative"
+      data-include="./example1.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      class="appendix informative"
+      data-include="./example2.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      class="appendix informative"
+      data-include="./example3.md"
+      data-include-format="markdown"
+    ></section>
+  </body>
+</html>
