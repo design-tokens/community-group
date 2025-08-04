@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.4.2">
+<meta name="generator" content="ReSpec 35.4.3">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -153,9 +153,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </style>
 <script id="initialUserConfig" type="application/json">{
   "specStatus": "CG-DRAFT",
+  "isPreview": true,
+  "subtitle": "Preview",
   "group": "design-tokens",
-  "isPreview": false,
-  "latestVersion": "https://www.designtokens.org/TR/drafts/format/",
+  "latestVersion": "https://www.designtokens.org/TR/third-editors-draft/format/",
+  "prevVersion": "https://www.designtokens.org/TR/second-editors-draft/format/",
   "edDraftURI": null,
   "editors": [
     {
@@ -218,28 +220,28 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "dtcg-logo"
     }
   ],
-  "publishISODate": "2025-07-15T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 15 July 2025"
+  "publishISODate": "2025-08-04T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 04 August 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
 
   <body class="h-entry"><div class="head">
     <p class="logos"><a class="logo" href="https://www.designtokens.org"><img crossorigin="" alt="Design Tokens Community Group" height="128" id="dtcg-logo" src="/_includes/assets/images/logo_128_2x.png" width="128">
   </a></p>
-    <h1 id="title" class="title">Design Tokens Format Module</h1> 
+    <h1 id="title" class="title">Design Tokens Format Module</h1> <h2 id="subtitle" class="subtitle">Preview</h2>
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2025-07-15">15 July 2025</time>
+      <time class="dt-published" datetime="2025-08-04">04 August 2025</time>
     </p>
     <dl>
       
       <dt>Latest published version:</dt><dd>
-              <a href="https://www.designtokens.org/TR/drafts/format/">https://www.designtokens.org/TR/drafts/format/</a>
+              <a href="https://www.designtokens.org/TR/third-editors-draft/format/">https://www.designtokens.org/TR/third-editors-draft/format/</a>
             </dd>
       
       
       
-      
+      <dt>Previous version:</dt><dd><a href="https://www.designtokens.org/TR/second-editors-draft/format/">https://www.designtokens.org/TR/second-editors-draft/format/</a></dd>
       
       <dt>Editors:</dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://www.adekunleoduye.com">Adekunle Oduye</a>
@@ -287,7 +289,17 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </p>
     </section>
 
-    <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>
+    <section id="sotd" class="introductory"><h2>Status of This Document</h2><details class="annoying-warning" open="">
+    <summary>
+      This is a
+      preview
+    </summary>
+    <p>
+      Do not attempt to implement this version of the specification. Do not
+      reference this version as authoritative in any way.
+      
+    </p>
+  </details><p>
       This specification was published by the
       <a href="https://www.w3.org/groups/cg/design-tokens">Design Tokens Community Group</a>. It is not a W3C Standard nor is it
       on the W3C Standards Track.
@@ -730,12 +742,20 @@ $font-size: 16px;
 
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"Button background"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#777777"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0.467</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.467</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.467</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"hex"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#777777"</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">"$deprecated"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
   <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"Button focus"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#70c0ff"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0.44</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.753</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"hex"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#70c0ff"</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">"$deprecated"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Please use the border style for active buttons instead."</span>
   <span class="hljs-punctuation">}</span>
@@ -1023,8 +1043,22 @@ $font-size: 16px;
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"Button"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"$deprecated"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Please use tokens in the Action group instead."</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"Foreground"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#202020"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"Background"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#ffffff"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span> <span class="hljs-punctuation">}</span>
+    <span class="hljs-attr">"Foreground"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0.125</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.125</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.125</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"hex"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#202020"</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"Background"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"hex"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#ffffff"</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span>
+    <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
