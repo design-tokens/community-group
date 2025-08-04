@@ -1,88 +1,22 @@
-# Resolver Terminology
+# Terminology
 
-<dl>
-<dt>Resolver</dt>
-<dd>
+## <dfn>Resolver</dfn>
 
-A mechanism that combines token sets and applies modifiers to produce a final, resolved set of design tokens.
+The mechanism by which multiple possible values of design tokens are reduced to a single value, i.e. this module.
 
-</dd>
-<dt>Token Set</dt>
-<dd>
+## <dfn>Set</dfn>
 
-A collection of design tokens grouped together, often representing foundational tokens, component-specific tokens, or theme-specific tokens.
+Alternate design token values that are defined in [&lt;token-defs&gt;](#token-defs), intended to be merged in a specific order.
 
-</dd>
-<dt>Dimension</dt>
-<dd>
+## <dfn>Modifier</dfn>
 
-Dimensions are categories used to organize your design tokens. See them as contexts in which token values might change:
+Alternate design token value accessed with an [=input=], that takes priority over a [=set=]. Modifiers MAY be [=orthogonal=].
 
-- Brands
-- Surface
-- Language direction
-- Themes
-- Platform
-- Screen size
-- Density
-- Component
-- State
-- Variant
-- Contrast
+## <dfn>Input</dfn>
 
-<aside class="issue">
+Parameters provided to the [=resolver=] to specify which [=modifier=]s to apply during the [resolution](#resolution) process.
 
-The term "Dimension" is potentially confusing since "Dimension" is also a type of token and a general concept. Consider using "Context" instead, which aligns with the existing definition as "contexts in which token values might change." Additionally, explicit mention of color schemes may be problematic - developers often distinguish between "themes" and "color modes" (like Windows High Contrast mode for accessibility), and it's unclear whether everyone would understand themes to encompass dark/light/high-contrast modes.
-
-</aside>
-
-</dd>
-
-<dt>Modifier</dt>
-
-<dd>
-
-An entity that modifies or overrides tokens in the base sets. Modifiers can represent dimensions like themes, modes, brands, or any other contextual variations.
-
-<dl>
-
-<dt>Enumerated Modifier</dt>
-<dd>
-
-A modifier with predefined, named values (e.g., "light", "dark" for a theme modifier).
-
-</dd>
-<dt>Include Modifier</dt>
-<dd>
-
-A modifier that replaces or includes entire token sets during resolution.
-
-</dd>
-<dt>Alias</dt>
-<dd>
-
-An optional property that allows for namespacing or renaming token paths during resolution.
-
-<aside class="issue">
-
-The modifier types and their behaviors aren't clear from these definitions alone. Real-world examples showing how Enumerated Modifiers, Include Modifiers, and Alias properties work in practice would help clarify their purpose and usage.
-
-</aside>
-
-</dd>
-
-</dl>
-
-</dd>
-
-<dt>Input</dt>
-<dd>
-
-Parameters provided to the resolver to specify which modifiers to apply during the resolution process.
-
-</dd>
-<dt>Resolution</dt>
-<dd>
+## <dfn>Resolution</dfn>
 
 The process of combining token sets and applying modifiers based on the specified inputs to produce the final set of tokens.
 
@@ -92,12 +26,12 @@ The specification should address different real-world resolution use cases and t
 
 </aside>
 
-</dd>
+<aside class="issue">
 
-<dt>Orthogonality</dt>
-<dd>
+Would the term “Resolution” ever be confused with [Display resolution](https://en.wikipedia.org/wiki/Display_resolution)? Would another term like “Output” work better?
 
-The property of modifiers being independent of each other, allowing them to be combined freely without affecting each other's resolution logic.
+</aside>
 
-</dd>
-</dl>
+## <dfn>Orthogonal</dfn> (Orthogonality)
+
+The property of [=modifier=]s being independent of each other, allowing them to be combined freely without affecting each other's [=resolution=] logic.
