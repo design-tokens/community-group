@@ -1,4 +1,3 @@
 README.md
-.github/
-**/*.scss
+.github/ \*_/_.scss
 ./.netlify/plugins/node_modules

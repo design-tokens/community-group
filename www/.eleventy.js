@@ -12,6 +12,8 @@ export default function (eleventyConfig) {
     () => `${new Date().getFullYear()}`,
   );
 
+  eleventyConfig.setUseGitIgnore(false);
+
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
@@ -80,7 +82,6 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     admin: 'admin',
     public: '/',
-    TR: 'TR',
   });
   eleventyConfig.setServerPassthroughCopyBehavior('passthrough');
 
@@ -102,14 +103,14 @@ export default function (eleventyConfig) {
   eleventyConfig.setLibrary('md', mdit);
 
   return {
-    templateFormats: ['md', 'njk'],
+    templateFormats: ['md', 'njk', 'html'],
 
     // If your site lives in a different subdirectory, change this.
     // Leading or trailing slashes are all normalized away, so don’t worry about it.
     // If you don’t have a subdirectory, use "" or "/" (they do the same thing)
     // This is only used for URLs (it does not affect your file structure)
     pathPrefix: '/',
-    htmlTemplateEngine: 'njk',
+    htmlTemplateEngine: 'html',
     dataTemplateEngine: 'njk',
     dir: {
       input: '.',

@@ -10,10 +10,14 @@
   },
   "scripts": {
     "build": "pnpm run build:index && pnpm run build:format && pnpm run build:color",
-    "build:index": "mkdir -p ../www/TR/drafts && respec index.html ../www/TR/drafts/index.html --localhost --disable-sandbox",
-    "build:format": "mkdir -p ../www/TR/drafts && mkdir -p ../www/TR/drafts/format && respec format/index.html ../www/TR/drafts/format/index.html --localhost --disable-sandbox",
-    "build:color": "mkdir -p ../www/TR/drafts && mkdir -p ../www/TR/drafts/color && respec color/index.html ../www/TR/drafts/color/index.html --localhost --disable-sandbox",
-    "dev": "chokidar \"**/*.{html,md}\" -c \"pnpm run build\" -d 2000",
+    "build:index": "pnpm run mkdirs && respec index.html ../www/TR/drafts/index.html --port 3001 --localhost --disable-sandbox",
+    "build:format": "pnpm run mkdirs && respec format/index.html ../www/TR/drafts/format/index.html --port 3002 --localhost --disable-sandbox",
+    "build:color": "pnpm run mkdirs && respec color/index.html ../www/TR/drafts/color/index.html --port 3003 --localhost --disable-sandbox",
+    "mkdirs": "mkdir -p ../www/TR/drafts && mkdir -p ../www/TR/drafts/format && mkdir -p ../www/TR/drafts/color",
+    "dev": "pnpm --parallel --filter @dtcg/tr run \"/^dev:.*/\"",
+    "dev:index": "pnpm run mkdirs && chokidar \"index.html\" -c \"pnpm run build:index\" -d 5000",
+    "dev:format": "pnpm run mkdirs && chokidar \"format/**/*\" -c \"pnpm run build:format\" -d 5000",
+    "dev:color": "pnpm run mkdirs && chokidar \"color/**/*\" -c \"pnpm run build:color\" -d 5000",
     "lint": "prettier . --check",
     "format": "prettier . --format --write",
     "validate": "pnpm run validate:index && pnpm run validate:format",
@@ -23,6 +27,6 @@
   "devDependencies": {
     "chokidar": "^4.0.3",
     "chokidar-cli": "^3.0.0",
-    "respec": "^35.4.1"
+    "respec": "^35.5.0"
   }
 }
