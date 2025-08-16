@@ -10,12 +10,10 @@
     "directory": "www"
   },
   "scripts": {
-    "build": "pnpm run build:tr && pnpm run build:sass && pnpm run build:eleventy",
-    "build:tr": "pnpm --filter @dtcg/tr run build",
+    "build": "pnpm run build:sass && pnpm run build:eleventy",
     "build:sass": "sass _includes:_site/_includes",
     "build:eleventy": "eleventy",
-    "dev": "pnpm --filter @dtcg/www --parallel --stream run \"/^dev:(eleventy|sass|tr)/\"",
-    "dev:tr": "pnpm --filter @dtcg/tr run build:watch",
+    "dev": "pnpm --filter @dtcg/www --parallel --stream run \"/^dev:(eleventy|sass)/\"",
     "dev:eleventy": "eleventy --serve --watch",
     "dev:sass": "pnpm --filter @dtcg/www run build:sass --watch",
     "lint": "prettier . --check",
