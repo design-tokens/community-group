@@ -3,7 +3,7 @@ layout: layouts/base.njk
 section: blog
 permalink: /blog/index.html
 ---
-{{ layoutContent | safe }}
+{{ content | safe }}
 
 {% set postslist = collections.post %}
 {% include "components/postslist.njk" %}

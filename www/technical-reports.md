@@ -2,6 +2,7 @@
 title: Technical Reports
 pageTitle: Technical Reports
 date: 2025-07-20
+layout: layouts/page.njk
 permalink: /technical-reports/index.html
 eleventyNavigation:
   key: Technical Reports
