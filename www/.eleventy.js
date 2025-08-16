@@ -110,7 +110,7 @@ export default function (eleventyConfig) {
     // If you don’t have a subdirectory, use "" or "/" (they do the same thing)
     // This is only used for URLs (it does not affect your file structure)
     pathPrefix: '/',
-    htmlTemplateEngine: 'html',
+    htmlTemplateEngine: false,
     dataTemplateEngine: 'njk',
     dir: {
       input: '.',
