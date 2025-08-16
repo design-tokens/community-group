@@ -250,8 +250,22 @@ The **`$deprecated`** property MAY be used to mark a group as deprecated, which 
 {
   "Button": {
     "$deprecated": "Please use tokens in the Action group instead.",
-    "Foreground": { "$value": "#202020", "$type": "color" },
-    "Background": { "$value": "#ffffff", "$type": "color" }
+    "Foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.125, 0.125, 0.125],
+        "hex": "#202020"
+      },
+      "$type": "color"
+    },
+    "Background": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [1, 1, 1],
+        "hex": "#ffffff"
+      },
+      "$type": "color"
+    }
   }
 }
 ```

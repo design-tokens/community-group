@@ -2,6 +2,7 @@
 title: Design Tokens Glossary
 pageTitle: '<abbr title="Design Tokens Community Group">DTCG</abbr> Glossary'
 date: 2020-06-10
+layout: layouts/page.njk
 permalink: /glossary/index.html
 eleventyNavigation:
   key: Glossary

@@ -2,6 +2,7 @@
   "name": "@dtcg/monorepo",
   "private": true,
   "version": "1.0.0",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/design-tokens/community-group.git"
