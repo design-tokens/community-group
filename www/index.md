@@ -2,7 +2,8 @@
 title: Home
 pageTitle: 'About <abbr title="Design Tokens Community Group">DTCG</abbr>'
 date: 2020-05-24
-permalink: /
+layout: layouts/page.njk
+permalink: /index.html
 eleventyNavigation:
   key: Home
   order: 0

@@ -11,4 +11,4 @@ $breakpoint-not-small: "screen and (min-width: #{$breakpoint-small})";
 $breakpoint-medium: "screen and (min-width: #{$breakpoint-small}) and (max-width: #{$breakpoint-large})";
 $breakpoint-large: "screen and (min-width: #{$breakpoint-large})";
 
-@import "../../../node_modules/tachyons-sass/tachyons.scss";
+@import "../../node_modules/tachyons-sass/tachyons.scss";

@@ -1,9 +1,12 @@
-const { DateTime } = require('luxon');
-const UglifyJS = require('uglify-es');
-const htmlmin = require('html-minifier');
-const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
+import eleventyNavigationPlugin from '@11ty/eleventy-navigation';
+import markdownItClass from '@toycode/markdown-it-class';
+import htmlmin from 'html-minifier';
+import { DateTime } from 'luxon';
+import markdownIt from 'markdown-it';
+import markdownItAnchor from 'markdown-it-anchor';
+import UglifyJS from 'uglify-es';
 
-module.exports = function (eleventyConfig) {
+export default function (eleventyConfig) {
   eleventyConfig.addShortcode(
     'currentYear',
     () => `${new Date().getFullYear()}`,
@@ -73,24 +76,20 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
-  // Don't process folders with static assets e.g. images
-  eleventyConfig.addPassthroughCopy('admin');
-  eleventyConfig.addPassthroughCopy('_includes/assets/images');
-
-  // Don’t process technical reports
-  eleventyConfig.addPassthroughCopy('TR');
+  // Assets
+  eleventyConfig.addPassthroughCopy({
+    admin: 'admin',
+    public: '/',
+    TR: 'TR',
+  });
+  eleventyConfig.setServerPassthroughCopyBehavior('passthrough');
 
   /* Markdown Plugins */
-  const markdownIt = require('markdown-it');
-  const markdownItAnchor = require('markdown-it-anchor');
-  const markdownItClass = require('@toycode/markdown-it-class');
-
   const mdit = markdownIt({
     html: true,
     breaks: true,
     linkify: true,
   });
-
   mdit.use(markdownItAnchor, {
     permalink: false,
   });
@@ -100,19 +99,16 @@ module.exports = function (eleventyConfig) {
     h3: ['heading4'],
     h4: ['heading5'],
   });
-
   eleventyConfig.setLibrary('md', mdit);
 
   return {
-    templateFormats: ['md', 'njk', 'liquid'],
+    templateFormats: ['md', 'njk'],
 
     // If your site lives in a different subdirectory, change this.
     // Leading or trailing slashes are all normalized away, so don’t worry about it.
     // If you don’t have a subdirectory, use "" or "/" (they do the same thing)
     // This is only used for URLs (it does not affect your file structure)
     pathPrefix: '/',
-
-    markdownTemplateEngine: 'liquid',
     htmlTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',
     dir: {
@@ -122,4 +118,4 @@ module.exports = function (eleventyConfig) {
       output: '_site',
     },
   };
-};
+}
