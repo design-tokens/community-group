@@ -14,7 +14,7 @@ A subset of all design tokens that provide alternate values. Modifiers MAY take 
 
 ## <dfn>Input</dfn>
 
-Parameters provided to the [=resolver=] to specify which [=modifier=]s to apply during the [resolution](#resolution) process.
+The user’s selection for the [=modifier=]s, expressed as a key–value map. [See example](#modifiers).
 
 ## <dfn>Alternate value</dfn>
 

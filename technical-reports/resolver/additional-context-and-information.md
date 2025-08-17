@@ -13,12 +13,12 @@ Given a token set size.json:
 ```json
 {
   "sm": {
-    "value": "1px",
-    "type": "dimension"
+    "$value": { "$value": 1, "unit": "px" },
+    "$type": "dimension"
   },
   "lg": {
-    "value": "10px",
-    "type": "dimension"
+    "$value": { "value": 10, "unit": "px" },
+    "$type": "dimension"
   }
 }
 ```

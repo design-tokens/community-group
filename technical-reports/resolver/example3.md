@@ -44,109 +44,105 @@ Scenario: A design system needs to support responsive design by adjusting spacin
 
 ### Token Files
 
-#### tokens/core.json
+tokens/core.json
 
 ```json
 {
   "spacing": {
     "small": {
-      "value": "{screen.spacing.small}",
-      "type": "dimension"
+      "v$alue": "{screen.spacing.small}"
     },
     "medium": {
-      "value": "{screen.spacing.medium}",
-      "type": "dimension"
+      "$value": "{screen.spacing.medium}"
     },
     "large": {
-      "value": "{screen.spacing.large}",
-      "type": "dimension"
+      "$value": "{screen.spacing.large}"
     }
   },
   "typography": {
     "fontSize": {
-      "value": "{screen.typography.fontSize}",
-      "type": "dimension"
+      "$value": "{screen.typography.fontSize}"
     }
   }
 }
 ```
 
-#### tokens/screens/mobile.json
+tokens/screens/mobile.json
 
 ```json
 {
   "spacing": {
     "small": {
-      "value": "4px",
-      "type": "dimension"
+      "$value": { "value": 4, "unit": "px" },
+      "$type": "dimension"
     },
     "medium": {
-      "value": "8px",
-      "type": "dimension"
+      "$value": { "value": 8, "unit": "px" },
+      "$type": "dimension"
     },
     "large": {
-      "value": "12px",
-      "type": "dimension"
+      "$value": { "value": 12, "unit": "px" },
+      "$type": "dimension"
     }
   },
   "typography": {
     "fontSize": {
-      "value": "14px",
-      "type": "dimension"
+      "$value": { "value": 14, "unit": "px" },
+      "$type": "dimension"
     }
   }
 }
 ```
 
-#### tokens/screens/tablet.json
+tokens/screens/tablet.json
 
 ```json
 {
   "spacing": {
     "small": {
-      "value": "6px",
-      "type": "dimension"
+      "$value": { "value": 6, "unit": "px" },
+      "$type": "dimension"
     },
     "medium": {
-      "value": "12px",
-      "type": "dimension"
+      "$value": { "value": 12, "unit": "px" },
+      "$type": "dimension"
     },
     "large": {
-      "value": "18px",
-      "type": "dimension"
+      "$value": { "value": 18, "unit": "px" },
+      "$type": "dimension"
     }
   },
   "typography": {
     "fontSize": {
-      "value": "16px",
-      "type": "dimension"
+      "$value": { "value": 16, "unit": "px" },
+      "$type": "dimension"
     }
   }
 }
 ```
 
-#### tokens/screens/desktop.json
+tokens/screens/desktop.json
 
 ```json
 {
   "spacing": {
     "small": {
-      "value": "8px",
-      "type": "dimension"
+      "$value": { "value": 8, "unit": "px" },
+      "$type": "dimension"
     },
     "medium": {
-      "value": "16px",
-      "type": "dimension"
+      "$value": { "value": 16, "unit": "px" },
+      "$type": "dimension"
     },
     "large": {
-      "value": "24px",
-      "type": "dimension"
+      "$value": { "value": 24, "unit": "px" },
+      "$type": "dimension"
     }
   },
   "typography": {
     "fontSize": {
-      "value": "18px",
-      "type": "dimension"
+      "$value": { "value": 18, "unit": "px" },
+      "$type": "dimension"
     }
   }
 }
@@ -177,22 +173,18 @@ Tokens:
 {
   "spacing": {
     "small": {
-      "value": "{screen.spacing.small}",
-      "type": "dimension"
+      "$value": "{screen.spacing.small}"
     },
     "medium": {
-      "value": "{screen.spacing.medium}",
-      "type": "dimension"
+      "$value": "{screen.spacing.medium}"
     },
     "large": {
-      "value": "{screen.spacing.large}",
-      "type": "dimension"
+      "$value": "{screen.spacing.large}"
     }
   },
   "typography": {
     "fontSize": {
-      "value": "{screen.typography.fontSize}",
-      "type": "dimension"
+      "$value": "{screen.typography.fontSize}"
     }
   }
 }
@@ -211,22 +203,22 @@ Apply aliasing as per meta.alias ("screen"), resulting in:
   "screen": {
     "spacing": {
       "small": {
-        "value": "8px",
-        "type": "dimension"
+        "$value": { "$value": 8, "unit": "px" },
+        "$type": "dimension"
       },
       "medium": {
-        "value": "16px",
-        "type": "dimension"
+        "$value": { "$value": 16, "unit": "px" },
+        "$type": "dimension"
       },
       "large": {
-        "value": "24px",
-        "type": "dimension"
+        "$value": { "value": 24, "unit": "px" },
+        "$type": "dimension"
       }
     },
     "typography": {
       "fontSize": {
-        "value": "18px",
-        "type": "dimension"
+        "$value": { "value": 18, "unit": "px" },
+        "$type": "dimension"
       }
     }
   }
@@ -254,22 +246,22 @@ No conflicts in this example.
 {
   "spacing": {
     "small": {
-      "value": "8px",
-      "type": "dimension"
+      "$value": { "$value": 8, "unit": "px" },
+      "$type": "dimension"
     },
     "medium": {
-      "value": "16px",
-      "type": "dimension"
+      "$value": { "value": 16, "unit": "px" },
+      "$type": "dimension"
     },
     "large": {
-      "value": "24px",
-      "type": "dimension"
+      "$value": { "value": 24, "unit": "px" },
+      "$type": "dimension"
     }
   },
   "typography": {
     "fontSize": {
-      "value": "18px",
-      "type": "dimension"
+      "$value": { "value": 18, "unit": "px" },
+      "$type": "dimension"
     }
   }
 }

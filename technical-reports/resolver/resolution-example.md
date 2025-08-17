@@ -2,10 +2,6 @@
 
 <aside class="example">
 
-<aside class="ednote">
-
-We need to decide if the resolver spec also follows the $name, $values, etc.</aside>
-
 ```json
 {
   "name": "Example Resolver",
@@ -41,12 +37,6 @@ We need to decide if the resolver spec also follows the $name, $values, etc.</as
 }
 ```
 
-<aside class="issue">
-
-The `alias` property should be renamed to `namespace` to make its purpose clearer. Additionally, it should be moved out of the generic `meta` property and included in the formal schema definition. Currently, any arbitrary value could exist associated with `alias` since it's within the unstructured `meta` object. Anything that is not 100% discardable should not live in `meta`.
-
-</aside>
-
 #### Input
 
 ```json
@@ -55,7 +45,7 @@ The `alias` property should be renamed to `namespace` to make its purpose cleare
 }
 ```
 
-#### Token file: foundation.json
+foundation.json
 
 ```json
 {
@@ -70,7 +60,7 @@ The `alias` property should be renamed to `namespace` to make its purpose cleare
 }
 ```
 
-#### Token file: components/button.json
+components/button.json
 
 ```json
 {
@@ -87,7 +77,7 @@ The `alias` property should be renamed to `namespace` to make its purpose cleare
 }
 ```
 
-#### Token file: themes/dark.json
+themes/dark.json
 
 ```json
 {

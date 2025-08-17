@@ -69,6 +69,20 @@ A resolver MUST provide an array of sets that combine to form the minimum set of
         "base/scale.json",
         "base/web.json"
       ]
+    },
+    {
+      "values": [
+        {
+          "space": {
+            "base": {
+              "100": {
+                "$type": "dimension",
+                "$value": { "value": 2, "unit": "rem" }
+              }
+            }
+          }
+        }
+      ]
     }
   ]
 }
@@ -76,13 +90,320 @@ A resolver MUST provide an array of sets that combine to form the minimum set of
 
 </aside>
 
+<aside class="ednote" title="Proposal">
+
+Some examples of the resolver spec used set names in the `modifiers` array to not only load sets by name, but also enforce a more granular order. But that syntax is missing. So
+
+## Proposal A: add set name syntax
+
+Adding an explicit way to reference a set that does NOT conflict with URLs, and does NOT conflict with the DTCG spec provides more functionality at no cost:
+
+```json
+{
+  "sets": [{ "name": "color", "values": [] }],
+  "modifiers": [
+    {
+      "name": "theme",
+      "values": [{ "name": "light", "values": [{ "$set": "color" }] }]
+    }
+  ]
+}
+```
+
+But the tradeoff here is likely **No sets load by default and MUST be loaded via include modifiers** (otherwise, we’d have to add an “exclude” modifier which complicates things further).
+
+## Proposal B: simplify
+
+Alternately, if we decide **all sets are always included, no matter what,** then we reduce `sets` to a [&lt;token-defs&gt;](#token-defs) array:
+
+```json
+{
+  "sets": ["color.json", "typography.json"]
+}
+```
+
+</aside>
+
 ## Modifiers
+
+A resolver MAY provide an array of modifiers that extend, append, and/or override the final token values. A modifier is an object with the following properties:
+
+| Name     | Type                        |                            Required                            | Description               |
+| :------- | :-------------------------- | :------------------------------------------------------------: | :------------------------ |
+| **name** | `string`                    |                               Y                                | The name of the modifier. |
+| **type** | `"enumerated" \| "include"` | The type of modifier (default: [enumerated](#enumerated-type)) |                           |
+
+### Enumerated type
+
+An enumerated modifier adds the following additional properties:
+
+| Name               | Type      | Required | Description                                                                |
+| :----------------- | :-------- | :------: | :------------------------------------------------------------------------- |
+| **values**         | `Input[]` |    Y     | The inputs required for this modifier.                                     |
+| **meta**           | `Object`  |          | Additional data for this modifier                                          |
+| **meta.default**   | `string`  |          | Declare the default value of the input, if none is provided.               |
+| **meta.namespace** | `string`  |          | Namespace all tokens with a valid [token name](../format/#name-and-value). |
+
+An enumerated modifier that allows users to omit an [input](#input) value MUST specify a default value.
+
+<aside class="example" title="Enumerated modifier">
+
+```json
+{
+  "modifiers": [
+    {
+      "name": "theme",
+      "type": "enumerated",
+      "values": [
+        {
+          "name": "light",
+          "values": ["themes/light.json"]
+        },
+        {
+          "name": "dark",
+          "values": ["themes/dark.json"]
+        }
+      ],
+      "meta": {
+        "default": "light",
+        "namespace": "theme"
+      }
+    }
+  ]
+}
+```
+
+For inputs, the following inputs will provide the following result:
+
+- `{ "theme": "light": }` → `["themes/light.json"]`
+- `{ "theme": "dark": }` → `["themes/dark.json"]`
+- `{}` → `["themes/light.json"]` (default specified in `meta.default`)
+
+</aside>
+
+<aside class="ednote">
+
+Proposal for modified syntax:
+
+```json
+{
+  "modifiers": [
+    {
+      "name": "theme",
+      "type": "enumerated",
+      "inputs": {
+        "light": { "values": ["themes/light.json"] },
+        "dark": { "values": ["themes/dark.json"] }
+      },
+      "default": "light"
+    }
+  ]
+}
+```
+
+- Removes structural problem where the schema can’t enforce `values`’ names are unique.
+- Rename `values` → `inputs` to reduce contextual use of “value” having different syntax in 3+ places.
+  - Also reinforces the name “inputs” which are referred to in other places
+- `meta` key removed for conflicting purposes—in some parts of the original specification it was schemaless; in others it held crucial information like aliasing & defaults
+- Move `meta.default` → `default` and `meta.namespace` → `namespace`
+
+</aside>
+
+### Include type
+
+An include modifier adds the following additional properties:
+
+| Name       | Type      | Required | Description                            |
+| :--------- | :-------- | :------: | :------------------------------------- |
+| **values** | `Input[]` |    Y     | The inputs required for this modifier. |
+| **meta**   | `Object`  |          | Additional data for this modifier      |
+
+This type of modifier is used to conditionally include a set of tokens. The `values` array for an include modifier contains objects with a `name` and a corresponding list of `values` (file paths or inline tokens) that will be included if that name is present in the input.
+
+<aside class="example" title="Include modifier">
+
+```json
+{
+  "modifiers": [
+    {
+      "name": "features",
+      "type": "include",
+      "values": [
+        {
+          "name": "experimental-feature-x",
+          "values": ["features/feature-x.json"]
+        }
+      ]
+    }
+  ]
+}
+```
+
+</aside>
+
+<aside class="ednote">
+
+The input syntax for include is ambiguous. The language “will be included if that name is present in the input” suggests that multiple values may be provided. But what is the proper syntax?
+
+- `{ "features": "foo,bar,baz" }`
+- `{ "features": ["foo", "bar", "baz"] }`
+
+</aside>
+
+### Inputs
+
+An [=input=] is a mapping of modifier names to modifier values declared in any resolver. Inputs are not part of the resolver file itself, rather, provided to the tool alongside the resolver. A resolver that declares any modifiers MUST be consumed with an input as options.
+
+An input SHOULD be serializable to a JSON object. Meaning, an input MAY be expressed in any programming language, but that expression should be easily converted back into a JSON object. Related concepts would include an [object in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) or a [dictionary in Python](https://docs.python.org/3/tutorial/datastructures.html#dictionaries).
+
+Tools that load a resolver that declares modifiers SHOULD throw an error if an accompanying input is not provided.
+
+<aside class="example" title="Inputs">
+
+Given the following modifiers:
+
+```json
+{
+  "modifiers": [
+    {
+      "name": "theme",
+      "type": "enumerated",
+      "values": [
+        { "name": "light", "values": ["light.json"] },
+        { "name": "dark", "values": ["dark.json"] }
+      ]
+    },
+    {
+      "name": "size",
+      "type": "enumerated",
+      "values": [
+        { "name": "default", "values": ["size-default.json"] },
+        { "name": "large", "values": ["size-large.json"] }
+      ]
+    },
+    {
+      "name": "beta",
+      "type": "include",
+      "values": [{ "name": "enabled", "values": ["beta.json"] }]
+    }
+  ]
+}
+```
+
+A **valid** input would follow the schema: all keys correspond to the `name` of each modifier. The values are valid options as designated by the modifier.
+
+```json
+{
+  "theme": "light",
+  "size": "large",
+  "beta": "enabled"
+}
+```
+
+An **invalid** input would either add unspecified keys that don’t correspond to any modifier, and/or provide values that aren’t declared valid by any modifier type.
+
+```json
+{
+  "theme": "blue",
+  "foo": "bar"
+}
+```
+
+</aside>
+
+<aside class="example" title="Tool consuming input">
+
+Using an imaginary tool written in JavaScript, we would consume [the previous example](#example-inputs) like so:
+
+```js
+import tokenTool from './token-tool.js';
+
+tokenTool.loadResolver(
+  /* Path to resolver */
+  './resolver.json',
+
+  /* Input */
+  {
+    theme: 'dark',
+    size: 'default',
+  },
+);
+```
+
+This imaginary tool has a `loadResolver()` method that takes as its parameters:
+
+1. A filepath to the resolver in the first position, and
+2. The input object in its 2nd position.
+
+The tool then combines the resolver + inputs to produce its final [=resolution=].
+
+</aside>
+
+### Namespacing
+
+Namespacing allows for automatic prefixing of token names
 
 <aside class="issue">
 
-- If modifiers may refer to sets by name, then there should be a dilineation between the set name `string` and a URL `string`.
-  - For example, could a user name a set `colors.json`? Could they do that if there was also a file at that location?
-- If sets may be used by name, then it should be a key–value map so the names are unique. There is no need for ordering, if another place determines the order.
+**Auto-namespacing Concerns:** The automatic application of namespacing for modifiers introduces significant complexity and potential issues:
+
+- Requires pre-resolution conflict checking across all sets and modifiers
+- Modifier JSON must be complete sets to avoid undefined token references
+- Risk of infinite loops if modifiers reference tokens in other modifier namespaces
+- Backwards compatibility issues requiring extensive token renames in existing design systems
+
+**Alternative Approach:** Consider removing auto-namespacing for modifiers and using shared merging logic between sets and modifiers for better compatibility and simplicity.
+
+</aside>
+
+**Example:**
+
+<aside class="example">
+
+Given a tokens `size.json`:</p>
+
+```json
+{
+  "sm": {
+    "$value": { "value": 1, "unit": "px" },
+    "$type": "dimension"
+  },
+  "lg": {
+    "$value": { "$value": 10, "unit": "px" },
+    "$type": "dimension"
+  }
+}
+```
+
+By applying an alias in the modifier's meta.alias, we can namespace these tokens:
+
+```json
+{
+  "modifiers": [
+    {
+      "name": "size",
+      "type": "include",
+      "values": [
+        {
+          "name": "default",
+          "values": ["size.json"]
+        }
+      ],
+      "meta": {
+        "namespace": "spacing"
+      }
+    }
+  ]
+}
+```
+
+Resulting in the final token names `spacing.sm` and `spacing.lg`.
+
+</aside>
+
+<aside class="issue">
+
+If the `meta.namespace` behavior described above is normative/required behavior, it should not be part of the generic `meta` property but should be defined as part of the formal schema. Alternatively, if this is just an example of tooling-specific behavior, it should be clearly called out as such and not presented as part of the core specification.
 
 </aside>
 
@@ -109,7 +430,10 @@ The array order is significant, where tokens with the same name overwrite previo
         "blue": {
           "100": {
             "$type": "color",
-            "$value": { "colorSpace": "srgb", "components": [0, 0, 0.9] }
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [0, 0, 0.9]
+            }
           }
         }
       }

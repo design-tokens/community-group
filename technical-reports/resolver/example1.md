@@ -56,16 +56,20 @@ These examples could be moved to the Resolver Spec netlify app for better presen
   "color": {
     "text": {
       "primary": {
-        "value": "#000000",
-        "type": "color"
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "hex": "#000000"
+        },
+        "$type": "color"
       }
     }
   },
   "font": {
     "family": {
       "default": {
-        "value": "Arial, sans-serif",
-        "type": "font"
+        "$value": ["Arial", "sans-serif"],
+        "$type": "fontFamily"
       }
     }
   }
@@ -78,18 +82,15 @@ These examples could be moved to the Resolver Spec netlify app for better presen
 {
   "button": {
     "background": {
-      "value": "{brand.color.primary}",
-      "type": "color"
+      "$value": "{brand.color.primary}"
     },
     "fontFamily": {
-      "value": "{brand.font.family}",
-      "type": "font"
+      "$value": "{brand.font.family}"
     }
   },
   "header": {
     "color": {
-      "value": "{brand.color.secondary}",
-      "type": "color"
+      "$value": "{brand.color.secondary}"
     }
   }
 }
@@ -101,18 +102,26 @@ These examples could be moved to the Resolver Spec netlify app for better presen
 {
   "color": {
     "primary": {
-      "value": "#FF5733",
-      "type": "color"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [1, 0.34, 0.2],
+        "hex": "#ff5733"
+      },
+      "$type": "color"
     },
     "secondary": {
-      "value": "#C70039",
-      "type": "color"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.78, 0, 0.22],
+        "hex": "#c70039"
+      },
+      "$type": "color"
     }
   },
   "font": {
     "family": {
-      "value": "'Helvetica Neue', sans-serif",
-      "type": "font"
+      "$value": ["Helvetica Neue", "sans-serif"],
+      "$type": "fontFamily"
     }
   }
 }
@@ -124,18 +133,26 @@ These examples could be moved to the Resolver Spec netlify app for better presen
 {
   "color": {
     "primary": {
-      "value": "#1F618D",
-      "type": "color"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.12, 0.38, 0.55],
+        "hex": "#1f618d"
+      },
+      "$type": "color"
     },
     "secondary": {
-      "value": "#2874A6",
-      "type": "color"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.156, 0.455, 0.65],
+        "hex": "#2874a6"
+      },
+      "$type": "color"
     }
   },
   "font": {
     "family": {
-      "value": "'Times New Roman', serif",
-      "type": "font"
+      "$value": ["Times New Roman", "serif"],
+      "$type": "fontFamily"
     }
   }
 }
@@ -167,33 +184,34 @@ Merge tokens:
   "color": {
     "text": {
       "primary": {
-        "value": "#000000",
-        "type": "color"
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "hex": "#000000"
+        },
+        "$type": "color"
       }
     }
   },
   "font": {
     "family": {
       "default": {
-        "value": "Arial, sans-serif",
-        "type": "font"
+        "$value": ["Arial", "sans-serif"],
+        "$type": "fontFamily"
       }
     }
   },
   "button": {
     "background": {
-      "value": "{brand.color.primary}",
-      "type": "color"
+      "$value": "{brand.color.primary}"
     },
     "fontFamily": {
-      "value": "{brand.font.family}",
-      "type": "font"
+      "$value": "{brand.font.family}"
     }
   },
   "header": {
     "color": {
-      "value": "{brand.color.secondary}",
-      "type": "color"
+      "$value": "{brand.color.secondary}"
     }
   }
 }
@@ -212,18 +230,26 @@ Apply aliasing as per meta.alias ("brand"), resulting in:
   "brand": {
     "color": {
       "primary": {
-        "value": "#1F618D",
-        "type": "color"
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.12, 0.38, 0.55],
+          "hex": "#1f618d"
+        },
+        "$type": "color"
       },
       "secondary": {
-        "value": "#2874A6",
-        "type": "color"
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.157, 0.455, 0.65],
+          "hex": "#2874a6"
+        },
+        "$type": "color"
       }
     },
     "font": {
       "family": {
-        "value": "'Times New Roman', serif",
-        "type": "font"
+        "$value": ["Times New Roman", "serif"],
+        "$type": "fontFamily"
       }
     }
   }
@@ -250,33 +276,45 @@ No conflicts in this example.
   "color": {
     "text": {
       "primary": {
-        "value": "#000000",
-        "type": "color"
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "hex": "#000000"
+        },
+        "$type": "color"
       }
     }
   },
   "font": {
     "family": {
       "default": {
-        "value": "Arial, sans-serif",
-        "type": "font"
+        "$value": ["Arial", "sans-serif"],
+        "$type": "fontFamily"
       }
     }
   },
   "button": {
     "background": {
-      "value": "#1F618D",
-      "type": "color"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.12, 0.38, 0.55],
+        "hex": "#1f618d"
+      },
+      "$type": "color"
     },
     "fontFamily": {
-      "value": "'Times New Roman', serif",
-      "type": "font"
+      "$value": ["Times New Roman", "serif"],
+      "$type": "fontFamily"
     }
   },
   "header": {
     "color": {
-      "value": "#2874A6",
-      "type": "color"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.157, 0.455, 0.65],
+        "hex": "#2874a6"
+      },
+      "$type": "color"
     }
   }
 }

@@ -46,99 +46,140 @@ Scenario: A design system includes buttons that change appearance based on their
 
 ### Token Files
 
-#### tokens/components/button.json
+tokens/components/button.json
 
 ```json
 {
   "button": {
     "background": {
-      "value": "{state.background}",
-      "type": "color"
+      "$value": "{state.background}"
     },
     "textColor": {
-      "value": "{state.textColor}",
-      "type": "color"
+      "$value": "{state.textColor}"
     },
     "borderColor": {
-      "value": "{state.borderColor}",
-      "type": "color"
+      "$value": "{state.borderColor}"
     }
   }
 }
 ```
 
-#### tokens/states/default.json
+tokens/states/default.json
 
 ```json
 {
   "background": {
-    "value": "#FFFFFF",
-    "type": "color"
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [1, 1, 1]
+    },
+    "$type": "color"
   },
   "textColor": {
-    "value": "#000000",
-    "type": "color"
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 0, 0]
+    },
+    "$type": "color"
   },
   "borderColor": {
-    "value": "#CCCCCC",
-    "type": "color"
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0.8, 0.8, 0.8],
+      "hex": "#cccccc"
+    },
+    "$type": "color"
   }
 }
 ```
 
-#### tokens/states/hover.json
+tokens/states/hover.json
 
 ```json
 {
   "background": {
-    "value": "#F0F0F0",
-    "type": "color"
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0.93, 0.93, 0.93],
+      "hex": "#f0f0f0"
+    },
+    "$type": "color"
   },
   "textColor": {
-    "value": "#000000",
-    "type": "color"
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 0, 0]
+    },
+    "$type": "color"
   },
   "borderColor": {
-    "value": "#BBBBBB",
-    "type": "color"
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0.73 0.73, 0.73],
+      "hex": "#bbbbbb",
+    },
+    "$type": "color"
   }
 }
 ```
 
-#### tokens/states/active.json
+tokens/states/active.json
 
 ```json
 {
   "background": {
-    "value": "#E0E0E0",
-    "type": "color"
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0.878, 0.878, 0.878],
+      "hex": "#e0e0e0"
+    },
+    "$type": "color"
   },
   "textColor": {
-    "value": "#000000",
-    "type": "color"
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 0, 0]
+    },
+    "$type": "color"
   },
   "borderColor": {
-    "value": "#AAAAAA",
-    "type": "color"
+    "value": {
+      "colorSpace": "srgb",
+      "components": [0.666, 0.666, 0.666],
+      "hex": "#aaaaaa"
+    },
+    "$type": "color"
   }
 }
 ```
 
-#### tokens/states/disabled.json
+tokens/states/disabled.json
 
 ```json
 {
   "background": {
-    "value": "#F9F9F9",
-    "type": "color"
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0.976, 0.976, 0.976],
+      "hex": "#f9f9f9"
+    },
+    "$type": "color"
   },
   "textColor": {
-    "value": "#777777",
-    "type": "color"
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0.466, 0.466, 0.466],
+      "hex": "#777777"
+    },
+    "$type": "color"
   },
   "borderColor": {
-    "value": "#DDDDDD",
-    "type": "color"
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0.866, 0.866, 0.866],
+      "hex": "#dddddd"
+    },
+    "$type": "color"
   }
 }
 ```
@@ -168,16 +209,13 @@ Tokens:
 {
   "button": {
     "background": {
-      "value": "{state.background}",
-      "type": "color"
+      "$value": "{state.background}"
     },
     "textColor": {
-      "value": "{state.textColor}",
-      "type": "color"
+      "$value": "{state.textColor}"
     },
     "borderColor": {
-      "value": "{state.borderColor}",
-      "type": "color"
+      "$value": "{state.borderColor}"
     }
   }
 }
@@ -195,16 +233,27 @@ Tokens under the "state" namespace:
 {
   "state": {
     "background": {
-      "value": "#F0F0F0",
-      "type": "color"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.94, 0.94, 0.94],
+        "hex": "#f0f0f0"
+      },
+      "$type": "color"
     },
     "textColor": {
-      "value": "#000000",
-      "type": "color"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      },
+      "$type": "color"
     },
     "borderColor": {
-      "value": "#BBBBBB",
-      "type": "color"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.73, 0.73, 0.73],
+        "hex": "#bbb"
+      },
+      "$type": "color"
     }
   }
 }
@@ -229,16 +278,28 @@ No conflicts in this example.
 {
   "button": {
     "background": {
-      "value": "#F0F0F0",
-      "type": "color"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.94, 0.94, 0.94],
+        "hex": "#f0f0f0"
+      },
+      "$type": "color"
     },
     "textColor": {
-      "value": "#000000",
-      "type": "color"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0],
+        "hex": "#000000"
+      },
+      "$type": "color"
     },
     "borderColor": {
-      "value": "#BBBBBB",
-      "type": "color"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.73, 0.73, 0.73],
+        "hex": "#bbbbbb"
+      },
+      "$type": "color"
     }
   }
 }
