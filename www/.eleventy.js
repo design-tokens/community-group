@@ -67,15 +67,21 @@ export default function (eleventyConfig) {
 
   // Minify HTML output
   eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
-    if (outputPath.indexOf('.html') > -1) {
-      let minified = htmlmin.minify(content, {
-        useShortDoctype: true,
-        removeComments: true,
-        collapseWhitespace: true,
-      });
-      return minified;
+    // only minify HTML
+    if (!outputPath.endsWith('.html')) {
+      return content;
     }
-    return content;
+
+    // don’t minify ReSpec
+    if (outputPath.toLowerCase().includes('/tr/')) {
+      return content;
+    }
+
+    return htmlmin.minify(content, {
+      useShortDoctype: true,
+      removeComments: true,
+      collapseWhitespace: true,
+    });
   });
 
   // Assets
@@ -83,7 +89,7 @@ export default function (eleventyConfig) {
     admin: 'admin',
     public: '/',
   });
-  eleventyConfig.setServerPassthroughCopyBehavior('passthrough');
+  eleventyConfig.setServerPassthroughCopyBehavior('passthrough'); // Allow hot reloading of assets
 
   /* Markdown Plugins */
   const mdit = markdownIt({
