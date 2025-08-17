@@ -3,9 +3,9 @@
 Tools MUST handle the resolution stages in this order to produce the correct output.
 
 1. [Input validation](#input-validation)
-2. [Sets flattening](#sets-flattening)
+2. [Set flattening](#set-flattening)
 3. [Modifier application](#modifier-application)
-4. [Namespacing](#namespacing-0)
+4. [Namespacing](#namespacing)
 5. [Alias resolution](#alias-resolution):
 6. [Resolution](#resolution-0)
 
@@ -21,7 +21,7 @@ If a resolver does NOT declare any modifiers, skip this step and proceed to [Set
 2. For every modifier in the resolver:
    1. If that resolver does NOT declare a default value, verify a key is provided in the input. If not, throw an error.
 
-## Sets flattening
+## Set flattening
 
 Tools MUST iterate over the resolver’s [sets syntax](#sets) in order.
 
@@ -29,7 +29,7 @@ Tools MUST iterate over the resolver’s [sets syntax](#sets) in order.
    1. Load the first item in the `values` array to form the **basis** for all tokens.
    2. Load the next item in the `values` array, merging the objects together.
    3. Resolve conflicts according to [conflict resolution](#conflict-resolution).
-   4. [Aliases](../format/#alias) MUST NOT be resolved yet. That must happen at the end. Aliases MAY refer to values that will be supplied in upcoming steps.
+   4. [Aliases](../format/#aliases-references) MUST NOT be resolved yet. That must happen at the end. Aliases MAY refer to values that will be supplied in upcoming steps.
    5. Continue loading the next item in the `values` array, repeating steps 2–3.
    6. After all `values` have been merged into the **basis** object, keep that in memory and continue onto the next set.
 2. Continue onto the set, loading tokens in the same way as before.
@@ -145,11 +145,41 @@ These sets can not be merged, since `text.error` is a color token in the first i
 
 Apply the selected [=modifiers=] based on the [=inputs=]. Modifiers can override tokens from the base sets or introduce new tokens.
 
-- For each modifier:
+1. For every modifier in the `modifiers` array, iterate in declaration order.
+   1. For that modifier, load the corresponding [=input=] value.
+      1. If there is not an input value, load `meta.default`.
+      1. If there is no default value, throw an error and stop resolution.
+   1. Load the [&lt;token-defs&gt;](#token-defs) array that corresponds to the input value, or default value.
+   1. Apply namespacing if `meta.namespace` is declared.
+   1. In array order, flatten each token using the same steps as [set flattening](#set-flattening).
+   1. At the end of the array, merge into the basis object created in the previous [set flattening](#set-flattening) step.
+1. Continue through all modifiers repeating the same process, merging into the basis each time.
 
-  - Apply any aliasing or namespacing specified in meta.
-  - Load the token sets associated with the selected modifier value.
-  - Merge these tokens with the base tokens, applying overrides as necessary.
+<aside class="example" class="Modifier application">
+
+Given the [=input=]:
+
+```json
+{ "theme": "dark" }
+```
+
+Then that would load only the tokens specified in the `theme` modifier, under the `dark` name value.
+
+```json
+{
+  "modifiers": [
+    {
+      "name": "theme",
+      "values": [
+        { "name": "light", "values": ["colors/light.json"] },
+        { "name": "dark", "values": ["colors/dark.json"] }
+      ]
+    }
+  ]
+}
+```
+
+</aside>
 
 <aside class="issue">
 
@@ -157,12 +187,230 @@ The specification should clarify the resolution order when multiple modifiers ar
 
 </aside>
 
-## Namespacing
-
-Apply [namespacing](#namespacing) specified in modifiers’ to namespace or rename tokens.
-
 ## Alias resolution
 
-Alias resolution is performed on the fully merged set of tokens, after all base sets and modifiers have been applied. This allows for aliases to reference tokens from any loaded file.
+Alias resolution may only done after all [sets](#set-flattening) and [modifiers](#modifier-application) are handled, and there are no other tokens to merge in. Resolve aliases the same way as outlined in the [format](../format/#aliases-references), allowing deep aliases but erring and stopping resolution on circular aliases and/or aliases that point to unresolvable types (such as aliasing a [dimension token](#dimension) inside a [gradient token](#gradient), which is invalid).
 
 ## Resolution
+
+After all aliases resolve correctly in the final set, the end result is one tokens object, that behaves as if it was a single JSON file to begin with.
+
+<aside class="example" title="Theme resolution">
+
+We’ll start with the following file structure, followed by walking through the resolution stages step-by-step.
+
+<table>
+<thead><tr><th>Name</th><th>Code</th></tr></thead>
+
+<tbody><tr><th>
+
+Resolver
+
+</th><td>
+
+```json
+{
+  "sets": [
+    { "name": "foundation", "values": ["foundation.json"] },
+    { "values": ["components/button.json"] }
+  ],
+  "modifiers": [
+    {
+      "name": "theme",
+      "type": "enumerated",
+      "values": [
+        { "name": "light", "values": ["themes/light.json"] },
+        { "name": "dark", "values": ["themes/dark.json"] }
+      ],
+      "meta": {
+        "default": "light",
+        "namespace": "theme"
+      }
+    }
+  ]
+}
+```
+
+</td></tr><tr><th>
+
+Input
+
+</th><td>
+
+```json
+{
+  "theme": "dark"
+}
+```
+
+</td></tr><tr><th>
+
+foundation.json
+
+</th><td>
+
+```json
+{
+  "color": {
+    "brand": {
+      "primary": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 0, 0],
+          "hex": "#ff0000"
+        },
+        "$type": "color"
+      }
+    }
+  }
+}
+```
+
+</td></tr><tr><th>
+
+components/button.json
+
+</th><td>
+
+```json
+{
+  "button": {
+    "background": {
+      "$value": "{theme.accent}"
+    },
+    "padding": {
+      "$value": { "value": 8, "unit": "px" },
+      "$type": "dimension"
+    }
+  }
+}
+```
+
+</td></tr><tr><th>
+
+themes/dark.json
+
+</th><td>
+
+```json
+{
+  "accent": {
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 1, 0],
+      "hex": "#00ff00"
+    },
+    "$type": "color"
+  }
+}
+```
+
+</td></tr></tbody></table>
+
+1. Input Validation
+   1. Verify that `theme` is a defined modifier (it passes).
+   2. Verify that `dark` is a valid value for the `theme` modifier (it passes).
+2. Set flattening
+
+   1. Load `foundation.json` and `components/button.json`. File paths MUST be resolved relative to the location of the resolver file.
+   2. Flattening all sets resuls in:
+      ```json
+      {
+        "color": {
+          "brand": {
+            "primary": {
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [1, 0, 0],
+                "hex": "#ff0000"
+              },
+              "$type": "color"
+            }
+          }
+        },
+        "button": {
+          "background": {
+            "$value": "{theme.accent}"
+          },
+          "padding": {
+            "$value": { "value": 8, "unit": "px" },
+            "$type": "dimension"
+          }
+        }
+      }
+      ```
+
+3. Modifier application
+
+   1. Apply the `theme` modifier with value `dark`.
+   2. Load `themes/dark.json`
+   3. Apply namespacing as per `meta.namespace` ("theme"), resulting in:
+
+      ```json
+      {
+        "theme": {
+          "accent": {
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [0, 1, 0],
+              "hex": "#00ff00"
+            },
+            "$type": "color"
+          }
+        }
+      }
+      ```
+
+4. Alias resolution
+
+   1. Resolve `{theme.accent}` in `button.background`.
+
+5. Resolution. The final tokens will take the shape of:
+
+   ```json
+   {
+     "color": {
+       "brand": {
+         "primary": {
+           "$value": {
+             "colorSpace": "srgb",
+             "components": [1, 0, 0],
+             "hex": "#ff0000"
+           },
+           "$type": "color"
+         }
+       }
+     },
+     "theme": {
+       "accent": {
+         "$value": {
+           "colorSpace": "srgb",
+           "components": [0, 1, 0],
+           "hex": "#00ff00"
+         },
+         "$type": "color"
+       }
+     },
+     "button": {
+       "background": {
+         "$value": {
+           "colorSpace": "srgb",
+           "components": [0, 1, 0],
+           "hex": "#00ff00"
+         },
+         "$type": "color"
+       },
+       "padding": {
+         "$value": { "value": 8, "unit": "px" },
+         "$type": "dimension"
+       }
+     }
+   }
+   ```
+
+Key highlights:
+
+- The `accent` token was renamed to `theme.accent` because of the `meta.namespace` value.
+- Without a resolver, `button.background` would have an invalid alias since `theme.accent` is not in the same file.
+
+</aside>

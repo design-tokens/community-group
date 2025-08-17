@@ -407,6 +407,28 @@ If the `meta.namespace` behavior described above is normative/required behavior,
 
 </aside>
 
+### Orthogonality
+
+Modifiers are said to be [=orthogonal=] when they do not operate on the same set of tokens. In practical terms, if modifiers are orthogonal, then the order in which they are applied isn’t significant since they will produce the same values.
+
+Implementors SHOULD make modifiers orthogonal. Tools MAY decide how to handle non-orthogonal modifiers.
+
+<aside class="example" title="Non-orthogonal modifiers">
+
+Given the following modifiers:
+
+1. A **theme** modifier has the values **light** and **dark**. Among its values, it provides a value for the `color.button` token.
+2. A **brand** modifier has the values **brandA** and **brandB**. Among its values, it provides a value for the `color.button` token.
+
+Both modifiers both provide conflicting values for the `color.button` token, so its final value will be determined by the order:
+
+1. If **theme** is applied last, it will produce the value for `color.button`.
+2. If **brand** is applied last, it will produce the value for `color.button`.
+
+These two modifiers are said to be non-orthogonal because the order in which they are applied produces different results.
+
+</aside>
+
 ## &lt;token-defs&gt;
 
 An array consisting of:
