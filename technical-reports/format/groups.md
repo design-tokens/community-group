@@ -1,32 +1,195 @@
 # Groups
 
-A file MAY contain many tokens and they MAY be nested arbitrarily in groups like so:
+Groups organize design tokens into logical collections and provide a hierarchical structure for token files. Groups are arbitrary and tools SHOULD NOT use them to infer the type or purpose of design tokens.
+
+## Group Structure
+
+A group is identified as a JSON object that does NOT contain a [`$value`](#name-and-value) property. Groups MAY contain:
+
+- **Child tokens** - Objects with a `$value` property
+- **Nested groups** - Objects without a `$value` property
+- **Group properties** - Properties prefixed with `$` (e.g., `$description`, `$type`)
+
+**Important:** The presence of a `$value` property definitively identifies an object as a token. If an object contains both `$value` and child tokens/groups, this creates an invalid structure where the object cannot be both a token and a group simultaneously. Tools MUST report this as an error.
+
+## Root Tokens in Groups
+
+Groups MAY contain a **root token** alongside child tokens and nested groups. A root token provides a base value for the group while allowing for variants or extensions.
+
+### Syntax for Root Tokens
+
+Groups support root tokens using the reserved name `$root` as the token name:
 
 <aside class="example">
 
 ```json
 {
-  "token uno": {
+  "color": {
+    "accent": {
+      "$root": { "$type": "color", "$value": "#dd0000" },
+      "light": { "$type": "color", "$value": "#ff2222" },
+      "dark": { "$type": "color", "$value": "#aa0000" }
+    }
+  }
+}
+```
+
+</aside>
+
+In this example:
+
+- `{color.accent.$root}` resolves to `#dd0000` (the root token)
+- `{color.accent.light}` resolves to `#ff2222`
+- `{color.accent.dark}` resolves to `#aa0000`
+- `{color.accent}` is an invalid token reference (refers to a group, not a token)
+
+**Rationale:** Using `$root` as a reserved token name eliminates ambiguity between group references and token references while maintaining clear, explicit syntax. The `$` prefix prevents naming conflicts with user-defined tokens and aligns with other reserved properties in the specification.
+
+## Group Properties
+
+Groups MAY include the following properties:
+
+### Required Properties
+
+None. Groups have no required properties.
+
+### Optional Properties
+
+#### `$description`
+
+Groups MAY include an optional `$description` property, whose value MUST be a plain JSON string describing the group's purpose.
+
+<aside class="example">
+
+```json
+{
+  "spacing": {
+    "$description": "All spacing-related design tokens organized by usage context",
+    "margin": {
+      /* tokens */
+    },
+    "padding": {
+      /* tokens */
+    }
+  }
+}
+```
+
+</aside>
+
+#### `$type`
+
+Groups MAY include an optional [`$type`](#type-0) property that acts as a default type for any tokens within the group that do not explicitly declare their own type. This type inheritance applies to nested groups and their tokens unless overridden.
+
+<aside class="example">
+
+```json
+{
+  "color": {
     "$type": "color",
-    "$value": {
-      "colorSpace": "srgb",
-      "components": [0.07, 0.07, 0.07]
+    "primary": { "$value": "#0066cc" },
+    "secondary": { "$value": "#6699ff" },
+    "semantic": {
+      "success": { "$value": "#00cc66" },
+      "warning": { "$type": "string", "$value": "amber" }
+    }
+  }
+}
+```
+
+</aside>
+
+#### `$extends`
+
+Groups MAY include an optional `$extends` property to inherit tokens and properties from another group. The `$extends` property is syntactic sugar for JSON Schema's `$ref` keyword and follows the same semantic behavior as defined in JSON Schema 2020-12.
+
+<aside class="example">
+
+```json
+{
+  "button": {
+    "$type": "color",
+    "background": { "$value": "#0066cc" },
+    "text": { "$value": "#ffffff" }
+  },
+  "button-primary": {
+    "$extends": "{button}",
+    "background": { "$value": "#cc0066" }
+  }
+}
+```
+
+</aside>
+
+##### Equivalence to JSON Schema `$ref`
+
+The `$extends` property is semantically equivalent to JSON Schema's `$ref` keyword as specified in JSON Schema 2020-12 and later versions. The following two group definitions are functionally identical:
+
+**Using `$extends` (Design Token syntax):**
+
+```json
+{
+  "button-primary": {
+    "$extends": "{button}",
+    "background": { "$value": "#cc0066" },
+    "focus": { "$value": "#ff3399" }
+  }
+}
+```
+
+**Using `$ref` (JSON Schema syntax):**
+
+```json
+{
+  "button-primary": {
+    "$ref": "#/button",
+    "background": { "$value": "#cc0066" },
+    "focus": { "$value": "#ff3399" }
+  }
+}
+```
+
+##### Reference Resolution and Evaluation
+
+Extension resolution follows a straightforward process:
+
+1. **Find the target:** Resolve the `$extends` reference to locate the target group
+2. **Copy inherited content:** Start with all tokens and properties from the target group
+3. **Apply local overrides:** Replace any inherited tokens/properties where local ones exist at the same path
+4. **Add new content:** Include any local tokens/properties that don't exist in the inherited group
+
+This creates a new resolved group that combines inherited and local content according to the override rules above.
+
+**Note on Implementation:** While this specification references JSON Schema `$ref` behavior for technical implementation guidance, the user-visible behavior is the straightforward deep merge described above. Tools may implement this merge behavior directly or by leveraging JSON Schema libraries.
+
+##### Inheritance Semantics
+
+Group extension follows **deep merge** behavior where local properties override inherited properties at the same path:
+
+1. **Inheritance:** All tokens and properties from the referenced group are inherited
+2. **Override:** Local tokens and properties replace inherited ones with the same path
+3. **Addition:** Local tokens and properties with new paths are added alongside inherited ones
+
+**Override Rules:**
+
+- **Same path = override:** If both the inherited group and local group define a token at the same path, the local definition wins
+- **Different paths = merge:** Tokens at different paths coexist in the final result
+- **Complete replacement:** When overriding, the entire token definition is replaced (not merged property-by-property)
+
+<aside class="example">
+
+```json
+{
+  "input": {
+    "field": {
+      "width": { "$value": "100%" },
+      "background": { "$value": "#ffffff" }
     }
   },
-  "token group": {
-    "token dos": {
-      "$value": { "value": 2, "unit": "rem" },
-      "$type": "dimension"
-    },
-    "nested token group": {
-      "token tres": {
-        "$value": 33,
-        "$type": "number"
-      },
-      "Token cuatro": {
-        "$value": 444,
-        "$type": "fontWeight"
-      }
+  "input-amount": {
+    "$extends": "{input}",
+    "field": {
+      "width": { "$value": "100px" } // Overrides field.width completely
     }
   }
 }
@@ -34,237 +197,279 @@ A file MAY contain many tokens and they MAY be nested arbitrarily in groups like
 
 </aside>
 
-The names of the groups leading to a given token (including that token's name) are that token's _path_, which is a computed property. **It is not specified in the file**, but parsers that conform to this spec MUST be able to expose the path of a token. The above example, therefore, defines 4 design tokens with the following properties:
+**Result for `input-amount`:**
 
-- Token #1
-  - Name: "token uno"
-  - Path: "token uno"
-  - Value: { "colorSpace": "srgb", "components": [17, 17, 17] }
-  - Type: "color"
-- Token #2
-  - Name: "token dos"
-  - Path: "token group" / "token dos"
-  - Value: { "value": 2, "unit": "rem" }
-  - Type: "dimension"
-- Token #3
-  - Name: "token tres"
-  - Path: "token group" / "nested token group" / "token tres"
-  - Value: 33
-  - Type: "number"
-- Token #4
-  - Name: "token cuatro"
-  - Path: "token group" / "nested token group" / "token cuatro"
-  - Value: 444
-  - Type: "fontWeight"
+- `field.width` → `"100px"` (local override wins)
+- `field.background` → `"#ffffff"` (inherited, no local override)
 
-Because groupings are arbitrary, tools MUST NOT use them to infer the type or purpose of design tokens.
-
-Groups items (i.e. the tokens and/or nested groups) are unordered. In other words, there is no implicit order between items within a group. Therefore, tools that parse or write design token files are not required to preserve the source order of items in a group.
-
-The names of items in a group are case sensitive. As per the guidance in the [design token chapter](#name-and-value), tools MAY display a warning to users when groups contain items whose names differ only in case and could therefore lead to naming clashes when exported.
-
-<p class="ednote" title="Naming practices">
-  The format editors acknowledge existing best-practices for token naming, but place no direct constraints on naming via the specification.
-</p>
-
-## Additional group properties
-
-<div class="ednote" title="Group properties vs. nested group and token names">
-
-To prevent collisions with token names, token properties are prefixed with a dollar sign (`$`). Using this prefix eliminates the need for a reserved words list and helps future-proof the spec.
-
-Group keys without a dollar sign (`$`) prefix denote:
-
-- **A token name:** distinguishable by containing a `$value` property
-
-  ```json
-  {
-    "Group of tokens": {
-      "$description": "This is an example of a group containing a single token",
-      "Token name": {
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [0, 0, 0]
-        }
-      }
-    }
-  }
-  ```
-
-- **A nested group name:** distinguishable by _not_ having a `$value` property
-
-  ```json
-  {
-    "Group of tokens": {
-      "$description": "This is an example of a group containing a nested group",
-      "Subgroup of tokens": {
-        "Token 1 name": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [0.667, 0.733, 0.8]
-          }
-        },
-        "Token 2 name": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [0.867, 0.933, 1]
-          }
-        }
-      }
-    }
-  }
-  ```
-
-</div>
-
-### Description
-
-Groups MAY include an optional `$description` property, whose value MUST be a plain JSON string. Its purpose is to describe the group itself.
-
-For example:
+**Multi-level Override Example:**
 
 <aside class="example">
 
 ```json
 {
-  "brand": {
-    "$description": "Design tokens from our brand guidelines",
-    "color": {
-      "$description": "Our brand's primary color palette",
-      "acid green": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [0, 1, 0.4]
-        }
-      },
-      "hot pink": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [1, 0, 1]
-        }
-      }
-    }
+  "base": {
+    "color": { "$value": "#blue" },
+    "spacing": { "$value": "16px" }
+  },
+  "extended": {
+    "$extends": "{base}",
+    "color": { "$value": "#red" }, // Overrides base.color
+    "border": { "$value": "1px solid" } // Adds new token
   }
 }
 ```
 
 </aside>
 
-Suggested ways tools MAY use this property are:
+**Result for `extended`:**
 
-- A style guide generator could render a section for each group and use the description as an introductory paragraph
-- A GUI tool that lets users browse or select tokens could display this info alongside the corresponding group or as a tooltip
-- Translation tools could output this as a source code comment
+- `color` → `"#red"` (overridden)
+- `spacing` → `"16px"` (inherited)
+- `border` → `"1px solid"` (added)
 
-### Type
+##### Supported Reference Formats
 
-Groups MAY include an optional `$type` property so a type property does not need to be manually added to every token. [See supported "Types"](#types) for more information.
+`$extends` supports the same reference formats as [design token aliases](#aliases--references):
 
-If a group has a `$type` property it acts as a default type for any tokens within the group, including ones in nested groups, that do not explicitly declare a type via their own `$type` property. For the full set of rules by which a design token's type is determined, please refer to the [design token type property chapter](#type-0).
+- **Relative group references:** `{parent.child}`
+- **Absolute group references:** `{.root.group}`
+- **Cross-file references:** References to groups in other design token files (implementation-dependent)
 
-For example:
+##### Error Conditions
+
+`$extends` error handling follows JSON Schema `$ref` error patterns:
+
+- **Unresolvable references:** When the target group cannot be found
+- **Invalid targets:** When the reference points to a non-group (e.g., a token)
+- **Circular references:** When extension chains create cycles
+- **Constraint violations:** When local properties violate inherited constraints
+
+Tools MUST implement the same error detection and reporting patterns used by JSON Schema validators for `$ref` resolution.
+
+##### Implementation Guidance
+
+Tools implementing design token parsing MAY choose to:
+
+1. **Transform to `$ref`:** Convert `$extends` to standard JSON Schema `$ref` syntax and use existing JSON Schema libraries for validation
+2. **Native implementation:** Implement `$extends` directly using the same algorithms as JSON Schema `$ref` processing
+3. **Hybrid approach:** Use JSON Schema libraries for validation while maintaining design token-specific reference syntax
+
+Regardless of implementation approach, the semantic behavior MUST be equivalent to JSON Schema `$ref` as specified in JSON Schema 2020-12 or later.
+
+##### Relationship to JSON Schema Specifications
+
+This specification defines `$extends` as syntactic sugar for JSON Schema's `$ref` keyword, providing design token-specific reference syntax while maintaining equivalent behavior. The deep merge semantics described above align with how JSON Schema 2020-12 handles `$ref` with sibling properties.
+
+For implementers familiar with JSON Schema, the `$extends` behavior is equivalent to:
+
+- Converting `"$extends": "{group}"` to `"$ref": "#/group"`
+- Applying JSON Schema 2020-12 `$ref` resolution with sibling property evaluation
+
+Tools implementing this specification MAY choose to:
+
+1. **Transform approach:** Convert `$extends` to `$ref` and use JSON Schema libraries
+2. **Direct implementation:** Implement the deep merge behavior described above
+3. **Hybrid approach:** Use JSON Schema for validation while maintaining design token syntax
+
+Regardless of implementation approach, the user-visible behavior MUST match the deep merge semantics described in this specification.
+
+#### `$deprecated`
+
+Groups MAY include an optional `$deprecated` property to mark the entire group as deprecated. This extends to all child tokens within the group unless explicitly overridden.
+
+| Value    | Explanation                                                       |
+| -------- | ----------------------------------------------------------------- |
+| `true`   | This group is deprecated (no explanation provided)                |
+| `string` | This group is deprecated AND this is an explanation               |
+| `false`  | This group is NOT deprecated (may override parent group defaults) |
+
+#### `$extensions`
+
+Groups MAY include an optional [`$extensions`](#extensions) property where tools MAY add proprietary, user-, team- or vendor-specific data. Each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
+
+## Empty Groups
+
+Empty groups (groups containing no tokens or nested groups) are **explicitly permitted**. While they may appear to serve no immediate purpose, they:
+
+- Cause no harm to processing or validation
+- Support work-in-progress organization during token development
+- May contain metadata via group properties (`$description`, `$extensions`)
+- Provide placeholder structure for future token development
 
 <aside class="example">
 
 ```json
 {
-  "brand": {
+  "experimental": {
+    "$description": "Tokens for experimental features - currently empty",
+    "$deprecated": "This group is being phased out"
+  }
+}
+```
+
+</aside>
+
+**Note on Token vs Group Ambiguity:**
+Objects without a `$value` property are interpreted as groups by definition. This can potentially create ambiguity in cases where a token lacks required properties (such as `$value` or a determinable type) and might be incorrectly parsed as an empty group. Tools SHOULD provide clear error messages when an object appears to be an incomplete token rather than an intentional empty group.
+
+## References and JSON Pointer Integration
+
+The current [token reference syntax](#aliases--references) using curly braces (`{group.token}`) is maintained for backward compatibility and developer ergonomics. However, tools MAY also support JSON Pointer notation for advanced use cases.
+
+### Current Reference Syntax (Recommended)
+
+<aside class="example">
+
+```json
+{
+  "base": { "$value": "#0066cc" },
+  "alias": { "$value": "{base}" }
+}
+```
+
+</aside>
+
+### JSON Pointer Support (Optional)
+
+Tools MAY support JSON Pointer references as defined by RFC 6901, using the `$ref` property:
+
+<aside class="example">
+
+```json
+{
+  "base": { "$value": "#0066cc" },
+  "alias": { "$ref": "#/base" }
+}
+```
+
+</aside>
+
+**Note:** The `$ref` syntax is provided for advanced tooling integration but is not required. The curly brace syntax remains the primary and recommended approach for token references.
+
+## Processing Rules
+
+### Token Resolution Order
+
+When processing groups, tools MUST follow this resolution order:
+
+1. **Local tokens** - Direct children with `$value` properties
+2. **Root tokens** - Tokens with `$root` names
+3. **Extended tokens** - Tokens inherited via `$extends` (if not overridden)
+4. **Nested groups** - Process recursively
+
+### Path Construction
+
+Token paths are constructed by concatenating group names and token names with periods (`.`). The reserved token name `$root` is included in the path to maintain explicit, unambiguous references.
+
+Examples:
+
+- Token at `/color/accent/$root` → path: `color.accent.$root`
+- Token at `/color/accent/light` → path: `color.accent.light`
+- Group at `/color/accent` → invalid for token resolution, valid for group operations
+
+### Type Inheritance
+
+Type resolution follows these rules in order of precedence:
+
+1. **Token's explicit [`$type`](#type-0) property** (highest precedence)
+2. **Resolved group's `$type` property** (after extension resolution)
+3. **Parent group's `$type` property** (walking up the hierarchy)
+4. **Token is invalid** if no type can be determined
+
+**Type Resolution with Extensions:**
+Since `$extends` follows JSON Schema `$ref` semantics, type inheritance behavior is determined by constraint validation rather than explicit merge rules. Local type constraints are evaluated alongside inherited constraints according to JSON Schema validation patterns.
+
+<aside class="example">
+
+```json
+{
+  "base": {
     "$type": "color",
-    "color": {
-      "acid green": {
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [0, 1, 0.4]
-        }
-      },
-      "hot pink": {
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [1, 0, 1]
-        }
-      }
-    }
+    "primary": { "$value": "#0066cc" }
+  },
+  "extended": {
+    "$extends": "{base}",
+    "$type": "dimension", // Local constraint
+    "spacing": { "$value": { "value": 16, "unit": "px" } }
   }
 }
 ```
 
 </aside>
 
-### Extensions
+In this example, the group `extended` must satisfy both its local `$type: "dimension"` constraint and any applicable constraints from the referenced `base` group, following JSON Schema constraint resolution rules.
 
-Groups MAY include an optional `$extensions` property where tools MAY add proprietary, user-, team- or vendor-specific data to a group. When doing so, each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
+### Circular Reference Detection
 
-Group extensions follow the same rules as [design token extensions](#extensions), the only difference is that they relate to the group itself.
+Tools MUST detect and report circular references in:
 
-- The keys SHOULD be chosen such that they avoid the likelihood of a naming clash with another vendor's data. The [reverse domain name notation](https://en.wikipedia.org/wiki/Reverse_domain_name_notation) is recommended for this purpose.
-- Tools that process design token files MUST preserve any extension data they do not themselves understand. For example, if a group contains extension data from tool A and the file containing that data is opened by tool B, then tool B MUST include the original tool A extension data whenever it saves a new design token file containing that group.
+- Token [aliases](#aliases--references) (`{token}` references)
+- Group extensions (`$extends` references)
+- JSON Pointer references (`$ref` properties, if supported)
 
-Note that, since a group's `$extensions` only relate to that group, they do not have any effect on nested groups or tokens.
+Circular reference detection for `$extends` follows the same requirements as JSON Schema `$ref` circular reference detection. Tools SHOULD implement the same algorithms used by JSON Schema validators for cycle detection.
 
 <aside class="example">
 
 ```json
 {
-  "brand": {
-    "$extensions": {
-      "org.example.tool-a": 42,
-      "org.example.tool-b": {
-        "turn-up-to-11": true
-      }
-    },
-    "color": {
-      "acid green": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [0, 1, 0.4]
-        }
-      },
-      "hot pink": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [1, 0, 1]
-        }
-      }
-    }
-  }
+  "a": { "$extends": "{b}" },
+  "b": { "$extends": "{c}" },
+  "c": { "$extends": "{a}" } // Creates circular reference: a → b → c → a
 }
 ```
 
-In this example, the "brand" group has 2 extensions: `org.example.tool-a` and `org.example.tool-b`.
-
 </aside>
 
-### Deprecated
+Tools MUST report this as an error affecting groups `a`, `b`, and `c`.
 
-The **`$deprecated`** property MAY be used to mark a group as deprecated, which extends to all child tokens within. This property may also optionally give a reason.
+## Migration and Compatibility
+
+This specification is designed to be backward compatible with existing design token files. Tools implementing this specification:
+
+- MUST continue to support existing group syntax
+- SHOULD provide warnings for deprecated patterns
+- MAY implement new features incrementally
+- MUST validate that token names do not conflict with reserved properties
+
+## Examples
+
+### Basic Group with Root Token
 
 <aside class="example">
 
 ```json
 {
-  "Button": {
-    "$deprecated": "Please use tokens in the Action group instead.",
-    "Foreground": {
-      "$value": {
-        "colorSpace": "srgb",
-        "components": [0.125, 0.125, 0.125],
-        "hex": "#202020"
-      },
-      "$type": "color"
-    },
-    "Background": {
-      "$value": {
-        "colorSpace": "srgb",
-        "components": [1, 1, 1],
-        "hex": "#ffffff"
-      },
-      "$type": "color"
+  "spacing": {
+    "$type": "dimension",
+    "$description": "Base spacing scale",
+    "$root": { "$value": { "value": 16, "unit": "px" } },
+    "small": { "$value": { "value": 8, "unit": "px" } },
+    "large": { "$value": { "value": 32, "unit": "px" } }
+  }
+}
+```
+
+</aside>
+
+### Group Extension with Override Example
+
+<aside class="example">
+
+```json
+{
+  "input": {
+    "$type": "dimension",
+    "field": {
+      "width": { "$value": { "value": 100, "unit": "%" } },
+      "background": { "$value": "#ffffff" }
+    }
+  },
+  "input-amount": {
+    "$extends": "{input}",
+    "field": {
+      "width": { "$value": { "value": 100, "unit": "px" } }
     }
   }
 }
@@ -272,13 +477,52 @@ The **`$deprecated`** property MAY be used to mark a group as deprecated, which 
 
 </aside>
 
-In the context of a group, adding `$deprecated` will apply to all tokens within that group, unless a token explicitly sets a value of `false`. Any value provided by a token will override the group default.
+**Resolved tokens:**
 
-| Value    | Explanation                                                 |
-| :------- | :---------------------------------------------------------- |
-| `true`   | This token is deprecated (no explanation provided).         |
-| `String` | This token is deprecated AND this is an explanation.        |
-| `false`  | This token is NOT deprecated (may override group defaults). |
+- `{input-amount.field.width}` → `{ "value": 100, "unit": "px" }` (overridden)
+- `{input-amount.field.background}` → `#ffffff` (inherited from input)
+
+This demonstrates the key use case where a component extends a base component but overrides specific tokens while inheriting others.
+
+### Complex Hierarchical Structure
+
+<aside class="example">
+
+```json
+{
+  "color": {
+    "$type": "color",
+    "$description": "Complete color system",
+    "brand": {
+      "$root": { "$value": "#0066cc" },
+      "light": { "$value": "#3388dd" },
+      "dark": { "$value": "#004499" }
+    },
+    "semantic": {
+      "$extends": "{color.brand}",
+      "success": {
+        "$root": { "$value": "#00cc66" },
+        "light": { "$value": "#33dd88" },
+        "dark": { "$value": "#009944" }
+      },
+      "error": {
+        "$root": { "$value": "#cc0000" },
+        "light": { "$value": "#ff3333" },
+        "dark": { "$value": "#990000" }
+      }
+    }
+  }
+}
+```
+
+</aside>
+
+This structure creates tokens accessible as:
+
+- `{color.brand.$root}` → `#0066cc`
+- `{color.brand.light}` → `#3388dd`
+- `{color.semantic.success.$root}` → `#00cc66`
+- `{color.semantic.error.dark}` → `#990000`
 
 ## Use-cases
 
@@ -418,3 +662,7 @@ $brand-typeface-secondary: 'Times New Roman';
 ```
 
 </aside>
+
+---
+
+_This specification maintains compatibility with existing design token files while providing the flexibility to support advanced use cases including root tokens, group inheritance, and integration with standard JSON referencing mechanisms._
