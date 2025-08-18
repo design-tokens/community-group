@@ -1,94 +1,416 @@
 # Resolution Logic
 
-The resolution process involves the following steps:
+Tools MUST handle the resolution stages in this order to produce the correct output.
 
-1. **Input Validation**: Ensure the provided inputs match the expected modifiers and their acceptable values.
+1. [Input validation](#input-validation)
+2. [Set flattening](#set-flattening)
+3. [Modifier application](#modifier-application)
+4. [Namespacing](#namespacing)
+5. [Alias resolution](#alias-resolution):
+6. [Resolution](#resolution-0)
 
-   <aside class="issue">
+## Input validation
 
-   The term "inputs" is used throughout the specification but never formally defined. Inputs appear to represent the permutation or combination of modifiers being selected for resolution - essentially the question "What would my output look like given some combination of modifiers being enabled or chosen?" This fundamental concept should be clearly defined, potentially as "data" or with a more specific term that clarifies its role in the resolution process.
+Tools MUST require all [=inputs=] meet the schema described in that resolver’s [modifiers syntax](#modifiers).
 
-   </aside>
+If a resolver does NOT declare any modifiers, skip this step and proceed to [Sets flattening](#sets-flattening)
 
-2. **Base Set Flattening**: Load and merge the token sets specified in the **sets** array. Later sets override earlier ones if there are naming conflicts.
+1. For every key in the input object:
+   1. Verify it corresponds with a valid modifier. If it does not, throw an error.
+   1. Verify that key’s value corresponds with that modifier’s allowed values. If it does not, throw an error.
+2. For every modifier in the resolver:
+   1. If that resolver does NOT declare a default value, verify a key is provided in the input. If not, throw an error.
 
-   <aside class="issue">
+## Set flattening
 
-   The merging process needs detailed specification to handle DTCG token data correctly. Simply performing a deep merge on raw JSON could yield different results than fully interpreting the DTCG data first and then merging. This is particularly important for inheritable format properties like `$type`. For example, when loading two JSON files with a top-level "color" key where one has `$type: "color"` and another has `$type: "gradient"`, these represent incompatible schemas that cannot be merged. The specification must outline what constitutes "mergeable" vs "unmergeable" token sets and provide clear rules for handling such conflicts.
+Tools MUST iterate over the resolver’s [sets syntax](#sets) in order.
 
-   </aside>
+1. Starting with the first set:
+   1. Load the first item in the `values` array to form the **basis** for all tokens.
+   2. Load the next item in the `values` array, merging the objects together.
+   3. Resolve conflicts according to [conflict resolution](#conflict-resolution).
+   4. [Aliases](../format/#aliases-references) MUST NOT be resolved yet. That must happen at the end. Aliases MAY refer to values that will be supplied in upcoming steps.
+   5. Continue loading the next item in the `values` array, repeating steps 2–3.
+   6. After all `values` have been merged into the **basis** object, keep that in memory and continue onto the next set.
+2. Continue onto the set, loading tokens in the same way as before.
+   1. Repeating the steps previously, you’ll also end up with a **basis** for this set—a single object containing all tokens referenced in the set.
+3. Continue one-by-one through the remaining sets, until you have a collection of one **basis** object per set.
+4. Return back to the first set, first basis, then merge the second set, second basis, and so on, until you reach the final set.
+   1. [Resolve conflicts](#conflict-resolution) as every additional set is merged.
+5. After all sets have been merged, there will be one single tokens object containing all tokens referenced.
 
-   <aside class="issue">
+### Conflict resolution
 
-   The specification needs clear step-by-step instructions for how deep merging should occur, including detailed guidance on handling edge cases or when to error appropriately. This should include specific algorithms and decision trees for implementers to follow consistently.
+Conflict resolution occurs when flattening [=sets=] or applying [=modifiers=], and a token name is occupied by tokens of different values, from different sources. In many cases, this is intentional, but not always.
 
-   </aside>
+When 2 tokens try and occupy the same space, tools MUST resolve the conflict in the following manner:
 
-3. **Modifier Application**: Apply the selected modifiers based on the inputs. Modifiers can override tokens from the base sets or introduce new tokens.
+1. If the token types are **identical**, overwrite the latter value with the former.
+1. If the token types are **incompatible**, the tool MUST throw an error.
+1. If one namespace is a token, and the other is a group, the tool MUST throw an error.
+1. If one value is an alias (i.e. the `$type` is unknown), overwrite the value.
 
-   <aside class="issue">
+<aside class="example" title="Conflict resolution">
 
-   The specification should clarify the resolution order when multiple modifiers are applied simultaneously. For instance, if both "theme" and "brand" modifiers are used and both attempt to override the same token, which modifier should take precedence? Clear precedence rules are needed to ensure consistent and predictable resolution behavior across implementations.
+```json
+{
+  "sets": [
+    {
+      "name": "foundation",
+      "values": [
+        {
+          "color": {
+            "text": {
+              "default": {
+                "$value": { "colorSpace": "srgb", "components": [0, 0, 0] },
+                "$type": "color"
+              }
+            }
+          }
+        },
+        {
+          "color": {
+            "text": {
+              "default": {
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [0.1, 0.1, 0.1]
+                },
+                "$type": "color"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
 
-   </aside>
+Here, 2 `color.text.default` tokens were supplied, one after the other. Since the order matters, the last declaration “wins” and the final result will be:
 
-4. **Aliasing and Namespacing**: Apply any aliasing specified in the modifiers to namespace or rename tokens.
-
-   <aside class="issue">
-
-   The specification needs to clarify the different types of "aliasing" and their behavior during resolution. There are two distinct concepts being referred to as "aliasing": (1) **Namespacing aliasing** - where tokens are renamed/namespaced (e.g., "red.500" becomes "colors.red.500"), and (2) **Token reference aliasing** - where one token's value references another token's value. The specification should clearly distinguish between these concepts and address how namespacing aliases behave when tokens are overridden by later sets - specifically, if an alias points to a token that gets overridden, does the alias resolve to the new/overridden value?
-
-   </aside>
-
-5. **Alias Resolution**: Resolve any token references (aliases) using the combined tokens from the base sets and modifiers.
-
-6. **Conflict Resolution**: In case of conflicting tokens (same name and path), later modifiers or sets override earlier ones.
-
-7. **Circular Reference Detection**: Detect and handle circular references as errors.
-
-8. **Final Output**: Produce a flat, resolved set of tokens ready for consumption.
-
-### Detailed Steps
-
-#### Input Validation
-
-- Verify that all provided modifier inputs correspond to defined
-  modifiers.
-- Check that the input values are among the acceptable options
-  defined in the modifiers.
-
-#### Base Set Flattening
-
-- Load each token set in the order specified.
-- Merge the tokens, with later sets overriding earlier ones on name conflicts.
-
-#### Modifier Application
-
-- For each modifier:
-  - Apply any aliasing or namespacing specified in meta.
-  - Load the token sets associated with the selected modifier value.
-  - Merge these tokens with the base tokens, applying overrides as necessary.
-
-#### Alias Resolution
-
-<aside class="note">
-
-Alias resolution is performed on the fully merged set of tokens, after all base sets and modifiers have been applied. This allows for aliases to reference tokens from any loaded file.
+```json
+{
+  "color": {
+    "text": {
+      "default": {
+        "$value": { "colorSpace": "srgb", "components": [0.1, 0.1, 0.1] },
+        "$type": "color"
+      }
+    }
+  }
+}
+```
 
 </aside>
 
-- Iterate over all tokens to find references (e.g., {theme.accent}).
-- Resolve references first within the same token set.
-- If not found, resolve references from the modifiers, following the order of precedence.
-- Handle nested references recursively.
+<aside class="example" title="Invalid conflict">
 
-#### Conflict Resolution
+```json
+{
+  "sets": [
+    {
+      "name": "foundation",
+      "values": [
+        {
+          "text": {
+            "error": {
+              "$value": { "colorSpace": "srgb", "components": [0.8, 0.1, 0] },
+              "$type": "color"
+            }
+          }
+        },
+        {
+          "text": {
+            "error": {
+              "font": { "$value": ["Consolas"], "$type": "fontFamily" },
+              "color": {
+                "$value": { "colorSpace": "srgb", "components": [0.8, 0.1, 0] },
+                "$type": "color"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
 
-- In case of conflicting tokens:
-  - Tokens from modifiers override tokens from base sets.
-  - If multiple modifiers define the same token, the last applied modifier takes precedence.
+These sets can not be merged, since `text.error` is a color token in the first item, and is a group in the second item. An error will be thrown.
 
-#### Circular Reference Detection
+</aside>
 
-- Detect any circular references during alias resolution.
-- If a circular reference is found, throw an error and halt the resolution process.
+## Modifier application
+
+Apply the selected [=modifiers=] based on the [=inputs=]. Modifiers can override tokens from the base sets or introduce new tokens.
+
+1. For every modifier in the `modifiers` array, iterate in declaration order.
+   1. For that modifier, load the corresponding [=input=] value.
+      1. If there is not an input value, load `meta.default`.
+      1. If there is no default value, throw an error and stop resolution.
+   1. Load the [&lt;token-defs&gt;](#token-defs) array that corresponds to the input value, or default value.
+   1. Apply namespacing if `meta.namespace` is declared.
+   1. In array order, flatten each token using the same steps as [set flattening](#set-flattening).
+   1. At the end of the array, merge into the basis object created in the previous [set flattening](#set-flattening) step.
+1. Continue through all modifiers repeating the same process, merging into the basis each time.
+
+<aside class="example" class="Modifier application">
+
+Given the [=input=]:
+
+```json
+{ "theme": "dark" }
+```
+
+Then that would load only the tokens specified in the `theme` modifier, under the `dark` name value.
+
+```json
+{
+  "modifiers": [
+    {
+      "name": "theme",
+      "values": [
+        { "name": "light", "values": ["colors/light.json"] },
+        { "name": "dark", "values": ["colors/dark.json"] }
+      ]
+    }
+  ]
+}
+```
+
+</aside>
+
+<aside class="issue">
+
+The specification should clarify the resolution order when multiple modifiers are applied simultaneously. For instance, if both "theme" and "brand" modifiers are used and both attempt to override the same token, which modifier should take precedence? Clear precedence rules are needed to ensure consistent and predictable resolution behavior across implementations.
+
+</aside>
+
+## Alias resolution
+
+Alias resolution may only done after all [sets](#set-flattening) and [modifiers](#modifier-application) are handled, and there are no other tokens to merge in. Resolve aliases the same way as outlined in the [format](../format/#aliases-references), allowing deep aliases but erring and stopping resolution on circular aliases and/or aliases that point to unresolvable types (such as aliasing a [dimension token](#dimension) inside a [gradient token](#gradient), which is invalid).
+
+## Resolution
+
+After all aliases resolve correctly in the final set, the end result is one tokens object, that behaves as if it was a single JSON file to begin with.
+
+<aside class="example" title="Theme resolution">
+
+We’ll start with the following file structure, followed by walking through the resolution stages step-by-step.
+
+<table>
+<thead><tr><th>Name</th><th>Code</th></tr></thead>
+
+<tbody><tr><th>
+
+Resolver
+
+</th><td>
+
+```json
+{
+  "sets": [
+    { "name": "foundation", "values": ["foundation.json"] },
+    { "values": ["components/button.json"] }
+  ],
+  "modifiers": [
+    {
+      "name": "theme",
+      "type": "enumerated",
+      "values": [
+        { "name": "light", "values": ["themes/light.json"] },
+        { "name": "dark", "values": ["themes/dark.json"] }
+      ],
+      "meta": {
+        "default": "light",
+        "namespace": "theme"
+      }
+    }
+  ]
+}
+```
+
+</td></tr><tr><th>
+
+Input
+
+</th><td>
+
+```json
+{
+  "theme": "dark"
+}
+```
+
+</td></tr><tr><th>
+
+foundation.json
+
+</th><td>
+
+```json
+{
+  "color": {
+    "brand": {
+      "primary": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 0, 0],
+          "hex": "#ff0000"
+        },
+        "$type": "color"
+      }
+    }
+  }
+}
+```
+
+</td></tr><tr><th>
+
+components/button.json
+
+</th><td>
+
+```json
+{
+  "button": {
+    "background": {
+      "$value": "{theme.accent}"
+    },
+    "padding": {
+      "$value": { "value": 8, "unit": "px" },
+      "$type": "dimension"
+    }
+  }
+}
+```
+
+</td></tr><tr><th>
+
+themes/dark.json
+
+</th><td>
+
+```json
+{
+  "accent": {
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 1, 0],
+      "hex": "#00ff00"
+    },
+    "$type": "color"
+  }
+}
+```
+
+</td></tr></tbody></table>
+
+1. Input Validation
+   1. Verify that `theme` is a defined modifier (it passes).
+   2. Verify that `dark` is a valid value for the `theme` modifier (it passes).
+2. Set flattening
+
+   1. Load `foundation.json` and `components/button.json`. File paths MUST be resolved relative to the location of the resolver file.
+   2. Flattening all sets resuls in:
+      ```json
+      {
+        "color": {
+          "brand": {
+            "primary": {
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [1, 0, 0],
+                "hex": "#ff0000"
+              },
+              "$type": "color"
+            }
+          }
+        },
+        "button": {
+          "background": {
+            "$value": "{theme.accent}"
+          },
+          "padding": {
+            "$value": { "value": 8, "unit": "px" },
+            "$type": "dimension"
+          }
+        }
+      }
+      ```
+
+3. Modifier application
+
+   1. Apply the `theme` modifier with value `dark`.
+   2. Load `themes/dark.json`
+   3. Apply namespacing as per `meta.namespace` ("theme"), resulting in:
+
+      ```json
+      {
+        "theme": {
+          "accent": {
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [0, 1, 0],
+              "hex": "#00ff00"
+            },
+            "$type": "color"
+          }
+        }
+      }
+      ```
+
+4. Alias resolution
+
+   1. Resolve `{theme.accent}` in `button.background`.
+
+5. Resolution. The final tokens will take the shape of:
+
+   ```json
+   {
+     "color": {
+       "brand": {
+         "primary": {
+           "$value": {
+             "colorSpace": "srgb",
+             "components": [1, 0, 0],
+             "hex": "#ff0000"
+           },
+           "$type": "color"
+         }
+       }
+     },
+     "theme": {
+       "accent": {
+         "$value": {
+           "colorSpace": "srgb",
+           "components": [0, 1, 0],
+           "hex": "#00ff00"
+         },
+         "$type": "color"
+       }
+     },
+     "button": {
+       "background": {
+         "$value": {
+           "colorSpace": "srgb",
+           "components": [0, 1, 0],
+           "hex": "#00ff00"
+         },
+         "$type": "color"
+       },
+       "padding": {
+         "$value": { "value": 8, "unit": "px" },
+         "$type": "dimension"
+       }
+     }
+   }
+   ```
+
+Key highlights:
+
+- The `accent` token was renamed to `theme.accent` because of the `meta.namespace` value.
+- Without a resolver, `button.background` would have an invalid alias since `theme.accent` is not in the same file.
+
+</aside>

@@ -6,15 +6,25 @@ The mechanism by which multiple possible values of design tokens are reduced to 
 
 ## <dfn>Set</dfn>
 
-Alternate design token values that are defined in [&lt;token-defs&gt;](#token-defs), intended to be merged in a specific order.
+A subset of all design tokens that collectively form the default superset. Implementors SHOULD ensure the sum total of sets contain mutually exclusive tokens, i.e. they don’t overwrite one another and may be combined in any order to produce the same result.
 
 ## <dfn>Modifier</dfn>
 
-Alternate design token value accessed with an [=input=], that takes priority over a [=set=]. Modifiers MAY be [=orthogonal=].
+A subset of all design tokens that provide alternate values. Modifiers MAY take an [=input=] to be used in providing alternate values.
 
 ## <dfn>Input</dfn>
 
-Parameters provided to the [=resolver=] to specify which [=modifier=]s to apply during the [resolution](#resolution) process.
+The user’s selection for the [=modifier=]s, expressed as a key–value map. [See example](#modifiers).
+
+## <dfn>Alternate value</dfn>
+
+The property of tokens to express different values under different conditions. “Light mode” and “dark mode” are examples of alternate values.
+
+<aside class="issue">
+
+The previous version of this document referred to alternate values as “dimensions,” but was changed to avoid confusion with [dimension tokens](../format/#dimension)
+
+</aside>
 
 ## <dfn>Resolution</dfn>
 
@@ -32,6 +42,6 @@ Would the term “Resolution” ever be confused with [Display resolution](https
 
 </aside>
 
-## <dfn>Orthogonal</dfn> (Orthogonality)
+## <dfn>Orthogonal</dfn> (orthogonality)
 
-The property of [=modifier=]s being independent of each other, allowing them to be combined freely without affecting each other's [=resolution=] logic.
+The characteristic of [=modifiers=] that do not overlap with one another, i.e. operate on different tokens. Modifiers MAY be orthogonal, but it are not required to be.

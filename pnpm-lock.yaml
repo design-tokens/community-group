@@ -33,8 +33,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       respec:
-        specifier: ^35.5.0
-        version: 35.5.0
+        specifier: ^35.5.1
+        version: 35.5.1
 
   www:
     devDependencies:
@@ -1650,8 +1650,8 @@ packages:
     resolution: {integrity: sha512-ZuF55hVUQaaczgOIwqWzkEcEidmlD/xl44x1UZnhOXcYuFN2S6+rcxpG+C1N3So0wvNI3DmJICUFfu2SxhBmvg==}
     deprecated: https://github.com/lydell/resolve-url#deprecated
 
-  respec@35.5.0:
-    resolution: {integrity: sha512-POjDng/tc07oP3dEreR1nGKGBBJlKnaa5ycAa4kwCV1JI0ZPlNIbUz1F/Ce9XuA7/L0Pl381OyTASmndfjDrXQ==}
+  respec@35.5.1:
+    resolution: {integrity: sha512-F1ykHL5WdMXb6Rp5EGjaPsc34SSIl8GWFRKlkFZ+xNhsQrU5cN9OsnxWYqP/XO/0Kkeyj7JKn4pC1Ykrqnj7LQ==}
     engines: {node: '>=20.12.1'}
     hasBin: true
 
@@ -3757,7 +3757,7 @@ snapshots:
 
   resolve-url@0.2.1: {}
 
-  respec@35.5.0:
+  respec@35.5.1:
     dependencies:
       colors: 1.4.0
       finalhandler: 2.1.0
