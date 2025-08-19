@@ -26,9 +26,30 @@ Groups support root tokens using the reserved name `$root` as the token name:
 {
   "color": {
     "accent": {
-      "$root": { "$type": "color", "$value": "#dd0000" },
-      "light": { "$type": "color", "$value": "#ff2222" },
-      "dark": { "$type": "color", "$value": "#aa0000" }
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.867, 0, 0],
+          "hex": "#dd0000"
+        }
+      },
+      "light": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 0.133, 0.133],
+          "hex": "#ff2222"
+        }
+      },
+      "dark": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.667, 0, 0],
+          "hex": "#aa0000"
+        }
+      }
     }
   }
 }
@@ -38,9 +59,9 @@ Groups support root tokens using the reserved name `$root` as the token name:
 
 In this example:
 
-- `{color.accent.$root}` resolves to `#dd0000` (the root token)
-- `{color.accent.light}` resolves to `#ff2222`
-- `{color.accent.dark}` resolves to `#aa0000`
+- `{color.accent.$root}` resolves to `{"colorSpace": "srgb", "components": [0.867, 0, 0], "hex": "#dd0000"}` (the root token)
+- `{color.accent.light}` resolves to `{"colorSpace": "srgb", "components": [1, 0.133, 0.133], "hex": "#ff2222"}`
+- `{color.accent.dark}` resolves to `{"colorSpace": "srgb", "components": [0.667, 0, 0], "hex": "#aa0000"}`
 - `{color.accent}` is an invalid token reference (refers to a group, not a token)
 
 **Rationale:** Using `$root` as a reserved token name eliminates ambiguity between group references and token references while maintaining clear, explicit syntax. The `$` prefix prevents naming conflicts with user-defined tokens and aligns with other reserved properties in the specification.
@@ -87,10 +108,28 @@ Groups MAY include an optional [`$type`](#type-0) property that acts as a defaul
 {
   "color": {
     "$type": "color",
-    "primary": { "$value": "#0066cc" },
-    "secondary": { "$value": "#6699ff" },
+    "primary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0.4, 0.8],
+        "hex": "#0066cc"
+      }
+    },
+    "secondary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.4, 0.6, 1],
+        "hex": "#6699ff"
+      }
+    },
     "semantic": {
-      "success": { "$value": "#00cc66" },
+      "success": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0.8, 0.4],
+          "hex": "#00cc66"
+        }
+      },
       "warning": { "$type": "string", "$value": "amber" }
     }
   }
@@ -101,7 +140,7 @@ Groups MAY include an optional [`$type`](#type-0) property that acts as a defaul
 
 #### `$extends`
 
-Groups MAY include an optional `$extends` property to inherit tokens and properties from another group. The `$extends` property is syntactic sugar for JSON Schema's `$ref` keyword and follows the same semantic behavior as defined in JSON Schema 2020-12.
+Groups MAY include an optional `$extends` property to inherit tokens and properties from another group. The `$extends` property is syntactic sugar for JSON Schema's `$ref` keyword and follows the same semantic behavior as defined in [[json-schema-2020-12]].
 
 <aside class="example">
 
@@ -109,12 +148,30 @@ Groups MAY include an optional `$extends` property to inherit tokens and propert
 {
   "button": {
     "$type": "color",
-    "background": { "$value": "#0066cc" },
-    "text": { "$value": "#ffffff" }
+    "background": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0.4, 0.8],
+        "hex": "#0066cc"
+      }
+    },
+    "text": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [1, 1, 1],
+        "hex": "#ffffff"
+      }
+    }
   },
   "button-primary": {
     "$extends": "{button}",
-    "background": { "$value": "#cc0066" }
+    "background": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.8, 0, 0.4],
+        "hex": "#cc0066"
+      }
+    }
   }
 }
 ```
@@ -123,7 +180,7 @@ Groups MAY include an optional `$extends` property to inherit tokens and propert
 
 ##### Equivalence to JSON Schema `$ref`
 
-The `$extends` property is semantically equivalent to JSON Schema's `$ref` keyword as specified in JSON Schema 2020-12 and later versions. The following two group definitions are functionally identical:
+The `$extends` property is semantically equivalent to JSON Schema's `$ref` keyword as specified in [[json-schema-2020-12]] and later versions. The following two group definitions are functionally identical:
 
 **Using `$extends` (Design Token syntax):**
 
@@ -131,8 +188,20 @@ The `$extends` property is semantically equivalent to JSON Schema's `$ref` keywo
 {
   "button-primary": {
     "$extends": "{button}",
-    "background": { "$value": "#cc0066" },
-    "focus": { "$value": "#ff3399" }
+    "background": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.8, 0, 0.4],
+        "hex": "#cc0066"
+      }
+    },
+    "focus": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [1, 0.2, 0.6],
+        "hex": "#ff3399"
+      }
+    }
   }
 }
 ```
@@ -143,8 +212,20 @@ The `$extends` property is semantically equivalent to JSON Schema's `$ref` keywo
 {
   "button-primary": {
     "$ref": "#/button",
-    "background": { "$value": "#cc0066" },
-    "focus": { "$value": "#ff3399" }
+    "background": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.8, 0, 0.4],
+        "hex": "#cc0066"
+      }
+    },
+    "focus": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [1, 0.2, 0.6],
+        "hex": "#ff3399"
+      }
+    }
   }
 }
 ```
@@ -183,7 +264,13 @@ Group extension follows **deep merge** behavior where local properties override 
   "input": {
     "field": {
       "width": { "$value": "100%" },
-      "background": { "$value": "#ffffff" }
+      "background": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 1, 1],
+          "hex": "#ffffff"
+        }
+      }
     }
   },
   "input-amount": {
@@ -200,7 +287,7 @@ Group extension follows **deep merge** behavior where local properties override 
 **Result for `input-amount`:**
 
 - `field.width` → `"100px"` (local override wins)
-- `field.background` → `"#ffffff"` (inherited, no local override)
+- `field.background` → `{"colorSpace": "srgb", "components": [1, 1, 1], "hex": "#ffffff"}` (inherited, no local override)
 
 **Multi-level Override Example:**
 
@@ -230,7 +317,7 @@ Group extension follows **deep merge** behavior where local properties override 
 
 ##### Supported Reference Formats
 
-`$extends` supports the same reference formats as [design token aliases](#aliases--references):
+`$extends` supports the same reference formats as [design token aliases](#aliases-references):
 
 - **Relative group references:** `{parent.child}`
 - **Absolute group references:** `{.root.group}`
@@ -323,7 +410,13 @@ The current [token reference syntax](#aliases--references) using curly braces (`
 
 ```json
 {
-  "base": { "$value": "#0066cc" },
+  "base": {
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 0.4, 0.8],
+      "hex": "#0066cc"
+    }
+  },
   "alias": { "$value": "{base}" }
 }
 ```
@@ -332,13 +425,19 @@ The current [token reference syntax](#aliases--references) using curly braces (`
 
 ### JSON Pointer Support (Optional)
 
-Tools MAY support JSON Pointer references as defined by RFC 6901, using the `$ref` property:
+Tools MAY support JSON Pointer references as defined by [[rfc6901]], using the `$ref` property:
 
 <aside class="example">
 
 ```json
 {
-  "base": { "$value": "#0066cc" },
+  "base": {
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 0.4, 0.8],
+      "hex": "#0066cc"
+    }
+  },
   "alias": { "$ref": "#/base" }
 }
 ```
@@ -386,7 +485,13 @@ Since `$extends` follows JSON Schema `$ref` semantics, type inheritance behavior
 {
   "base": {
     "$type": "color",
-    "primary": { "$value": "#0066cc" }
+    "primary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0.4, 0.8],
+        "hex": "#0066cc"
+      }
+    }
   },
   "extended": {
     "$extends": "{base}",
@@ -463,7 +568,13 @@ This specification is designed to be backward compatible with existing design to
     "$type": "dimension",
     "field": {
       "width": { "$value": { "value": 100, "unit": "%" } },
-      "background": { "$value": "#ffffff" }
+      "background": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 1, 1],
+          "hex": "#ffffff"
+        }
+      }
     }
   },
   "input-amount": {
@@ -494,21 +605,75 @@ This demonstrates the key use case where a component extends a base component bu
     "$type": "color",
     "$description": "Complete color system",
     "brand": {
-      "$root": { "$value": "#0066cc" },
-      "light": { "$value": "#3388dd" },
-      "dark": { "$value": "#004499" }
+      "$root": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0.4, 0.8],
+          "hex": "#0066cc"
+        }
+      },
+      "light": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.2, 0.533, 0.867],
+          "hex": "#3388dd"
+        }
+      },
+      "dark": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0.267, 0.6],
+          "hex": "#004499"
+        }
+      }
     },
     "semantic": {
       "$extends": "{color.brand}",
       "success": {
-        "$root": { "$value": "#00cc66" },
-        "light": { "$value": "#33dd88" },
-        "dark": { "$value": "#009944" }
+        "$root": {
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [0, 0.8, 0.4],
+            "hex": "#00cc66"
+          }
+        },
+        "light": {
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [0.2, 0.867, 0.533],
+            "hex": "#33dd88"
+          }
+        },
+        "dark": {
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [0, 0.6, 0.267],
+            "hex": "#009944"
+          }
+        }
       },
       "error": {
-        "$root": { "$value": "#cc0000" },
-        "light": { "$value": "#ff3333" },
-        "dark": { "$value": "#990000" }
+        "$root": {
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [0.8, 0, 0],
+            "hex": "#cc0000"
+          }
+        },
+        "light": {
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [1, 0.2, 0.2],
+            "hex": "#ff3333"
+          }
+        },
+        "dark": {
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [0.6, 0, 0],
+            "hex": "#990000"
+          }
+        }
       }
     }
   }
@@ -519,10 +684,10 @@ This demonstrates the key use case where a component extends a base component bu
 
 This structure creates tokens accessible as:
 
-- `{color.brand.$root}` → `#0066cc`
-- `{color.brand.light}` → `#3388dd`
-- `{color.semantic.success.$root}` → `#00cc66`
-- `{color.semantic.error.dark}` → `#990000`
+- `{color.brand.$root}` → `{"colorSpace": "srgb", "components": [0, 0.4, 0.8], "hex": "#0066cc"}`
+- `{color.brand.light}` → `{"colorSpace": "srgb", "components": [0.2, 0.533, 0.867], "hex": "#3388dd"}`
+- `{color.semantic.success.$root}` → `{"colorSpace": "srgb", "components": [0, 0.8, 0.4], "hex": "#00cc66"}`
+- `{color.semantic.error.dark}` → `{"colorSpace": "srgb", "components": [0.6, 0, 0], "hex": "#990000"}`
 
 ## Use-cases
 
