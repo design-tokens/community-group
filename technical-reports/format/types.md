@@ -184,7 +184,7 @@ For example:
 
 ## Number
 
-Represents a number. Numbers can be positive, negative and have fractions. Example uses for number tokens are [gradient stop positions](#gradient) or unitless line heights. The `$type` property MUST be set to the string `number`. The value MUST be a JSON number value.
+Represents a number. Numbers can be positive, negative and have fractions. Example uses for number tokens are [gradient stop positions](composite-types#gradient) or unitless line heights. The `$type` property MUST be set to the string `number`. The value MUST be a JSON number value.
 
 <aside class="example">
 

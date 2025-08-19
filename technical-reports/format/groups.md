@@ -4,7 +4,7 @@ Groups organize design tokens into logical collections and provide a hierarchica
 
 ## Group Structure
 
-A group is identified as a JSON object that does NOT contain a [`$value`](#name-and-value) property. Groups MAY contain:
+A group is identified as a JSON object that does NOT contain a [`$value`](design-token#name-and-value) property. Groups MAY contain:
 
 - **Child tokens** - Objects with a `$value` property
 - **Nested groups** - Objects without a `$value` property
@@ -100,7 +100,7 @@ Groups MAY include an optional `$description` property, whose value MUST be a pl
 
 #### `$type`
 
-Groups MAY include an optional [`$type`](#type-0) property that acts as a default type for any tokens within the group that do not explicitly declare their own type. This type inheritance applies to nested groups and their tokens unless overridden.
+Groups MAY include an optional [`$type`](design-token#type) property that acts as a default type for any tokens within the group that do not explicitly declare their own type. This type inheritance applies to nested groups and their tokens unless overridden.
 
 <aside class="example">
 
@@ -317,7 +317,7 @@ Group extension follows **deep merge** behavior where local properties override 
 
 ##### Supported Reference Formats
 
-`$extends` supports the same reference formats as [design token aliases](#aliases-references):
+`$extends` supports the same reference formats as [design token aliases](#references-and-json-pointer-integration):
 
 - **Relative group references:** `{parent.child}`
 - **Absolute group references:** `{.root.group}`
@@ -373,7 +373,7 @@ Groups MAY include an optional `$deprecated` property to mark the entire group a
 
 #### `$extensions`
 
-Groups MAY include an optional [`$extensions`](#extensions) property where tools MAY add proprietary, user-, team- or vendor-specific data. Each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
+Groups MAY include an optional [`$extensions`](design-token#extensions) property where tools MAY add proprietary, user-, team- or vendor-specific data. Each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
 
 ## Empty Groups
 
@@ -402,7 +402,7 @@ Objects without a `$value` property are interpreted as groups by definition. Thi
 
 ## References and JSON Pointer Integration
 
-The current [token reference syntax](#aliases--references) using curly braces (`{group.token}`) is maintained for backward compatibility and developer ergonomics. However, tools MAY also support JSON Pointer notation for advanced use cases.
+The current [token reference syntax](#references-and-json-pointer-integration) using curly braces (`{group.token}`) is maintained for backward compatibility and developer ergonomics. However, tools MAY also support JSON Pointer notation for advanced use cases.
 
 ### Current Reference Syntax (Recommended)
 
@@ -471,7 +471,7 @@ Examples:
 
 Type resolution follows these rules in order of precedence:
 
-1. **Token's explicit [`$type`](#type-0) property** (highest precedence)
+1. **Token's explicit [`$type`](design-token#type) property** (highest precedence)
 2. **Resolved group's `$type` property** (after extension resolution)
 3. **Parent group's `$type` property** (walking up the hierarchy)
 4. **Token is invalid** if no type can be determined
@@ -509,7 +509,7 @@ In this example, the group `extended` must satisfy both its local `$type: "dimen
 
 Tools MUST detect and report circular references in:
 
-- Token [aliases](#aliases--references) (`{token}` references)
+- Token [aliases](#references-and-json-pointer-integration) (`{token}` references)
 - Group extensions (`$extends` references)
 - JSON Pointer references (`$ref` properties, if supported)
 
@@ -827,7 +827,3 @@ $brand-typeface-secondary: 'Times New Roman';
 ```
 
 </aside>
-
----
-
-_This specification maintains compatibility with existing design token files while providing the flexibility to support advanced use cases including root tokens, group inheritance, and integration with standard JSON referencing mechanisms._
