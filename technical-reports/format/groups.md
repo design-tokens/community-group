@@ -247,7 +247,7 @@ This creates a new resolved group that combines inherited and local content acco
 
 Group extension follows **deep merge** behavior where local properties override inherited properties at the same path:
 
-1. **Inheritance:** All tokens and properties from the referenced group are inherited
+1. **Inheritance:** All tokens and properties from the referenced group are inherited (circular references are not allowed)
 2. **Override:** Local tokens and properties replace inherited ones with the same path
 3. **Addition:** Local tokens and properties with new paths are added alongside inherited ones
 
@@ -314,6 +314,66 @@ Group extension follows **deep merge** behavior where local properties override 
 - `color` → `"#red"` (overridden)
 - `spacing` → `"16px"` (inherited)
 - `border` → `"1px solid"` (added)
+
+**Circular Reference Prevention:**
+
+Groups cannot create circular inheritance chains. The following patterns are **invalid**:
+
+<aside class="example">
+
+```json
+{
+  "button": {
+    "color": { "$value": "#blue" },
+    "border": { "$value": "1px solid" },
+    "secondary": {
+      "$extends": "{button}" // ❌ Invalid: circular reference
+    }
+  }
+}
+```
+
+</aside>
+
+<aside class="example">
+
+```json
+{
+  "groupA": {
+    "$extends": "{groupB}",
+    "token": { "$value": "valueA" }
+  },
+  "groupB": {
+    "$extends": "{groupA}", // ❌ Invalid: circular reference
+    "token": { "$value": "valueB" }
+  }
+}
+```
+
+</aside>
+
+**Valid inheritance patterns:**
+
+<aside class="example">
+
+```json
+{
+  "button": {
+    "color": { "$value": "#blue" },
+    "border": { "$value": "1px solid" }
+  },
+  "button-secondary": {
+    "$extends": "{button}", // ✅ Valid: references parent group
+    "color": { "$value": "#gray" }
+  },
+  "button-large": {
+    "$extends": "{button}", // ✅ Valid: siblings can reference same parent
+    "padding": { "$value": "16px" }
+  }
+}
+```
+
+</aside>
 
 ##### Supported Reference Formats
 
