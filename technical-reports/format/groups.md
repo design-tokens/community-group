@@ -263,7 +263,7 @@ Group extension follows **deep merge** behavior where local properties override 
 {
   "input": {
     "field": {
-      "width": { "$value": "100%" },
+      "width": { "$type": "dimension", "$value": { "value": 12, "unit": "rem" } },
       "background": {
         "$value": {
           "colorSpace": "srgb",
