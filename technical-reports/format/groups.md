@@ -140,7 +140,7 @@ Groups MAY include an optional [`$type`](design-token#type) property that acts a
 
 #### `$extends`
 
-Groups MAY include an optional `$extends` property to inherit tokens and properties from another group. The `$extends` property is syntactic sugar for JSON Schema's `$ref` keyword and follows the same semantic behavior as defined in [[json-schema-2020-12]].
+Groups MAY include an optional `$extends` property to inherit tokens and properties from another group. `$extends` MUST NOT reference a token. The `$extends` property is syntactic sugar for JSON Schema's `$ref` keyword and follows the same semantic behavior as defined in [[json-schema-2020-12]].
 
 <aside class="example">
 
