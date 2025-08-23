@@ -4,27 +4,21 @@
 
 The mechanism by which multiple possible values of design tokens are reduced to a single value, i.e. this module.
 
+## <dfn>Context</dfn>
+
+Context is up to the end user to define, but is “any condition that requires a different value for a design token.” There are no official contexts in this specification.
+
 ## <dfn>Set</dfn>
 
-A subset of all design tokens that collectively form the default superset. Implementors SHOULD ensure the sum total of sets contain mutually exclusive tokens, i.e. they don’t overwrite one another and may be combined in any order to produce the same result.
+Subsets of tokens that collectively form the default base set. Users SHOULD ensure the sum total of sets contain mutually exclusive tokens, i.e. they don’t overwrite one another and may be combined in any order to produce the same result.
 
 ## <dfn>Modifier</dfn>
 
-A subset of all design tokens that provide alternate values. Modifiers MAY take an [=input=] to be used in providing alternate values.
+Mapping of contexts to token impacts. Modifiers MAY accept an [=input=] that determine the final token values after the resolver has run.
 
 ## <dfn>Input</dfn>
 
 The user’s selection for the [=modifier=]s, expressed as a key–value map. [See example](#modifiers).
-
-## <dfn>Alternate value</dfn>
-
-The property of tokens to express different values under different conditions. “Light mode” and “dark mode” are examples of alternate values.
-
-<aside class="issue">
-
-The previous version of this document referred to alternate values as “dimensions,” but was changed to avoid confusion with [dimension tokens](../format/#dimension)
-
-</aside>
 
 ## <dfn>Resolution</dfn>
 
