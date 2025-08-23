@@ -7,6 +7,7 @@ A resolver is a JSON object with the following properties:
 | Name                            | Type                     | Required | Description                                             |
 | :------------------------------ | :----------------------- | :------: | :------------------------------------------------------ |
 | [**name**](#name)               | `string`                 |          | A short, human-readable name for the resolver.          |
+| [**version**](#version)         | `YYYY-MM-DD`             |    Y     | Version, expressed as a ISO 8601 date.                  |
 | [**description**](#description) | `string`                 |          | Additional information about the resolver’s purpose.    |
 | [**sets**](#sets)               | [Set[]](#set)            |    Y     | Array of token subsets used as the base for resolution. |
 | [**modifiers**](#modifiers)     | [Modifier[]](#modifiers) |          | Array of modifiers for use in different contexts.       |
@@ -25,6 +26,17 @@ A resolver MAY provide a human-readable name. This is used to identify the resol
 
 </aside>
 
+## Version
+
+MUST be `2025-10-01`. Reserved for future versions in case breaking changes are introduced.
+
+```json
+{
+  "name": "Marketing Design System",
+  "version": "2025-10-01"
+}
+```
+
 ## Description
 
 A resolver MAY provide additional information.
@@ -34,6 +46,7 @@ A resolver MAY provide additional information.
 ```json
 {
   "name": "Marketing Design System",
+  "version": "2025-10-01",
   "description": "Last updated Summer 2025. Copyright Foo Corporation."
 }
 ```
