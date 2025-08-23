@@ -4,12 +4,12 @@
 
 A resolver is a JSON object with the following properties:
 
-| Name                            | Type                     | Required | Description                                               |
-| :------------------------------ | :----------------------- | :------: | :-------------------------------------------------------- |
-| [**name**](#name)               | `string`                 |          | A short, human-readable name for the resolver.            |
-| [**description**](#description) | `string`                 |          | Additional information about the resolver’s purpose.      |
-| [**sets**](#sets)               | [Set[]](#set)            |    Y     | Array of token subsets used as the base for resolution.   |
-| [**modifiers**](#modifiers)     | [Modifier[]](#modifiers) |          | Array of modifiers that may provide [=alternate values=]. |
+| Name                            | Type                     | Required | Description                                             |
+| :------------------------------ | :----------------------- | :------: | :------------------------------------------------------ |
+| [**name**](#name)               | `string`                 |          | A short, human-readable name for the resolver.          |
+| [**description**](#description) | `string`                 |          | Additional information about the resolver’s purpose.    |
+| [**sets**](#sets)               | [Set[]](#set)            |    Y     | Array of token subsets used as the base for resolution. |
+| [**modifiers**](#modifiers)     | [Modifier[]](#modifiers) |          | Array of modifiers for use in different contexts.       |
 
 ## Name
 
