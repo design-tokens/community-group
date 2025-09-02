@@ -7,7 +7,38 @@ Every shadow style has the exact same parts (color, X & Y offsets, etc.), but th
 Specifically, a composite type has the following characteristics:
 
 - Its value is an object or array, potentially containing nested objects or arrays, following a pre-defined structure where the properties of the (nested) object(s) or the elements of the (nested) arrays are sub-values.
-- Sub-values may be explicit `color` values or references to other design tokens that have sub-value's type (e.g. `"{some.other.token}"`).
+- Sub-values may be explicit values (e.g. `color` values) or references to other design tokens that have the sub-value's type (e.g. `"{some.other.token}"`).
+
+### Array aliasing in composite types
+
+When a composite type contains array properties, each element in the array may be either an explicit value or a reference to a token of the appropriate type. References in arrays resolve to single values and do not cause array expansion or flattening. This allows for flexible composition where some array elements are references while others are explicit values.
+
+Array aliasing follows these principles:
+
+1. **Single value resolution**: References in arrays always resolve to a single value of the appropriate type, never to arrays themselves.
+2. **No flattening**: When referencing an array, the entire referenced array is treated as a single element in the referencing array.
+3. **Type safety**: Each array element (explicit or referenced) must conform to the expected sub-value type for that composite type.
+4. **Mixed composition**: Arrays may freely mix explicit values and references.
+
+For example, a shadow token with an array value can mix references to other shadow tokens with explicit shadow objects:
+
+```json
+{
+  "layered-shadow": {
+    "$type": "shadow",
+    "$value": [
+      "{base.shadow}",
+      {
+        "color": "{brand.accent}",
+        "offsetX": { "value": 4, "unit": "px" },
+        "offsetY": { "value": 4, "unit": "px" },
+        "blur": { "value": 8, "unit": "px" },
+        "spread": { "value": 0, "unit": "px" }
+      }
+    ]
+  }
+}
+```
 
 A design token whose type happens to be a composite type is sometimes also called a composite (design) token. Besides their type, there is nothing special about composite tokens. They can have all the other additional properties like [`$description`](design-token#description) or [`$extensions`](design-token#extensions). They can also be referenced by other design tokens.
 
@@ -141,7 +172,7 @@ These values have the same meaning as the equivalent ["line style" values in CSS
 
 Object stroke style values MUST have the following properties:
 
-- `dashArray`: An array of [dimension values](types#dimension) and/or references to dimension tokens, which specify the lengths of alternating dashes and gaps. If an odd number of values is provided, then the list of values is repeated to yield an even number of values.
+- `dashArray`: An array of [dimension values](types#dimension) and/or references to dimension tokens, which specify the lengths of alternating dashes and gaps. Each element in the array must be either an explicit dimension value or a reference to a dimension token. If an odd number of values is provided, then the list of values is repeated to yield an even number of values.
 - `lineCap`: One of the following pre-defined string values: `"round"`, `"butt"` or `"square"`. These values have the same meaning as those of [the `stroke-linecap` attribute in SVG](https://www.w3.org/TR/SVG11/painting.html#StrokeLinecapProperty).
 
 <aside class="example" title="Object stroke style example">
@@ -175,12 +206,35 @@ Object stroke style values MUST have the following properties:
     }
   },
 
+  "mixed-dash-style": {
+    "$type": "strokeStyle",
+    "$value": {
+      "dashArray": [
+        "{dash-length-long}",
+        "{dash-gap-short}",
+        { "value": 0.125, "unit": "rem" },
+        "{dash-gap-short}"
+      ],
+      "lineCap": "round"
+    }
+  },
+
   "dash-length-medium": {
     "$type": "dimension",
     "$value": {
       "value": 10,
       "unit": "px"
     }
+  },
+
+  "dash-length-long": {
+    "$type": "dimension",
+    "$value": { "value": 1, "unit": "rem" }
+  },
+
+  "dash-gap-short": {
+    "$type": "dimension",
+    "$value": { "value": 0.25, "unit": "rem" }
   }
 }
 ```
@@ -300,7 +354,14 @@ Represents a animated transition between two states. The `$type` property MUST b
 
 ## Shadow
 
-Represents a shadow style. The `$type` property MUST be set to the string `shadow`. The value MUST contain a single object or an array of objects with the following properties:
+Represents a shadow style. The `$type` property MUST be set to the string `shadow`. The value MUST be either:
+
+- a single shadow object with the properties defined below, or
+- an array of shadow objects and/or references to shadow tokens
+
+When the value is an array, each element must be either an explicit shadow object or a reference to another shadow token. References in the array resolve to single shadow objects and do not cause array flattening.
+
+Each shadow object (whether explicit or referenced) MUST have the following properties:
 
 - `color`: The color of the shadow. The value of this property MUST be a valid [color value](types#color) or a reference to a color token.
 - `offsetX`: The horizontal offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
@@ -343,12 +404,9 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
     },
     {
       "color": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [0, 0, 0],
-          "alpha": 0.2,
-        }
+        "colorSpace": "srgb",
+        "components": [0, 0, 0],
+        "alpha": 0.2
       },
       "offsetX": { "value": 0, "unit": "px" },
       "offsetY": { "value": 42.9, "unit": "px" },
@@ -366,6 +424,21 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
       "blur": { "value": 64, "unit": "px" },
       "spread": { "value": 0, "unit": "px" }
     }
+  ]
+},
+
+"mixed-reference-shadow": {
+  "$type": "shadow",
+  "$value": [
+    "{base.shadow}",
+    {
+      "color": "{brand.accent}",
+      "offsetX": { "value": 2, "unit": "px" },
+      "offsetY": { "value": 2, "unit": "px" },
+      "blur": { "value": 4, "unit": "px" },
+      "spread": { "value": 1, "unit": "px" }
+    },
+    "{highlight.shadow}"
   ]
 }
 "inner-shadow": {
@@ -394,7 +467,9 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
 
 ## Gradient
 
-Represents a color gradient. The `$type` property MUST be set to the string `gradient`. The value MUST be an array of objects representing gradient stops that have the following structure:
+Represents a color gradient. The `$type` property MUST be set to the string `gradient`. The value MUST be an array of gradient stop objects and/or references to gradient tokens. Each element in the array must be either an explicit gradient stop object or a reference to a gradient token. References resolve to single gradient objects and do not cause array flattening.
+
+Each gradient stop object (whether explicit or referenced) MUST have the following structure:
 
 - `color`: The color value at the stop's position on the gradient. The value of this property MUST be a valid [color value](types#color) or a reference to a color token.
 - `position`: The position of the stop along the gradient's axis. The value of this property MUST be a valid number value or reference to a number token. The number values must be in the range [0, 1], where 0 represents the start position of the gradient's axis and 1 the end position. If a number value outside of that range is given, it MUST be considered as if it were clamped to the range [0, 1]. For example, a value of 42 should be treated as if it were 1, i.e. the end position of the gradient axis. Similarly, a value of -99 should be treated as if it were 0, i.e. the start position of the gradient axis.
@@ -504,6 +579,39 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
         "position": "{position-end}"
       }
     ]
+  },
+
+  "gradient-with-references": {
+    "$type": "gradient",
+    "$value": [
+      "{gradient.start-stop}",
+      {
+        "color": "{brand.secondary}",
+        "position": 0.333
+      },
+      "{gradient.end-stop}"
+    ]
+  },
+
+  "gradient": {
+    "start-stop": {
+      "$type": "gradient",
+      "$value": [
+        {
+          "color": { "colorSpace": "srgb", "components": [1, 1, 1] },
+          "position": 0
+        }
+      ]
+    },
+    "end-stop": {
+      "$type": "gradient",
+      "$value": [
+        {
+          "color": { "colorSpace": "srgb", "components": [0, 0, 0] },
+          "position": 1
+        }
+      ]
+    }
   }
 }
 ```
