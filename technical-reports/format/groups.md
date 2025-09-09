@@ -20,7 +20,7 @@ Groups support root tokens using the reserved name `$root` as the token name:
 
 <aside class="example" title="Root tokens">
 
-```json
+```jsonc
 {
   "color": {
     "accent": {
@@ -29,8 +29,8 @@ Groups support root tokens using the reserved name `$root` as the token name:
         "$value": {
           "colorSpace": "srgb",
           "components": [0.867, 0, 0],
-          "hex": "#dd0000"
-        }
+          "hex": "#dd0000",
+        },
         // {color.accent.$root} resolves to {"colorSpace": "srgb", "components": [0.867, 0, 0], "hex": "#dd0000"} (the root token)
         // {color.accent} is an invalid token reference (refers to a group, not a token)
       },
@@ -39,19 +39,19 @@ Groups support root tokens using the reserved name `$root` as the token name:
         "$value": {
           "colorSpace": "srgb",
           "components": [1, 0.133, 0.133],
-          "hex": "#ff2222"
-        }
+          "hex": "#ff2222",
+        },
       },
       "dark": {
         "$type": "color",
         "$value": {
           "colorSpace": "srgb",
           "components": [0.667, 0, 0],
-          "hex": "#aa0000"
-        }
-      }
-    }
-  }
+          "hex": "#aa0000",
+        },
+      },
+    },
+  },
 }
 ```
 
@@ -71,7 +71,7 @@ Groups MAY include the following properties:
 
 <aside class="example" title="Group description">
 
-```json
+```jsonc
 {
   "spacing": {
     "$description": "All spacing-related design tokens organized by usage context",
@@ -80,8 +80,8 @@ Groups MAY include the following properties:
     },
     "padding": {
       /* tokens */
-    }
-  }
+    },
+  },
 }
 ```
 
@@ -278,29 +278,29 @@ Group extension follows **deep merge** behavior where local properties override 
 
 <aside class="example" title="Override example">
 
-```json
+```jsonc
 {
   "input": {
     "field": {
       "width": {
         "$type": "dimension",
-        "$value": { "value": 12, "unit": "rem" }
+        "$value": { "value": 12, "unit": "rem" },
       },
       "background": {
         "$value": {
           "colorSpace": "srgb",
           "components": [1, 1, 1],
-          "hex": "#ffffff"
-        }
-      }
-    }
+          "hex": "#ffffff",
+        },
+      },
+    },
   },
   "input-amount": {
     "$extends": "{input}",
     "field": {
-      "width": { "$value": "100px" } // Overrides field.width completely
-    }
-  }
+      "width": { "$value": "100px" }, // Overrides field.width completely
+    },
+  },
 }
 ```
 
@@ -335,9 +335,11 @@ Group extension follows **deep merge** behavior where local properties override 
 
 **Result for `extended`:**
 
-- `color` → `"#red"` (overridden)
-- `spacing` → `"16px"` (inherited)
-- `border` → `"1px solid"` (added)
+| Token     | Final Value   | Source     |
+| :-------- | :------------ | :--------- |
+| `color`   | `"#red"`      | overridden |
+| `spacing` | `"16px"`      | inherited  |
+| `border`  | `"1px solid"` | added      |
 
 **Circular Reference Prevention:**
 
@@ -345,15 +347,15 @@ Groups MUST NOT create circular inheritance chains. The following patterns are *
 
 <aside class="example" title="Invalid circular reference">
 
-```json
+```jsonc
 {
   "button": {
     "color": { "$value": "#blue" },
     "border": { "$value": "1px solid" },
     "secondary": {
-      "$extends": "{button}" // ❌ Invalid: circular reference
-    }
-  }
+      "$extends": "{button}", // ❌ Invalid: circular reference
+    },
+  },
 }
 ```
 
@@ -361,16 +363,16 @@ Groups MUST NOT create circular inheritance chains. The following patterns are *
 
 <aside class="example" title="Another circular reference">
 
-```json
+```jsonc
 {
   "groupA": {
     "$extends": "{groupB}",
-    "token": { "$value": "valueA" }
+    "token": { "$value": "valueA" },
   },
   "groupB": {
     "$extends": "{groupA}", // ❌ Invalid: circular reference
-    "token": { "$value": "valueB" }
-  }
+    "token": { "$value": "valueB" },
+  },
 }
 ```
 
@@ -380,20 +382,20 @@ Groups MUST NOT create circular inheritance chains. The following patterns are *
 
 <aside class="example" title="Valid inheritance patterns">
 
-```json
+```jsonc
 {
   "button": {
     "color": { "$value": "#blue" },
-    "border": { "$value": "1px solid" }
+    "border": { "$value": "1px solid" },
   },
   "button-secondary": {
     "$extends": "{button}", // ✅ Valid: references parent group
-    "color": { "$value": "#gray" }
+    "color": { "$value": "#gray" },
   },
   "button-large": {
     "$extends": "{button}", // ✅ Valid: siblings can reference same parent
-    "padding": { "$value": "16px" }
-  }
+    "padding": { "$value": "16px" },
+  },
 }
 ```
 
@@ -548,9 +550,11 @@ Token paths are constructed by concatenating group names and token names with pe
 
 Examples:
 
-- Token at `/color/accent/$root` → path: `color.accent.$root`
-- Token at `/color/accent/light` → path: `color.accent.light`
-- Group at `/color/accent` → invalid for token resolution, valid for group operations
+| Location              | Path                 | Notes                                          |
+| :-------------------- | :------------------- | :--------------------------------------------- |
+| `/color/accent/$root` | `color.accent.$root` | Token path                                     |
+| `/color/accent/light` | `color.accent.light` | Token path                                     |
+| `/color/accent`       | —                    | Invalid for token resolution, valid for groups |
 
 ### Type Inheritance
 
@@ -566,7 +570,7 @@ Since `$extends` follows JSON Schema `$ref` semantics, type inheritance behavior
 
 <aside class="example" title="Type resolution with extensions">
 
-```json
+```jsonc
 {
   "base": {
     "$type": "color",
@@ -574,15 +578,15 @@ Since `$extends` follows JSON Schema `$ref` semantics, type inheritance behavior
       "$value": {
         "colorSpace": "srgb",
         "components": [0, 0.4, 0.8],
-        "hex": "#0066cc"
-      }
-    }
+        "hex": "#0066cc",
+      },
+    },
   },
   "extended": {
     "$extends": "{base}",
     "$type": "dimension", // Local constraint
-    "spacing": { "$value": { "value": 16, "unit": "px" } }
-  }
+    "spacing": { "$value": { "value": 16, "unit": "px" } },
+  },
 }
 ```
 
@@ -602,11 +606,11 @@ Circular reference detection for `$extends` follows the same requirements as JSO
 
 <aside class="example" title="Circular reference detection">
 
-```json
+```jsonc
 {
   "a": { "$extends": "{b}" },
   "b": { "$extends": "{c}" },
-  "c": { "$extends": "{a}" } // Creates circular reference: a → b → c → a
+  "c": { "$extends": "{a}" }, // Creates circular reference: a → b → c → a
 }
 ```
 
@@ -769,10 +773,12 @@ This demonstrates the key use case where a component extends a base component bu
 
 This structure creates tokens accessible as:
 
-- `{color.brand.$root}` → `{"colorSpace": "srgb", "components": [0, 0.4, 0.8], "hex": "#0066cc"}`
-- `{color.brand.light}` → `{"colorSpace": "srgb", "components": [0.2, 0.533, 0.867], "hex": "#3388dd"}`
-- `{color.semantic.success.$root}` → `{"colorSpace": "srgb", "components": [0, 0.8, 0.4], "hex": "#00cc66"}`
-- `{color.semantic.error.dark}` → `{"colorSpace": "srgb", "components": [0.6, 0, 0], "hex": "#990000"}`
+| Token Reference                  | Resolved Value                                                                |
+| :------------------------------- | :---------------------------------------------------------------------------- |
+| `{color.brand.$root}`            | `{"colorSpace": "srgb", "components": [0, 0.4, 0.8], "hex": "#0066cc"}`       |
+| `{color.brand.light}`            | `{"colorSpace": "srgb", "components": [0.2, 0.533, 0.867], "hex": "#3388dd"}` |
+| `{color.semantic.success.$root}` | `{"colorSpace": "srgb", "components": [0, 0.8, 0.4], "hex": "#00cc66"}`       |
+| `{color.semantic.error.dark}`    | `{"colorSpace": "srgb", "components": [0.6, 0, 0], "hex": "#990000"}`         |
 
 ## Use-cases
 
