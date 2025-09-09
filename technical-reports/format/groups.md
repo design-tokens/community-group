@@ -159,7 +159,7 @@ Groups MAY include the following properties:
 
 </aside>
 
-<aside class="example">
+<aside class="example" title="JSON Schema equivalence">
 
 ```json
 {
@@ -276,7 +276,7 @@ Group extension follows **deep merge** behavior where local properties override 
 - **Different paths = merge:** Tokens at different paths coexist in the final result
 - **Complete replacement:** When overriding, the entire token definition is replaced (not merged property-by-property)
 
-<aside class="example">
+<aside class="example" title="Override example">
 
 ```json
 {
@@ -315,7 +315,7 @@ Group extension follows **deep merge** behavior where local properties override 
 
 **Multi-level Override Example:**
 
-<aside class="example">
+<aside class="example" title="Multi-level override">
 
 ```json
 {
@@ -341,9 +341,9 @@ Group extension follows **deep merge** behavior where local properties override 
 
 **Circular Reference Prevention:**
 
-Groups cannot create circular inheritance chains. The following patterns are **invalid**:
+Groups MUST NOT create circular inheritance chains. The following patterns are **invalid**:
 
-<aside class="example">
+<aside class="example" title="Invalid circular reference">
 
 ```json
 {
@@ -359,7 +359,7 @@ Groups cannot create circular inheritance chains. The following patterns are **i
 
 </aside>
 
-<aside class="example">
+<aside class="example" title="Another circular reference">
 
 ```json
 {
@@ -378,7 +378,7 @@ Groups cannot create circular inheritance chains. The following patterns are **i
 
 **Valid inheritance patterns:**
 
-<aside class="example">
+<aside class="example" title="Valid inheritance patterns">
 
 ```json
 {
@@ -461,14 +461,14 @@ Groups MAY include an optional [`$extensions`](design-token#extensions) property
 
 ## Empty Groups
 
-Empty groups (groups containing no tokens or nested groups) are **explicitly permitted**. While they may appear to serve no immediate purpose, they:
+Groups MAY be empty (contain no tokens or nested groups). While they may appear to serve no immediate purpose, they:
 
 - Cause no harm to processing or validation
 - Support work-in-progress organization during token development
 - May contain metadata via group properties (`$description`, `$extensions`)
 - Provide placeholder structure for future token development
 
-<aside class="example">
+<aside class="example" title="Empty group">
 
 ```json
 {
@@ -491,7 +491,7 @@ The current [token reference syntax](#references-and-json-pointer-integration) u
 
 ### Current Reference Syntax (Recommended)
 
-<aside class="example">
+<aside class="example" title="Current reference syntax">
 
 ```json
 {
@@ -512,7 +512,7 @@ The current [token reference syntax](#references-and-json-pointer-integration) u
 
 Tools MAY support JSON Pointer references as defined by [[rfc6901]], using the `$ref` property:
 
-<aside class="example">
+<aside class="example" title="JSON Pointer references">
 
 ```json
 {
@@ -564,7 +564,7 @@ Type resolution follows these rules in order of precedence:
 **Type Resolution with Extensions:**
 Since `$extends` follows JSON Schema `$ref` semantics, type inheritance behavior is determined by constraint validation rather than explicit merge rules. Local type constraints are evaluated alongside inherited constraints according to JSON Schema validation patterns.
 
-<aside class="example">
+<aside class="example" title="Type resolution with extensions">
 
 ```json
 {
@@ -600,7 +600,7 @@ Tools MUST detect and report circular references in:
 
 Circular reference detection for `$extends` follows the same requirements as JSON Schema `$ref` circular reference detection. Tools SHOULD implement the same algorithms used by JSON Schema validators for cycle detection.
 
-<aside class="example">
+<aside class="example" title="Circular reference detection">
 
 ```json
 {
@@ -627,7 +627,7 @@ This specification is designed to be backward compatible with existing design to
 
 ### Basic Group with Root Token
 
-<aside class="example">
+<aside class="example" title="Basic group with root token">
 
 ```json
 {
@@ -645,7 +645,7 @@ This specification is designed to be backward compatible with existing design to
 
 ### Group Extension with Override Example
 
-<aside class="example">
+<aside class="example" title="Group extension with override">
 
 ```json
 {
@@ -682,7 +682,7 @@ This demonstrates the key use case where a component extends a base component bu
 
 ### Complex Hierarchical Structure
 
-<aside class="example">
+<aside class="example" title="Complex hierarchical structure">
 
 ```json
 {
@@ -782,7 +782,7 @@ Groups let token file authors better organize their token files. Related tokens 
 
 For example:
 
-<aside class="example">
+<aside class="example" title="Organized token groups">
 
 ```json
 {
@@ -819,7 +819,7 @@ For example:
 
 ...is likely to be more convenient to type and, arguably, easier to read, than:
 
-<aside class="example">
+<aside class="example" title="Flat token structure">
 
 ```json
 {
@@ -865,7 +865,7 @@ Token names are not guaranteed to be unique within the same file. The same name 
 
 For example, a [=translation tool=] like [Style Dictionary](https://amzn.github.io/style-dictionary/) might use the following design token file:
 
-<aside class="example">
+<aside class="example" title="Translation tool input">
 
 ```json
 {
@@ -902,7 +902,7 @@ For example, a [=translation tool=] like [Style Dictionary](https://amzn.github.
 
 ...and output it as Sass variables like so by concatenating the path to create variable names:
 
-<aside class="example">
+<aside class="example" title="Translation tool output">
 
 ```scss
 $brand-color-acid-green: #00ff66;
