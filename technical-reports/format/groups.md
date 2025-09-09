@@ -16,11 +16,9 @@ A group is identified as a JSON object that does NOT contain a [`$value`](design
 
 Groups MAY contain a **root token** alongside child tokens and nested groups. A root token provides a base value for the group while allowing for variants or extensions.
 
-### Syntax for Root Tokens
-
 Groups support root tokens using the reserved name `$root` as the token name:
 
-<aside class="example">
+<aside class="example" title="Root tokens">
 
 ```json
 {
@@ -33,6 +31,8 @@ Groups support root tokens using the reserved name `$root` as the token name:
           "components": [0.867, 0, 0],
           "hex": "#dd0000"
         }
+        // {color.accent.$root} resolves to {"colorSpace": "srgb", "components": [0.867, 0, 0], "hex": "#dd0000"} (the root token)
+        // {color.accent} is an invalid token reference (refers to a group, not a token)
       },
       "light": {
         "$type": "color",
@@ -56,13 +56,6 @@ Groups support root tokens using the reserved name `$root` as the token name:
 ```
 
 </aside>
-
-In this example:
-
-- `{color.accent.$root}` resolves to `{"colorSpace": "srgb", "components": [0.867, 0, 0], "hex": "#dd0000"}` (the root token)
-- `{color.accent.light}` resolves to `{"colorSpace": "srgb", "components": [1, 0.133, 0.133], "hex": "#ff2222"}`
-- `{color.accent.dark}` resolves to `{"colorSpace": "srgb", "components": [0.667, 0, 0], "hex": "#aa0000"}`
-- `{color.accent}` is an invalid token reference (refers to a group, not a token)
 
 **Rationale:** Using `$root` as a reserved token name eliminates ambiguity between group references and token references while maintaining clear, explicit syntax. The `$` prefix prevents naming conflicts with user-defined tokens and aligns with other reserved properties in the specification.
 
@@ -263,7 +256,10 @@ Group extension follows **deep merge** behavior where local properties override 
 {
   "input": {
     "field": {
-      "width": { "$type": "dimension", "$value": { "value": 12, "unit": "rem" } },
+      "width": {
+        "$type": "dimension",
+        "$value": { "value": 12, "unit": "rem" }
+      },
       "background": {
         "$value": {
           "colorSpace": "srgb",
