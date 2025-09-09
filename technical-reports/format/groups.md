@@ -63,17 +63,13 @@ Groups support root tokens using the reserved name `$root` as the token name:
 
 Groups MAY include the following properties:
 
-### Required Properties
+| Property       | Required | Description                                                                                                                                                                    |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `$description` | No       | A plain JSON string describing the group's purpose                                                                                                                             |
+| `$type`        | No       | Acts as a default type for tokens within the group that do not explicitly declare their own type. Type inheritance applies to nested groups and their tokens unless overridden |
+| `$extends`     | No       | Inherits tokens and properties from another group. MUST NOT reference a token. Syntactic sugar for JSON Schema's `$ref` keyword                                                |
 
-None. Groups have no required properties.
-
-### Optional Properties
-
-#### `$description`
-
-Groups MAY include an optional `$description` property, whose value MUST be a plain JSON string describing the group's purpose.
-
-<aside class="example">
+<aside class="example" title="Group description">
 
 ```json
 {
@@ -91,11 +87,7 @@ Groups MAY include an optional `$description` property, whose value MUST be a pl
 
 </aside>
 
-#### `$type`
-
-Groups MAY include an optional [`$type`](design-token#type) property that acts as a default type for any tokens within the group that do not explicitly declare their own type. This type inheritance applies to nested groups and their tokens unless overridden.
-
-<aside class="example">
+<aside class="example" title="Group type inheritance">
 
 ```json
 {
@@ -131,9 +123,41 @@ Groups MAY include an optional [`$type`](design-token#type) property that acts a
 
 </aside>
 
-#### `$extends`
+<aside class="example" title="Group extension">
 
-Groups MAY include an optional `$extends` property to inherit tokens and properties from another group. `$extends` MUST NOT reference a token. The `$extends` property is syntactic sugar for JSON Schema's `$ref` keyword and follows the same semantic behavior as defined in [[json-schema-2020-12]].
+```json
+{
+  "button": {
+    "$type": "color",
+    "background": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0.4, 0.8],
+        "hex": "#0066cc"
+      }
+    },
+    "text": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [1, 1, 1],
+        "hex": "#ffffff"
+      }
+    }
+  },
+  "button-primary": {
+    "$extends": "{button}",
+    "background": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.8, 0, 0.4],
+        "hex": "#cc0066"
+      }
+    }
+  }
+}
+```
+
+</aside>
 
 <aside class="example">
 
@@ -234,7 +258,9 @@ Extension resolution follows a straightforward process:
 
 This creates a new resolved group that combines inherited and local content according to the override rules above.
 
-**Note on Implementation:** While this specification references JSON Schema `$ref` behavior for technical implementation guidance, the user-visible behavior is the straightforward deep merge described above. Tools may implement this merge behavior directly or by leveraging JSON Schema libraries.
+<aside class="note" title="Implementation">
+While this specification references JSON Schema `$ref` behavior for technical implementation guidance, the user-visible behavior is the straightforward deep merge described above. Tools may implement this merge behavior directly or by leveraging JSON Schema libraries.
+</aside>
 
 ##### Inheritance Semantics
 
@@ -282,8 +308,10 @@ Group extension follows **deep merge** behavior where local properties override 
 
 **Result for `input-amount`:**
 
-- `field.width` → `"100px"` (local override wins)
-- `field.background` → `{"colorSpace": "srgb", "components": [1, 1, 1], "hex": "#ffffff"}` (inherited, no local override)
+| Token              | Final Value                                                                                        |
+| :----------------- | :------------------------------------------------------------------------------------------------- |
+| `field.width`      | `"100px"` (local override wins)                                                                    |
+| `field.background` | `{"colorSpace": "srgb", "components": [1, 1, 1], "hex": "#ffffff"}` (inherited, no local override) |
 
 **Multi-level Override Example:**
 
@@ -453,8 +481,9 @@ Empty groups (groups containing no tokens or nested groups) are **explicitly per
 
 </aside>
 
-**Note on Token vs Group Ambiguity:**
+<aside class="note" title="Token vs Group Ambiguity">
 Objects without a `$value` property are interpreted as groups by definition. This can potentially create ambiguity in cases where a token lacks required properties (such as `$value` or a determinable type) and might be incorrectly parsed as an empty group. Tools SHOULD provide clear error messages when an object appears to be an incomplete token rather than an intentional empty group.
+</aside>
 
 ## References and JSON Pointer Integration
 
@@ -500,7 +529,7 @@ Tools MAY support JSON Pointer references as defined by [[rfc6901]], using the `
 
 </aside>
 
-**Note:** The `$ref` syntax is provided for advanced tooling integration but is not required. The curly brace syntax remains the primary and recommended approach for token references.
+<aside class="note">The `$ref` syntax is provided for advanced tooling integration but is not required. The curly brace syntax remains the primary and recommended approach for token references.</aside>
 
 ## Processing Rules
 
