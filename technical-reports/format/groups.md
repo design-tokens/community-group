@@ -592,7 +592,7 @@ In this example, the group `extended` must satisfy both its local `$type: "dimen
 
 ### Circular Reference Detection
 
-Tools MUST detect and report circular references in:
+Tools MUST detect and throw an error on circular references in:
 
 - Token [aliases](#references-and-json-pointer-integration) (`{token}` references)
 - Group extensions (`$extends` references)
