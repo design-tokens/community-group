@@ -67,7 +67,9 @@ Groups MAY include the following properties:
 | -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `$description` | No       | A plain JSON string describing the group's purpose                                                                                                                             |
 | `$type`        | No       | Acts as a default type for tokens within the group that do not explicitly declare their own type. Type inheritance applies to nested groups and their tokens unless overridden |
-| `$extends`     | No       | Inherits tokens and properties from another group. MUST NOT reference a token. Syntactic sugar for JSON Schema's `$ref` keyword                                                |
+| `$extends`     | No       | Inherits tokens and properties from another group. See [Extending Groups](#extending-groups) for details                                                                       |
+| `$deprecated`  | No       | Marks the group as deprecated. Value can be `true`, `false`, or a string explanation                                                                                           |
+| `$extensions`  | No       | Vendor-specific extensions where tools MAY add proprietary data                                                                                                                |
 
 <aside class="example" title="Group description">
 
@@ -123,6 +125,24 @@ Groups MAY include the following properties:
 
 </aside>
 
+### `$deprecated`
+
+Groups MAY include an optional `$deprecated` property to mark the entire group as deprecated. This extends to all child tokens within the group unless explicitly overridden.
+
+| Value    | Explanation                                                       |
+| -------- | ----------------------------------------------------------------- |
+| `true`   | This group is deprecated (no explanation provided)                |
+| `string` | This group is deprecated AND this is an explanation               |
+| `false`  | This group is NOT deprecated (may override parent group defaults) |
+
+### `$extensions`
+
+Groups MAY include an optional [`$extensions`](design-token#extensions) property where tools MAY add proprietary, user-, team- or vendor-specific data. Each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
+
+## Extending Groups
+
+Groups MAY include an optional `$extends` property to inherit tokens and properties from another group. `$extends` MUST NOT reference a token. The `$extends` property is syntactic sugar for JSON Schema's `$ref` keyword and follows the same semantic behavior as defined in [[json-schema-2020-12]].
+
 <aside class="example" title="Group extension">
 
 ```json
@@ -159,43 +179,7 @@ Groups MAY include the following properties:
 
 </aside>
 
-<aside class="example" title="JSON Schema equivalence">
-
-```json
-{
-  "button": {
-    "$type": "color",
-    "background": {
-      "$value": {
-        "colorSpace": "srgb",
-        "components": [0, 0.4, 0.8],
-        "hex": "#0066cc"
-      }
-    },
-    "text": {
-      "$value": {
-        "colorSpace": "srgb",
-        "components": [1, 1, 1],
-        "hex": "#ffffff"
-      }
-    }
-  },
-  "button-primary": {
-    "$extends": "{button}",
-    "background": {
-      "$value": {
-        "colorSpace": "srgb",
-        "components": [0.8, 0, 0.4],
-        "hex": "#cc0066"
-      }
-    }
-  }
-}
-```
-
-</aside>
-
-##### Equivalence to JSON Schema `$ref`
+### Equivalence to JSON Schema `$ref`
 
 The `$extends` property is semantically equivalent to JSON Schema's `$ref` keyword as specified in [[json-schema-2020-12]] and later versions. The following two group definitions are functionally identical:
 
@@ -247,7 +231,7 @@ The `$extends` property is semantically equivalent to JSON Schema's `$ref` keywo
 }
 ```
 
-##### Reference Resolution and Evaluation
+### Reference Resolution and Evaluation
 
 Extension resolution follows a straightforward process:
 
@@ -262,7 +246,7 @@ This creates a new resolved group that combines inherited and local content acco
 While this specification references JSON Schema `$ref` behavior for technical implementation guidance, the user-visible behavior is the straightforward deep merge described above. Tools may implement this merge behavior directly or by leveraging JSON Schema libraries.
 </aside>
 
-##### Inheritance Semantics
+### Inheritance Semantics
 
 Group extension follows **deep merge** behavior where local properties override inherited properties at the same path:
 
@@ -341,7 +325,7 @@ Group extension follows **deep merge** behavior where local properties override 
 | `spacing` | `"16px"`      | inherited  |
 | `border`  | `"1px solid"` | added      |
 
-**Circular Reference Prevention:**
+### Circular Reference Prevention
 
 Groups MUST NOT create circular inheritance chains. The following patterns are **invalid**:
 
@@ -401,15 +385,11 @@ Groups MUST NOT create circular inheritance chains. The following patterns are *
 
 </aside>
 
-##### Supported Reference Formats
+### Supported Reference Formats
 
-`$extends` supports the same reference formats as [design token aliases](#references-and-json-pointer-integration):
+`$extends` supports the same reference formats as [design token aliases](#references-and-json-pointer-integration).
 
-- **Relative group references:** `{parent.child}`
-- **Absolute group references:** `{.root.group}`
-- **Cross-file references:** References to groups in other design token files (implementation-dependent)
-
-##### Error Conditions
+### Error Conditions
 
 `$extends` error handling follows JSON Schema `$ref` error patterns:
 
@@ -420,7 +400,7 @@ Groups MUST NOT create circular inheritance chains. The following patterns are *
 
 Tools MUST implement the same error detection and reporting patterns used by JSON Schema validators for `$ref` resolution.
 
-##### Implementation Guidance
+### Implementation Guidance
 
 Tools implementing design token parsing MAY choose to:
 
@@ -430,7 +410,7 @@ Tools implementing design token parsing MAY choose to:
 
 Regardless of implementation approach, the semantic behavior MUST be equivalent to JSON Schema `$ref` as specified in JSON Schema 2020-12 or later.
 
-##### Relationship to JSON Schema Specifications
+### Relationship to JSON Schema Specifications
 
 This specification defines `$extends` as syntactic sugar for JSON Schema's `$ref` keyword, providing design token-specific reference syntax while maintaining equivalent behavior. The deep merge semantics described above align with how JSON Schema 2020-12 handles `$ref` with sibling properties.
 
@@ -446,20 +426,6 @@ Tools implementing this specification MAY choose to:
 3. **Hybrid approach:** Use JSON Schema for validation while maintaining design token syntax
 
 Regardless of implementation approach, the user-visible behavior MUST match the deep merge semantics described in this specification.
-
-#### `$deprecated`
-
-Groups MAY include an optional `$deprecated` property to mark the entire group as deprecated. This extends to all child tokens within the group unless explicitly overridden.
-
-| Value    | Explanation                                                       |
-| -------- | ----------------------------------------------------------------- |
-| `true`   | This group is deprecated (no explanation provided)                |
-| `string` | This group is deprecated AND this is an explanation               |
-| `false`  | This group is NOT deprecated (may override parent group defaults) |
-
-#### `$extensions`
-
-Groups MAY include an optional [`$extensions`](design-token#extensions) property where tools MAY add proprietary, user-, team- or vendor-specific data. Each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
 
 ## Empty Groups
 
@@ -510,9 +476,9 @@ The current [token reference syntax](#references-and-json-pointer-integration) u
 
 </aside>
 
-### JSON Pointer Support (Optional)
+### JSON Pointer Support
 
-Tools MAY support JSON Pointer references as defined by [[rfc6901]], using the `$ref` property:
+Tools MUST support JSON Pointer references as defined by [[rfc6901]], using the `$ref` property:
 
 <aside class="example" title="JSON Pointer references">
 
@@ -530,8 +496,6 @@ Tools MAY support JSON Pointer references as defined by [[rfc6901]], using the `
 ```
 
 </aside>
-
-<aside class="note">The `$ref` syntax is provided for advanced tooling integration but is not required. The curly brace syntax remains the primary and recommended approach for token references.</aside>
 
 ## Processing Rules
 

@@ -81,10 +81,6 @@ Furthermore, due to the syntax used for [token aliases](groups#references-and-js
 - `}` (right curly bracket)
 - `.` (period)
 
-<p class="ednote" title="'$' Prefix Rationale">
-  Because of the <a href="#additional-group-properties">decision to prefix group properties with a dollar sign</a> (`$`), token properties will also use a dollar sign prefix. This provides a consistent syntax across the spec.
-</p>
-
 ## Additional properties
 
 While `$value` is the only required property for a token, a number of additional properties MAY be added:

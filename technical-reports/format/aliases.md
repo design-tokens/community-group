@@ -97,7 +97,7 @@ In this example:
 
 When a tool needs the actual value of a token it MUST resolve the reference - i.e. lookup the token being referenced and fetch its value. Tools SHOULD preserve references and therefore only resolve them whenever the actual value needs to be retrieved. For instance, in a [=design tool=], changes to the value of a token being referenced by aliases SHOULD be reflected wherever those aliases are being used.
 
-### Resolution Algorithm
+### Resolution Algorithms
 
 **For Curly Brace References:**
 
@@ -332,12 +332,12 @@ JSON Pointer syntax provides direct access to any location within the design tok
 
 Since design tokens store their values in `$value` properties, JSON Pointer paths to token values follow a predictable pattern:
 
-| Curly Brace Reference | Equivalent JSON Pointer             | Description              |
-| --------------------- | ----------------------------------- | ------------------------ |
-| `{colors.blue}`       | `#/colors/blue/$value`              | Complete token value     |
-| N/A                   | `#/colors/blue/$value/hex`          | Hex property of color    |
-| N/A                   | `#/colors/blue/$value/components/0` | First component of color |
-| N/A                   | `#/colors/blue/$type`               | Token type metadata      |
+| JSON Pointer                        | Equivalent Curly Brace Reference | Description              |
+| ----------------------------------- | -------------------------------- | ------------------------ |
+| `#/colors/blue/$value`              | `{colors.blue}`                  | Complete token value     |
+| `#/colors/blue/$value/hex`          | N/A                              | Hex property of color    |
+| `#/colors/blue/$value/components/0` | N/A                              | First component of color |
+| `#/colors/blue/$type`               | N/A                              | Token type metadata      |
 
 ### Resolution Algorithm for JSON Pointer
 
@@ -375,7 +375,7 @@ Tools MUST report errors for:
 | -------------------- | ------------------------ | ------------------------ |
 | Root token "primary" | `#/primary`              | `{primary}`              |
 | Nested token         | `#/colors/blue`          | `{colors.blue}`          |
-| Array element        | `#/color/components/0`   | `{color.components.0}`   |
+| Array element        | `#/color/components/0`   | not supported            |
 | Property with space  | `#/brand colors/primary` | `{brand colors.primary}` |
 | Property with slash  | `#/my~1group/token`      | `{my/group.token}`       |
 
@@ -388,23 +388,10 @@ Tools implementing design token parsing MUST:
 1. **Support curly brace syntax** as the primary reference mechanism for token-to-token references
 2. **Support JSON Pointer syntax** for document-level references and property access
 3. **Validate reference targets** to ensure they point to valid tokens (for curly brace) or valid document locations (for JSON Pointer)
-4. **Detect circular references** before attempting resolution
-5. **Preserve references** in memory/storage and resolve only when values are needed
-6. **Propagate changes** from referenced tokens to all aliases
-
-### Reference Resolution Algorithm
-
-1. **Parse reference:** Extract the target path from the reference string
-2. **Split path segments:** Convert `{color.components.0}` to `["color", "components", "0"]`
-3. **Traverse path iteratively:** For each segment:
-   - Navigate to the target container
-   - Check container type (array vs object)
-   - If array and segment is numeric: treat as array index
-   - If object: treat as property name (even if numeric)
-   - If target doesn't exist: report error
-4. **Validate target:** Ensure the final target exists and is accessible
-5. **Check for cycles:** Maintain a stack of currently resolving references
-6. **Return value:** Extract and return the resolved value
+4. **Resolve references** according to the resolution algorithms defined in this specification ([Resolution Algorithms](#resolution-algorithms))
+5. **Detect circular references** before attempting resolution
+6. **Preserve references** in memory/storage and resolve only when values are needed
+7. **Propagate changes** from referenced tokens to all aliases
 
 ### Disambiguation Examples
 
@@ -426,10 +413,12 @@ Tools implementing design token parsing MUST:
 
 **Clear resolution:**
 
-- `{ambiguous.data.0}` → `10` (array index)
-- `{ambiguous.metadata.0}` → `"Info about first item"` (object property)
-- `{ambiguous.data.length}` → Error (arrays don't have length property in JSON)
-- `{ambiguous.metadata.2}` → Error (property "2" doesn't exist)
+| Reference                | Result                    | Notes                                    |
+| :----------------------- | :------------------------ | :--------------------------------------- |
+| `#/ambiguous/data/0`     | `10`                      | JSON Pointer array index                 |
+| `{ambiguous.metadata.0}` | `"Info about first item"` | curly brace object property              |
+| `{ambiguous.data.0}`     | Error                     | curly braces cannot access array indices |
+| `{ambiguous.metadata.2}` | Error                     | property "2" doesn't exist               |
 
 ### Error Conditions
 
@@ -440,60 +429,6 @@ Tools MUST report errors for:
 - **Circular references:** Reference chains that loop back to themselves
 - **Type mismatches:** Referenced property type incompatible with token type
 - **Invalid property paths:** Attempting to reference non-existent properties
-
-## Advanced Use Cases
-
-### Conditional References
-
-While not directly supported by this specification, tools MAY implement conditional reference patterns for theming:
-
-<aside class="example">
-
-```json
-{
-  "theme": {
-    "light": {
-      "background": { "$value": "#ffffff", "$type": "color" }
-    },
-    "dark": {
-      "background": { "$value": "#000000", "$type": "color" }
-    }
-  },
-  "semantic": {
-    "surface": {
-      "$value": "{theme.light.background}",
-      "$extensions": {
-        "com.example.themes": {
-          "dark": "{theme.dark.background}"
-        }
-      }
-    }
-  }
-}
-```
-
-</aside>
-
-### Cross-File References
-
-Tools MAY support references across multiple design token files:
-
-<aside class="example">
-
-```json
-{
-  "brand": {
-    "primary": {
-      "$value": "{./colors.json#/blue/500}",
-      "$type": "color"
-    }
-  }
-}
-```
-
-</aside>
-
-**Note:** Cross-file reference syntax and resolution are implementation-specific and not standardized by this specification.
 
 ## Relationship to JSON Schema
 
