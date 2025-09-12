@@ -323,84 +323,129 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
     "$type": "shadow",
     "$value": {
       "color": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [0, 0, 0],
-          "alpha": 0.5,
-        }
-      },
-      "offsetX": { "value": 0.5, "unit": "rem" },
-      "offsetY": { "value": 0.5, "unit": "rem" },
-      "blur": { "value": 1.5, "unit": "rem" },
-      "spread": { "value": 0, "unit": "rem" }
-    }
-  },
-"layered-shadow": {
-  "$type": "shadow",
-  "$value": [
-    {
-      "color": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [0, 0, 0],
-          "alpha": 0.1,
-        }
-      },
-      "offsetX": { "value": 0, "unit": "px" },
-      "offsetY": { "value": 24, "unit": "px" },
-      "blur": { "value": 22, "unit": "px" },
-      "spread": { "value": 0, "unit": "px" }
-    },
-    {
-      "color": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [0, 0, 0],
-          "alpha": 0.2,
-        }
-      },
-      "offsetX": { "value": 0, "unit": "px" },
-      "offsetY": { "value": 42.9, "unit": "px" },
-      "blur": { "value": 44, "unit": "px" },
-      "spread": { "value": 0, "unit": "px" }
-    },
-    {
-      "color": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [0, 0, 0],
-          "alpha": 0.3,
-        }
-      },
-      "offsetX": { "value": 0, "unit": "px" },
-      "offsetY": { "value": 64, "unit": "px" },
-      "blur": { "value": 64, "unit": "px" },
-      "spread": { "value": 0, "unit": "px" }
-    }
-  ]
-}
-"inner-shadow": {
-  "$type": "shadow",
-  "$value": {
-    "color": {
-      "$type": "color",
-      "$value": {
         "colorSpace": "srgb",
         "components": [0, 0, 0],
-        "alpha": 0.5,
+        "alpha": 0.5
+      },
+      "offsetX": {
+        "value": 0.5,
+        "unit": "rem"
+      },
+      "offsetY": {
+        "value": 0.5,
+        "unit": "rem"
+      },
+      "blur": {
+        "value": 1.5,
+        "unit": "rem"
+      },
+      "spread": {
+        "value": 0,
+        "unit": "rem"
       }
-    },
-    "offsetX": { "value": 2, "unit": "px" },
-    "offsetY": { "value": 2, "unit": "px" },
-    "blur": { "value": 4, "unit": "px" },
-    "spread": { "value": 0, "unit": "px" },
-    "inset": true
+    }
+  },
+  "layered-shadow": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "alpha": 0.1
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 24,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 22,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 0,
+          "unit": "px"
+        }
+      },
+      {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "alpha": 0.2
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 42.9,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 44,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 0,
+          "unit": "px"
+        }
+      },
+      {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "alpha": 0.3
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 64,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 64,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 0,
+          "unit": "px"
+        }
+      }
+    ]
+  },
+  "inner-shadow": {
+    "$type": "shadow",
+    "$value": {
+      "color": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0],
+        "alpha": 0.5
+      },
+      "offsetX": {
+        "value": 2,
+        "unit": "px"
+      },
+      "offsetY": {
+        "value": 2,
+        "unit": "px"
+      },
+      "blur": {
+        "value": 4,
+        "unit": "px"
+      },
+      "spread": {
+        "value": 0,
+        "unit": "px"
+      },
+      "inset": true
+    }
   }
-}
 }
 ```
 
