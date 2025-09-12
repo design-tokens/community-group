@@ -16,5 +16,6 @@
 [build.processing.images]
   compress = true
 [[redirects]]
-  from = "/_includes"
-  to = "/"
+  from = "/_includes/*"
+  to = "/:splat"
+  force = true
