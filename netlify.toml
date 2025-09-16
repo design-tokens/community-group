@@ -15,7 +15,3 @@
   pretty_urls = true
 [build.processing.images]
   compress = true
-[[redirects]]
-  from = "/_includes/*"
-  to = "/:splat"
-  force = true
