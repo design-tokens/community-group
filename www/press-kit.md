@@ -28,7 +28,7 @@ Note: the DTCG is **not** a W3C Working Group. The technical reports published b
 
 ## Logo
 
-- [Download PNG](/assets/images/logo.png)
+- [Download PNG](/_includes/assets/images/logo.png)
 - The DTCG’s logo was created by Tim Van Damme
 - Please do not distort or change the logo in any way to preserve the integrity and recognition of the logo
 
