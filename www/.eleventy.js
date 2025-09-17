@@ -19,7 +19,7 @@ export default function (eleventyConfig) {
 
   // Configuration API: use eleventyConfig.addLayoutAlias(from, to) to add
   // layout aliases! Say you have a bunch of existing content using
-  // layout: post. If you don’t want to rewrite all of those values, just map
+  // layout: post. If you don't want to rewrite all of those values, just map
   // post to a new file like this:
   // eleventyConfig.addLayoutAlias("post", "layouts/my_new_post_layout.njk");
 
@@ -72,7 +72,7 @@ export default function (eleventyConfig) {
       return content;
     }
 
-    // don’t minify ReSpec
+    // don't minify ReSpec
     if (outputPath.toLowerCase().includes('/tr/')) {
       return content;
     }
@@ -112,8 +112,8 @@ export default function (eleventyConfig) {
     templateFormats: ['md', 'njk', 'html'],
 
     // If your site lives in a different subdirectory, change this.
-    // Leading or trailing slashes are all normalized away, so don’t worry about it.
-    // If you don’t have a subdirectory, use "" or "/" (they do the same thing)
+    // Leading or trailing slashes are all normalized away, so don't worry about it.
+    // If you don't have a subdirectory, use "" or "/" (they do the same thing)
     // This is only used for URLs (it does not affect your file structure)
     pathPrefix: '/',
     htmlTemplateEngine: false,
