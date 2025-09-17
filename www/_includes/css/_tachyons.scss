@@ -1,3 +1,5 @@
+@use "./tokens" as *;
+
 $spacing-copy-separator: $spacing-base;
 $spacing-extra-small: $spacing-xsmall;
 $spacing-small: $spacing-small;
@@ -11,4 +13,4 @@ $breakpoint-not-small: "screen and (min-width: #{$breakpoint-small})";
 $breakpoint-medium: "screen and (min-width: #{$breakpoint-small}) and (max-width: #{$breakpoint-large})";
 $breakpoint-large: "screen and (min-width: #{$breakpoint-large})";
 
-@import "../../node_modules/tachyons-sass/tachyons.scss";
+@use "../../node_modules/tachyons-sass/tachyons.scss";

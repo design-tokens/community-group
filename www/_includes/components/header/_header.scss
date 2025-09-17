@@ -1,3 +1,6 @@
+@use "../../css/tokens" as *;
+@use "../../css/mixins" as *;
+
 .header {
   background: $color-background-strong;
   color: $color-foreground-strong;

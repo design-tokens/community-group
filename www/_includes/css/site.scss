@@ -1,15 +1,15 @@
 // Dependencies
-@import "tokens";
-@import "variables";
-@import "mq";
-@import "functions";
-@import "mixins";
+@use "tokens";
+@use "variables";
+@use "mq";
+@use "functions";
+@use "mixins";
 
 // Global
-@import "global";
+@use "global";
 
 // Components
-@import "../components";
+@use "../components";
 
 // Make sure utility CSS loads last
-@import "tachyons";
+@use "tachyons";

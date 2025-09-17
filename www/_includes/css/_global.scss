@@ -1,3 +1,7 @@
+@use "./tokens" as *;
+@use "./variables" as *;
+@use "./mixins" as *;
+
 *,
 ::after,
 ::before {

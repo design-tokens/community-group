@@ -1,3 +1,6 @@
+@use "sass:string";
+@use "./tokens" as *;
+
 $dark-mode: true !default;
 
 $flex-alignments: flex-start, center, flex-end, baseline, stretch;
@@ -15,7 +18,7 @@ $spacing-horizontals: (
   large: $spacing-horizontal-large,
 );
 
-$mq-breakpoints: (
+$breakpoints: (
   small: $sizing-container-small,
   medium: $sizing-container-medium,
   large: $sizing-container-large,
@@ -23,6 +26,13 @@ $mq-breakpoints: (
   xx-large: $sizing-container-xxlarge,
 );
 
-$unquote-font-family-body: unquote($font-family-body);
-$unquote-font-family-display: unquote($font-family-display);
-$unquote-font-family-code: unquote($font-family-code);
+$show-breakpoints: (small, medium, large, x-large, xx-large);
+
+$unquote-font-family-body: string.unquote($font-family-body);
+$unquote-font-family-display: string.unquote($font-family-display);
+$unquote-font-family-code: string.unquote($font-family-code);
+
+@use './mq' with (
+  $breakpoints: $breakpoints,
+  $show-breakpoints: $show-breakpoints
+);

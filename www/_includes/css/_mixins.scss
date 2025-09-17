@@ -1,3 +1,6 @@
+@use "./tokens" as *;
+@use "./variables" as *;
+
 @mixin h2 {
   font-style: italic;
   font-size: $font-size-xlarge;
