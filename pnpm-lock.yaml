@@ -62,6 +62,9 @@ importers:
       sass:
         specifier: 1.90.0
         version: 1.90.0
+      sass-mq:
+        specifier: ^7.0.0
+        version: 7.0.0
       tachyons-sass:
         specifier: github:tachyons-css/tachyons-sass#2dce89b83729bddb9f4498c7d6f82b73d60d6538
         version: https://codeload.github.com/tachyons-css/tachyons-sass/tar.gz/2dce89b83729bddb9f4498c7d6f82b73d60d6538
@@ -1678,6 +1681,9 @@ packages:
 
   safe-regex@1.1.0:
     resolution: {integrity: sha512-aJXcif4xnaNUzvUuC5gcb46oTS7zvg4jpMTnuqtrEPlR3vFr4pxtdTwaF1Qs3Enjn9HK+ZlwQui+a7z0SywIzg==}
+
+  sass-mq@7.0.0:
+    resolution: {integrity: sha512-agZLg70uRebwCqE+ODyoeISxCS+8gOYunaGPASZn1vREqVYUbFgSfrGKLK+ZBxObZhJMaH3LSeYMetvl55sASQ==}
 
   sass@1.90.0:
     resolution: {integrity: sha512-9GUyuksjw70uNpb1MTYWsH9MQHOHY6kwfnkafC24+7aOMZn9+rVMBxRbLvw756mrBFbIsFg6Xw9IkR2Fnn3k+Q==}
@@ -3792,6 +3798,8 @@ snapshots:
   safe-regex@1.1.0:
     dependencies:
       ret: 0.1.15
+
+  sass-mq@7.0.0: {}
 
   sass@1.90.0:
     dependencies:
