@@ -28,6 +28,7 @@
     "markdown-it": "14.1.0",
     "markdown-it-anchor": "9.2.0",
     "sass": "1.90.0",
+    "sass-mq": "^7.0.0",
     "tachyons-sass": "github:tachyons-css/tachyons-sass#2dce89b83729bddb9f4498c7d6f82b73d60d6538",
     "uglify-es": "^3.3.9"
   }

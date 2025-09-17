@@ -1,6 +1,6 @@
 @use "../../css/tokens" as *;
 @use "../../css/mixins" as *;
-@use "../../css/mq" as *;
+@use "../../../node_modules/sass-mq/mq" as *;
 @use "../../css/variables";
 
 .link-button {

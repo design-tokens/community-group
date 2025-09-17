@@ -32,7 +32,7 @@ $unquote-font-family-body: string.unquote($font-family-body);
 $unquote-font-family-display: string.unquote($font-family-display);
 $unquote-font-family-code: string.unquote($font-family-code);
 
-@use './mq' with (
+@use "../../node_modules/sass-mq/mq" with (
   $breakpoints: $breakpoints,
   $show-breakpoints: $show-breakpoints
 );

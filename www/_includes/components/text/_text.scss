@@ -1,5 +1,5 @@
 @use "../../css/tokens" as *;
-@use "../../css/mq" as *;
+@use "../../../node_modules/sass-mq/mq" as *;
 
 .heading1,
 .heading2,
