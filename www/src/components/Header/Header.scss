@@ -2,10 +2,13 @@
   display: flex;
   flex-direction: column;
   padding: var(--page-padding-x);
-  background-color: light-dark(var(--color-background-strong), var(--color-background-strong-inverse));
+  background-color: light-dark(
+    var(--color-background-strong),
+    var(--color-background-strong-inverse)
+  );
   text-wrap: balance;
 
-  @media screen and (width > 870px) {
+  @media screen and (width > 54.375rem) {
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
