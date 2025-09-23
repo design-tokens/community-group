@@ -20,7 +20,7 @@ const formattedPosts = sortedPosts.map((post) => {
     author: post.author,
     w3FormattedDate: getW3FormattedDate(post.date),
     formattedDate: getFormattedDate(post.date),
-    url: `/posts/${post.url}/`,
+    url: post.url?.startsWith('http') ? post.url : `/posts/${post.url}/`,
   };
   return formattedPost;
 });
