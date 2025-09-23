@@ -1,6 +1,9 @@
 .l-footer {
   padding: var(--base-space-12) var(--page-padding-x);
-  background-color: light-dark(var(--color-background-weak), var(--color-background-weak-inverse));
+  background-color: light-dark(
+    var(--color-background-weak),
+    var(--color-background-weak-inverse)
+  );
   color: light-dark(var(--color-foreground), var(--color-foreground-inverse));
 
   nav {

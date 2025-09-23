@@ -1,6 +1,10 @@
 @mixin text-heading1 {
   font-weight: 600;
-  font-size: clamp(var(--font-size-xlarge), 2.8rem + 1vw, var(--font-size-xxxxlarge));
+  font-size: clamp(
+    var(--font-size-xlarge),
+    2.8rem + 1vw,
+    var(--font-size-xxxxlarge)
+  );
   line-height: 1;
 }
 

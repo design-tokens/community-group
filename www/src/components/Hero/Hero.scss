@@ -2,7 +2,11 @@
   position: relative;
   padding: var(--base-space-12) var(--base-space-8);
   min-height: var(--base-space-12);
-  background-color: color-mix(in oklch, light-dark(black, white), transparent 93%);
+  background-color: color-mix(
+    in oklch,
+    light-dark(black, white),
+    transparent 93%
+  );
   color: light-dark(var(--color-foreground), var(--color-foreground-inverse));
   z-index: 1;
   overflow: hidden;
