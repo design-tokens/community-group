@@ -24,10 +24,6 @@ body {
   height: 100%;
 }
 
-:root {
-  --page-padding-x: var(--base-space-8);
-}
-
 ::selection {
   --bg-color: light-dark(var(--color-background-strong-inverse), var(--color-background-strong));
   --text-color: light-dark(var(--color-foreground-inverse), var(--color-foreground));
