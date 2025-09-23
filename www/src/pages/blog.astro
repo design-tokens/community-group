@@ -43,8 +43,6 @@ const getAuthorSlug = (author: string) => {
             </Text>
             <Text as='p' variant='small'>
               <time datetime={post.w3FormattedDate}>{post.formattedDate}</time>
-              <span>by</span>
-              <a href={`/authors/${getAuthorSlug(post.author)}`}>{post.author}</a>
             </Text>
           </Stack>
         </li>
