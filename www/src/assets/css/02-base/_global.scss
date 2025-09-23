@@ -1,11 +1,5 @@
 @use "../01-utils/tokens" as *;
 
-*,
-::after,
-::before {
-  box-sizing: border-box;
-}
-
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,21 +13,33 @@ body {
   flex-direction: column;
   font-family: var(--font-family);
   @include text-body-s;
-  background-color: light-dark(var(--color-background), var(--color-background-inverse));
+  background-color: light-dark(
+    var(--color-background),
+    var(--color-background-inverse)
+  );
   color: light-dark(var(--color-foreground), var(--color-foreground-inverse));
   height: 100%;
 }
 
 ::selection {
-  --bg-color: light-dark(var(--color-background-strong-inverse), var(--color-background-strong));
-  --text-color: light-dark(var(--color-foreground-inverse), var(--color-foreground));
-  
+  --bg-color: light-dark(
+    var(--color-background-strong-inverse),
+    var(--color-background-strong)
+  );
+  --text-color: light-dark(
+    var(--color-foreground-inverse),
+    var(--color-foreground)
+  );
+
   background-color: var(--bg-color);
   color: var(--text-color);
 }
 
 :focus {
-  --outline-color: light-dark(var(--color-background-strong-inverse), var(--color-background-strong));
+  --outline-color: light-dark(
+    var(--color-background-strong-inverse),
+    var(--color-background-strong)
+  );
   outline: var(--base-space-1) solid var(--outline-color);
 }
 
@@ -41,11 +47,17 @@ a {
   text-decoration: none;
   background: transparent;
   cursor: pointer;
-  color: light-dark(var(--color-foreground-primary-strong), var(--color-foreground-primary-weak-inverse));
+  color: light-dark(
+    var(--color-foreground-primary-strong),
+    var(--color-foreground-primary-weak-inverse)
+  );
 
   &:hover,
   &:focus {
-    color: light-dark(var(--color-foreground-primary), var(--color-foreground-primary-inverse));
+    color: light-dark(
+      var(--color-foreground-primary),
+      var(--color-foreground-primary-inverse)
+    );
   }
 
   &:hover {
@@ -57,7 +69,10 @@ a {
   }
 
   &:active {
-    color: light-dark(var(--color-foreground-primary-strong), var(--color-foreground-primary-strong-inverse));
+    color: light-dark(
+      var(--color-foreground-primary-strong),
+      var(--color-foreground-primary-strong-inverse)
+    );
   }
 }
 
@@ -92,10 +107,10 @@ svg {
 }
 
 main {
-  flex: 1; 
+  flex: 1;
 }
 
-nav {  
+nav {
   ul {
     max-width: 100%;
     flex-wrap: wrap;
@@ -123,7 +138,7 @@ ul {
 
 main {
   section {
-    & > :is(h1, h2, h3, h4, h5, h6,p, ul, ol) + * {
+    & > :is(h1, h2, h3, h4, h5, h6, p, ul, ol) + * {
       margin-block-start: var(--base-space-6);
     }
 
@@ -131,7 +146,7 @@ main {
       margin-block-start: var(--base-space-12);
     }
 
-    & > :is(h1, h2, h3, h4, h5, h6, p) + :is(ul,ol) {
+    & > :is(h1, h2, h3, h4, h5, h6, p) + :is(ul, ol) {
       padding-inline-start: var(--base-space-8);
     }
 
@@ -143,23 +158,23 @@ main {
   h1 {
     @include text-heading1;
   }
-  
+
   h2 {
     @include text-heading2;
   }
-  
+
   h3 {
     @include text-heading3;
   }
-  
+
   h4 {
     @include text-heading4;
   }
-  
+
   h5 {
     @include text-heading5;
   }
-  
+
   h6 {
     @include text-heading6;
   }
@@ -175,7 +190,11 @@ main table {
 
 main th {
   border-bottom: 1px solid
-    color-mix(in oklch, light-dark(var(--color-foreground), var(--color-foreground-inverse)), transparent 75%);
+    color-mix(
+      in oklch,
+      light-dark(var(--color-foreground), var(--color-foreground-inverse)),
+      transparent 75%
+    );
   font-weight: 700;
 }
 
@@ -184,7 +203,10 @@ main :is(th, td) {
 }
 
 main tr:nth-of-type(even) td {
-  background-color: light-dark(var(--color-background-weak), var(--color-background-weak-inverse));
+  background-color: light-dark(
+    var(--color-background-weak),
+    var(--color-background-weak-inverse)
+  );
 }
 
 .link-button {
