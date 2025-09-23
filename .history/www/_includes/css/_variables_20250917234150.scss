@@ -1,0 +1,38 @@
+@use "sass:string";
+@use "./tokens" as *;
+
+$dark-mode: true !default;
+
+$flex-alignments: flex-start, center, flex-end, baseline, stretch;
+
+$sides: top, right, bottom, left;
+
+$vertical-sides: top, bottom;
+
+$horizontal-sides: right, left;
+
+$spacing-horizontals: (
+  base: $spacing-base,
+  small: $spacing-horizontal-small,
+  medium: $spacing-horizontal-medium,
+  large: $spacing-horizontal-large,
+);
+
+$breakpoints: (
+  small: $sizing-container-small,
+  medium: $sizing-container-medium,
+  large: $sizing-container-large,
+  x-large: $sizing-container-xlarge,
+  xx-large: $sizing-container-xxlarge,
+);
+
+$show-breakpoints: (small, medium, large, x-large, xx-large);
+
+$unquote-font-family-body: string.unquote($font-family-body);
+$unquote-font-family-display: string.unquote($font-family-display);
+$unquote-font-family-code: string.unquote($font-family-code);
+
+@use "~/sass-mq/mq" with (
+  $breakpoints: $breakpoints,
+  $show-breakpoints: $show-breakpoints
+);

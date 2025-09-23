@@ -1,0 +1,31 @@
+:root {
+  // bg of <a> for hover + focus states
+  --color-background-primary-weak: #fff9db;
+  --color-background-primary-weak-inverse: #e67700;
+  
+  // <body> bg
+  --color-background: #f8f9fa;
+  --color-background-inverse: #212529;
+  
+  // focus-ring + text selection color
+  --color-background-strong: #f1f3f5;
+  --color-background-strong-inverse: #343a40;
+  
+  // <a> bg on hover + active state
+  --color-background-primary: #fff3bf;
+  --color-background-weak: #fff;
+  --color-background-primary-inverse: #f08c00;
+  --color-background-weak-inverse: #000;
+  
+  // <a> text color on hover, focus, active
+  --color-foreground-primary: #f08c00;
+  --color-foreground-primary-inverse: #fff3bf;
+  --color-foreground-primary-strong: #c57300;
+  --color-foreground-primary-strong-inverse: #fff9db;
+  --color-foreground-primary-weak: #f59f00;
+  --color-foreground-primary-weak-inverse: #ffec99;
+  
+  // Default text color
+  --color-foreground: #212529;
+  --color-foreground-inverse: #f8f9fa;
+}

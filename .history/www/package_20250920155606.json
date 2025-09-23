@@ -1,21 +1,12 @@
 {
-  "name": "@dtcg/www",
-  "private": true,
-  "version": "0.0.0",
+  "name": "deeply-dwarf",
   "type": "module",
-  "description": "designtokens.org",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/design-tokens/community-group.git",
-    "directory": "www"
-  },
+  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "lint": "prettier . --check",
-    "format": "prettier . --format --write"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.5",
@@ -25,5 +16,8 @@
     "astro-icon": "^1.1.5",
     "astro-robots-txt": "^1.0.0",
     "sharp": "^0.34.3"
+  },
+  "devDependencies": {
+    "sass-mq": "^7.0.0"
   }
 }

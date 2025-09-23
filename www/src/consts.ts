@@ -1,0 +1,6 @@
+// Place any global data in this file.
+// You can import this data from anywhere in your site by using the `import` keyword.
+
+export const SITE_TITLE = "Design Tokens Community Group";
+export const SITE_DESCRIPTION =
+  "The DTCG's goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.";

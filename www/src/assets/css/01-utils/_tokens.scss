@@ -1,0 +1,17 @@
+@forward 'tokens/spacing';
+@forward 'tokens/colors';
+@forward 'tokens/text-styles';
+
+// Font
+:root {
+  --font-family-fallback: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --font-family: 'Inter', var(--font-family-fallback);
+  
+  --font-size-small: .875rem;
+  --font-size-medium: 1rem;
+  --font-size-large: 1.5rem;
+  --font-size-xlarge: 2rem;
+  --font-size-xxlarge: 3rem;
+  --font-size-xxxlarge: 4rem;
+  --font-size-xxxxlarge: 6rem;
+}

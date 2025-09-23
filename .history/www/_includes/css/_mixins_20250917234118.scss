@@ -1,0 +1,129 @@
+@use "./tokens" as *;
+@use "./variables" as *;
+
+@mixin h2 {
+  font-style: italic;
+  font-size: $font-size-xlarge;
+  line-height: 1.25;
+  font-family: $unquote-font-family-display;
+  letter-spacing: $letter-spacing-tight;
+}
+
+@mixin h3 {
+  font-size: $font-size-large;
+  line-height: 1.25;
+  font-family: $unquote-font-family-display;
+  letter-spacing: $letter-spacing-tight;
+}
+
+@mixin h4 {
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: $letter-spacing-wider;
+  text-transform: uppercase;
+}
+
+@mixin form-input {
+  outline: 1px solid $accent-weak;
+  padding: $spacing-sm $spacing-md;
+  width: 100%;
+  line-height: inherit;
+
+  &:hover {
+    outline-color: $accent-default;
+  }
+
+  &:focus {
+    outline: {
+      width: $spacing-base;
+      color: $accent-strong;
+    }
+  }
+}
+
+@mixin dark-mode {
+  @if $dark-mode {
+    @media (prefers-color-scheme: dark) {
+      @if (#{&} == "body") {
+        &:not(.light-mode) {
+          @content;
+        }
+      } @else {
+        body:not(.light-mode) & {
+          @content;
+        }
+      }
+    }
+    @if (#{&} == "body") {
+      &.dark-mode {
+        @content;
+      }
+    } @else {
+      body.dark-mode & {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin button {
+  display: inline-flex;
+  padding: $spacing-vertical-small $spacing-horizontal-medium;
+  font-weight: bolder;
+}
+
+@mixin flower-of-life($color) {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' style='fill:#{encodecolor($color)}' viewBox='0 0 26 15'%3E%3Cpath d='M26 0h-2.7c-3.6.6-6.8 2.5-9 5.2.6-1.6.9-3.4.9-5.2h-.5c0 2.5-.6 4.9-1.7 7-1.1-2.1-1.8-4.4-1.8-7h-.5c0 1.8.3 3.6.9 5.2C9.4 2.5 6.3.6 2.7 0H0v.5c1.1 2.1 1.8 4.4 1.8 7s-.6 4.9-1.8 7v.5h2.7c3.6-.6 6.8-2.5 9-5.2-.6 1.6-.9 3.4-.9 5.2h.5c0-2.5.6-4.9 1.8-7 1.1 2.1 1.7 4.4 1.7 7h.5c0-1.8-.3-3.6-.9-5.2 2.3 2.7 5.4 4.6 9 5.2H26v-.5c-1.1-2.1-1.8-4.4-1.8-7s.6-4.9 1.8-7V0zM2.2 7.5c0-1.8-.3-3.6-.9-5.2 2.3 2.7 5.4 4.6 9 5.2-3.6.6-6.8 2.5-9 5.2.6-1.6.9-3.4.9-5.2zM.5 14.7c2.5-4 6.9-6.8 12-7-2.5 4.1-6.9 6.9-12 7zM.5.3c5.1.2 9.5 2.9 12 7-5.1-.2-9.5-3-12-7zm13 7.5c5.1.2 9.5 2.9 12 7-5.1-.2-9.5-3-12-7zm10.3-.3c0 1.8.3 3.6.9 5.2-2.3-2.7-5.4-4.6-9-5.2 3.6-.6 6.8-2.5 9-5.2-.6 1.6-.9 3.4-.9 5.2zm-10.3-.3c2.5-4 6.9-6.8 12-7-2.5 4.1-6.9 6.9-12 7z'/%3E%3C/svg%3E") {
+    size: $spacing-vertical-large * 1.5;
+  }
+}
+
+@mixin flex-alignments($context) {
+  @each $flex-alignment in $flex-alignments {
+    &#{$flex-alignment} {
+      align-#{$context}: $flex-alignment;
+    }
+  }
+}
+
+@mixin spacing($child-selector: ">*", $use-breakpoint: "") {
+  @each $spacing-name, $spacing-value in $spacing-horizontals {
+    @if $use-breakpoint != "" {
+      @include mq($use-breakpoint) {
+        .#{$spacing-name}\@#{$use-breakpoint} {
+          margin-right: -$spacing-value / 2 !important;
+          margin-left: -$spacing-value / 2 !important;
+
+          #{$child-selector} {
+            padding-right: $spacing-value / 2 !important;
+            padding-left: $spacing-value / 2 !important;
+          }
+        }
+      }
+    } @else {
+      .#{$spacing-name} {
+        margin-right: -$spacing-value / 2 !important;
+        margin-left: -$spacing-value / 2 !important;
+
+        #{$child-selector} {
+          padding-right: $spacing-value / 2 !important;
+          padding-left: $spacing-value / 2 !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin breakpoints($selector) {
+  .#{$selector} {
+    @content;
+  }
+
+  @each $breakpoint-token, $breakpoint-value in $mq-breakpoints {
+    @include mq($breakpoint-value) {
+      .#{$breakpoint-token}_#{$selector} {
+        @content;
+      }
+    }
+  }
+}

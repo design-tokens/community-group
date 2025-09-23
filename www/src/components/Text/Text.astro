@@ -1,0 +1,29 @@
+---
+import "./Text.scss";
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+  as: Tag;
+  variant?:
+    | "heading1"
+    | "heading2"
+    | "heading3"
+    | "heading4"
+    | "heading5"
+    | "heading6"
+    | "body-s"
+    | "body-m"
+    | "small";
+  color?: string;
+}>;
+
+const { as: Tag = "p", variant = "body-s", color, ...attrs } = Astro.props;
+---
+
+<Tag
+  class:list={[`text-${variant}`]}
+  style={color ? `color: var(--${color})` : null}
+  {...attrs}
+>
+  <slot />
+</Tag>

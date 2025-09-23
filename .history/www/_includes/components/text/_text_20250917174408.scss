@@ -1,0 +1,77 @@
+@use "../../css/tokens" as *;
+@use "../../../node_modules/sass-mq/mq" as *;
+
+.heading1,
+.heading2,
+.heading3,
+.heading4,
+.heading5,
+.heading6 {
+  height: auto;
+}
+
+.heading1,
+.heading2,
+.heading3 {
+  margin-top: $spacing-vertical-large;
+}
+
+.heading1 {
+  margin-bottom: $spacing-vertical-large;
+  font-weight: normal;
+  font-size: $font-size-xlarge;
+  line-height: 1;
+
+  @include mq(large) {
+    font-size: $font-size-xxlarge;
+  }
+
+  @include mq(x-large) {
+    font-size: $font-size-xxxlarge;
+  }
+
+  @include mq(xx-large) {
+    font-size: $font-size-xxxxlarge;
+  }
+}
+
+.heading2,
+.heading3,
+.heading4,
+.heading5,
+.heading6 {
+  margin-bottom: $spacing-vertical-medium;
+  font-weight: bolder;
+}
+
+.heading2,
+.heading4,
+.heading6 {
+  text-transform: uppercase;
+  letter-spacing: 0.0625em;
+}
+
+.heading1,
+.heading3,
+.heading5 {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.heading2,
+.heading3 {
+  font-size: $font-size-large;
+  line-height: 1.125;
+}
+
+.heading4,
+.heading5,
+.heading6 {
+  font-size: $font-size-medium;
+  margin-top: $spacing-vertical-medium;
+  line-height: 1.25;
+}
+
+.heading6 {
+  font-size: $font-size-small;
+}

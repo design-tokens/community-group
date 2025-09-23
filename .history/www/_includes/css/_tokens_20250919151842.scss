@@ -1,0 +1,113 @@
+// TODO: This should be ~@dtcg/tokens
+
+// Breakpoints
+$breakpoint-xsmall: 320px;
+$breakpoint-small: 480px;
+$breakpoint-medium: 640px;
+$breakpoint-large: 960px;
+$breakpoint-xlarge: 1280px;
+$breakpoint-xxlarge: 1920px;
+
+// Colors
+$color-accent-strong-inverse: #495057;
+$color-accent-weak-inverse: #212529;
+$color-accent: #f1f3f5;
+$color-accent-primary: #ffec99;
+$color-accent-primary-strong: #ffe066;
+$color-accent-primary-weak: #fff3bf;
+$color-accent-strong: #e9ecef;
+$color-accent-weak: #f8f9fa;
+$color-accent-inverse: #343a40;
+$color-accent-primary-inverse: #f59f00;
+$color-accent-primary-strong-inverse: #fab005;
+$color-accent-primary-weak-inverse: #f08c00;
+$color-background-primary-strong: #ffec99;
+$color-background-primary-weak: #fff9db;
+$color-background: #f8f9fa;
+$color-background-strong: #f1f3f5;
+$color-background-primary: #fff3bf;
+$color-background-weak: #fff;
+$color-background-primary-strong-inverse: #f59f00;
+$color-background-primary-weak-inverse: #e67700;
+$color-background-inverse: #212529;
+$color-background-strong-inverse: #343a40;
+$color-background-primary-inverse: #f08c00;
+$color-background-weak-inverse: #000;
+$color-foreground-primary: #f08c00;
+$color-foreground-primary-strong-inverse: #fff9db;
+$color-foreground-primary-weak-inverse: #ffec99;
+$color-foreground-strong-inverse: #fff;
+$color-foreground-weak-inverse: #f1f3f5;
+$color-foreground-inverse: #f8f9fa;
+$color-foreground-primary-inverse: #fff3bf;
+$color-foreground-primary-strong: #c57300;
+$color-foreground-primary-weak: #f59f00;
+$color-foreground-strong: #000;
+$color-foreground-weak: #343a40;
+$color-foreground: #212529;
+
+// Text styles
+$font-family-body: "Inter, system-ui, -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Ubuntu, Cantarell, Noto Sans, 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'";
+$font-family-display: "Inter, system-ui, -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Ubuntu, Cantarell, Noto Sans, 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'";
+$font-family-code: "Menlo, Monaco, Consolas, 'Roboto Mono', 'Ubuntu Monospace', 'Noto Mono', 'Oxygen Mono', 'Liberation Mono', 'Lucida Console', 'Courier New', Courier, monospace, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'";
+$font-size-small: 14px;
+$font-size-medium: 16px;
+$font-size-large: 24px;
+$font-size-xlarge: 32px;
+$font-size-xxlarge: 48px;
+$font-size-xxxlarge: 64px;
+$font-size-xxxxlarge: 96px;
+$letter-spacing-tight: -0.025em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.025em;
+$letter-spacing-wider: 0.05em;
+
+// Sizes
+$sizing-horizontal-large: 32px;
+$sizing-container-xlarge: 1280px;
+$sizing-xlarge: 32px;
+$sizing-xxxlarge: 64px;
+$sizing-small: 12px;
+$sizing-container-small: 480px;
+$sizing-vertical-xlarge: 96px;
+$sizing-horizontal-small: 8px;
+$sizing-container-xsmall: 320px;
+$sizing-horizontal-medium: 16px;
+$sizing-xsmall: 8px;
+$sizing-base: 4px;
+$sizing-vertical-large: 48px;
+$sizing-container-medium: 640px;
+$sizing-medium: 16px;
+$sizing-large: 24px;
+$sizing-xxlarge: 48px;
+$sizing-xxxxlarge: 96px;
+$sizing-container-large: 960px;
+$sizing-container-xxlarge: 1920px;
+$sizing-horizontal-xlarge: 64px;
+$sizing-vertical-medium: 24px;
+$sizing-vertical-small: 12px;
+
+// Spacing
+$spacing-vertical-medium: 24px;
+$spacing-horizontal-xlarge: 64px;
+$spacing-horizontal-small: 8px;
+$spacing-small: 12px;
+$spacing-xsmall: 8px;
+$spacing-base: 4px;
+$spacing-vertical-large: 48px;
+$spacing-vertical-xlarge: 96px;
+$spacing-medium: 16px;
+$spacing-horizontal-medium: 16px;
+$spacing-vertical-small: 12px;
+$spacing-horizontal-large: 32px;
+$spacing-large: 24px;
+$spacing-xxlarge: 48px;
+$spacing-xxxxlarge: 96px;
+$spacing-xlarge: 32px;
+$spacing-xxxlarge: 64px;
+
+// General
+$stroke-thickline: 2px;
+$stroke-hairline: 1px;
+$z-index-root: 0;
+$z-index-max: 9999;
