@@ -1,0 +1,25 @@
+:root {
+  // <body> bg
+  --color-background: lch(97.88% 0.62 256.21);
+  --color-background-inverse: lch(14.44% 3.34 257.58);
+
+  // focus-ring + text selection color
+  --color-background-strong: lch(95.75% 1.24 255.96);
+  --color-background-strong-inverse: lch(24.08% 4.67 257.72);
+
+  // <a> bg on hover + active state
+  --color-background-weak: lch(100% 0.01 296.81);
+  --color-background-weak-inverse: lch(0% 0 0);
+
+  // <a> text color on hover, focus, active
+  --color-foreground-primary: lch(67.49% 79.44 67.24);
+  --color-foreground-primary-inverse: lch(95.63% 26.86 98.23);
+  --color-foreground-primary-strong: lch(56.22% 68.41 67.73);
+  --color-foreground-primary-strong-inverse: lch(97.68% 15.39 100.74);
+  --color-foreground-primary-weak: lch(72.37% 80.04 73.39);
+  --color-foreground-primary-weak-inverse: lch(93.26% 42.82 96.5);
+
+  // Default text color
+  --color-foreground: lch(14.44% 3.34 257.58);
+  --color-foreground-inverse: lch(97.88% 0.62 256.21);
+}
