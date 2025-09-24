@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.4.2">
+<meta name="generator" content="ReSpec 35.5.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 dfn{cursor:pointer}
@@ -22,12 +22,12 @@ dfn{cursor:pointer}
 .dfn-panel li{margin-left:1em}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
-
-
+    
+    
 <title>Design Tokens Technical Reports</title>
-
-
-
+    
+    
+  
 <style id="respec-mainstyle">
 @keyframes pop{
 0%{transform:scale(1,1)}
@@ -101,11 +101,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </style>
 <script id="initialUserConfig" type="application/json">{
   "specStatus": "CG-DRAFT",
-  "isPreview": false,
-  "subtitle": "Third Editors’ Draft",
+  "isPreview": true,
+  "subtitle": "Preview",
   "group": "design-tokens",
-  "thisVersion": null,
-  "latestVersion": null,
+  "latestVersion": "https://www.designtokens.org/TR/third-editors-draft/",
   "prevVersion": "https://www.designtokens.org/TR/second-editors-draft/",
   "edDraftURI": null,
   "editors": [
@@ -169,29 +168,29 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "dtcg-logo"
     }
   ],
-  "publishISODate": "2025-07-20T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 20 July 2025"
+  "publishISODate": "2025-09-17T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 17 September 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
 
   <body class="h-entry informative toc-inline"><div class="head">
     <p class="logos"><a class="logo" href="https://www.designtokens.org"><img crossorigin="" alt="Design Tokens Community Group" height="128" id="dtcg-logo" src="/assets/images/logo_128_2x.png" width="128">
   </a></p>
-    <h1 id="title" class="title">Design Tokens Technical Reports</h1> <h2 id="subtitle" class="subtitle">Third Editors’ Draft</h2>
+    <h1 id="title" class="title">Design Tokens Technical Reports</h1> <h2 id="subtitle" class="subtitle">Preview</h2>
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2025-07-20">20 July 2025</time>
+      <time class="dt-published" datetime="2025-09-17">17 September 2025</time>
     </p>
     <dl>
-
+      
       <dt>Latest published version:</dt><dd>
-              none
+              <a href="https://www.designtokens.org/TR/third-editors-draft/">https://www.designtokens.org/TR/third-editors-draft/</a>
             </dd>
-
-
-
+      
+      
+      
       <dt>Previous version:</dt><dd><a href="https://www.designtokens.org/TR/second-editors-draft/">https://www.designtokens.org/TR/second-editors-draft/</a></dd>
-
+      
       <dt>Editors:</dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://www.adekunleoduye.com">Adekunle Oduye</a>
   </dd><dd class="editor p-author h-card vcard">
@@ -215,21 +214,21 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://valhead.com">Val Head</a>
   </dd>
-
-
+      
+      
       <dt>Feedback:</dt><dd>
         <a href="https://github.com/design-tokens/community-group/">GitHub design-tokens/community-group</a>
         (<a href="https://github.com/design-tokens/community-group/pulls/">pull requests</a>,
         <a href="https://github.com/design-tokens/community-group/issues/new/choose">new issue</a>,
         <a href="https://github.com/design-tokens/community-group/issues/">open issues</a>)
       </dd>
-
+      
     </dl>
-
-
+    
+    
     <hr title="Separator for header">
   </div>
-
+    
     <section id="abstract" class="introductory"><h2>Abstract</h2>
       <p>
         Design tokens are indivisible pieces of a design system such as colors,
@@ -242,15 +241,25 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <a href="https://x.com/jina">Jina</a>).
       </p>
     </section>
-    <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>
+    <section id="sotd" class="introductory"><h2>Status of This Document</h2><details class="annoying-warning" open="">
+    <summary>
+      This is a
+      preview
+    </summary>
+    <p>
+      Do not attempt to implement this version of the specification. Do not
+      reference this version as authoritative in any way.
+      
+    </p>
+  </details><p>
       This specification was published by the
       <a href="https://www.w3.org/groups/cg/design-tokens">Design Tokens Community Group</a>. It is not a W3C Standard nor is it
       on the W3C Standards Track.
-
+      
             Please note that under the
             <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
             there is a limited opt-out and other conditions apply.
-
+          
       Learn more about
       <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
     </p>
@@ -265,20 +274,17 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         This document was produced by the Design Tokens Community Group, and
         contributions to this draft are governed by
         <a href="https://www.w3.org/community/about/process/cla">
-          Community Contributor License Agreement (CLA)</a
-        >, as specified by the
-        <a href="https://www.w3.org/community/about/process/#cgroups"
-          >W3C Community Group Process</a
-        >.
+          Community Contributor License Agreement (CLA)</a>, as specified by the
+        <a href="https://www.w3.org/community/about/process/#cgroups">W3C Community Group Process</a>.
       </p>
     <p>
     <a href="https://github.com/design-tokens/community-group/issues/">GitHub Issues</a> are preferred for
           discussion of this specification.
-
-
+        
+    
   </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#modules"><bdi class="secno">1. </bdi>Modules</a></li><li class="tocline"><a class="tocxref" href="#resources"><bdi class="secno">2. </bdi>Resources</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">A. </bdi>Acknowledgements</a></li></ol></nav>
     <section id="modules"><div class="header-wrapper"><h2 id="x1-modules"><bdi class="secno">1. </bdi>Modules</h2><a class="self-link" href="#modules" aria-label="Permalink for Section 1."></a></div>
-
+      
       <p>The Design Tokens specification is composed of multiple modules:</p>
       <ul>
         <li>
@@ -295,13 +301,13 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </section>
 
     <section class="appendix" id="acknowledgements"><div class="header-wrapper"><h2 id="a-acknowledgements"><bdi class="secno">A. </bdi>Acknowledgements</h2><a class="self-link" href="#acknowledgements" aria-label="Permalink for Appendix A."></a></div>
-
+      
       <p>
         We'd also like to thank the following contributors:
-        <span id="gh-contributors">Abhishek Warokar, Adam Stankiewicz, Ale Muñoz, Asher, Benjamin Kindle, Bjørn Madsen, Chase McCoy, Copilot, Dale Sande, Daniel Flynn, Daniel Rinehart, Danny Banks, Dominique Hazael-Massieux, Drew Powers, Evan Lovely, Fabian Friedl, Guilherme Nagüeva, Guy Lepage, Ivan Maksimovic, Jan Toman, Jina Anne, Jon Levine, Joren Broekema, Kaelig Deloumeau-Prigent, Kilian Valkhof, KLS, Laurent Thiebault, Lukas Oppermann, Marcos Castro, Mark Tomlinson, Matt Ström-Awn, Mike Kamminga, Miriam Suzanne, Namık Özgür Aydın, nicolaibach, Pavel Laptev, Pavel Vostrikov, Red Huang, Rob Eisenberg, Robin, Roman Komarov, Salem Cobalt, Sébastien Barbieri, Sigurd Fosseng, Vsevolod Dolgopolov (aka Seva), and Zhihao Cui</span>.
+        <span id="gh-contributors">Abhishek Warokar, Adam Stankiewicz, Ale Muñoz, Asher, Benjamin Kindle, Bjørn Madsen, Chase McCoy, Copilot, Dale Sande, Daniel Flynn, Daniel Rinehart, Danny Banks, Dominique Hazael-Massieux, Drew Powers, Evan Lovely, Fabian Friedl, Guilherme Nagüeva, Guy Lepage, Ivan Maksimovic, Jan Toman, Jina Anne, Jon Levine, Joren Broekema, Kaelig Deloumeau-Prigent, Kilian Valkhof, KLS, Laurent Thiebault, Lukas Oppermann, Marcos Castro, Mark Tomlinson, Matt Ström-Awn, Mike Kamminga, Miriam Suzanne, Namık Özgür Aydın, nicolaibach, Pavel Laptev, Pavel Vostrikov, Red Huang, Rob Eisenberg, Robin, Roman Komarov, Salem Cobalt, Sébastien Barbieri, Sigurd Fosseng, Stuart Robson, Vsevolod Dolgopolov (aka Seva), and Zhihao Cui</span>.
       </p>
     </section>
-
+  
 
 <p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
