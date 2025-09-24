@@ -1,5 +1,7 @@
 # build output
 dist/
+public/TR/drafts/
+
 # generated types
 .astro/
 

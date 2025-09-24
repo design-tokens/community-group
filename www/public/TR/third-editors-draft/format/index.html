@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.5.1">
+<meta name="generator" content="ReSpec 35.4.2">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -42,12 +42,12 @@ dfn{cursor:pointer}
 .dfn-panel li{margin-left:1em}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
-    
-    
+
+
 <title>Design Tokens Format Module</title>
-    
-    
-    
+
+
+
 <style>
 
       :root {
@@ -59,9 +59,9 @@ dfn{cursor:pointer}
         font-style: normal;
         font-size: 0.875em;
       }
-    
+
 </style>
-  
+
 <style id="respec-mainstyle">
 @keyframes pop{
 0%{transform:scale(1,1)}
@@ -153,10 +153,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </style>
 <script id="initialUserConfig" type="application/json">{
   "specStatus": "CG-DRAFT",
-  "isPreview": true,
-  "subtitle": "Preview",
+  "isPreview": false,
+  "subtitle": "Third Editors’ Draft",
   "group": "design-tokens",
-  "latestVersion": "https://www.designtokens.org/TR/third-editors-draft/format/",
+  "thisVersion": null,
+  "latestVersion": null,
   "prevVersion": "https://www.designtokens.org/TR/second-editors-draft/format/",
   "edDraftURI": null,
   "editors": [
@@ -220,29 +221,29 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "dtcg-logo"
     }
   ],
-  "publishISODate": "2025-09-17T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 17 September 2025"
+  "publishISODate": "2025-07-20T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 20 July 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
 
   <body class="h-entry"><div class="head">
     <p class="logos"><a class="logo" href="https://www.designtokens.org"><img crossorigin="" alt="Design Tokens Community Group" height="128" id="dtcg-logo" src="/assets/images/logo_128_2x.png" width="128">
   </a></p>
-    <h1 id="title" class="title">Design Tokens Format Module</h1> <h2 id="subtitle" class="subtitle">Preview</h2>
+    <h1 id="title" class="title">Design Tokens Format Module</h1> <h2 id="subtitle" class="subtitle">Third Editors’ Draft</h2>
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2025-09-17">17 September 2025</time>
+      <time class="dt-published" datetime="2025-07-20">20 July 2025</time>
     </p>
     <dl>
-      
+
       <dt>Latest published version:</dt><dd>
-              <a href="https://www.designtokens.org/TR/third-editors-draft/format/">https://www.designtokens.org/TR/third-editors-draft/format/</a>
+              none
             </dd>
-      
-      
-      
+
+
+
       <dt>Previous version:</dt><dd><a href="https://www.designtokens.org/TR/second-editors-draft/format/">https://www.designtokens.org/TR/second-editors-draft/format/</a></dd>
-      
+
       <dt>Editors:</dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://www.adekunleoduye.com">Adekunle Oduye</a>
   </dd><dd class="editor p-author h-card vcard">
@@ -266,21 +267,21 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://x.com/mikekamminga">Mike Kamminga</a>
   </dd>
-      
-      
+
+
       <dt>Feedback:</dt><dd>
         <a href="https://github.com/design-tokens/community-group/">GitHub design-tokens/community-group</a>
         (<a href="https://github.com/design-tokens/community-group/pulls/">pull requests</a>,
         <a href="https://github.com/design-tokens/community-group/issues/new/choose">new issue</a>,
         <a href="https://github.com/design-tokens/community-group/issues/">open issues</a>)
       </dd>
-      
+
     </dl>
-    
-    
+
+
     <hr title="Separator for header">
   </div>
-    
+
 
     <section id="abstract" class="introductory"><h2>Abstract</h2>
       <p>
@@ -289,25 +290,15 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </p>
     </section>
 
-    <section id="sotd" class="introductory"><h2>Status of This Document</h2><details class="annoying-warning" open="">
-    <summary>
-      This is a
-      preview
-    </summary>
-    <p>
-      Do not attempt to implement this version of the specification. Do not
-      reference this version as authoritative in any way.
-      
-    </p>
-  </details><p>
+    <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>
       This specification was published by the
       <a href="https://www.w3.org/groups/cg/design-tokens">Design Tokens Community Group</a>. It is not a W3C Standard nor is it
       on the W3C Standards Track.
-      
+
             Please note that under the
             <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
             there is a limited opt-out and other conditions apply.
-          
+
       Learn more about
       <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
     </p>
@@ -328,8 +319,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <p>
     <a href="https://github.com/design-tokens/community-group/issues/">GitHub Issues</a> are preferred for
           discussion of this specification.
-        
-    
+
+
   </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">2. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">3. </bdi>Terminology</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#design-token"><bdi class="secno">3.1 </bdi>(Design) Token</a></li><li class="tocline"><a class="tocxref" href="#design-token-properties"><bdi class="secno">3.2 </bdi>(Design) Token Properties</a></li><li class="tocline"><a class="tocxref" href="#design-tool"><bdi class="secno">3.3 </bdi><span data-plurals="design tools">Design tool</span></a></li><li class="tocline"><a class="tocxref" href="#translation-tool"><bdi class="secno">3.4 </bdi><span data-plurals="translation tools">Translation tool</span></a></li><li class="tocline"><a class="tocxref" href="#documentation-tool"><bdi class="secno">3.5 </bdi><span data-plurals="documentation tools">Documentation tool</span></a></li><li class="tocline"><a class="tocxref" href="#type"><bdi class="secno">3.6 </bdi>Type</a></li><li class="tocline"><a class="tocxref" href="#group"><bdi class="secno">3.7 </bdi>Group</a></li><li class="tocline"><a class="tocxref" href="#alias-reference"><bdi class="secno">3.8 </bdi>Alias (Reference)</a></li><li class="tocline"><a class="tocxref" href="#composite-design-token"><bdi class="secno">3.9 </bdi>Composite (Design) Token</a></li></ol></li><li class="tocline"><a class="tocxref" href="#file-format"><bdi class="secno">4. </bdi>File format</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#media-type-mime-type"><bdi class="secno">4.1 </bdi>Media type (MIME type)</a></li><li class="tocline"><a class="tocxref" href="#file-extensions"><bdi class="secno">4.2 </bdi>File extensions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#design-token-0"><bdi class="secno">5. </bdi>Design token</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#name-and-value"><bdi class="secno">5.1 </bdi>Name and value</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#character-restrictions"><bdi class="secno">5.1.1 </bdi>Character restrictions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#additional-properties"><bdi class="secno">5.2 </bdi>Additional properties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">5.2.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#type-0"><bdi class="secno">5.2.2 </bdi>Type</a></li><li class="tocline"><a class="tocxref" href="#extensions"><bdi class="secno">5.2.3 </bdi>Extensions</a></li><li class="tocline"><a class="tocxref" href="#deprecated"><bdi class="secno">5.2.4 </bdi>Deprecated</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#groups"><bdi class="secno">6. </bdi>Groups</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#additional-group-properties"><bdi class="secno">6.1 </bdi>Additional group properties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">6.1.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#type-1"><bdi class="secno">6.1.2 </bdi>Type</a></li><li class="tocline"><a class="tocxref" href="#extensions-0"><bdi class="secno">6.1.3 </bdi>Extensions</a></li><li class="tocline"><a class="tocxref" href="#deprecated-0"><bdi class="secno">6.1.4 </bdi>Deprecated</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">6.2 </bdi>Use-cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#file-authoring-organization"><bdi class="secno">6.2.1 </bdi>File authoring &amp; organization</a></li><li class="tocline"><a class="tocxref" href="#gui-tools"><bdi class="secno">6.2.2 </bdi>GUI tools</a></li><li class="tocline"><a class="tocxref" href="#translation-tools"><bdi class="secno">6.2.3 </bdi>Translation tools</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#aliases-references"><bdi class="secno">7. </bdi>Aliases / references</a></li><li class="tocline"><a class="tocxref" href="#types"><bdi class="secno">8. </bdi>Types</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#color"><bdi class="secno">8.1 </bdi>Color</a></li><li class="tocline"><a class="tocxref" href="#dimension"><bdi class="secno">8.2 </bdi>Dimension</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#validation"><bdi class="secno">8.2.1 </bdi>Validation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#font-family"><bdi class="secno">8.3 </bdi>Font family</a></li><li class="tocline"><a class="tocxref" href="#font-weight"><bdi class="secno">8.4 </bdi>Font weight</a></li><li class="tocline"><a class="tocxref" href="#duration"><bdi class="secno">8.5 </bdi>Duration</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#validation-0"><bdi class="secno">8.5.1 </bdi>Validation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#cubic-bezier"><bdi class="secno">8.6 </bdi>Cubic Bézier</a></li><li class="tocline"><a class="tocxref" href="#number"><bdi class="secno">8.7 </bdi>Number</a></li><li class="tocline"><a class="tocxref" href="#additional-types"><bdi class="secno">8.8 </bdi>Additional types</a></li></ol></li><li class="tocline"><a class="tocxref" href="#composite-types"><bdi class="secno">9. </bdi>Composite types</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#groups-versus-composite-tokens"><bdi class="secno">9.1 </bdi>Groups versus composite tokens</a></li><li class="tocline"><a class="tocxref" href="#stroke-style"><bdi class="secno">9.2 </bdi>Stroke style</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#string-value"><bdi class="secno">9.2.1 </bdi>String value</a></li><li class="tocline"><a class="tocxref" href="#object-value"><bdi class="secno">9.2.2 </bdi>Object value</a></li><li class="tocline"><a class="tocxref" href="#fallbacks"><bdi class="secno">9.2.3 </bdi>Fallbacks</a></li></ol></li><li class="tocline"><a class="tocxref" href="#border"><bdi class="secno">9.3 </bdi>Border</a></li><li class="tocline"><a class="tocxref" href="#transition"><bdi class="secno">9.4 </bdi>Transition</a></li><li class="tocline"><a class="tocxref" href="#shadow"><bdi class="secno">9.5 </bdi>Shadow</a></li><li class="tocline"><a class="tocxref" href="#gradient"><bdi class="secno">9.6 </bdi>Gradient</a></li><li class="tocline"><a class="tocxref" href="#typography"><bdi class="secno">9.7 </bdi>Typography</a></li></ol></li><li class="tocline"><a class="tocxref" href="#issue-summary"><bdi class="secno">A. </bdi>Issue summary</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">B.1 </bdi>Normative references</a></li></ol></li></ol></nav>
 
     <section id="conformance"><div class="header-wrapper"><h2 id="x1-conformance"><bdi class="secno">1. </bdi>Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 1."></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
@@ -342,7 +333,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </p></section>
 
     <section id="introduction"><div class="header-wrapper"><h2 id="x2-introduction"><bdi class="secno">2. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 2."></a></div>
-      
+
 
       <p>
         <em>This section is non-normative.</em>
@@ -1819,129 +1810,84 @@ $brand-typeface-secondary: 'Times New Roman';
     <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"shadow"</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"alpha"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.5</span>
+        <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"alpha"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.5</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">}</span>
       <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">"offsetX"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.5</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"rem"</span>
-      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">"offsetY"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.5</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"rem"</span>
-      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">"blur"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.5</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"rem"</span>
-      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">"spread"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"rem"</span>
-      <span class="hljs-punctuation">}</span>
+      <span class="hljs-attr">"offsetX"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.5</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"rem"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"offsetY"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.5</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"rem"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"blur"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.5</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"rem"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"spread"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"rem"</span> <span class="hljs-punctuation">}</span>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-attr">"layered-shadow"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"shadow"</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
-      <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"alpha"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.1</span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"offsetX"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"offsetY"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">24</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"blur"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">22</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"spread"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-        <span class="hljs-punctuation">}</span>
-      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"alpha"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.2</span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"offsetX"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"offsetY"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">42.9</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"blur"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">44</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"spread"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-        <span class="hljs-punctuation">}</span>
-      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"alpha"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.3</span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"offsetX"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"offsetY"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">64</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"blur"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">64</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"spread"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-          <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
-          <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-        <span class="hljs-punctuation">}</span>
-      <span class="hljs-punctuation">}</span>
-    <span class="hljs-punctuation">]</span>
-  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-attr">"inner-shadow"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"shadow"</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+<span class="hljs-attr">"layered-shadow"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"shadow"</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"alpha"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.1</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"offsetX"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"offsetY"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">24</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"blur"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">22</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"spread"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"alpha"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.2</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"offsetX"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"offsetY"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">42.9</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"blur"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">44</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"spread"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"alpha"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.3</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"offsetX"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"offsetY"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">64</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"blur"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">64</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"spread"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+<span class="hljs-attr">"inner-shadow"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"shadow"</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
         <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"alpha"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.5</span>
-      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">"offsetX"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">"offsetY"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">"blur"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">"spread"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span>
-      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">"inset"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
-    <span class="hljs-punctuation">}</span>
+        <span class="hljs-attr">"alpha"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.5</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"offsetX"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"offsetY"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"blur"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"spread"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"inset"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
   <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
 </aside>
@@ -2144,10 +2090,10 @@ $brand-typeface-secondary: 'Times New Roman';
 </div></div></section></section>
 
     <section class="appendix" id="issue-summary"><div class="header-wrapper"><h2 id="a-issue-summary"><bdi class="secno">A. </bdi>Issue summary</h2><a class="self-link" href="#issue-summary" aria-label="Permalink for Appendix A."></a></div><ul><li><a href="#issue-container-number-53">Issue 53</a><span style="text-transform: none">: Type: font family</span></li><li><a href="#issue-container-number-98">Issue 98</a><span style="text-transform: none">: Stroke style type feedback</span></li><li><a href="#issue-container-number-99">Issue 99</a><span style="text-transform: none">: Border type feedback</span></li><li><a href="#issue-container-number-103">Issue 103</a><span style="text-transform: none">: Transition type feedback</span></li><li><a href="#issue-container-number-100">Issue 100</a><span style="text-transform: none">: Shadow type feedback</span></li><li><a href="#issue-container-number-101">Issue 101</a><span style="text-transform: none">: Gradient type feedback</span></li><li><a href="#issue-container-number-102">Issue 102</a><span style="text-transform: none">: Typography type feedback</span></li></ul></section>
-  
+
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="b-references"><bdi class="secno">B. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix B."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="b-1-normative-references"><bdi class="secno">B.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix B.1"></a></div>
-    
+
     <dl class="bibliography"><dt id="bib-rfc2119">[RFC2119]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
     </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
@@ -2159,56 +2105,56 @@ $brand-typeface-secondary: 'Times New Roman';
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-design-tool" aria-label="Permalink for definition: Design tool. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-design-tool-1" title="§ 2. Introduction">§ 2. Introduction</a> 
+      <a href="#ref-for-dfn-design-tool-1" title="§ 2. Introduction">§ 2. Introduction</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-2" title="§ 3. Terminology">§ 3. Terminology</a> 
+      <a href="#ref-for-dfn-design-tool-2" title="§ 3. Terminology">§ 3. Terminology</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-3" title="§ 3.6 Type">§ 3.6 Type</a> 
+      <a href="#ref-for-dfn-design-tool-3" title="§ 3.6 Type">§ 3.6 Type</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-4" title="§ 5.2.1 Description">§ 5.2.1 Description</a> 
+      <a href="#ref-for-dfn-design-tool-4" title="§ 5.2.1 Description">§ 5.2.1 Description</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-5" title="§ 7. Aliases / references">§ 7. Aliases / references</a> 
+      <a href="#ref-for-dfn-design-tool-5" title="§ 7. Aliases / references">§ 7. Aliases / references</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-6" title="§ 8. Types">§ 8. Types</a> 
+      <a href="#ref-for-dfn-design-tool-6" title="§ 8. Types">§ 8. Types</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-7" title="§ 9.1 Groups versus composite tokens">§ 9.1 Groups versus composite tokens</a> 
+      <a href="#ref-for-dfn-design-tool-7" title="§ 9.1 Groups versus composite tokens">§ 9.1 Groups versus composite tokens</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-8" title="§ 9.2.3 Fallbacks">§ 9.2.3 Fallbacks</a> 
+      <a href="#ref-for-dfn-design-tool-8" title="§ 9.2.3 Fallbacks">§ 9.2.3 Fallbacks</a>
     </li><li>
-      <a href="#ref-for-dfn-design-tool-9" title="§ 9.3 Border">§ 9.3 Border</a> 
+      <a href="#ref-for-dfn-design-tool-9" title="§ 9.3 Border">§ 9.3 Border</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-translation-tool" aria-label="Links in this document to definition: Translation tool">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-translation-tool" aria-label="Permalink for definition: Translation tool. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-translation-tool-1" title="§ 2. Introduction">§ 2. Introduction</a> <a href="#ref-for-dfn-translation-tool-2" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-translation-tool-1" title="§ 2. Introduction">§ 2. Introduction</a> <a href="#ref-for-dfn-translation-tool-2" title="Reference 2">(2)</a>
     </li><li>
-      <a href="#ref-for-dfn-translation-tool-3" title="§ 3.6 Type">§ 3.6 Type</a> 
+      <a href="#ref-for-dfn-translation-tool-3" title="§ 3.6 Type">§ 3.6 Type</a>
     </li><li>
-      <a href="#ref-for-dfn-translation-tool-4" title="§ 6.2.3 Translation tools">§ 6.2.3 Translation tools</a> 
+      <a href="#ref-for-dfn-translation-tool-4" title="§ 6.2.3 Translation tools">§ 6.2.3 Translation tools</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-documentation-tool" aria-label="Links in this document to definition: Documentation tool">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-documentation-tool" aria-label="Permalink for definition: Documentation tool. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-documentation-tool-1" title="§ 2. Introduction">§ 2. Introduction</a> 
+      <a href="#ref-for-dfn-documentation-tool-1" title="§ 2. Introduction">§ 2. Introduction</a>
     </li>
   </ul>
     </div><script id="respec-highlight-vars">(() => {
