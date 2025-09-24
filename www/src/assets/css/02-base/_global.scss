@@ -213,3 +213,10 @@ main tr:nth-of-type(even) td {
   display: inline-flex;
   padding-block: var(--base-space-3);
 }
+
+.astro-code {
+  background-color: var(--color-background-strong-inverse) !important;
+  padding-block: var(--base-space-4) !important;
+  font-family: monospace !important;
+  color: var(--color-foreground-inverse) !important;
+}
