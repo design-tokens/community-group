@@ -11,8 +11,10 @@
   "license": "SEE LICENSE.md",
   "packageManager": "pnpm@10.12.1",
   "scripts": {
-    "build": "pnpm --filter @dtcg/tr run build && pnpm --filter @dtcg/www run build",
-    "dev": "pnpm run build && pnpm --parallel --recursive --if-present run dev",
+    "build": "pnpm run build:tr && pnpm run bulid:www",
+    "build:tr": "pnpm --filter @dtcg/tr run build",
+    "build:www": "pnpm --filter @dtcg/www run build",
+    "dev": "pnpm run build:tr && pnpm --parallel --recursive --if-present run dev",
     "lint": "pnpm --recursive --parallel --stream --if-present run lint",
     "format": "pnpm --recursive --parallel --stream --if-present run format",
     "prepare": "husky",
@@ -22,9 +24,8 @@
     "*.{md,yml,json,html}": "prettier --write"
   },
   "devDependencies": {
-    "husky": "^9.1.4",
-    "lint-staged": "^15.2.9",
-    "live-server": "^1.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.3",
     "prettier": "^3.5.3",
     "puppeteer": "^24.10.2"
   }
