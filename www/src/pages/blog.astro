@@ -1,14 +1,13 @@
 ---
-import { getW3FormattedDate, getFormattedDate } from "@/utils/date.utils";
-import { kebabify } from "@/utils/string.utils";
-import { posts } from "@/content/posts";
-import Layout from "@/layouts/Layout.astro";
-import Text from "@/components/Text/Text.astro";
-import Stack from "@/components/Stack/Stack.astro";
+import { getW3FormattedDate, getFormattedDate } from '@/utils/date.utils';
+import { kebabify } from '@/utils/string.utils';
+import { posts } from '@/content/posts';
+import Base from '@/layouts/Base.astro';
+import Text from '@/components/Text/Text.astro';
+import Stack from '@/components/Stack/Stack.astro';
+import External from '../components/External.astro';
 
-const title = "Blog";
-const pageTitle = "Blog";
-const metaDescription = "A sample Blog page listing various posts and authors.";
+const title = 'Blog';
 
 const sortedPosts = posts.sort(
   (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
@@ -30,18 +29,21 @@ const getAuthorSlug = (author: string) => {
 };
 ---
 
-<Layout title={title}>
-  <Stack as='ul' gap={12} axis='y' class='u-list-style:none'>
+<Base title={title}>
+  <Stack as="ul" gap={12} axis="y" class="blog-list u-list-style:none">
     {
       formattedPosts.map((post) => (
         <li>
-          <Stack as='article' gap={2}>
-            <Text as='h3' variant='heading3'>
-              <a href={post.url} aria-label={`Read ${post.title}`}>
-                {post.title}
-              </a>
-            </Text>
-            <Text as='p' variant='small'>
+          <Stack as="article" gap={2} class="article">
+            <a
+              href={post.url}
+              aria-label={`Read ${post.title}`}
+              target="_blank"
+            >
+              {post.title}
+              <External aria-hidden />
+            </a>
+            <Text as="p" variant="sm">
               <time datetime={post.w3FormattedDate}>{post.formattedDate}</time>
             </Text>
           </Stack>
@@ -49,4 +51,17 @@ const getAuthorSlug = (author: string) => {
       ))
     }
   </Stack>
-</Layout>
+</Base>
+
+<style lang="scss">
+  .article {
+    p {
+      margin: 0;
+    }
+  }
+
+  .blog-list {
+    margin: 0;
+    padding: 0;
+  }
+</style>

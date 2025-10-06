@@ -1,0 +1,87 @@
+---
+import Base from '@/layouts/Base.astro';
+
+interface Props {
+  title?: string | undefined;
+  description?: string | undefined;
+  frontmatter?: Record<string, any>;
+}
+---
+
+<Base {...Astro.props}>
+  <style lang="scss" is:global>
+    .md-content {
+      max-width: 65ch;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        &:not(:first-child) {
+          padding-top: 1em;
+        }
+      }
+
+      p,
+      blockquote {
+        line-height: 1.5;
+        margin-block: 1em;
+      }
+
+      li {
+        line-height: 1.5;
+        margin-block: 0.25em;
+      }
+
+      table,
+      ol,
+      ul,
+      pre {
+        margin-block: 1.5em;
+      }
+
+      & > :is(h1, h2, h3, h4, h5, h6, p, ul, ol) + * {
+        margin-block-start: var(--base-space-6);
+      }
+
+      & > * + :is(h1, h2, h3, h4, h5, h6) {
+        margin-block-start: var(--base-space-8);
+      }
+
+      & > :is(h1, h2, h3, h4, h5, h6, p) + :is(ul, ol) {
+        padding-inline-start: var(--base-space-8);
+      }
+
+      h1 {
+        @include text-heading1;
+      }
+
+      h2 {
+        @include text-heading2;
+      }
+
+      h3 {
+        @include text-heading3;
+      }
+
+      h4 {
+        @include text-heading4;
+      }
+
+      h5 {
+        @include text-heading5;
+      }
+
+      h6 {
+        @include text-heading6;
+      }
+    }
+  </style>
+  <script src="@/scripts/toc"></script>
+
+  <div class="md-content">
+    <slot />
+  </div>
+</Base>

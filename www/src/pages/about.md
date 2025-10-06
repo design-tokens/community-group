@@ -1,6 +1,6 @@
 ---
-title: Home
-pageTitle: 'About <abbr title="Design Tokens Community Group">DTCG</abbr>'
+title: About
+pageTitle: About
 layout: ../layouts/Markdown.astro
 ---
 
