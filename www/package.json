@@ -25,5 +25,10 @@
     "astro-icon": "^1.1.5",
     "astro-robots-txt": "^1.0.0",
     "sharp": "^0.34.4"
+  },
+  "devDependencies": {
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
+    "remark-directive": "^4.0.0"
   }
 }

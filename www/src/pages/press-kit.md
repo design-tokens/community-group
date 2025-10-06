@@ -1,7 +1,7 @@
 ---
 title: Press kit
 pageTitle: 'Press kit'
-layout: ../layouts/Layout.astro
+layout: ../layouts/Markdown.astro
 ---
 
 Guidelines and assets to help the public talk about the Design Tokens Community Group. The press kit allows anyone such as speakers, bloggers, YouTubers, and newsletter authors to share our work.
@@ -56,10 +56,10 @@ Note: the DTCG is **not** a W3C Working Group. The technical reports published b
 - Garth Braithwaite, Design System Engineer @ Adobe
 - [James Nash](https://cirrus.twiddles.com/), Design Systems Aficionado
 - Johan Stromqvist, Motion Design Specialist @ Shopify Polaris
-- [Kathleen McMahon](https://twitter.com/resource11), Senior Design Engineer @ LaunchDarkly
+- [Kathleen McMahon](https://twitter.com/resource11), Design Engineer @ EA
 - [Kevin Powell](https://twitter.com/kevinmpowell), Principal Front-End Developer @ EightShapes
 - [Louis Chenais](https://bsky.app/profile/lucho.cool), Frontend Developer @ Frontguys
 - [Matt Felten](https://twitter.com/mattfelten), Senior Manager, Design Systems @ ServiceTitan
-- Matthew Strom, Director of Design @ Simple Health
+- [Matthew Ström](https://matthewstrom.com), Director of Design @ Simple Health
 - [Nathan Curtis](https://eightshapes.com/nathan-curtis/), Founder and Principal @ EightShapes
-- [Tim Van Damme](https://twitter.com/maxvoltar), Software designer @ Gowalla
+- [Tim Van Damme](https://twitter.com/maxvoltar), Software designer @ Figma

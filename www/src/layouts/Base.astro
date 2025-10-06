@@ -1,10 +1,10 @@
 ---
-import "@/assets/css/style.scss";
-import MainHead from "@/components/MainHead.astro";
-import Header from "@/components/Header/Header.astro";
-import Hero from "@/components/Hero/Hero.astro";
-import Footer from "@/components/Footer/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import '@/assets/css/style.scss';
+import MainHead from '@/components/MainHead.astro';
+import Header from '@/components/Header.astro';
+import Hero from '@/components/Hero.astro';
+import Footer from '@/components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts';
 
 interface Props {
   title?: string | undefined;
@@ -16,10 +16,12 @@ const { title, description, frontmatter } = Astro.props;
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang="en">
   <head>
     <MainHead
-      title={frontmatter?.title ? `${frontmatter.title} | ${SITE_TITLE}` : SITE_TITLE}
+      title={frontmatter?.title
+        ? `${frontmatter.title} | ${SITE_TITLE}`
+        : SITE_TITLE}
       description={description
         ? description
         : SITE_DESCRIPTION
@@ -28,14 +30,17 @@ const { title, description, frontmatter } = Astro.props;
             ? frontmatter.description
             : undefined}
     />
+    <style lang="scss" is:global>
+      main {
+        padding-inline: var(--page-padding-x);
+      }
+    </style>
   </head>
   <body>
     <Header />
     <main>
       <Hero title={title ? title : frontmatter?.pageTitle} />
-      <section>
-        <slot />
-      </section>
+      <slot />
     </main>
     <Footer />
   </body>

@@ -1,0 +1,123 @@
+---
+import { SITE_TITLE } from '@/consts';
+import { menu } from '@/site.config';
+import DTCGLogo from './DTCGLogo.astro';
+
+const url = new URL(Astro.request.url);
+---
+
+<header class="header" aria-label="Main">
+  <a href="/" class="logo-link link-button">
+    <DTCGLogo class="logo" />
+    {SITE_TITLE}
+  </a>
+  <nav class="nav" aria-label="Main">
+    <ul class="ul">
+      {
+        menu.header.map((link) => (
+          <li class="li">
+            <a
+              class="link"
+              aria-current={url.pathname === link.path ? 'page' : false}
+              data-astro-prefetch
+              href={link.path}
+            >
+              {link.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<style lang="scss">
+  .header {
+    align-items: center;
+    background: var(--color-bg);
+    border-block-end-color: var(--color-border);
+    border-block-start-color: transparent;
+    border-block-width: 1px;
+    border-inline-width: 0;
+    border-style: solid;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    min-height: 4rem;
+    position: relative;
+    text-wrap: balance;
+    z-index: 10;
+  }
+
+  .logo-link {
+    align-items: center;
+    color: var(--color-text);
+    display: flex;
+    height: 100%;
+    gap: var(--base-space-4);
+    font-weight: 600;
+    padding-block: 0;
+    padding-inline-start: var(--page-padding-x);
+    padding-inline-end: var(--base-space-4);
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      .logo {
+        transform: rotateZ(0.5turn);
+      }
+    }
+  }
+
+  .logo {
+    transform: rotateZ(0);
+    transition: transform 350ms cubic-bezier(0.37, 0, 0.63, 1); // ease-in-out sine
+    width: 1.25rem;
+  }
+
+  .nav,
+  .ul,
+  .li {
+    height: 100%;
+  }
+
+  .ul,
+  .li {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav {
+    height: calc(100% + 2px);
+    margin-block: -1px; // align with header border
+    padding-inline-end: var(--page-padding-x);
+  }
+
+  .link {
+    align-items: center;
+    border-block-end-color: transparent;
+    border-block-start-color: transparent;
+    border-block-width: 1px;
+    border-inline-width: 0;
+    border-style: solid;
+    color: var(--color-text);
+    display: flex;
+    font-size: var(--font-size-sm);
+    height: 100%;
+    padding-inline: var(--base-space-4);
+    text-decoration: none;
+
+    &[aria-current='page'] {
+      color: var(--color-text);
+      border-block-end-color: var(--color-action);
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: var(--color-bg-alt);
+      border-block-end-color: var(--color-action-subdued);
+    }
+  }
+</style>

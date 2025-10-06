@@ -1,10 +1,8 @@
 ---
-title: Home
-pageTitle: 'About <abbr title="Design Tokens Community Group">DTCG</abbr>'
+title: About
+pageTitle: About
 layout: ../layouts/Markdown.astro
 ---
-
-### ⚠️ Under construction – new site and v1 of the specificiation coming soon.
 
 ## Principles
 

@@ -1,7 +1,7 @@
 ---
 title: Technical Reports
 pageTitle: Technical Reports
-layout: ../layouts/Layout.astro
+layout: ../layouts/Markdown.astro
 ---
 
 These are the technical reports produced by the Design Tokens Community Group.

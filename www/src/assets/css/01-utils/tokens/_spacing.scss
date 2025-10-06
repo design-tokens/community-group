@@ -1,21 +1,21 @@
 :root {
-  --base-space-value: 4px;
+  --base-space-value: 1rem;
 
-  --base-space-1: calc(var(--base-space-value) * 1);
-  --base-space-2: calc(var(--base-space-value) * 2);
-  --base-space-3: calc(var(--base-space-value) * 3);
-  --base-space-4: calc(var(--base-space-value) * 4);
-  --base-space-5: calc(var(--base-space-value) * 5);
-  --base-space-6: calc(var(--base-space-value) * 6);
-  --base-space-7: calc(var(--base-space-value) * 7);
-  --base-space-8: calc(var(--base-space-value) * 8);
-  --base-space-9: calc(var(--base-space-value) * 9);
-  --base-space-10: calc(var(--base-space-value) * 10);
-  --base-space-12: calc(var(--base-space-value) * 12);
-  --base-space-14: calc(var(--base-space-value) * 14);
-  --base-space-15: calc(var(--base-space-value) * 15);
-  --base-space-16: calc(var(--base-space-value) * 16);
-  --base-space-17: calc(var(--base-space-value) * 17);
-  --base-space-18: calc(var(--base-space-value) * 18);
-  --base-space-20: calc(var(--base-space-value) * 20);
+  --base-space-1: calc(var(--base-space-value) * 0.25);
+  --base-space-2: calc(var(--base-space-value) * 0.5);
+  --base-space-3: calc(var(--base-space-value) * 0.75);
+  --base-space-4: calc(var(--base-space-value));
+  --base-space-5: calc(var(--base-space-value) * 1.25);
+  --base-space-6: calc(var(--base-space-value) * 1.5);
+  --base-space-7: calc(var(--base-space-value) * 1.75);
+  --base-space-8: calc(var(--base-space-value) * 2);
+  --base-space-9: calc(var(--base-space-value) * 2.25);
+  --base-space-10: calc(var(--base-space-value) * 2.5);
+  --base-space-12: calc(var(--base-space-value) * 3);
+  --base-space-14: calc(var(--base-space-value) * 3.5);
+  --base-space-15: calc(var(--base-space-value) * 3.75);
+  --base-space-16: calc(var(--base-space-value) * 4);
+  --base-space-17: calc(var(--base-space-value) * 4.25);
+  --base-space-18: calc(var(--base-space-value) * 4.5);
+  --base-space-20: calc(var(--base-space-value) * 5);
 }
