@@ -1,20 +1,23 @@
 export const menu = {
   header: [
     { path: '/technical-reports/', title: 'Technical Reports' },
+    { path: '/contribute/', title: 'Contribute' },
     { path: '/blog/', title: 'Blog' },
     { path: '/', title: 'About' },
+    { path: 'https://github.com/design-tokens', title: 'GitHub' },
   ],
-  pages: [
+  about: [
     { path: '/technical-reports/', title: 'Technical Reports' },
+    { path: '/faq', title: 'FAQ' },
+    { path: '/resources/', title: 'Resources' },
+    { path: '/glossary/', title: 'Glossary' },
+    { path: '/contribute/', title: 'Contribute' },
+  ],
+  learn: [
+    { path: '/', title: 'About' },
     { path: '/blog/', title: 'Blog' },
     { path: '/press-kit', title: 'Press kit' },
-    { path: '/glossary/', title: 'Glossary' },
-    { path: '/', title: 'About' },
     { path: 'https://opencollective.com/design-tokens', title: 'Donate' },
-    {
-      path: 'https://www.w3.org/community/design-tokens',
-      title: 'W3C Community Group',
-    },
   ],
   social: [
     { path: 'https://github.com/design-tokens', title: 'DTCG on GitHub' },

@@ -22,11 +22,36 @@ const isAbsolute = (path: string) => path.startsWith('https://');
     </Stack>
 
     <div role="group">
-      <h5>Pages</h5>
+      <h5>Spec</h5>
       <nav aria-label="Pages">
         <ul class="ul">
           {
-            menu.pages.map((link) => (
+            menu.about.map((link) => (
+              <li class="li">
+                <a
+                  aria-current={url.pathname === link.path ? 'page' : false}
+                  data-astro-prefetch
+                  class="link"
+                  href={link.path}
+                  aria-label={link.title}
+                  target={isAbsolute(link.path) ? '_blank' : undefined}
+                >
+                  <Fragment set:html={link.title} />
+                  {isAbsolute(link.path) ? <External /> : null}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+
+    <div role="group">
+      <h5>Community Group</h5>
+      <nav aria-label="Pages">
+        <ul class="ul">
+          {
+            menu.learn.map((link) => (
               <li class="li">
                 <a
                   aria-current={url.pathname === link.path ? 'page' : false}
@@ -96,7 +121,7 @@ const isAbsolute = (path: string) => path.startsWith('https://');
       gap: var(--base-space-8);
 
       @media (width >= 750px) {
-        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-columns: 3fr 1fr 1fr 1fr;
       }
     }
 
