@@ -3,7 +3,7 @@ export const menu = {
     { path: '/technical-reports/', title: 'Technical Reports' },
     { path: '/contribute/', title: 'Contribute' },
     { path: '/blog/', title: 'Blog' },
-    { path: '/', title: 'About' },
+    { path: '/about/', title: 'About' },
     { path: 'https://github.com/design-tokens', title: 'GitHub' },
   ],
   about: [
