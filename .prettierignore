@@ -1,2 +1,2 @@
-www/_site
-www/TR
+# Ignore technical reports in IDEs
+www/public/TR

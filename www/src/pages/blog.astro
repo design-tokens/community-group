@@ -1,0 +1,52 @@
+---
+import { getW3FormattedDate, getFormattedDate } from "@/utils/date.utils";
+import { kebabify } from "@/utils/string.utils";
+import { posts } from "@/content/posts";
+import Layout from "@/layouts/Layout.astro";
+import Text from "@/components/Text/Text.astro";
+import Stack from "@/components/Stack/Stack.astro";
+
+const title = "Blog";
+const pageTitle = "Blog";
+const metaDescription = "A sample Blog page listing various posts and authors.";
+
+const sortedPosts = posts.sort(
+  (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+);
+
+const formattedPosts = sortedPosts.map((post) => {
+  const formattedPost = {
+    title: post.title,
+    author: post.author,
+    w3FormattedDate: getW3FormattedDate(post.date),
+    formattedDate: getFormattedDate(post.date),
+    url: post.url?.startsWith('http') ? post.url : `/posts/${post.url}/`,
+  };
+  return formattedPost;
+});
+
+const getAuthorSlug = (author: string) => {
+  return kebabify(author);
+};
+---
+
+<Layout title={title}>
+  <Stack as='ul' gap={12} axis='y' class='u-list-style:none'>
+    {
+      formattedPosts.map((post) => (
+        <li>
+          <Stack as='article' gap={2}>
+            <Text as='h3' variant='heading3'>
+              <a href={post.url} aria-label={`Read ${post.title}`}>
+                {post.title}
+              </a>
+            </Text>
+            <Text as='p' variant='small'>
+              <time datetime={post.w3FormattedDate}>{post.formattedDate}</time>
+            </Text>
+          </Stack>
+        </li>
+      ))
+    }
+  </Stack>
+</Layout>

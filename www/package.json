@@ -10,25 +10,20 @@
     "directory": "www"
   },
   "scripts": {
-    "build": "pnpm run build:sass && pnpm run build:eleventy",
-    "build:sass": "sass _includes:_site/_includes",
-    "build:eleventy": "eleventy",
-    "dev": "pnpm --filter @dtcg/www --parallel --stream run \"/^dev:(eleventy|sass)/\"",
-    "dev:eleventy": "eleventy --serve --watch",
-    "dev:sass": "pnpm --filter @dtcg/www run build:sass --watch",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
     "lint": "prettier . --check",
     "format": "prettier . --format --write"
   },
-  "devDependencies": {
-    "@11ty/eleventy": "^3.1.2",
-    "@11ty/eleventy-navigation": "^1.0.4",
-    "@toycode/markdown-it-class": "1.2.4",
-    "html-minifier": "^4.0.0",
-    "luxon": "3.7.1",
-    "markdown-it": "14.1.0",
-    "markdown-it-anchor": "9.2.0",
-    "sass": "1.90.0",
-    "tachyons-sass": "github:tachyons-css/tachyons-sass#2dce89b83729bddb9f4498c7d6f82b73d60d6538",
-    "uglify-es": "^3.3.9"
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.5",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.13.8",
+    "astro-icon": "^1.1.5",
+    "astro-robots-txt": "^1.0.0",
+    "sharp": "^0.34.3"
   }
 }

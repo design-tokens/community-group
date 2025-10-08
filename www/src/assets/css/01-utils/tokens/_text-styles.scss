@@ -1,0 +1,63 @@
+@mixin text-heading1 {
+  font-weight: 600;
+  font-size: clamp(
+    var(--font-size-xlarge),
+    2.8rem + 1vw,
+    var(--font-size-xxxxlarge)
+  );
+  line-height: 1;
+}
+
+@mixin text-heading2 {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.0625em;
+  font-size: var(--font-size-large);
+  line-height: 1.125;
+}
+
+@mixin text-heading3 {
+  font-weight: 600;
+  font-size: var(--font-size-large);
+  line-height: 1.125;
+}
+
+@mixin text-heading4 {
+  font-weight: 600;
+  font-size: var(--font-size-medium);
+  line-height: 1.25;
+}
+
+@mixin text-heading5 {
+  font-weight: 600;
+  font-size: var(--font-size-medium);
+  line-height: 1.25;
+}
+
+@mixin text-heading6 {
+  font-weight: 600;
+  font-size: var(--font-size-small);
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 0.0625em;
+}
+
+@mixin text-body-s {
+  font-weight: 400;
+  font-size: var(--font-size-medium);
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+@mixin text-body-m {
+  font-weight: 700;
+  font-size: var(--font-size-medium);
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+@mixin text-small {
+  font-weight: 400;
+  font-size: var(--font-size-small);
+  line-height: 1.5;
+}

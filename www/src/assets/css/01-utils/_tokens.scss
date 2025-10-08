@@ -1,0 +1,14 @@
+@forward "tokens/spacing";
+@forward "tokens/colors";
+@forward "tokens/text-styles";
+@forward "tokens/font-sizes";
+
+// General
+:root {
+  --font-family-fallback:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Segoe UI Emoji,
+    Segoe UI Symbol, Noto Color Emoji;
+  --font-family: "Inter", var(--font-family-fallback);
+  --page-padding-x: var(--base-space-8);
+}
