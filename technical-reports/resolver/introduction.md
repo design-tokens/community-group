@@ -1,15 +1,11 @@
 # Introduction
 
-Design tokens often need to express alternate values in different [=context=]s. What defines a “context” is up to the user to determine, and is unique to their usecases. But common examples of contexts are:
+Consumers of design tokens often need to express alternate values that apply in different contexts. Such examples include, but are not limited to:
 
 - **Theming**, such as light mode, dark mode, and high contrast color modes
 - **Sizing**, such as mobile (small), tablet (medium), desktop (large)
 - **Accessibility mode**, such as reduced motion, colorblindness, etc.
 
-A [=resolver=] outlines a way to generate different end values (or sometimes even different tokens) to satisfy the needs for all these contexts. The general process is:
+However, these alternate contexts are susceptible to [combinatorial explosion](https://en.wikipedia.org/wiki/Combinatorial_explosion), making storage and management unwieldy.
 
-1. Start from a base [set](#sets) of tokens
-2. Apply [modifiers](#modifiers) based on which context(s) we are in
-3. The end result is a complete token set with context-appropriate values.
-
-One would simply repeat the process once per the number of end-contexts being generated.
+This format describes a mechanism for deduplicating all repeat values of tokens across all contexts as well as enumerating all permutations of contexts.

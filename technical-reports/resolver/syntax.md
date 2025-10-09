@@ -1,103 +1,54 @@
 # Syntax
 
-## Resolver file
+## Root level properties
 
-A resolver is a JSON object with the following properties:
+A resolver document contains the following properties at the root level:
 
-| Name                            | Type                | Required | Description                                          |
-| :------------------------------ | :------------------ | :------: | :--------------------------------------------------- |
-| [**name**](#name)               | `string`            |          | A short, human-readable name for the resolver.       |
-| [**version**](#version)         | `YYYY-MM-DD`        |    Y     | Version, expressed as a ISO 8601 date.               |
-| [**description**](#description) | `string`            |          | Additional information about the resolver’s purpose. |
-| [**tokens**](#tokens)           | (Set \| Modifier)[] |    Y     | Resolution order of tokens.                          |
+| Name                            | Type                   | Required | Description                                     |
+| :------------------------------ | :--------------------- | :------: | :---------------------------------------------- |
+| [**name**](#name)               | `string`               |          | A short, human-readable name for the document.  |
+| [**version**](#version)         | `YYYY-MM-DD`           |    Y     | Version. Must be `2025-10-01`.                  |
+| [**description**](#description) | `string`               |          | A human-readable description for this document. |
+| [**sets**](#sets)               | Map[`string`, Set]     |          | Definition of sets.                             |
+| [**modifiers**](#modifiers)     | Map[`string, Modifier] |          | Definition of modifiers.                        |
+| [**composition**](#composition) | `ReferenceObject[]`    |    Y     | Resolution of sets and modifiers.               |
 
-Users SHOULD name resolver files with a `.resolver.json` syntax.
+### Name
 
-## Name
+The document MAY provide a human-readable `name` at the root level. This is helpful to distinguish one resolver document from another, in case the filename itself isn’t enough.
 
-A resolver MAY provide a human-readable name. This is used to identify the resolver.
+### Version
 
-<aside class="example" title="name">
+The document MUST provide a version at the root level, and it MUST be `2025-11-01`. This is reserved for future versions in case breaking changes are introduced.
 
-```json
-{
-  "name": "Marketing Design System"
-}
-```
+### Description
 
-</aside>
+The document MAY provide a `description` at the root level. This may be used to add additional explanation or context not present in [name](#name).
 
-## Version
+### Sets
 
-MUST be `2025-10-01`. Reserved for future versions in case breaking changes are introduced.
+A set is a collection of design tokens in [DTCG format](../format/). A set MUST contain a `sources` array with tokens declared directly, or a [reference object](#reference-objects) pointing to a JSON file containing design tokens, or any combination of the two.
 
-```json
-{
-  "name": "Marketing Design System",
-  "version": "2025-10-01"
-}
-```
+A set MAY include a `description` describing the purpose of the set.
 
-## Description
+If the array declares multiple sources, they will be merged in array order, meaning if a token is declared multiple times, the last occurrence in the array will be the final value. Tools MUST respect array ordering.
 
-A resolver MAY provide additional information.
-
-<aside class="example" title="name">
+<aside class="example" title="Sets comprising remote files and inline toknes">
 
 ```json
 {
-  "name": "Marketing Design System",
-  "version": "2025-10-01",
-  "description": "Last updated Summer 2025. Copyright Foo Corporation."
-}
-```
-
-</aside>
-
-## Tokens
-
-The tokens key is an array that may contain any combination of [sets](#set) and [modifiers](#modifier). The order is significant, with tokens later in the array overriding any tokens that came before them, in case of conflict.
-
-<aside class="example" title="Tokens order">
-
-[Sets](#set) and [modifiers](#modifier) MAY be declared in any order. However, it should be noted that the order will affect the final result, as explained in [resolution logic](#resolution-logic). The following tokens could be different:
-
-- Set 1, Modifier A, Modifier B, Set 2
-- Set 1, Set 2, Modifier A, Modifier B
-
-It all depends on whether or not there are [conflicts](#conflict-resolution-flattening) in the token names.
-
-</aside>
-
-### Set
-
-| Name        | Type                              | Required | Description                                |
-| :---------- | :-------------------------------- | :------: | :----------------------------------------- |
-| **type**    | `"set"`                           |    Y     | MUST be `"set"`.                           |
-| **name**    | `string`                          |          | Optional human-readable name for this set. |
-| **sources** | [&lt;token-defs&gt;](#token-defs) |    Y     | The tokens that belong to this set.        |
-
-<aside class="example" title="Sets">
-
-```json
-{
-  "tokens": [
-    {
-      "type": "set",
+  "sets": {
+    "color": {
+      "description": "Color tokens",
       "sources": [
-        "base/legacy.json",
-        "base/foundation.json",
-        "base/color-ramps.json",
-        "base/semantic.json"
+        { "$ref": "base/legacy.json" },
+        { "$ref": "base/foundation.json" },
+        { "$ref": "base/color-ramps.json" },
+        { "$ref": "base/semantic.json" }
       ]
     },
-    {
-      "type": "set",
-      "name": "typography",
-      "sources": ["base/scale.json", "base/web.json"]
-    },
-    {
-      "type": "set",
+    "size": {
+      "description": "Dimension, margin, and spacing tokens",
       "sources": [
         {
           "space": {
@@ -111,86 +62,335 @@ It all depends on whether or not there are [conflicts](#conflict-resolution-flat
         }
       ]
     }
-  ]
+  }
 }
 ```
 
 </aside>
 
-#### Shortened syntax
+### Modifiers
 
-File strings from `sources` MAY be hoisted into the top-level [tokens](#tokens) array as a simpler syntax.
+A modifier is similar to a [set](#sets), but allows for conditional inclusion via the [contexts](#contexts) map.
 
-Inline tokens (objects) MUST NOT ever be declared in [tokens](#tokens). An object inside [tokens](#tokens) MUST be either a [set](#set) or [modifier](#modifier).
+#### Contexts
 
-<aside class="example" title="Shortened syntax">
+A modifier MUST declare a `contexts` map of a `string` value to an array of token sources. The array of tokens sources MUST be a [ReferenceObject](#reference-objects), inline tokens, or any combination of the two.
 
-All of the following are equivalent, and will result in the exact same final tokens because the order is preserved. The grouping is at the user’s discretion, and is only used for the purposes of organization.
+A modifier SHOULD have two or more `contexts`, since one is the equivalent of a [set](#sets). A modifier MUST NOT have an empty `contexts` map. Tools SHOULD throw an error for modifiers with only 1 context. Tools MUST throw an error for modifiers with 0 contexts.
+
+Like [sets](#sets), array order MUST be respected such that in case of conflict, the last occurrence of a token in the array produces the final value.
+
+A modifier MAY reference a [set](#sets) inside a context value. However a modifier MUST NOT reference any other modifier, not even another context inside the same modifier.
+
+<aside class="example" title="Color theme modifier">
 
 ```json
 {
-  "tokens": [
-    "base/legacy.json",
-    "base/foundation.json",
-    "base/color-ramps.json",
-    "base/semantic.json"
+  "modifiers": {
+    "theme": {
+      "description": "Color theme",
+      "contexts": {
+        "light": [{ "$ref": "theme/light.json" }],
+        "lightHighContrast": [
+          { "$ref": "theme/light.json" },
+          { "$ref": "theme/dark-high-contrast.json" }
+        ],
+        "dark": [{ "$ref": "theme/dark.json" }],
+        "darkHighContrast": [
+          { "$ref": "theme/dark.json" },
+          { "$ref": "theme/dark-high-contrast.json" }
+        ]
+      },
+      "default": "light"
+    }
+  }
+}
+```
+
+</aside>
+
+<aside class="example" title="Modifier referencing a set">
+
+A modifier MAY reference a [set](#sets) inside a context value. This is equivalent to the `sources` being inlined in the same array. For example, the following:
+
+```json
+{
+  "sets": {
+    "baseSize": {
+      "sources": [{ "$ref": "size/base.json" }]
+    }
+  },
+  "modifiers": {
+    "size": {
+      "description": "Application size",
+      "contexts": {
+        "small": [
+          { "$ref": "#/sets/baseSize" },
+          { "$ref": "device/mobile.json" },
+          { "$ref": "typography/mobile.json" }
+        ],
+        "medium": [
+          { "$ref": "#/sets/baseSize" },
+          { "$ref": "device/tablet.json" },
+          { "$ref": "typography/base.json" }
+        ],
+        "large": [
+          { "$ref": "#/sets/baseSize" },
+          { "$ref": "device/desktop.json" },
+          { "$ref": "typography/base.json" }
+        ]
+      }
+    }
+  }
+}
+```
+
+Is equivalent to:
+
+```json
+{
+  "sets": {
+    "baseSize": {
+      // …
+    }
+  },
+  "modifiers": {
+    "size": {
+      "description": "Application size",
+      "contexts": {
+        "small": [
+          { "$ref": "size/base.json" },
+          { "$ref": "device/mobile.json" },
+          { "$ref": "typography/mobile.json" }
+        ],
+        "medium": [
+          { "$ref": "size/base.json" },
+          { "$ref": "device/tablet.json" },
+          { "$ref": "typography/base.json" }
+        ],
+        "large": [
+          { "$ref": "size/base.json" },
+          { "$ref": "device/desktop.json" },
+          { "$ref": "typography/base.json" }
+        ]
+      }
+    }
+  }
+}
+```
+
+</aside>
+
+#### Description
+
+A modifier MAY declare a human-readable `description`.
+
+#### Default
+
+A modifier MAY declare a `default` value that MUST match one of the keys in `contexts`. Tools MUST throw an error if the value is not present in `contexts`.
+
+#### Resolution count
+
+The number of possible [=resolutions=] a document may generate may be predicted with the product of all `contexts` across all modifiers.
+
+<aside class="example" title="Calculating resolutions">
+
+- If a document had 2 modifiers that each had 2 `contexts`, that resolver may produce 4 resolutions, or 2 × 2.
+- If a document had 3 modifiers with 4, 3, and 2 `contexts` respectively, that resolver may produce 24 resolutions, or 4 × 3 × 2.
+
+</aside>
+
+### Composition
+
+The `composition` key is an array of [sets](#sets) and [modifiers](#modifiers) ordered to produce the final result of tokens. The order is significant, with tokens later in the array overriding any tokens that came before them, in case of conflict.
+
+<aside class="example" title="Composing sets and modifiers together">
+
+Given a `composition` that consists of multiple sets and modifiers:
+
+```json
+{
+  "sets": {
+    "size": {
+      "sources": [{ "$ref": "foundation/size.json" }]
+    },
+    "typography": {
+      "sources": [{ "$ref": "foundation/typography.json" }]
+    },
+    "animation": {
+      "sources": [{ "$ref": "foundation/animation.json" }]
+    }
+  },
+  "modifiers": {
+    "theme": {
+      "description": "Color theme",
+      "contexts": {
+        "light": [{ "$ref": "theme/light.json" }],
+        "lightHighContrast": [
+          { "$ref": "theme/light.json" },
+          { "$ref": "theme/dark-high-contrast.json" }
+        ],
+        "dark": [{ "$ref": "theme/dark.json" }],
+        "darkHighContrast": [
+          { "$ref": "theme/dark.json" },
+          { "$ref": "theme/dark-high-contrast.json" }
+        ]
+      },
+      "default": "light"
+    }
+  },
+  "composition": [
+    { "$ref": "#/sets/size" },
+    { "$ref": "#/sets/typography" },
+    { "$ref": "#/sets/animation" },
+    { "$ref": "#/modifiers/theme" }
   ]
 }
 ```
 
+This merely describes multiple final results of tokens. We’ll need an [input](#inputs) to produce the final sets.
+
+Given the following inputs, we would get the following resolution order:
+
+<table><thead><tr><th>Input</th><th>Result</th></tr></thead><tbody><tr><th>
+
+```json
+{ "theme": "light" }
+```
+
+</th><td>
+
+1. `foundation/size.json`
+1. `foundation/typography.json`
+1. `foundation/animation.json`
+1. `theme/light.json`
+
+</td></tr><tr><th>
+
+```json
+{ "theme": "lightHighContrast" }
+```
+
+</th><td>
+
+1. `foundation/size.json`
+1. `foundation/typography.json`
+1. `foundation/animation.json`
+1. `theme/light.json`
+1. `theme/light-high-contrast.json`
+
+</td><tr><th>
+
+```json
+{ "theme": "dark" }
+```
+
+</th><td>
+
+1. `foundation/size.json`
+1. `foundation/typography.json`
+1. `foundation/animation.json`
+1. `theme/dark.json`
+
+</td></tr><tr><th>
+
+```json
+{ "theme": "darkHighContrast" }
+```
+
+</th><td>
+
+1. `foundation/size.json`
+1. `foundation/typography.json`
+1. `foundation/animation.json`
+1. `theme/dark.json`
+1. `theme/dark-high-contrast.json`
+
+</td></tr></tr></tbody></table>
+
+In case of any conflict, the last occurrence of a design token produces the final value.
+
+</aside>
+
+<aside class="example" title="Empty array in modifiers">
+
+Modifiers MAY contain empty context arrays:
+
 ```json
 {
-  "tokens": [
+  "modifiers": {
+    // …
+    "debug": {
+      "description": "Enable debug mode",
+      "contexts": {
+        "false": [],
+        "true": [{ "$ref": "debug.json" }]
+      }
+    }
+  },
+  "composition": [
+    // …
+    { "$ref": "#/modifiers/debug" }
+  ]
+}
+```
+
+This would then load an additional `debug.json` file if it received a `{ "debug": "true" }` [input](#inputs).
+
+</aside>
+
+#### Inline sets and modifiers
+
+In `composition`, a [set](#sets) or [modifier](#modifiers) MAY be declared inline, so long as `name` and `type` keys are added to the object:
+
+| Property | Type                  | Required | Description                                                                   |
+| :------- | :-------------------- | :------: | :---------------------------------------------------------------------------- |
+| **name** | `string`              |    Y     | A unique name that MUST NOT conflict with any other `name` in `compositions`. |
+| **type** | `"set" \| "modifier"` |    Y     | MUST be `"set"` or `"modifier"` according to the type.                        |
+
+Tools MUST throw an error in the case where `name` or `type` are missing from an inline object, or if `name` is duplicated among any objects.
+
+<aside class="ednote" title="Name">
+
+When sets and modifiers appear in their respective root level `sets` and `modifiers` keys, it is valid for a set to share a name with a modifier. It is only invalid to duplicate a `name` inside the `composition` array.
+
+</aside>
+
+<aside class="example" title="Composition with inline sets and modifiers">
+
+```json
+{
+  "composition": [
     {
       "type": "set",
-      "sources": [
-        "base/legacy.json",
-        "base/foundation.json",
-        "base/color-ramps.json",
-        "base/semantic.json"
-      ]
-    }
-  ]
-}
-```
-
-```json
-{
-  "tokens": [
-    { "type": "set", "sources": ["base/legacy.json"] },
-    { "type": "set", "sources": ["base/foundation.json"] },
-    { "type": "set", "sources": ["base/color-ramps.json"] },
-    { "type": "set", "sources": ["base/semantic.json"] }
-  ]
-}
-```
-
-</aside>
-
-### Modifier
-
-A modifier can be thought of as a “conditional set,” where its contents depends on an external [input](#input). T
-
-| Name        | Type                                | Required | Description                                                                                     |
-| :---------- | :---------------------------------- | :------: | :---------------------------------------------------------------------------------------------- |
-| **type**    | `"modifier"`                        |    Y     | This MUST be `"modifier"`.                                                                      |
-| **name**    | `string`                            |    Y     | The name of the modifier. This MUST be unique among other modifiers in the same file.           |
-| **context** | `Record<string, &lt;token-set&gt;>` |    Y     | A key–value map of [contexts](#contexts) to [&lt;token-defs&gt;](#token-defs).                  |
-| **default** | `string`                            |          | Optional default value. MAY be provided in case the [input](#input) doesn’t require this value. |
-
-Tools MUST throw an error if 2 modifiers with the same name are declared in [tokens](#tokens).
-
-<aside class="example" title="Modifier">
-
-```json
-{
-  "tokens": [
+      "name": "Size",
+      "sources": [{ "$ref": "foundation/size.json" }]
+    },
+    {
+      "type": "set",
+      "name": "Typography",
+      "sources": [{ "$ref": "foundation/typography.json" }]
+    },
+    {
+      "type": "set",
+      "name": "Animation",
+      "sources": [{ "$ref": "#/sets/Animation" }]
+    },
     {
       "type": "modifier",
-      "name": "theme",
-      "context": {
-        "light": ["themes/light.json"],
-        "dark": ["themes/dark.json"]
+      "name": "Theme",
+      "description": "Color theme",
+      "contexts": {
+        "light": [{ "$ref": "theme/light.json" }],
+        "lightHighContrast": [
+          { "$ref": "theme/light.json" },
+          { "$ref": "theme/dark-high-contrast.json" }
+        ],
+        "dark": [{ "$ref": "theme/dark.json" }],
+        "darkHighContrast": [
+          { "$ref": "theme/dark.json" },
+          { "$ref": "theme/dark-high-contrast.json" }
+        ]
       },
       "default": "light"
     }
@@ -198,167 +398,201 @@ Tools MUST throw an error if 2 modifiers with the same name are declared in [tok
 }
 ```
 
-For inputs, the following inputs will provide the following result:
+</aside>
 
-- `{ "theme": "light": }` → `["themes/light.json"]`
-- `{ "theme": "dark": }` → `["themes/dark.json"]`
-- `{}` → `["themes/light.json"]` (default specified in `default`)
+Inline sets and modifiers MUST NOT be referenced in any way. Tools SHOULD throw an error when a [reference object](#reference-objects) points to a composition item.
+
+<aside class="example" title="Invalid inline set reference">
+
+The following [reference object](#reference-objects) pointer is invalid regardless of where it appears:
+
+```json
+{ "$ref": "#/composition/4" }
+```
+
+This is very likely to create an invalid reference, no matter if it appears in [sets](#sets) (circular dependency), [modifiers](#modifiers) (circular dependency), or in another place in the [composition](#composition) array (infinite recursion). The times where this would not cause an invalid reference are rare, and the slightest change may turn it into a circular reference.
 
 </aside>
 
-## Inputs
+<section class="informative">
 
-An [=input=] is a mapping of modifier names to modifier values declared in any resolver. Inputs are not part of the resolver file itself, rather, provided to the tool alongside the resolver. A resolver that declares any modifiers MUST be consumed with an input as options.
+#### Ordering of sets and modifiers
 
-An input SHOULD be serializable to a JSON object. Meaning, an input MAY be expressed in any programming language, but that expression should be easily converted back into a JSON object. Related concepts would include an [object in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) or a [dictionary in Python](https://docs.python.org/3/tutorial/datastructures.html#dictionaries).
+The `composition` array allows for any ordering of sets and modifiers to the user’s choosing. However, in the scenario that many sets must appear after the modifiers to resolve conflicts, it is likely a [smell](https://en.wikipedia.org/wiki/Code_smell) of unpredictable and brittle token organization. Ideally, modifiers handle conditional values so well they require few or no overrides (see [orthogonality](#orthogonal-orthogonality)). In practical terms, this means that
 
-Tools that load a resolver that declares modifiers SHOULD throw an error if an accompanying input is not provided.
+</section>
 
-<aside class="example" title="Inputs">
+## Reference objects
 
-Given the following modifiers:
+When referring to another JSON document or a structure within the same document, a reference object MUST be used. This is described in [JSON Schema 2020-12](https://json-schema.org/draft/2020-12/json-schema-core#ref) as an object with a key of `$ref` whose string is a valid JSON pointer as described in [[RFC6901]].
 
-```json
-{
-  "tokens": [
-    {
-      "type": "modifier",
-      "name": "theme",
-      "context": [
-        "light": ["light.json"],
-        "dark": ["dark.json"]
-      ]
-    },
-    {
-      "type": "modifier",
-      "name": "size",
-      "context": {
-        "default": ["size-default.json"],
-        "large": ["size-large.json"]
-      }
-    },
-    {
-      "type": "modifier",
-      "name": "beta",
-      "context": {
-        "false": [],
-        "true": ["beta.json"],
-      }
-    }
-  ]
-}
-```
+Tools MUST resolve all reference objects in a resolver document.
 
-A **valid** input would follow the schema: all keys correspond to the `name` of each modifier. The values are valid options as designated by the modifier.
+Reference objects MUST NOT be circular, neither referencing other pointers that reference itself, nor referencing any parent node of the reference object.
+
+<aside class="example" title="Valid reference objects">
+
+Common examples of reference objects include:
+
+<table><thead><tr><th>Code</th><th>Result</th></tr></thead><tbody><tr><th>
 
 ```json
-{
-  "theme": "light",
-  "size": "large",
-  "beta": "true"
-}
+{ "$ref": "#/sets/MySet" }
 ```
 
-An **invalid** input would either add unspecified keys that don’t correspond to any modifier, and/or provide values that aren’t declared valid by any modifier type.
+</th><td>
+
+References `sets/MySet` within the same document.
+
+</td></tr><tr><th>
 
 ```json
-{
-  "theme": "blue",
-  "foo": "bar"
-}
+{ "$ref": "path/to/example.json" }
 ```
+
+</th><td>
+
+References the entire contents of `./path/to/example.json`, relative to this document.
+
+</td></tr><tr><th>
+
+```json
+{ "$ref": "example.json#sets/MySet" }
+```
+
+</th><td>
+
+References only a part of `example.json`: `sets/MySet`.
+
+</td></tr><tr><th>
+
+```json
+{ "$ref": "https://my-server.com/tokens.json" }
+```
+
+</th><td>
+
+References a remote file hosted at a publicly-available URL.
+
+</td></tr></tbody></table>
 
 </aside>
 
-<aside class="example" title="Tool consuming input">
+<aside class="example" title="Invalid reference objects">
 
-Using an imaginary tool written in JavaScript, we would consume [the previous example](#example-inputs) like so:
-
-```js
-import tokenTool from './token-tool.js';
-
-tokenTool.loadResolver(
-  /* Path to resolver */
-  './resolver.json',
-
-  /* Input */
-  {
-    theme: 'dark',
-    size: 'default',
+```json
+{
+  "foo": {
+    "bar": { "$ref": "#/baz/bat" }
   },
-);
+  "baz": {
+    "bat": { "$ref": "#/foo/bar" }
+  }
+}
 ```
 
-This imaginary tool has a `loadResolver()` method that takes as its parameters:
-
-1. A filepath to the resolver in the first position, and
-2. The input object in its 2nd position.
-
-The tool then combines the resolver + inputs to produce its final [=resolution=].
-
-</aside>
-
-### Orthogonality
-
-Modifiers are said to be [=orthogonal=] when they do not operate on the same set of tokens. In practical terms, if modifiers are orthogonal, then the order in which they are applied isn’t significant since they will produce the same values.
-
-Implementors SHOULD make modifiers orthogonal. Tools MAY decide how to handle non-orthogonal modifiers.
-
-<aside class="example" title="Non-orthogonal modifiers">
-
-Given the following modifiers:
-
-1. A **theme** modifier has the values **light** and **dark**. Among its values, it provides a value for the `color.button` token.
-2. A **brand** modifier has the values **brandA** and **brandB**. Among its values, it provides a value for the `color.button` token.
-
-Both modifiers both provide conflicting values for the `color.button` token, so its final value will be determined by the order:
-
-1. If **theme** is applied last, it will produce the value for `color.button`.
-2. If **brand** is applied last, it will produce the value for `color.button`.
-
-These two modifiers are said to be non-orthogonal because the order in which they are applied produces different results.
-
-</aside>
-
-## &lt;token-defs&gt;
-
-An array consisting of:
-
-- `string` which MUST be a valid URI pointing to a valid Tokens JSON file, or
-- Inline objects that MUST follow valid [format](../format/).
-
-Any other inputs are invalid.
-
-The array order is significant, where tokens with the same name overwrite previous instances of that token, if any.
-
-<aside class="example" title="&lt;token-defs&gt;">
+This example is invalid because both `foo/bar` and `baz/bat` reference one another and therefore have no final value.
 
 ```json
-[
-  "base/colors.json",
-  "theme/light.json",
-  {
-    "color": {
-      "base": {
-        "blue": {
-          "100": {
-            "$type": "color",
-            "$value": {
-              "colorSpace": "srgb",
-              "components": [0, 0, 0.9]
-            }
-          }
-        }
-      }
+{
+  "foo": {
+    "bar": {
+      "baz": { "$ref": "#/foo/bar" }
     }
-  },
-  "base/size.json",
-  "base/typography.json"
-]
+  }
+}
 ```
 
+A single reference object that references its parent is invalid because it will include itself and infinitely recurse.
+
 </aside>
+
+### Invalid pointers
+
+A pointer MAY point anywhere within the same document, with the exception of the following:
+
+1. Only [composition](#composition) may reference a modifier (`#/modifiers/…`). Sets and modifiers MUST NOT reference another modifier.
+   - Referencing a modifier from a set could cause [inputs](#inputs) to apply conditional logic to a structure that can’t support it, therefore it’s not allowed.
+   - Referencing a modifier from another modifier would mean a single input applies to unexpected modifiers, therefore it’s not allowed.
+1. A reference object MUST NOT point to anything in the [composition](#composition) array (`#/composition/…`). Composition, by its nature, references many other parts of the document. Duplicating any part of composition will produce complex, hard-to-predict chains.
+
+Tools MUST throw an error if encountering any invalid pointers.
+
+### Extending
+
+As [JSON Schema 2020-12](https://json-schema.org/draft/2020-12/json-schema-core#ref) allows, other keys MAY exist on a reference object alongside `$ref`. In these scenarios, the local keys alongside `$ref` MUST be treated as overrides.
+
+<aside class="example" title="Extending with $ref">
+
+As a generic example:
+
+```json
+{
+  "animal": {
+    "color": "brown",
+    "legs": 4
+  },
+  "lizard": {
+    "color": "green",
+    "$ref": "#/animal",
+    "size": "small"
+  }
+}
+```
+
+The final value of `#/lizard` will be equivalent to:
+
+```json
+{
+  "color": "green",
+  "legs": 4,
+  "size": "small"
+}
+```
+
+Key order does not matter. Since `color` is declared locally, it will replace the value in `#/animal`. Also adding the new property of `size` will append to the final value.
+
+</aside>
+
+If a key alongside `$ref` declares an object or array, tools MUST flatten these shallowly, meaning objects and arrays are not merged.
 
 ## $extensions
 
-An `$extensions` object MAY be added to any [set](#set), [modifier](#modifier), or object in this spec to declare arbitrary metadata ignored by tooling. Its purpose in a resolver is the same as [in the format](../format/#extensions).
+An `$extensions` object MAY be added to any [set](#sets), [modifier](#modifiers), or [inline set/modifier](#inline-sets-and-modifiers), to declare arbitrary metadata that is up to individual tools to either use or ignore.
+
+If provided, `$extensions` MUST be an object with the keys being vendor-specific namespaces. This allows multiple tools to use this metadata without conflict.
+
+<aside class="example" title="Set with $extensions">
+
+Here is an example where a set contains arbitrary metadata for the `figma.com` vendor:
+
+```json
+{
+  "sets": {
+    "color": {
+      "sources": [
+        { "$ref": "colors/ramps.json" },
+        { "$ref": "colors/semantic.json" }
+      ],
+      "$extensions": {
+        "figma.com": {
+          "sourceFile": "https://figma.com/file/xxxxxx",
+          "updatedAt": "2025-11-01"
+        }
+      }
+    }
+  }
+}
+```
+
+</aside>
+
+## $defs
+
+Tools MAY allow defining structures in JSON Schema [$defs](https://json-schema.org/understanding-json-schema/structuring#defs) but is not a requirement, and ultimately is up to the tool to decide.
+
+<aside class="ednote" title="$defs">
+
+Using `$defs` is undefined behavior as far as this specification is concerned, so it is up to users and toolmakers to either define a usage or avoid entirely. The specification intentionally avoids using `$defs` so there will be no chance of future conflict.
+
+</aside>
