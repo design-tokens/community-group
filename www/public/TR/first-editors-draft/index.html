@@ -91,6 +91,23 @@
   <meta name="description" content="Design tokens are indivisible pieces of a design system such as colors,
           spacing, typography scale.">
   <style>
+  var:hover{text-decoration:underline;cursor:pointer}
+  var.respec-hl{color:var(--color,#000);background-color:var(--bg-color);box-shadow:0 0 0 2px var(--bg-color)}
+  @media (prefers-color-scheme:dark){
+  var.respec-hl{filter:saturate(.9) brightness(.9)}
+  }
+  var.respec-hl-c1{--bg-color:#f4d200}
+  var.respec-hl-c2{--bg-color:#ff87a2}
+  var.respec-hl-c3{--bg-color:#96e885}
+  var.respec-hl-c4{--bg-color:#3eeed2}
+  var.respec-hl-c5{--bg-color:#eacfb6}
+  var.respec-hl-c6{--bg-color:#82ddff}
+  var.respec-hl-c7{--bg-color:#ffbcf2}
+  @media print{
+  var.respec-hl{background:0 0;color:#000;box-shadow:unset}
+  }
+  </style>
+  <style>
   var{position:relative;cursor:pointer}
   var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
   var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
@@ -145,7 +162,8 @@
     "publishISODate": "2021-09-23T00:00:00.000Z",
     "generatedSubtitle": "Draft Community Group Report 23 September 2021"
   }</script>
-  <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
+  <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft">
+  <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://www.w3.org/StyleSheets/TR/2021/dark.css"></head>
     <body class="h-entry informative"><div class="head">
 
       <h1 id="title" class="title">Design Tokens Technical Reports</h1> <h2 id="subtitle" class="subtitle">First Editors’ Draft</h2>
