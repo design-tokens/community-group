@@ -47,7 +47,7 @@
 
   <title>Design Tokens Format Module</title>
 
-
+  <meta name="color-scheme" content="light dark">
 
   <style>
 
@@ -125,6 +125,23 @@
   <meta name="description" content="This document describes the technical specification for a file format to
           exchange design tokens between different tools.">
   <style>
+  var:hover{text-decoration:underline;cursor:pointer}
+  var.respec-hl{color:var(--color,#000);background-color:var(--bg-color);box-shadow:0 0 0 2px var(--bg-color)}
+  @media (prefers-color-scheme:dark){
+  var.respec-hl{filter:saturate(.9) brightness(.9)}
+  }
+  var.respec-hl-c1{--bg-color:#f4d200}
+  var.respec-hl-c2{--bg-color:#ff87a2}
+  var.respec-hl-c3{--bg-color:#96e885}
+  var.respec-hl-c4{--bg-color:#3eeed2}
+  var.respec-hl-c5{--bg-color:#eacfb6}
+  var.respec-hl-c6{--bg-color:#82ddff}
+  var.respec-hl-c7{--bg-color:#ffbcf2}
+  @media print{
+  var.respec-hl{background:0 0;color:#000;box-shadow:unset}
+  }
+  </style>
+  <style>
   .hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
   .hljs-comment,.hljs-quote{color:#717277;font-style:italic}
   .hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
@@ -183,7 +200,8 @@
     "publishISODate": "2021-09-23T00:00:00.000Z",
     "generatedSubtitle": "Draft Community Group Report 23 September 2021"
   }</script>
-  <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
+  <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft">
+  <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://www.w3.org/StyleSheets/TR/2021/dark.css"></head>
     <body class="h-entry"><div class="head">
 
       <h1 id="title" class="title">Design Tokens Format Module</h1> <h2 id="subtitle" class="subtitle">First Editors’ Draft</h2>
