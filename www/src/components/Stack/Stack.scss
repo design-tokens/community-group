@@ -1,0 +1,10 @@
+.a-stack {
+  display: flex;
+  gap: var(--space);
+  align-items: var(--align-items, start);
+  justify-content: var(--justify-content, start);
+}
+
+.a-stack--vertical {
+  flex-direction: column;
+}

@@ -40,13 +40,16 @@ pnpm run build
 
 ### Commands
 
-The following commands can be run from the project root:
+The following commands can be run from the **project root**:
 
 | Command          | Description                                       |
 | :--------------- | :------------------------------------------------ |
 | `pnpm run dev`   | Run designtokens.org locally in development mode. |
 | `pnpm run lint`  | Lint the project.                                 |
 | `pnpm run build` | Make a static build of the website.               |
+
+> [!NOTE]
+> You’ll also find `pnpm run dev` commands both in `www` and `technical-reports` folders. Those should only be used for debugging purposes, as they only run part of the workflow.
 
 ### Project structure
 

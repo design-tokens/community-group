@@ -1,3 +1,6 @@
 packages:
   - technical-reports
   - www
+
+onlyBuiltDependencies:
+  - puppeteer

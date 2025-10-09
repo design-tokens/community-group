@@ -456,7 +456,6 @@ Each shadow object (whether explicit or referenced) MUST have the following prop
     "inset": true
   }
 }
-}
 ```
 
 </aside>

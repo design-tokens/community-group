@@ -1,0 +1,37 @@
+// @use '../../assets/css/01-utils/mixins/text-styles' as *;
+
+.text-heading1 {
+  @include text-heading1;
+}
+
+.text-heading2 {
+  @include text-heading2;
+}
+
+.text-heading3 {
+  @include text-heading3;
+}
+
+.text-heading4 {
+  @include text-heading4;
+}
+
+.text-heading5 {
+  @include text-heading5;
+}
+
+.text-heading6 {
+  @include text-heading6;
+}
+
+.text-body-m {
+  @include text-body-m;
+}
+
+.text-body-s {
+  @include text-body-s;
+}
+
+.text-small {
+  @include text-small;
+}

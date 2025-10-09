@@ -1,0 +1,36 @@
+---
+import "./Footer.scss";
+import Stack from "@/components/Stack/Stack.astro";
+import Text from "@/components/Text/Text.astro";
+import { SITE_TITLE } from "@/consts";
+import { footerLinks } from "@/site.config";
+const year = new Date().getFullYear();
+
+const url = new URL(Astro.request.url);
+---
+
+<Stack as='footer' class='l-footer' gap={6}>
+  <Text>
+    <span>&copy; {year}</span>
+    <span>{SITE_TITLE}</span>
+  </Text>
+
+  <nav>
+    <Stack as='ul' gap={4} axis='x' class='u-list-style:none'>
+      {
+        footerLinks.map((link) => (
+          <li>
+            <a
+              aria-current={url.pathname === link.path ? "page" : false}
+              class='link-button'
+              data-astro-prefetch
+              href={link.path}
+            >
+              <Fragment set:html={link.title} />
+            </a>
+          </li>
+        ))
+      }
+    </Stack>
+  </nav>
+</Stack>

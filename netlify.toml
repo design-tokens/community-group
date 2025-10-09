@@ -1,6 +1,6 @@
 # For previews, we publish an unbuilt version of the website
 [build]
-  publish = "www/_site"
+  publish = "www/dist"
   command = "pnpm run install-browsers && pnpm run build"
 [build.processing]
   skip_processing = false
