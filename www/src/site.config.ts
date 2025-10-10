@@ -1,53 +1,38 @@
-export const headerLinks: { path: string; title: string }[] = [
-  {
-    path: '/',
-    title: 'Home',
-  },
-  {
-    path: '/glossary/',
-    title: 'Glossary',
-  },
-  {
-    path: '/blog/',
-    title: 'Blog',
-  },
-  {
-    path: '/press-kit/',
-    title: 'Press Kit',
-  },
-  {
-    path: '/technical-reports/',
-    title: 'Technical Reports',
-  },
-];
-
-export const footerLinks: { path: string; title: string }[] = [
-  {
-    path: 'https://www.w3.org/community/design-tokens',
-    title: '<abbr title="World Wide Web Consortium">W3C</abbr>&nbsp;Group',
-  },
-  {
-    path: 'https://github.com/design-tokens/',
-    title: 'GitHub',
-  },
-  {
-    path: 'https://x.com/DesignTokens',
-    title: 'X',
-  },
-  {
-    path: 'https://bsky.app/profile/designtokens.org',
-    title: 'Bluesky',
-  },
-  {
-    path: 'https://www.linkedin.com/company/design-tokens-community-group/',
-    title: 'LinkedIn',
-  },
-  {
-    path: 'https://opencollective.com/design-tokens',
-    title: 'Donate',
-  },
-  {
-    path: 'https://netlify.com',
-    title: 'Deploys by Netlify',
-  },
-];
+export const menu = {
+  header: [
+    { path: '/technical-reports/', title: 'Technical Reports' },
+    { path: '/contribute/', title: 'Contribute' },
+    { path: '/blog/', title: 'Blog' },
+    { path: '/about/', title: 'About' },
+    { path: 'https://github.com/design-tokens', title: 'GitHub' },
+  ],
+  about: [
+    { path: '/technical-reports/', title: 'Technical Reports' },
+    { path: '/faq', title: 'FAQ' },
+    { path: '/resources/', title: 'Resources' },
+    { path: '/glossary/', title: 'Glossary' },
+    { path: '/contribute/', title: 'Contribute' },
+  ],
+  learn: [
+    { path: '/', title: 'About' },
+    { path: '/blog/', title: 'Blog' },
+    { path: '/press-kit', title: 'Press kit' },
+    { path: 'https://opencollective.com/design-tokens', title: 'Donate' },
+  ],
+  social: [
+    { path: 'https://github.com/design-tokens', title: 'DTCG on GitHub' },
+    {
+      path: 'https://www.w3.org/community/design-tokens',
+      title: 'DTCG W3C Community Group',
+    },
+    { path: 'https://x.com/DesignTokens', title: 'DTCG on X' },
+    {
+      path: 'https://bsky.app/profile/designtokens.org',
+      title: 'DTCG on Bluesky',
+    },
+    {
+      path: 'https://opencollective.com/design-tokens',
+      title: 'DTCG on OpenCollective',
+    },
+  ],
+};
