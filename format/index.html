@@ -198,7 +198,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "url": "https://bsky.app/profile/lucho.cool"
     },
     {
-      "name": "Matthew Ström",
+      "name": "Matthew Ström-Awn",
       "url": "https://matthewstrom.com"
     },
     {
@@ -264,7 +264,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://bsky.app/profile/lucho.cool">Louis Chenais</a>
   </dd><dd class="editor p-author h-card vcard">
-    <a class="u-url url p-name fn" href="https://matthewstrom.com">Matthew Ström</a>
+    <a class="u-url url p-name fn" href="https://matthewstrom.com">Matthew Ström-Awn</a>
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://x.com/mikekamminga">Mike Kamminga</a>
   </dd>
@@ -353,7 +353,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         Design tokens are a methodology for expressing design decisions in a
         platform-agnostic way so that they can be shared across different
         disciplines, tools, and technologies. They help establish a common
-        vocabulary across organisations.
+        vocabulary across organizations.
       </p>
       <p>
         There is a growing ecosystem of tools for design system maintainers and
@@ -812,6 +812,8 @@ $font-size: 16px;
 <aside class="example" id="example-10"><div class="marker">
     <a class="self-link" href="#example-10">Example<bdi> 10</bdi></a>
   </div>
+
+
 
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"token uno"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
@@ -1341,6 +1343,8 @@ $brand-typeface-secondary: 'Times New Roman';
 
 </section><section id="font-weight"><div class="header-wrapper"><h3 id="x8-4-font-weight"><bdi class="secno">8.4 </bdi>Font weight</h3><a class="self-link" href="#font-weight" aria-label="Permalink for Section 8.4"></a></div>
 <p>Represents a font weight. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>fontWeight</code>. The value must either be a number value in the range [1, 1000] or one of the pre-defined string values defined in the table below.</p>
+
+
 <p>Lower numbers represent lighter weights, and higher numbers represent thicker weights, as per the <a href="https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_wght">OpenType <code>wght</code> tag specification</a>. The pre-defined string values are aliases for specific numeric values. For example <code>100</code>, <code>"thin"</code> and <code>"hairline"</code> are all the exact same value.</p>
 <table>
 <thead>
@@ -1605,7 +1609,7 @@ $brand-typeface-secondary: 'Times New Roman';
 <li><strong>Composite tokens</strong> are individual design tokens whose values are made up of several sub-values.<ul>
 <li>Since they are design tokens, they can be referenced by other design tokens. This is not true for groups.</li>
 <li>Their type must be one of the composite types defined in this specification. Therefore their names and types of their sub-values are pre-defined. Adding additional sub-values or setting values that don't have the correct type make the composite token invalid.</li>
-<li>Tools <em class="rfc2119">MAY</em> provide specialised functionality for composite tokens. For example, a <a data-link-type="dfn|abstract-op" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-7">design tool</a> may let the user pick from a list of all available shadow tokens when applying a drop shadow effect to an element.</li>
+<li>Tools <em class="rfc2119">MAY</em> provide specialized functionality for composite tokens. For example, a <a data-link-type="dfn|abstract-op" href="#dfn-design-tool" class="internalDFN" id="ref-for-dfn-design-tool-7">design tool</a> may let the user pick from a list of all available shadow tokens when applying a drop shadow effect to an element.</li>
 </ul>
 </li>
 </ul>
@@ -1777,7 +1781,7 @@ $brand-typeface-secondary: 'Times New Roman';
 <ul>
 <li><code>duration</code>: The duration of the transition. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#duration">duration</a> value or a reference to a duration token.</li>
 <li><code>delay</code>: The time to wait before the transition begins. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#duration">duration</a> value or a reference to a duration token.</li>
-<li><code>timingFunction</code>: The timing function of the transition. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#cubic-bezier">cubic bézier</a> value or a reference to a cubic bézier token.</li>
+<li><code>timingFunction</code>: The timing function of the transition. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#cubic-bezier">cubic Bézier</a> value or a reference to a cubic Bézier token.</li>
 </ul>
 <aside class="example" id="example-transition-composite-token-examples"><div class="marker">
     <a class="self-link" href="#example-transition-composite-token-examples">Example<bdi> 34</bdi></a><span class="example-title">: Transition composite token examples</span>
