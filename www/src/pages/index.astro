@@ -1,0 +1,295 @@
+---
+import Base from '@/layouts/Base.astro';
+import Text from '@/components/Text/Text.astro';
+import Stack from '@/components/Stack/Stack.astro';
+import { SITE_TITLE } from '@/consts';
+
+const title = SITE_TITLE;
+---
+
+<Base>
+  <style lang="scss">
+    .hero-section {
+      text-align: center;
+      margin-block: var(--base-space-12);
+      text-wrap: balance;
+    }
+
+    .hero-headline {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-block-end: var(--base-space-6);
+      color: var(--color-text);
+      max-width: 70vw;
+      margin-inline: auto;
+    }
+
+    .hero-subheading {
+      font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+      line-height: 1.5;
+      margin-block-end: var(--base-space-10);
+      color: var(--color-text-subdued);
+      max-width: 60ch;
+      margin-inline: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: var(--base-space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-block-end: var(--base-space-16);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: var(--base-space-4) var(--base-space-8);
+      border-radius: var(--base-space-2);
+      font-size: 1.125rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+
+      &--primary {
+        background-color: var(--color-action);
+        color: var(--color-neutral-50);
+
+        &:hover {
+          background-color: var(--color-blue-700);
+          transform: translateY(-2px);
+        }
+      }
+
+      &--secondary {
+        background-color: transparent;
+        color: var(--color-text);
+        border-color: var(--color-border);
+
+        &:hover {
+          border-color: var(--color-action);
+          color: var(--color-action);
+          transform: translateY(-2px);
+        }
+      }
+    }
+
+    .content-section {
+      border-top: 1px solid var(--color-border);
+      max-width: 75ch;
+      margin-inline: auto;
+      margin-block: var(--base-space-12);
+      padding-block: var(--base-space-12) var(--base-space-6);
+
+      p {
+        line-height: 1.5;
+        margin-block-end: var(--base-space-6);
+        color: var(--color-text);
+      }
+
+      h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-block-end: var(--base-space-6);
+        color: var(--color-text);
+      }
+
+      h2:not(:first-child) {
+        margin-block-start: var(--base-space-12);
+      }
+
+      ul {
+        list-style: disc;
+        padding-left: var(--base-space-8);
+        margin-block-end: var(--base-space-6);
+
+        li {
+          line-height: 1.5;
+          margin-block-end: var(--base-space-4);
+          color: var(--color-text);
+
+          a {
+            color: var(--color-action);
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      .cta-link {
+        display: inline-block;
+        padding: var(--base-space-3) var(--base-space-6);
+        background-color: var(--color-surface-secondary, rgba(0, 0, 0, 0.03));
+        color: var(--color-action);
+        text-decoration: none;
+        border-radius: var(--base-space-2);
+        font-weight: 600;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: var(--color-action);
+          color: var(--color-neutral-50);
+          transform: translateY(-1px);
+        }
+      }
+    }
+
+    .logos-section {
+      margin-block-start: var(--base-space-16);
+      padding-block: var(--base-space-12);
+      border-top: 1px solid var(--color-border);
+      max-width: 75ch;
+      margin-inline: auto;
+    }
+
+    .logos-title {
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-subdued);
+      margin-block-end: var(--base-space-4);
+    }
+
+    .logos-description {
+      margin-block-end: var(--base-space-10);
+      max-width: 75ch;
+      text-align: center;
+      margin-inline: auto;
+      line-height: 1.5;
+    }
+
+    .logos-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--base-space-6) var(--base-space-8);
+      max-width: 1200px;
+      margin-inline: auto;
+      line-height: 1.4;
+
+      li {
+        margin: 0;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        padding: var(--base-space-3);
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-text);
+        text-decoration: none;
+        transition: all 0.2s ease;
+        border-radius: var(--base-space-1);
+
+        &:hover {
+          color: var(--color-action);
+          background-color: var(--color-surface-hover, rgba(0, 0, 0, 0.02));
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        text-align: center;
+      }
+
+      .logos-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--base-space-4);
+      }
+    }
+  </style>
+
+  <section class="hero-section">
+    <h1 class="hero-headline">
+      Scale design decisions across teams and products.
+    </h1>
+    <p class="hero-subheading">
+      The DTCG JSON format unlocks interoperability and theming between your tools.
+    </p>
+
+    <div class="cta-buttons">
+      <a href="/technical-reports/" class="btn btn--primary">
+        View the specification
+      </a>
+      <a href="https://github.com/design-tokens" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">
+        Join the community
+      </a>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <p>
+      The Design Tokens W3C Community Group (DTCG) is a community of designers, developers, and tooling vendors standardizing how design tokens are defined and exchanged. We steward the Design Tokens specification so teams can share visual language reliably across design tools, codebases, and platforms.
+    </p>
+
+    <p>
+      By collaborating in the open, we collect real-world use cases, document best practices, and publish technical reports that help an ecosystem of tools stay interoperable.
+    </p>
+  </section>
+
+  <section class="logos-section">
+    <h2 class="logos-title">Trusted by leading design tools</h2>
+    <p class="logos-description">Organizations building design tools and open-source projects are already shipping DTCG-compatible tokens. Here are some of the adopters and participants helping prove out the spec:</p>
+    <ul class="logos-list">
+      <li><a href="https://www.abstract.com" target="_blank" rel="noopener noreferrer">Abstract</a></li>
+      <li><a href="https://www.adobe.com" target="_blank" rel="noopener noreferrer">Adobe</a></li>
+      <li><a href="https://github.com/projectwallace/css-design-tokens/" target="_blank" rel="noopener noreferrer">css-design-tokens</a></li>
+      <li><a href="https://animaapp.github.io/design-token-validator-site/" target="_blank" rel="noopener noreferrer">Design Token Validator (Anima)</a></li>
+      <li><a href="https://designtoken-validator.sotec-solutions.com/" target="_blank" rel="noopener noreferrer">Design Token Validator (Artur Sopelnik)</a></li>
+      <li><a href="https://github.com/bennypowers/design-tokens-language-server" target="_blank" rel="noopener noreferrer">Design Tokens Language Server</a></li>
+      <li><a href="https://figma.com" target="_blank" rel="noopener noreferrer">Figma</a></li>
+      <li><a href="https://www.framer.com" target="_blank" rel="noopener noreferrer">Framer</a></li>
+      <li><a href="https://www.knapsack.cloud" target="_blank" rel="noopener noreferrer">Knapsack</a></li>
+      <li><a href="https://marvelapp.com" target="_blank" rel="noopener noreferrer">Marvel</a></li>
+      <li><a href="https://penpot.app/" target="_blank" rel="noopener noreferrer">Penpot</a></li>
+      <li><a href="https://www.sketch.com/" target="_blank" rel="noopener noreferrer">Sketch</a></li>
+      <li><a href="https://amzn.github.io/style-dictionary" target="_blank" rel="noopener noreferrer">Style Dictionary</a></li>
+      <li><a href="https://superposition.design" target="_blank" rel="noopener noreferrer">Superposition</a></li>
+      <li><a href="https://supernova.io" target="_blank" rel="noopener noreferrer">Supernova</a></li>
+      <li><a href="https://terrazzo.app/" target="_blank" rel="noopener noreferrer">Terrazzo</a></li>
+      <li><a href="https://www.toolabs.com" target="_blank" rel="noopener noreferrer">Toolabs</a></li>
+      <li><a href="https://www.figma.com/community/plugin/1254538877056388290" target="_blank" rel="noopener noreferrer">TokensBrücke</a></li>
+      <li><a href="https://www.tokens.studio" target="_blank" rel="noopener noreferrer">Tokens Studio</a></li>
+      <li><a href="https://github.com/universal-design-tokens/udt" target="_blank" rel="noopener noreferrer">Universal Design Tokens</a></li>
+      <li><a href="https://zeplin.io" target="_blank" rel="noopener noreferrer">Zeplin</a></li>
+      <li><a href="https://www.zeroheight.com" target="_blank" rel="noopener noreferrer">zeroheight</a></li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>What we do</h2>
+
+    <p>The DTCG focuses on the foundational pieces teams need to scale design tokens:</p>
+
+    <ul>
+      <li>Publish and maintain vendor-agnostic specification modules, including the living draft available on <a href="https://www.designtokens.org/TR/drafts/" target="_blank" rel="noopener noreferrer">designtokens.org/TR/drafts</a>.</li>
+      <li>Facilitate workstreams, community calls, and issue <a href="https://github.com/design-tokens/community-group/issues" target="_blank" rel="noopener noreferrer">discussions on GitHub</a> so implementers can shape the spec with evidence from production use.</li>
+      <li>Provide guidance: glossary, examples, and technical reports—that helps teams adopt the specification confidently.</li>
+    </ul>
+
+    <h2>Who builds the specification</h2>
+
+    <p>
+      The specification is developed by volunteer chairs, editors, and contributors representing design system teams, tooling vendors, and independent experts. Together they triage issues, draft proposals, and align on changes that keep the standard focused and practical.
+    </p>
+
+    <a href="https://www.w3.org/community/design-tokens/participants" class="cta-link" target="_blank" rel="noopener noreferrer">
+      View full list of participants →
+    </a>
+  </section>
+</Base>
