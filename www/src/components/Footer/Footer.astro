@@ -1,0 +1,90 @@
+---
+import './Footer.scss';
+import Stack from '@/components/Stack/Stack.astro';
+import Text from '@/components/Text/Text.astro';
+import { SITE_TITLE } from '@/consts';
+import { menu } from '@/site.config';
+import { Icon } from "astro-icon/components";
+
+const year = new Date().getFullYear();
+const url = new URL(Astro.request.url);
+const isAbsolute = (path: string) => path.startsWith('https://');
+---
+
+<footer class="l-footer">
+  <Stack axis="y" gap={4}>
+    <Text variant="sm">
+      <span>© {year}</span>
+      <span>{SITE_TITLE}</span>
+    </Text>
+    <Text variant="xs" color="color-text-subdued">Deploys by Netlify</Text>
+  </Stack>
+
+  <nav class="l-footer__nav">
+    <div class="l-footer__subnav">
+      <Text variant='body' as='h2' color='color-text-subdued'>Spec</Text>
+      <ul class="u-list-reset">
+        {
+          menu.about.map((link) => (
+            <li>
+              <a
+                aria-current={url.pathname === link.path ? 'page' : false}
+                data-astro-prefetch
+                class="link"
+                href={link.path}
+                aria-label={link.title}
+                target={isAbsolute(link.path) ? '_blank' : undefined}
+              >
+                <Fragment set:html={link.title} />
+                {isAbsolute(link.path) ? <Icon name='external' /> : null}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="l-footer__subnav">
+      <Text variant='body' as='h2' color='color-text-subdued'>Community Group</Text>
+      <ul class="u-list-reset">
+        {
+          menu.learn.map((link) => (
+            <li>
+              <a
+                aria-current={url.pathname === link.path ? 'page' : false}
+                data-astro-prefetch
+                class="link"
+                href={link.path}
+                aria-label={link.title}
+                target={isAbsolute(link.path) ? '_blank' : undefined}
+              >
+                <Fragment set:html={link.title} />
+                {isAbsolute(link.path) ? <Icon name='external' /> : null}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="l-footer__subnav">
+      <Text variant='body' as='h2' color='color-text-subdued'>Social</Text>
+      <Stack axis='x' gap={2} as='ul' class="u-list-reset">
+        {
+          menu.social.map((link) => (
+            <li>
+              <a
+                class="social-link"
+                href={link.path}
+                target={isAbsolute(link.path) ? '_blank' : undefined}
+                aria-label={link.title}
+              >
+                <Icon name={link.icon} />
+              </a>
+            </li>
+          ))
+        }
+      </Stack>
+    </div>
+  </nav>
+</footer>

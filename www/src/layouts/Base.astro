@@ -1,9 +1,9 @@
 ---
 import '@/assets/css/style.scss';
 import MainHead from '@/components/MainHead.astro';
-import Header from '@/components/Header.astro';
+import Header from '@/components/Header/Header.astro';
 import Hero from '@/components/Hero.astro';
-import Footer from '@/components/Footer.astro';
+import Footer from '@/components/Footer/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts';
 
 interface Props {
@@ -30,11 +30,6 @@ const { title, description, frontmatter } = Astro.props;
             ? frontmatter.description
             : undefined}
     />
-    <style lang="scss" is:global>
-      main {
-        padding-inline: var(--page-padding-x);
-      }
-    </style>
   </head>
   <body>
     <Header />

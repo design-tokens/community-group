@@ -20,19 +20,26 @@ export const menu = {
     { path: 'https://opencollective.com/design-tokens', title: 'Donate' },
   ],
   social: [
-    { path: 'https://github.com/design-tokens', title: 'DTCG on GitHub' },
+    {
+      path: 'https://github.com/design-tokens',
+      title: 'DTCG on GitHub',
+      icon: 'github',
+    },
     {
       path: 'https://www.w3.org/community/design-tokens',
       title: 'DTCG W3C Community Group',
+      icon: 'w3c',
     },
-    { path: 'https://x.com/DesignTokens', title: 'DTCG on X' },
+    { path: 'https://x.com/DesignTokens', title: 'DTCG on X', icon: 'x' },
     {
       path: 'https://bsky.app/profile/designtokens.org',
       title: 'DTCG on Bluesky',
+      icon: 'bluesky',
     },
     {
       path: 'https://opencollective.com/design-tokens',
       title: 'DTCG on OpenCollective',
+      icon: 'open-collective',
     },
   ],
 };

@@ -1,0 +1,70 @@
+---
+import "./Header.scss";
+import { SITE_TITLE } from '@/consts';
+import { menu } from '@/site.config';
+import { Icon } from "astro-icon/components";
+import Text from '@/components/Text/Text.astro';
+
+const url = new URL(Astro.request.url);
+---
+
+<header class="l-header">
+  <a href="/" class="l-header__logo-link">
+    <Icon name="dtcg-logo" />
+    <span>{SITE_TITLE}</span>
+  </a>
+  <button
+    class='l-header__nav-toggle'
+    id='nav-toggle'
+    aria-controls='site-nav'
+    aria-expanded='false'
+  >
+    <Text class='u-visually-hidden' as='span'>Open navigation</Text>
+    <Icon name='align-justify' data-open-state='open' />
+    <Icon name='cross' data-open-state='close' class='u-display:none' />
+  </button>
+  <nav aria-label='Main menu' id='site-nav'>
+    <ul class="u-list-reset">
+      {
+        menu.header.map((link) => (
+          <li>
+            <a
+              class="l-header__link"
+              aria-current={url.pathname === link.path ? 'page' : false}
+              data-astro-prefetch
+              href={link.path}
+            >
+              {link.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const navToggle = document.querySelector("#nav-toggle");
+    const navToggleOpenIcon = navToggle?.querySelector('[data-open-state="open"]');
+    const navToggleCloseIcon = navToggle?.querySelector('[data-open-state="close"]');
+    const navToggleText = document.querySelector("#nav-toggle > span");
+    const mainNav = document.querySelector("#site-nav");
+  
+    navToggle?.addEventListener("click", () => {
+      const isExpanded = navToggle?.getAttribute("aria-expanded");
+      if (isExpanded === "false") {
+        navToggle.setAttribute("aria-expanded", "true");
+        navToggleText!.textContent = "Close navigation";
+        navToggleOpenIcon?.classList.add("u-display:none");
+        navToggleCloseIcon?.classList.remove("u-display:none");
+      } else {
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggleText!.textContent = "Open navigation";
+        navToggleOpenIcon?.classList.remove("u-display:none");
+        navToggleCloseIcon?.classList.add("u-display:none");
+      }
+      mainNav?.classList.toggle("is-open");
+    });
+  });
+</script>
