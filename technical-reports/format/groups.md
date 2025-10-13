@@ -4,6 +4,8 @@ A file MAY contain many tokens and they MAY be nested arbitrarily in groups like
 
 <aside class="example">
 
+<!-- cSpell:words cuatro -->
+
 ```json
 {
   "token uno": {

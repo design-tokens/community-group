@@ -506,7 +506,7 @@ A and B are theoretically unbounded, but in practice don't exceed -160 to 160.
 
 </aside>
 
-For more information on the CIELAB color space, see [[[cielab]]].
+For more information on the CIELAB color space, see [[[CIELAB]]].
 
 ### LCH
 
