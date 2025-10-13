@@ -10,5 +10,9 @@
     Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Segoe UI Emoji,
     Segoe UI Symbol, Noto Color Emoji;
   --font-family: "Inter", var(--font-family-fallback);
-  --page-padding-x: var(--base-space-12);
+  --page-padding-x: var(--base-space-6);
+
+  @media (width >= 750px) {
+    --page-padding-x: var(--base-space-12);
+  }
 }
