@@ -90,7 +90,6 @@
   display: flex;
   align-items: center;
   height: 100%;
-  gap: var(--base-space-4);
   color: var(--color-text);
   text-decoration: none;
 
@@ -100,6 +99,7 @@
     transform: rotateZ(var(--rotation-angle));
     transition: transform 350ms cubic-bezier(0.37, 0, 0.63, 1); // ease-in-out sine
     width: 1.25rem;
+    height: auto;
   }
 
   &:hover,
@@ -109,7 +109,7 @@
     }
   }
 
-  @media screen and (300px <= width <= 350px) {
+  @media screen and (width <= 350px) {
     gap: var(--base-space-2);
     @include text-xs;
   }
