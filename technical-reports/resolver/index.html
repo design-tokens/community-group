@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Design Tokens Resolver Module</title>
+    <meta name="color-scheme" content="light dark" />
+    <script
+      src="https://www.w3.org/Tools/respec/respec-w3c"
+      class="remove"
+    ></script>
+    <script class="remove">
+      var respecConfig = {
+        specStatus: 'CG-DRAFT',
+        group: 'design-tokens',
+        // In PR preview apps, shows an annoying red box to the document,
+        // warning unsuspecting readers that they should not cite or
+        // reference this version of the specification.
+        isPreview: document.location.host.includes('preview'),
+        editors: [
+          { name: 'Joren Broekema', url: 'https://code-workshop-kit.com/' },
+          { name: 'Louis Chenais', url: 'https://bsky.app/profile/lucho.cool' },
+          { name: 'Esther Cheran', url: 'https://github.com/esthercheran' },
+          { name: 'Mike Kamminga', url: 'hyma.io' },
+          { name: 'Andrew L’Homme' },
+          { name: 'James Nash', url: 'https://cirrus.twiddles.com' },
+          { name: 'Drew Powers', url: 'https://pow.rs' },
+          { name: 'Matthew Ström', url: 'https://matthewstrom.com' },
+          { name: 'Lilith Whitman', url: 'https://github.com/LilithWittmann' },
+        ],
+        shortName: 'design-tokens-resolvers',
+        cg: 'Design Tokens W3C Community Group',
+        cgURI: 'https://github.com/design-tokens/community-group',
+        github: {
+          repoURL: 'https://github.com/design-tokens/community-group',
+          branch: 'main',
+        },
+        tocIntroductory: true,
+        logos: [
+          {
+            src: '/_includes/assets/images/logo_128_2x.png',
+            url: 'https://www.designtokens.org',
+            alt: 'Design Tokens Community Group',
+            width: 128,
+            height: 128,
+            id: 'dtcg-logo',
+          },
+        ],
+      };
+    </script>
+  </head>
+  <body>
+    <section id="abstract">
+      <p>
+        This specification extends the <a href="../format/">format</a> and
+        describes a method to work with <a href="../">design tokens</a> in
+        multiple contexts (such as “light mode” and “dark mode” color themes).
+      </p>
+    </section>
+
+    <section id="sotd">
+      <p>
+        This is a snapshot of the editors’ draft. It is provided for discussion
+        only and may change at any moment. Its publication here does not imply
+        endorsement of its contents by W3C or the Design Tokens W3C Community
+        Group Membership. Don’t cite this document other than as work in
+        progress.
+      </p>
+      <p>This document has been published to facilitate Wide Review.</p>
+      <p>
+        This document was produced by the Design Tokens W3C Community Group, and
+        contributions to this draft are governed by
+        <a href="https://www.w3.org/community/about/process/cla"
+          >Community Contributor License Agreement (CLA)</a
+        >, as specified by the
+        <a href="https://www.w3.org/community/about/process/#cgroups"
+          >W3C Community Group Process</a
+        >.
+      </p>
+    </section>
+
+    <section
+      id="introduction"
+      class="informative"
+      data-include="./introduction.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      id="terminology"
+      data-include="./terminology.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      id="filetype"
+      data-include="./filetype.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      id="syntax"
+      data-include="./syntax.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      id="inputs"
+      data-include="./inputs.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      id="resolution-logic"
+      data-include="./resolution-logic.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      class="informative"
+      id="bundling"
+      data-include="./bundling.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section
+      id="conformance"
+      data-include="./conformance.md"
+      data-include-format="markdown"
+    ></section>
+
+    <section id="acknowledgements" class="appendix informative">
+      <h2>Acknowledgments</h2>
+      <p>
+        This resolver spec wouldn’t have happened without the Hyma Team,
+        including but not limited to Mike Kamminga, Andrew L'Homme, and Lilith.
+        Significant contributions were also made by Joren Broekema, Louis
+        Chenais. We thank the members of the Design Tokens Community Group for
+        their contributions and feedback.
+      </p>
+    </section>
+  </body>
+</html>
