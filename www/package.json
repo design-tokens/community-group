@@ -18,12 +18,12 @@
     "format": "prettier . --format --write"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.5",
+    "@astrojs/mdx": "^4.3.7",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.6.0",
-    "astro": "^5.13.8",
+    "astro": "^5.14.4",
     "astro-icon": "^1.1.5",
     "astro-robots-txt": "^1.0.0",
-    "sharp": "^0.34.3"
+    "sharp": "^0.34.4"
   }
 }

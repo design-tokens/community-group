@@ -24,7 +24,6 @@ If a resolver does NOT declare any modifiers, skip this step and proceed to [Com
 Tools MUST iterate over the [composition](#composition) array in order.
 
 1. For every item in the array, determine whether it’s a [set](#sets) or [modifier](#modifiers), flattening into a single tokens structure in array order.
-
    1. If the item is a set, combine the `sources` in array order to produce a single tokens structure.
    1. Otherwise, if the item is a modifier, select only the `context` that matches the [input](#inputs), combining the array in order to produce a single tokens structure.
    1. In case of a conflict, take the most recent occurrence in the array.
