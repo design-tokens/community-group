@@ -3,10 +3,10 @@
 [Document based off of this template](https://w3c.github.io/cg-charter/CGCharter.html)
 
 Start Date: Sep 2, 2019
-Last Modifed: Sep 2, 2019
+Last Modified: Sep 2, 2019
 W3C page: <https://www.w3.org/community/design-tokens/>
 
-The DTCG's goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.
+The DTCG’s goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.
 
 ## Scope of Work
 
@@ -83,10 +83,10 @@ It is the Chairs' responsibility to ensure that the decision process is fair, re
 
 ## Chair Selection
 
-Participants in this group choose their Chair(s) and can replace their Chair(s) at any time using whatever means they prefer. However, if 5 participants, no two from the same organisation, call for an election, the group must use the following process to replace any current Chair(s) with a new Chair, consulting the Community Development Lead on election operations (e.g., voting infrastructure and using [RFC 2777](https://tools.ietf.org/html/rfc2777)).
+Participants in this group choose their Chair(s) and can replace their Chair(s) at any time using whatever means they prefer. However, if 5 participants, no two from the same organization, call for an election, the group must use the following process to replace any current Chair(s) with a new Chair, consulting the Community Development Lead on election operations (e.g., voting infrastructure and using [RFC 2777](https://tools.ietf.org/html/rfc2777)).
 
 1.  Participants announce their candidacies. Participants have 14 days to announce their candidacies, but this period ends as soon as all participants have announced their intentions. If there is only one candidate, that person becomes the Chair. If there are two or more candidates, there is a vote. Otherwise, nothing changes.
-2.  Participants vote. Participants have 21 days to vote for a single candidate, but this period ends as soon as all participants have voted. The individual who receives the most votes, no two from the same organisation, is elected chair. In case of a tie, RFC2777 is used to break the tie. An elected Chair may appoint co-Chairs.
+2.  Participants vote. Participants have 21 days to vote for a single candidate, but this period ends as soon as all participants have voted. The individual who receives the most votes, no two from the same organization, is elected chair. In case of a tie, RFC2777 is used to break the tie. An elected Chair may appoint co-Chairs.
 
 ## Amendments to this Charter
 

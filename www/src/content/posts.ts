@@ -1,3 +1,5 @@
+// cSpell:words roundtable
+
 type Post = {
   title: string;
   date: string;

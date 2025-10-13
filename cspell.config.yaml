@@ -1,14 +1,29 @@
 caseSensitive: true
 dictionaries:
+  - en_US
+  - companies
+  - softwareTerms
+  - misc
   - html
   - css
-  - allowed_words
-  - proper_names
+  - people
+  - companies_custom
+  - terminology
 dictionaryDefinitions:
-  - name: proper_names
-    path: ./cspell/names.txt
-  - name: allowed_words
-    path: ./cspell/words.txt
+  - name: companies_custom
+    path: cspell/companies_custom.txt
+  - name: people
+    path: cspell/people.txt
+  - name: terminology
+    path: cspell/terminology.txt
 ignorePaths:
-  - '**/node_modules'
+  - 'cspell/**'
+  - pnpm-lock.yaml
   - '**/dist'
+  - '**/node_modules'
+  - '**/package.json'
+  - '**/tsconfig.json'
+  - www/public/TR/** # ignore published specs
+ignoreRegExpList:
+  - <!--.*--> # ignore HTML comments
+  - '@[A-Za-z0-9-_]+' # ignore social handles

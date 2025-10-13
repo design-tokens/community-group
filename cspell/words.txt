@@ -1,3 +1,0 @@
-DTCG
-frontmatter
-kebabify

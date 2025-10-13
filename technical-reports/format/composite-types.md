@@ -99,7 +99,7 @@ At first glance, groups and composite tokens might look very similar. However, t
 - **Composite tokens** are individual design tokens whose values are made up of several sub-values.
   - Since they are design tokens, they can be referenced by other design tokens. This is not true for groups.
   - Their type must be one of the composite types defined in this specification. Therefore their names and types of their sub-values are pre-defined. Adding additional sub-values or setting values that don't have the correct type make the composite token invalid.
-  - Tools MAY provide specialised functionality for composite tokens. For example, a [=design tool=] may let the user pick from a list of all available shadow tokens when applying a drop shadow effect to an element.
+  - Tools MAY provide specialized functionality for composite tokens. For example, a [=design tool=] may let the user pick from a list of all available shadow tokens when applying a drop shadow effect to an element.
 
 ## Stroke style
 
@@ -279,7 +279,7 @@ Represents a animated transition between two states. The `$type` property MUST b
 
 - `duration`: The duration of the transition. The value of this property MUST be a valid [duration](#duration) value or a reference to a duration token.
 - `delay`: The time to wait before the transition begins. The value of this property MUST be a valid [duration](#duration) value or a reference to a duration token.
-- `timingFunction`: The timing function of the transition. The value of this property MUST be a valid [cubic bézier](#cubic-bezier) value or a reference to a cubic bézier token.
+- `timingFunction`: The timing function of the transition. The value of this property MUST be a valid [cubic Bézier](#cubic-bezier) value or a reference to a cubic Bézier token.
 
 <aside class="example" title="Transition composite token examples">
 

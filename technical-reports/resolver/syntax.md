@@ -33,7 +33,7 @@ A set MAY include a `description` describing the purpose of the set.
 
 If the array declares multiple sources, they will be merged in array order, meaning if a token is declared multiple times, the last occurrence in the array will be the final value. Tools MUST respect array ordering.
 
-<aside class="example" title="Sets comprising remote files and inline toknes">
+<aside class="example" title="Sets comprising remote files and inline tokens">
 
 ```json
 {
