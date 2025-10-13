@@ -9,7 +9,7 @@
   },
   "author": "DTCG and Contributors",
   "license": "SEE LICENSE.md",
-  "packageManager": "pnpm@10.12.1",
+  "packageManager": "pnpm@10.18.2",
   "scripts": {
     "build": "pnpm run build:tr && pnpm run build:www",
     "build:tr": "pnpm --filter @dtcg/tr run build",
