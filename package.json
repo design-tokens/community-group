@@ -16,6 +16,7 @@
     "build:www": "pnpm --filter @dtcg/www run build",
     "dev": "pnpm run build:tr && pnpm --parallel --recursive --if-present run dev",
     "lint": "pnpm --recursive --parallel --stream --if-present run lint",
+    "spellcheck": "cspell \"**\"",
     "format": "pnpm --recursive --parallel --stream --if-present run format",
     "prepare": "husky",
     "install-browsers": "puppeteer browsers install chrome"
@@ -24,6 +25,7 @@
     "*.{md,yml,json,html}": "prettier --write"
   },
   "devDependencies": {
+    "cspell": "^9.2.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.4",
     "prettier": "^3.6.2",

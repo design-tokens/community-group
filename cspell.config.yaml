@@ -1,0 +1,14 @@
+caseSensitive: true
+dictionaries:
+  - html
+  - css
+  - allowed_words
+  - proper_names
+dictionaryDefinitions:
+  - name: proper_names
+    path: ./cspell/names.txt
+  - name: allowed_words
+    path: ./cspell/words.txt
+ignorePaths:
+  - '**/node_modules'
+  - '**/dist'
