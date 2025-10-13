@@ -37,7 +37,7 @@ Given a resolver that references 5 files:
       }
     }
   },
-  "composition": [
+  "resolutionOrder": [
     { "$ref": "#/sets/foundation" },
     { "$ref": "#/modifiers/theme" }
   ]
@@ -85,7 +85,7 @@ One could inline the contents, resulting in:
       }
     }
   },
-  "composition": [
+  "resolutionOrder": [
     { "$ref": "#/sets/foundation" },
     { "$ref": "#/modifiers/theme" }
   ]
@@ -133,7 +133,7 @@ Given the same resolver [from the inlining section](#inlining-files), we can cre
       }
     }
   },
-  "composition": [
+  "resolutionOrder": [
     { "$ref": "#/sets/foundation" },
     { "$ref": "#/modifiers/theme" }
   ],
