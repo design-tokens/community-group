@@ -17,7 +17,7 @@ Design tokens support two distinct syntaxes for referencing content within token
 
 The curly brace syntax is specifically designed for referencing **complete token values** and always resolves to the `$value` property of the target token.
 
-<aside class="example">
+<aside class="example" title="Alias Syntax">
 
 ```json
 {
@@ -123,7 +123,7 @@ When a tool needs the actual value of a token it MUST resolve the reference - i.
 
 Aliases MAY reference other aliases. In this case, tools MUST follow each reference until they find a token with an explicit value.
 
-<aside class="example">
+<aside class="example" title="Chained References">
 
 ```json
 {
@@ -154,7 +154,7 @@ In this example, `{semantic.link}` resolves to the same color value as `{base.pr
 
 ### Circular References
 
-Circular references are not allowed. If a design token file contains circular references, then the value of all tokens in that chain is unknown and an appropriate error or warning message SHOULD be displayed to the user.
+References MUST NOT be circular. If a design token file contains circular references, then the value of all tokens in that chain is unknown and an appropriate error or warning message SHOULD be displayed to the user.
 
 <aside class="example">
 
@@ -178,7 +178,7 @@ JSON Pointer syntax enables references to specific properties within composite t
 
 ### Color Component References
 
-<aside class="example">
+<aside class="example" title="Color Component References">
 
 ```json
 {
@@ -231,7 +231,7 @@ In this example:
 
 ### Dimension Component References
 
-<aside class="example">
+<aside class="example" title="Dimension Component References">
 
 ```json
 {
@@ -269,7 +269,7 @@ In this example:
 
 ### Typography Component References
 
-<aside class="example">
+<aside class="example" title="Typography Component References">
 
 ```json
 {
