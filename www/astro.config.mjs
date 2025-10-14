@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import pagefind from 'astro-pagefind';
 import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
 import icon from 'astro-icon';
@@ -15,6 +16,7 @@ export default defineConfig({
     sitemap(),
     robotsTxt(),
     icon({ iconDir: 'src/assets/vectors' }),
+    pagefind(),
   ],
   devToolbar: {
     enabled: false,
