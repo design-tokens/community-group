@@ -22,6 +22,7 @@
       background-color: var(--color-bg);
       inline-size: 100%;
       block-size: max-content;
+      z-index: 10;
 
       & {
         transform: translateY(calc(-100% - var(--header-height)));
@@ -127,6 +128,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  block-size: var(--base-space-12);
+  inline-size: var(--base-space-12);
+  margin-right: calc(var(--base-space-4) * -1);
+  padding: 0;
+
+  svg {
+    block-size: var(--base-space-5);
+    inline-size: var(--base-space-5);
+  }
 
   &:is(button):focus-visible {
     box-shadow: var(--focus-ring);
