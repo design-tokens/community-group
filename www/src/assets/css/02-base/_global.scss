@@ -65,6 +65,7 @@ svg {
 
 a:has(> svg[data-icon="external"]) {
   display: inline-flex;
+  align-items: center;
 
   svg {
     margin-inline-start: var(--base-space-1);
@@ -83,7 +84,6 @@ pre {
 main table {
   border-collapse: separate;
   border-spacing: 0;
-  min-inline-size: 40em;
   max-inline-size: 100%;
 }
 
