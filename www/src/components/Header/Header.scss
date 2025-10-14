@@ -124,12 +124,11 @@
 .l-header__nav-toggle {
   background-color: transparent;
   border: none;
-  box-sizing: var(--base-space-9);
   display: flex;
   align-items: center;
   justify-content: center;
 
-  &:is(button):focus {
+  &:is(button):focus-visible {
     box-shadow: var(--focus-ring);
   }
 
