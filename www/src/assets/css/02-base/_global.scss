@@ -41,14 +41,12 @@ body {
 
 a {
   color: var(--color-action);
-}
-
-p a {
   text-decoration: none;
 
   &:hover,
   &:focus-visible {
     text-decoration: underline;
+    text-underline-offset: 4px;
   }
 }
 
@@ -63,12 +61,14 @@ svg {
   display: block;
 }
 
-a:has(> svg[data-icon="external"]) {
-  display: inline-flex;
-  align-items: center;
-
-  svg {
-    margin-inline-start: var(--base-space-1);
+a[href^="https"] {
+  svg:is([data-icon="external"]) {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1em;
+    height: 1em;
+    margin-left: 0.2em;
+    transform: translateY(-0.1em);
   }
 }
 

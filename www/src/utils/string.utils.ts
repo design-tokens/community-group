@@ -11,3 +11,11 @@ export const kebabify = (string: string): string => {
     .replace(/[\s_]+/g, '-')
     .toLowerCase();
 };
+
+/**
+ * @name isLinkAbsolute
+ * @description Determine if a link redirects to an external site
+ * @param {String} path The url
+ * @return {Boolean} If the link is external
+ */
+export const isLinkAbsolute = (path: string) => path.startsWith('https://');

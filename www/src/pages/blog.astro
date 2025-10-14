@@ -35,8 +35,7 @@ const formattedPosts = sortedPosts.map((post) => {
               aria-label={`Read ${post.title}`}
               target="_blank"
             >
-              {post.title}
-              <Icon name='external' />
+              {post.title}<Icon name='external' />
             </a>
             <Text as="p" variant="sm">
               <time datetime={post.w3FormattedDate}>{post.formattedDate}</time>
