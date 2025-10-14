@@ -127,7 +127,7 @@ At first glance, groups and composite tokens might look very similar. However, t
 - **Composite tokens** are individual design tokens whose values are made up of several sub-values.
   - Since they are design tokens, they can be referenced by other design tokens. This is not true for groups.
   - Their type must be one of the composite types defined in this specification. Therefore their names and types of their sub-values are pre-defined. Adding additional sub-values or setting values that don't have the correct type make the composite token invalid.
-  - Tools MAY provide specialised functionality for composite tokens. For example, a [=design tool=] may let the user pick from a list of all available shadow tokens when applying a drop shadow effect to an element.
+  - Tools MAY provide specialized functionality for composite tokens. For example, a [=design tool=] may let the user pick from a list of all available shadow tokens when applying a drop shadow effect to an element.
 
 ## Stroke style
 

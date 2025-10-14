@@ -91,6 +91,8 @@ Groups MAY include the following properties:
 
 <aside class="example" title="Group type inheritance">
 
+<!-- cSpell:words cuatro -->
+
 ```json
 {
   "color": {

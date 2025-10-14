@@ -22,7 +22,7 @@ Open <http://localhost:8080/TR/drafts/>.
 
 ## Editing
 
-We use the [W3C's ReSpec tool](https://respec.org/docs/) to generate our technical reports. Although knowledge of HTML and Markdown is sufficient for simple edits, we recommend that authors familiarise themselves with ReSpec's features.
+We use the [W3C's ReSpec tool](https://respec.org/docs/) to generate our technical reports. Although knowledge of HTML and Markdown is sufficient for simple edits, we recommend that authors familiarize themselves with ReSpec's features.
 
 To making editing our format specification more convenient and to reduce the likelihood of merge conflicts, we have split out the main chapters into separate Markdown files. The `format/index.html` then includes them all using [ReSpec's `data-include` feature](https://respec.org/docs/#data-include).
 

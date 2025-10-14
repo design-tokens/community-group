@@ -11,23 +11,23 @@
     <script class="remove">
       var respecConfig = {
         specStatus: 'CG-DRAFT',
+        isPreview: true,
+        subtitle: 'Preview',
         group: 'design-tokens',
-        // In PR preview apps, shows an annoying red box to the document,
-        // warning unsuspecting readers that they should not cite or
-        // reference this version of the specification.
-        isPreview: document.location.host.includes('preview'),
+        latestVersion: 'https://www.designtokens.org/TR/drafts/resolver/',
+        prevVersion: null,
+        edDraftURI: null,
         editors: [
           { name: 'Joren Broekema', url: 'https://code-workshop-kit.com/' },
           { name: 'Louis Chenais', url: 'https://bsky.app/profile/lucho.cool' },
           { name: 'Esther Cheran', url: 'https://github.com/esthercheran' },
-          { name: 'Mike Kamminga', url: 'hyma.io' },
+          { name: 'Mike Kamminga', url: 'https://hyma.io' },
           { name: 'Andrew L’Homme' },
           { name: 'James Nash', url: 'https://cirrus.twiddles.com' },
           { name: 'Drew Powers', url: 'https://pow.rs' },
-          { name: 'Matthew Ström', url: 'https://matthewstrom.com' },
-          { name: 'Lilith Whitman', url: 'https://github.com/LilithWittmann' },
+          { name: 'Matthew Ström-Awn', url: 'https://matthewstrom.com' },
+          { name: 'Lilith Wittmann', url: 'https://github.com/LilithWittmann' },
         ],
-        shortName: 'design-tokens-resolvers',
         cg: 'Design Tokens W3C Community Group',
         cgURI: 'https://github.com/design-tokens/community-group',
         github: {
@@ -37,7 +37,7 @@
         tocIntroductory: true,
         logos: [
           {
-            src: '/_includes/assets/images/logo_128_2x.png',
+            src: '/assets/images/logo_128_2x.png',
             url: 'https://www.designtokens.org',
             alt: 'Design Tokens Community Group',
             width: 128,
@@ -132,7 +132,7 @@
       <h2>Acknowledgments</h2>
       <p>
         This resolver spec wouldn’t have happened without the Hyma Team,
-        including but not limited to Mike Kamminga, Andrew L'Homme, and Lilith.
+        including but not limited to Mike Kamminga, Andrew L’Homme, and Lilith.
         Significant contributions were also made by Joren Broekema, Louis
         Chenais. We thank the members of the Design Tokens Community Group for
         their contributions and feedback.
