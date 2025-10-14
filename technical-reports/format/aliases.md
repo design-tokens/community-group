@@ -193,6 +193,8 @@ JSON Pointer syntax enables references to specific properties within composite t
     }
   },
   "semantic": {
+    // semantic.primary keeps the same red and green components as base.blue
+    // but uses a different blue component (0.7)
     "primary": {
       "$value": {
         "colorSpace": "srgb",
@@ -205,6 +207,8 @@ JSON Pointer syntax enables references to specific properties within composite t
       },
       "$type": "color"
     },
+    // semantic.secondary keeps the same red and green components as base.blue
+    // but uses a different blue component (0.5)
     "secondary": {
       "$value": {
         "colorSpace": "srgb",
@@ -217,17 +221,13 @@ JSON Pointer syntax enables references to specific properties within composite t
       },
       "$type": "color"
     }
+    // Changes to the hue of base.blue will automatically propagate
+    // to both semantic colors
   }
 }
 ```
 
 </aside>
-
-In this example:
-
-- `semantic.primary` keeps the same red and green components as `base.blue` but uses a different blue component (0.7)
-- `semantic.secondary` keeps the same red and green components as `base.blue` but uses a different blue component (0.5)
-- Changes to the hue of `base.blue` will automatically propagate to both semantic colors
 
 ### Dimension Component References
 
