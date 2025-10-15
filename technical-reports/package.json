@@ -22,9 +22,10 @@
     "dev:resolver": "pnpm run mkdirs && chokidar \"resolver/**/*\" -c \"pnpm run build:resolver\" -d 5000",
     "lint": "prettier . --check",
     "format": "prettier . --format --write",
-    "validate": "pnpm run validate:index && pnpm run validate:format && pnpm run validate:resolver",
+    "validate": "pnpm run validate:index && pnpm run validate:format && pnpm run validate:color",
     "validate:index": "respec --localhost index.html --haltonerror --haltonwarn",
     "validate:format": "respec --localhost format/index.html --haltonerror --haltonwarn",
+    "validate:color": "respec --localhost color/index.html --haltonerror --haltonwarn",
     "validate:resolver": "respec --localhost resolver/index.html --haltonerror --haltonwarn"
   },
   "devDependencies": {

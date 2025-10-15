@@ -2,14 +2,45 @@
 
 The types defined in the previous chapters such as color and dimension all have singular values. For example, the value of a color token is _one_ color. However, there are other aspects of UI designs that are a combination of multiple values. For instance, a shadow style is a combination of a color, X & Y offsets, a blur radius and a spread radius.
 
-Every shadow style has the exact same parts (color, X & Y offsets, etc.), but their respective values will differ. Furthermore, each part's value (which is also known as a "sub-value") is always of the same type. A shadow's color must always be a [color](#color) value, its X offset must always be a [dimension](#dimension) value, and so on. Shadow styles are therefore combinations of values _that follow a pre-defined structure_. In other words, shadow styles are themselves a type. Types like this are called **composite types**.
+Every shadow style has the exact same parts (color, X & Y offsets, etc.), but their respective values will differ. Furthermore, each part's value (which is also known as a "sub-value") is always of the same type. A shadow's color must always be a [color](#color) value, its X offset must always be a [dimension](types#dimension) value, and so on. Shadow styles are therefore combinations of values _that follow a pre-defined structure_. In other words, shadow styles are themselves a type. Types like this are called **composite types**.
 
 Specifically, a composite type has the following characteristics:
 
 - Its value is an object or array, potentially containing nested objects or arrays, following a pre-defined structure where the properties of the (nested) object(s) or the elements of the (nested) arrays are sub-values.
-- Sub-values may be explicit `color` values or references to other design tokens that have sub-value's type (e.g. `"{some.other.token}"`).
+- Sub-values may be explicit values (e.g. `color` values) or references to other design tokens that have the sub-value's type (e.g. `"{some.other.token}"`).
 
-A design token whose type happens to be a composite type is sometimes also called a composite (design) token. Besides their type, there is nothing special about composite tokens. They can have all the other additional properties like [`$description`](#description) or [`$extensions`](#extensions). They can also be referenced by other design tokens.
+### Array aliasing in composite types
+
+When a composite type contains array properties, each element in the array may be either an explicit value or a reference to a token of the appropriate type. References in arrays resolve to single values and do not cause array expansion or flattening. This allows for flexible composition where some array elements are references while others are explicit values.
+
+Array aliasing follows these principles:
+
+1. **Single value resolution**: References in arrays always resolve to a single value of the appropriate type, never to arrays themselves.
+2. **No flattening**: When referencing an array, the entire referenced array is treated as a single element in the referencing array.
+3. **Type safety**: Each array element (explicit or referenced) must conform to the expected sub-value type for that composite type.
+4. **Mixed composition**: Arrays may freely mix explicit values and references.
+
+For example, a shadow token with an array value can mix references to other shadow tokens with explicit shadow objects:
+
+```json
+{
+  "layered-shadow": {
+    "$type": "shadow",
+    "$value": [
+      "{base.shadow}",
+      {
+        "color": "{brand.accent}",
+        "offsetX": { "value": 4, "unit": "px" },
+        "offsetY": { "value": 4, "unit": "px" },
+        "blur": { "value": 8, "unit": "px" },
+        "spread": { "value": 0, "unit": "px" }
+      }
+    ]
+  }
+}
+```
+
+A design token whose type happens to be a composite type is sometimes also called a composite (design) token. Besides their type, there is nothing special about composite tokens. They can have all the other additional properties like [`$description`](design-token#description) or [`$extensions`](design-token#extensions). They can also be referenced by other design tokens.
 
 <aside class="example" title="Composite token example">
 
@@ -19,13 +50,10 @@ A design token whose type happens to be a composite type is sometimes also calle
     "$type": "shadow",
     "$value": {
       "color": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [0, 0, 0],
-          "alpha": 0.5,
-          "hex": "#000000"
-        }
+        "colorSpace": "srgb",
+        "components": [0, 0, 0],
+        "alpha": 0.5,
+        "hex": "#000000"
       },
       "offsetX": { "value": 0.5, "unit": "rem" },
       "offsetY": { "value": 0.5, "unit": "rem" },
@@ -92,7 +120,7 @@ A design token whose type happens to be a composite type is sometimes also calle
 
 At first glance, groups and composite tokens might look very similar. However, they are intended to solve different problems and therefore have some important differences:
 
-- **[Groups](#groups)** are for arbitrarily grouping tokens for the purposes of naming and/or organization.
+- **[Groups](groups)** are for arbitrarily grouping tokens for the purposes of naming and/or organization.
   - They impose no rules or restrictions on how many tokens or nested groups you put within them, what they are called, or what the types of the tokens within should be. As such, tools MUST NOT try to infer any special meaning or typing of tokens based on a group they happen to be in.
   - Different design systems are likely to group their tokens differently.
   - You can think of groups as containers that exist "outside" of design tokens.
@@ -144,7 +172,7 @@ These values have the same meaning as the equivalent ["line style" values in CSS
 
 Object stroke style values MUST have the following properties:
 
-- `dashArray`: An array of [dimension values](#dimension) and/or references to dimension tokens, which specify the lengths of alternating dashes and gaps. If an odd number of values is provided, then the list of values is repeated to yield an even number of values.
+- `dashArray`: An array of [dimension values](types#dimension) and/or references to dimension tokens, which specify the lengths of alternating dashes and gaps. Each element in the array must be either an explicit dimension value or a reference to a dimension token. If an odd number of values is provided, then the list of values is repeated to yield an even number of values.
 - `lineCap`: One of the following pre-defined string values: `"round"`, `"butt"` or `"square"`. These values have the same meaning as those of [the `stroke-linecap` attribute in SVG](https://www.w3.org/TR/SVG11/painting.html#StrokeLinecapProperty).
 
 <aside class="example" title="Object stroke style example">
@@ -178,12 +206,35 @@ Object stroke style values MUST have the following properties:
     }
   },
 
+  "mixed-dash-style": {
+    "$type": "strokeStyle",
+    "$value": {
+      "dashArray": [
+        "{dash-length-long}",
+        "{dash-gap-short}",
+        { "value": 0.125, "unit": "rem" },
+        "{dash-gap-short}"
+      ],
+      "lineCap": "round"
+    }
+  },
+
   "dash-length-medium": {
     "$type": "dimension",
     "$value": {
       "value": 10,
       "unit": "px"
     }
+  },
+
+  "dash-length-long": {
+    "$type": "dimension",
+    "$value": { "value": 1, "unit": "rem" }
+  },
+
+  "dash-gap-short": {
+    "$type": "dimension",
+    "$value": { "value": 0.25, "unit": "rem" }
   }
 }
 ```
@@ -220,8 +271,8 @@ Some [=design tools=] like Figma don't support inset, outset or double style lin
 
 Represents a border style. The `$type` property MUST be set to the string `border`. The value MUST be an object with the following properties:
 
-- `color`: The color of the border. The value of this property MUST be a valid [color value](#color) or a reference to a color token.
-- `width`: The width or thickness of the border. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `color`: The color of the border. The value of this property MUST be a valid [color value](types#color) or a reference to a color token.
+- `width`: The width or thickness of the border. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
 - `style`: The border's style. The value of this property MUST be a valid [stroke style value](#stroke-style) or a reference to a stroke style token.
 
 <aside class="example" title="Border composite token examples">
@@ -233,11 +284,8 @@ Represents a border style. The `$type` property MUST be set to the string `borde
       "$type": "border",
       "$value": {
         "color": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [0.218, 0.218, 0.218]
-          }
+          "colorSpace": "srgb",
+          "components": [0.218, 0.218, 0.218]
         },
         "width": {
           "value": 3,
@@ -277,9 +325,9 @@ Represents a border style. The `$type` property MUST be set to the string `borde
 
 Represents a animated transition between two states. The `$type` property MUST be set to the string `transition`. The value MUST be an object with the following properties:
 
-- `duration`: The duration of the transition. The value of this property MUST be a valid [duration](#duration) value or a reference to a duration token.
-- `delay`: The time to wait before the transition begins. The value of this property MUST be a valid [duration](#duration) value or a reference to a duration token.
-- `timingFunction`: The timing function of the transition. The value of this property MUST be a valid [cubic Bézier](#cubic-bezier) value or a reference to a cubic Bézier token.
+- `duration`: The duration of the transition. The value of this property MUST be a valid [duration](types#duration) value or a reference to a duration token.
+- `delay`: The time to wait before the transition begins. The value of this property MUST be a valid [duration](types#duration) value or a reference to a duration token.
+- `timingFunction`: The timing function of the transition. The value of this property MUST be a valid [cubic Bézier curve](types#cubic-bezier) value or a reference to a cubic Bézier curve token.
 
 <aside class="example" title="Transition composite token examples">
 
@@ -306,13 +354,20 @@ Represents a animated transition between two states. The `$type` property MUST b
 
 ## Shadow
 
-Represents a shadow style. The `$type` property MUST be set to the string `shadow`. The value MUST contain a single object or an array of objects with the following properties:
+Represents a shadow style. The `$type` property MUST be set to the string `shadow`. The value MUST be either:
 
-- `color`: The color of the shadow. The value of this property MUST be a valid [color value](#color) or a reference to a color token.
-- `offsetX`: The horizontal offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `offsetY`: The vertical offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `blur`: The blur radius that is applied to the shadow. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `spread`: The amount by which to expand or contract the shadow. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
+- a single shadow object with the properties defined below, or
+- an array of shadow objects and/or references to shadow tokens
+
+When the value is an array, each element must be either an explicit shadow object or a reference to another shadow token. References in the array resolve to single shadow objects and do not cause array flattening.
+
+Each shadow object (whether explicit or referenced) MUST have the following properties:
+
+- `color`: The color of the shadow. The value of this property MUST be a valid [color value](types#color) or a reference to a color token.
+- `offsetX`: The horizontal offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
+- `offsetY`: The vertical offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
+- `blur`: The blur radius that is applied to the shadow. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
+- `spread`: The amount by which to expand or contract the shadow. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
 - `inset`: (optional) Whether this shadow is inside the containing shape (“inner shadow”), rather than a “drop shadow” or “box shadow” which is rendered outside the container (default, or `false`).
 
 <aside class="example" title="Shadow token example">
@@ -327,124 +382,78 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
         "components": [0, 0, 0],
         "alpha": 0.5
       },
-      "offsetX": {
-        "value": 0.5,
-        "unit": "rem"
-      },
-      "offsetY": {
-        "value": 0.5,
-        "unit": "rem"
-      },
-      "blur": {
-        "value": 1.5,
-        "unit": "rem"
-      },
-      "spread": {
-        "value": 0,
-        "unit": "rem"
-      }
+      "offsetX": { "value": 0.5, "unit": "rem" },
+      "offsetY": { "value": 0.5, "unit": "rem" },
+      "blur": { "value": 1.5, "unit": "rem" },
+      "spread": { "value": 0, "unit": "rem" }
     }
   },
-  "layered-shadow": {
-    "$type": "shadow",
-    "$value": [
-      {
-        "color": {
-          "colorSpace": "srgb",
-          "components": [0, 0, 0],
-          "alpha": 0.1
-        },
-        "offsetX": {
-          "value": 0,
-          "unit": "px"
-        },
-        "offsetY": {
-          "value": 24,
-          "unit": "px"
-        },
-        "blur": {
-          "value": 22,
-          "unit": "px"
-        },
-        "spread": {
-          "value": 0,
-          "unit": "px"
-        }
-      },
-      {
-        "color": {
-          "colorSpace": "srgb",
-          "components": [0, 0, 0],
-          "alpha": 0.2
-        },
-        "offsetX": {
-          "value": 0,
-          "unit": "px"
-        },
-        "offsetY": {
-          "value": 42.9,
-          "unit": "px"
-        },
-        "blur": {
-          "value": 44,
-          "unit": "px"
-        },
-        "spread": {
-          "value": 0,
-          "unit": "px"
-        }
-      },
-      {
-        "color": {
-          "colorSpace": "srgb",
-          "components": [0, 0, 0],
-          "alpha": 0.3
-        },
-        "offsetX": {
-          "value": 0,
-          "unit": "px"
-        },
-        "offsetY": {
-          "value": 64,
-          "unit": "px"
-        },
-        "blur": {
-          "value": 64,
-          "unit": "px"
-        },
-        "spread": {
-          "value": 0,
-          "unit": "px"
-        }
-      }
-    ]
-  },
-  "inner-shadow": {
-    "$type": "shadow",
-    "$value": {
+"layered-shadow": {
+  "$type": "shadow",
+  "$value": [
+    {
       "color": {
         "colorSpace": "srgb",
         "components": [0, 0, 0],
-        "alpha": 0.5
+        "alpha": 0.1
       },
-      "offsetX": {
-        "value": 2,
-        "unit": "px"
+      "offsetX": { "value": 0, "unit": "px" },
+      "offsetY": { "value": 24, "unit": "px" },
+      "blur": { "value": 22, "unit": "px" },
+      "spread": { "value": 0, "unit": "px" }
+    },
+    {
+      "color": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0],
+        "alpha": 0.2
       },
-      "offsetY": {
-        "value": 2,
-        "unit": "px"
+      "offsetX": { "value": 0, "unit": "px" },
+      "offsetY": { "value": 42.9, "unit": "px" },
+      "blur": { "value": 44, "unit": "px" },
+      "spread": { "value": 0, "unit": "px" }
+    },
+    {
+      "color": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0],
+        "alpha": 0.3
       },
-      "blur": {
-        "value": 4,
-        "unit": "px"
-      },
-      "spread": {
-        "value": 0,
-        "unit": "px"
-      },
-      "inset": true
+      "offsetX": { "value": 0, "unit": "px" },
+      "offsetY": { "value": 64, "unit": "px" },
+      "blur": { "value": 64, "unit": "px" },
+      "spread": { "value": 0, "unit": "px" }
     }
+  ]
+},
+
+"mixed-reference-shadow": {
+  "$type": "shadow",
+  "$value": [
+    "{base.shadow}",
+    {
+      "color": "{brand.accent}",
+      "offsetX": { "value": 2, "unit": "px" },
+      "offsetY": { "value": 2, "unit": "px" },
+      "blur": { "value": 4, "unit": "px" },
+      "spread": { "value": 1, "unit": "px" }
+    },
+    "{highlight.shadow}"
+  ]
+}
+"inner-shadow": {
+  "$type": "shadow",
+  "$value": {
+    "color": {
+      "colorSpace": "srgb",
+      "components": [0, 0, 0],
+      "alpha": 0.5
+    },
+    "offsetX": { "value": 2, "unit": "px" },
+    "offsetY": { "value": 2, "unit": "px" },
+    "blur": { "value": 4, "unit": "px" },
+    "spread": { "value": 0, "unit": "px" },
+    "inset": true
   }
 }
 ```
@@ -457,9 +466,11 @@ Represents a shadow style. The `$type` property MUST be set to the string `shado
 
 ## Gradient
 
-Represents a color gradient. The `$type` property MUST be set to the string `gradient`. The value MUST be an array of objects representing gradient stops that have the following structure:
+Represents a color gradient. The `$type` property MUST be set to the string `gradient`. The value MUST be an array of gradient stop objects and/or references to gradient tokens. Each element in the array must be either an explicit gradient stop object or a reference to a gradient token. References resolve to single gradient objects and do not cause array flattening.
 
-- `color`: The color value at the stop's position on the gradient. The value of this property MUST be a valid [color value](#color) or a reference to a color token.
+Each gradient stop object (whether explicit or referenced) MUST have the following structure:
+
+- `color`: The color value at the stop's position on the gradient. The value of this property MUST be a valid [color value](types#color) or a reference to a color token.
 - `position`: The position of the stop along the gradient's axis. The value of this property MUST be a valid number value or reference to a number token. The number values must be in the range [0, 1], where 0 represents the start position of the gradient's axis and 1 the end position. If a number value outside of that range is given, it MUST be considered as if it were clamped to the range [0, 1]. For example, a value of 42 should be treated as if it were 1, i.e. the end position of the gradient axis. Similarly, a value of -99 should be treated as if it were 0, i.e. the start position of the gradient axis.
 
 If there are no stops at the very beginning or end of the gradient axis (i.e. with `position` 0 or 1, respectively), then the color from the stop closest to each end should be extended to that end of the axis.
@@ -473,22 +484,16 @@ If there are no stops at the very beginning or end of the gradient axis (i.e. wi
     "$value": [
       {
         "color": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [0, 0, 1],
-          }
+          "colorSpace": "srgb",
+          "components": [0, 0, 1]
         },
         "position": 0
       },
       {
         "color": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [1, 0, 0],
-          }
-        }
+          "colorSpace": "srgb",
+          "components": [1, 0, 0]
+        },
         "position": 1
       }
     ]
@@ -511,21 +516,15 @@ Describes a gradient that goes from blue to red:
     "$value": [
       {
         "color": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [1, 1, 0]
-          }
+          "colorSpace": "srgb",
+          "components": [1, 1, 0]
         },
         "position": 0.666
       },
       {
         "color": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [1, 0, 0]
-          }
+          "colorSpace": "srgb",
+          "components": [1, 0, 0]
         },
         "position": 1
       }
@@ -562,11 +561,8 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
     "$value": [
       {
         "color": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [0, 0, 0]
-          }
+          "colorSpace": "srgb",
+          "components": [0, 0, 0]
         },
         "position": 0
       },
@@ -576,15 +572,45 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
       },
       {
         "color": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [0, 0, 0]
-          }
+          "colorSpace": "srgb",
+          "components": [0, 0, 0]
         },
         "position": "{position-end}"
       }
     ]
+  },
+
+  "gradient-with-references": {
+    "$type": "gradient",
+    "$value": [
+      "{gradient.start-stop}",
+      {
+        "color": "{brand.secondary}",
+        "position": 0.333
+      },
+      "{gradient.end-stop}"
+    ]
+  },
+
+  "gradient": {
+    "start-stop": {
+      "$type": "gradient",
+      "$value": [
+        {
+          "color": { "colorSpace": "srgb", "components": [1, 1, 1] },
+          "position": 0
+        }
+      ]
+    },
+    "end-stop": {
+      "$type": "gradient",
+      "$value": [
+        {
+          "color": { "colorSpace": "srgb", "components": [0, 0, 0] },
+          "position": 1
+        }
+      ]
+    }
   }
 }
 ```
@@ -603,11 +629,11 @@ Describes a color token called "brand-primary", which is referenced as the mid-p
 
 Represents a typographic style. The `$type` property MUST be set to the string `typography`. The value MUST be an object with the following properties:
 
-- `fontFamily`: The typography's font. The value of this property MUST be a valid [font family value](#font-family) or a reference to a font family token.
-- `fontSize`: The size of the typography. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `fontWeight`: The weight of the typography. The value of this property MUST be a valid [font weight](#font-weight) or a reference to a font weight token.
-- `letterSpacing`: The horizontal spacing between characters. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `lineHeight`: The vertical spacing between lines of typography. The value of this property MUST be a valid [number value](#number) or a reference to a number token. The number SHOULD be interpreted as a multiplier of the `fontSize`.
+- `fontFamily`: The typography's font. The value of this property MUST be a valid [font family value](types#font-family) or a reference to a font family token.
+- `fontSize`: The size of the typography. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
+- `fontWeight`: The weight of the typography. The value of this property MUST be a valid [font weight](types#font-weight) or a reference to a font weight token.
+- `letterSpacing`: The horizontal spacing between characters. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
+- `lineHeight`: The vertical spacing between lines of typography. The value of this property MUST be a valid [number value](types#number) or a reference to a number token. The number SHOULD be interpreted as a multiplier of the `fontSize`.
 
 <aside class="example" title="Typography composite token examples">
 
