@@ -1,7 +1,5 @@
 ---
 import Base from '@/layouts/Base.astro';
-import Text from '@/components/Text/Text.astro';
-import Stack from '@/components/Stack/Stack.astro';
 import { Icon } from 'astro-icon/components';
 import { SITE_TITLE } from '@/consts';
 
@@ -10,6 +8,9 @@ const title = SITE_TITLE;
 
 <Base>
   <section class="hero-section">
+    <!-- <p class="hero-eyebrow">
+      <a href="/technical-reports/" class="hero-eyebrow-link">v1 of the specification is here!</a>
+    </p> -->
     <h1 class="hero-headline">
       Scale design decisions across teams and products.
     </h1>
@@ -21,7 +22,7 @@ const title = SITE_TITLE;
       <a href="/technical-reports/" class="btn btn--primary">
         View the specification
       </a>
-      <a href="https://github.com/design-tokens" class="btn btn--secondary" target="_blank" aria-label="Join the community (opens in new tab)">
+      <a href="https://github.com/design-tokens" class="btn background-weak" target="_blank" aria-label="Join the community (opens in new tab)">
         Join the community
       </a>
     </div>
@@ -96,6 +97,34 @@ const title = SITE_TITLE;
     text-wrap: balance;
   }
 
+  .hero-eyebrow {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-block-end: var(--base-space-8);
+    max-width: 70vw;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .hero-eyebrow-link {
+    color: var(--color-text-subdued);
+    font-weight: 500;
+    text-decoration: none;
+    background-color: var(--color-bg-alt);
+    border-radius: 999px;
+    padding: var(--base-space-1) var(--base-space-3);
+    border: 1px solid var(--color-border);
+    transition: all 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--color-background-weak-hover);
+      border-color: var(--color-action);
+      color: var(--color-action);
+    }
+  }
+
   .hero-headline {
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 700;
@@ -104,6 +133,7 @@ const title = SITE_TITLE;
     color: var(--color-text);
     max-width: 70vw;
     margin-inline: auto;
+    letter-spacing: -0.01em;
   }
 
   .hero-subheading {
@@ -144,7 +174,7 @@ const title = SITE_TITLE;
       }
     }
 
-    &--secondary {
+background-weak {
       background-color: transparent;
       color: var(--color-text);
       border-color: var(--color-border);
@@ -205,7 +235,7 @@ const title = SITE_TITLE;
     .cta-link {
       display: inline-block;
       padding: var(--base-space-3) var(--base-space-6);
-      background-color: var(--color-surface-secondary, rgba(0, 0, 0, 0.03));
+      background-color: var(--color-background-weak, rgba(0, 0, 0, 0.03));
       color: var(--color-action);
       text-decoration: none;
       border-radius: var(--base-space-2);
