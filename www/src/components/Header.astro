@@ -3,6 +3,7 @@ import { SITE_TITLE } from '@/consts';
 import { menu } from '@/site.config';
 import { Icon } from "astro-icon/components";
 import Text from '@/components/Text/Text.astro';
+import Search from "@/components/Search.astro";
 import { isLinkAbsolute } from "@/utils/string.utils";
 
 const url = new URL(Astro.request.url);
@@ -43,6 +44,8 @@ const url = new URL(Astro.request.url);
     </ul>
   </nav>
 </header>
+
+<Search />
 
 <style lang="scss">
   .l-header {
@@ -231,7 +234,7 @@ const url = new URL(Astro.request.url);
     const navToggleCloseIcon = navToggle?.querySelector('[data-open-state="close"]');
     const navToggleText = document.querySelector("#nav-toggle > span");
     const mainNav = document.querySelector("#site-nav");
-  
+
     navToggle?.addEventListener("click", () => {
       const isExpanded = navToggle?.getAttribute("aria-expanded");
       if (isExpanded === "false") {
