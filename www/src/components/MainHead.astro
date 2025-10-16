@@ -36,21 +36,6 @@ const { title, description, image } = Astro.props;
 <meta name='title' content={title} />
 <meta name='description' content={description} />
 
-<!-- Netlify -->
-<link rel='dns-prefetch' href='https://identity.netlify.com' />
-<script async src='https://identity.netlify.com/v1/netlify-identity-widget.js'></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", (user) => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
-
 <!-- Open Graph / Facebook -->
 <meta property='og:type' content='website' />
 <meta property='og:url' content={Astro.url} />

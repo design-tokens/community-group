@@ -1,5 +1,9 @@
 @use "../01-utils/tokens" as *;
 
+:root {
+  --focus-ring: 0px 0px 0px 3px var(--color-neutral-100);
+}
+
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -9,14 +13,12 @@ html {
 }
 
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
   display: flex;
   flex-direction: column;
   font-family: var(--font-family);
-  font-size: 100%;
-  height: 100%;
-  line-height: 1;
+  min-block-size: 100dvh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 ::selection {
@@ -37,26 +39,14 @@ body {
   outline: 2px solid var(--color-action);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
-
 a {
   color: var(--color-action);
-}
-
-p a {
   text-decoration: none;
 
   &:hover,
   &:focus-visible {
     text-decoration: underline;
+    text-underline-offset: 4px;
   }
 }
 
@@ -71,16 +61,20 @@ svg {
   display: block;
 }
 
-iframe,
-img,
-svg {
-  height: auto;
-  vertical-align: middle;
-  max-width: 100%;
+a[href^="https"] {
+  svg:is([data-icon="external"]) {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1em;
+    height: 1em;
+    margin-left: 0.2em;
+    transform: translateY(-0.1em);
+  }
 }
 
 main {
   flex: 1;
+  padding: var(--base-space-8) var(--page-padding-x);
 }
 
 pre {
@@ -90,12 +84,11 @@ pre {
 main table {
   border-collapse: separate;
   border-spacing: 0;
-  min-width: 40em;
-  max-width: 100%;
+  max-inline-size: 100%;
 }
 
 main th {
-  background: var(--color-bg-alt);
+  background-color: var(--color-bg-alt);
   border-block-color: var(--color-border);
   border-inline-color: transparent;
   border-style: solid;

@@ -1,11 +1,10 @@
 ---
 import { getW3FormattedDate, getFormattedDate } from '@/utils/date.utils';
-import { kebabify } from '@/utils/string.utils';
 import { posts } from '@/content/posts';
 import Base from '@/layouts/Base.astro';
 import Text from '@/components/Text/Text.astro';
 import Stack from '@/components/Stack/Stack.astro';
-import External from '../components/External.astro';
+import { Icon } from "astro-icon/components";
 
 const title = 'Blog';
 
@@ -23,10 +22,6 @@ const formattedPosts = sortedPosts.map((post) => {
   };
   return formattedPost;
 });
-
-const getAuthorSlug = (author: string) => {
-  return kebabify(author);
-};
 ---
 
 <Base title={title}>
@@ -40,8 +35,7 @@ const getAuthorSlug = (author: string) => {
               aria-label={`Read ${post.title}`}
               target="_blank"
             >
-              {post.title}
-              <External aria-hidden />
+              {post.title}<Icon name='external' />
             </a>
             <Text as="p" variant="sm">
               <time datetime={post.w3FormattedDate}>{post.formattedDate}</time>
