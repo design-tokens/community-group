@@ -3,8 +3,8 @@ import Stack from '@/components/Stack/Stack.astro';
 import Text from '@/components/Text/Text.astro';
 import { SITE_TITLE } from '@/consts';
 import { menu } from '@/site.config';
-import { Icon } from "astro-icon/components";
-import { isLinkAbsolute } from "@/utils/string.utils";
+import { Icon } from 'astro-icon/components';
+import { isLinkAbsolute } from '@/utils/string.utils';
 
 const year = new Date().getFullYear();
 const url = new URL(Astro.request.url);
@@ -16,12 +16,18 @@ const url = new URL(Astro.request.url);
       <span>© {year}</span>
       <span>{SITE_TITLE}</span>
     </Text>
-    <Text variant="xs" color="color-text-subdued">Deploys by Netlify</Text>
+    <Text
+      variant="xs"
+      color="color-text-subdued"
+      as="a"
+      href="https://www.netlify.com"
+      target="_blank">Deploys by Netlify</Text
+    >
   </Stack>
 
   <nav class="l-footer__nav">
     <div class="l-footer__subnav">
-      <Text variant='body' as='h2' color='color-text-subdued'>Spec</Text>
+      <Text variant="body" as="h2" color="color-text-subdued">Spec</Text>
       <ul class="u-list-reset">
         {
           menu.about.map((link) => (
@@ -31,10 +37,15 @@ const url = new URL(Astro.request.url);
                 data-astro-prefetch
                 class="link"
                 href={link.path}
-                aria-label={isLinkAbsolute(link.path) ? `Link opens in a new window (${link.path})` : link.title}
+                aria-label={
+                  isLinkAbsolute(link.path)
+                    ? `Link opens in a new window (${link.path})`
+                    : link.title
+                }
                 target={isLinkAbsolute(link.path) ? '_blank' : undefined}
               >
-                <Fragment set:html={link.title} />{isLinkAbsolute(link.path) ? <Icon name='external' /> : null}
+                <Fragment set:html={link.title} />
+                {isLinkAbsolute(link.path) ? <Icon name="external" /> : null}
               </a>
             </li>
           ))
@@ -43,7 +54,9 @@ const url = new URL(Astro.request.url);
     </div>
 
     <div class="l-footer__subnav">
-      <Text variant='body' as='h2' color='color-text-subdued'>Community Group</Text>
+      <Text variant="body" as="h2" color="color-text-subdued"
+        >Community Group</Text
+      >
       <ul class="u-list-reset">
         {
           menu.learn.map((link) => (
@@ -53,10 +66,15 @@ const url = new URL(Astro.request.url);
                 data-astro-prefetch
                 class="link"
                 href={link.path}
-                aria-label={isLinkAbsolute(link.path) ? `Link opens in a new window (${link.path})` : link.title}
+                aria-label={
+                  isLinkAbsolute(link.path)
+                    ? `Link opens in a new window (${link.path})`
+                    : link.title
+                }
                 target={isLinkAbsolute(link.path) ? '_blank' : undefined}
               >
-                <Fragment set:html={link.title} />{isLinkAbsolute(link.path) ? <Icon name='external' /> : null}
+                <Fragment set:html={link.title} />
+                {isLinkAbsolute(link.path) ? <Icon name="external" /> : null}
               </a>
             </li>
           ))
@@ -65,8 +83,8 @@ const url = new URL(Astro.request.url);
     </div>
 
     <div class="l-footer__subnav">
-      <Text variant='body' as='h2' color='color-text-subdued'>Social</Text>
-      <Stack axis='x' gap={3} as='ul' class="u-list-reset">
+      <Text variant="body" as="h2" color="color-text-subdued">Social</Text>
+      <Stack axis="x" gap={3} as="ul" class="u-list-reset">
         {
           menu.social.map((link) => (
             <li>
@@ -116,6 +134,8 @@ const url = new URL(Astro.request.url);
       justify-content: center;
       width: var(--icon-size);
       height: var(--icon-size);
+      padding: var(--base-space-2);
+      box-sizing: content-box;
 
       svg {
         block-size: 100%;
