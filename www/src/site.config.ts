@@ -35,6 +35,12 @@ export const menu = {
         'Design Tokens Community Group W3C Community Group page (opens in a new tab)',
     },
     {
+      path: 'https://www.linkedin.com/company/design-tokens-community-group',
+      title: 'DTCG on LinkedIn',
+      icon: 'linkedin',
+      label: 'Follow us on LinkedIn (opens in a new tab)',
+    },
+    {
       path: 'https://x.com/DesignTokens',
       title: 'DTCG on X',
       icon: 'x',
