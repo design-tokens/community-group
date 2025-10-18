@@ -60,3 +60,11 @@ This repo contains the following sub-directories that house different projects:
 | `meeting-notes/`     | Notes from past meetings.        |
 | `technical-reports/` | The design tokens specification. |
 | `www/`               | The designtokens.org code.       |
+
+### Spellcheck
+
+This project uses [cSpell](https://cspell.org/) for spell checking. The spellcheck is case-sensitive, so it will detect when words like Bézier or GitHub need proper capitalization.
+
+Words may be globally allowed or globally blocked by adding to the [cspell/](./cspell/) folder. See the [cSpell documentation on dictionaries](https://cspell.org/docs/dictionaries/) for more info.
+
+To override instances without adding to the list, either add a `// cSpell: disable` comment or `// cSpell:words [list of comma-separated words]` comment. See the [cSpell documentation on overrides]https://cspell.org/docs/Configuration/document-settings#words) for more info.
