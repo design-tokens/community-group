@@ -1,3 +1,4 @@
+// cSpell: words linkedin, bluesky
 export const menu = {
   header: [
     { path: '/technical-reports/', title: 'Technical Reports' },

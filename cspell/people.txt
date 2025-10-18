@@ -1,5 +1,6 @@
 Abhishek
 Adekunle
+Artur
 Aydın
 Bjørn
 Braithwaite
@@ -24,6 +25,7 @@ Namık
 Oduye
 Oppermann
 Sedwick
+Sopelnik
 Stromqvist
 Ström-Awn
 Thiebault

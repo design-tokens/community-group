@@ -23,7 +23,7 @@ ignorePaths:
   - '**/node_modules'
   - '**/package.json'
   - '**/tsconfig.json'
-  - www/public/TR/** # ignore published specs
+  - www/src/pages/TR/** # ignore published specs
 ignoreRegExpList:
   - <!--.*--> # ignore HTML comments
   - '@[A-Za-z0-9-_]+' # ignore social handles

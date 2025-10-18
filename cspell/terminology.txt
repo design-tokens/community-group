@@ -24,12 +24,16 @@ namespacing
 oklab
 oklch
 orcid
+pagefind
 prophoto-rgb
 respec
 secno
+shiki
 sotd
+subnav
 theming
 toch
 tocsidebar
 unbuilt
 wireframing
+workstreams
