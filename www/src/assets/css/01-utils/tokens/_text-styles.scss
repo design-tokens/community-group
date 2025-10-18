@@ -1,3 +1,5 @@
+// cSpell:words xlarge xxxxlarge
+
 @mixin text-heading1 {
   font-weight: 600;
   font-size: clamp(var(--font-size-xxxl), 2rem + 1vw, var(--font-size-xxxxl));

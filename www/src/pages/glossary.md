@@ -4,6 +4,8 @@ pageTitle: '<abbr title="Design Tokens Community Group">DTCG</abbr> Glossary'
 layout: ../layouts/Markdown.astro
 ---
 
+<!-- cSpell:words gradial -->
+
 This glossary contains high-level definitions, leaving out technical details on purpose. Part of the DTCG's mission is to write those technical definitions in the form of specifications.
 
 ## Design token

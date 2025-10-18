@@ -40,7 +40,7 @@ Provide a stable foundation that users and tool makers can put in place and depe
 
 ## Who sits on the DTCG
 
-The community group is composed of UX professionals, developers, and representants of design tooling vendors.
+The community group is composed of UX professionals, developers, and representatives of design tooling vendors.
 
 To achieve a v1 of the specification rapidly, its structure is restricted to a small, focused amount of people, organized in task forces.
 
