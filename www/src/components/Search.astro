@@ -1,118 +1,55 @@
 ---
-import Search from "astro-pagefind/components/Search";
+import { Icon } from 'astro-icon/components';
 ---
 
-<div class="wrapper">
-  <Search id="search" uiOptions={{ showImages: false }} />
-</div>
+<button
+  class="search-btn"
+  type="button"
+  aria-controls="search-dialog"
+  aria-expanded="false"
+>
+  <Icon name="search" aria-hidden />
+  Search
+  <kbd>/</kbd>
+</button>
 
 <style lang="scss">
-.wrapper {
-  --pagefind-ui-background: var(--color-bg);
-  --pagefind-ui-text: var(--color-text);
-  --pagefind-ui-border: var(--color-border);
-  --search-height: 2.25rem;
-  --search-width: min(40vw, 32rem);
-  --pagefind-ui-border-width: 1px;
+  .search-btn {
+    @include text-xs;
+    --border-color: var(--color-border);
 
-  background: var(--color-bg);
-  box-sizing: border-box;
-  color: var(--color-text);
-  height: 2.5rem;
-  left: calc(0.5 * (100vw - var(--search-width)));
-  max-width: var(--search-width);
-  padding-inline: var(--base-space-5);
-  position: absolute;
-  top: 0.75rem;
-  width: 100%;
-  z-index: 20;
-}
-</style>
+    align-items: center;
+    background: none;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    color: var(--color-text-subdued);
+    cursor: pointer;
+    display: inline-flex;
+    gap: var(--base-space-1);
+    height: var(--base-space-8);
+    justify-content: flex-start;
+    letter-spacing: 0;
+    padding: 0 var(--base-space-2);
+    transition: border-color 100ms linear;
+    white-space: nowrap;
 
+    &:hover {
+      --border-color: var(--color-border-strong);
+    }
 
-<style is:global lang="scss">
-#search .pagefind-ui__button {
-  color: var(--color-text);
-}
+    &:focus-visible {
+      --border-color: var(--color-action);
+    }
 
-#search .pagefind-ui__drawer {
-  background: var(--color-bg);
-  border-block-end: 1px solid var(--color-border);
-  border-end-end-radius: var(--base-space-3);
-  border-end-start-radius: var(--base-space-3);
-  border-inline: 1px solid var(--color-border);
-  box-sizing: border-box;
-  padding-inline: var(--base-space-4);
-  padding-block-end: var(--base-space-4);
-}
-
-#search .pagefind-ui__form {
-  &::before {
-    content: '';
-    top: 0.7rem;
+    kbd {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-family);
+      font-size: 75%;
+      display: inline-block;
+      line-height: 1;
+      padding: 0.25em 0.5em;
+      transition: border-color 100ms linear;
+    }
   }
-}
-
-#search .pagefind-ui__message {
-  font-size: var(--font-size-xs);
-  font-weight: 400;
-  opacity: 0.8;
-  padding-block-end: 0;
-  text-align: center;
-}
-
-#search .pagefind-ui__result {
-  padding-block: var(--base-space-4);
-
-  &:last-of-type {
-    border-block-end: 0;
-    padding-block-end: 0;
-  }
-}
-
-#search .pagefind-ui__result-excerpt {
-  font-size: var(--font-size-xs);
-  line-height: 1.25;
-}
-
-#search .pagefind-ui__result-inner {
-  margin-block-start: 0;
-}
-
-#search .pagefind-ui__result-link {
-  color: var(--color-action);
-}
-
-#search .pagefind-ui__result-title {
-  font-size: var(--font-size-md);
-}
-
-#search .pagefind-ui__results {
-  margin-block-start: var(--base-space-3);
-
-  &:empty {
-    margin-block-start: 0;
-  }
-}
-
-#search .pagefind-ui__results-area {
-  margin-block-start: 0;
-}
-
-#search .pagefind-ui__search-input {
-  color: var(--color-text);
-  font-size: var(--font-size-sm);
-  font-weight: 400;
-  height: var(--search-height);
-
-  &:focus-visible {
-    outline: 2px solid var(--color-action);
-    outline-offset: 1px;
-  }
-}
-
-#search .pagefind-ui__search-clear {
-  height: calc(var(--search-height) - 2px);
-  top: 1px;
-}
 </style>

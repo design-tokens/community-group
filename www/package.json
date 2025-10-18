@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "astro-pagefind": "^1.8.5",
+    "nanoid": "^5.1.6",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "remark-directive": "^4.0.0"

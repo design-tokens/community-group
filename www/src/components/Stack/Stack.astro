@@ -1,36 +1,42 @@
 ---
-import "./Stack.scss";
-import type { HTMLTag, Polymorphic } from "astro/types";
+import './Stack.scss';
+import type { HTMLTag, Polymorphic } from 'astro/types';
 
 type Props<Tag extends HTMLTag> = Polymorphic<{
   as: Tag;
-  axis?: "x" | "y";
-  align?: "start" | "center" | "end" | "baseline";
-  justify?: "space-between" | "center" | "start" | "end";
+  axis?: 'x' | 'y';
+  align?: 'start' | 'center' | 'end' | 'baseline';
+  justify?: 'space-between' | 'center' | 'start' | 'end';
+  wrap?: boolean;
   gap?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 12 | 14 | 15 | 16 | 18 | 20;
 }>;
 
 const {
-  as: Tag = "div",
-  axis = "y",
+  as: Tag = 'div',
+  axis = 'y',
   gap = 2,
-  align = "start",
+  align = 'start',
   justify,
+  wrap,
   style = {},
   ...attrs
 } = Astro.props;
 
 const mergedStyle = {
-  "--space": `var(--base-space-${gap})`,
-  "--align-items": align,
-  "--justify-content": justify,
-  ...(typeof style === "object" ? style : {}),
+  '--space': `var(--base-space-${gap})`,
+  '--align-items': align,
+  '--justify-content': justify,
+  ...(typeof style === 'object' ? style : {}),
 };
 ---
 
 <Tag
   {...attrs}
-  class:list={["a-stack", `${axis === "y" ? "a-stack--vertical" : ""}`]}
+  class:list={{
+    'a-stack': true,
+    'a-stack--vertical': axis === 'y',
+    'a-stack--wrap': wrap,
+  }}
   style={mergedStyle}
 >
   <slot />

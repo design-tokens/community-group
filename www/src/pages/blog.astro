@@ -4,12 +4,12 @@ import { posts } from '@/content/posts';
 import Base from '@/layouts/Base.astro';
 import Text from '@/components/Text/Text.astro';
 import Stack from '@/components/Stack/Stack.astro';
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
 
 const title = 'Blog';
 
 const sortedPosts = posts.sort(
-  (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+  (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
 );
 
 const formattedPosts = sortedPosts.map((post) => {
@@ -30,12 +30,13 @@ const formattedPosts = sortedPosts.map((post) => {
       formattedPosts.map((post) => (
         <li>
           <Stack as="article" gap={2} class="article">
-            <a
-              href={post.url}
-              aria-label={`Read ${post.title}`}
-              target="_blank"
-            >
-              {post.title}<Icon name='external' />
+            <a href={post.url} target="_blank">
+              {post.title}
+              <Icon
+                name="external"
+                aria-label="External link"
+                role="graphics-symbol img"
+              />
             </a>
             <Text as="p" variant="sm">
               <time datetime={post.w3FormattedDate}>{post.formattedDate}</time>

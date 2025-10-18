@@ -40,6 +40,10 @@ body {
   outline: 2px solid var(--color-action);
 }
 
+input:focus-visible {
+  outline: none;
+}
+
 a {
   color: var(--color-action);
   text-decoration: none;
@@ -86,6 +90,7 @@ main table {
   border-collapse: separate;
   border-spacing: 0;
   max-inline-size: 100%;
+  width: 100%;
 }
 
 main th {
@@ -203,12 +208,14 @@ main td {
 
 // Table of Contents
 .md-content {
+  $toc-breakpoint-m: 1050px;
+
   .toc {
     box-sizing: border-box;
     font-size: var(--font-size-xs);
     padding-block-start: var(--base-space-3);
 
-    @media (width >= 1000px) {
+    @media (width >= $toc-breakpoint-m) {
       position: fixed;
       top: var(--base-space-12);
       right: var(--base-space-4);
@@ -224,7 +231,7 @@ main td {
       margin: 0;
       padding: 0;
 
-      @media (width >= 1000px) {
+      @media (width >= $toc-breakpoint-m) {
         ol {
           li {
             overflow: hidden;
@@ -268,7 +275,7 @@ main td {
         color: var(--color-action);
         border-inline-start-color: var(--color-action);
 
-        @media (width >= 1000px) {
+        @media (width >= $toc-breakpoint-m) {
           ~ ol li {
             height: 1.25rem;
           }

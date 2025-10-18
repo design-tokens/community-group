@@ -1,220 +1,134 @@
 ---
-import { SITE_TITLE } from '@/consts';
+/**
+ * Desktop header + navigation
+ */
+import { GITHUB_URL, SITE_TITLE } from '@/consts';
 import { menu } from '@/site.config';
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
+import DTCGLink from '@/components/DTCGLink.astro';
+import SocialIcon from '@/components/SocialIcon.astro';
+import Search from '@/components/Search.astro';
+import ThemeSwitcher from '@/components/ThemeSwitcher.astro';
 import Text from '@/components/Text/Text.astro';
-import Search from "@/components/Search.astro";
-import { isLinkAbsolute } from "@/utils/string.utils";
+import { isLinkAbsolute } from '@/utils/string.utils';
 
 const url = new URL(Astro.request.url);
 ---
 
-<header class="l-header">
-  <a href="/" class="l-header__logo-link">
-    <Icon name="dtcg-logo" />
-    <span>{SITE_TITLE}</span>
-  </a>
-  <button
-    class='l-header__nav-toggle'
-    id='nav-toggle'
-    aria-controls='site-nav'
-    aria-expanded='false'
-  >
-    <Text class='u-visually-hidden' as='span'>Open navigation</Text>
-    <Icon name='align-justify' data-open-state='open' />
-    <Icon name='cross' data-open-state='close' class='u-display:none' />
-  </button>
-  <nav aria-label='Main' id='site-nav'>
-    <ul class="u-list-reset">
+<header class="header">
+  <DTCGLink />
+
+  <div class="search"><Search /></div>
+
+  <nav class="nav" aria-label="Main">
+    <ul class:list={['u-list-reset', 'nav-main']}>
       {
         menu.header.map((link) => (
           <li>
             <a
-              class="l-header__link"
-              aria-current={url.pathname === link.path ? 'page' : false}
+              class="link"
+              aria-current={url.pathname === link.path ? 'page' : undefined}
               data-astro-prefetch
               href={link.path}
               target={isLinkAbsolute(link.path) ? '_blank' : undefined}
+              title={link.icon && link.title}
             >
-              {link.title}
+              <span class="link-focus-ring">{link.title}</span>
             </a>
           </li>
         ))
       }
     </ul>
+    <ul class:list={['u-list-reset', 'nav-extra']}>
+      <li class="theme-switcher"><ThemeSwitcher /></li>
+      <li>
+        <SocialIcon
+          icon="github"
+          link={GITHUB_URL}
+          title="GitHub"
+          aria-hidden
+        />
+      </li>
+    </ul>
   </nav>
 </header>
 
-<Search />
-
 <style lang="scss">
-  .l-header {
+  .header {
     --header-height: var(--base-space-16);
 
-    position: relative;
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    min-block-size: 4rem;
-    gap: var(--base-space-4);
-    padding-inline: var(--page-padding-x);
     background-color: var(--color-bg);
     border-block-end: 1px solid var(--color-border);
-    text-wrap: balance;
-
-    nav {
-      @media screen and (width <= 865px) {
-        position: absolute;
-        top: var(--header-height);
-        left: 0;
-        flex-direction: column;
-        padding: var(--page-padding-x);
-        background-color: var(--color-bg);
-        inline-size: 100%;
-        block-size: 100dvh;
-        z-index: 10;
-
-        & {
-          transform: translateY(calc(-100% - var(--header-height)));
-        }
-
-        &.is-open,
-        &:focus-within {
-          transform: translateY(0);
-        }
-
-        a {
-          height: var(--button-height, var(--base-space-12));
-          width: 100%;
-        }
-
-        ul {
-          flex-direction: column;
-
-          li {
-            width: 100%;
-          }
-        }
-      }
-
-      @media screen and (width >= 866px) {
-        height: calc(var(--header-height) + 1px);
-        margin-block: -1px;
-        flex-direction: row;
-
-        ul,
-        li,
-        a {
-          block-size: 100%;
-        }
-
-        ul {
-          flex-direction: row;
-        }
-
-        a {
-          padding-inline: var(--base-space-3);
-        }
-      }
-
-      &,
-      ul,
-      li,
-      a {
-        display: flex;
-      }
-
-      a {
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-      }
-    }
-  }
-
-  .l-header__logo-link,
-  .l-header__nav-toggle {
-    flex-shrink: 0;
-  }
-
-  .l-header__logo-link {
     display: flex;
-    align-items: center;
-    height: 100%;
-    color: var(--color-text);
-    text-decoration: none;
-
-    svg {
-      --rotation-angle: 0turn;
-
-      transform: rotateZ(var(--rotation-angle));
-      transition: transform 350ms cubic-bezier(0.37, 0, 0.63, 1); // ease-in-out sine
-      width: 1.25rem;
-      height: auto;
-    }
-
-    &:hover {
-      text-decoration: none;
-    }
-
-    &:hover,
-    &:focus-visible {
-      svg {
-        --rotation-angle: 0.5turn;
-      }
-    }
-
-    @media screen and (width <= 350px) {
-      gap: var(--base-space-2);
-      @include text-xs;
-    }
-
-    @media screen and (350px <= width) {
-      gap: var(--base-space-4);
-      @include text-sm;
-      font-weight: 600;
-    }
+    gap: var(--base-space-4);
+    justify-content: space-between;
+    min-block-size: 4rem;
+    padding-inline: var(--page-padding-x);
+    position: relative;
+    z-index: var(--layer-nav);
   }
 
-  .l-header__nav-toggle {
+  .nav {
+    background-color: var(--color-bg);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    block-size: var(--base-space-12);
-    inline-size: var(--base-space-12);
-    margin-right: calc(var(--base-space-4) * -1);
+    flex-direction: row;
+    height: calc(var(--header-height) + 1px);
     padding: 0;
-    background-color: transparent;
-    border: none;
+  }
 
-    svg {
-      block-size: var(--base-space-5);
-      inline-size: var(--base-space-5);
+  .nav-main {
+    display: flex;
+    height: 100%;
+
+    li {
+      display: flex;
+      height: 100%;
     }
 
-    &:is(button):focus-visible {
-      box-shadow: var(--focus-ring);
-    }
-
-    @media screen and (width >= 866px) {
-      display: none;
+    .link {
+      margin-block-end: -1px; // align border with nav
+      padding-inline: var(--base-space-2);
     }
   }
 
-  .l-header__link {
+  .nav-extra {
+    align-items: center;
+    display: flex;
+    height: auto;
+
+    li {
+      border-inline-start: 1px solid var(--color-border);
+      padding-inline: var(--base-space-2);
+
+      &:last-of-type {
+        padding-inline-end: 0;
+      }
+
+      &.theme-switcher {
+        padding-inline: var(--base-space-4);
+      }
+    }
+  }
+
+  .link {
+    @include text-sm;
+
     --bg-color: var(--color-bg);
     --border-color: var(--color-border);
 
-    display: flex;
     align-items: center;
-    padding-inline: var(--base-space-4);
-    border-block-end: 1px solid var(--border-color);
-    color: var(--color-text);
-    @include text-sm;
-    text-decoration: none;
     background-color: var(--bg-color);
+    border-block-end: 1px solid var(--border-color);
+    box-sizing: border-box;
+    color: var(--color-text);
+    display: flex;
+    outline: none;
+    padding-inline: var(--base-space-1);
+    text-decoration: none;
+    white-space: nowrap;
 
-    &[aria-current="page"] {
+    &[aria-current='page'] {
       color: var(--color-text);
       --border-color: var(--color-action);
     }
@@ -224,31 +138,18 @@ const url = new URL(Astro.request.url);
       --bg-color: var(--color-bg-alt);
       --border-color: var(--color-action-subdued);
     }
+
+    &:focus-visible {
+      .link-focus-ring {
+        outline: 2px solid var(--color-action);
+      }
+    }
+  }
+
+  .link-focus-ring {
+    border-radius: var(--radius-md);
+    display: inline-block;
+    padding-inline: var(--base-space-1);
+    padding-block: 0.125em;
   }
 </style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const navToggle = document.querySelector("#nav-toggle");
-    const navToggleOpenIcon = navToggle?.querySelector('[data-open-state="open"]');
-    const navToggleCloseIcon = navToggle?.querySelector('[data-open-state="close"]');
-    const navToggleText = document.querySelector("#nav-toggle > span");
-    const mainNav = document.querySelector("#site-nav");
-
-    navToggle?.addEventListener("click", () => {
-      const isExpanded = navToggle?.getAttribute("aria-expanded");
-      if (isExpanded === "false") {
-        navToggle.setAttribute("aria-expanded", "true");
-        navToggleText!.textContent = "Close navigation";
-        navToggleOpenIcon?.classList.add("u-display:none");
-        navToggleCloseIcon?.classList.remove("u-display:none");
-      } else {
-        navToggle.setAttribute("aria-expanded", "false");
-        navToggleText!.textContent = "Open navigation";
-        navToggleOpenIcon?.classList.remove("u-display:none");
-        navToggleCloseIcon?.classList.add("u-display:none");
-      }
-      mainNav?.classList.toggle("is-open");
-    });
-  });
-</script>

@@ -1,0 +1,102 @@
+---
+import { Icon } from 'astro-icon/components';
+import { SITE_TITLE } from '@/consts';
+
+export interface Props extends HTMLAttributes<'a'> {}
+
+const { class: className, ...props } = Astro.props;
+---
+
+<a href="/" {...props} class:list={['dtcg-logo', className]}>
+  <Icon name="dtcg-logo" />
+  <span class="name">
+    {
+      SITE_TITLE.split('').map((c) => {
+        if (/^[A-Z]/.test(c)) {
+          return <span class="capital">{c}</span>;
+        }
+        if (/^[a-z]/.test(c)) {
+          return <span class="lowercase">{c}</span>;
+        }
+        return <span class="symbol">{c}</span>; // spaces and other punctuation MUST be preserved!
+      })
+    }
+  </span>
+</a>
+
+<style lang="scss">
+  .dtcg-logo {
+    @include text-sm;
+
+    align-items: center;
+    color: var(--color-text);
+    display: flex;
+    font-weight: 600;
+    height: var(--header-height);
+    interpolate-size: allow-keywords;
+    min-width: max-content;
+    outline: none;
+    text-decoration: none;
+
+    svg {
+      --rotation-angle: 0turn;
+
+      transform: rotateZ(var(--rotation-angle));
+      transition: transform 350ms cubic-bezier(0.37, 0, 0.63, 1); // ease-in-out sine
+      margin-right: var(--base-space-2);
+      width: 1.25rem;
+      height: auto;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      svg {
+        --rotation-angle: 0.5turn;
+      }
+    }
+
+    &:focus-visible .name {
+      outline: 2px solid var(--color-action);
+    }
+  }
+
+  .name {
+    border-radius: var(--radius-sm);
+    display: block;
+    height: 1.125em; // Inter metrics
+    padding-top: 0.025em; // Inter metrics
+    padding-inline: var(--base-space-1);
+    line-height: 1;
+  }
+
+  .capital,
+  .lowercase,
+  .symbol {
+    display: inline-block;
+    height: 100%;
+    flex-shrink: 0;
+    vertical-align: top;
+  }
+
+  .symbol {
+    @media (width >= 1000px) {
+      min-width: 0.5ch;
+    }
+  }
+
+  .symbol,
+  .lowercase {
+    overflow: hidden;
+    transition: width 100ms cubic-bezier(0.33, 1, 0.68, 1);
+    width: 0;
+    will-change: width;
+
+    @media (width >= 1000px) {
+      width: auto;
+    }
+  }
+</style>

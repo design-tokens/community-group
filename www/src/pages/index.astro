@@ -15,14 +15,20 @@ const title = SITE_TITLE;
       Scale design decisions across teams and products.
     </h1>
     <p class="hero-subheading">
-      The DTCG JSON format unlocks interoperability and theming between your tools.
+      The DTCG JSON format unlocks interoperability and theming between your
+      tools.
     </p>
 
     <div class="cta-buttons">
       <a href="/technical-reports/" class="btn btn--primary">
         View the specification
       </a>
-      <a href="https://github.com/design-tokens" class="btn background-weak" target="_blank" aria-label="Join the community (opens in new tab)">
+      <a
+        href="https://github.com/design-tokens"
+        class="btn background-weak"
+        target="_blank"
+        aria-label="Join the community (opens in new tab)"
+      >
         Join the community
       </a>
     </div>
@@ -30,62 +36,125 @@ const title = SITE_TITLE;
 
   <section class="content-section">
     <p>
-      The Design Tokens W3C Community Group (DTCG) is a community of designers, developers, and tooling vendors standardizing how design tokens are defined and exchanged. We steward the Design Tokens specification so teams can share visual language reliably across design tools, codebases, and platforms.
+      The Design Tokens W3C Community Group (DTCG) is a community of designers,
+      developers, and tooling vendors standardizing how design tokens are
+      defined and exchanged. We steward the Design Tokens specification so teams
+      can share visual language reliably across design tools, codebases, and
+      platforms.
     </p>
 
     <p>
-      By collaborating in the open, we collect real-world use cases, document best practices, and publish technical reports that help an ecosystem of tools stay interoperable.
+      By collaborating in the open, we collect real-world use cases, document
+      best practices, and publish technical reports that help an ecosystem of
+      tools stay interoperable.
     </p>
   </section>
 
   <section class="logos-section">
     <h2 class="logos-title">Trusted by leading design tools</h2>
-    <p class="logos-description">Organizations building design tools and open-source projects are already shipping DTCG-compatible tokens. Here are some of the adopters and participants helping prove out the spec:</p>
+    <p class="logos-description">
+      Organizations building design tools and open-source projects are already
+      shipping DTCG-compatible tokens. Here are some of the adopters and
+      participants helping prove out the spec:
+    </p>
     <ul class="logos-list">
-      <li><a href="https://www.abstract.com" target="_blank" aria-label="Abstract (opens in new tab)">Abstract</a></li>
-      <li><a href="https://www.adobe.com" target="_blank" aria-label="Adobe (opens in new tab)">Adobe</a></li>
-      <li><a href="https://www.github.com/projectwallace/css-design-tokens/" target="_blank" aria-label="Project Wallace (opens in new tab)">Project Wallace</a></li>
-      <li><a href="https://www.animaapp.github.io/design-token-validator-site/" target="_blank" aria-label="Design Token Validator (Anima) (opens in new tab)">Design Token Validator (Anima)</a></li>
-      <li><a href="https://www.designtoken-validator.sotec-solutions.com/" target="_blank" aria-label="Design Token Validator (Artur Sopelnik) (opens in new tab)">Design Token Validator (Artur Sopelnik)</a></li>
-      <li><a href="https://www.github.com/bennypowers/design-tokens-language-server" target="_blank" aria-label="Design Tokens Language Server (opens in new tab)">Design Tokens Language Server</a></li>
-      <li><a href="https://www.figma.com" target="_blank" aria-label="Figma (opens in new tab)">Figma</a></li>
-      <li><a href="https://www.framer.com" target="_blank" aria-label="Framer (opens in new tab)">Framer</a></li>
-      <li><a href="https://www.knapsack.cloud" target="_blank" aria-label="Knapsack (opens in new tab)">Knapsack</a></li>
-      <li><a href="https://www.marvelapp.com" target="_blank" aria-label="Marvel (opens in new tab)">Marvel</a></li>
-      <li><a href="https://www.penpot.app/" target="_blank" aria-label="Penpot (opens in new tab)">Penpot</a></li>
-      <li><a href="https://www.sketch.com/" target="_blank" aria-label="Sketch (opens in new tab)">Sketch</a></li>
-      <li><a href="https://www.styledictionary.com/" target="_blank" aria-label="Style Dictionary (opens in new tab)">Style Dictionary</a></li>
-      <li><a href="https://www.superposition.design" target="_blank" aria-label="Superposition (opens in new tab)">Superposition</a></li>
-      <li><a href="https://www.supernova.io" target="_blank" aria-label="Supernova (opens in new tab)">Supernova</a></li>
-      <li><a href="https://www.terrazzo.app/" target="_blank" aria-label="Terrazzo (opens in new tab)">Terrazzo</a></li>
-      <li><a href="https://www.toolabs.com" target="_blank" aria-label="Toolabs (opens in new tab)">Toolabs</a></li>
-      <li><a href="https://www.figma.com/community/plugin/1254538877056388290" target="_blank" aria-label="TokensBrücke (opens in new tab)">TokensBrücke</a></li>
-      <li><a href="https://www.tokens.studio" target="_blank" aria-label="Tokens Studio (opens in new tab)">Tokens Studio</a></li>
-      <li><a href="https://www.github.com/universal-design-tokens/udt" target="_blank" aria-label="Universal Design Tokens (opens in new tab)">Universal Design Tokens</a></li>
-      <li><a href="https://www.zeplin.io" target="_blank" aria-label="Zeplin (opens in new tab)">Zeplin</a></li>
-      <li><a href="https://www.zeroheight.com" target="_blank" aria-label="zeroheight (opens in new tab)">zeroheight</a></li>
+      {
+        [
+          { name: 'Abstract', link: 'https://abstract.com' },
+          { name: 'Adobe', link: 'https://adobe.com' },
+          {
+            name: 'Project Wallace',
+            link: 'https://www.github.com/projectwallace/css-design-tokens/',
+          },
+          {
+            name: 'Design Token Validator (Anima)',
+            link: 'https://www.animaapp.github.io/design-token-validator-site/',
+          },
+          {
+            name: 'Design Tokens Language Server',
+            link: 'https://www.github.com/bennypowers/design-tokens-language-server',
+          },
+          { name: 'Figma', link: 'https://www.figma.com' },
+          { name: 'Framer', link: 'https://www.framer.com' },
+          { name: 'Knapsack', link: 'https://www.knapsack.cloud' },
+          { name: 'Marvel', link: 'https://www.marvelapp.com' },
+          { name: 'Penpot', link: 'https://www.penpot.com' },
+          { name: 'Sketch', link: 'https://www.sketch.com' },
+          { name: 'Style Dictionary', link: 'https://www.styledictionary.com' },
+          { name: 'Superposition', link: 'https://www.superposition.design' },
+          { name: 'Supernova', link: 'https://www.supernova.ion' },
+          { name: 'Terrazzo', link: 'https://www.terrazzo.app' },
+          { name: 'Toolabs', link: 'https://www.toolabs.com' },
+          {
+            name: 'TokensBrücke',
+            link: 'https://www.figma.com/community/plugin/1254538877056388290',
+          },
+          { name: 'Tokens Studio', link: 'https://www.tokens.studio' },
+          {
+            name: 'Universal Design Tokens',
+            link: 'https://www.github.com/universal-design-tokens/udt',
+          },
+          { name: 'Zeplin', link: 'https://www.zeplin.io' },
+          { name: 'zeroheight', link: 'https://www.zeroheight.com' },
+        ].map(({ link, name }) => (
+          <li>
+            <a href={link} target="_blank">
+              {name}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </section>
 
   <section class="content-section">
     <h2>What we do</h2>
 
-    <p>The DTCG focuses on the foundational pieces teams need to scale design tokens:</p>
+    <p>
+      The DTCG focuses on the foundational pieces teams need to scale design
+      tokens:
+    </p>
 
     <ul>
-      <li>Publish and maintain vendor-agnostic specification modules, including the living draft available on <a href="https://www.designtokens.org/TR/drafts/" target="_blank" aria-label="Draft specifications (opens in new tab)">designtokens.org/TR/drafts<Icon name='external' /></a>.</li>
-      <li>Facilitate workstreams, community calls, and issue <a href="https://github.com/design-tokens/community-group/issues" target="_blank" aria-label="Design Tokens Community Group GitHub Discussions (opens in new tab)">discussions on GitHub<Icon name='external' /></a> so implementers can shape the spec with evidence from production use.</li>
-      <li>Provide guidance: glossary, examples, and technical reports—that helps teams adopt the specification confidently.</li>
+      <li>
+        Publish and maintain vendor-agnostic specification modules, including
+        the living draft available on <a
+          href="https://www.designtokens.org/TR/drafts/"
+          target="_blank"
+          aria-label="Draft specifications (opens in new tab)"
+          >designtokens.org/TR/drafts<Icon name="external" /></a
+        >.
+      </li>
+      <li>
+        Facilitate workstreams, community calls, and issue <a
+          href="https://github.com/design-tokens/community-group/issues"
+          target="_blank"
+          aria-label="Design Tokens Community Group GitHub Discussions (opens in new tab)"
+          >discussions on GitHub<Icon name="external" /></a
+        > so implementers can shape the spec with evidence from production use.
+      </li>
+      <li>
+        Provide guidance: glossary, examples, and technical reports—that helps
+        teams adopt the specification confidently.
+      </li>
     </ul>
 
     <h2>Who builds the specification</h2>
 
     <p>
-      The specification is developed by volunteer chairs, editors, and contributors representing design system teams, tooling vendors, and independent experts. Together they triage issues, draft proposals, and align on changes that keep the standard focused and practical.
+      The specification is developed by volunteer chairs, editors, and
+      contributors representing design system teams, tooling vendors, and
+      independent experts. Together they triage issues, draft proposals, and
+      align on changes that keep the standard focused and practical.
     </p>
 
-    <a href="https://www.w3.org/community/design-tokens/participants" class="cta-link" target="_blank" aria-label="View full list of participants (opens in new tab)">
-      View full list of participants<Icon name='external' />
+    <a
+      href="https://www.w3.org/community/design-tokens/participants"
+      class="cta-link"
+      target="_blank"
+      aria-label="View full list of participants (opens in new tab)"
+    >
+      View full list of participants<Icon name="external" />
     </a>
   </section>
 </Base>
@@ -174,7 +243,7 @@ const title = SITE_TITLE;
       }
     }
 
-background-weak {
+    background-weak {
       background-color: transparent;
       color: var(--color-text);
       border-color: var(--color-border);
@@ -223,11 +292,6 @@ background-weak {
 
         a {
           color: var(--color-action);
-          // text-decoration: none;
-
-          // &:hover {
-          //   text-decoration: underline;
-          // }
         }
       }
     }

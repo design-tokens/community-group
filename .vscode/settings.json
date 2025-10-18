@@ -4,7 +4,9 @@
   "editor.formatOnPaste": true,
   "search.useIgnoreFiles": true,
   "files.exclude": {
-    "www/_site": true,
     "**/node_modules": true
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
   }
 }

@@ -4,8 +4,6 @@ pageTitle: About
 layout: ../layouts/Markdown.astro
 ---
 
-### ⚠️ Under construction – new site and v1 of the specification coming soon.
-
 ## Principles
 
 ### 1. Inclusive

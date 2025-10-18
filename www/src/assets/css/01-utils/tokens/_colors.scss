@@ -290,24 +290,44 @@
 }
 
 // v2 semantic colors
-:root {
-  --color-bg: var(--color-neutral-100);
-  --color-bg-alt: var(--color-neutral-50);
+@mixin theme-light {
+  --color-action-subdued: var(--color-blue-400);
+  --color-action: var(--color-blue-600);
+  --color-bg: var(--color-neutral-50);
+  --color-bg-alt: var(--color-neutral-100);
+  --color-border: var(--color-neutral-300);
+  --color-border-strong: var(--color-neutral-400);
   --color-text: var(--color-neutral-800);
   --color-text-subdued: var(--color-gray-500);
-  --color-action: var(--color-blue-600);
+}
+
+@mixin theme-dark {
+  --color-action: var(--color-blue-500);
   --color-action-subdued: var(--color-blue-400);
-  --color-border: var(--color-neutral-300);
+  --color-bg: var(--color-neutral-950);
+  --color-bg-alt: var(--color-neutral-900);
+  --color-border: var(--color-neutral-800);
+  --color-border-strong: var(--color-neutral-700);
+  --color-text: var(--color-neutral-200);
+  --color-text-subdued: var(--color-neutral-400);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    @include theme-light;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: var(--color-neutral-950);
-    --color-bg-alt: var(--color-neutral-900);
-    --color-border: var(--color-neutral-800);
-    --color-text: var(--color-neutral-200);
-    --color-text-subdued: var(--color-neutral-400);
-    --color-action: var(--color-blue-500);
-    --color-action-subdued: var(--color-blue-400);
+  :root:not([data-theme]) {
+    @include theme-dark;
   }
+}
+
+:root:is([data-theme="light"]) {
+  @include theme-light;
+}
+
+:root:is([data-theme="dark"]) {
+  @include theme-dark;
 }

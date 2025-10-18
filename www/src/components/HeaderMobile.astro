@@ -1,0 +1,201 @@
+---
+/**
+ * Mobile header and navigation. Split out from Header because the markup
+ * structure differs greatly in a way that’s arduous or brittle to manage with
+ * CSS alone.
+ */
+import { Icon } from 'astro-icon/components';
+import SocialIcon from '@/components/SocialIcon.astro';
+import Search from '@/components/Search.astro';
+import ThemeSwitcher from '@/components/ThemeSwitcher.astro';
+import Text from '@/components/Text/Text.astro';
+import { isLinkAbsolute } from '@/utils/string.utils';
+import DTCGLink from '@/components/DTCGLink.astro';
+import { GITHUB_URL, SITE_TITLE } from '@/consts';
+import { menu } from '@/site.config';
+
+const url = new URL(Astro.request.url);
+---
+
+<header class="header">
+  <DTCGLink class="dtcg-link" />
+
+  <button
+    class="nav-toggle"
+    id="nav-toggle"
+    aria-controls="site-nav"
+    aria-expanded="false"
+  >
+    <Icon
+      class="nav-toggle-open"
+      name="align-justify"
+      aria-label="Open navigation"
+      role="graphics-symbol img"
+    />
+    <Icon
+      class="nav-toggle-close"
+      name="cross"
+      aria-label="Close navigation"
+      role="graphics-symbol img"
+    />
+  </button>
+
+  <div id="site-nav" class="mobile-menu">
+    <nav class="nav" aria-label="Main">
+      <ul class:list={['u-list-reset', 'nav-main']}>
+        {
+          menu.header.map((link) => (
+            <li>
+              <a
+                class="link"
+                aria-current={url.pathname === link.path ? 'page' : undefined}
+                data-astro-prefetch
+                href={link.path}
+                target={isLinkAbsolute(link.path) ? '_blank' : undefined}
+                title={link.icon && link.title}
+              >
+                <span class="link-focus-ring">{link.title}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <ul class:list={['u-list-reset', 'nav-extra']}>
+        <li class="theme-switcher"><ThemeSwitcher /></li>
+        <li>
+          <SocialIcon
+            icon="github"
+            link={GITHUB_URL}
+            title="GitHub"
+            aria-hidden
+          />
+        </li>
+      </ul>
+    </nav>
+
+    <div class="search"><Search /></div>
+  </div>
+</header>
+
+<script>
+  function toggleNav(evt) {
+    const btn = evt.currentTarget;
+    const isExpanded = btn.getAttribute('aria-expanded');
+    btn.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+    document.getElementById('site-nav').classList.toggle('is-open');
+  }
+
+  document.getElementById('nav-toggle').addEventListener('click', toggleNav);
+</script>
+
+<style lang="scss">
+  .header {
+    --padding: var(
+      --base-space-4
+    ); // the mobile nav repeatedly uses the same padding measure
+    --header-height: 3rem;
+
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    height: var(--header-height);
+    justify-content: space-between;
+    position: relative;
+    z-index: var(--layer-nav);
+  }
+
+  .dtcg-link {
+    padding: var(--padding);
+    width: 50%;
+  }
+
+  .nav-toggle {
+    align-items: center;
+    background-color: transparent;
+    block-size: var(--base-space-12);
+    border: none;
+    color: inherit;
+    display: flex;
+    flex-shrink: 0;
+    inline-size: var(--base-space-12);
+    justify-content: center;
+    padding: 0;
+
+    svg {
+      block-size: var(--base-space-5);
+      inline-size: var(--base-space-5);
+    }
+
+    &:is(button):focus-visible {
+      box-shadow: var(--focus-ring);
+    }
+
+    &[aria-expanded='false'] {
+      :global(.nav-toggle-open) {
+        display: block;
+      }
+      :global(.nav-toggle-close) {
+        display: none;
+      }
+    }
+
+    &[aria-expanded='true'] {
+      :global(.nav-toggle-open) {
+        display: none;
+      }
+      :global(.nav-toggle-close) {
+        display: block;
+      }
+    }
+  }
+
+  .link {
+    @include text-body;
+
+    color: var(--color-text);
+    display: block;
+    padding-inline: var(--padding);
+    padding-block: var(--base-space-1);
+  }
+
+  .mobile-menu {
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    display: none;
+    height: calc(100vh - var(--header-height));
+    left: 0;
+    padding-block: var(--padding);
+    position: absolute;
+    top: var(--header-height);
+    width: 100%;
+
+    &.is-open {
+      display: block;
+    }
+  }
+
+  .nav-extra {
+    align-items: center;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    gap: var(--base-space-4);
+    margin-block-start: var(--padding);
+    margin-inline: var(--padding);
+    padding-block: var(--padding);
+    padding-inline: 0;
+  }
+
+  .theme-switcher {
+    border-right: 1px solid var(--color-border);
+    padding-right: var(--padding);
+    width: 10rem;
+  }
+
+  .search {
+    padding-inline: var(--padding);
+
+    :global(button) {
+      width: 100%;
+    }
+  }
+</style>

@@ -12,6 +12,7 @@ Kaspersky
 Liferay
 Lona
 Penpot
+!PenPot
 Pinterest
 TELUS
 Theo

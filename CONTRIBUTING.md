@@ -35,8 +35,10 @@ This repo requires [Node.js](https://nodejs.org/en) (if you need to manage multi
 ```sh
 pnpm i
 pnpm run install-browsers
-pnpm run build
+pnpm run dev
 ```
+
+The local site will be available at [localhost:4321](http://localhost:4321).
 
 ### Commands
 
