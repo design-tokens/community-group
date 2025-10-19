@@ -2,6 +2,7 @@
   "recommendations": [
     "esbenp.prettier-vscode",
     "editorconfig.editorconfig",
-    "huntertran.auto-markdown-toc"
+    "huntertran.auto-markdown-toc",
+    "astro-build.astro-vscode"
   ]
 }

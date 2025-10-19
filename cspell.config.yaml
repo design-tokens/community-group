@@ -16,14 +16,18 @@ dictionaryDefinitions:
     path: cspell/people.txt
   - name: terminology
     path: cspell/terminology.txt
+  - name: inclusive_language
+    path: cspell/inclusive_language.txt
 ignorePaths:
   - 'cspell/**'
   - pnpm-lock.yaml
+  - '**/*.css'
+  - '**/*.scss'
   - '**/dist'
   - '**/node_modules'
   - '**/package.json'
   - '**/tsconfig.json'
-  - www/public/TR/** # ignore published specs
+  - www/src/pages/TR/** # ignore published specs
 ignoreRegExpList:
   - <!--.*--> # ignore HTML comments
   - '@[A-Za-z0-9-_]+' # ignore social handles

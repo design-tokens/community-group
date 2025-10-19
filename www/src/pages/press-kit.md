@@ -1,7 +1,7 @@
 ---
 title: Press kit
 pageTitle: 'Press kit'
-layout: ../layouts/Layout.astro
+layout: ../layouts/Markdown.astro
 ---
 
 Guidelines and assets to help the public talk about the Design Tokens Community Group. The press kit allows anyone such as speakers, bloggers, YouTubers, and newsletter authors to share our work.
@@ -33,6 +33,7 @@ Note: the DTCG is **not** a W3C Working Group. The technical reports published b
 - [GitHub design-tokens/community-group](https://github.com/design-tokens/community-group): Official GitHub DTCG repository for the design tokens specifications
 - [w3.org/community/design-tokens](https://www.w3.org/community/design-tokens/): Official W3C home of the DTCG for announcements, reports, and contributors
 - [X: @DesignTokens](https://x.com/DesignTokens): Official X account for DTCG social media communications
+- [LinkedIn](https://www.linkedin.com/company/design-tokens-community-group)
 - [Bluesky: @designtokens.org](https://bsky.app/profile/designtokens.org): Official Bluesky account for DTCG social media communications
 - [LinkedIn](https://www.linkedin.com/company/design-tokens-community-group/): Official LinkedIn account for DTCG social media communications
 - [Open Collective](https://opencollective.com/design-tokens): Where people and companies can donate to the DTCG
@@ -56,7 +57,7 @@ Note: the DTCG is **not** a W3C Working Group. The technical reports published b
 - Garth Braithwaite, Design System Engineer @ Adobe
 - [James Nash](https://cirrus.twiddles.com/), Design Systems Aficionado
 - Johan Stromqvist, Motion Design Specialist @ Shopify Polaris
-- [Kathleen McMahon](https://twitter.com/resource11), Senior Design Engineer @ LaunchDarkly
+- [Kathleen McMahon](https://twitter.com/resource11), Design Engineer @ EA
 - [Kevin Powell](https://twitter.com/kevinmpowell), Principal Front-End Developer @ EightShapes
 - [Louis Chenais](https://bsky.app/profile/lucho.cool), Frontend Developer @ Frontguys
 - [Matt Felten](https://twitter.com/mattfelten), Senior Manager, Design Systems @ ServiceTitan

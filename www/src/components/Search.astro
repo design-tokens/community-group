@@ -1,0 +1,56 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<button
+  class="search-btn"
+  type="button"
+  aria-controls="search-dialog"
+  aria-expanded="false"
+>
+  <Icon name="search" aria-hidden />
+  Search
+  <kbd>/</kbd>
+</button>
+
+<style lang="scss">
+  .search-btn {
+    @include text-xs;
+    --border-color: var(--color-border);
+
+    align-items: center;
+    background: none;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    color: var(--color-text-subdued);
+    cursor: pointer;
+    display: inline-flex;
+    gap: var(--base-space-2);
+    height: var(--base-space-8);
+    justify-content: flex-start;
+    letter-spacing: 0;
+    padding: 0 var(--base-space-2);
+    transition: border-color 100ms linear;
+    white-space: nowrap;
+
+    &:hover {
+      --border-color: var(--color-border-strong);
+    }
+
+    &:focus-visible {
+      --border-color: var(--color-action);
+    }
+
+    kbd {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-family);
+      font-size: 75%;
+      display: inline-block;
+      line-height: 1;
+      margin-inline-start: var(--base-space-1);
+      padding: 0.25em 0.5em;
+      transition: border-color 100ms linear;
+    }
+  }
+</style>

@@ -1,0 +1,6 @@
+// spacing apart by 10 allows for other components to slot in between layers
+:root {
+  --layer-toc: 10;
+  --layer-nav: 20;
+  --layer-modal: 50;
+}

@@ -1,0 +1,68 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export interface Props extends HTMLAttributes<'svg'> {
+  link?: string;
+  icon: string;
+  title: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { link, icon, title, size = 'md', ...props } = Astro.props;
+---
+
+{
+  link ? (
+    <a
+      class:list={{
+        'social-link': true,
+        'social-link--sm': size === 'sm',
+        'social-link--md': size === 'md',
+        'social-link--lg': size === 'lg',
+      }}
+      href={link}
+      target="_blank"
+      title={title}
+    >
+      <Icon aria-hidden {...props} name={icon} />
+    </a>
+  ) : (
+    <Icon aria-hidden {...props} name={icon} />
+  )
+}
+
+<style lang="scss">
+  .social-link {
+    align-items: center;
+    border-radius: var(--radius-xxl); // :focus-visible ring
+    box-sizing: border-box;
+    color: var(--color-text);
+    display: flex;
+    height: calc(var(--base-space-4) + var(--icon-size));
+    justify-content: center;
+    opacity: 0.6;
+    width: calc(var(--base-space-4) + var(--icon-size));
+
+    > svg {
+      width: var(--icon-size);
+      height: var(--icon-size);
+    }
+
+    &:hover,
+    &:focus-visible {
+      opacity: 1;
+    }
+  }
+
+  .social-link--sm {
+    --icon-size: var(--base-space-3);
+  }
+
+  .social-link--md {
+    --icon-size: var(--base-space-4);
+  }
+
+  .social-link--lg {
+    --icon-size: var(--base-space-5);
+  }
+</style>

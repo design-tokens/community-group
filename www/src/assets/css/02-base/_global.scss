@@ -1,24 +1,25 @@
 @use "../01-utils/tokens" as *;
 
+:root {
+  --focus-ring: 0px 0px 0px 3px var(--color-neutral-100);
+}
+
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   height: 100dvh;
   color-scheme: light dark;
+  scrollbar-gutter: stable;
 }
 
 body {
   display: flex;
   flex-direction: column;
   font-family: var(--font-family);
-  @include text-body-s;
-  background-color: light-dark(
-    var(--color-background),
-    var(--color-background-inverse)
-  );
-  color: light-dark(var(--color-foreground), var(--color-foreground-inverse));
-  height: 100%;
+  min-block-size: 100dvh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 ::selection {
@@ -35,60 +36,27 @@ body {
   color: var(--text-color);
 }
 
-:focus {
-  --outline-color: light-dark(
-    var(--color-background-strong-inverse),
-    var(--color-background-strong)
-  );
-  outline: var(--base-space-1) solid var(--outline-color);
+:focus-visible {
+  outline: 2px solid var(--color-action);
+}
+
+input:focus-visible {
+  outline: none;
 }
 
 a {
+  color: var(--color-action);
   text-decoration: none;
-  background: transparent;
-  cursor: pointer;
-  color: light-dark(
-    var(--color-foreground-primary-strong),
-    var(--color-foreground-primary-weak-inverse)
-  );
 
   &:hover,
-  &:focus {
-    color: light-dark(
-      var(--color-foreground-primary),
-      var(--color-foreground-primary-inverse)
-    );
-  }
-
-  &:hover {
+  &:focus-visible {
     text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-decoration-color: currentColor;
-    text-decoration-skip-ink: auto;
-    text-underline-offset: 2px;
-  }
-
-  &:active {
-    color: light-dark(
-      var(--color-foreground-primary-strong),
-      var(--color-foreground-primary-strong-inverse)
-    );
+    text-underline-offset: 4px;
   }
 }
 
 abbr {
   text-decoration: none;
-}
-
-p,
-ol,
-ul,
-dl,
-blockquote,
-figure,
-hr {
-  margin-inline-start: 0;
-  padding-inline-start: 0;
 }
 
 main,
@@ -98,86 +66,20 @@ svg {
   display: block;
 }
 
-iframe,
-img,
-svg {
-  height: auto;
-  vertical-align: middle;
-  max-width: 100%;
+a[href^="https"] {
+  svg:is([data-icon="external"]) {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1em;
+    height: 1em;
+    margin-left: 0.2em;
+    transform: translateY(-0.1em);
+  }
 }
 
 main {
   flex: 1;
-}
-
-nav {
-  ul {
-    max-width: 100%;
-    flex-wrap: wrap;
-  }
-
-  li {
-    display: inline-flex;
-    flex-shrink: 0;
-    flex-wrap: wrap;
-  }
-
-  a {
-    @include text-body-m;
-  }
-}
-
-section:not(.hero) {
-  padding: var(--base-space-12) var(--page-padding-x);
-}
-
-ul {
-  margin-block: 0;
-  margin-inline: 0;
-}
-
-main {
-  section {
-    & > :is(h1, h2, h3, h4, h5, h6, p, ul, ol) + * {
-      margin-block-start: var(--base-space-6);
-    }
-
-    & > * + :is(h1, h2, h3, h4, h5, h6) {
-      margin-block-start: var(--base-space-12);
-    }
-
-    & > :is(h1, h2, h3, h4, h5, h6, p) + :is(ul, ol) {
-      padding-inline-start: var(--base-space-8);
-    }
-
-    & > p {
-      max-width: 65ch;
-    }
-  }
-
-  h1 {
-    @include text-heading1;
-  }
-
-  h2 {
-    @include text-heading2;
-  }
-
-  h3 {
-    @include text-heading3;
-  }
-
-  h4 {
-    @include text-heading4;
-  }
-
-  h5 {
-    @include text-heading5;
-  }
-
-  h6 {
-    @include text-heading6;
-  }
+  padding: var(--base-space-8) var(--page-padding-x);
 }
 
 pre {
@@ -185,28 +87,60 @@ pre {
 }
 
 main table {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
+  max-inline-size: 100%;
+  width: 100%;
 }
 
 main th {
-  border-bottom: 1px solid
-    color-mix(
-      in oklch,
-      light-dark(var(--color-foreground), var(--color-foreground-inverse)),
-      transparent 75%
-    );
+  background-color: var(--color-bg-alt);
+  border-block-color: var(--color-border);
+  border-inline-color: transparent;
+  border-style: solid;
+  border-width: 1px;
   font-weight: 700;
+
+  &:first-of-type {
+    border-start-start-radius: var(--base-space-2);
+    border-inline-start-color: var(--color-border);
+  }
+
+  &:last-of-type {
+    border-start-end-radius: var(--base-space-2);
+    border-inline-end-color: var(--color-border);
+  }
 }
 
-main :is(th, td) {
-  padding: var(--base-space-2) var(--base-space-4);
+main td {
+  border-block-end-color: var(--color-border);
+  border-block-start-color: transparent;
+  border-inline-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  font-size: var(--font-size-sm);
+
+  &:first-of-type {
+    border-inline-start-color: var(--color-border);
+  }
+
+  &:last-of-type {
+    border-inline-end-color: var(--color-border);
+  }
 }
 
-main tr:nth-of-type(even) td {
-  background-color: light-dark(
-    var(--color-background-weak),
-    var(--color-background-weak-inverse)
-  );
+main tr:last-of-type {
+  td:first-of-type {
+    border-end-start-radius: var(--base-space-2);
+  }
+  td:last-of-type {
+    border-end-end-radius: var(--base-space-2);
+  }
+}
+
+main th,
+main td {
+  padding: var(--base-space-3) var(--base-space-4);
 }
 
 .link-button {
@@ -214,9 +148,148 @@ main tr:nth-of-type(even) td {
   padding-block: var(--base-space-3);
 }
 
+// md anchors
+.md-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6:has(a[tabindex="-1"]) {
+    position: relative;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a[tabindex="-1"] {
+      align-items: center;
+      display: flex;
+      height: 1em;
+      justify-content: center;
+      left: -2.5rem;
+      opacity: 0;
+      position: absolute;
+      text-decoration: none;
+      transition: opacity 100ms linear;
+      width: 2.5rem;
+
+      &::after {
+        content: "#";
+        font-size: var(--font-size-xl);
+      }
+
+      &:focus {
+        opacity: 1;
+      }
+    }
+
+    &:hover a[tabindex="-1"] {
+      opacity: 1;
+    }
+  }
+}
+
+// Code block
 .astro-code {
   background-color: var(--color-background-strong-inverse) !important;
-  padding-block: var(--base-space-4) !important;
-  font-family: monospace !important;
+  border-radius: var(--base-space-3);
   color: var(--color-foreground-inverse) !important;
+  font-family: var(--font-monospace);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  min-width: 65ch;
+  padding: var(--base-space-4) !important;
+  width: 100%;
+}
+
+// Table of Contents
+.md-content {
+  $toc-breakpoint-m: 1050px;
+
+  .toc {
+    box-sizing: border-box;
+    font-size: var(--font-size-xs);
+    padding-block-start: var(--base-space-3);
+
+    @media (width >= $toc-breakpoint-m) {
+      position: fixed;
+      top: var(--base-space-12);
+      right: var(--base-space-4);
+      width: 20rem;
+    }
+
+    h4#contents {
+      font-size: var(--font-size-md);
+      margin: 0 0 var(--base-space-3) 0;
+    }
+
+    ol {
+      margin: 0;
+      padding: 0;
+
+      @media (width >= $toc-breakpoint-m) {
+        ol {
+          li {
+            overflow: hidden;
+            height: 0;
+            transition: height 100ms cubic-bezier(0.33, 1, 0.68, 1);
+          }
+
+          &:has(a[aria-current]) li {
+            height: 1.25rem;
+          }
+        }
+      }
+    }
+
+    li {
+      list-style: none;
+      line-height: 1;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      border-inline-start: 1px solid var(--color-border);
+      color: var(--color-text-subdued);
+      display: block;
+      padding-block: var(--base-space-1);
+      padding-inline-end: var(--base-space-1);
+      padding-inline-start: var(--base-space-4);
+      overflow: hidden;
+      text-decoration: none;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+
+      &:hover {
+        border-inline-start-color: var(--color-action-subdued);
+        color: var(--color-action-subdued);
+      }
+
+      &[aria-current] {
+        color: var(--color-action);
+        border-inline-start-color: var(--color-action);
+
+        @media (width >= $toc-breakpoint-m) {
+          ~ ol li {
+            height: 1.25rem;
+          }
+        }
+      }
+    }
+
+    // hierarchy
+    > ol > li > a {
+      font-size: var(--font-size-sm);
+    }
+
+    > ol > li > ol > li > a {
+      font-size: var(--font-size-xs);
+    }
+  }
 }

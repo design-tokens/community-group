@@ -1,5 +1,6 @@
 Asana
 Bluesky
+Brücke
 Diez
 Divriots
 Dynatrace
@@ -11,6 +12,7 @@ Kaspersky
 Liferay
 Lona
 Penpot
+!PenPot
 Pinterest
 TELUS
 Theo

@@ -24,14 +24,14 @@
   @include text-heading6;
 }
 
-.text-body-m {
-  @include text-body-m;
+.text-body {
+  @include text-body;
 }
 
-.text-body-s {
-  @include text-body-s;
+.text-sm {
+  @include text-sm;
 }
 
-.text-small {
-  @include text-small;
+.text-xs {
+  @include text-xs;
 }

@@ -1,0 +1,110 @@
+---
+// cSpell:words nier, virtualboy, zengarden
+import { THEME_LS_KEY } from '@/consts';
+import { Icon } from 'astro-icon/components';
+import { nanoid } from 'nanoid';
+
+// This allows multiple instances of this component to coexist
+// TODO: migrate this to some JS framework
+const id = `theme-switcher-${nanoid(6)}`;
+---
+
+<div class="wrapper">
+  <label class="label" for={id}>Theme</label>
+  <select id={id} class="select" data-theme-switcher>
+    <optgroup label="Core">
+      <option value="auto">System</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </optgroup>
+    <optgroup label="Fun">
+      <option value="matrix">Matrix</option>
+      <option value="nier">NieR</option>
+      <option value="rebeccapurple">rebeccapurple</option>
+      <option value="sunset">Sunset</option>
+      <option value="virtualboy">VirtualBoy</option>
+      <option value="zengarden">Zen Garden</option>
+    </optgroup>
+  </select>
+  <Icon class="chevron" name="chevron-down" aria-hidden />
+</div>
+
+<script define:vars={{ THEME_LS_KEY }}>
+  function changeTheme(theme) {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.removeItem(THEME_LS_KEY);
+    } else {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem(THEME_LS_KEY, theme);
+    }
+  }
+
+  document.querySelectorAll('select[data-theme-switcher]').forEach((el) => {
+    el.addEventListener('change', (evt) => changeTheme(evt.target.value));
+  });
+
+  // init
+  if (localStorage.getItem(THEME_LS_KEY)) {
+    const theme = localStorage.getItem(THEME_LS_KEY);
+    changeTheme(theme);
+    document.querySelectorAll('select[data-theme-switcher]').forEach((el) => {
+      el.value = theme;
+    });
+  }
+</script>
+
+<style lang="scss">
+  .wrapper {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+    position: relative;
+  }
+
+  .label {
+    @include text-xs;
+    color: var(--color-text-subdued);
+    cursor: pointer;
+    padding-block-end: var(
+      --base-space-1
+    ); // padding on label, rather than gap, prevents dead space
+    user-select: none;
+    width: 100%;
+  }
+
+  .select {
+    @include text-xs;
+
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    color: inherit;
+    cursor: pointer;
+    font-family: var(--font-family);
+    min-width: 7rem;
+    padding: 0.125em 0.5em;
+
+    &:hover {
+      border-color: var(--color-border-strong);
+    }
+
+    option {
+      padding: initial;
+    }
+  }
+
+  .chevron {
+    bottom: 0.325rem;
+    color: var(--color-text-subdued);
+    height: 0.75rem;
+    pointer-events: none;
+    position: absolute;
+    right: 0.325rem;
+    width: 0.75rem;
+    z-index: 2; // just put barely above other text
+  }
+</style>
