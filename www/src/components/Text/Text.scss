@@ -28,6 +28,10 @@
   @include text-body;
 }
 
+.text-lg {
+  @include text-lg;
+}
+
 .text-sm {
   @include text-sm;
 }

@@ -41,6 +41,11 @@
   line-height: 1.5;
 }
 
+@mixin text-lg {
+  font-weight: 400;
+  font-size: var(--font-size-lg);
+}
+
 @mixin text-sm {
   font-weight: 400;
   font-size: var(--font-size-sm);

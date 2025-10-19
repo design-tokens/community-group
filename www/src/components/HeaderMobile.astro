@@ -83,7 +83,17 @@ const url = new URL(Astro.request.url);
     const btn = evt.currentTarget;
     const isExpanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+
     document.getElementById('site-nav').classList.toggle('is-open');
+
+    // iOS Safari bug: it doesn’t respect overflow properly, so instead hide all scrollable elements
+    if (isExpanded) {
+      document.querySelector('main').classList.remove('u-display:none');
+      document.querySelector('footer').classList.remove('u-display:none');
+    } else {
+      document.querySelector('main').classList.add('u-display:none');
+      document.querySelector('footer').classList.add('u-display:none');
+    }
   }
 
   document.getElementById('nav-toggle').addEventListener('click', toggleNav);
@@ -92,17 +102,15 @@ const url = new URL(Astro.request.url);
 <style lang="scss">
   .header {
     --padding: var(
-      --base-space-4
+      --base-space-5
     ); // the mobile nav repeatedly uses the same padding measure
-    --header-height: 3rem;
+    --header-height: 4rem;
 
     background: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
     display: flex;
     height: var(--header-height);
     justify-content: space-between;
-    position: relative;
-    z-index: var(--layer-nav);
   }
 
   .dtcg-link {
@@ -113,18 +121,18 @@ const url = new URL(Astro.request.url);
   .nav-toggle {
     align-items: center;
     background-color: transparent;
-    block-size: var(--base-space-12);
     border: none;
     color: inherit;
     display: flex;
     flex-shrink: 0;
-    inline-size: var(--base-space-12);
+    height: var(--header-height);
     justify-content: center;
     padding: 0;
+    width: var(--header-height);
 
     svg {
-      block-size: var(--base-space-5);
-      inline-size: var(--base-space-5);
+      width: var(--base-space-6);
+      height: var(--base-space-6);
     }
 
     &:is(button):focus-visible {
@@ -161,14 +169,15 @@ const url = new URL(Astro.request.url);
 
   .mobile-menu {
     background: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
     display: none;
-    height: calc(100vh - var(--header-height));
+    height: calc(100vh - var(--header-height)); // fallback
+    height: calc(100dvh - var(--header-height));
     left: 0;
     padding-block: var(--padding);
     position: absolute;
-    top: var(--header-height);
+    bottom: 0;
     width: 100%;
+    z-index: var(--layer-nav);
 
     &.is-open {
       display: block;

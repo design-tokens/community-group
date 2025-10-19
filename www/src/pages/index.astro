@@ -227,10 +227,10 @@ const title = SITE_TITLE;
   }
 
   .btn {
+    @include text-body;
+
     display: inline-block;
-    padding: var(--base-space-4) var(--base-space-8);
     border-radius: var(--base-space-2);
-    font-size: 1.125rem;
     font-weight: 600;
     text-decoration: none;
     transition:
@@ -238,6 +238,12 @@ const title = SITE_TITLE;
       color 100ms linear,
       transform 100ms cubic-bezier(0.33, 1, 0.68, 1);
     border: 1px solid transparent;
+    padding: var(--base-space-2) var(--base-space-6);
+
+    @media (width >= 750px) {
+      @include text-lg;
+      padding: var(--base-space-4) var(--base-space-8);
+    }
 
     &--primary {
       background-color: var(--color-action);
@@ -303,6 +309,8 @@ const title = SITE_TITLE;
     }
 
     .cta-link {
+      @include text-body;
+
       background-color: var(--color-background-weak, rgba(0, 0, 0, 0.03));
       background: var(--color-bg-alt);
       border-radius: var(--radius-md);
@@ -315,6 +323,10 @@ const title = SITE_TITLE;
         background-color 100ms linear,
         color 100ms linear,
         transform 100ms cubic-bezier(0.33, 1, 0.68, 1);
+
+      @media (width >= 750px) {
+        @include text-lg;
+      }
 
       &:hover {
         background-color: var(--color-bg-alt);
