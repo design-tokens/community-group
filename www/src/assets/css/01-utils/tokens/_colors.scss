@@ -327,6 +327,19 @@
   --color-text-on-action: var(--color-bg);
 }
 
+@mixin theme-nier {
+  --color-action: oklch(0.4335 0.0031 345.33);
+  --color-action-subdued: oklch(0.4335 0.0031 345.33);
+  --color-bg: oklch(0.83 0.0302 98.55);
+  --color-bg-alt: oklch(0.752 0.0269 97.22);
+  --color-border: oklch(0.752 0.0269 97.22);
+  --color-border-subdued: oklch(0.752 0.0269 97.22);
+  --color-border-strong: oklch(0.4335 0.0031 345.33);
+  --color-text: oklch(0.4335 0.0031 345.33);
+  --color-text-subdued: oklch(0.5 0.002 345.33);
+  --color-text-on-action: oklch(0.83 0.0302 98.55);
+}
+
 @mixin theme-rebeccapurple {
   --color-action: oklch(0.4403 0.1603 303.37);
   --color-action-subdued: oklch(0.48 0.18 303.37);
@@ -396,6 +409,9 @@
 }
 :root:is([data-theme="matrix"]) {
   @include theme-matrix;
+}
+:root:is([data-theme="nier"]) {
+  @include theme-nier;
 }
 :root:is([data-theme="virtualboy"]) {
   @include theme-virtualboy;
