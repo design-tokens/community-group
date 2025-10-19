@@ -11,9 +11,17 @@ const id = `theme-switcher-${nanoid(6)}`;
 <div class="wrapper">
   <label class="label" for={id}>Theme</label>
   <select id={id} class="select" data-theme-switcher>
-    <option value="auto">System</option>
-    <option value="light">Light</option>
-    <option value="dark">Dark</option>
+    <optgroup label="Core">
+      <option value="auto">System</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </optgroup>
+    <optgroup label="Fun">
+      <option value="matrix">Matrix</option>
+      <option value="rebeccapurple">rebeccapurple</option>
+      <option value="virtualboy">VirtualBoy</option>
+      <option value="zengarden">Zen Garden</option>
+    </optgroup>
   </select>
   <Icon class="chevron" name="chevron-down" aria-hidden />
 </div>
@@ -74,11 +82,15 @@ const id = `theme-switcher-${nanoid(6)}`;
     color: inherit;
     cursor: pointer;
     font-family: var(--font-family);
-    min-width: 5rem;
+    min-width: 7rem;
     padding: 0.125em 0.5em;
 
     &:hover {
       border-color: var(--color-border-strong);
+    }
+
+    option {
+      padding: initial;
     }
   }
 

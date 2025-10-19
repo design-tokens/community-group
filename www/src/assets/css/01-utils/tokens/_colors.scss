@@ -299,6 +299,7 @@
   --color-border-strong: var(--color-neutral-400);
   --color-text: var(--color-neutral-800);
   --color-text-subdued: var(--color-gray-500);
+  --color-text-on-action: var(--color-neutral-100);
 }
 
 @mixin theme-dark {
@@ -310,8 +311,67 @@
   --color-border-strong: var(--color-neutral-700);
   --color-text: var(--color-neutral-200);
   --color-text-subdued: var(--color-neutral-400);
+  --color-text-on-action: var(--color-neutral-100);
 }
 
+@mixin theme-matrix {
+  --color-action: var(--color-green-600);
+  --color-action-subdued: var(--color-green-700);
+  --color-bg: oklch(0.1 0.2 150);
+  --color-bg-alt: oklch(0.15 0.2 150);
+  --color-border: var(--color-green-900);
+  --color-border-subdued: var(--color-green-950);
+  --color-border-strong: var(--color-green-700);
+  --color-text: var(--color-green-500);
+  --color-text-subdued: var(--color-green-700);
+  --color-text-on-action: var(--color-bg);
+}
+
+@mixin theme-rebeccapurple {
+  --color-action: oklch(0.4403 0.1603 303.37);
+  --color-action-subdued: oklch(0.48 0.18 303.37);
+  --color-bg: oklch(0.9 0.05 303.37);
+  --color-bg-alt: oklch(0.925 0.06 303.37);
+  --color-border: oklch(0.8 0.1 303.37);
+  --color-border-subdued: oklch(0.9 0.16 303.37);
+  --color-border-strong: oklch(0.7 0.2 303.37);
+  --color-text: oklch(0.2 0.14 303.37);
+  --color-text-subdued: oklch(0.4 0.12 303.37);
+  --color-text-on-action: var(--color-bg);
+}
+
+@mixin theme-virtualboy {
+  --color-action: var(--color-red-700);
+  --color-action-subdued: var(--color-red-800);
+  --color-bg: oklch(0.1 0.1 30);
+  --color-bg-alt: oklch(0.05 0.05 30);
+  --color-border: var(--color-red-900);
+  --color-border-subdued: var(--color-red-900);
+  --color-border-strong: var(--color-red-600);
+  --color-text: var(--color-red-600);
+  --color-text-subdued: var(--color-red-700);
+  --color-text-on-action: oklch(0.1 0.1 30);
+}
+
+@mixin theme-zengarden {
+  --color-action: oklch(0.6219 0.0774 186);
+  --color-action-subdued: oklch(0.7 0.05 186);
+  --color-bg: oklch(0.99 0 161);
+  --color-bg-alt: oklch(0.96 0.01 161.35);
+  --color-border: oklch(0.88 0.015 161);
+  --color-border-subdued: oklch(0.91 0.01 161);
+  --color-border-strong: oklch(0.7 0.05 190);
+  --color-text: oklch(0.4078 0.035 195.84);
+  --color-text-subdued: oklch(0.5 0.03 195.84);
+  --color-text-on-action: oklch(1 0 0);
+}
+
+// Default theme: light (needed in case something got weird with localStorage, etc.)
+:root {
+  @include theme-light;
+}
+
+// Automatic light and dark inference
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) {
     @include theme-light;
@@ -324,10 +384,22 @@
   }
 }
 
+// User preference themes
 :root:is([data-theme="light"]) {
   @include theme-light;
 }
-
 :root:is([data-theme="dark"]) {
   @include theme-dark;
+}
+:root:is([data-theme="rebeccapurple"]) {
+  @include theme-rebeccapurple;
+}
+:root:is([data-theme="matrix"]) {
+  @include theme-matrix;
+}
+:root:is([data-theme="virtualboy"]) {
+  @include theme-virtualboy;
+}
+:root:is([data-theme="zengarden"]) {
+  @include theme-zengarden;
 }
