@@ -81,7 +81,7 @@ const url = new URL(Astro.request.url);
 <script>
   function toggleNav(evt) {
     const btn = evt.currentTarget;
-    const isExpanded = btn.getAttribute('aria-expanded');
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
     document.getElementById('site-nav').classList.toggle('is-open');
   }
