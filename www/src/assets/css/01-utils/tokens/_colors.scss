@@ -353,6 +353,19 @@
   --color-text-on-action: var(--color-bg);
 }
 
+@mixin theme-sunset {
+  --color-action: var(--color-orange-700);
+  --color-action-subdued: var(--color-red-600);
+  --color-bg: var(--color-orange-100);
+  --color-bg-alt: var(--color-orange-200);
+  --color-border: var(--color-orange-200);
+  --color-border-subdued: var(--color-orange-100);
+  --color-border-strong: var(--color-red-300);
+  --color-text: var(--color-pink-900);
+  --color-text-subdued: var(--color-amber-700);
+  --color-text-on-action: var(--color-bg);
+}
+
 @mixin theme-virtualboy {
   --color-action: var(--color-red-700);
   --color-action-subdued: var(--color-red-800);
@@ -404,14 +417,17 @@
 :root:is([data-theme="dark"]) {
   @include theme-dark;
 }
-:root:is([data-theme="rebeccapurple"]) {
-  @include theme-rebeccapurple;
-}
 :root:is([data-theme="matrix"]) {
   @include theme-matrix;
 }
 :root:is([data-theme="nier"]) {
   @include theme-nier;
+}
+:root:is([data-theme="rebeccapurple"]) {
+  @include theme-rebeccapurple;
+}
+:root:is([data-theme="sunset"]) {
+  @include theme-sunset;
 }
 :root:is([data-theme="virtualboy"]) {
   @include theme-virtualboy;
