@@ -111,14 +111,13 @@ const url = new URL(Astro.request.url);
     gap: var(--base-space-8);
     background-color: var(--color-bg);
     border-block-start: 1px solid var(--color-border);
+    flex-direction: column;
     padding-block-end: var(--base-space-12);
     padding-block-start: var(--base-space-8);
     padding-inline: var(--page-padding-x);
 
-    @media screen and (width <= 950px) {
-      flex-direction: column;
-    }
-    @media screen and (width >= 951px) {
+    @media screen and (width > 950px) {
+      flex-direction: row;
       justify-content: space-between;
     }
 
@@ -132,15 +131,11 @@ const url = new URL(Astro.request.url);
     --gap: var(--base-space-8);
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     gap: var(--gap);
 
-    @media screen and (width <= 600px) {
-      flex-direction: column;
-    }
-
-    @media screen and (width >= 601px) {
+    @media screen and (width > 600px) {
       --gap: var(--base-space-12);
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 
