@@ -1,5 +1,8 @@
 CIELAB
 DTCG
+FOIC
+FOIT
+FOUC
 Oklab
 Oklch
 ProPhoto
@@ -7,6 +10,7 @@ ReSpec
 WHATWG
 biblio
 bibref
+closedby
 demi-bold
 desaturate
 desaturated
