@@ -67,19 +67,20 @@ import Search from 'astro-pagefind/components/Search';
       0 1rem 2rem color(srgb 0 0 0 / 0.1);
     box-sizing: border-box;
     color: var(--color-text);
-    height: var(--dialog-height);
     isolation: isolate;
+    height: var(--dialog-height);
     max-height: var(--dialog-height);
-    max-width: 100vw;
     overflow: hidden;
     padding: 0; // no padding on the outer dialog gives a nicer effect of scroll reaching all the edges
     position: relative;
-    width: 48rem;
+    inline-size: 100%;
+    max-inline-size: 40rem;
     z-index: var(--layer-modal);
 
     @media (width >= 450px) {
       --dialog-height: min(40rem, 90vh);
       border-radius: var(--radius-lg);
+      inline-size: 90%;
     }
   }
 
@@ -96,10 +97,10 @@ import Search from 'astro-pagefind/components/Search';
     outline-offset: -2px;
     position: absolute;
     right: 0;
-    top: 0;
+    top: var(--base-space-4);
     transition: color 100ms linear;
     width: var(--dialog-close-size);
-    z-index: 5; // this is in isolation: isolate so it’s local
+    z-index: 5; // this is in isolation: isolate so it's local
 
     &:hover {
       color: var(--color-text);
