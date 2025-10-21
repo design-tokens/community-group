@@ -30,6 +30,7 @@
     "lint-staged": "^16.2.4",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
-    "puppeteer": "^24.24.0"
+    "puppeteer": "^24.24.0",
+    "sass-embedded": "^1.93.2"
   }
 }
