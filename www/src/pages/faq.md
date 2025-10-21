@@ -105,18 +105,23 @@ The specification **complements rather than replaces** token methodologies and a
 
 As of 2025, the specification approaches v1.0.0 release with growing adoption across major design tools and transformation pipelines. Teams should evaluate DTCG migration based on interoperability requirements, tooling support, and long-term maintenance considerations.
 
-<!--
 ## What is the relationship between JSON Schema and DTCG?
 
-JSON Schema serves as a validation mechanism for the Design Tokens Community Group specification, though the relationship is currently evolving. We're exploring official JSON Schema support, which may provide:
+JSON Schema is a declarative specification, a passive validator, and documentation format. It can be used to enforce documents to adhere to a strict format. It is a general purpose data interchange format.
 
-- **Canonical validation:** Single source of truth for format compliance
-- **Ecosystem tooling:** Broader IDE and editor support
-- **Version management:** Schema versioning aligned with specification versions
-- **Extension validation:** Structured validation of `$extensions` content
+DTCG is a specification to provide indivisible pieces of a design system such as colors, spacing, typography scale. It is purpose-built for design token exchange. It is both a way to declare your design system token schema and a way to deliver the actual content.
 
-For token authors, we recommend to follow the DTCG specification requirements regardless of validation method. And stay tuned for further updates as we consider JSON Schema adoption in future specification versions.
--->
+Similarities:
+
+- Both use JSON syntax (objects, strings, numbers, arrays, booleans, null)
+- Both support nested hierarchical structures
+- Both are human-readable and machine-parseable
+- Both use key-value pairs for data organization
+- Both can be validated against schemas
+
+While they may have some similarities, they have different purposes and features. DTCG has required properties, reserved keywords, type system and validation, standardized alias and reference system, type inheritance through groups, composite token structures, tooling and transformation expectations.
+
+JSON is the syntax; DTCG is the semantics. The DTCG specification defines how to use JSON to represent design tokens in a standardized, interoperable way that tools can reliably parse, transform, and exchange across design and development workflows.
 
 ## Got more questions?
 
