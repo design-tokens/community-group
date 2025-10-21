@@ -115,7 +115,7 @@ Similarities:
 
 - Both use JSON syntax (objects, strings, numbers, arrays, booleans, null)
 - Both support nested hierarchical structures
-- Both are human-readable and machine-parseable
+- Both are human-readable and machine-parsable
 - Both use key-value pairs for data organization
 - Both can be validated against schemas
 
@@ -130,4 +130,4 @@ Please reach out in our various official and social channels:
 - Got a question about the [DTCG Website?](https://github.com/design-tokens/community-group/issues)
 - Got a question about the [DTCG Specifications?](https://github.com/design-tokens/community-group/issues)
 - Reach out to the official [W3C Design Tokens Community Group](https://www.w3.org/community/design-tokens/)
-- Connect with DTCG on [Linkedin](https://www.linkedin.com/company/design-tokens-community-group), [X](https://x.com/DesignTokens), [Bluesky](https://bsky.app/profile/designtokens.org), [Open Collective](https://opencollective.com/design-tokens)
+- Connect with DTCG on [LinkedIn](https://www.linkedin.com/company/design-tokens-community-group), [X](https://x.com/DesignTokens), [Bluesky](https://bsky.app/profile/designtokens.org), [Open Collective](https://opencollective.com/design-tokens)
