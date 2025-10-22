@@ -6,7 +6,7 @@ layout: ../layouts/Markdown.astro
 
 This glossary contains high-level definitions, leaving out technical details on purpose. Part of the DTCG's mission is to write those technical definitions in the form of specifications.
 
-# A
+## A
 
 ### Alias
 
