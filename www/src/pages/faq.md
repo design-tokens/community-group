@@ -6,43 +6,39 @@ layout: ../layouts/Markdown.astro
 
 ## Is this ready to use?
 
-The Design Tokens Community Group (DTCG) specification is still in draft status as of October 2025, but it's closer than ever to reaching the first stable version, 2025.10.
+The Design Tokens Community Group (DTCG) specification is now available in its first stable version 2025.10.
 
 Production readiness:
 
-- ✅ **Safe to use:** Many organizations are already implementing it
+- ✅ **Safe to use:** Many tools and organizations are already implementing it
 - ⚠️ **Still evolving:** The spec is in active development with ongoing refinements
-- 📝 **Draft status:** Not yet a W3C Recommendation or final standard
+- 📝 **Spec status:** The DTCG spec is not on the W3C Standards Track
 
 What does this mean for you?
 
-- ✅ The core format is stable enough for production use
+- ✅ The core format is stable for production use
 - ✅ Major design systems and tools are already adopting it
-- ⚠️ Expect potential changes before v1.0 finalization
-- ⚠️ Some advanced features are still being refined
-- 📋 Plan for possible migration adjustments when v1.0 releases
+- 📋 Plan for possible migration adjustments when upgrading to version 2025.10
 
 You can start using the specification for production in most cases, especially for new projects. However, make sure to stay informed of the latest updates:
 
 - Follow the [blog](/blog/) for official news and releases
-- Stay engaged with the [community](https://github.com/design-tokens/designtokens.org/issues) for ongoing discussions
+- Stay engaged with the [community](https://github.com/design-tokens/community-group/issues) for ongoing discussions
 - Build with flexibility to accommodate spec changes
-- Focus on the stable core features (basic token types, structure)
 
 ## What's the license?
 
-The Design Tokens Community Group specification's [licensing](https://github.com/design-tokens/community-group/blob/content-faq/LICENSE.md) ensures the specification can be freely implemented by design tools, token transformation libraries, and design systems without licensing barriers.
+The Design Tokens Community Group specification's [licensing](https://github.com/design-tokens/community-group/blob/main/LICENSE.md) ensures the specification can be freely implemented by design tools, token transformation libraries, and design systems without licensing barriers.
 
-- All Reports in this Repository are licensed by Contributors under the [W3C Software and Document License](https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document).
 - Contributions to Specifications are made under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/).
 - Contributions to Test Suites, Website and Content, and Other Software are made under the [W3C 3-clause BSD License](https://www.w3.org/Consortium/Legal/2008/03-bsd-license.html)
 
 ## How do I give feedback?
 
-Join the [Design Tokens Community Group Github issues](https://github.com/design-tokens/community-group) (recommended):
+Join the [Design Tokens Community Group GitHub issues](https://github.com/design-tokens/community-group) (recommended):
 
 - **New issues:** Open new issues for bugs, clarifications, or feature requests
-- **Pull requests:** Submit PRs for specific specification improvements or corrections
+- **Pull requests:** Submit PRs for specific specification improvements or corrections (registration required as a [participant of the W3C Community Group](https://www.w3.org/community/design-tokens/))
 - **Existing issues:** Contribute to ongoing discussions on open issues
 
 When providing feedback, follow these guidelines for effective feedback:
@@ -103,7 +99,7 @@ The Design Tokens Community Group specification relates to other token approache
 
 The specification **complements rather than replaces** token methodologies and architectural patterns developed by production design systems. It defines the format for token exchange while leaving organizational strategy to design system teams.
 
-As of 2025, the specification approaches 2025.10 release with growing adoption across major design tools and transformation pipelines. Teams should evaluate DTCG migration based on interoperability requirements, tooling support, and long-term maintenance considerations.
+The specification is now available in its first stable version 2025.10, with growing adoption across major design tools and transformation pipelines. Teams should evaluate DTCG migration based on interoperability requirements, tooling support, and long-term maintenance considerations.
 
 ## What is the relationship between JSON Schema and DTCG?
 
