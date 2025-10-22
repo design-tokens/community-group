@@ -119,7 +119,11 @@ Similarities:
 - Both use key-value pairs for data organization
 - Both can be validated against schemas
 
-While they may have some similarities, they have different purposes and features. DTCG has required properties, reserved keywords, type system and validation, standardized alias and reference system, type inheritance through groups, composite token structures, tooling and transformation expectations.
+Differences:
+
+- DTCG serves as both a way to declare your schema _and_ exchange token data in the same file (JSON Schema is not for data exchange)
+- JSON Schema is a generic tool; DTCG is tailored for design systems and design tokens
+- DTCG types map to specific concepts in design tools and web and mobile app development
 
 JSON is the syntax; DTCG is the semantics. The DTCG specification defines how to use JSON to represent design tokens in a standardized, interoperable way that tools can reliably parse, transform, and exchange across design and development workflows.
 
