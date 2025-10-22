@@ -221,8 +221,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "dtcg-logo"
     }
   ],
-  "publishISODate": "2025-10-21T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 21 October 2025"
+  "publishISODate": "2025-10-22T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 22 October 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft">
 <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://www.w3.org/StyleSheets/TR/2021/dark.css"></head>
@@ -233,7 +233,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Design Tokens Format Module</h1> <h2 id="subtitle" class="subtitle">Preview</h2>
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2025-10-21">21 October 2025</time>
+      <time class="dt-published" datetime="2025-10-22">22 October 2025</time>
     </p>
     <dl>
       
@@ -573,10 +573,10 @@ $color-text-primary: $color-palette-black;
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
-<p>Note: The <code>$type</code> property has been added to ensure this example is valid. Please refer to the <a href="#type">design token type chapter</a> for more details.</p>
 </aside>
 
 <p>An object with a <strong><code>$value</code></strong> property is a token. Thus, <code>$value</code> is a reserved word in our spec, meaning you can't have a token whose name is "$value". The parent object's key is the token name.</p>
+<p>A token's name <em class="rfc2119">MUST</em> be a valid JSON string as defined in [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8259" title="The JavaScript Object Notation (JSON) Data Interchange Format">RFC8259</a></cite>].</p>
 <p>The example above therefore defines 1 design token with the following properties:</p>
 <ul>
 <li>Name: "token name"</li>
@@ -3152,6 +3152,8 @@ $brand-typeface-secondary: 'Times New Roman';
       <a href="https://www.rfc-editor.org/rfc/rfc6901"><cite>JavaScript Object Notation (JSON) Pointer</cite></a>. P. Bryan, Ed.; K. Zyp; M. Nottingham, Ed. IETF. April 2013. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc6901">https://www.rfc-editor.org/rfc/rfc6901</a>
     </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
+    </dd><dt id="bib-rfc8259">[RFC8259]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc8259"><cite>The JavaScript Object Notation (JSON) Data Interchange Format</cite></a>. T. Bray, Ed. IETF. December 2017. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a>
     </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
