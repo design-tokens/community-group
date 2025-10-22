@@ -16,11 +16,11 @@
 }
 ```
 
-Note: The `$type` property has been added to ensure this example is valid. Please refer to the [design token type chapter](#type) for more details.
-
 </aside>
 
 An object with a **`$value`** property is a token. Thus, `$value` is a reserved word in our spec, meaning you can't have a token whose name is "$value". The parent object's key is the token name.
+
+A token's name MUST be a valid JSON string as defined in [[RFC8259]].
 
 The example above therefore defines 1 design token with the following properties:
 
