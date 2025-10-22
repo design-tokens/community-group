@@ -234,13 +234,13 @@ A context-specific value assigned to a design token name.
 
 Generic term describing the most common way (but not the only way) a design token is formatted and used in code.
 
-### Vendor
-
-Company shipping design tool(s), in a position to implement the design token specification, such as Adobe, Framer, UXPin, Figma, Sketch, and many others.
-
 #### Examples
 
 - CSS custom property
 - Sass variable
 - JavaScript variable
 - Android resource
+
+### Vendor
+
+Company shipping design tool(s), in a position to implement the design token specification, such as Adobe, Framer, UXPin, Figma, Sketch, and many others.
