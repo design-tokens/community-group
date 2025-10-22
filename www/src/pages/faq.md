@@ -6,7 +6,7 @@ layout: ../layouts/Markdown.astro
 
 ## Is this ready to use?
 
-The Design Tokens Community Group (DTCG) specification is still in draft status as of October 2025, but it's closer than ever to reaching v1.0.
+The Design Tokens Community Group (DTCG) specification is still in draft status as of October 2025, but it's closer than ever to reaching the first stable version, 2025.10.
 
 Production readiness:
 
@@ -24,14 +24,14 @@ What does this mean for you?
 
 You can start using the specification for production in most cases, especially for new projects. However, make sure to stay informed of the latest updates:
 
-- Follow the [latest draft](https://www.designtokens.org/tr/drafts/) closely
-- Stay engaged with the [community](https://github.com/design-tokens/designtokens.org/issues) for updates
+- Follow the [blog](/blog/) for official news and releases
+- Stay engaged with the [community](https://github.com/design-tokens/designtokens.org/issues) for ongoing discussions
 - Build with flexibility to accommodate spec changes
 - Focus on the stable core features (basic token types, structure)
 
 ## What's the license?
 
-All work of the Design Tokens Community Group is [licensed(https://github.com/design-tokens/community-group/blob/content-faq/LICENSE.md) under open source licenses that allow commercial and non-commercial usages:
+The Design Tokens Community Group specification's [licensing](https://github.com/design-tokens/community-group/blob/content-faq/LICENSE.md) ensures the specification can be freely implemented by design tools, token transformation libraries, and design systems without licensing barriers.
 
 - All Reports in this Repository are licensed by Contributors under the [W3C Software and Document License](https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document).
 - Contributions to Specifications are made under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/).
@@ -103,21 +103,21 @@ The Design Tokens Community Group specification relates to other token approache
 
 The specification **complements rather than replaces** token methodologies and architectural patterns developed by production design systems. It defines the format for token exchange while leaving organizational strategy to design system teams.
 
-As of 2025, the specification approaches v1.0.0 release with growing adoption across major design tools and transformation pipelines. Teams should evaluate DTCG migration based on interoperability requirements, tooling support, and long-term maintenance considerations.
+As of 2025, the specification approaches 2025.10 release with growing adoption across major design tools and transformation pipelines. Teams should evaluate DTCG migration based on interoperability requirements, tooling support, and long-term maintenance considerations.
 
 ## What is the relationship between JSON Schema and DTCG?
 
-JSON Schema is a declarative specification, a passive validator, and documentation format. It can be used to enforce documents to adhere to a strict format. It is a general purpose data interchange format.
+[JSON Schema](https://json-schema.org/) is a tool for describing JSON structures.
 
-DTCG is a specification to provide indivisible pieces of a design system such as colors, spacing, typography scale. It is purpose-built for design token exchange. It is both a way to declare your design system token schema and a way to deliver the actual content.
+DTCG is a specification to provide indivisible pieces of a design system such as colors, spacing, and typography scales. It is purpose-built for design token exchange. It is both a way to declare your design system token schema and a way to deliver the actual content.
 
 Similarities:
 
 - Both use JSON syntax (objects, strings, numbers, arrays, booleans, null)
 - Both support nested hierarchical structures
 - Both are human-readable and machine-parsable
-- Both use key-value pairs for data organization
-- Both can be validated against schemas
+- Both have a way of reusing parts of the document (both JSON Schema and DTCG support [`$ref`](https://json-schema.org/understanding-json-schema/structuring#dollarref), DTCG has an additional `{token.alias}` syntax)
+- Both are useful tools for documenting and annotating a complex structure
 
 Differences:
 
