@@ -31,7 +31,7 @@ You can start using the specification for production in most cases, especially f
 
 ## What's the license?
 
-The Design Tokens Community Group specification's [licensing](https://github.com/design-tokens/community-group/blob/content-faq/LICENSE.md) ensures the specification can be freely implemented by design tools, token transformation libraries, and design systems without licensing barriers.
+All work of the Design Tokens Community Group is [licensed(https://github.com/design-tokens/community-group/blob/content-faq/LICENSE.md) under open source licenses that allow commercial and non-commercial usages:
 
 - All Reports in this Repository are licensed by Contributors under the [W3C Software and Document License](https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document).
 - Contributions to Specifications are made under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/).
