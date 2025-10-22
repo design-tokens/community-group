@@ -1,0 +1,156 @@
+---
+/**
+ * Desktop header + navigation
+ */
+// cSpell:words GITHUB, github
+import { GITHUB_URL, SITE_TITLE } from '@/consts';
+import { menu } from '@/site.config';
+import { Icon } from 'astro-icon/components';
+import DTCGLink from '@/components/DTCGLink.astro';
+import SocialIcon from '@/components/SocialIcon.astro';
+import Search from '@/components/Search.astro';
+import ThemeSwitcher from '@/components/ThemeSwitcher.astro';
+import Text from '@/components/Text/Text.astro';
+import { isLinkAbsolute } from '@/utils/string.utils';
+
+const url = new URL(Astro.request.url);
+---
+
+<header class="header">
+  <DTCGLink />
+
+  <div class="search"><Search /></div>
+
+  <nav class="nav" aria-label="Main">
+    <ul class:list={['u-list-reset', 'nav-main']}>
+      {
+        menu.header.map((link) => (
+          <li>
+            <a
+              class="link"
+              aria-current={url.pathname === link.path ? 'page' : undefined}
+              data-astro-prefetch
+              href={link.path}
+              target={isLinkAbsolute(link.path) ? '_blank' : undefined}
+              title={link.icon && link.title}
+            >
+              <span class="link-focus-ring">{link.title}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <ul class:list={['u-list-reset', 'nav-extra']}>
+      <li class="theme-switcher"><ThemeSwitcher /></li>
+      <li>
+        <SocialIcon
+          icon="github"
+          link={GITHUB_URL}
+          title="GitHub"
+          aria-hidden
+        />
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style lang="scss">
+  .header {
+    --header-height: var(--base-space-16);
+
+    align-items: center;
+    background-color: var(--color-bg);
+    border-block-end: 1px solid var(--color-border);
+    display: flex;
+    gap: var(--base-space-4);
+    justify-content: space-between;
+    min-block-size: 4rem;
+    padding-inline: var(--page-padding-x);
+    position: relative;
+    z-index: var(--layer-nav);
+  }
+
+  .nav {
+    background-color: var(--color-bg);
+    display: flex;
+    flex-direction: row;
+    height: calc(var(--header-height) + 1px);
+    padding: 0;
+  }
+
+  .nav-main {
+    display: flex;
+    height: 100%;
+
+    li {
+      display: flex;
+      height: 100%;
+    }
+
+    .link {
+      margin-block-end: -1px; // align border with nav
+      padding-inline: var(--base-space-2);
+    }
+  }
+
+  .nav-extra {
+    align-items: center;
+    display: flex;
+    height: auto;
+
+    li {
+      border-inline-start: 1px solid var(--color-border);
+      padding-inline: var(--base-space-2);
+
+      &:last-of-type {
+        padding-inline-end: 0;
+      }
+
+      &.theme-switcher {
+        padding-inline: var(--base-space-4);
+      }
+    }
+  }
+
+  .link {
+    @include text-sm;
+
+    --bg-color: var(--color-bg);
+    --border-color: var(--color-border);
+
+    align-items: center;
+    background-color: var(--bg-color);
+    border-block-end: 1px solid var(--border-color);
+    box-sizing: border-box;
+    color: var(--color-text);
+    display: flex;
+    outline: none;
+    padding-inline: var(--base-space-1);
+    text-decoration: none;
+    white-space: nowrap;
+
+    &[aria-current='page'] {
+      color: var(--color-text);
+      --border-color: var(--color-action);
+    }
+
+    &:hover,
+    &:focus-visible {
+      --bg-color: var(--color-bg-alt);
+      --border-color: var(--color-action-subdued);
+    }
+
+    &:focus-visible {
+      .link-focus-ring {
+        outline: 2px solid var(--color-action);
+      }
+    }
+  }
+
+  .link-focus-ring {
+    border-radius: var(--radius-md);
+    display: inline-block;
+    padding-inline: var(--base-space-1);
+    padding-block: 0.125em;
+  }
+</style>

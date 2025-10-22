@@ -1,0 +1,414 @@
+---
+import Base from '@/layouts/Base.astro';
+import { Icon } from 'astro-icon/components';
+import { SITE_TITLE } from '@/consts';
+
+const title = SITE_TITLE;
+---
+
+<Base>
+  <section class="hero-section">
+    <!-- <p class="hero-eyebrow">
+      <a href="/technical-reports/" class="hero-eyebrow-link">v1 of the specification is here!</a>
+    </p> -->
+    <h1 class="hero-headline">
+      Scale design decisions across teams and products.
+    </h1>
+    <p class="hero-subheading">
+      The DTCG JSON format unlocks interoperability and theming between your
+      tools.
+    </p>
+
+    <div class="cta-buttons">
+      <a href="/technical-reports/" class="btn btn--primary">
+        View the specification
+      </a>
+      <a
+        href="https://github.com/design-tokens"
+        class="btn background-weak"
+        target="_blank"
+        aria-label="Join the community (opens in new tab)"
+      >
+        Join the community
+      </a>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <p>
+      The Design Tokens W3C Community Group (DTCG) is a community of designers,
+      developers, and tooling vendors standardizing how design tokens are
+      defined and exchanged. We steward the Design Tokens specification so teams
+      can share visual language reliably across design tools, codebases, and
+      platforms.
+    </p>
+
+    <p>
+      By collaborating in the open, we collect real-world use cases, document
+      best practices, and publish technical reports that help an ecosystem of
+      tools stay interoperable.
+    </p>
+  </section>
+
+  <section class="logos-section">
+    <h2 class="logos-title">Trusted by leading design tools</h2>
+    <p class="logos-description">
+      Organizations building design tools and open-source projects are already
+      shipping DTCG-compatible tokens. Here are some of the adopters and
+      participants helping prove out the spec:
+    </p>
+    <ul class="logos-list">
+      {
+        [
+          { name: 'Abstract', link: 'https://abstract.com' },
+          { name: 'Adobe', link: 'https://adobe.com' },
+          {
+            name: 'Project Wallace',
+            link: 'https://www.github.com/projectwallace/css-design-tokens/',
+          },
+          {
+            name: 'Design Token Validator (Anima)',
+            link: 'https://www.animaapp.github.io/design-token-validator-site/',
+          },
+          {
+            name: 'Design Tokens Language Server',
+            link: 'https://www.github.com/bennypowers/design-tokens-language-server',
+          },
+          { name: 'Figma', link: 'https://www.figma.com' },
+          { name: 'Framer', link: 'https://www.framer.com' },
+          { name: 'Knapsack', link: 'https://www.knapsack.cloud' },
+          { name: 'Marvel', link: 'https://www.marvelapp.com' },
+          { name: 'Penpot', link: 'https://www.penpot.com' },
+          { name: 'Sketch', link: 'https://www.sketch.com' },
+          { name: 'Style Dictionary', link: 'https://www.styledictionary.com' },
+          { name: 'Superposition', link: 'https://www.superposition.design' },
+          { name: 'Supernova', link: 'https://www.supernova.ion' },
+          { name: 'Terrazzo', link: 'https://www.terrazzo.app' },
+          { name: 'Toolabs', link: 'https://www.toolabs.com' },
+          {
+            name: 'TokensBrücke',
+            link: 'https://www.figma.com/community/plugin/1254538877056388290',
+          },
+          { name: 'Tokens Studio', link: 'https://www.tokens.studio' },
+          {
+            name: 'Universal Design Tokens',
+            link: 'https://www.github.com/universal-design-tokens/udt',
+          },
+          { name: 'Zeplin', link: 'https://www.zeplin.io' },
+          { name: 'zeroheight', link: 'https://www.zeroheight.com' },
+        ].map(({ link, name }) => (
+          <li>
+            <a href={link} target="_blank">
+              {name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>What we do</h2>
+
+    <p>
+      The DTCG focuses on the foundational pieces teams need to scale design
+      tokens:
+    </p>
+
+    <ul>
+      <li>
+        Publish and maintain vendor-agnostic specification modules, including
+        the living draft available on <a
+          href="https://www.designtokens.org/TR/drafts/"
+          target="_blank"
+          aria-label="Draft specifications (opens in new tab)"
+          >designtokens.org/TR/drafts<Icon name="external" /></a
+        >.
+      </li>
+      <li>
+        Facilitate workstreams, community calls, and issue <a
+          href="https://github.com/design-tokens/community-group/issues"
+          target="_blank"
+          aria-label="Design Tokens Community Group GitHub Discussions (opens in new tab)"
+          >discussions on GitHub<Icon name="external" /></a
+        > so implementers can shape the spec with evidence from production use.
+      </li>
+      <li>
+        Provide guidance: glossary, examples, and technical reports—that helps
+        teams adopt the specification confidently.
+      </li>
+    </ul>
+
+    <h2>Who builds the specification</h2>
+
+    <p>
+      The specification is developed by volunteer chairs, editors, and
+      contributors representing design system teams, tooling vendors, and
+      independent experts. Together they triage issues, draft proposals, and
+      align on changes that keep the standard focused and practical.
+    </p>
+
+    <a
+      href="https://www.w3.org/community/design-tokens/participants"
+      class="cta-link"
+      target="_blank"
+      aria-label="View full list of participants (opens in new tab)"
+    >
+      View full list of participants<Icon name="external" />
+    </a>
+  </section>
+</Base>
+
+<style lang="scss">
+  .hero-section {
+    text-align: center;
+    margin-block: var(--base-space-12);
+    text-wrap: balance;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-block-end: var(--base-space-8);
+    max-width: 70vw;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .hero-eyebrow-link {
+    color: var(--color-text-subdued);
+    font-weight: 500;
+    text-decoration: none;
+    background-color: var(--color-bg-alt);
+    border-radius: 999px;
+    padding: var(--base-space-1) var(--base-space-3);
+    border: 1px solid var(--color-border);
+    transition:
+      background-color 100ms linear,
+      border-color 100ms linear,
+      color 100ms linear;
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--color-background-weak-hover);
+      border-color: var(--color-action);
+      color: var(--color-action);
+    }
+  }
+
+  .hero-headline {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-block-end: var(--base-space-6);
+    color: var(--color-text);
+    max-width: 70vw;
+    margin-inline: auto;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-subheading {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    line-height: 1.5;
+    margin-block-end: var(--base-space-10);
+    color: var(--color-text-subdued);
+    max-width: 60ch;
+    margin-inline: auto;
+    text-wrap: balance;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--base-space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-block-end: var(--base-space-16);
+  }
+
+  .btn {
+    @include text-body;
+
+    display: inline-block;
+    border-radius: var(--base-space-2);
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      background-color 100ms linear,
+      color 100ms linear,
+      transform 100ms cubic-bezier(0.33, 1, 0.68, 1);
+    border: 1px solid transparent;
+    padding: var(--base-space-2) var(--base-space-6);
+
+    @media (width >= 750px) {
+      @include text-lg;
+      padding: var(--base-space-4) var(--base-space-8);
+    }
+
+    &--primary {
+      background-color: var(--color-action);
+      color: var(--color-text-on-action);
+
+      &:hover {
+        background-color: var(--color-action-subdued);
+        transform: translateY(-2px);
+      }
+    }
+
+    &.background-weak {
+      background-color: transparent;
+      color: var(--color-text);
+      border-color: var(--color-border);
+
+      &:hover {
+        border-color: var(--color-action);
+        color: var(--color-action);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .content-section {
+    border-top: 1px solid var(--color-border);
+    max-width: 75ch;
+    margin-inline: auto;
+    margin-block: var(--base-space-12);
+    padding-block: var(--base-space-12) var(--base-space-6);
+
+    p {
+      line-height: 1.5;
+      margin-block-end: var(--base-space-6);
+      color: var(--color-text);
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-block-end: var(--base-space-6);
+      color: var(--color-text);
+    }
+
+    h2:not(:first-child) {
+      margin-block-start: var(--base-space-12);
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: var(--base-space-8);
+      margin-block-end: var(--base-space-6);
+
+      li {
+        line-height: 1.5;
+        margin-block-end: var(--base-space-4);
+        color: var(--color-text);
+
+        a {
+          color: var(--color-action);
+        }
+      }
+    }
+
+    .cta-link {
+      @include text-body;
+
+      background-color: var(--color-background-weak, rgba(0, 0, 0, 0.03));
+      background: var(--color-bg-alt);
+      border-radius: var(--radius-md);
+      color: var(--color-action);
+      display: inline-block;
+      font-weight: 600;
+      padding: var(--base-space-3) var(--base-space-6);
+      text-decoration: none;
+      transition:
+        background-color 100ms linear,
+        color 100ms linear,
+        transform 100ms cubic-bezier(0.33, 1, 0.68, 1);
+
+      @media (width >= 750px) {
+        @include text-lg;
+      }
+
+      &:hover {
+        background-color: var(--color-bg-alt);
+        color: var(--color-action-subdued);
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  .logos-section {
+    margin-block-start: var(--base-space-16);
+    padding-block: var(--base-space-12);
+    border-top: 1px solid var(--color-border);
+    max-width: 75ch;
+    margin-inline: auto;
+  }
+
+  .logos-title {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-subdued);
+    margin-block-end: var(--base-space-4);
+  }
+
+  .logos-description {
+    margin-block-end: var(--base-space-10);
+    max-width: 75ch;
+    margin-inline: auto;
+    line-height: 1.5;
+  }
+
+  .logos-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--base-space-6) var(--base-space-8);
+    max-width: 1200px;
+    margin-inline: auto;
+    line-height: 1.4;
+
+    li {
+      margin: 0;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      // block-size: 100%;
+      border-radius: var(--radius-sm);
+      color: var(--color-text);
+      font-size: 1rem;
+      font-weight: 600;
+      padding: var(--base-space-3);
+      text-decoration: none;
+      transition:
+        background-color 100ms linear,
+        color 100ms linear;
+
+      &:hover {
+        color: var(--color-action);
+        background-color: var(--color-surface-hover, rgba(0, 0, 0, 0.02));
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cta-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn {
+      text-align: center;
+    }
+
+    .logos-list {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: var(--base-space-4);
+    }
+  }
+</style>

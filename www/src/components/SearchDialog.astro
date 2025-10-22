@@ -1,0 +1,212 @@
+---
+/**
+ * Search form for the site.
+ * ⚠️ Important! Only include once on the page
+ */
+
+import { Icon } from 'astro-icon/components';
+import Search from 'astro-pagefind/components/Search';
+---
+
+<dialog
+  id="search-dialog"
+  class="dialog"
+  aria-label="Search"
+  aria-modal="true"
+  closedby="any"
+>
+  <button id="search-close-btn" class="close" type="type" aria-label="close"
+    ><Icon name="cross" /></button
+  >
+  <Search id="search" uiOptions={{ showImages: false }} />
+</dialog>
+
+<script>
+  function openDialog() {
+    const dialog = document.getElementById('search-dialog');
+    dialog.showModal();
+    dialog.querySelector('input').focus(); // a11y requires focus be moved inside dialog
+  }
+
+  function closeDialog() {
+    const dialog = document.getElementById('search-dialog');
+    dialog.close();
+    document.activeElement?.blur(); // a11y requires focus to be moved out of the dialog
+  }
+
+  document.querySelectorAll('[aria-controls="search-dialog"]').forEach((el) => {
+    el.addEventListener('click', openDialog);
+  });
+  document
+    .getElementById('search-close-btn')
+    .addEventListener('click', closeDialog);
+
+  // Global ⌘K shortcut
+  addEventListener('keydown', (evt) => {
+    if (evt.key === '/') {
+      openDialog();
+      evt.preventDefault(); // prevent browser shortcut
+    }
+  });
+</script>
+
+<style lang="scss">
+  .dialog {
+    --dialog-height: 100dvh;
+    --dialog-close-size: 2.5rem;
+
+    --pagefind-ui-background: var(--color-bg);
+    --pagefind-ui-text: var(--color-text);
+    --pagefind-ui-border: var(--color-border);
+    --pagefind-ui-border-width: 1px;
+
+    background: var(--color-bg);
+    border: none;
+    box-shadow:
+      0 0.5rem 1rem color(srgb 0 0 0 / 0.1),
+      0 1rem 2rem color(srgb 0 0 0 / 0.1);
+    box-sizing: border-box;
+    color: var(--color-text);
+    isolation: isolate;
+    height: var(--dialog-height);
+    max-height: var(--dialog-height);
+    overflow: hidden;
+    padding: 0; // no padding on the outer dialog gives a nicer effect of scroll reaching all the edges
+    position: relative;
+    inline-size: 100%;
+    max-inline-size: 40rem;
+    z-index: var(--layer-modal);
+
+    @media (width >= 450px) {
+      --dialog-height: min(40rem, 90vh);
+      border-radius: var(--radius-lg);
+      inline-size: 90%;
+    }
+  }
+
+  .close {
+    align-items: center;
+    background: var(--color-bg);
+    border: none;
+    border-radius: var(--radius-md);
+    color: var(--color-text-subdued);
+    cursor: pointer;
+    display: flex;
+    height: var(--dialog-close-size);
+    justify-content: center;
+    outline-offset: -2px;
+    position: absolute;
+    right: 0;
+    top: var(--base-space-4);
+    transition: color 100ms linear;
+    width: var(--dialog-close-size);
+    z-index: 5; // this is in isolation: isolate so it's local
+
+    &:hover {
+      color: var(--color-text);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-action);
+    }
+
+    svg {
+      height: var(--base-space-5);
+      width: var(--base-space-5);
+    }
+  }
+</style>
+
+<style is:global lang="scss">
+  #search .pagefind-ui__button {
+    color: var(--color-text);
+  }
+
+  #search .pagefind-ui__drawer {
+    --scroll-height: calc(
+      var(--dialog-height) - 5rem
+    ); // estimation of search input + padding
+
+    border-top: 1px solid var(--color-border); // add visible border on scroll edge
+    display: block;
+    height: var(--scroll-height);
+    max-height: var(--scroll-height);
+    overflow-y: auto;
+    padding-block-end: var(--base-space-4);
+    padding-inline: var(--base-space-4);
+    position: relative;
+  }
+
+  #search .pagefind-ui__form {
+    &::before {
+      left: var(--base-space-7);
+      opacity: 0.5;
+    }
+  }
+
+  #search .pagefind-ui__message {
+    font-size: var(--font-size-xs);
+    font-weight: 400;
+    opacity: 0.8;
+    padding-block-end: 0;
+    text-align: center;
+  }
+
+  #search .pagefind-ui__result {
+    padding-block: var(--base-space-4);
+
+    &:last-of-type {
+      border-block-end: 0;
+      padding-block-end: 0;
+    }
+  }
+
+  #search .pagefind-ui__result-excerpt {
+    font-size: var(--font-size-xs);
+    line-height: 1.25;
+  }
+
+  #search .pagefind-ui__result-inner {
+    margin-block-start: 0;
+  }
+
+  #search .pagefind-ui__result-link {
+    color: var(--color-action);
+  }
+
+  #search .pagefind-ui__result-title {
+    font-size: var(--font-size-md);
+  }
+
+  #search .pagefind-ui__results {
+    margin-block-start: var(--base-space-3);
+
+    &:empty {
+      margin-block-start: 0;
+    }
+  }
+
+  #search .pagefind-ui__results-area {
+    margin-block-start: 0;
+  }
+
+  #search .pagefind-ui__search-input {
+    --input-padding: var(--base-space-3);
+
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    margin: var(--input-padding);
+    width: calc(
+      100% - var(--input-padding) - var(--dialog-close-size)
+    ); // account for close button + padding
+
+    &:focus {
+      border-color: var(--color-action);
+    }
+  }
+
+  #search .pagefind-ui__search-clear {
+    right: calc(var(--dialog-close-size) + 1px); // account for close button
+  }
+</style>

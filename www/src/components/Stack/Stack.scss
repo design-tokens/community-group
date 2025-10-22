@@ -3,8 +3,13 @@
   gap: var(--space);
   align-items: var(--align-items, start);
   justify-content: var(--justify-content, start);
+  max-width: 100%;
 }
 
 .a-stack--vertical {
   flex-direction: column;
+}
+
+.a-stack--wrap {
+  flex-wrap: wrap;
 }

@@ -59,6 +59,13 @@ h4 {
   text-wrap: balance;
 }
 
+p,
+li,
+dd {
+  text-wrap: pretty;
+  max-inline-size: 88ch;
+}
+
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
@@ -66,9 +73,23 @@ a:not([class]) {
 
 /* Make images easier to work with */
 img,
-picture {
-  max-width: 100%;
+picture,
+video,
+iframe {
   display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+  border-style: none;
+}
+
+figure {
+  inline-size: fit-content;
+  margin-inline: auto;
+}
+
+figcaption {
+  contain: inline-size;
+  font-size: 90%;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -93,4 +114,17 @@ button:not([class]) {
   background-color: transparent;
   border: none;
   padding: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  html {
+    interpolate-size: allow-keywords;
+    &:focus-within {
+      scroll-behavior: smooth;
+    }
+  }
 }

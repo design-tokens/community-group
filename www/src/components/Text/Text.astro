@@ -1,23 +1,24 @@
 ---
-import "./Text.scss";
-import type { HTMLTag, Polymorphic } from "astro/types";
+import './Text.scss';
+import type { HTMLTag, Polymorphic } from 'astro/types';
 
 type Props<Tag extends HTMLTag> = Polymorphic<{
   as: Tag;
   variant?:
-    | "heading1"
-    | "heading2"
-    | "heading3"
-    | "heading4"
-    | "heading5"
-    | "heading6"
-    | "body-s"
-    | "body-m"
-    | "small";
+    | 'heading1'
+    | 'heading2'
+    | 'heading3'
+    | 'heading4'
+    | 'heading5'
+    | 'heading6'
+    | 'body'
+    | 'sm'
+    | 'lg'
+    | 'xs';
   color?: string;
 }>;
 
-const { as: Tag = "p", variant = "body-s", color, ...attrs } = Astro.props;
+const { as: Tag = 'p', variant = 'body-s', color, ...attrs } = Astro.props;
 ---
 
 <Tag

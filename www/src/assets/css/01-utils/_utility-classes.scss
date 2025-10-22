@@ -1,3 +1,25 @@
 .u-list-style\:none {
+  list-style: none !important;
+}
+
+.u-list-reset {
   list-style: none;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+// Visually hide content, leaving it accessible to screen readers and ATs.
+// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+.u-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+}
+
+.u-display\:none {
+  display: none !important;
 }
