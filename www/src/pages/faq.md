@@ -18,9 +18,8 @@ What does this mean for you?
 
 - ✅ The core format is stable for production use
 - ✅ Major design systems and tools are already adopting it
-- 📋 Plan for possible migration adjustments when upgrading to version 2025.10
 
-You can start using the specification for production in most cases, especially for new projects. However, make sure to stay informed of the latest updates:
+Start using the specification for production today, especially for new projects. And stay informed of the latest updates:
 
 - Follow the [blog](/blog/) for official news and releases
 - Stay engaged with the [community](https://github.com/design-tokens/community-group/issues) for ongoing discussions
