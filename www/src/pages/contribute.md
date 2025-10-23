@@ -8,15 +8,17 @@ layout: ../layouts/Markdown.astro
 
 ### Contributing as a community member
 
-You are passionate about design tokens and want to help the DTCG shape the spec for any of ots modules (color, format, resolver, animation...)? Participate in our ongoing [discussions on GitHub](https://github.com/design-tokens/community-group/issues) or contact us on our official [discussion channels](#discussion-channels).
+You are passionate about design tokens and want to help the DTCG shape the spec for any of its modules (color, format, resolver, animation...)? Participate in our ongoing [discussions on GitHub](https://github.com/design-tokens/community-group/issues) or contact us on our official [discussion channels](#discussion-channels).
 
 ### Contributing as an editor
 
-Before you think of applying to become an editor (see below), note that while editors are an important piece of the specification writing process, anyone in the community can also give feedback on technical reports (drafts, recommendations, specifications), on GitHub, or by getting invited to a writing session (get in touch with the editors).
+While editors are an important piece of the specification writing process, anyone in the community can give valuable feedback on technical reports (drafts, recommendations, specifications), on GitHub, or by getting invited to a writing session (get in touch with the editors).
 
 #### Why and how to apply to become an editor?
 
 You are passionate about a specific module of the design tokens specification (such as its format, or colors, spacing, animations…), and have time to dedicate to this task (see below)? That's awesome! Let the chairs know and we'll consider adding you to the relevant module's editing team.
+
+Make sure to register on the official [W3C Design Tokens Community Group](https://www.w3.org/community/design-tokens/).
 
 #### Role of editors
 
@@ -40,14 +42,14 @@ If you'd like to have an impact on this specification but don't have the privile
 
 ## GitHub links
 
-- [GitHub design-tokens/community-group](https://github.com/design-tokens/community-group): Official GitHub DTCG repository for the design tokens specifications
-- [GitHub design-tokens/community-group](https://github.com/design-tokens/community-group/issues): Discussions on the Official GitHub DTCG repository so implementers can shape the spec with evidence from production use.
+- [Official DTCG GitHub repository](https://github.com/design-tokens/community-group) for the design tokens specifications
+- [Official DTCG GitHub repository discussions](https://github.com/design-tokens/community-group/issues) so implementers can shape the spec with evidence from production use.
 
 ## Discussion channels
 
-- [X: @DesignTokens](https://x.com/DesignTokens): Official X account for DTCG social media communications
-- [Bluesky: @designtokens.org](https://bsky.app/profile/designtokens.org): Official Bluesky account for DTCG social media communications
-- [LinkedIn](https://www.linkedin.com/company/design-tokens-community-group/): Official LinkedIn account for DTCG social media communications
+- [Official DTCG X account: @DesignTokens](https://x.com/DesignTokens)
+- [Official DTCG Bluesky account: @designtokens.org](https://bsky.app/profile/designtokens.org)
+- [Official DTCG LinkedIn account](https://www.linkedin.com/company/design-tokens-community-group/)
 
 ## Meeting schedule and participation
 
