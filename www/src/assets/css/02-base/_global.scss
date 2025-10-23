@@ -252,6 +252,10 @@ main td {
       line-height: 1;
       margin: 0;
       padding: 0;
+
+      & > ol > li > a {
+        padding-inline-start: var(--base-space-8);
+      }
     }
 
     a {
