@@ -4,14 +4,14 @@
 
 A resolver document contains the following properties at the root level:
 
-| Name                            | Type                   | Required | Description                                     |
-| :------------------------------ | :--------------------- | :------: | :---------------------------------------------- |
-| [**name**](#name)               | `string`               |          | A short, human-readable name for the document.  |
-| [**version**](#version)         | `YYYY-MM-DD`           |    Y     | Version. Must be `2025-10-01`.                  |
-| [**description**](#description) | `string`               |          | A human-readable description for this document. |
-| [**sets**](#sets)               | Map[`string`, Set]     |          | Definition of sets.                             |
-| [**modifiers**](#modifiers)     | Map[`string, Modifier] |          | Definition of modifiers.                        |
-| [**composition**](#composition) | `ReferenceObject[]`    |    Y     | Resolution of sets and modifiers.               |
+| Name                                    | Type                                     | Required | Description                                     |
+| :-------------------------------------- | :--------------------------------------- | :------: | :---------------------------------------------- |
+| [**name**](#name)                       | `string`                                 |          | A short, human-readable name for the document.  |
+| [**version**](#version)                 | `YYYY-MM-DD`                             |    Y     | Version. Must be `2025-10-01`.                  |
+| [**description**](#description)         | `string`                                 |          | A human-readable description for this document. |
+| [**sets**](#sets)                       | Map[`string`, Set]                       |          | Definition of sets.                             |
+| [**modifiers**](#modifiers)             | Map[`string, Modifier]                   |          | Definition of modifiers.                        |
+| [**resolutionOrder**](#resolutionOrder) | `(ReferenceObject \| Set \| Modifier)[]` |    Y     | Resolution of sets and modifiers.               |
 
 ### Name
 
@@ -200,13 +200,13 @@ The number of possible [=resolutions=] a document may generate may be predicted 
 
 </aside>
 
-### Composition
+### Resolution Order
 
-The `composition` key is an array of [sets](#sets) and [modifiers](#modifiers) ordered to produce the final result of tokens. The order is significant, with tokens later in the array overriding any tokens that came before them, in case of conflict.
+The `resolutionOrder` key is an array of [sets](#sets) and [modifiers](#modifiers) ordered to produce the final result of tokens. The order is significant, with tokens later in the array overriding any tokens that came before them, in case of conflict.
 
 <aside class="example" title="Composing sets and modifiers together">
 
-Given a `composition` that consists of multiple sets and modifiers:
+Given a `resolutionOrder` that consists of multiple sets and modifiers:
 
 ```json
 {
@@ -239,7 +239,7 @@ Given a `composition` that consists of multiple sets and modifiers:
       "default": "light"
     }
   },
-  "composition": [
+  "resolutionOrder": [
     { "$ref": "#/sets/size" },
     { "$ref": "#/sets/typography" },
     { "$ref": "#/sets/animation" },
@@ -328,7 +328,7 @@ Modifiers MAY contain empty context arrays:
       }
     }
   },
-  "composition": [
+  "resolutionOrder": [
     // …
     { "$ref": "#/modifiers/debug" }
   ]
@@ -341,26 +341,26 @@ This would then load an additional `debug.json` file if it received a `{ "debug"
 
 #### Inline sets and modifiers
 
-In `composition`, a [set](#sets) or [modifier](#modifiers) MAY be declared inline, so long as `name` and `type` keys are added to the object:
+In `resolutionOrder`, a [set](#sets) or [modifier](#modifiers) MAY be declared inline, so long as `name` and `type` keys are added to the object:
 
-| Property | Type                  | Required | Description                                                                   |
-| :------- | :-------------------- | :------: | :---------------------------------------------------------------------------- |
-| **name** | `string`              |    Y     | A unique name that MUST NOT conflict with any other `name` in `compositions`. |
-| **type** | `"set" \| "modifier"` |    Y     | MUST be `"set"` or `"modifier"` according to the type.                        |
+| Property | Type                  | Required | Description                                                                      |
+| :------- | :-------------------- | :------: | :------------------------------------------------------------------------------- |
+| **name** | `string`              |    Y     | A unique name that MUST NOT conflict with any other `name` in `resolutionOrder`. |
+| **type** | `"set" \| "modifier"` |    Y     | MUST be `"set"` or `"modifier"` according to the type.                           |
 
 Tools MUST throw an error in the case where `name` or `type` are missing from an inline object, or if `name` is duplicated among any objects.
 
 <aside class="ednote" title="Name">
 
-When sets and modifiers appear in their respective root level `sets` and `modifiers` keys, it is valid for a set to share a name with a modifier. It is only invalid to duplicate a `name` inside the `composition` array.
+When sets and modifiers appear in their respective root level `sets` and `modifiers` keys, it is valid for a set to share a name with a modifier. It is only invalid to duplicate a `name` inside the `resolutionOrder` array.
 
 </aside>
 
-<aside class="example" title="Composition with inline sets and modifiers">
+<aside class="example" title="Resolution Order with inline sets and modifiers">
 
 ```json
 {
-  "composition": [
+  "resolutionOrder": [
     {
       "type": "set",
       "name": "Size",
@@ -400,17 +400,17 @@ When sets and modifiers appear in their respective root level `sets` and `modifi
 
 </aside>
 
-Inline sets and modifiers MUST NOT be referenced in any way. Tools SHOULD throw an error when a [reference object](#reference-objects) points to a composition item.
+Inline sets and modifiers MUST NOT be referenced in any way. Tools SHOULD throw an error when a [reference object](#reference-objects) points to a resolution order item.
 
 <aside class="example" title="Invalid inline set reference">
 
 The following [reference object](#reference-objects) pointer is invalid regardless of where it appears:
 
 ```json
-{ "$ref": "#/composition/4" }
+{ "$ref": "#/resolutionOrder/4" }
 ```
 
-This is very likely to create an invalid reference, no matter if it appears in [sets](#sets) (circular dependency), [modifiers](#modifiers) (circular dependency), or in another place in the [composition](#composition) array (infinite recursion). The times where this would not cause an invalid reference are rare, and the slightest change may turn it into a circular reference.
+This is very likely to create an invalid reference, no matter if it appears in [sets](#sets) (circular dependency), [modifiers](#modifiers) (circular dependency), or in another place in the [resolutionOrder](#resolution-order) array (infinite recursion). The times where this would not cause an invalid reference are rare, and the slightest change may turn it into a circular reference.
 
 </aside>
 
@@ -418,7 +418,7 @@ This is very likely to create an invalid reference, no matter if it appears in [
 
 #### Ordering of sets and modifiers
 
-The `composition` array allows for any ordering of sets and modifiers to the user’s choosing. However, in the scenario that many sets must appear after the modifiers to resolve conflicts, it is likely a [smell](https://en.wikipedia.org/wiki/Code_smell) of unpredictable and brittle token organization. Ideally, modifiers handle conditional values so well they require few or no overrides (see [orthogonality](#orthogonal-orthogonality)). In practical terms, this means that
+The `resolutionOrder` array allows for any ordering of sets and modifiers to the user’s choosing. However, in the scenario that many sets must appear after the modifiers to resolve conflicts, it is likely a [smell](https://en.wikipedia.org/wiki/Code_smell) of unpredictable and brittle token organization. Ideally, modifiers handle conditional values so well they require few or no overrides (see [orthogonality](#orthogonal-orthogonality)). In practical terms, this means that
 
 </section>
 
@@ -430,11 +430,13 @@ Tools MUST resolve all reference objects in a resolver document.
 
 Reference objects MUST NOT be circular, neither referencing other pointers that reference itself, nor referencing any parent node of the reference object.
 
+Tools MUST support same-document reference objects, as that is the minimum requirement to support this resolver module. Beyond that, tools may make individual decisions to not support some URI types such as importing files on a local file system, or remote URIs over TCP/IP.
+
 <aside class="example" title="Valid reference objects">
 
 Common examples of reference objects include:
 
-<table><thead><tr><th>Code</th><th>Result</th></tr></thead><tbody><tr><th>
+<table><thead><tr><th>Code</th><th>Result</th><th>Required Support</th></tr></thead><tbody><tr><th>
 
 ```json
 { "$ref": "#/sets/MySet" }
@@ -444,7 +446,7 @@ Common examples of reference objects include:
 
 References `sets/MySet` within the same document.
 
-</td></tr><tr><th>
+</td><td>Y</td></tr><tr><th>
 
 ```json
 { "$ref": "path/to/example.json" }
@@ -454,7 +456,7 @@ References `sets/MySet` within the same document.
 
 References the entire contents of `./path/to/example.json`, relative to this document.
 
-</td></tr><tr><th>
+</td><td></td></tr><tr><th>
 
 ```json
 { "$ref": "example.json#sets/MySet" }
@@ -464,7 +466,7 @@ References the entire contents of `./path/to/example.json`, relative to this doc
 
 References only a part of `example.json`: `sets/MySet`.
 
-</td></tr><tr><th>
+</td><td></td></tr><tr><th>
 
 ```json
 { "$ref": "https://my-server.com/tokens.json" }
@@ -474,7 +476,7 @@ References only a part of `example.json`: `sets/MySet`.
 
 References a remote file hosted at a publicly-available URL.
 
-</td></tr></tbody></table>
+</td><td></td></tr></tbody></table>
 
 </aside>
 
@@ -511,10 +513,10 @@ A single reference object that references its parent is invalid because it will 
 
 A pointer MAY point anywhere within the same document, with the exception of the following:
 
-1. Only [composition](#composition) may reference a modifier (`#/modifiers/…`). Sets and modifiers MUST NOT reference another modifier.
+1. Only [resolutionOrder](#resolution-order) may reference a modifier (`#/modifiers/…`). Sets and modifiers MUST NOT reference another modifier.
    - Referencing a modifier from a set could cause [inputs](#inputs) to apply conditional logic to a structure that can’t support it, therefore it’s not allowed.
    - Referencing a modifier from another modifier would mean a single input applies to unexpected modifiers, therefore it’s not allowed.
-1. A reference object MUST NOT point to anything in the [composition](#composition) array (`#/composition/…`). Composition, by its nature, references many other parts of the document. Duplicating any part of composition will produce complex, hard-to-predict chains.
+1. A reference object MUST NOT point to anything in the [resolutionOrder](#resolution-order) array (`#/resolutionOrder/…`). Resolution ordering, by its nature, references many other parts of the document. Duplicating any part of this will produce complex, hard-to-predict chains.
 
 Tools MUST throw an error if encountering any invalid pointers.
 
@@ -589,7 +591,7 @@ Here is an example where a set contains arbitrary metadata for the `figma.com` v
 
 ## $defs
 
-Tools MAY allow defining structures in JSON Schema [$defs](https://json-schema.org/understanding-json-schema/structuring#defs) but is not a requirement, and ultimately is up to the tool to decide.
+Tools MAY allow defining structures in JSON Schema [$defs](https://json-schema.org/understanding-json-schema/structuring#defs) but is not a requirement. However, tools MUST NOT throw an error when encountering `$defs`, and MUST ignore the key if it is not supported.
 
 <aside class="ednote" title="$defs">
 
