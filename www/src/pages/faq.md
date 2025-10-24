@@ -6,7 +6,7 @@ layout: ../layouts/Markdown.astro
 
 ## Is this ready to use?
 
-The Design Tokens Community Group (DTCG) specification is now available in its first stable version 2025.10.
+The Design Tokens Community Group (DTCG) specification is now available in its first stable version 1, aka v2025.10.
 
 Production readiness:
 
