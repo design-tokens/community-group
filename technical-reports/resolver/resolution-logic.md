@@ -5,7 +5,7 @@ Tools MUST handle the resolution stages in order to produce the correct output.
 1. [Input validation](#input-validation): verifying the [input](#inputs) is valid for the given resolver document.
 2. [Ordering](#ordering): tracing the `resolutionOrder` array to produce the final tokens structure.
 3. [Aliases](#aliases): resolving token aliases in the final tokens structure.
-4. [Resolution](#resolution-0): the final end result
+4. [Resolution](#resolution): the final end result
 
 ## Input validation
 
