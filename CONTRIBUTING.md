@@ -91,7 +91,7 @@ The following steps clean, update, and get your local copy into an ideal state. 
 
 1. **Update ReSpec**: Update the information in [technical-reports/TR/index.html](technical-reports/TR/index.html), as well as all other reports. Things include, but aren’t limited to:
    - [isPreview](https://respec.org/docs/#isPreview) MUST be `false` for building ⚠️ do not commit this change
-   - [subtitle](https://respec.org/docs/#subsitle)
+   - [subtitle](https://respec.org/docs/#subtitle)
    - [specStatus](https://respec.org/docs/#specStatus)
    - [prevVersion](https://respec.org/docs/#latestVersion)
    - for more, [see ReSpec documentation](https://respec.org/docs/)
