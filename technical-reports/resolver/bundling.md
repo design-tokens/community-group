@@ -37,7 +37,7 @@ Given a resolver that references 5 files:
       }
     }
   },
-  "composition": [
+  "resolutionOrder": [
     { "$ref": "#/sets/foundation" },
     { "$ref": "#/modifiers/theme" }
   ]
@@ -85,7 +85,7 @@ One could inline the contents, resulting in:
       }
     }
   },
-  "composition": [
+  "resolutionOrder": [
     { "$ref": "#/sets/foundation" },
     { "$ref": "#/modifiers/theme" }
   ]
@@ -100,9 +100,11 @@ Note that `foundation/colors.json` was referenced 3 times in the document, so in
 
 ## Using $defs for files
 
-As described in [$defs](#defs), `$defs` don’t have defined behavior in a resolver document. But they are valid pointers for [reference objects](#reference-objects). This strategy involves creating a top-level `$defs` key, with each top-level key containing the contents for that file.
+As described in [$defs](#defs), `$defs` don’t have defined behavior in a resolver document. They may only be used if a tool decides to support this feature of JSON Schema.
 
-There is no downside to using `$defs` other than the possibility of some tools not supporting it, since `$defs` is not a requirement of this spec.
+This strategy involves creating a top-level `$defs` key, with each top-level key containing the contents for that file.
+
+The only downside of using `$defs` is some tools may choose to ignore it, as it is not a minimum requirement of a resolver document.
 
 <aside class="example" title="Bundling by using $defs">
 
@@ -133,7 +135,7 @@ Given the same resolver [from the inlining section](#inlining-files), we can cre
       }
     }
   },
-  "composition": [
+  "resolutionOrder": [
     { "$ref": "#/sets/foundation" },
     { "$ref": "#/modifiers/theme" }
   ],

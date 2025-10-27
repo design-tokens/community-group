@@ -12,7 +12,7 @@ Given the following modifiers:
 
 ```json
 {
-  "composition": [
+  "resolutionOrder": [
     {
       "type": "modifier",
       "name": "theme",
