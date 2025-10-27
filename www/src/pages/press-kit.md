@@ -40,26 +40,29 @@ Note: the DTCG is **not** a W3C Working Group. The technical reports published b
 
 ## Chairs
 
-- [Jina Anne](https://twitter.com/jina), Product Design Manager, Design Systems @ Asana / Founder @ [Clarity](https://www.clarityconf.com/)
-- [Kaelig Deloumeau-Prigent](https://twitter.com/kaelig), Principal Designer, Intuit Design System @ Intuit
-- [Val Head](https://twitter.com/vlh), Senior Design Advocate, Adobe
+- [Jina Anne](https://twitter.com/jina), Founder @ [Clarity](https://www.clarityconf.com/)
+- [Kaelig Deloumeau-Prigent](https://twitter.com/kaelig), Design Systems @ Intuit
+- [Val Head](https://twitter.com/vlh), Design Advocate @ Adobe
 
 ## Contributors
 
-- [Adam Sedwick](https://twitter.com/AdamSedwick), UX Engineer, Design Systems @ Discovery Education
-- [Adekunle Oduye](https://twitter.com/adekunleoduye), Senior Front-end Engineer @ MailChimp
-- Ayesha Mazumdar, Design Technologist @ Pinterest
+- [Adam Sedwick](https://twitter.com/AdamSedwick)
+- [Adekunle Oduye](https://twitter.com/adekunleoduye)
+- Andrew L’Homme, Tokens Studio
+- Ayesha Mazumdar
 - Caleb Williams
-- [Danny Banks](https://twitter.com/dbanksdesign), Principal Design Technologist @ AWS
+- [Danny Banks](https://twitter.com/dbanksdesign)
 - [Drew Powers](https://bsky.app/profile/pow.rs), Design Engineer @ Figma
 - [Donna Vitan](https://twitter.com/donnavitan), Design Lead, Design Systems @ TELUS Digital
 - Garth Braithwaite, Design System Engineer @ Adobe
 - [James Nash](https://cirrus.twiddles.com/), Design Systems Aficionado
 - Johan Stromqvist, Motion Design Specialist @ Shopify Polaris
 - [Kathleen McMahon](https://twitter.com/resource11), Design Engineer @ EA
-- [Kevin Powell](https://twitter.com/kevinmpowell), Principal Front-End Developer @ EightShapes
+- [Kevin Powell](https://twitter.com/kevinmpowell)
+- [Lilith Wittmann](https://github.com/LilithWittmann), Tokens Studio
 - [Louis Chenais](https://bsky.app/profile/lucho.cool), Frontend Developer @ Frontguys
-- [Matt Felten](https://twitter.com/mattfelten), Senior Manager, Design Systems @ ServiceTitan
-- [Matthew Ström-Awn](https://matthewstrom.com/), Director of Design @ Simple Health
-- [Nathan Curtis](https://eightshapes.com/nathan-curtis/), Founder and Principal @ EightShapes
+- [Matt Felten](https://twitter.com/mattfelten)
+- [Matthew Ström-Awn](https://matthewstrom.com/)
+- [Mike Kamminga](https://x.com/mikekamminga), Tokens Studio
+- [Nathan Curtis](https://eightshapes.com/nathan-curtis/)
 - [Tim Van Damme](https://twitter.com/maxvoltar), Software designer @ Figma
