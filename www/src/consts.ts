@@ -3,7 +3,7 @@
 
 export const SITE_TITLE = 'Design Tokens Community Group';
 export const SITE_DESCRIPTION =
-  "The DTCG’s goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.";
+  'The DTCG’s goal is to provide standards upon which products and design tools can rely for sharing stylistic pieces of a design system at scale.';
 export const GITHUB_URL = 'https://github.com/design-tokens/community-group';
 
 /** localStorage key for theme */
