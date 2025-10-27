@@ -6,19 +6,19 @@ export const menu = {
     { path: '/technical-reports/', title: 'Technical Reports' },
     { path: '/contribute/', title: 'Contribute' },
     { path: '/blog/', title: 'Blog' },
-    { path: '/about', title: 'About' },
+    { path: '/about/', title: 'About' },
   ],
   about: [
     { path: '/technical-reports/', title: 'Technical Reports' },
-    { path: '/faq', title: 'FAQ' },
+    { path: '/faq/', title: 'FAQ' },
     { path: '/resources/', title: 'Resources' },
     { path: '/glossary/', title: 'Glossary' },
     { path: '/contribute/', title: 'Contribute' },
   ],
   learn: [
-    { path: '/', title: 'About' },
+    { path: '/about/', title: 'About' },
     { path: '/blog/', title: 'Blog' },
-    { path: '/press-kit', title: 'Press kit' },
+    { path: '/press-kit/', title: 'Press kit' },
     { path: 'https://opencollective.com/design-tokens', title: 'Donate' },
   ],
   social: [
