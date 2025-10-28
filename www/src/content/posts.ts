@@ -50,5 +50,5 @@ export const posts: Post[] = [
     date: '2025-10-28',
     author: 'Kaelig Deloumeau-Prigent',
     url: 'https://www.w3.org/community/design-tokens/2025/10/28/design-tokens-specification-reaches-first-stable-version/',
-  }
+  },
 ];
