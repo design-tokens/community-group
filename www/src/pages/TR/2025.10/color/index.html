@@ -42,14 +42,14 @@ dfn{cursor:pointer}
 .dfn-panel li{margin-left:1em}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
-    
-    
+
+
 <meta name="color-scheme" content="light dark">
-    
+
 <title>Design Tokens Color Module 2025.10</title>
-    
-    
-    
+
+
+
 <style>
 
       :root {
@@ -61,9 +61,9 @@ dfn{cursor:pointer}
         font-style: normal;
         font-size: 0.875em;
       }
-    
+
 </style>
-  
+
 <style id="respec-mainstyle">
 @keyframes pop{
 0%{transform:scale(1,1)}
@@ -192,8 +192,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "dtcg-logo"
     }
   ],
-  "publishISODate": "2025-10-27T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 27 October 2025"
+  "publishISODate": "2025-10-28T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 28 October 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft">
 <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://www.w3.org/StyleSheets/TR/2021/dark.css"></head>
@@ -201,21 +201,21 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   <body class="h-entry"><div class="head">
     <p class="logos"><a class="logo" href="https://www.designtokens.org"><img crossorigin="" alt="Design Tokens Community Group" height="128" id="dtcg-logo" src="/assets/images/logo_128_2x.png" width="128">
   </a></p>
-    <h1 id="title" class="title">Design Tokens Color Module 2025.10</h1> 
+    <h1 id="title" class="title">Design Tokens Color Module 2025.10</h1>
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2025-10-27">27 October 2025</time>
+      <time class="dt-published" datetime="2025-10-28">28 October 2025</time>
     </p>
     <dl>
-      
+
       <dt>Latest published version:</dt><dd>
               <a href="https://www.designtokens.org/TR/2025.10/color/">https://www.designtokens.org/TR/2025.10/color/</a>
             </dd>
-      
-      
-      
-      
-      
+
+
+
+
+
       <dt>Editors:</dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://github.com/ayeshakmaz">Ayesha Mazrana (Mazumdar)</a>
   </dd><dd class="editor p-author h-card vcard">
@@ -225,21 +225,21 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://matthewstrom.com">Matthew Ström-Awn</a>
   </dd>
-      
-      
+
+
       <dt>Feedback:</dt><dd>
         <a href="https://github.com/design-tokens/community-group/">GitHub design-tokens/community-group</a>
         (<a href="https://github.com/design-tokens/community-group/pulls/">pull requests</a>,
         <a href="https://github.com/design-tokens/community-group/issues/new/choose">new issue</a>,
         <a href="https://github.com/design-tokens/community-group/issues/">open issues</a>)
       </dd>
-      
+
     </dl>
-    
-    
+
+
     <hr title="Separator for header">
   </div>
-    
+
 
     <section id="abstract" class="introductory"><h2>Abstract</h2>
       <p>
@@ -252,11 +252,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       This specification was published by the
       <a href="https://www.w3.org/groups/cg/design-tokens">Design Tokens Community Group</a>. It is not a W3C Standard nor is it
       on the W3C Standards Track.
-      
+
             Please note that under the
             <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
             there is a limited opt-out and other conditions apply.
-          
+
       Learn more about
       <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
     </p>
@@ -277,8 +277,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <p>
     <a href="https://github.com/design-tokens/community-group/issues/">GitHub Issues</a> are preferred for
           discussion of this specification.
-        
-    
+
+
   </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">2. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#color-tokens"><bdi class="secno">2.1 </bdi>Color Tokens</a></li></ol></li><li class="tocline"><a class="tocxref" href="#color-terminology"><bdi class="secno">3. </bdi>Color terminology</a></li><li class="tocline"><a class="tocxref" href="#color-type"><bdi class="secno">4. </bdi>Color type</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#format"><bdi class="secno">4.1 </bdi>Format</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#the-none-keyword"><bdi class="secno">4.1.1 </bdi>The <code>none</code> keyword</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#using-the-none-keyword"><bdi class="secno">4.1.1.1 </bdi>Using the <code>none</code> keyword</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#supported-color-spaces"><bdi class="secno">4.2 </bdi>Supported Color spaces</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#srgb"><bdi class="secno">4.2.1 </bdi>sRGB</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#components"><bdi class="secno">4.2.1.1 </bdi>Components</a></li></ol></li><li class="tocline"><a class="tocxref" href="#srgb-linear"><bdi class="secno">4.2.2 </bdi>sRGB linear</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#components-0"><bdi class="secno">4.2.2.1 </bdi>Components</a></li></ol></li><li class="tocline"><a class="tocxref" href="#hsl"><bdi class="secno">4.2.3 </bdi>HSL</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#components-1"><bdi class="secno">4.2.3.1 </bdi>Components</a></li></ol></li><li class="tocline"><a class="tocxref" href="#hwb"><bdi class="secno">4.2.4 </bdi>HWB</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#components-2"><bdi class="secno">4.2.4.1 </bdi>Components</a></li></ol></li><li class="tocline"><a class="tocxref" href="#cielab"><bdi class="secno">4.2.5 </bdi>CIELAB</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#components-3"><bdi class="secno">4.2.5.1 </bdi>Components</a></li></ol></li><li class="tocline"><a class="tocxref" href="#lch"><bdi class="secno">4.2.6 </bdi>LCH</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#components-4"><bdi class="secno">4.2.6.1 </bdi>Components</a></li></ol></li><li class="tocline"><a class="tocxref" href="#oklab"><bdi class="secno">4.2.7 </bdi>OKLAB</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#components-5"><bdi class="secno">4.2.7.1 </bdi>Components</a></li></ol></li><li class="tocline"><a class="tocxref" href="#oklch"><bdi class="secno">4.2.8 </bdi>OKLCH</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#components-6"><bdi class="secno">4.2.8.1 </bdi>Components</a></li></ol></li><li class="tocline"><a class="tocxref" href="#display-p3"><bdi class="secno">4.2.9 </bdi>Display P3</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#components-7"><bdi class="secno">4.2.9.1 </bdi>Components</a></li></ol></li><li class="tocline"><a class="tocxref" href="#a98-rgb"><bdi class="secno">4.2.10 </bdi>A98 RGB</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#components-8"><bdi class="secno">4.2.10.1 </bdi>Components</a></li></ol></li><li class="tocline"><a class="tocxref" href="#prophoto-rgb"><bdi class="secno">4.2.11 </bdi>ProPhoto RGB</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#components-9"><bdi class="secno">4.2.11.1 </bdi>Components</a></li></ol></li><li class="tocline"><a class="tocxref" href="#rec-2020"><bdi class="secno">4.2.12 </bdi>Rec 2020</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#components-10"><bdi class="secno">4.2.12.1 </bdi>Components</a></li></ol></li><li class="tocline"><a class="tocxref" href="#xyz-d65"><bdi class="secno">4.2.13 </bdi>XYZ-D65</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#components-11"><bdi class="secno">4.2.13.1 </bdi>Components</a></li></ol></li><li class="tocline"><a class="tocxref" href="#xyz-d50"><bdi class="secno">4.2.14 </bdi>XYZ-D50</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#components-12"><bdi class="secno">4.2.14.1 </bdi>Components</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#future-color-space-support"><bdi class="secno">4.3 </bdi>Future color space support</a></li></ol></li><li class="tocline"><a class="tocxref" href="#gamut-mapping"><bdi class="secno">5. </bdi>Gamut mapping</a></li><li class="tocline"><a class="tocxref" href="#interpolation"><bdi class="secno">6. </bdi>Interpolation</a></li><li class="tocline"><a class="tocxref" href="#token-naming"><bdi class="secno">7. </bdi>Token naming</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#categorization"><bdi class="secno">7.1 </bdi>Categorization</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#base"><bdi class="secno">7.1.1 </bdi>Base</a></li><li class="tocline"><a class="tocxref" href="#alias"><bdi class="secno">7.1.2 </bdi>Alias</a></li><li class="tocline"><a class="tocxref" href="#component"><bdi class="secno">7.1.3 </bdi>Component</a></li></ol></li><li class="tocline"><a class="tocxref" href="#naming-strategies"><bdi class="secno">7.2 </bdi>Naming strategies</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#base-tokens"><bdi class="secno">7.2.1 </bdi>Base Tokens</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#descriptive"><bdi class="secno">7.2.1.1 </bdi>Descriptive</a></li><li class="tocline"><a class="tocxref" href="#numerical"><bdi class="secno">7.2.1.2 </bdi>Numerical</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ordered-scales"><bdi class="secno">7.2.1.2.1 </bdi>Ordered scales</a></li><li class="tocline"><a class="tocxref" href="#bounded-scales"><bdi class="secno">7.2.1.2.2 </bdi>Bounded scales</a></li><li class="tocline"><a class="tocxref" href="#computer-generated-scales"><bdi class="secno">7.2.1.2.3 </bdi>Computer generated scales</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#alias-tokens"><bdi class="secno">7.2.2 </bdi>Alias Tokens</a></li><li class="tocline"><a class="tocxref" href="#component-tokens"><bdi class="secno">7.2.3 </bdi>Component Tokens</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#issue-summary"><bdi class="secno">A. </bdi>Issue summary</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">B.1 </bdi>Normative references</a></li></ol></li></ol></nav>
 
     <section id="conformance"><div class="header-wrapper"><h2 id="x1-conformance"><bdi class="secno">1. </bdi>Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 1."></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
@@ -291,14 +291,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </p></section>
 
     <section id="introduction"><div class="header-wrapper"><h2 id="x2-introduction"><bdi class="secno">2. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 2."></a></div>
-      
+
 
       <section id="color-tokens"><div class="header-wrapper"><h3 id="x2-1-color-tokens"><bdi class="secno">2.1 </bdi>Color Tokens</h3><a class="self-link" href="#color-tokens" aria-label="Permalink for Section 2.1"></a></div>
 <p>Color tokens can be used to represent colors in different color spaces. Colors represented in tokens can then be converted to other color spaces by translation tools.</p>
 <p>Generally speaking, this module uses <cite><a data-matched-text="[[[css-color-4]]]" href="https://www.w3.org/TR/css-color-4/">CSS Color Module Level 4</a></cite> for reference to concepts and terminology. <cite><a data-matched-text="[[[css-color-4]]]" href="https://www.w3.org/TR/css-color-4/">CSS Color Module Level 4</a></cite> is a W3C Working Draft and is not a final specification. It is subject to change and may not be implemented in all browsers or platforms.</p>
 <div class="note" id="issue-container-generatedID"><div role="heading" class="ednote-title marker" id="h-ednote" aria-level="4"><span>Editor's note</span><span class="issue-label">: Why CSS Color Module Level 4?</span></div><aside class="">
 <p>Color is a complex topic. <cite><a data-matched-text="[[[css-color-4]]]" href="https://www.w3.org/TR/css-color-4/">CSS Color Module Level 4</a></cite> provides a comprehensive baseline:</p>
-<ul> 
+<ul>
 <li>It provides a definition of common color spaces, including gamuts and component coordinates</li>
 <li>It gives technical specifications for translating colors between color spaces</li>
 <li>Its authors are experts in the field of color science</li>
@@ -431,7 +431,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         </tr>
     </thead>
     <tbody>
-        
+
         <tr>
             <th scope="rowgroup" rowspan="3">sRGB</th>
             <td rowspan="3"><code>"srgb"</code></td>
@@ -446,7 +446,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             <td>Blue</td>
             <td>[0 - 1]</td>
         </tr>
-        
+
         <tr>
             <th scope="rowgroup" rowspan="3">sRGB linear</th>
             <td rowspan="3"><code>"srgb-linear"</code></td>
@@ -461,7 +461,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             <td>Blue</td>
             <td>[0 - 1]</td>
         </tr>
-        
+
         <tr>
             <th scope="rowgroup" rowspan="3">HSL</th>
             <td rowspan="3"><code>"hsl"</code></td>
@@ -476,7 +476,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             <td>Lightness</td>
             <td>[0 - 100]</td>
         </tr>
-        
+
         <tr>
             <th scope="rowgroup" rowspan="3">HWB</th>
             <td rowspan="3"><code>"hwb"</code></td>
@@ -491,7 +491,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             <td>Blackness</td>
             <td>[0 - 100]</td>
         </tr>
-        
+
         <tr>
             <th scope="rowgroup" rowspan="3">CIELAB</th>
             <td rowspan="3"><code>"lab"</code></td>
@@ -506,7 +506,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             <td>B</td>
             <td>[-Infinity - Infinity]<a href="#fn-1">*</a></td>
         </tr>
-        
+
         <tr>
             <th scope="rowgroup" rowspan="3">LCH</th>
             <td rowspan="3"><code>"lch"</code></td>
@@ -521,7 +521,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             <td>Hue</td>
             <td>[0 - 360)</td>
         </tr>
-        
+
         <tr>
             <th scope="rowgroup" rowspan="3">OKLAB</th>
             <td rowspan="3"><code>"oklab"</code></td>
@@ -536,7 +536,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             <td>B</td>
             <td>[-Infinity - Infinity]<a href="#fn-3">†</a></td>
         </tr>
-        
+
         <tr>
             <th scope="rowgroup" rowspan="3">OKLCH</th>
             <td rowspan="3"><code>"oklch"</code></td>
@@ -551,7 +551,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             <td>Hue</td>
             <td>[0 - 360)</td>
         </tr>
-        
+
         <tr>
             <th scope="rowgroup" rowspan="3">Display P3</th>
             <td rowspan="3"><code>"display-p3"</code></td>
@@ -566,7 +566,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             <td>Blue</td>
             <td>[0 - 1]</td>
         </tr>
-        
+
         <tr>
             <th scope="rowgroup" rowspan="3">A98 RGB</th>
             <td rowspan="3"><code>"a98-rgb"</code></td>
@@ -581,7 +581,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             <td>Blue</td>
             <td>[0 - 1]</td>
         </tr>
-        
+
         <tr>
             <th scope="rowgroup" rowspan="3">ProPhoto RGB</th>
             <td rowspan="3"><code>"prophoto-rgb"</code></td>
@@ -596,7 +596,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             <td>Blue</td>
             <td>[0 - 1]</td>
         </tr>
-        
+
         <tr>
             <th scope="rowgroup" rowspan="3">Rec 2020</th>
             <td rowspan="3"><code>"rec2020"</code></td>
@@ -611,7 +611,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             <td>Blue</td>
             <td>[0 - 1]</td>
         </tr>
-        
+
         <tr>
             <th scope="rowgroup" rowspan="3">XYZ-D65</th>
             <td rowspan="3"><code>"xyz-d65"</code></td>
@@ -626,7 +626,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             <td>Z</td>
             <td>[0 - 1]</td>
         </tr>
-        
+
         <tr>
             <th scope="rowgroup" rowspan="3">XYZ-D50</th>
             <td rowspan="3"><code>"xyz-d50"</code></td>
@@ -660,7 +660,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 <div class="note" id="issue-container-generatedID-3"><div role="heading" class="ednote-title marker" id="h-ednote-3" aria-level="4"><span>Editor's note</span><span class="issue-label">: How does this conform to CSS Color Module 4?</span></div><aside class="">
 <p>To provide a logically consistent approach without creating ambiguity around the format, this spec takes the following approach:</p>
-<ul> 
+<ul>
 <li>If CSS Color Module 4 allows a color space to be referenced by <strong>both</strong> a named function (like <code>srgb()</code>) <strong>and</strong> a keyword in the <code>color()</code> function, use the format intended for the <code>color()</code> function.</li>
 <li>If CSS Color Module 4 only defines a color space <strong>either</strong> as a named function (like <code>hwb()</code>) <strong>or</strong> a keyword in the <code>color()</code> function (like <code>rec-2020</code>), use the syntax indicated.</li>
 <li>If CSS Color Module 4 allows <strong>both</strong> unit values (like <code>50</code>) <strong>and</strong> percentages (like <code>50%</code>) for a component, use the unit value.</li>
@@ -1468,10 +1468,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </aside></section></section></section>
 
     <section class="appendix" id="issue-summary"><div class="header-wrapper"><h2 id="a-issue-summary"><bdi class="secno">A. </bdi>Issue summary</h2><a class="self-link" href="#issue-summary" aria-label="Permalink for Appendix A."></a></div><p>There are no issues listed in this specification.</p></section>
-  
+
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="b-references"><bdi class="secno">B. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix B."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="b-1-normative-references"><bdi class="secno">B.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix B.1"></a></div>
-    
+
     <dl class="bibliography"><dt id="bib-cielab">[CIELAB]</dt><dd>
       <a href="http://cie.co.at/publications/colorimetry-part-4-cie-1976-lab-colour-space-1"><cite>ISO/CIE 11664-4:2019(E): Colorimetry — Part 4: CIE 1976 L*a*b* colour space</cite></a>.  International Organization for Standardization (ISO), International Commission on Illumination (CIE). 2019. Published. URL: <a href="http://cie.co.at/publications/colorimetry-part-4-cie-1976-lab-colour-space-1">http://cie.co.at/publications/colorimetry-part-4-cie-1976-lab-colour-space-1</a>
     </dd><dt id="bib-colorimetry">[COLORIMETRY]</dt><dd>
@@ -1495,128 +1495,128 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-color-space" aria-label="Permalink for definition: Color space. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-color-space-1" title="§ 3. Color terminology">§ 3. Color terminology</a> 
+      <a href="#ref-for-dfn-color-space-1" title="§ 3. Color terminology">§ 3. Color terminology</a>
     </li><li>
-      <a href="#ref-for-dfn-color-space-2" title="§ 4.1 Format">§ 4.1 Format</a> 
+      <a href="#ref-for-dfn-color-space-2" title="§ 4.1 Format">§ 4.1 Format</a>
     </li><li>
-      <a href="#ref-for-dfn-color-space-3" title="§ 4.2.7 OKLAB">§ 4.2.7 OKLAB</a> 
+      <a href="#ref-for-dfn-color-space-3" title="§ 4.2.7 OKLAB">§ 4.2.7 OKLAB</a>
     </li><li>
-      <a href="#ref-for-dfn-color-space-4" title="§ 4.2.9 Display P3">§ 4.2.9 Display P3</a> 
+      <a href="#ref-for-dfn-color-space-4" title="§ 4.2.9 Display P3">§ 4.2.9 Display P3</a>
     </li><li>
-      <a href="#ref-for-dfn-color-space-5" title="§ 5. Gamut mapping">§ 5. Gamut mapping</a> 
+      <a href="#ref-for-dfn-color-space-5" title="§ 5. Gamut mapping">§ 5. Gamut mapping</a>
     </li><li>
-      <a href="#ref-for-dfn-color-space-6" title="§ 6. Interpolation">§ 6. Interpolation</a> 
+      <a href="#ref-for-dfn-color-space-6" title="§ 6. Interpolation">§ 6. Interpolation</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-color-model" aria-label="Links in this document to definition: Color model">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-color-model" aria-label="Permalink for definition: Color model. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-color-model-1" title="§ 4.1 Format">§ 4.1 Format</a> 
+      <a href="#ref-for-dfn-color-model-1" title="§ 4.1 Format">§ 4.1 Format</a>
     </li><li>
-      <a href="#ref-for-dfn-color-model-2" title="§ 4.2.3 HSL">§ 4.2.3 HSL</a> 
+      <a href="#ref-for-dfn-color-model-2" title="§ 4.2.3 HSL">§ 4.2.3 HSL</a>
     </li><li>
-      <a href="#ref-for-dfn-color-model-3" title="§ 4.2.4 HWB">§ 4.2.4 HWB</a> 
+      <a href="#ref-for-dfn-color-model-3" title="§ 4.2.4 HWB">§ 4.2.4 HWB</a>
     </li><li>
-      <a href="#ref-for-dfn-color-model-4" title="§ 4.2.8 OKLCH">§ 4.2.8 OKLCH</a> 
+      <a href="#ref-for-dfn-color-model-4" title="§ 4.2.8 OKLCH">§ 4.2.8 OKLCH</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-gamut" aria-label="Links in this document to definition: Color gamut">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-gamut" aria-label="Permalink for definition: Color gamut. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-gamut-1" title="§ 4.2.9 Display P3">§ 4.2.9 Display P3</a> 
+      <a href="#ref-for-dfn-gamut-1" title="§ 4.2.9 Display P3">§ 4.2.9 Display P3</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-components" aria-label="Links in this document to definition: Component">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-components" aria-label="Permalink for definition: Component. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-components-1" title="§ 4.1 Format">§ 4.1 Format</a> 
+      <a href="#ref-for-dfn-components-1" title="§ 4.1 Format">§ 4.1 Format</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-hue" aria-label="Links in this document to definition: Hue">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-hue" aria-label="Permalink for definition: Hue. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-hue-1" title="§ 4.1.1 The none keyword">§ 4.1.1 The none keyword</a> 
+      <a href="#ref-for-dfn-hue-1" title="§ 4.1.1 The none keyword">§ 4.1.1 The none keyword</a>
     </li><li>
-      <a href="#ref-for-dfn-hue-2" title="§ 4.2.3.1 Components">§ 4.2.3.1 Components</a> 
+      <a href="#ref-for-dfn-hue-2" title="§ 4.2.3.1 Components">§ 4.2.3.1 Components</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-saturation" aria-label="Links in this document to definition: Saturation">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-saturation" aria-label="Permalink for definition: Saturation. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-saturation-1" title="§ 4.2.3.1 Components">§ 4.2.3.1 Components</a> 
+      <a href="#ref-for-dfn-saturation-1" title="§ 4.2.3.1 Components">§ 4.2.3.1 Components</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-lightness" aria-label="Links in this document to definition: Lightness">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-lightness" aria-label="Permalink for definition: Lightness. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-lightness-1" title="§ 3. Color terminology">§ 3. Color terminology</a> 
+      <a href="#ref-for-dfn-lightness-1" title="§ 3. Color terminology">§ 3. Color terminology</a>
     </li><li>
-      <a href="#ref-for-dfn-lightness-2" title="§ 4.2.3.1 Components">§ 4.2.3.1 Components</a> 
+      <a href="#ref-for-dfn-lightness-2" title="§ 4.2.3.1 Components">§ 4.2.3.1 Components</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-chroma" aria-label="Links in this document to definition: Chroma">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-chroma" aria-label="Permalink for definition: Chroma. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-chroma-1" title="§ 3. Color terminology">§ 3. Color terminology</a> 
+      <a href="#ref-for-dfn-chroma-1" title="§ 3. Color terminology">§ 3. Color terminology</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-alpha" aria-label="Links in this document to definition: Alpha">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-alpha" aria-label="Permalink for definition: Alpha. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-alpha-1" title="§ 4.1 Format">§ 4.1 Format</a> 
+      <a href="#ref-for-dfn-alpha-1" title="§ 4.1 Format">§ 4.1 Format</a>
     </li>
   </ul>
     </div><script id="respec-highlight-vars">(() => {
