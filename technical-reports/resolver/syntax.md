@@ -4,14 +4,14 @@
 
 A resolver document contains the following properties at the root level:
 
-| Name                                    | Type                                     | Required | Description                                     |
-| :-------------------------------------- | :--------------------------------------- | :------: | :---------------------------------------------- |
-| [**name**](#name)                       | `string`                                 |          | A short, human-readable name for the document.  |
-| [**version**](#version)                 | `YYYY-MM-DD`                             |    Y     | Version. Must be `2025-10-01`.                  |
-| [**description**](#description)         | `string`                                 |          | A human-readable description for this document. |
-| [**sets**](#sets)                       | Map[`string`, Set]                       |          | Definition of sets.                             |
-| [**modifiers**](#modifiers)             | Map[`string, Modifier]                   |          | Definition of modifiers.                        |
-| [**resolutionOrder**](#resolutionOrder) | `(ReferenceObject \| Set \| Modifier)[]` |    Y     | Resolution of sets and modifiers.               |
+| Name                                     | Type                                     | Required | Description                                     |
+| :--------------------------------------- | :--------------------------------------- | :------: | :---------------------------------------------- |
+| [**name**](#name)                        | `string`                                 |          | A short, human-readable name for the document.  |
+| [**version**](#version)                  | `YYYY-MM-DD`                             |    Y     | Version. Must be `2025-10-01`.                  |
+| [**description**](#description)          | `string`                                 |          | A human-readable description for this document. |
+| [**sets**](#sets)                        | Map[`string`, Set]                       |          | Definition of sets.                             |
+| [**modifiers**](#modifiers)              | Map[`string, Modifier]                   |          | Definition of modifiers.                        |
+| [**resolutionOrder**](#resolution-order) | `(ReferenceObject \| Set \| Modifier)[]` |    Y     | Resolution of sets and modifiers.               |
 
 ### Name
 
@@ -418,7 +418,7 @@ This is very likely to create an invalid reference, no matter if it appears in [
 
 #### Ordering of sets and modifiers
 
-The `resolutionOrder` array allows for any ordering of sets and modifiers to the user’s choosing. However, in the scenario that many sets must appear after the modifiers to resolve conflicts, it is likely a [smell](https://en.wikipedia.org/wiki/Code_smell) of unpredictable and brittle token organization. Ideally, modifiers handle conditional values so well they require few or no overrides (see [orthogonality](#orthogonal-orthogonality)). In practical terms, this means that
+The `resolutionOrder` array allows for any ordering of sets and modifiers to the user’s choosing. However, in the scenario that many sets must appear after the modifiers to resolve conflicts, it is likely a [smell](https://en.wikipedia.org/wiki/Code_smell) of unpredictable and brittle token organization. Ideally, modifiers handle conditional values so well they require few or no overrides (see [orthogonality](#orthogonality)). In practical terms, this means that
 
 </section>
 

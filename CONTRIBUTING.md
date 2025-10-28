@@ -44,11 +44,12 @@ The local site will be available at [localhost:4321](http://localhost:4321).
 
 The following commands can be run from the **project root**:
 
-| Command          | Description                                       |
-| :--------------- | :------------------------------------------------ |
-| `pnpm run dev`   | Run designtokens.org locally in development mode. |
-| `pnpm run lint`  | Lint the project.                                 |
-| `pnpm run build` | Make a static build of the website.               |
+| Command               | Description                                       |
+| :-------------------- | :------------------------------------------------ |
+| `pnpm run dev`        | Run designtokens.org locally in development mode. |
+| `pnpm run lint`       | Lint the project.                                 |
+| `pnpm run spellcheck` | Run [spellcheck](#spellcheck).                    |
+| `pnpm run build`      | Make a static build of the website.               |
 
 > [!NOTE]
 > You’ll also find `pnpm run dev` commands both in `www` and `technical-reports` folders. Those should only be used for debugging purposes, as they only run part of the workflow.
@@ -70,3 +71,32 @@ This project uses [cSpell](https://cspell.org/) for spell checking. The spellche
 Words may be globally allowed or globally blocked by adding to the [cspell/](./cspell/) folder. See the [cSpell documentation on dictionaries](https://cspell.org/docs/dictionaries/) for more info.
 
 To override instances without adding to the list, either add a `// cSpell: disable` comment or `// cSpell:words [list of comma-separated words]` comment. See the [cSpell documentation on overrides]https://cspell.org/docs/Configuration/document-settings#words) for more info.
+
+## Publishing a report
+
+> [!NOTE]
+> This should only be done by a spec editor.
+
+These are the general steps to cut a new release of the report.
+
+### Setup
+
+The following steps clean, update, and get your local copy into an ideal state. This prevents errors while publishing such as corrupted caches, as well as any accidental local files that should not be part of the new version.
+
+1. **Pull latest**: `git pull`
+1. **Reset your local repo** (optional but recommended): `git clean -dfx` (⚠️ this will erase any files not tracked in git, so if you have any temporary files you want to keep, move them out of the repo first).
+1. **Reinstall deps**: `pnpm i`
+
+### Versioning
+
+1. **Update ReSpec**: Update the information in [technical-reports/TR/index.html](technical-reports/TR/index.html), as well as all other reports. Things include, but aren’t limited to:
+   - [isPreview](https://respec.org/docs/#isPreview) MUST be `false` for building ⚠️ do not commit this change
+   - [subtitle](https://respec.org/docs/#subtitle)
+   - [specStatus](https://respec.org/docs/#specStatus)
+   - [prevVersion](https://respec.org/docs/#latestVersion)
+   - for more, [see ReSpec documentation](https://respec.org/docs/)
+2. **Run a build**: `pnpm run build`
+3. **Rename**: Rename `www/src/pages/TR/drafts` to `www/src/pages/TR/[new version]`. Be sure to commit this folder!
+4. **Update table**: Update [www/src/pages/technical-reports.md](www/src/pages/technical-reports.md)
+
+At the end of this you should see changes you can commit in `www/src/pages/TR/[new version]`. This will now be a permanent version, and every change will be tracked manually.
