@@ -1,4 +1,4 @@
-import { GITHUB_URL } from './consts.js';
+import { GITHUB_URL, X_HANDLE } from './consts.js';
 
 // cSpell:words linkedin, bluesky
 export const menu = {
@@ -38,7 +38,7 @@ export const menu = {
       icon: 'linkedin',
     },
     {
-      path: 'https://x.com/DesignTokens',
+      path: `https://x.com/${X_HANDLE}`,
       title: 'X (formerly Twitter)',
       icon: 'x',
     },

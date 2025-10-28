@@ -8,3 +8,4 @@ export const GITHUB_URL = 'https://github.com/design-tokens/community-group';
 
 /** localStorage key for theme */
 export const THEME_LS_KEY = 'dtcg_theme';
+export const X_HANDLE = 'DesignTokens';
