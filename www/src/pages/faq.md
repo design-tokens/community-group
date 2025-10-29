@@ -75,6 +75,7 @@ Organizations building design tools and open-source projects are already shippin
 - [Knapsack](https://www.knapsack.cloud)
 - [Marvel](https://www.marvelapp.com)
 - [Penpot](https://www.penpot.com)
+- [Pinwheel](https://bjango.com/mac/pinwheel/)
 - [Sketch](https://www.sketch.com)
 - [Style Dictionary](https://www.styledictionary.com)
 - [Superposition](https://www.superposition.design)
