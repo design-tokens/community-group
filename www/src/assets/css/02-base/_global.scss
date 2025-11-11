@@ -78,7 +78,7 @@ a[href^="https"] {
   }
 }
 
-main {
+.page {
   flex: 1;
   padding: var(--base-space-8) var(--page-padding-x);
 }
@@ -87,14 +87,14 @@ pre {
   overflow-x: auto;
 }
 
-main table {
+.page table {
   border-collapse: separate;
   border-spacing: 0;
   max-inline-size: 100%;
   width: 100%;
 }
 
-main th {
+.page th {
   background-color: var(--color-bg-alt);
   border-block-color: var(--color-border);
   border-inline-color: transparent;
@@ -113,7 +113,7 @@ main th {
   }
 }
 
-main td {
+.page td {
   border-block-end-color: var(--color-border);
   border-block-start-color: transparent;
   border-inline-color: transparent;
@@ -130,7 +130,7 @@ main td {
   }
 }
 
-main tr:last-of-type {
+.page tr:last-of-type {
   td:first-of-type {
     border-end-start-radius: var(--base-space-2);
   }
@@ -139,8 +139,8 @@ main tr:last-of-type {
   }
 }
 
-main th,
-main td {
+.page th,
+.page td {
   padding: var(--base-space-3) var(--base-space-4);
 }
 
