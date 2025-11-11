@@ -261,29 +261,37 @@
 
               Please note that under the
               <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
-              there is a limited opt-out and other conditions apply.
+                          there is a limited opt-out and other conditions apply.
 
         Learn more about
         <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
       </p>
         <p>
-          This is a snapshot of the editors’ draft. It is provided for discussion
-          only and may change at any moment. Its publication here does not imply
-          endorsement of its contents by W3C or the Design Tokens Community Group
+          This section describes the status of this document at the time of its
+          publication. Other documents may supersede this document. A list of
+          current W3C Community Group reports and the latest revision of this
+          report can be found in the W3C Community Group reports index at
+          <a href="https://www.w3.org/community/reports/">https://www.w3.org/community/reports/</a>.
+        </p>
+        <p>
+          This document was published by the DTCG as a
+          <a href="https://www.w3.org/policies/process/#RecsWD">Working Draft</a>
+          following the definitions provided by the W3C process. It is provided for
+          discussion only and may change at any moment. Its publication here does not
+          imply endorsement of its contents by W3C or the Design Tokens Community Group
           Membership. Don’t cite this document other than as work in progress.
         </p>
-        <p>This document has been published to facilitate Wide Review.</p>
         <p>
-          This document was produced by the Design Tokens Community Group, and
-          contributions to this draft are governed by
-          <a href="https://www.w3.org/community/about/process/cla">
-            Community Contributor License Agreement (CLA)</a>, as specified by the
-          <a href="https://www.w3.org/community/about/process/#cgroups">W3C Community Group Process</a>.
+          While not a W3C recommendation, this classification is intended to
+          clarify that, after extensive consensus-building, this specification is
+          intended for implementation.
+        </p>
+        <p>
+          This specification is considered unstable, and should not be implemented.
         </p>
       <p>
       <a href="https://github.com/design-tokens/community-group/issues/">GitHub Issues</a> are preferred for
             discussion of this specification.
-
 
     </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">2. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">3. </bdi>Terminology</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#design-token"><bdi class="secno">3.1 </bdi>(Design) Token</a></li><li class="tocline"><a class="tocxref" href="#design-token-properties"><bdi class="secno">3.2 </bdi>(Design) Token Properties</a></li><li class="tocline"><a class="tocxref" href="#design-tool"><bdi class="secno">3.3 </bdi>Design tool</a></li><li class="tocline"><a class="tocxref" href="#translation-tool"><bdi class="secno">3.4 </bdi>Translation tool</a></li><li class="tocline"><a class="tocxref" href="#type"><bdi class="secno">3.5 </bdi>Type</a></li><li class="tocline"><a class="tocxref" href="#groups"><bdi class="secno">3.6 </bdi>Groups</a></li><li class="tocline"><a class="tocxref" href="#alias-reference"><bdi class="secno">3.7 </bdi>Alias (Reference)</a></li><li class="tocline"><a class="tocxref" href="#composite-design-token"><bdi class="secno">3.8 </bdi>Composite (Design) Token</a></li></ol></li><li class="tocline"><a class="tocxref" href="#file-format"><bdi class="secno">4. </bdi>File format</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#media-type-mime-type"><bdi class="secno">4.1 </bdi>Media type (MIME type)</a></li><li class="tocline"><a class="tocxref" href="#file-extensions"><bdi class="secno">4.2 </bdi>File extensions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#design-token-0"><bdi class="secno">5. </bdi>Design token</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#name-and-value"><bdi class="secno">5.1 </bdi>Name and value</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#token-value-type"><bdi class="secno">5.1.1 </bdi>Token value type</a></li></ol></li><li class="tocline"><a class="tocxref" href="#additional-properties"><bdi class="secno">5.2 </bdi>Additional properties</a></li><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">5.3 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#type-0"><bdi class="secno">5.4 </bdi>Type</a></li><li class="tocline"><a class="tocxref" href="#extensions"><bdi class="secno">5.5 </bdi>Extensions</a></li><li class="tocline"><a class="tocxref" href="#more-token-properties-tbc"><bdi class="secno">5.6 </bdi>More token properties TBC</a></li></ol></li><li class="tocline"><a class="tocxref" href="#groups-0"><bdi class="secno">6. </bdi>Groups</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#additional-group-properties"><bdi class="secno">6.1 </bdi>Additional group properties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">6.1.1 </bdi>Description</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">6.2 </bdi>Use-cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#file-authoring-organization"><bdi class="secno">6.2.1 </bdi>File authoring &amp; organization</a></li><li class="tocline"><a class="tocxref" href="#gui-tools"><bdi class="secno">6.2.2 </bdi><abbr title="Graphical User Interface">GUI</abbr> tools</a></li><li class="tocline"><a class="tocxref" href="#export-tools"><bdi class="secno">6.2.3 </bdi>Export tools</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#aliases-references"><bdi class="secno">7. </bdi>Aliases / references</a></li><li class="tocline"><a class="tocxref" href="#types"><bdi class="secno">8. </bdi>Types</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#color"><bdi class="secno">8.1 </bdi>Color</a></li><li class="tocline"><a class="tocxref" href="#dimension"><bdi class="secno">8.2 </bdi>Dimension</a></li><li class="tocline"><a class="tocxref" href="#font-name"><bdi class="secno">8.3 </bdi>Font name</a></li><li class="tocline"><a class="tocxref" href="#duration"><bdi class="secno">8.4 </bdi>Duration</a></li><li class="tocline"><a class="tocxref" href="#cubic-bezier"><bdi class="secno">8.5 </bdi>Cubic Bézier</a></li><li class="tocline"><a class="tocxref" href="#additional-types"><bdi class="secno">8.6 </bdi>Additional types</a></li></ol></li><li class="tocline"><a class="tocxref" href="#composite-types"><bdi class="secno">9. </bdi>Composite types</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#benefits-of-composite-types-over-groups"><bdi class="secno">9.1 </bdi>Benefits of composite types over groups</a></li><li class="tocline"><a class="tocxref" href="#type-checking"><bdi class="secno">9.2 </bdi>Type checking</a></li><li class="tocline"><a class="tocxref" href="#tool-support"><bdi class="secno">9.3 </bdi>Tool support</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#fallbacks"><bdi class="secno">9.3.1 </bdi>Fallbacks</a></li><li class="tocline"><a class="tocxref" href="#appending-custom-type-definitions"><bdi class="secno">9.3.2 </bdi>Appending custom type definitions</a></li><li class="tocline"><a class="tocxref" href="#custom-configuration"><bdi class="secno">9.3.3 </bdi>Custom configuration</a></li><li class="tocline"><a class="tocxref" href="#guis"><bdi class="secno">9.3.4 </bdi>GUIs</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#issue-summary"><bdi class="secno">A. </bdi>Issue summary</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">B.1 </bdi>Normative references</a></li></ol></li></ol></nav>
 
