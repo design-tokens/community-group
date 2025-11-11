@@ -23,8 +23,10 @@ figno
 frontmatter
 implementability
 indextable
+lightningcss
 kebabify
 namespacing
+monaco
 oklab
 oklch
 orcid
