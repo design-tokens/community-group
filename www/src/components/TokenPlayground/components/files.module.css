@@ -1,0 +1,42 @@
+.fileList {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.filename {
+  align-items: center;
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  display: flex;
+  gap: var(--base-space-2);
+  font-family: inherit;
+  font-size: inherit;
+  height: 1.5rem;
+  min-width: 100%;
+  padding-inline: var(--base-space-4);
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    color: #bbb;
+    background: color(srgb 1 1 1/0.1);
+  }
+
+  &[aria-pressed="true"] {
+    background: color(srgb 1 1 1/0.15);
+    color: #ddd;
+    font-weight: 500;
+  }
+}
+
+.fileIcon {
+  height: 0.75rem;
+  width: 0.75rem;
+}
