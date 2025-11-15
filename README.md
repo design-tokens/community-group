@@ -77,7 +77,7 @@ As vendors adopt the specification and new requirements appear, the community gr
 - [Sketch](https://www.sketch.com/)
 - [Specify](https://specifyapp.com/)
 - [Sprout Social](https://sproutsocial.com/seeds)
-- [Style Dictionary](https://amzn.github.io/style-dictionary)
+- [Style Dictionary](https://github.com/style-dictionary/style-dictionary)
 - [Superposition](https://superposition.design)
 - [Supernova](https://supernova.io)
 - [Synology](https://www.synology.com)
