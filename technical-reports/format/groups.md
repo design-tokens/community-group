@@ -835,7 +835,7 @@ Tools that let users pick or edit tokens via a GUI MAY use the grouping structur
 
 Token names are not guaranteed to be unique within the same file. The same name can be used in different groups. Also, translation tools MAY need to export design tokens in a uniquely identifiable way, such as variables in code. Translation tools SHOULD therefore use design tokens' paths as these _are_ unique within a file.
 
-For example, a [=translation tool=] like [Style Dictionary](https://amzn.github.io/style-dictionary/) might use the following design token file:
+For example, a [=translation tool=] like [Style Dictionary](https://github.com/style-dictionary/style-dictionary) might use the following design token file:
 
 <aside class="example" title="Translation tool input">
 
