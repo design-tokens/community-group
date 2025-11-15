@@ -1,2 +1,3 @@
 # Ignore technical reports in IDEs
 www/src/pages/TR
+**/*.snap

@@ -3,14 +3,12 @@
  * Desktop header + navigation
  */
 // cSpell:words GITHUB, github
-import { GITHUB_URL, SITE_TITLE } from '@/consts';
+import { GITHUB_URL } from '@/consts';
 import { menu } from '@/site.config';
-import { Icon } from 'astro-icon/components';
 import DTCGLink from '@/components/DTCGLink.astro';
 import SocialIcon from '@/components/SocialIcon.astro';
 import Search from '@/components/Search.astro';
 import ThemeSwitcher from '@/components/ThemeSwitcher.astro';
-import Text from '@/components/Text/Text.astro';
 import { isLinkAbsolute } from '@/utils/string.utils';
 
 const url = new URL(Astro.request.url);

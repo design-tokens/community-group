@@ -1,0 +1,15 @@
+.container {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: var(--font-size-xs);
+}
+
+.select {
+  font-family: inherit;
+  font-size: var(--font-size-xs);
+  line-height: 1;
+}
