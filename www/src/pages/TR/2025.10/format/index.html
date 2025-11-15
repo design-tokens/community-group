@@ -42,14 +42,14 @@ dfn{cursor:pointer}
 .dfn-panel li{margin-left:1em}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
-
-
+    
+    
 <meta name="color-scheme" content="light dark">
-
+    
 <title>Design Tokens Format Module 2025.10</title>
-
-
-
+    
+    
+    
 <style>
 
       :root {
@@ -61,9 +61,9 @@ dfn{cursor:pointer}
         font-style: normal;
         font-size: 0.875em;
       }
-
+    
 </style>
-
+  
 <style id="respec-mainstyle">
 @keyframes pop{
 0%{transform:scale(1,1)}
@@ -110,6 +110,7 @@ dd{margin-left:0}
 </style>
 <meta name="description" content="This document describes the technical specification for a file format to
         exchange design tokens between different tools.">
+<link rel="canonical" href="https://www.designtokens.org/TR/2025.10/format/">
 <style>
 .hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
 @media (prefers-color-scheme:dark){
@@ -153,8 +154,7 @@ var[data-type]::after{content:attr(data-type);transform:translateX(-50%) transla
 var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </style>
 <script id="initialUserConfig" type="application/json">{
-  "specStatus": "CG-DRAFT",
-  "isPreview": false,
+  "specStatus": "CG-FINAL",
   "group": "design-tokens",
   "latestVersion": "https://www.designtokens.org/TR/2025.10/format/",
   "prevVersion": null,
@@ -214,7 +214,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "tocIntroductory": true,
   "logos": [
     {
-      "src": "https://www.designtokens.org/assets/dtcg-logo-on-color.svg",
+      "src": "/assets/dtcg-logo-on-color.svg",
       "url": "https://www.designtokens.org",
       "alt": "Design Tokens Community Group",
       "width": 128,
@@ -223,29 +223,31 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     }
   ],
   "publishISODate": "2025-10-28T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 28 October 2025"
+  "generatedSubtitle": "Final Community Group Report 28 October 2025"
 }</script>
-<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft">
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-final">
 <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://www.w3.org/StyleSheets/TR/2021/dark.css"></head>
 
   <body class="h-entry"><div class="head">
-    <p class="logos"><a class="logo" href="https://www.designtokens.org"><img crossorigin="" alt="Design Tokens Community Group" height="128" id="dtcg-logo" src="https://www.designtokens.org/assets/dtcg-logo-on-color.svg" width="128">
+    <p class="logos"><a class="logo" href="https://www.designtokens.org"><img crossorigin="" alt="Design Tokens Community Group" height="128" id="dtcg-logo" src="/assets/dtcg-logo-on-color.svg" width="128">
   </a></p>
-    <h1 id="title" class="title">Design Tokens Format Module 2025.10</h1>
+    <h1 id="title" class="title">Design Tokens Format Module 2025.10</h1> 
     <p id="w3c-state">
-      <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
+      <a href="https://www.w3.org/standards/types#reports">Final Community Group Report</a>
       <time class="dt-published" datetime="2025-10-28">28 October 2025</time>
     </p>
     <dl>
-
+      <dt>This version:</dt><dd>
+              <a class="u-url" href="https://www.w3.org/community/reports/design-tokens/CG-FINAL-community-group-20251111/">https://www.w3.org/community/reports/design-tokens/CG-FINAL-community-group-20251111/</a>
+            </dd>
       <dt>Latest published version:</dt><dd>
               <a href="https://www.designtokens.org/TR/2025.10/format/">https://www.designtokens.org/TR/2025.10/format/</a>
             </dd>
-
-
-
-
-
+      
+      
+      
+      
+      
       <dt>Editors:</dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://bsky.app/profile/lucho.cool">Louis Chenais</a>
   </dd><dd class="editor p-author h-card vcard">
@@ -257,7 +259,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://www.donnavitan.com">Donna Vitan</a>
   </dd>
-
+      
       <dt>Authors:</dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://x.com/dbanksDesign">Daniel Banks</a>
   </dd><dd class="editor p-author h-card vcard">
@@ -277,13 +279,13 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <a href="https://github.com/design-tokens/community-group/issues/new/choose">new issue</a>,
         <a href="https://github.com/design-tokens/community-group/issues/">open issues</a>)
       </dd>
-
+      
     </dl>
-
-
+    
+    
     <hr title="Separator for header">
   </div>
-
+    
 
     <section id="abstract" class="introductory"><h2>Abstract</h2>
       <p>
@@ -296,33 +298,44 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       This specification was published by the
       <a href="https://www.w3.org/groups/cg/design-tokens">Design Tokens Community Group</a>. It is not a W3C Standard nor is it
       on the W3C Standards Track.
-
+      
             Please note that under the
-            <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
-            there is a limited opt-out and other conditions apply.
-
+            <a href="https://www.w3.org/community/about/agreements/final/">W3C Community Final Specification Agreement (FSA)</a>
+            other conditions apply.
+          
       Learn more about
       <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
     </p>
       <p>
-        This is a snapshot of the editors' draft. It is provided for discussion
-        only and may change at any moment. Its publication here does not imply
-        endorsement of its contents by W3C or the Design Tokens Community Group
-        Membership. Don't cite this document other than as work in progress.
+        This section describes the status of this document at the time of its
+        publication. Other documents may supersede this document. A list of
+        current W3C Community Group reports and the latest revision of this
+        report can be found in the W3C Community Group reports index at
+        <a href="https://www.w3.org/community/reports/">https://www.w3.org/community/reports/</a>.
       </p>
-      <p>This document has been published to facilitate Wide Review.</p>
       <p>
-        This document was produced by the Design Tokens Community Group, and
-        contributions to this draft are governed by
+        This document was published by the DTCG as a
+        <a href="https://www.w3.org/policies/process/#RecsCR">Candidate Recommendation</a>
+        following the definitions provided by the W3C process. Contributions to
+        this draft are governed by
         <a href="https://www.w3.org/community/about/process/cla">
           Community Contributor License Agreement (CLA)</a>, as specified by the
         <a href="https://www.w3.org/community/about/process/#cgroups">W3C Community Group Process</a>.
       </p>
+      <p>
+        While not a W3C recommendation, this classification is intended to
+        clarify that, after extensive consensus-building, this specification is
+        intended for implementation.
+      </p>
+      <p>
+        <strong>This specification is considered stable</strong>. Further
+        updates will be provided in superseding specifications.
+      </p>
     <p>
     <a href="https://github.com/design-tokens/community-group/issues/">GitHub Issues</a> are preferred for
           discussion of this specification.
-
-
+        
+    
   </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">2. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">3. </bdi>Terminology</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#design-token"><bdi class="secno">3.1 </bdi>(Design) Token</a></li><li class="tocline"><a class="tocxref" href="#design-token-properties"><bdi class="secno">3.2 </bdi>(Design) Token Properties</a></li><li class="tocline"><a class="tocxref" href="#design-tool"><bdi class="secno">3.3 </bdi><span data-plurals="design tools">Design tool</span></a></li><li class="tocline"><a class="tocxref" href="#translation-tool"><bdi class="secno">3.4 </bdi><span data-plurals="translation tools">Translation tool</span></a></li><li class="tocline"><a class="tocxref" href="#documentation-tool"><bdi class="secno">3.5 </bdi><span data-plurals="documentation tools">Documentation tool</span></a></li><li class="tocline"><a class="tocxref" href="#type"><bdi class="secno">3.6 </bdi>Type</a></li><li class="tocline"><a class="tocxref" href="#group"><bdi class="secno">3.7 </bdi>Group</a></li><li class="tocline"><a class="tocxref" href="#alias-reference"><bdi class="secno">3.8 </bdi>Alias (Reference)</a></li><li class="tocline"><a class="tocxref" href="#composite-design-token"><bdi class="secno">3.9 </bdi>Composite (Design) Token</a></li></ol></li><li class="tocline"><a class="tocxref" href="#file-format"><bdi class="secno">4. </bdi>File format</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#media-type-mime-type"><bdi class="secno">4.1 </bdi>Media type (MIME type)</a></li><li class="tocline"><a class="tocxref" href="#file-extensions"><bdi class="secno">4.2 </bdi>File extensions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#design-token-0"><bdi class="secno">5. </bdi>Design token</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#name-and-value"><bdi class="secno">5.1 </bdi>Name and value</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#character-restrictions"><bdi class="secno">5.1.1 </bdi>Character restrictions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#additional-properties"><bdi class="secno">5.2 </bdi>Additional properties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">5.2.1 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#type-0"><bdi class="secno">5.2.2 </bdi>Type</a></li><li class="tocline"><a class="tocxref" href="#extensions"><bdi class="secno">5.2.3 </bdi>Extensions</a></li><li class="tocline"><a class="tocxref" href="#deprecated"><bdi class="secno">5.2.4 </bdi>Deprecated</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#groups"><bdi class="secno">6. </bdi>Groups</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#group-structure"><bdi class="secno">6.1 </bdi>Group Structure</a></li><li class="tocline"><a class="tocxref" href="#root-tokens-in-groups"><bdi class="secno">6.2 </bdi>Root Tokens in Groups</a></li><li class="tocline"><a class="tocxref" href="#group-properties"><bdi class="secno">6.3 </bdi>Group Properties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#deprecated-0"><bdi class="secno">6.3.1 </bdi><code>$deprecated</code></a></li><li class="tocline"><a class="tocxref" href="#extensions-0"><bdi class="secno">6.3.2 </bdi><code>$extensions</code></a></li></ol></li><li class="tocline"><a class="tocxref" href="#extending-groups"><bdi class="secno">6.4 </bdi>Extending Groups</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#equivalence-to-json-schema-ref"><bdi class="secno">6.4.1 </bdi>Equivalence to JSON Schema <code>$ref</code></a></li><li class="tocline"><a class="tocxref" href="#reference-resolution-and-evaluation"><bdi class="secno">6.4.2 </bdi>Reference Resolution and Evaluation</a></li><li class="tocline"><a class="tocxref" href="#inheritance-semantics"><bdi class="secno">6.4.3 </bdi>Inheritance Semantics</a></li><li class="tocline"><a class="tocxref" href="#circular-reference-prevention"><bdi class="secno">6.4.4 </bdi>Circular Reference Prevention</a></li><li class="tocline"><a class="tocxref" href="#supported-reference-formats"><bdi class="secno">6.4.5 </bdi>Supported Reference Formats</a></li><li class="tocline"><a class="tocxref" href="#error-conditions"><bdi class="secno">6.4.6 </bdi>Error Conditions</a></li><li class="tocline"><a class="tocxref" href="#implementation-guidance"><bdi class="secno">6.4.7 </bdi>Implementation Guidance</a></li><li class="tocline"><a class="tocxref" href="#relationship-to-json-schema-specifications"><bdi class="secno">6.4.8 </bdi>Relationship to JSON Schema Specifications</a></li></ol></li><li class="tocline"><a class="tocxref" href="#empty-groups"><bdi class="secno">6.5 </bdi>Empty Groups</a></li><li class="tocline"><a class="tocxref" href="#references-and-json-pointer-integration"><bdi class="secno">6.6 </bdi>References and JSON Pointer Integration</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#current-reference-syntax-recommended"><bdi class="secno">6.6.1 </bdi>Current Reference Syntax (Recommended)</a></li><li class="tocline"><a class="tocxref" href="#json-pointer-support"><bdi class="secno">6.6.2 </bdi>JSON Pointer Support</a></li></ol></li><li class="tocline"><a class="tocxref" href="#processing-rules"><bdi class="secno">6.7 </bdi>Processing Rules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#token-resolution-order"><bdi class="secno">6.7.1 </bdi>Token Resolution Order</a></li><li class="tocline"><a class="tocxref" href="#path-construction"><bdi class="secno">6.7.2 </bdi>Path Construction</a></li><li class="tocline"><a class="tocxref" href="#type-inheritance"><bdi class="secno">6.7.3 </bdi>Type Inheritance</a></li><li class="tocline"><a class="tocxref" href="#circular-reference-detection"><bdi class="secno">6.7.4 </bdi>Circular Reference Detection</a></li></ol></li><li class="tocline"><a class="tocxref" href="#migration-and-compatibility"><bdi class="secno">6.8 </bdi>Migration and Compatibility</a></li><li class="tocline"><a class="tocxref" href="#examples"><bdi class="secno">6.9 </bdi>Examples</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#basic-group-with-root-token"><bdi class="secno">6.9.1 </bdi>Basic Group with Root Token</a></li><li class="tocline"><a class="tocxref" href="#group-extension-with-override-example"><bdi class="secno">6.9.2 </bdi>Group Extension with Override Example</a></li><li class="tocline"><a class="tocxref" href="#complex-hierarchical-structure"><bdi class="secno">6.9.3 </bdi>Complex Hierarchical Structure</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">6.10 </bdi>Use-cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#file-authoring-organization"><bdi class="secno">6.10.1 </bdi>File authoring &amp; organization</a></li><li class="tocline"><a class="tocxref" href="#gui-tools"><bdi class="secno">6.10.2 </bdi>GUI tools</a></li><li class="tocline"><a class="tocxref" href="#translation-tools"><bdi class="secno">6.10.3 </bdi>Translation tools</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#aliases-references"><bdi class="secno">7. </bdi>Aliases / References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#reference-syntax"><bdi class="secno">7.1 </bdi>Reference Syntax</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#curly-brace-syntax-token-references"><bdi class="secno">7.1.1 </bdi>Curly Brace Syntax (Token References)</a></li><li class="tocline"><a class="tocxref" href="#json-pointer-syntax-required-support"><bdi class="secno">7.1.2 </bdi>JSON Pointer Syntax (Required Support)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#reference-resolution"><bdi class="secno">7.2 </bdi>Reference Resolution</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#resolution-algorithms"><bdi class="secno">7.2.1 </bdi>Resolution Algorithms</a></li><li class="tocline"><a class="tocxref" href="#chained-references"><bdi class="secno">7.2.2 </bdi>Chained References</a></li><li class="tocline"><a class="tocxref" href="#circular-references"><bdi class="secno">7.2.3 </bdi>Circular References</a></li></ol></li><li class="tocline"><a class="tocxref" href="#property-level-references"><bdi class="secno">7.3 </bdi>Property-Level References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#color-component-references"><bdi class="secno">7.3.1 </bdi>Color Component References</a></li><li class="tocline"><a class="tocxref" href="#dimension-component-references"><bdi class="secno">7.3.2 </bdi>Dimension Component References</a></li><li class="tocline"><a class="tocxref" href="#typography-component-references"><bdi class="secno">7.3.3 </bdi>Typography Component References</a></li></ol></li><li class="tocline"><a class="tocxref" href="#json-pointer-path-construction-and-resolution"><bdi class="secno">7.4 </bdi>JSON Pointer Path Construction and Resolution</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#path-construction-rules"><bdi class="secno">7.4.1 </bdi>Path Construction Rules</a></li><li class="tocline"><a class="tocxref" href="#token-value-access-patterns"><bdi class="secno">7.4.2 </bdi>Token Value Access Patterns</a></li><li class="tocline"><a class="tocxref" href="#resolution-algorithm-for-json-pointer"><bdi class="secno">7.4.3 </bdi>Resolution Algorithm for JSON Pointer</a></li><li class="tocline"><a class="tocxref" href="#curly-brace-resolution-algorithm"><bdi class="secno">7.4.4 </bdi>Curly Brace Resolution Algorithm</a></li><li class="tocline"><a class="tocxref" href="#error-conditions-0"><bdi class="secno">7.4.5 </bdi>Error Conditions</a></li><li class="tocline"><a class="tocxref" href="#path-examples"><bdi class="secno">7.4.6 </bdi>Path Examples</a></li></ol></li><li class="tocline"><a class="tocxref" href="#implementation-guidance-0"><bdi class="secno">7.5 </bdi>Implementation Guidance</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#for-tool-authors"><bdi class="secno">7.5.1 </bdi>For Tool Authors</a></li><li class="tocline"><a class="tocxref" href="#disambiguation-examples"><bdi class="secno">7.5.2 </bdi>Disambiguation Examples</a></li><li class="tocline"><a class="tocxref" href="#error-conditions-1"><bdi class="secno">7.5.3 </bdi>Error Conditions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#relationship-to-json-schema"><bdi class="secno">7.6 </bdi>Relationship to JSON Schema</a></li></ol></li><li class="tocline"><a class="tocxref" href="#types"><bdi class="secno">8. </bdi>Types</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#color"><bdi class="secno">8.1 </bdi>Color</a></li><li class="tocline"><a class="tocxref" href="#dimension"><bdi class="secno">8.2 </bdi>Dimension</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#validation"><bdi class="secno">8.2.1 </bdi>Validation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#font-family"><bdi class="secno">8.3 </bdi>Font family</a></li><li class="tocline"><a class="tocxref" href="#font-weight"><bdi class="secno">8.4 </bdi>Font weight</a></li><li class="tocline"><a class="tocxref" href="#duration"><bdi class="secno">8.5 </bdi>Duration</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#validation-0"><bdi class="secno">8.5.1 </bdi>Validation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#cubic-bezier"><bdi class="secno">8.6 </bdi>Cubic Bézier</a></li><li class="tocline"><a class="tocxref" href="#number"><bdi class="secno">8.7 </bdi>Number</a></li><li class="tocline"><a class="tocxref" href="#additional-types"><bdi class="secno">8.8 </bdi>Additional types</a></li></ol></li><li class="tocline"><a class="tocxref" href="#composite-types"><bdi class="secno">9. </bdi>Composite types</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#array-aliasing-in-composite-types"><bdi class="secno">9.1 </bdi>Array aliasing in composite types</a></li><li class="tocline"><a class="tocxref" href="#groups-versus-composite-tokens"><bdi class="secno">9.2 </bdi>Groups versus composite tokens</a></li><li class="tocline"><a class="tocxref" href="#stroke-style"><bdi class="secno">9.3 </bdi>Stroke style</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#string-value"><bdi class="secno">9.3.1 </bdi>String value</a></li><li class="tocline"><a class="tocxref" href="#object-value"><bdi class="secno">9.3.2 </bdi>Object value</a></li><li class="tocline"><a class="tocxref" href="#fallbacks"><bdi class="secno">9.3.3 </bdi>Fallbacks</a></li></ol></li><li class="tocline"><a class="tocxref" href="#border"><bdi class="secno">9.4 </bdi>Border</a></li><li class="tocline"><a class="tocxref" href="#transition"><bdi class="secno">9.5 </bdi>Transition</a></li><li class="tocline"><a class="tocxref" href="#shadow"><bdi class="secno">9.6 </bdi>Shadow</a></li><li class="tocline"><a class="tocxref" href="#gradient"><bdi class="secno">9.7 </bdi>Gradient</a></li><li class="tocline"><a class="tocxref" href="#typography"><bdi class="secno">9.8 </bdi>Typography</a></li></ol></li><li class="tocline"><a class="tocxref" href="#issue-summary"><bdi class="secno">A. </bdi>Issue summary</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">B.1 </bdi>Normative references</a></li></ol></li></ol></nav>
 
     <section id="conformance"><div class="header-wrapper"><h2 id="x1-conformance"><bdi class="secno">1. </bdi>Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 1."></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
@@ -335,7 +348,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </p></section>
 
     <section id="introduction"><div class="header-wrapper"><h2 id="x2-introduction"><bdi class="secno">2. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 2."></a></div>
-
+      
 
       <p>
         <em>This section is non-normative.</em>
@@ -3131,10 +3144,10 @@ $brand-typeface-secondary: 'Times New Roman';
 </div></div></section></section>
 
     <section class="appendix" id="issue-summary"><div class="header-wrapper"><h2 id="a-issue-summary"><bdi class="secno">A. </bdi>Issue summary</h2><a class="self-link" href="#issue-summary" aria-label="Permalink for Appendix A."></a></div><ul><li><a href="#issue-container-number-53">Issue 53</a><span style="text-transform: none">: Type: font family</span></li><li><a href="#issue-container-number-98">Issue 98</a><span style="text-transform: none">: Stroke style type feedback</span></li><li><a href="#issue-container-number-99">Issue 99</a><span style="text-transform: none">: Border type feedback</span></li><li><a href="#issue-container-number-103">Issue 103</a><span style="text-transform: none">: Transition type feedback</span></li><li><a href="#issue-container-number-100">Issue 100</a><span style="text-transform: none">: Shadow type feedback</span></li><li><a href="#issue-container-number-101">Issue 101</a><span style="text-transform: none">: Gradient type feedback</span></li><li><a href="#issue-container-number-102">Issue 102</a><span style="text-transform: none">: Typography type feedback</span></li></ul></section>
-
+  
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="b-references"><bdi class="secno">B. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix B."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="b-1-normative-references"><bdi class="secno">B.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix B.1"></a></div>
-
+    
     <dl class="bibliography"><dt id="bib-json-schema-2020-12">[json-schema-2020-12]</dt><dd>
       <a href="https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-01"><cite>JSON Schema: A Media Type for Describing JSON Documents. Draft 2020-12</cite></a>. Austin Wright; Henry Andrews; Ben Hutton; Greg Dennis.  Internet Engineering Task Force (IETF). 10 June 2022. Internet-Draft. URL: <a href="https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-01">https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-01</a>
     </dd><dt id="bib-rfc2119">[RFC2119]</dt><dd>
@@ -3152,56 +3165,56 @@ $brand-typeface-secondary: 'Times New Roman';
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-design-tool" aria-label="Permalink for definition: Design tool. Activate to close this dialog.">Permalink</a>
-
+         
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-design-tool-1" title="§ 2. Introduction">§ 2. Introduction</a>
+      <a href="#ref-for-dfn-design-tool-1" title="§ 2. Introduction">§ 2. Introduction</a> 
     </li><li>
-      <a href="#ref-for-dfn-design-tool-2" title="§ 3. Terminology">§ 3. Terminology</a>
+      <a href="#ref-for-dfn-design-tool-2" title="§ 3. Terminology">§ 3. Terminology</a> 
     </li><li>
-      <a href="#ref-for-dfn-design-tool-3" title="§ 3.6 Type">§ 3.6 Type</a>
+      <a href="#ref-for-dfn-design-tool-3" title="§ 3.6 Type">§ 3.6 Type</a> 
     </li><li>
-      <a href="#ref-for-dfn-design-tool-4" title="§ 5.2.1 Description">§ 5.2.1 Description</a>
+      <a href="#ref-for-dfn-design-tool-4" title="§ 5.2.1 Description">§ 5.2.1 Description</a> 
     </li><li>
-      <a href="#ref-for-dfn-design-tool-5" title="§ 7.2 Reference Resolution">§ 7.2 Reference Resolution</a>
+      <a href="#ref-for-dfn-design-tool-5" title="§ 7.2 Reference Resolution">§ 7.2 Reference Resolution</a> 
     </li><li>
-      <a href="#ref-for-dfn-design-tool-6" title="§ 8. Types">§ 8. Types</a>
+      <a href="#ref-for-dfn-design-tool-6" title="§ 8. Types">§ 8. Types</a> 
     </li><li>
-      <a href="#ref-for-dfn-design-tool-7" title="§ 9.2 Groups versus composite tokens">§ 9.2 Groups versus composite tokens</a>
+      <a href="#ref-for-dfn-design-tool-7" title="§ 9.2 Groups versus composite tokens">§ 9.2 Groups versus composite tokens</a> 
     </li><li>
-      <a href="#ref-for-dfn-design-tool-8" title="§ 9.3.3 Fallbacks">§ 9.3.3 Fallbacks</a>
+      <a href="#ref-for-dfn-design-tool-8" title="§ 9.3.3 Fallbacks">§ 9.3.3 Fallbacks</a> 
     </li><li>
-      <a href="#ref-for-dfn-design-tool-9" title="§ 9.4 Border">§ 9.4 Border</a>
+      <a href="#ref-for-dfn-design-tool-9" title="§ 9.4 Border">§ 9.4 Border</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-translation-tool" aria-label="Links in this document to definition: Translation tool">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-translation-tool" aria-label="Permalink for definition: Translation tool. Activate to close this dialog.">Permalink</a>
-
+         
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-translation-tool-1" title="§ 2. Introduction">§ 2. Introduction</a> <a href="#ref-for-dfn-translation-tool-2" title="Reference 2">(2)</a>
+      <a href="#ref-for-dfn-translation-tool-1" title="§ 2. Introduction">§ 2. Introduction</a> <a href="#ref-for-dfn-translation-tool-2" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-translation-tool-3" title="§ 3.6 Type">§ 3.6 Type</a>
+      <a href="#ref-for-dfn-translation-tool-3" title="§ 3.6 Type">§ 3.6 Type</a> 
     </li><li>
-      <a href="#ref-for-dfn-translation-tool-4" title="§ 6.10.3 Translation tools">§ 6.10.3 Translation tools</a>
+      <a href="#ref-for-dfn-translation-tool-4" title="§ 6.10.3 Translation tools">§ 6.10.3 Translation tools</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-documentation-tool" aria-label="Links in this document to definition: Documentation tool">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-documentation-tool" aria-label="Permalink for definition: Documentation tool. Activate to close this dialog.">Permalink</a>
-
+         
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-documentation-tool-1" title="§ 2. Introduction">§ 2. Introduction</a>
+      <a href="#ref-for-dfn-documentation-tool-1" title="§ 2. Introduction">§ 2. Introduction</a> 
     </li>
   </ul>
     </div><script id="respec-highlight-vars">(() => {
