@@ -51,7 +51,7 @@ Design token translation tools translate token data from one format to another.
 
 For example:
 
-- [Style Dictionary](https://amzn.github.io/style-dictionary/)
+- [Style Dictionary](https://github.com/style-dictionary/style-dictionary)
 - [Terrazzo](https://github.com/terrazzoapp/terrazzo)
 - ...
 
