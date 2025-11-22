@@ -7,7 +7,7 @@ A resolver document contains the following properties at the root level:
 | Name                                     | Type                                     | Required | Description                                     |
 | :--------------------------------------- | :--------------------------------------- | :------: | :---------------------------------------------- |
 | [**name**](#name)                        | `string`                                 |          | A short, human-readable name for the document.  |
-| [**version**](#version)                  | `YYYY-MM-DD`                             |    Y     | Version. Must be `2025-10-01`.                  |
+| [**version**](#version)                  | `YYYY.MM`                                |    Y     | Version. Must be `2025.10`.                     |
 | [**description**](#description)          | `string`                                 |          | A human-readable description for this document. |
 | [**sets**](#sets)                        | Map[`string`, Set]                       |          | Definition of sets.                             |
 | [**modifiers**](#modifiers)              | Map[`string, Modifier]                   |          | Definition of modifiers.                        |
@@ -19,7 +19,7 @@ The document MAY provide a human-readable `name` at the root level. This is help
 
 ### Version
 
-The document MUST provide a version at the root level, and it MUST be `2025-10-01`. This is reserved for future versions in case breaking changes are introduced.
+The document MUST provide a version at the root level, and it MUST be `2025.10`. This is reserved for future versions in case breaking changes are introduced.
 
 ### Description
 
