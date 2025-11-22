@@ -19,7 +19,7 @@ The document MAY provide a human-readable `name` at the root level. This is help
 
 ### Version
 
-The document MUST provide a version at the root level, and it MUST be `2025-11-01`. This is reserved for future versions in case breaking changes are introduced.
+The document MUST provide a version at the root level, and it MUST be `2025-10-01`. This is reserved for future versions in case breaking changes are introduced.
 
 ### Description
 
