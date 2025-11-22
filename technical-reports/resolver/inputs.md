@@ -12,6 +12,7 @@ Given the following modifiers:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "resolutionOrder": [
     {
       "type": "modifier",

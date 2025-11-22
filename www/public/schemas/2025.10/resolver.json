@@ -1,0 +1,155 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Friendly name for this resolver."
+    },
+    "description": {
+      "type": "string",
+      "description": "Description for this resolver."
+    },
+    "version": {
+      "type": "string",
+      "description": "MUST be 2025.10.",
+      "enum": ["2025.10"]
+    },
+    "resolutionOrder": {
+      "description": "The final resolution order for this resolver.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          { "$ref": "#/$defs/SetInline" },
+          { "$ref": "#/$defs/ModifierInline" },
+          { "$ref": "#/$defs/ReferenceObject" }
+        ]
+      }
+    },
+    "sets": {
+      "description": "Key–value mapping of sets.",
+      "additionalProperties": { "$ref": "#/$defs/Set" }
+    },
+    "modifiers": {
+      "description": "Key–value mapping of sets.",
+      "additionalProperties": { "$ref": "#/$defs/Modifier" }
+    },
+    "$schema": { "type": "string" },
+    "$defs": { "type": "object", "additionalProperties": true },
+    "$extensions": { "type": "object", "additionalProperties": true }
+  },
+  "required": ["version", "resolutionOrder"],
+  "$defs": {
+    "DTCGFormat": {
+      "type": "object",
+      "additionalProperties": { "type": "object" }
+    },
+    "Set": {
+      "description": "A set is a collection of tokens where everything is included.",
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of this set."
+        },
+        "sources": {
+          "type": "array",
+          "description": "DTCG format tokens",
+          "items": {
+            "oneOf": [
+              { "$ref": "#/$defs/DTCGFormat" },
+              { "$ref": "#/$defs/ReferenceObject" }
+            ]
+          }
+        },
+        "$defs": { "type": "object", "additionalProperties": true },
+        "$extensions": { "type": "object", "additionalProperties": true }
+      },
+      "required": ["sources"],
+      "additionalProperties": false
+    },
+    "SetInline": {
+      "properties": {
+        "type": { "type": "string", "enum": ["set"] },
+        "name": { "type": "string" },
+        "description": {
+          "type": "string",
+          "description": "Description of this set."
+        },
+        "sources": {
+          "type": "array",
+          "description": "DTCG format tokens",
+          "items": {
+            "oneOf": [
+              { "$ref": "#/$defs/DTCGFormat" },
+              { "$ref": "#/$defs/ReferenceObject" }
+            ]
+          }
+        },
+        "$defs": { "type": "object", "additionalProperties": true },
+        "$extensions": { "type": "object", "additionalProperties": true }
+      },
+      "required": ["name", "type", "sources"],
+      "additionalProperties": false
+    },
+    "Modifier": {
+      "description": "A modifier describes conditionally-included tokens.",
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of this modifier."
+        },
+        "contexts": {
+          "description": "Valid contexts for this modifier.",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                { "$ref": "#/$defs/DTCGFormat" },
+                { "$ref": "#/$defs/ReferenceObject" }
+              ]
+            }
+          }
+        },
+        "default": { "type": "string" },
+        "$defs": { "type": "object", "additionalProperties": true },
+        "$extensions": { "type": "object", "additionalProperties": true }
+      },
+      "required": ["contexts"],
+      "additionalProperties": false
+    },
+    "ModifierInline": {
+      "properties": {
+        "type": { "type": "string", "enum": ["modifier"] },
+        "name": { "type": "string" },
+        "description": {
+          "type": "string",
+          "description": "Description of this modifier."
+        },
+        "contexts": {
+          "description": "Valid contexts for this modifier.",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                { "$ref": "#/$defs/DTCGFormat" },
+                { "$ref": "#/$defs/ReferenceObject" }
+              ]
+            }
+          }
+        },
+        "default": { "type": "string" },
+        "$defs": { "type": "object", "additionalProperties": true },
+        "$extensions": { "type": "object", "additionalProperties": true }
+      },
+      "required": ["name", "type", "contexts"],
+      "additionalProperties": false
+    },
+    "ReferenceObject": {
+      "type": "object",
+      "properties": { "$ref": { "type": "string" } },
+      "required": ["$ref"]
+    }
+  }
+}

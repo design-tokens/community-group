@@ -36,6 +36,7 @@ The final result will be a tokens structure that behaves the same as if it were 
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "sets": {
     "foundation": {
       "sources": [
@@ -112,6 +113,7 @@ Resolver
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "sets": {
     "foundation": {
       "sources": [{ "$ref": "foundation.json" }]

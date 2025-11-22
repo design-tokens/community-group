@@ -416,6 +416,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 <td align="center">Y</td>
 <td align="left">Resolution of sets and modifiers.</td>
 </tr>
+<tr>
+<td align="left"><a href="#schema"><strong>$schema</strong></a></td>
+<td align="left"><code>string</code></td>
+<td align="center"></td>
+<td align="left">Optional URL of a <a href="https://json-schema.org">JSON Schema</a> schema.</td>
+</tr>
 </tbody></table>
 <section id="name"><div class="header-wrapper"><h4 id="x4-1-1-name"><bdi class="secno">4.1.1 </bdi>Name</h4><a class="self-link" href="#name" aria-label="Permalink for Section 4.1.1"></a></div>
 <p>The document <em class="rfc2119">MAY</em> provide a human-readable <code>name</code> at the root level. This is helpful to distinguish one resolver document from another, in case the filename itself isn’t enough.</p>
@@ -432,6 +438,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </div>
 
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"$schema"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://www.designtokens.org/schemas/2025.10/resolver.json"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"sets"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"description"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Color tokens"</span><span class="hljs-punctuation">,</span>
@@ -474,6 +481,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </div>
 
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"$schema"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://www.designtokens.org/schemas/2025.10/resolver.json"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"modifiers"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"theme"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"description"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Color theme"</span><span class="hljs-punctuation">,</span>
@@ -502,6 +510,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 <p>A modifier <em class="rfc2119">MAY</em> reference a <a href="#sets">set</a> inside a context value. This is equivalent to the <code>sources</code> being inlined in the same array. For example, the following:</p>
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"$schema"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://www.designtokens.org/schemas/2025.10/resolver.json"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"sets"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"baseSize"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"sources"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span> <span class="hljs-attr">"$ref"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"size/base.json"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
@@ -533,6 +542,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </code></pre>
 <p>Is equivalent to:</p>
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"$schema"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://www.designtokens.org/schemas/2025.10/resolver.json"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"sets"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"baseSize"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-comment">// …</span>
@@ -588,6 +598,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 <p>Given a <code>resolutionOrder</code> that consists of multiple sets and modifiers:</p>
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"$schema"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://www.designtokens.org/schemas/2025.10/resolver.json"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"sets"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"size"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"sources"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span> <span class="hljs-attr">"$ref"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"foundation/size.json"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
@@ -688,6 +699,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 <p>Modifiers <em class="rfc2119">MAY</em> contain empty context arrays:</p>
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"$schema"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://www.designtokens.org/schemas/2025.10/resolver.json"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"modifiers"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-comment">// …</span>
     <span class="hljs-attr">"debug"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
@@ -742,6 +754,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </div>
 
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"$schema"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://www.designtokens.org/schemas/2025.10/resolver.json"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"resolutionOrder"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"set"</span><span class="hljs-punctuation">,</span>
@@ -915,6 +928,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 <p>Here is an example where a set contains arbitrary metadata for the <code>figma.com</code> vendor:</p>
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"$schema"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://www.designtokens.org/schemas/2025.10/resolver.json"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"sets"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"sources"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
@@ -933,7 +947,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </code></pre>
 </aside>
 
-</section><section id="defs"><div class="header-wrapper"><h3 id="x4-4-defs"><bdi class="secno">4.4 </bdi>$defs</h3><a class="self-link" href="#defs" aria-label="Permalink for Section 4.4"></a></div>
+</section><section id="schema"><div class="header-wrapper"><h3 id="x4-4-schema"><bdi class="secno">4.4 </bdi>$schema</h3><a class="self-link" href="#schema" aria-label="Permalink for Section 4.4"></a></div>
+<p>A resolver document <em class="rfc2119">MAY</em> include a URL to a <a href="https://json-schema.org">JSON Schema</a> document under <code>$schema</code>. One such schema is provided at <code>https://www.designtokens.org/schemas/2025.10/resolver.json</code> and is present in most examples. This does not affect resolution behavior, but provides user-friendly metadata and syntax checking for most code editors.</p>
+</section><section id="defs"><div class="header-wrapper"><h3 id="x4-5-defs"><bdi class="secno">4.5 </bdi>$defs</h3><a class="self-link" href="#defs" aria-label="Permalink for Section 4.5"></a></div>
 <p>Tools <em class="rfc2119">MAY</em> allow defining structures in JSON Schema <a href="https://json-schema.org/understanding-json-schema/structuring#defs">$defs</a> but is not a requirement. However, tools <em class="rfc2119">MUST NOT</em> throw an error when encountering <code>$defs</code>, and <em class="rfc2119">MUST</em> ignore the key if it is not supported.</p>
 <div class="note" id="issue-container-generatedID-0"><div role="heading" class="ednote-title marker" id="h-ednote-0" aria-level="4"><span>Editor's note</span><span class="issue-label">: $defs</span></div><aside class="">
 
