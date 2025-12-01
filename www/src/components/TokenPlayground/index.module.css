@@ -17,8 +17,9 @@
   line-height: 1;
   letter-spacing: 0;
   margin: 0;
+  max-width: 100vw;
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
 
   *,
   *::before,
