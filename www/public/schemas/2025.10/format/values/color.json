@@ -1,471 +1,471 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://designtokens.org/schemas/2025.10/format/values/color.json",
-    "title": "Color Value",
-    "description": "Value schema for color type tokens. Represents a color in a specific color space.",
-    "type": "object",
-    "properties": {
-        "colorSpace": {
-            "description": "The color space or color model used to represent the color",
-            "oneOf": [
-                {
-                    "type": "string",
-                    "enum": [
-                        "srgb",
-                        "srgb-linear",
-                        "hsl",
-                        "hwb",
-                        "lab",
-                        "lch",
-                        "oklab",
-                        "oklch",
-                        "display-p3",
-                        "a98-rgb",
-                        "prophoto-rgb",
-                        "rec2020",
-                        "xyz-d65",
-                        "xyz-d50"
-                    ]
-                },
-                {
-                    "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/jsonPointerReferenceObject"
-                }
-            ]
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://designtokens.org/schemas/2025.10/format/values/color.json",
+  "title": "Color Value",
+  "description": "Value schema for color type tokens. Represents a color in a specific color space.",
+  "type": "object",
+  "properties": {
+    "colorSpace": {
+      "description": "The color space or color model used to represent the color",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "srgb",
+            "srgb-linear",
+            "hsl",
+            "hwb",
+            "lab",
+            "lch",
+            "oklab",
+            "oklch",
+            "display-p3",
+            "a98-rgb",
+            "prophoto-rgb",
+            "rec2020",
+            "xyz-d65",
+            "xyz-d50"
+          ]
         },
-        "components": {
-            "description": "Array of color components. The number and meaning of components depend on the color space. Each component can be a number or the 'none' keyword.",
-            "type": "array",
-            "minItems": 3,
-            "maxItems": 3
-        },
-        "alpha": {
-            "description": "The alpha (transparency) value of the color. 0 is fully transparent, 1 is fully opaque. If omitted, defaults to 1.",
-            "oneOf": [
-                {
-                    "type": "number",
-                    "minimum": 0,
-                    "maximum": 1
-                },
-                {
-                    "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
-                }
-            ]
-        },
-        "hex": {
-            "description": "Optional fallback value in 6-digit CSS hex color notation (e.g., '#ff00ff'). Must be 6 digits to avoid conflicts with the alpha value.",
-            "$comment": "Only JSON Pointer references (not curly brace references) are allowed for hex because no string token type exists in the specification that could be referenced with curly braces.",
-            "oneOf": [
-                {
-                    "type": "string",
-                    "pattern": "^#[0-9a-fA-F]{6}$"
-                },
-                {
-                    "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/jsonPointerReferenceObject"
-                }
-            ]
+        {
+          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/jsonPointerReferenceObject"
         }
+      ]
     },
-    "required": ["colorSpace", "components"],
-    "additionalProperties": false,
-    "definitions": {
-        "zeroToOneComponent": {
-            "title": "Zero to One Component",
-            "description": "A color component normalized to the range [0-1] (e.g., RGB values, XYZ values)",
-            "oneOf": [
-                {
-                    "type": "number",
-                    "minimum": 0,
-                    "maximum": 1
-                },
-                {
-                    "type": "string",
-                    "const": "none"
-                },
-                {
-                    "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
-                }
-            ]
-        },
-        "hueComponent": {
-            "title": "Hue Component",
-            "description": "Hue angle from 0 up to (but not including) 360 degrees",
-            "oneOf": [
-                {
-                    "type": "number",
-                    "minimum": 0,
-                    "exclusiveMaximum": 360
-                },
-                {
-                    "type": "string",
-                    "const": "none"
-                },
-                {
-                    "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
-                }
-            ]
-        },
-        "percentageComponent": {
-            "title": "Percentage Component",
-            "description": "Percentage value from 0 to 100",
-            "oneOf": [
-                {
-                    "type": "number",
-                    "minimum": 0,
-                    "maximum": 100
-                },
-                {
-                    "type": "string",
-                    "const": "none"
-                },
-                {
-                    "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
-                }
-            ]
-        },
-        "chromaComponent": {
-            "title": "Chroma Component",
-            "description": "Chroma value from 0 to infinity",
-            "oneOf": [
-                {
-                    "type": "number",
-                    "minimum": 0
-                },
-                {
-                    "type": "string",
-                    "const": "none"
-                },
-                {
-                    "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
-                }
-            ]
-        },
-        "unboundedComponent": {
-            "title": "Unbounded Component",
-            "description": "A color component with no numeric bounds (e.g., A and B in LAB/OKLAB color spaces)",
-            "oneOf": [
-                {
-                    "type": "number"
-                },
-                {
-                    "type": "string",
-                    "const": "none"
-                },
-                {
-                    "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
-                }
-            ]
-        },
-        "rgbComponents": {
-            "title": "RGB Components",
-            "description": "Array of RGB color components [Red, Green, Blue], each normalized to the range [0-1]",
-            "items": [
-                {
-                    "description": "Red: A number between 0 and 1 representing the red component of the color",
-                    "$ref": "#/definitions/zeroToOneComponent"
-                },
-                {
-                    "description": "Green: A number between 0 and 1 representing the green component of the color",
-                    "$ref": "#/definitions/zeroToOneComponent"
-                },
-                {
-                    "description": "Blue: A number between 0 and 1 representing the blue component of the color",
-                    "$ref": "#/definitions/zeroToOneComponent"
-                }
-            ]
-        },
-        "xyzComponents": {
-            "title": "XYZ Components",
-            "description": "Array of XYZ color components [X, Y, Z], each normalized to the range [0-1]",
-            "items": [
-                {
-                    "description": "X: A number between 0 and 1 representing the X component of the color",
-                    "$ref": "#/definitions/zeroToOneComponent"
-                },
-                {
-                    "description": "Y: A number between 0 and 1 representing the Y component of the color",
-                    "$ref": "#/definitions/zeroToOneComponent"
-                },
-                {
-                    "description": "Z: A number between 0 and 1 representing the Z component of the color",
-                    "$ref": "#/definitions/zeroToOneComponent"
-                }
-            ]
-        }
+    "components": {
+      "description": "Array of color components. The number and meaning of components depend on the color space. Each component can be a number or the 'none' keyword.",
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3
     },
-    "allOf": [
+    "alpha": {
+      "description": "The alpha (transparency) value of the color. 0 is fully transparent, 1 is fully opaque. If omitted, defaults to 1.",
+      "oneOf": [
         {
-            "if": {
-                "properties": {
-                    "colorSpace": { "const": "srgb" }
-                }
-            },
-            "then": {
-                "properties": {
-                    "components": {
-                        "$ref": "#/definitions/rgbComponents"
-                    }
-                }
-            }
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
         },
         {
-            "if": {
-                "properties": {
-                    "colorSpace": { "const": "srgb-linear" }
-                }
-            },
-            "then": {
-                "properties": {
-                    "components": {
-                        "$ref": "#/definitions/rgbComponents"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "colorSpace": { "const": "display-p3" }
-                }
-            },
-            "then": {
-                "properties": {
-                    "components": {
-                        "$ref": "#/definitions/rgbComponents"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "colorSpace": { "const": "a98-rgb" }
-                }
-            },
-            "then": {
-                "properties": {
-                    "components": {
-                        "$ref": "#/definitions/rgbComponents"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "colorSpace": { "const": "prophoto-rgb" }
-                }
-            },
-            "then": {
-                "properties": {
-                    "components": {
-                        "$ref": "#/definitions/rgbComponents"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "colorSpace": { "const": "rec2020" }
-                }
-            },
-            "then": {
-                "properties": {
-                    "components": {
-                        "$ref": "#/definitions/rgbComponents"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "colorSpace": { "const": "xyz-d65" }
-                }
-            },
-            "then": {
-                "properties": {
-                    "components": {
-                        "$ref": "#/definitions/xyzComponents"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "colorSpace": { "const": "xyz-d50" }
-                }
-            },
-            "then": {
-                "properties": {
-                    "components": {
-                        "$ref": "#/definitions/xyzComponents"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "colorSpace": { "const": "hsl" }
-                }
-            },
-            "then": {
-                "properties": {
-                    "components": {
-                        "items": [
-                            {
-                                "description": "Hue: A number from 0 up to (but not including) 360 representing the hue angle of the color on the color wheel",
-                                "$ref": "#/definitions/hueComponent"
-                            },
-                            {
-                                "description": "Saturation: A number between 0 and 100 representing the percentage of color saturation",
-                                "$ref": "#/definitions/percentageComponent"
-                            },
-                            {
-                                "description": "Lightness: A number between 0 and 100 representing the percentage of lightness",
-                                "$ref": "#/definitions/percentageComponent"
-                            }
-                        ]
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "colorSpace": { "const": "hwb" }
-                }
-            },
-            "then": {
-                "properties": {
-                    "components": {
-                        "items": [
-                            {
-                                "description": "Hue: A number from 0 up to (but not including) 360 representing the angle of the color on the color wheel",
-                                "$ref": "#/definitions/hueComponent"
-                            },
-                            {
-                                "description": "Whiteness: A number between 0 and 100 representing the percentage of white in the color",
-                                "$ref": "#/definitions/percentageComponent"
-                            },
-                            {
-                                "description": "Blackness: A number between 0 and 100 representing the percentage of black in the color",
-                                "$ref": "#/definitions/percentageComponent"
-                            }
-                        ]
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "colorSpace": { "const": "lab" }
-                }
-            },
-            "then": {
-                "properties": {
-                    "components": {
-                        "items": [
-                            {
-                                "description": "Lightness: A number between 0 and 100 representing the percentage of lightness of the color",
-                                "$ref": "#/definitions/percentageComponent"
-                            },
-                            {
-                                "description": "A: A signed number representing the green-red axis of the color. Unbounded but in practice doesn't exceed -160 to 160",
-                                "$ref": "#/definitions/unboundedComponent"
-                            },
-                            {
-                                "description": "B: A signed number representing the blue-yellow axis of the color. Unbounded but in practice doesn't exceed -160 to 160",
-                                "$ref": "#/definitions/unboundedComponent"
-                            }
-                        ]
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "colorSpace": { "const": "lch" }
-                }
-            },
-            "then": {
-                "properties": {
-                    "components": {
-                        "items": [
-                            {
-                                "description": "Lightness: A number between 0 and 100 representing the percentage of lightness of the color",
-                                "$ref": "#/definitions/percentageComponent"
-                            },
-                            {
-                                "description": "Chroma: A number representing the chroma of the color. Unbounded but in practice doesn't exceed 230",
-                                "$ref": "#/definitions/chromaComponent"
-                            },
-                            {
-                                "description": "Hue: A number from 0 up to (but not including) 360 representing the angle of the color on the color wheel",
-                                "$ref": "#/definitions/hueComponent"
-                            }
-                        ]
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "colorSpace": { "const": "oklab" }
-                }
-            },
-            "then": {
-                "properties": {
-                    "components": {
-                        "items": [
-                            {
-                                "description": "Lightness: A number between 0 and 1 representing the lightness of the color",
-                                "$ref": "#/definitions/zeroToOneComponent"
-                            },
-                            {
-                                "description": "A: A signed number representing the green-red axis of the color. Unbounded but in practice doesn't exceed -0.5 to 0.5",
-                                "$ref": "#/definitions/unboundedComponent"
-                            },
-                            {
-                                "description": "B: A signed number representing the blue-yellow axis of the color. Unbounded but in practice doesn't exceed -0.5 to 0.5",
-                                "$ref": "#/definitions/unboundedComponent"
-                            }
-                        ]
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "colorSpace": { "const": "oklch" }
-                }
-            },
-            "then": {
-                "properties": {
-                    "components": {
-                        "items": [
-                            {
-                                "description": "Lightness: A number between 0 and 1 representing the lightness of the color",
-                                "$ref": "#/definitions/zeroToOneComponent"
-                            },
-                            {
-                                "description": "Chroma: A number representing the chroma of the color. Unbounded but in practice doesn't exceed 0.5",
-                                "$ref": "#/definitions/chromaComponent"
-                            },
-                            {
-                                "description": "Hue: A number from 0 up to (but not including) 360 representing the angle of the color on the color wheel",
-                                "$ref": "#/definitions/hueComponent"
-                            }
-                        ]
-                    }
-                }
-            }
+          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
         }
-    ]
+      ]
+    },
+    "hex": {
+      "description": "Optional fallback value in 6-digit CSS hex color notation (e.g., '#ff00ff'). Must be 6 digits to avoid conflicts with the alpha value.",
+      "$comment": "Only JSON Pointer references (not curly brace references) are allowed for hex because no string token type exists in the specification that could be referenced with curly braces.",
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        {
+          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/jsonPointerReferenceObject"
+        }
+      ]
+    }
+  },
+  "required": ["colorSpace", "components"],
+  "additionalProperties": false,
+  "definitions": {
+    "zeroToOneComponent": {
+      "title": "Zero to One Component",
+      "description": "A color component normalized to the range [0-1] (e.g., RGB values, XYZ values)",
+      "oneOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "string",
+          "const": "none"
+        },
+        {
+          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
+        }
+      ]
+    },
+    "hueComponent": {
+      "title": "Hue Component",
+      "description": "Hue angle from 0 up to (but not including) 360 degrees",
+      "oneOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 360
+        },
+        {
+          "type": "string",
+          "const": "none"
+        },
+        {
+          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
+        }
+      ]
+    },
+    "percentageComponent": {
+      "title": "Percentage Component",
+      "description": "Percentage value from 0 to 100",
+      "oneOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        {
+          "type": "string",
+          "const": "none"
+        },
+        {
+          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
+        }
+      ]
+    },
+    "chromaComponent": {
+      "title": "Chroma Component",
+      "description": "Chroma value from 0 to infinity",
+      "oneOf": [
+        {
+          "type": "number",
+          "minimum": 0
+        },
+        {
+          "type": "string",
+          "const": "none"
+        },
+        {
+          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
+        }
+      ]
+    },
+    "unboundedComponent": {
+      "title": "Unbounded Component",
+      "description": "A color component with no numeric bounds (e.g., A and B in LAB/OKLAB color spaces)",
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string",
+          "const": "none"
+        },
+        {
+          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
+        }
+      ]
+    },
+    "rgbComponents": {
+      "title": "RGB Components",
+      "description": "Array of RGB color components [Red, Green, Blue], each normalized to the range [0-1]",
+      "items": [
+        {
+          "description": "Red: A number between 0 and 1 representing the red component of the color",
+          "$ref": "#/definitions/zeroToOneComponent"
+        },
+        {
+          "description": "Green: A number between 0 and 1 representing the green component of the color",
+          "$ref": "#/definitions/zeroToOneComponent"
+        },
+        {
+          "description": "Blue: A number between 0 and 1 representing the blue component of the color",
+          "$ref": "#/definitions/zeroToOneComponent"
+        }
+      ]
+    },
+    "xyzComponents": {
+      "title": "XYZ Components",
+      "description": "Array of XYZ color components [X, Y, Z], each normalized to the range [0-1]",
+      "items": [
+        {
+          "description": "X: A number between 0 and 1 representing the X component of the color",
+          "$ref": "#/definitions/zeroToOneComponent"
+        },
+        {
+          "description": "Y: A number between 0 and 1 representing the Y component of the color",
+          "$ref": "#/definitions/zeroToOneComponent"
+        },
+        {
+          "description": "Z: A number between 0 and 1 representing the Z component of the color",
+          "$ref": "#/definitions/zeroToOneComponent"
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "colorSpace": { "const": "srgb" }
+        }
+      },
+      "then": {
+        "properties": {
+          "components": {
+            "$ref": "#/definitions/rgbComponents"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "colorSpace": { "const": "srgb-linear" }
+        }
+      },
+      "then": {
+        "properties": {
+          "components": {
+            "$ref": "#/definitions/rgbComponents"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "colorSpace": { "const": "display-p3" }
+        }
+      },
+      "then": {
+        "properties": {
+          "components": {
+            "$ref": "#/definitions/rgbComponents"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "colorSpace": { "const": "a98-rgb" }
+        }
+      },
+      "then": {
+        "properties": {
+          "components": {
+            "$ref": "#/definitions/rgbComponents"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "colorSpace": { "const": "prophoto-rgb" }
+        }
+      },
+      "then": {
+        "properties": {
+          "components": {
+            "$ref": "#/definitions/rgbComponents"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "colorSpace": { "const": "rec2020" }
+        }
+      },
+      "then": {
+        "properties": {
+          "components": {
+            "$ref": "#/definitions/rgbComponents"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "colorSpace": { "const": "xyz-d65" }
+        }
+      },
+      "then": {
+        "properties": {
+          "components": {
+            "$ref": "#/definitions/xyzComponents"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "colorSpace": { "const": "xyz-d50" }
+        }
+      },
+      "then": {
+        "properties": {
+          "components": {
+            "$ref": "#/definitions/xyzComponents"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "colorSpace": { "const": "hsl" }
+        }
+      },
+      "then": {
+        "properties": {
+          "components": {
+            "items": [
+              {
+                "description": "Hue: A number from 0 up to (but not including) 360 representing the hue angle of the color on the color wheel",
+                "$ref": "#/definitions/hueComponent"
+              },
+              {
+                "description": "Saturation: A number between 0 and 100 representing the percentage of color saturation",
+                "$ref": "#/definitions/percentageComponent"
+              },
+              {
+                "description": "Lightness: A number between 0 and 100 representing the percentage of lightness",
+                "$ref": "#/definitions/percentageComponent"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "colorSpace": { "const": "hwb" }
+        }
+      },
+      "then": {
+        "properties": {
+          "components": {
+            "items": [
+              {
+                "description": "Hue: A number from 0 up to (but not including) 360 representing the angle of the color on the color wheel",
+                "$ref": "#/definitions/hueComponent"
+              },
+              {
+                "description": "Whiteness: A number between 0 and 100 representing the percentage of white in the color",
+                "$ref": "#/definitions/percentageComponent"
+              },
+              {
+                "description": "Blackness: A number between 0 and 100 representing the percentage of black in the color",
+                "$ref": "#/definitions/percentageComponent"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "colorSpace": { "const": "lab" }
+        }
+      },
+      "then": {
+        "properties": {
+          "components": {
+            "items": [
+              {
+                "description": "Lightness: A number between 0 and 100 representing the percentage of lightness of the color",
+                "$ref": "#/definitions/percentageComponent"
+              },
+              {
+                "description": "A: A signed number representing the green-red axis of the color. Unbounded but in practice doesn't exceed -160 to 160",
+                "$ref": "#/definitions/unboundedComponent"
+              },
+              {
+                "description": "B: A signed number representing the blue-yellow axis of the color. Unbounded but in practice doesn't exceed -160 to 160",
+                "$ref": "#/definitions/unboundedComponent"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "colorSpace": { "const": "lch" }
+        }
+      },
+      "then": {
+        "properties": {
+          "components": {
+            "items": [
+              {
+                "description": "Lightness: A number between 0 and 100 representing the percentage of lightness of the color",
+                "$ref": "#/definitions/percentageComponent"
+              },
+              {
+                "description": "Chroma: A number representing the chroma of the color. Unbounded but in practice doesn't exceed 230",
+                "$ref": "#/definitions/chromaComponent"
+              },
+              {
+                "description": "Hue: A number from 0 up to (but not including) 360 representing the angle of the color on the color wheel",
+                "$ref": "#/definitions/hueComponent"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "colorSpace": { "const": "oklab" }
+        }
+      },
+      "then": {
+        "properties": {
+          "components": {
+            "items": [
+              {
+                "description": "Lightness: A number between 0 and 1 representing the lightness of the color",
+                "$ref": "#/definitions/zeroToOneComponent"
+              },
+              {
+                "description": "A: A signed number representing the green-red axis of the color. Unbounded but in practice doesn't exceed -0.5 to 0.5",
+                "$ref": "#/definitions/unboundedComponent"
+              },
+              {
+                "description": "B: A signed number representing the blue-yellow axis of the color. Unbounded but in practice doesn't exceed -0.5 to 0.5",
+                "$ref": "#/definitions/unboundedComponent"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "colorSpace": { "const": "oklch" }
+        }
+      },
+      "then": {
+        "properties": {
+          "components": {
+            "items": [
+              {
+                "description": "Lightness: A number between 0 and 1 representing the lightness of the color",
+                "$ref": "#/definitions/zeroToOneComponent"
+              },
+              {
+                "description": "Chroma: A number representing the chroma of the color. Unbounded but in practice doesn't exceed 0.5",
+                "$ref": "#/definitions/chromaComponent"
+              },
+              {
+                "description": "Hue: A number from 0 up to (but not including) 360 representing the angle of the color on the color wheel",
+                "$ref": "#/definitions/hueComponent"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
 }

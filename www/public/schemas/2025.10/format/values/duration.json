@@ -1,34 +1,34 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://designtokens.org/schemas/2025.10/format/values/duration.json",
-    "title": "Duration Value",
-    "description": "Value schema for duration type tokens. Represents the length of time in milliseconds an animation or animation cycle takes to complete.",
-    "type": "object",
-    "properties": {
-        "value": {
-            "description": "An integer or floating-point value representing the numeric value.",
-            "oneOf": [
-                {
-                    "type": "number"
-                },
-                {
-                    "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
-                }
-            ]
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://designtokens.org/schemas/2025.10/format/values/duration.json",
+  "title": "Duration Value",
+  "description": "Value schema for duration type tokens. Represents the length of time in milliseconds an animation or animation cycle takes to complete.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "description": "An integer or floating-point value representing the numeric value.",
+      "oneOf": [
+        {
+          "type": "number"
         },
-        "unit": {
-            "description": "Unit of time. Supported values: 'ms' (millisecond), 's' (second).",
-            "oneOf": [
-                {
-                    "type": "string",
-                    "enum": ["ms", "s"]
-                },
-                {
-                    "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/jsonPointerReferenceObject"
-                }
-            ]
+        {
+          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
         }
+      ]
     },
-    "required": ["value", "unit"],
-    "additionalProperties": false
+    "unit": {
+      "description": "Unit of time. Supported values: 'ms' (millisecond), 's' (second).",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": ["ms", "s"]
+        },
+        {
+          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/jsonPointerReferenceObject"
+        }
+      ]
+    }
+  },
+  "required": ["value", "unit"],
+  "additionalProperties": false
 }
