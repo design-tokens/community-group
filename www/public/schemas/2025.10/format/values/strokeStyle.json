@@ -1,0 +1,56 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://designtokens.org/schemas/2025.10/format/values/strokeStyle.json",
+    "title": "Stroke Style Value",
+    "description": "Value schema for strokeStyle type tokens. Represents the style applied to lines or borders.",
+    "oneOf": [
+        {
+            "type": "string",
+            "enum": [
+                "solid",
+                "dashed",
+                "dotted",
+                "double",
+                "groove",
+                "ridge",
+                "outset",
+                "inset"
+            ],
+            "description": "Pre-defined stroke style values with the same meaning as CSS line style values"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "dashArray": {
+                    "type": "array",
+                    "description": "Array of dimension values specifying lengths of alternating dashes and gaps",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "https://designtokens.org/schemas/2025.10/format/values/dimension.json"
+                            },
+                            {
+                                "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
+                            }
+                        ]
+                    },
+                    "minItems": 1
+                },
+                "lineCap": {
+                    "description": "Line cap style, same meaning as SVG stroke-linecap attribute",
+                    "oneOf": [
+                        {
+                            "type": "string",
+                            "enum": ["round", "butt", "square"]
+                        },
+                        {
+                            "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/jsonPointerReferenceObject"
+                        }
+                    ]
+                }
+            },
+            "required": ["dashArray", "lineCap"],
+            "additionalProperties": false
+        }
+    ]
+}
