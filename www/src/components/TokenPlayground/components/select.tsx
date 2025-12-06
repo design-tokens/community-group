@@ -2,8 +2,10 @@ import type { ComponentChildren, JSX } from 'preact';
 import { useId } from 'preact/hooks';
 import s from './select.module.css';
 
-export interface SelectProps
-  extends Omit<JSX.IntrinsicElements['select'], 'children' | 'label'> {
+export interface SelectProps extends Omit<
+  JSX.IntrinsicElements['select'],
+  'children' | 'label'
+> {
   label: ComponentChildren;
   options: { label: ComponentChildren; value: string }[];
 }
