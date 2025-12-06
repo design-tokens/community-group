@@ -1,0 +1,5 @@
+{
+  "formatter": "prettier",
+  "use_auto_surround": false,
+  "use_autoclose": false
+}

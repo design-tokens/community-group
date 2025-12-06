@@ -31,6 +31,6 @@
   "devDependencies": {
     "chokidar": "^4.0.3",
     "chokidar-cli": "^3.0.0",
-    "respec": "^35.6.0"
+    "respec": "^35.6.1"
   }
 }

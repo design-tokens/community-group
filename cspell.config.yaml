@@ -23,11 +23,13 @@ ignorePaths:
   - pnpm-lock.yaml
   - '**/*.css'
   - '**/*.scss'
+  - '**/*.snap'
   - '**/dist'
   - '**/node_modules'
   - '**/package.json'
   - '**/tsconfig.json'
   - www/src/pages/TR/** # ignore published specs
+  - www/src/components/TokenPlayground/lib/examples/** # ignore external DSs
 ignoreRegExpList:
   - <!--.*--> # ignore HTML comments
   - '@[A-Za-z0-9-_]+' # ignore social handles

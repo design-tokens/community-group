@@ -1,0 +1,56 @@
+---
+import '@/assets/css/style.scss';
+import MainHead from '@/components/MainHead.astro';
+import Header from '@/components/Header.astro';
+import HeaderMobile from '@/components/HeaderMobile.astro';
+import SearchDialog from '@/components/SearchDialog.astro';
+import Footer from '@/components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts';
+
+interface Props {
+  title?: string | undefined;
+  description?: string | undefined;
+  frontmatter?: Record<string, any>;
+  footer?: boolean;
+}
+
+const { title, description, frontmatter, footer } = Astro.props;
+
+const titleFormatted = [title ?? frontmatter?.title, SITE_TITLE]
+  .filter(Boolean)
+  .join(' | ');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <MainHead
+      title={titleFormatted}
+      description={description ?? SITE_DESCRIPTION ?? frontmatter?.description}
+    />
+    <style lang="scss">
+      .header-size--mobile {
+        display: block;
+
+        @media (width >= 750px) {
+          display: none;
+        }
+      }
+
+      .header-size--desktop {
+        display: none;
+
+        @media (width >= 750px) {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-size--mobile"><HeaderMobile /></div>
+    <div class="header-size--desktop"><Header /></div>
+    <slot />
+    {footer !== false && <Footer />}
+    <SearchDialog />
+  </body>
+</html>

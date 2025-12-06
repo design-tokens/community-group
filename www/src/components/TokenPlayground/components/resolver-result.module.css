@@ -1,0 +1,40 @@
+.container {
+  border-left: 1px solid #202020;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+}
+
+.modifiers {
+  border: none;
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  padding-block: 0;
+  padding-inline: 1rem;
+  scrollbar-gutter: stable;
+  scrollbar-color: currentColor #202020;
+  overflow-x: auto;
+
+  > * {
+    min-height: var(--toolbar-size);
+  }
+}
+
+.modifierTitle {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.final {
+  display: flex;
+  flex: 1 0 auto;
+
+  > * {
+    height: 100%;
+    width: 100%;
+  }
+}

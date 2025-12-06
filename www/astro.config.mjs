@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import pagefind from 'astro-pagefind';
 import sitemap from '@astrojs/sitemap';
+import preact from '@astrojs/preact';
 import robotsTxt from 'astro-robots-txt';
 import icon from 'astro-icon';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -17,6 +18,7 @@ export default defineConfig({
     robotsTxt(),
     icon({ iconDir: 'src/assets/vectors' }),
     pagefind(),
+    preact({ compat: true }), // compat: true is needed to use React libraries
   ],
   devToolbar: {
     enabled: false,
@@ -34,6 +36,7 @@ export default defineConfig({
   },
   vite: {
     css: {
+      transformer: 'lightningcss',
       preprocessorOptions: {
         scss: {
           additionalData: `
