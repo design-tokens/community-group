@@ -1,6 +1,7 @@
 @use "../01-utils/tokens" as *;
 
 :root {
+  --header-height: var(--base-space-16);
   --focus-ring: 0px 0px 0px 3px var(--color-neutral-100);
 }
 

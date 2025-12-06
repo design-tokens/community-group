@@ -1,7 +1,7 @@
 .app {
   --color-bg: color(srgb 0 0 0);
   --color-text: color(srgb 1 1 1);
-  --app-height: 100vh;
+  --app-height: calc(100vh - var(--header-height, var(--base-space-16)));
   --toolbar-size: 2rem;
 
   background-color: var(--color-bg);
@@ -13,6 +13,7 @@
   grid-template-areas: "nav editor resolver-result";
   grid-template-columns: minmax(20vw, 20rem) 1fr 1fr;
   font-variant-numeric: tabular-nums;
+  min-height: 24rem;
   height: var(--app-height);
   line-height: 1;
   letter-spacing: 0;
