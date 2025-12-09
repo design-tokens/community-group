@@ -34,9 +34,7 @@
     },
     "components": {
       "description": "Array of color components. The number and meaning of components depend on the color space. Each component can be a number or the 'none' keyword.",
-      "type": "array",
-      "minItems": 3,
-      "maxItems": 3
+      "type": "array"
     },
     "alpha": {
       "description": "The alpha (transparency) value of the color. 0 is fully transparent, 1 is fully opaque. If omitted, defaults to 1.",
@@ -158,6 +156,8 @@
     "rgbComponents": {
       "title": "RGB Components",
       "description": "Array of RGB color components [Red, Green, Blue], each normalized to the range [0-1]",
+      "minItems": 3,
+      "maxItems": 3,
       "items": [
         {
           "description": "Red: A number between 0 and 1 representing the red component of the color",
@@ -176,6 +176,8 @@
     "xyzComponents": {
       "title": "XYZ Components",
       "description": "Array of XYZ color components [X, Y, Z], each normalized to the range [0-1]",
+      "minItems": 3,
+      "maxItems": 3,
       "items": [
         {
           "description": "X: A number between 0 and 1 representing the X component of the color",
@@ -314,6 +316,8 @@
       "then": {
         "properties": {
           "components": {
+            "minItems": 3,
+            "maxItems": 3,
             "items": [
               {
                 "description": "Hue: A number from 0 up to (but not including) 360 representing the hue angle of the color on the color wheel",
@@ -341,6 +345,8 @@
       "then": {
         "properties": {
           "components": {
+            "minItems": 3,
+            "maxItems": 3,
             "items": [
               {
                 "description": "Hue: A number from 0 up to (but not including) 360 representing the angle of the color on the color wheel",
@@ -368,6 +374,8 @@
       "then": {
         "properties": {
           "components": {
+            "minItems": 3,
+            "maxItems": 3,
             "items": [
               {
                 "description": "Lightness: A number between 0 and 100 representing the percentage of lightness of the color",
@@ -395,6 +403,8 @@
       "then": {
         "properties": {
           "components": {
+            "minItems": 3,
+            "maxItems": 3,
             "items": [
               {
                 "description": "Lightness: A number between 0 and 100 representing the percentage of lightness of the color",
@@ -422,6 +432,8 @@
       "then": {
         "properties": {
           "components": {
+            "minItems": 3,
+            "maxItems": 3,
             "items": [
               {
                 "description": "Lightness: A number between 0 and 1 representing the lightness of the color",
@@ -449,6 +461,8 @@
       "then": {
         "properties": {
           "components": {
+            "minItems": 3,
+            "maxItems": 3,
             "items": [
               {
                 "description": "Lightness: A number between 0 and 1 representing the lightness of the color",
