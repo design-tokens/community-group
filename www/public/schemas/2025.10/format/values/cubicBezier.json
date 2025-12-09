@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://designtokens.org/schemas/2025.10/format/values/cubicBezier.json",
+  "$id": "schemas/2025.10/format/values/cubicBezier.json",
   "title": "Cubic Bezier Value",
   "description": "Value schema for cubicBezier type tokens. Represents how the value of an animated property progresses towards completion over the duration of an animation, effectively creating visual effects such as acceleration, deceleration, and bounce.",
   "type": "array",
@@ -36,7 +36,7 @@
           "maximum": 1
         },
         {
-          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
+          "$ref": "../format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -48,7 +48,7 @@
           "type": "number"
         },
         {
-          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
+          "$ref": "../format.json#/definitions/tokenValueReference"
         }
       ]
     }

@@ -1,18 +1,18 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://designtokens.org/schemas/2025.10/format/format.json",
+  "$id": "schemas/2025.10/format/format.json",
   "title": "DTCG Format Schema",
   "description": "JSON Schema for the Design Tokens Community Group (DTCG) Format specification.",
   "type": "object",
   "properties": {
     "$schema": {
       "type": "string",
-      "format": "uri",
+      "format": "uri-reference",
       "description": "URI reference to this JSON schema.",
       "$comment": "$schema is not part of the official DTCG specification."
     },
     "$type": {
-      "$ref": "https://designtokens.org/schemas/2025.10/format/tokenType.json",
+      "$ref": "tokenType.json",
       "description": "The type for tokens in this group (inherited by nested tokens unless overridden)"
     },
     "$description": {
@@ -47,13 +47,13 @@
     },
     "$root": {
       "description": "Root token for this group. The $root token provides a base value for the group while allowing for variants or extensions.",
-      "$ref": "https://designtokens.org/schemas/2025.10/format/token.json"
+      "$ref": "token.json"
     }
   },
   "patternProperties": {
     "^[^${}.][^{}.]*$": {
       "description": "Nested groups and tokens (see #/definitions/tokenOrGroupName for pattern definition)",
-      "$ref": "https://designtokens.org/schemas/2025.10/format/groupOrToken.json"
+      "$ref": "groupOrToken.json"
     }
   },
   "additionalProperties": false,
@@ -73,6 +73,7 @@
     "jsonPointerReference": {
       "title": "JSON Pointer Reference",
       "type": "string",
+      "pattern": "^#/",
       "format": "json-pointer-uri-fragment",
       "description": "JSON Pointer reference (RFC 6901) to a location in the document (e.g., '#/path/to/target')"
     },

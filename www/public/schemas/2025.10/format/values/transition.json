@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://designtokens.org/schemas/2025.10/format/values/transition.json",
+  "$id": "schemas/2025.10/format/values/transition.json",
   "title": "Transition Value",
   "description": "Value schema for transition type tokens. Represents an animated transition between two states.",
   "type": "object",
@@ -9,10 +9,10 @@
       "description": "The duration of the transition",
       "oneOf": [
         {
-          "$ref": "https://designtokens.org/schemas/2025.10/format/values/duration.json"
+          "$ref": "duration.json"
         },
         {
-          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
+          "$ref": "../format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -20,10 +20,10 @@
       "description": "The time to wait before the transition begins",
       "oneOf": [
         {
-          "$ref": "https://designtokens.org/schemas/2025.10/format/values/duration.json"
+          "$ref": "duration.json"
         },
         {
-          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
+          "$ref": "../format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -31,10 +31,10 @@
       "description": "The timing function of the transition",
       "oneOf": [
         {
-          "$ref": "https://designtokens.org/schemas/2025.10/format/values/cubicBezier.json"
+          "$ref": "cubicBezier.json"
         },
         {
-          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/tokenValueReference"
+          "$ref": "../format.json#/definitions/tokenValueReference"
         }
       ]
     }

@@ -1,12 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://designtokens.org/schemas/2025.10/format/group.json",
+  "$id": "schemas/2025.10/format/group.json",
   "title": "Group",
   "description": "A group in the DTCG specification",
   "type": "object",
   "properties": {
     "$type": {
-      "$ref": "https://designtokens.org/schemas/2025.10/format/tokenType.json",
+      "$ref": "tokenType.json",
       "description": "The type for tokens in this group (inherited by nested tokens unless overridden)"
     },
     "$description": {
@@ -20,10 +20,10 @@
     "$extends": {
       "oneOf": [
         {
-          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/curlyBraceReference"
+          "$ref": "format.json#/definitions/curlyBraceReference"
         },
         {
-          "$ref": "https://designtokens.org/schemas/2025.10/format/format.json#/definitions/jsonPointerReference"
+          "$ref": "format.json#/definitions/jsonPointerReference"
         }
       ],
       "description": "Reference to another group to inherit tokens and properties from"
@@ -41,13 +41,13 @@
     },
     "$root": {
       "description": "Root token for this group. The $root token provides a base value for the group while allowing for variants or extensions.",
-      "$ref": "https://designtokens.org/schemas/2025.10/format/token.json"
+      "$ref": "token.json"
     }
   },
   "patternProperties": {
     "^[^${}.][^{}.]*$": {
       "description": "Nested groups and tokens (see ./format.json#/definitions/tokenOrGroupName for pattern definition)",
-      "$ref": "https://designtokens.org/schemas/2025.10/format/groupOrToken.json"
+      "$ref": "groupOrToken.json"
     }
   },
   "additionalProperties": false
