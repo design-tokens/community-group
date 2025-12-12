@@ -8,7 +8,7 @@
       "type": "string",
       "description": "A single font name",
       "not": {
-        "$ref": "../format.json#/definitions/curlyBraceReference"
+        "$ref": "../../format.json#/definitions/curlyBraceReference"
       }
     },
     {
@@ -19,11 +19,11 @@
           {
             "type": "string",
             "not": {
-              "$ref": "../format.json#/definitions/curlyBraceReference"
+              "$ref": "../../format.json#/definitions/curlyBraceReference"
             }
           },
           {
-            "$ref": "../format.json#/definitions/jsonPointerReferenceObject"
+            "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
           }
         ]
       },

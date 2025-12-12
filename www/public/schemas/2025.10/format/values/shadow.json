@@ -16,7 +16,7 @@
             "$ref": "#/definitions/shadowObject"
           },
           {
-            "$ref": "../format.json#/definitions/tokenValueReference"
+            "$ref": "../../format.json#/definitions/tokenValueReference"
           }
         ]
       },
@@ -35,7 +35,7 @@
               "$ref": "color.json"
             },
             {
-              "$ref": "../format.json#/definitions/tokenValueReference"
+              "$ref": "../../format.json#/definitions/tokenValueReference"
             }
           ]
         },
@@ -46,7 +46,7 @@
               "$ref": "dimension.json"
             },
             {
-              "$ref": "../format.json#/definitions/tokenValueReference"
+              "$ref": "../../format.json#/definitions/tokenValueReference"
             }
           ]
         },
@@ -57,7 +57,7 @@
               "$ref": "dimension.json"
             },
             {
-              "$ref": "../format.json#/definitions/tokenValueReference"
+              "$ref": "../../format.json#/definitions/tokenValueReference"
             }
           ]
         },
@@ -68,7 +68,7 @@
               "$ref": "dimension.json"
             },
             {
-              "$ref": "../format.json#/definitions/tokenValueReference"
+              "$ref": "../../format.json#/definitions/tokenValueReference"
             }
           ]
         },
@@ -79,7 +79,7 @@
               "$ref": "dimension.json"
             },
             {
-              "$ref": "../format.json#/definitions/tokenValueReference"
+              "$ref": "../../format.json#/definitions/tokenValueReference"
             }
           ]
         },
@@ -90,7 +90,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "../format.json#/definitions/jsonPointerReferenceObject"
+              "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
             }
           ]
         }

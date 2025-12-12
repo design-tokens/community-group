@@ -12,7 +12,7 @@
           "$ref": "color.json"
         },
         {
-          "$ref": "../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -23,7 +23,7 @@
           "$ref": "dimension.json"
         },
         {
-          "$ref": "../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -34,7 +34,7 @@
           "$ref": "strokeStyle.json"
         },
         {
-          "$ref": "../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/tokenValueReference"
         }
       ]
     }

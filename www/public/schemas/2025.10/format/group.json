@@ -20,10 +20,10 @@
     "$extends": {
       "oneOf": [
         {
-          "$ref": "format.json#/definitions/curlyBraceReference"
+          "$ref": "../format.json#/definitions/curlyBraceReference"
         },
         {
-          "$ref": "format.json#/definitions/jsonPointerReference"
+          "$ref": "../format.json#/definitions/jsonPointerReference"
         }
       ],
       "description": "Reference to another group to inherit tokens and properties from"
@@ -46,7 +46,7 @@
   },
   "patternProperties": {
     "^[^${}.][^{}.]*$": {
-      "description": "Nested groups and tokens (see ./format.json#/definitions/tokenOrGroupName for pattern definition)",
+      "description": "Nested groups and tokens (see ../format.json#/definitions/tokenOrGroupName for pattern definition)",
       "$ref": "groupOrToken.json"
     }
   },

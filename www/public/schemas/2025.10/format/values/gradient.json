@@ -10,7 +10,7 @@
         "$ref": "#/definitions/gradientStop"
       },
       {
-        "$ref": "../format.json#/definitions/tokenValueReference"
+        "$ref": "../../format.json#/definitions/tokenValueReference"
       }
     ]
   },
@@ -27,7 +27,7 @@
               "$ref": "color.json"
             },
             {
-              "$ref": "../format.json#/definitions/tokenValueReference"
+              "$ref": "../../format.json#/definitions/tokenValueReference"
             }
           ]
         },
@@ -40,7 +40,7 @@
               "maximum": 1
             },
             {
-              "$ref": "../format.json#/definitions/tokenValueReference"
+              "$ref": "../../format.json#/definitions/tokenValueReference"
             }
           ]
         }

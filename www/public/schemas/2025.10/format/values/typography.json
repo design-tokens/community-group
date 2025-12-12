@@ -12,7 +12,7 @@
           "$ref": "fontFamily.json"
         },
         {
-          "$ref": "../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -23,7 +23,7 @@
           "$ref": "dimension.json"
         },
         {
-          "$ref": "../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -34,7 +34,7 @@
           "$ref": "fontWeight.json"
         },
         {
-          "$ref": "../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -45,7 +45,7 @@
           "$ref": "dimension.json"
         },
         {
-          "$ref": "../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -56,7 +56,7 @@
           "$ref": "number.json"
         },
         {
-          "$ref": "../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/tokenValueReference"
         }
       ]
     }

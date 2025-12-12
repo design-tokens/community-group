@@ -30,7 +30,7 @@
                 "$ref": "dimension.json"
               },
               {
-                "$ref": "../format.json#/definitions/tokenValueReference"
+                "$ref": "../../format.json#/definitions/tokenValueReference"
               }
             ]
           },
@@ -44,7 +44,7 @@
               "enum": ["round", "butt", "square"]
             },
             {
-              "$ref": "../format.json#/definitions/jsonPointerReferenceObject"
+              "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
             }
           ]
         }

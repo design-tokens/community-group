@@ -28,7 +28,7 @@
           ]
         },
         {
-          "$ref": "../format.json#/definitions/jsonPointerReferenceObject"
+          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -45,7 +45,7 @@
           "maximum": 1
         },
         {
-          "$ref": "../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -58,7 +58,7 @@
           "pattern": "^#[0-9a-fA-F]{6}$"
         },
         {
-          "$ref": "../format.json#/definitions/jsonPointerReferenceObject"
+          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     }
@@ -80,7 +80,7 @@
           "const": "none"
         },
         {
-          "$ref": "../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -98,7 +98,7 @@
           "const": "none"
         },
         {
-          "$ref": "../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -116,7 +116,7 @@
           "const": "none"
         },
         {
-          "$ref": "../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -133,7 +133,7 @@
           "const": "none"
         },
         {
-          "$ref": "../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -149,7 +149,7 @@
           "const": "none"
         },
         {
-          "$ref": "../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/tokenValueReference"
         }
       ]
     },
