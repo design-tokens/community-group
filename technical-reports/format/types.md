@@ -88,8 +88,6 @@ For example:
 
 Represents a font weight. The `$type` property MUST be set to the string `fontWeight`. The value must either be a number value in the range [1, 1000] or one of the pre-defined string values defined in the table below.
 
-<!-- cSpell:words wght -->
-
 Lower numbers represent lighter weights, and higher numbers represent thicker weights, as per the [OpenType `wght` tag specification](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_wght). The pre-defined string values are aliases for specific numeric values. For example `100`, `"thin"` and `"hairline"` are all the exact same value.
 
 | numeric value | string value aliases         |

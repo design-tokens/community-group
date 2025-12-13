@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "schemas/2025.10/format/values/typography.json",
+  "title": "Typography Value",
+  "description": "Value schema for typography type tokens. Represents a typographic style.",
+  "type": "object",
+  "properties": {
+    "fontFamily": {
+      "description": "The typography's font",
+      "oneOf": [
+        {
+          "$ref": "fontFamily.json"
+        },
+        {
+          "$ref": "../../format.json#/definitions/tokenValueReference"
+        }
+      ]
+    },
+    "fontSize": {
+      "description": "The size of the typography",
+      "oneOf": [
+        {
+          "$ref": "dimension.json"
+        },
+        {
+          "$ref": "../../format.json#/definitions/tokenValueReference"
+        }
+      ]
+    },
+    "fontWeight": {
+      "description": "The weight of the typography",
+      "oneOf": [
+        {
+          "$ref": "fontWeight.json"
+        },
+        {
+          "$ref": "../../format.json#/definitions/tokenValueReference"
+        }
+      ]
+    },
+    "letterSpacing": {
+      "description": "The horizontal spacing between characters",
+      "oneOf": [
+        {
+          "$ref": "dimension.json"
+        },
+        {
+          "$ref": "../../format.json#/definitions/tokenValueReference"
+        }
+      ]
+    },
+    "lineHeight": {
+      "description": "The vertical spacing between lines of typography (interpreted as a multiplier of fontSize)",
+      "oneOf": [
+        {
+          "$ref": "number.json"
+        },
+        {
+          "$ref": "../../format.json#/definitions/tokenValueReference"
+        }
+      ]
+    }
+  },
+  "required": [
+    "fontFamily",
+    "fontSize",
+    "fontWeight",
+    "letterSpacing",
+    "lineHeight"
+  ],
+  "additionalProperties": false
+}
