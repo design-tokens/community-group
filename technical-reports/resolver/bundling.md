@@ -14,6 +14,7 @@ Given a resolver that references 5 files:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "sets": {
     "foundation": {
       "sources": [
@@ -48,6 +49,7 @@ One could inline the contents, resulting in:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "sets": {
     "foundation": {
       "sources": [
@@ -112,6 +114,7 @@ Given the same resolver [from the inlining section](#inlining-files), we can cre
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "sets": {
     "foundation": {
       "sources": [

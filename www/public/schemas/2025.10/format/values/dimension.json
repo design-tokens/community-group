@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "schemas/2025.10/format/values/dimension.json",
+  "title": "Dimension Value",
+  "description": "Value schema for dimension type tokens. Represents an amount of distance in a single dimension in the UI, such as a position, width, height, radius, or thickness.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "description": "An integer or floating-point value representing the numeric value.",
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "$ref": "../../format.json#/definitions/tokenValueReference"
+        }
+      ]
+    },
+    "unit": {
+      "description": "Unit of distance. Supported values: 'px' (idealized pixel, equivalent to dp on Android and pt on iOS), 'rem' (multiple of system's default font size).",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": ["px", "rem"]
+        },
+        {
+          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+        }
+      ]
+    }
+  },
+  "required": ["value", "unit"],
+  "additionalProperties": false
+}

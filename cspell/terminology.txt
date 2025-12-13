@@ -43,3 +43,4 @@ tocsidebar
 unbuilt
 wireframing
 workstreams
+wght
