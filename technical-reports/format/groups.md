@@ -306,13 +306,39 @@ Group extension follows **deep merge** behavior where local properties override 
 ```json
 {
   "base": {
-    "color": { "$value": "#blue" },
-    "spacing": { "$value": "16px" }
+    "color": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0.2, 0.8],
+        "hex": "#0033cc"
+      }
+    },
+    "spacing": {
+      "$type": "dimension",
+      "$value": { "value": 16, "unit": "px" }
+    }
   },
   "extended": {
     "$extends": "{base}",
-    "color": { "$value": "#red" }, // Overrides base.color
-    "border": { "$value": "1px solid" } // Adds new token
+    // Overrides base.color
+    "color": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.9, 0.05, 0],
+        "hex": "#e60d00"
+      }
+    },
+    // Adds new token
+    "border": {
+      "$type": "border",
+      "$value": {
+        "width": { "value": 1, "unit": "px" },
+        "style": "solid",
+        "color": "{extended.color}"
+      }
+    }
   }
 }
 ```
@@ -321,11 +347,11 @@ Group extension follows **deep merge** behavior where local properties override 
 
 **Result for `extended`:**
 
-| Token     | Final Value   | Source     |
-| :-------- | :------------ | :--------- |
-| `color`   | `"#red"`      | overridden |
-| `spacing` | `"16px"`      | inherited  |
-| `border`  | `"1px solid"` | added      |
+| Token              | Final Value         | Source     |
+| :----------------- | :------------------ | :--------- |
+| `extended.color`   | `#e60d00`           | overridden |
+| `extended.spacing` | `16px`              | inherited  |
+| `extended.border`  | `1px solid #e60d00` | added      |
 
 ### Circular Reference Prevention
 
@@ -336,8 +362,10 @@ Groups MUST NOT create circular inheritance chains. The following patterns are *
 ```jsonc
 {
   "button": {
-    "color": { "$value": "#blue" },
-    "border": { "$value": "1px solid" },
+    "color": {
+      "$type": "color",
+      "$value": { "colorSpace": "srgb", "components": [0.4, 0.2, 0.6] },
+    },
     "secondary": {
       "$extends": "{button}", // ❌ Invalid: circular reference
     },
@@ -353,11 +381,15 @@ Groups MUST NOT create circular inheritance chains. The following patterns are *
 {
   "groupA": {
     "$extends": "{groupB}",
-    "token": { "$value": "valueA" },
+    "token": {
+      // …
+    },
   },
   "groupB": {
     "$extends": "{groupA}", // ❌ Invalid: circular reference
-    "token": { "$value": "valueB" },
+    "token": {
+      // …
+    },
   },
 }
 ```
@@ -371,16 +403,33 @@ Groups MUST NOT create circular inheritance chains. The following patterns are *
 ```jsonc
 {
   "button": {
-    "color": { "$value": "#blue" },
-    "border": { "$value": "1px solid" },
+    "color": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 1, 1],
+        "hex": "#00ffff",
+      },
+    },
+    "border": {
+      "$type": "border",
+      "$value": {
+        "width": { "value": 1, "unit": "px" },
+        "style": "solid",
+        "color": "{button.color}",
+      },
+    },
   },
   "button-secondary": {
     "$extends": "{button}", // ✅ Valid: references parent group
-    "color": { "$value": "#gray" },
+    "color": {
+      "$type": "color",
+      "$value": { "colorSpace": "srgb", "components": [0.4, 0.4, 0.4] },
+    },
   },
   "button-large": {
     "$extends": "{button}", // ✅ Valid: siblings can reference same parent
-    "padding": { "$value": "16px" },
+    "padding": { "$value": { "value": 16, "unit": "px" } },
   },
 }
 ```
@@ -667,14 +716,14 @@ This demonstrates the key use case where a component extends a base component bu
           "hex": "#0066cc"
         }
       },
-      "light": {
+      "strong": {
         "$value": {
           "colorSpace": "srgb",
           "components": [0.2, 0.533, 0.867],
           "hex": "#3388dd"
         }
       },
-      "dark": {
+      "subdued": {
         "$value": {
           "colorSpace": "srgb",
           "components": [0, 0.267, 0.6],
@@ -692,14 +741,14 @@ This demonstrates the key use case where a component extends a base component bu
             "hex": "#00cc66"
           }
         },
-        "light": {
+        "strong": {
           "$value": {
             "colorSpace": "srgb",
             "components": [0.2, 0.867, 0.533],
             "hex": "#33dd88"
           }
         },
-        "dark": {
+        "subdued": {
           "$value": {
             "colorSpace": "srgb",
             "components": [0, 0.6, 0.267],
@@ -715,14 +764,14 @@ This demonstrates the key use case where a component extends a base component bu
             "hex": "#cc0000"
           }
         },
-        "light": {
+        "strong": {
           "$value": {
             "colorSpace": "srgb",
             "components": [1, 0.2, 0.2],
             "hex": "#ff3333"
           }
         },
-        "dark": {
+        "subdued": {
           "$value": {
             "colorSpace": "srgb",
             "components": [0.6, 0, 0],
@@ -742,9 +791,9 @@ This structure creates tokens accessible as:
 | Token Reference                  | Resolved Value                                                                |
 | :------------------------------- | :---------------------------------------------------------------------------- |
 | `{color.brand.$root}`            | `{"colorSpace": "srgb", "components": [0, 0.4, 0.8], "hex": "#0066cc"}`       |
-| `{color.brand.light}`            | `{"colorSpace": "srgb", "components": [0.2, 0.533, 0.867], "hex": "#3388dd"}` |
+| `{color.brand.strong}`           | `{"colorSpace": "srgb", "components": [0.2, 0.533, 0.867], "hex": "#3388dd"}` |
 | `{color.semantic.success.$root}` | `{"colorSpace": "srgb", "components": [0, 0.8, 0.4], "hex": "#00cc66"}`       |
-| `{color.semantic.error.dark}`    | `{"colorSpace": "srgb", "components": [0.6, 0, 0], "hex": "#990000"}`         |
+| `{color.semantic.error.subdued}` | `{"colorSpace": "srgb", "components": [0.6, 0, 0], "hex": "#990000"}`         |
 
 ## Use-cases
 
