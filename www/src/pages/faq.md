@@ -61,6 +61,31 @@ Join the official [W3C Design Tokens Community Group](https://www.w3.org/communi
 
 Learn more on how to [contribute](../contribute/).
 
+## How are decisions made?
+
+The DTCG uses a tiered decision-making framework that matches the approval process to the impact of the change:
+
+- **Tier 1 (Editorial):** Typos, grammar, formatting — any editor can merge immediately
+- **Tier 2 (Standard):** Bug fixes, clarifications, small features — 3-week review, 2 editor approvals
+- **Tier 3 (Major):** New spec modules, breaking changes, governance — 6-week process with RFC, voting, and objection periods
+
+Core principles: right-sized process, transparent by default, time-bounded decisions, and clear ownership.
+
+For full details, see the [Decision-Making Framework](https://github.com/design-tokens/community-group/blob/main/governance/DECISION_MAKING.md).
+
+## How do I become an editor?
+
+Editors are core maintainers responsible for spec quality and progress. To become an editor:
+
+1. Be an active contributor for 6+ months
+2. Demonstrate expertise in a spec area
+3. Get nominated by a current editor
+4. Approved by editor group (majority vote)
+
+Editors commit to approximately 1 hour per week, including reviewing PRs within 1 week, attending monthly editor syncs, and owning or supporting at least one spec area.
+
+For all community roles and advancement paths, see the [Role Definitions](https://github.com/design-tokens/community-group/blob/main/governance/ROLES.md).
+
 ## What tools support this?
 
 Organizations building design tools and open-source projects are already shipping DTCG-compatible tokens. Here are some of the adopters and participants helping prove out the spec:
