@@ -2,11 +2,11 @@
 
 **Last updated 12/16/2025**
 
-## **Overview**
+## Overview
 
 This framework implements a tiered decision-making system that matches the approval process to the impact of the change. This removes the need for full consensus on every decision while maintaining community input for significant changes.
 
-## **Core Principles**
+## Core Principles
 
 - **Right-sized process**: Match the process weight to the decision impact
 - **Transparent by default**: All decisions happen in public spaces
@@ -14,25 +14,31 @@ This framework implements a tiered decision-making system that matches the appro
 - **Action-oriented**: Require specific alternatives, not just objections
 - **Clear ownership**: Every decision has clear approvers
 
-## **Decision Tiers**
+## Decision Tiers
 
-### **Tier 1: Editorial Changes (Immediate)**
+### Tier 1: Editorial Changes (Immediate)
 
-**Scope**: Typo fixes, grammar corrections, formatting improvements, documentation updates, meeting notes
+#### Scope
 
-**Process**:
+Typo fixes, grammar corrections, formatting improvements, documentation updates, meeting notes
+
+#### Process
 
 - Any editor can merge immediately
 - Create PR for transparency and history
 - Use `editorial` GitHub label
 
-**Examples**: Fixing typos, reformatting code examples, updating meeting notes, correcting broken links
+#### Examples
 
-### **Tier 2: Standard Changes (3-week review)**
+Fixing spelling errors, updating formatting for consistency, correcting broken links in documentation
 
-**Scope**: Bug fixes, clarifying examples, small non-conflicting additions, updating references, new features, minor breaking changes, new token types
+### Tier 2: Standard Changes (3-week review)
 
-**Process**:
+#### Scope
+
+Bug fixes, clarifying examples, small non-conflicting additions, updating references, new features, minor breaking changes, new token types
+
+#### Process
 
 - Create PR with `standard-change` label
 - Post PR link and a brief summary to the DTCG Slack channel and the email list.
@@ -40,13 +46,17 @@ This framework implements a tiered decision-making system that matches the appro
 - Need approval from 2 editors
 - No unresolved objections from editors
 
-**Examples**: Adding HSL examples to complement RGB, clarifying token usage, fixing incorrect code samples, adding new token properties
+#### Examples
 
-### **Tier 3: Major Decisions (6-week full process)**
+Adding HSL examples to complement RGB, clarifying token usage, fixing incorrect code samples, adding new token properties
 
-**Scope**: New specification modules, major breaking changes, architectural decisions, deprecating features, governance changes, ecosystem-wide changes
+### Tier 3: Major Decisions (6-week full process)
 
-**Process**:
+#### Scope
+
+New specification modules, major breaking changes, architectural decisions, deprecating features, governance changes, ecosystem-wide changes
+
+#### Process
 
 - Create formal proposal in `/proposals` directory
 - Add `major-decision` label
@@ -57,16 +67,14 @@ This framework implements a tiered decision-making system that matches the appro
 - 1-week voting period (need 2/3 majority of editors). The result of the vote and a record of editor attendance/voting will be published per the Communication and Transparency section.
 - 1-week final objection period
 
-**RFC Summary Format**:
+#### RFC Summary Format
 
 - **Problem**: What issue does this solve?
 - **Solution**: Brief technical description
 - **Impact**: Breaking changes? Implementation effort? Migration path?
 - **Alternatives**: What other approaches were considered?
 
-##
-
-## **Communication and Transparency**
+## Communication and Transparency
 
 To ensure the community is informed and can participate effectively, all key group activities and decisions will follow a clear communication process.
 
@@ -78,7 +86,7 @@ To ensure the community is informed and can participate effectively, all key gro
   - Attendance at meetings (for Active Contributor qualification) and formal voting records (for Tier 3 decisions) will be tracked transparently and made available in a publicly accessible record in the GitHub repository.
 - **Quarterly Communication Roll-up:** The Chair will send a monthly update to the email list summarizing key actions, upcoming decisions, and progress across all specification modules.
 
-## **Objection Handling**
+## Objection Handling
 
 **Valid objections must**:
 
@@ -93,9 +101,9 @@ To ensure the community is informed and can participate effectively, all key gro
 2. Group facilitation if needed
 3. Editor vote if unresolved
 
-## **Special Circumstances**
+## Special Circumstances
 
-### **Emergency Process**
+### Emergency Process
 
 For critical issues (security, major bugs):
 
@@ -103,7 +111,7 @@ For critical issues (security, major bugs):
 - Create documenting PR within 24 hours
 - Full review at next meeting
 
-### **Experimental Features**
+### Experimental Features
 
 For testing new ideas:
 
@@ -111,7 +119,7 @@ For testing new ideas:
 - Clearly marked as unstable
 - Tier 3 process to promote to stable
 
-## **Decision Records**
+## Decision Records
 
 All Tier 3 decisions require a brief record:
 
@@ -119,12 +127,12 @@ All Tier 3 decisions require a brief record:
 - Summary of decision and rationale
 - Impact and follow-up actions
 
-## **Timeline Notes**
+## Timeline Notes
 
 - December 15 \- January 5: Process paused
 - Major conferences: Can extend deadlines by 1 week
 - Must announce timeline exceptions when creating PR/Issue
 
-## **Review**
+## Review
 
 This framework will be reviewed after 6 months or 20 decisions, whichever comes first. Updates use Tier 3 process (Tier 2 for minor clarifications).

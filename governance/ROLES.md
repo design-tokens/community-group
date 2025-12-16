@@ -2,7 +2,7 @@
 
 **Last updated 12/16/2025**
 
-## **Active Contributor**
+## Active Contributor
 
 **Definition**: Anyone who has made a meaningful contribution in the last 90 days
 
