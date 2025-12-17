@@ -66,11 +66,10 @@ For advanced use cases requiring access to specific properties within token valu
   },
   "semantic": {
     "primary": {
-      "$ref": "#/colors/blue/$value",
-      "$type": "color"
+      "$ref": "#/colors/blue"
     },
     "primaryHue": {
-      "$ref": "#/colors/blue/$value/components/0",
+      "$value": { "$ref": "#/colors/blue/$value/components/0" },
       "$type": "number"
     }
   }
@@ -81,8 +80,8 @@ For advanced use cases requiring access to specific properties within token valu
 
 In this example:
 
-- `"$ref": "#/colors/blue/$value"` is equivalent to `"{colors.blue}"`
-- `"$ref": "#/colors/blue/$value/components/0"` accesses just the red component (0) of the blue color
+- `"$ref": "#/colors/blue"` references the entire token, making `semantic.primary` an alias for `colors.blue`
+- `"$ref": "#/colors/blue/$value/components/0"` accesses just the first component (0) of the blue color
 
 **Key Differences:**
 
