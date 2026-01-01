@@ -120,7 +120,7 @@ A design token whose type happens to be a composite type is sometimes also calle
 
 At first glance, groups and composite tokens might look very similar. However, they are intended to solve different problems and therefore have some important differences:
 
-- **[Groups](groups)** are for arbitrarily grouping tokens for the purposes of naming and/or organization.
+- **[Groups](#groups)** are for arbitrarily grouping tokens for the purposes of naming and/or organization.
   - They impose no rules or restrictions on how many tokens or nested groups you put within them, what they are called, or what the types of the tokens within should be. As such, tools MUST NOT try to infer any special meaning or typing of tokens based on a group they happen to be in.
   - Different design systems are likely to group their tokens differently.
   - You can think of groups as containers that exist "outside" of design tokens.
