@@ -156,6 +156,7 @@
     "rgbComponents": {
       "title": "RGB Components",
       "description": "Array of RGB color components [Red, Green, Blue], each normalized to the range [0-1]",
+      "type": "array",
       "minItems": 3,
       "maxItems": 3,
       "items": [
@@ -176,6 +177,7 @@
     "xyzComponents": {
       "title": "XYZ Components",
       "description": "Array of XYZ color components [X, Y, Z], each normalized to the range [0-1]",
+      "type": "array",
       "minItems": 3,
       "maxItems": 3,
       "items": [
@@ -316,6 +318,7 @@
       "then": {
         "properties": {
           "components": {
+            "type": "array",
             "minItems": 3,
             "maxItems": 3,
             "items": [
@@ -345,6 +348,7 @@
       "then": {
         "properties": {
           "components": {
+            "type": "array",
             "minItems": 3,
             "maxItems": 3,
             "items": [
@@ -374,6 +378,7 @@
       "then": {
         "properties": {
           "components": {
+            "type": "array",
             "minItems": 3,
             "maxItems": 3,
             "items": [
@@ -403,6 +408,7 @@
       "then": {
         "properties": {
           "components": {
+            "type": "array",
             "minItems": 3,
             "maxItems": 3,
             "items": [
@@ -432,6 +438,7 @@
       "then": {
         "properties": {
           "components": {
+            "type": "array",
             "minItems": 3,
             "maxItems": 3,
             "items": [
@@ -461,6 +468,7 @@
       "then": {
         "properties": {
           "components": {
+            "type": "array",
             "minItems": 3,
             "maxItems": 3,
             "items": [
