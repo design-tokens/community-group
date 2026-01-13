@@ -1133,13 +1133,39 @@ While this specification references JSON Schema <code>$ref</code> behavior for t
 
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"base"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#blue"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"spacing"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"16px"</span> <span class="hljs-punctuation">}</span>
+    <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.8</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"hex"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#0033cc"</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"spacing"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"dimension"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">16</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"extended"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"$extends"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"{base}"</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#red"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Overrides base.color</span>
-    <span class="hljs-attr">"border"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"1px solid"</span> <span class="hljs-punctuation">}</span> <span class="hljs-comment">// Adds new token</span>
+    <span class="hljs-comment">// Overrides base.color</span>
+    <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0.9</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.05</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"hex"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#e60d00"</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Adds new token</span>
+    <span class="hljs-attr">"border"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"border"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"width"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"style"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"solid"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"{extended.color}"</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
@@ -1155,18 +1181,18 @@ While this specification references JSON Schema <code>$ref</code> behavior for t
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><code>color</code></td>
-<td align="left"><code>"#red"</code></td>
+<td align="left"><code>extended.color</code></td>
+<td align="left"><code>#e60d00</code></td>
 <td align="left">overridden</td>
 </tr>
 <tr>
-<td align="left"><code>spacing</code></td>
-<td align="left"><code>"16px"</code></td>
+<td align="left"><code>extended.spacing</code></td>
+<td align="left"><code>16px</code></td>
 <td align="left">inherited</td>
 </tr>
 <tr>
-<td align="left"><code>border</code></td>
-<td align="left"><code>"1px solid"</code></td>
+<td align="left"><code>extended.border</code></td>
+<td align="left"><code>1px solid #e60d00</code></td>
 <td align="left">added</td>
 </tr>
 </tbody></table>
@@ -1178,8 +1204,10 @@ While this specification references JSON Schema <code>$ref</code> behavior for t
 
 <pre><code class="jsonc hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"button"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#blue"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"border"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"1px solid"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0.4</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.6</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">"secondary"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"$extends"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"{button}"</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// ❌ Invalid: circular reference</span>
     <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
@@ -1195,11 +1223,17 @@ While this specification references JSON Schema <code>$ref</code> behavior for t
 <pre><code class="jsonc hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"groupA"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"$extends"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"{groupB}"</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"token"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"valueA"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"token"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"number"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
   <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"groupB"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"$extends"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"{groupA}"</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// ❌ Invalid: circular reference</span>
-    <span class="hljs-attr">"token"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"valueB"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"token"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"number"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
   <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
@@ -1212,16 +1246,33 @@ While this specification references JSON Schema <code>$ref</code> behavior for t
 
 <pre><code class="jsonc hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"button"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#blue"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"border"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"1px solid"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"hex"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#00ffff"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"border"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"border"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"width"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"style"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"solid"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"{button.color}"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
   <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"button-secondary"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"$extends"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"{button}"</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// ✅ Valid: references parent group</span>
-    <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#gray"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"color"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"$type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"color"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0.4</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.4</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.4</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
   <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"button-large"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"$extends"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"{button}"</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// ✅ Valid: siblings can reference same parent</span>
-    <span class="hljs-attr">"padding"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"16px"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"padding"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"value"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">16</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"unit"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"px"</span> <span class="hljs-punctuation">}</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
   <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
@@ -1494,14 +1545,14 @@ Since <code>$extends</code> follows JSON Schema <code>$ref</code> semantics, typ
           <span class="hljs-attr">"hex"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#0066cc"</span>
         <span class="hljs-punctuation">}</span>
       <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">"light"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"strong"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
         <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
           <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
           <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0.2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.533</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.867</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
           <span class="hljs-attr">"hex"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#3388dd"</span>
         <span class="hljs-punctuation">}</span>
       <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">"dark"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"subdued"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
         <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
           <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
           <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.267</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.6</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
@@ -1519,14 +1570,14 @@ Since <code>$extends</code> follows JSON Schema <code>$ref</code> semantics, typ
             <span class="hljs-attr">"hex"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#00cc66"</span>
           <span class="hljs-punctuation">}</span>
         <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"light"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"strong"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
           <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
             <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0.2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.867</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.533</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">"hex"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#33dd88"</span>
           <span class="hljs-punctuation">}</span>
         <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"dark"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"subdued"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
           <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
             <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.6</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.267</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
@@ -1542,14 +1593,14 @@ Since <code>$extends</code> follows JSON Schema <code>$ref</code> semantics, typ
             <span class="hljs-attr">"hex"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#cc0000"</span>
           <span class="hljs-punctuation">}</span>
         <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"light"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"strong"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
           <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
             <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.2</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">"hex"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#ff3333"</span>
           <span class="hljs-punctuation">}</span>
         <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"dark"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"subdued"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
           <span class="hljs-attr">"$value"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
             <span class="hljs-attr">"colorSpace"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"srgb"</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">"components"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0.6</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
@@ -1576,7 +1627,7 @@ Since <code>$extends</code> follows JSON Schema <code>$ref</code> semantics, typ
 <td align="left"><code>{"colorSpace": "srgb", "components": [0, 0.4, 0.8], "hex": "#0066cc"}</code></td>
 </tr>
 <tr>
-<td align="left"><code>{color.brand.light}</code></td>
+<td align="left"><code>{color.brand.strong}</code></td>
 <td align="left"><code>{"colorSpace": "srgb", "components": [0.2, 0.533, 0.867], "hex": "#3388dd"}</code></td>
 </tr>
 <tr>
@@ -1584,7 +1635,7 @@ Since <code>$extends</code> follows JSON Schema <code>$ref</code> semantics, typ
 <td align="left"><code>{"colorSpace": "srgb", "components": [0, 0.8, 0.4], "hex": "#00cc66"}</code></td>
 </tr>
 <tr>
-<td align="left"><code>{color.semantic.error.dark}</code></td>
+<td align="left"><code>{color.semantic.error.subdued}</code></td>
 <td align="left"><code>{"colorSpace": "srgb", "components": [0.6, 0, 0], "hex": "#990000"}</code></td>
 </tr>
 </tbody></table>
