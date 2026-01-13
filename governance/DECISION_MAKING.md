@@ -60,7 +60,7 @@ New specification modules, major breaking changes, architectural decisions, depr
 
 - Create formal proposal in `/proposals` directory
 - Add `major-decision` label
-- Include RFC summary (problem, solution, impact, alternatives)
+- Include the RFC (Request For Comments) summary (problem, solution, impact, alternatives)
 - Announce the formal proposal in Slack, GitHub Discussions, and the email list (using the RFC summary).
 - 4-week RFC period with at least one public meeting
 - Author creates response document addressing feedback
