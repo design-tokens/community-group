@@ -101,7 +101,7 @@ The following values are supported for the `colorSpace` property. The `component
 
 <aside class="ednote" title="Syntax for expressing ranges">
 
-In this table, brackets `[]` indicate that an extrema are included, parentheses `()` indicate that the [extrema](https://en.wikipedia.org/wiki/Maximum_and_minimum) are excluded. For example, in the HSL color space, hue is in the range of [[0 - 360)](https://www.w3.org/TR/css-color-4/#hue-syntax), which means that `0` MAY be used but `360` MUST NOT be used.
+In this table, brackets `[]` indicate that [extrema](https://en.wikipedia.org/wiki/Maximum_and_minimum) are _included_, parentheses `()` indicate that the extrema are _excluded_. For example, in the HSL color space, hue is in the range of [[0 - 360)](https://www.w3.org/TR/css-color-4/#hue-syntax), which means that `0` MAY be used but `360` MUST NOT be used.
 
 </aside>
 
