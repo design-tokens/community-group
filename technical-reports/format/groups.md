@@ -382,13 +382,15 @@ Groups MUST NOT create circular inheritance chains. The following patterns are *
   "groupA": {
     "$extends": "{groupB}",
     "token": {
-      // …
+      "$value": 1,
+      "$type": "number",
     },
   },
   "groupB": {
     "$extends": "{groupA}", // ❌ Invalid: circular reference
     "token": {
-      // …
+      "$value": 2,
+      "$type": "number",
     },
   },
 }
