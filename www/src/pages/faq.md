@@ -67,7 +67,7 @@ The Design Tokens Community Group uses a tiered decision-making framework that m
 
 - **Tier 1 (Editorial):** Typos, grammar, formatting — any editor can merge immediately
 - **Tier 2 (Standard):** Bug fixes, clarifications, small features — 3-week review, 2 editor approvals
-- **Tier 3 (Major):** New spec modules, breaking changes, governance — 6-week process with RFC, voting, and objection periods
+- **Tier 3 (Major):** New spec modules, breaking changes, governance — 6-week process with RFC (Request For Comments), voting, and objection periods
 
 Core principles: right-sized process, transparent by default, time-bounded decisions, and clear ownership.
 
