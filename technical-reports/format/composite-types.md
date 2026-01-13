@@ -24,6 +24,7 @@ For example, a shadow token with an array value can mix references to other shad
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "layered-shadow": {
     "$type": "shadow",
     "$value": [
@@ -46,6 +47,7 @@ A design token whose type happens to be a composite type is sometimes also calle
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "shadow-token": {
     "$type": "shadow",
     "$value": {
@@ -70,6 +72,7 @@ A design token whose type happens to be a composite type is sometimes also calle
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "space": {
     "small": {
       "$type": "dimension",
@@ -159,6 +162,7 @@ These values have the same meaning as the equivalent ["line style" values in CSS
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "focus-ring-style": {
     "$type": "strokeStyle",
     "$value": "dashed"
@@ -179,6 +183,7 @@ Object stroke style values MUST have the following properties:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "alert-border-style": {
     "$type": "strokeStyle",
     "$value": {
@@ -198,6 +203,7 @@ Object stroke style values MUST have the following properties:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "notification-border-style": {
     "$type": "strokeStyle",
     "$value": {
@@ -279,6 +285,7 @@ Represents a border style. The `$type` property MUST be set to the string `borde
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "border": {
     "heavy": {
       "$type": "border",
@@ -333,6 +340,7 @@ Represents a animated transition between two states. The `$type` property MUST b
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "transition": {
     "emphasis": {
       "$type": "transition",
@@ -374,6 +382,7 @@ Each shadow object (whether explicit or referenced) MUST have the following prop
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "shadow-token": {
     "$type": "shadow",
     "$value": {
@@ -388,72 +397,73 @@ Each shadow object (whether explicit or referenced) MUST have the following prop
       "spread": { "value": 0, "unit": "rem" }
     }
   },
-"layered-shadow": {
-  "$type": "shadow",
-  "$value": [
-    {
-      "color": {
-        "colorSpace": "srgb",
-        "components": [0, 0, 0],
-        "alpha": 0.1
+  "layered-shadow": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "alpha": 0.1
+        },
+        "offsetX": { "value": 0, "unit": "px" },
+        "offsetY": { "value": 24, "unit": "px" },
+        "blur": { "value": 22, "unit": "px" },
+        "spread": { "value": 0, "unit": "px" }
       },
-      "offsetX": { "value": 0, "unit": "px" },
-      "offsetY": { "value": 24, "unit": "px" },
-      "blur": { "value": 22, "unit": "px" },
-      "spread": { "value": 0, "unit": "px" }
-    },
-    {
-      "color": {
-        "colorSpace": "srgb",
-        "components": [0, 0, 0],
-        "alpha": 0.2
+      {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "alpha": 0.2
+        },
+        "offsetX": { "value": 0, "unit": "px" },
+        "offsetY": { "value": 42.9, "unit": "px" },
+        "blur": { "value": 44, "unit": "px" },
+        "spread": { "value": 0, "unit": "px" }
       },
-      "offsetX": { "value": 0, "unit": "px" },
-      "offsetY": { "value": 42.9, "unit": "px" },
-      "blur": { "value": 44, "unit": "px" },
-      "spread": { "value": 0, "unit": "px" }
-    },
-    {
-      "color": {
-        "colorSpace": "srgb",
-        "components": [0, 0, 0],
-        "alpha": 0.3
-      },
-      "offsetX": { "value": 0, "unit": "px" },
-      "offsetY": { "value": 64, "unit": "px" },
-      "blur": { "value": 64, "unit": "px" },
-      "spread": { "value": 0, "unit": "px" }
-    }
-  ]
-},
+      {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "alpha": 0.3
+        },
+        "offsetX": { "value": 0, "unit": "px" },
+        "offsetY": { "value": 64, "unit": "px" },
+        "blur": { "value": 64, "unit": "px" },
+        "spread": { "value": 0, "unit": "px" }
+      }
+    ]
+  },
 
-"mixed-reference-shadow": {
-  "$type": "shadow",
-  "$value": [
-    "{base.shadow}",
-    {
-      "color": "{brand.accent}",
+  "mixed-reference-shadow": {
+    "$type": "shadow",
+    "$value": [
+      "{base.shadow}",
+      {
+        "color": "{brand.accent}",
+        "offsetX": { "value": 2, "unit": "px" },
+        "offsetY": { "value": 2, "unit": "px" },
+        "blur": { "value": 4, "unit": "px" },
+        "spread": { "value": 1, "unit": "px" }
+      },
+      "{highlight.shadow}"
+    ]
+  },
+  "inner-shadow": {
+    "$type": "shadow",
+    "$value": {
+      "color": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0],
+        "alpha": 0.5
+      },
       "offsetX": { "value": 2, "unit": "px" },
       "offsetY": { "value": 2, "unit": "px" },
       "blur": { "value": 4, "unit": "px" },
-      "spread": { "value": 1, "unit": "px" }
-    },
-    "{highlight.shadow}"
-  ]
-}
-"inner-shadow": {
-  "$type": "shadow",
-  "$value": {
-    "color": {
-      "colorSpace": "srgb",
-      "components": [0, 0, 0],
-      "alpha": 0.5
-    },
-    "offsetX": { "value": 2, "unit": "px" },
-    "offsetY": { "value": 2, "unit": "px" },
-    "blur": { "value": 4, "unit": "px" },
-    "spread": { "value": 0, "unit": "px" },
-    "inset": true
+      "spread": { "value": 0, "unit": "px" },
+      "inset": true
+    }
   }
 }
 ```
@@ -479,6 +489,7 @@ If there are no stops at the very beginning or end of the gradient axis (i.e. wi
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "blue-to-red": {
     "$type": "gradient",
     "$value": [
@@ -511,6 +522,7 @@ Describes a gradient that goes from blue to red:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "mostly-yellow": {
     "$type": "gradient",
     "$value": [
@@ -543,6 +555,7 @@ Describes a gradient that is solid yellow for the first 2/3 and then fades to re
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "brand-primary": {
     "$type": "color",
     "$value": {
@@ -639,6 +652,7 @@ Represents a typographic style. The `$type` property MUST be set to the string `
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "type styles": {
     "heading-level-1": {
       "$type": "typography",
