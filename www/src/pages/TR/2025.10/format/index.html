@@ -643,8 +643,8 @@ $font-size: 16px;
 
 <p>Tools <em class="rfc2119">MAY</em> display a warning when token names differ only by case.</p>
 <section id="character-restrictions"><div class="header-wrapper"><h4 id="x5-1-1-character-restrictions"><bdi class="secno">5.1.1 </bdi>Character restrictions</h4><a class="self-link" href="#character-restrictions" aria-label="Permalink for Section 5.1.1"></a></div>
-<p>All properties defined by this format are prefixed with the dollar sign (<code>$</code>). This convention will also be used for any new properties introduced by future versions of this spec. Therefore, token and <a href="groups">group</a> names <em class="rfc2119">MUST NOT</em> begin with the <code>$</code> character.</p>
-<p>Furthermore, due to the syntax used for <a href="groups#references-and-json-pointer-integration">token aliases</a> the following characters <em class="rfc2119">MUST NOT</em> be used anywhere in a token or group name:</p>
+<p>All properties defined by this format are prefixed with the dollar sign (<code>$</code>). This convention will also be used for any new properties introduced by future versions of this spec. Therefore, token and <a href="#groups">group</a> names <em class="rfc2119">MUST NOT</em> begin with the <code>$</code> character.</p>
+<p>Furthermore, due to the syntax used for <a href="#references-and-json-pointer-integration">token aliases</a> the following characters <em class="rfc2119">MUST NOT</em> be used anywhere in a token or group name:</p>
 <ul>
 <li><code>{</code> (left curly bracket)</li>
 <li><code>}</code> (right curly bracket)</li>
@@ -2612,7 +2612,7 @@ $brand-typeface-secondary: 'Times New Roman';
 </section><section id="groups-versus-composite-tokens"><div class="header-wrapper"><h3 id="x9-2-groups-versus-composite-tokens"><bdi class="secno">9.2 </bdi>Groups versus composite tokens</h3><a class="self-link" href="#groups-versus-composite-tokens" aria-label="Permalink for Section 9.2"></a></div>
 <p>At first glance, groups and composite tokens might look very similar. However, they are intended to solve different problems and therefore have some important differences:</p>
 <ul>
-<li><strong><a href="groups">Groups</a></strong> are for arbitrarily grouping tokens for the purposes of naming and/or organization.<ul>
+<li><strong><a href="#groups">Groups</a></strong> are for arbitrarily grouping tokens for the purposes of naming and/or organization.<ul>
 <li>They impose no rules or restrictions on how many tokens or nested groups you put within them, what they are called, or what the types of the tokens within should be. As such, tools <em class="rfc2119">MUST NOT</em> try to infer any special meaning or typing of tokens based on a group they happen to be in.</li>
 <li>Different design systems are likely to group their tokens differently.</li>
 <li>You can think of groups as containers that exist "outside" of design tokens.</li>

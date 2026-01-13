@@ -73,9 +73,9 @@ Tools MAY display a warning when token names differ only by case.
 
 ### Character restrictions
 
-All properties defined by this format are prefixed with the dollar sign (`$`). This convention will also be used for any new properties introduced by future versions of this spec. Therefore, token and [group](groups) names MUST NOT begin with the `$` character.
+All properties defined by this format are prefixed with the dollar sign (`$`). This convention will also be used for any new properties introduced by future versions of this spec. Therefore, token and [group](#groups) names MUST NOT begin with the `$` character.
 
-Furthermore, due to the syntax used for [token aliases](groups#references-and-json-pointer-integration) the following characters MUST NOT be used anywhere in a token or group name:
+Furthermore, due to the syntax used for [token aliases](#references-and-json-pointer-integration) the following characters MUST NOT be used anywhere in a token or group name:
 
 - `{` (left curly bracket)
 - `}` (right curly bracket)
