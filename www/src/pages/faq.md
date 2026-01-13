@@ -63,7 +63,7 @@ Learn more on how to [contribute](../contribute/).
 
 ## How are decisions made?
 
-The DTCG uses a tiered decision-making framework that matches the approval process to the impact of the change:
+The Design Tokens Community Group uses a tiered decision-making framework that matches the approval process to the impact of the change:
 
 - **Tier 1 (Editorial):** Typos, grammar, formatting — any editor can merge immediately
 - **Tier 2 (Standard):** Bug fixes, clarifications, small features — 3-week review, 2 editor approvals
