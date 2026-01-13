@@ -60,7 +60,7 @@
 **Responsibilities**:
 
 - Maintain roadmap for their module
-- Triage issues and PRs for their area
+- Triage issues and Pull Requests for their area
 - Run focused working sessions as needed
 - Report progress monthly
 
