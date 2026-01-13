@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "schemas/2025.10/format/values/fontWeight.json",
+  "$id": "https://www.designtokens.org/schemas/2025.10/format/values/fontWeight.json",
   "title": "Font Weight Value",
   "description": "Value schema for fontWeight type tokens. Represents a font weight as per the OpenType wght tag specification. Lower numbers represent lighter weights, higher numbers represent thicker weights.",
   "oneOf": [

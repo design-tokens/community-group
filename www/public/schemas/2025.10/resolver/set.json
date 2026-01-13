@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "schemas/2025.10/resolver/set.json",
+  "$id": "https://www.designtokens.org/schemas/2025.10/resolver/set.json",
   "title": "Set",
   "description": "A set is a collection of design tokens in DTCG format. A set MUST contain a sources array with tokens declared directly, or a reference object pointing to a JSON file containing design tokens, or any combination of the two.",
   "type": "object",

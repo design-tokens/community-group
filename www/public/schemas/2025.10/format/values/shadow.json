@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "schemas/2025.10/format/values/shadow.json",
+  "$id": "https://www.designtokens.org/schemas/2025.10/format/values/shadow.json",
   "title": "Shadow Value",
   "description": "Value schema for shadow type tokens. Represents a shadow style.",
   "oneOf": [

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "schemas/2025.10/resolver/modifier.json",
+  "$id": "https://www.designtokens.org/schemas/2025.10/resolver/modifier.json",
   "title": "Modifier",
   "description": "A modifier is similar to a set, but allows for conditional inclusion via the contexts map. A modifier MUST declare a contexts map of string values to arrays of token sources.",
   "type": "object",

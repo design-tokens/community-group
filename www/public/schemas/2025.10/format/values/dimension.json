@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "schemas/2025.10/format/values/dimension.json",
+  "$id": "https://www.designtokens.org/schemas/2025.10/format/values/dimension.json",
   "title": "Dimension Value",
   "description": "Value schema for dimension type tokens. Represents an amount of distance in a single dimension in the UI, such as a position, width, height, radius, or thickness.",
   "type": "object",

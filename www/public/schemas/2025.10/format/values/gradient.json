@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "schemas/2025.10/format/values/gradient.json",
+  "$id": "https://www.designtokens.org/schemas/2025.10/format/values/gradient.json",
   "title": "Gradient Value",
   "description": "Value schema for gradient type tokens. Represents a color gradient.",
   "type": "array",

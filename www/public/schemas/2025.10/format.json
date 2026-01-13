@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "schemas/2025.10/format.json",
+  "$id": "https://www.designtokens.org/schemas/2025.10/format.json",
   "title": "DTCG Format Schema",
   "description": "JSON Schema for the Design Tokens Community Group (DTCG) Format specification.",
   "type": "object",

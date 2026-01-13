@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "schemas/2025.10/resolver/resolutionOrder.json",
+  "$id": "https://www.designtokens.org/schemas/2025.10/resolver/resolutionOrder.json",
   "title": "Resolution Order",
   "description": "An ordered array of sets and modifiers that determines the final resolution of tokens. Order is significant - tokens later in the array override earlier ones in case of conflict.",
   "type": "array",
