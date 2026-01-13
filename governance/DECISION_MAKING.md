@@ -40,7 +40,7 @@ Bug fixes, clarifying examples, small non-conflicting additions, updating refere
 
 #### Process
 
-- Create PR with `standard-change` label
+- Create a Pull Request with the `standard-change` label
 - Post PR link and a brief summary to the DTCG Slack channel and the email list.
 - 3-week comment period
 - Need approval from 2 editors
