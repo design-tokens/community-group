@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.designtokens.org/schemas/2025.10/format/group.json",
+  "title": "Group",
+  "description": "A group in the DTCG specification",
+  "type": "object",
+  "properties": {
+    "$type": {
+      "$ref": "tokenType.json",
+      "description": "The type for tokens in this group (inherited by nested tokens unless overridden)"
+    },
+    "$description": {
+      "type": "string",
+      "description": "A plain text description of the group"
+    },
+    "$extensions": {
+      "type": "object",
+      "description": "Vendor-specific extensions"
+    },
+    "$extends": {
+      "oneOf": [
+        {
+          "$ref": "../format.json#/definitions/curlyBraceReference"
+        },
+        {
+          "$ref": "../format.json#/definitions/jsonPointerReference"
+        }
+      ],
+      "description": "Reference to another group to inherit tokens and properties from"
+    },
+    "$deprecated": {
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "Whether this group is deprecated"
+    },
+    "$root": {
+      "description": "Root token for this group. The $root token provides a base value for the group while allowing for variants or extensions.",
+      "$ref": "token.json"
+    }
+  },
+  "patternProperties": {
+    "^[^${}.][^{}.]*$": {
+      "description": "Nested groups and tokens (see ../format.json#/definitions/tokenOrGroupName for pattern definition)",
+      "$ref": "groupOrToken.json"
+    }
+  },
+  "additionalProperties": false
+}

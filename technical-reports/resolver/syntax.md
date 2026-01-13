@@ -4,14 +4,15 @@
 
 A resolver document contains the following properties at the root level:
 
-| Name                                     | Type                                     | Required | Description                                     |
-| :--------------------------------------- | :--------------------------------------- | :------: | :---------------------------------------------- |
-| [**name**](#name)                        | `string`                                 |          | A short, human-readable name for the document.  |
-| [**version**](#version)                  | `YYYY.MM`                                |    Y     | Version. Must be `2025.10`.                     |
-| [**description**](#description)          | `string`                                 |          | A human-readable description for this document. |
-| [**sets**](#sets)                        | Map[`string`, Set]                       |          | Definition of sets.                             |
-| [**modifiers**](#modifiers)              | Map[`string, Modifier]                   |          | Definition of modifiers.                        |
-| [**resolutionOrder**](#resolution-order) | `(ReferenceObject \| Set \| Modifier)[]` |    Y     | Resolution of sets and modifiers.               |
+| Name                                     | Type                                     | Required | Description                                                      |
+| :--------------------------------------- | :--------------------------------------- | :------: | :--------------------------------------------------------------- |
+| [**name**](#name)                        | `string`                                 |          | A short, human-readable name for the document.                   |
+| [**version**](#version)                  | `YYYY-MM-DD`                             |    Y     | Version. Must be `2025.10`.                                      |
+| [**description**](#description)          | `string`                                 |          | A human-readable description for this document.                  |
+| [**sets**](#sets)                        | Map[`string`, Set]                       |          | Definition of sets.                                              |
+| [**modifiers**](#modifiers)              | Map[`string, Modifier]                   |          | Definition of modifiers.                                         |
+| [**resolutionOrder**](#resolution-order) | `(ReferenceObject \| Set \| Modifier)[]` |    Y     | Resolution of sets and modifiers.                                |
+| [**$schema**](#schema)                   | `string`                                 |          | Optional URL of a [JSON Schema](https://json-schema.org) schema. |
 
 ### Name
 
@@ -37,6 +38,7 @@ If the array declares multiple sources, they will be merged in array order, mean
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "sets": {
     "color": {
       "description": "Color tokens",
@@ -86,6 +88,7 @@ A modifier MAY reference a [set](#sets) inside a context value. However a modifi
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "modifiers": {
     "theme": {
       "description": "Color theme",
@@ -115,6 +118,7 @@ A modifier MAY reference a [set](#sets) inside a context value. This is equivale
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "sets": {
     "baseSize": {
       "sources": [{ "$ref": "size/base.json" }]
@@ -149,6 +153,7 @@ Is equivalent to:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "sets": {
     "baseSize": {
       // …
@@ -210,6 +215,7 @@ Given a `resolutionOrder` that consists of multiple sets and modifiers:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "sets": {
     "size": {
       "sources": [{ "$ref": "foundation/size.json" }]
@@ -318,6 +324,7 @@ Modifiers MAY contain empty context arrays:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "modifiers": {
     // …
     "debug": {
@@ -360,6 +367,7 @@ When sets and modifiers appear in their respective root level `sets` and `modifi
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "resolutionOrder": [
     {
       "type": "set",
@@ -570,6 +578,7 @@ Here is an example where a set contains arbitrary metadata for the `figma.com` v
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "sets": {
     "color": {
       "sources": [
@@ -588,6 +597,10 @@ Here is an example where a set contains arbitrary metadata for the `figma.com` v
 ```
 
 </aside>
+
+## $schema
+
+A resolver document MAY include a URL to a [JSON Schema](https://json-schema.org) document under `$schema`. One such schema is provided at `https://www.designtokens.org/schemas/2025.10/resolver.json` and is present in most examples. This does not affect resolution behavior, but provides user-friendly metadata and syntax checking for most code editors.
 
 ## $defs
 

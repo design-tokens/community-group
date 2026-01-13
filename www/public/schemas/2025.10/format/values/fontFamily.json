@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.designtokens.org/schemas/2025.10/format/values/fontFamily.json",
+  "title": "Font Family Value",
+  "description": "Value schema for fontFamily type tokens. Represents a font name or an array of font names (ordered from most to least preferred).",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "A single font name",
+      "not": {
+        "$ref": "../../format.json#/definitions/curlyBraceReference"
+      }
+    },
+    {
+      "type": "array",
+      "description": "An array of font names, ordered from most to least preferred",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "not": {
+              "$ref": "../../format.json#/definitions/curlyBraceReference"
+            }
+          },
+          {
+            "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+          }
+        ]
+      },
+      "minItems": 1
+    }
+  ]
+}

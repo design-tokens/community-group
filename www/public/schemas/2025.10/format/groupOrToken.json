@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.designtokens.org/schemas/2025.10/format/groupOrToken.json",
+  "title": "Group or Token",
+  "description": "A group or a token in the DTCG specification. A token is identified by the presence of a $value property, while a group is any object without a $value property.",
+  "oneOf": [
+    {
+      "$ref": "group.json"
+    },
+    {
+      "$ref": "token.json"
+    }
+  ]
+}

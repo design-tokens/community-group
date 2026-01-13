@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.designtokens.org/schemas/2025.10/resolver/set.json",
+  "title": "Set",
+  "description": "A set is a collection of design tokens in DTCG format. A set MUST contain a sources array with tokens declared directly, or a reference object pointing to a JSON file containing design tokens, or any combination of the two.",
+  "type": "object",
+  "required": ["sources"],
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "title": "Description",
+      "type": "string",
+      "description": "A human-readable description of the purpose of the set."
+    },
+    "sources": {
+      "title": "Sources",
+      "$ref": "#/definitions/tokenSourcesForSets",
+      "description": "An array of token sources. Can contain reference objects pointing to JSON files, inline token definitions, or any combination. If the array declares multiple sources, they will be merged in array order, meaning if a token is declared multiple times, the last occurrence in the array will be the final value."
+    },
+    "$extensions": {
+      "title": "Extensions",
+      "type": "object",
+      "description": "Vendor-specific extensions. Keys are vendor-specific namespaces."
+    }
+  },
+  "definitions": {
+    "referenceObjectForSets": {
+      "title": "Reference Object (For Sets)",
+      "type": "object",
+      "required": ["$ref"],
+      "properties": {
+        "$ref": {
+          "title": "JSON Reference",
+          "type": "string",
+          "format": "uri-reference",
+          "description": "A JSON Pointer (RFC 6901) or URI reference. Sets MUST NOT reference modifiers (#/modifiers/...) or resolutionOrder items (#/resolutionOrder/...).",
+          "not": {
+            "anyOf": [
+              {
+                "pattern": "^#/modifiers/",
+                "$comment": "Sets cannot reference modifiers"
+              },
+              {
+                "pattern": "^#/resolutionOrder/",
+                "$comment": "Nothing can reference resolutionOrder items"
+              }
+            ]
+          }
+        }
+      },
+      "description": "A reference object for use within sets. Cannot point to modifiers or resolutionOrder items."
+    },
+    "tokenSourcesForSets": {
+      "title": "Token Sources (For Sets)",
+      "type": "array",
+      "description": "An array of token sources for sets - cannot reference modifiers or resolutionOrder items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/referenceObjectForSets"
+          },
+          {
+            "$ref": "../format.json",
+            "description": "Inline design tokens in DTCG format"
+          }
+        ]
+      }
+    }
+  }
+}

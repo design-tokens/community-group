@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.designtokens.org/schemas/2025.10/format/values/fontWeight.json",
+  "title": "Font Weight Value",
+  "description": "Value schema for fontWeight type tokens. Represents a font weight as per the OpenType wght tag specification. Lower numbers represent lighter weights, higher numbers represent thicker weights.",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Numeric font weight value",
+      "minimum": 1,
+      "maximum": 1000
+    },
+    {
+      "type": "string",
+      "description": "Pre-defined font weight string value",
+      "enum": [
+        "thin",
+        "hairline",
+        "extra-light",
+        "ultra-light",
+        "light",
+        "normal",
+        "regular",
+        "book",
+        "medium",
+        "semi-bold",
+        "demi-bold",
+        "bold",
+        "extra-bold",
+        "ultra-bold",
+        "black",
+        "heavy",
+        "extra-black",
+        "ultra-black"
+      ]
+    }
+  ]
+}

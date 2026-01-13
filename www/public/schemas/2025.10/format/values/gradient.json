@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.designtokens.org/schemas/2025.10/format/values/gradient.json",
+  "title": "Gradient Value",
+  "description": "Value schema for gradient type tokens. Represents a color gradient.",
+  "type": "array",
+  "items": {
+    "oneOf": [
+      {
+        "$ref": "#/definitions/gradientStop"
+      },
+      {
+        "$ref": "../../format.json#/definitions/tokenValueReference"
+      }
+    ]
+  },
+  "minItems": 1,
+  "definitions": {
+    "gradientStop": {
+      "title": "Gradient Stop",
+      "type": "object",
+      "properties": {
+        "color": {
+          "description": "The color value at the stop's position on the gradient",
+          "oneOf": [
+            {
+              "$ref": "color.json"
+            },
+            {
+              "$ref": "../../format.json#/definitions/tokenValueReference"
+            }
+          ]
+        },
+        "position": {
+          "description": "The position of the stop along the gradient's axis (range [0, 1]). Values outside this range are clamped.",
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "$ref": "../../format.json#/definitions/tokenValueReference"
+            }
+          ]
+        }
+      },
+      "required": ["color", "position"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.designtokens.org/schemas/2025.10/format/values/border.json",
+  "title": "Border Value",
+  "description": "Value schema for border type tokens. Represents a border style.",
+  "type": "object",
+  "properties": {
+    "color": {
+      "description": "The color of the border",
+      "oneOf": [
+        {
+          "$ref": "color.json"
+        },
+        {
+          "$ref": "../../format.json#/definitions/tokenValueReference"
+        }
+      ]
+    },
+    "width": {
+      "description": "The width or thickness of the border",
+      "oneOf": [
+        {
+          "$ref": "dimension.json"
+        },
+        {
+          "$ref": "../../format.json#/definitions/tokenValueReference"
+        }
+      ]
+    },
+    "style": {
+      "description": "The border's style",
+      "oneOf": [
+        {
+          "$ref": "strokeStyle.json"
+        },
+        {
+          "$ref": "../../format.json#/definitions/tokenValueReference"
+        }
+      ]
+    }
+  },
+  "required": ["color", "width", "style"],
+  "additionalProperties": false
+}

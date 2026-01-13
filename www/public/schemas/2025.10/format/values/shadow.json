@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.designtokens.org/schemas/2025.10/format/values/shadow.json",
+  "title": "Shadow Value",
+  "description": "Value schema for shadow type tokens. Represents a shadow style.",
+  "oneOf": [
+    {
+      "$ref": "#/definitions/shadowObject"
+    },
+    {
+      "type": "array",
+      "description": "Array of shadow objects and/or references to shadow tokens",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/shadowObject"
+          },
+          {
+            "$ref": "../../format.json#/definitions/tokenValueReference"
+          }
+        ]
+      },
+      "minItems": 1
+    }
+  ],
+  "definitions": {
+    "shadowObject": {
+      "title": "Shadow Object",
+      "type": "object",
+      "properties": {
+        "color": {
+          "description": "The color of the shadow",
+          "oneOf": [
+            {
+              "$ref": "color.json"
+            },
+            {
+              "$ref": "../../format.json#/definitions/tokenValueReference"
+            }
+          ]
+        },
+        "offsetX": {
+          "description": "The horizontal offset that shadow has from the element it is applied to",
+          "oneOf": [
+            {
+              "$ref": "dimension.json"
+            },
+            {
+              "$ref": "../../format.json#/definitions/tokenValueReference"
+            }
+          ]
+        },
+        "offsetY": {
+          "description": "The vertical offset that shadow has from the element it is applied to",
+          "oneOf": [
+            {
+              "$ref": "dimension.json"
+            },
+            {
+              "$ref": "../../format.json#/definitions/tokenValueReference"
+            }
+          ]
+        },
+        "blur": {
+          "description": "The blur radius that is applied to the shadow",
+          "oneOf": [
+            {
+              "$ref": "dimension.json"
+            },
+            {
+              "$ref": "../../format.json#/definitions/tokenValueReference"
+            }
+          ]
+        },
+        "spread": {
+          "description": "The amount by which to expand or contract the shadow",
+          "oneOf": [
+            {
+              "$ref": "dimension.json"
+            },
+            {
+              "$ref": "../../format.json#/definitions/tokenValueReference"
+            }
+          ]
+        },
+        "inset": {
+          "description": "Whether this shadow is inside the containing shape (inner shadow) rather than a drop shadow (default: false)",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+            }
+          ]
+        }
+      },
+      "required": ["color", "offsetX", "offsetY", "blur", "spread"],
+      "additionalProperties": false
+    }
+  }
+}

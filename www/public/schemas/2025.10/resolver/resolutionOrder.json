@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.designtokens.org/schemas/2025.10/resolver/resolutionOrder.json",
+  "title": "Resolution Order",
+  "description": "An ordered array of sets and modifiers that determines the final resolution of tokens. Order is significant - tokens later in the array override earlier ones in case of conflict.",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "oneOf": [
+      {
+        "title": "Reference Object (For Resolution Order)",
+        "type": "object",
+        "required": ["$ref"],
+        "properties": {
+          "$ref": {
+            "title": "JSON Reference",
+            "type": "string",
+            "format": "uri-reference",
+            "description": "A JSON Pointer (RFC 6901) or URI reference. Must point to a set (#/sets/...) or modifier (#/modifiers/...), never to resolutionOrder items (#/resolutionOrder/...).",
+            "not": {
+              "pattern": "^#/resolutionOrder/",
+              "$comment": "ResolutionOrder cannot reference items within itself"
+            }
+          }
+        },
+        "description": "A reference object for use within resolutionOrder. Can point to sets or modifiers but not other resolutionOrder items."
+      },
+      {
+        "title": "Inline Set",
+        "description": "A set defined inline in the resolutionOrder array. Must include 'name' and 'type' properties.",
+        "type": "object",
+        "required": ["sources", "name", "type"],
+        "properties": {
+          "description": {
+            "title": "Description",
+            "type": "string",
+            "description": "A human-readable description of the purpose of the set."
+          },
+          "sources": {
+            "title": "Sources",
+            "$ref": "set.json#/definitions/tokenSourcesForSets",
+            "description": "An array of token sources. Can contain reference objects pointing to JSON files, inline token definitions, or any combination. If the array declares multiple sources, they will be merged in array order, meaning if a token is declared multiple times, the last occurrence in the array will be the final value."
+          },
+          "$extensions": {
+            "title": "Extensions",
+            "type": "object",
+            "description": "Vendor-specific extensions. Keys are vendor-specific namespaces."
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "A unique name that MUST NOT conflict with any other name in resolutionOrder.",
+            "$comment": "Uniqueness must be validated at runtime as JSON Schema cannot validate uniqueness across array items."
+          },
+          "type": {
+            "title": "Type",
+            "type": "string",
+            "const": "set",
+            "description": "MUST be 'set' for inline set definitions."
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "title": "Inline Modifier",
+        "description": "A modifier defined inline in the resolutionOrder array. Must include 'name' and 'type' properties.",
+        "type": "object",
+        "required": ["contexts", "name", "type"],
+        "properties": {
+          "description": {
+            "title": "Description",
+            "type": "string",
+            "description": "A human-readable description of the purpose of the modifier."
+          },
+          "contexts": {
+            "title": "Contexts",
+            "type": "object",
+            "description": "A map of context names to arrays of token sources. Each context represents a possible variant (e.g., 'light' vs 'dark' for theme, 'small' vs 'large' for size).",
+            "minProperties": 2,
+            "patternProperties": {
+              "^.+$": {
+                "$ref": "modifier.json#/definitions/tokenSourcesForModifiers",
+                "description": "An array of token sources for this context. Can contain reference objects pointing to JSON files, inline token definitions, or any combination. If the array declares multiple sources, they will be merged in array order, meaning if a token is declared multiple times, the last occurrence in the array will be the final value."
+              }
+            },
+            "additionalProperties": false
+          },
+          "default": {
+            "title": "Default Context",
+            "type": "string",
+            "description": "An optional default value that MUST match one of the keys in contexts. If provided, tools will use this context when no input is provided for this modifier.",
+            "$comment": "JSON Schema cannot validate that this value matches a key in 'contexts'. This validation must be performed at runtime by the implementation."
+          },
+          "$extensions": {
+            "title": "Extensions",
+            "type": "object",
+            "description": "Vendor-specific extensions. Keys are vendor-specific namespaces."
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "A unique name that MUST NOT conflict with any other name in resolutionOrder.",
+            "$comment": "Uniqueness must be validated at runtime as JSON Schema cannot validate uniqueness across array items."
+          },
+          "type": {
+            "title": "Type",
+            "type": "string",
+            "const": "modifier",
+            "description": "MUST be 'modifier' for inline modifier definitions."
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+}

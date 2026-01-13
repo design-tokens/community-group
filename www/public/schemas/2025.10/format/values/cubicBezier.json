@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.designtokens.org/schemas/2025.10/format/values/cubicBezier.json",
+  "title": "Cubic Bezier Value",
+  "description": "Value schema for cubicBezier type tokens. Represents how the value of an animated property progresses towards completion over the duration of an animation, effectively creating visual effects such as acceleration, deceleration, and bounce.",
+  "type": "array",
+  "items": [
+    {
+      "$ref": "#/definitions/xCoordinate",
+      "description": "P1x - X coordinate of first control point"
+    },
+    {
+      "$ref": "#/definitions/yCoordinate",
+      "description": "P1y - Y coordinate of first control point"
+    },
+    {
+      "$ref": "#/definitions/xCoordinate",
+      "description": "P2x - X coordinate of second control point"
+    },
+    {
+      "$ref": "#/definitions/yCoordinate",
+      "description": "P2y - Y coordinate of second control point"
+    }
+  ],
+  "additionalItems": false,
+  "minItems": 4,
+  "maxItems": 4,
+  "definitions": {
+    "xCoordinate": {
+      "title": "X Coordinate",
+      "description": "X coordinate of control point (must be between 0 and 1)",
+      "oneOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "$ref": "../../format.json#/definitions/tokenValueReference"
+        }
+      ]
+    },
+    "yCoordinate": {
+      "title": "Y Coordinate",
+      "description": "Y coordinate of control point (can be any real number)",
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "$ref": "../../format.json#/definitions/tokenValueReference"
+        }
+      ]
+    }
+  }
+}

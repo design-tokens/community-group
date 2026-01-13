@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "title": "DTCG Resolver Schema",
+  "description": "JSON Schema for the Design Tokens Community Group (DTCG) Resolver specification",
+  "type": "object",
+  "required": ["version", "resolutionOrder"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri-reference",
+      "description": "URI reference to this JSON schema."
+    },
+    "name": {
+      "title": "Name",
+      "type": "string",
+      "description": "A short, human-readable name for the document."
+    },
+    "version": {
+      "title": "Version",
+      "type": "string",
+      "const": "2025.10",
+      "description": "Version of the resolver specification. Must be '2025.10'."
+    },
+    "description": {
+      "title": "Description",
+      "type": "string",
+      "description": "A human-readable description for this document."
+    },
+    "sets": {
+      "title": "Token Sets",
+      "type": "object",
+      "description": "Definition of sets. A set is a collection of design tokens in DTCG format.",
+      "patternProperties": {
+        "^.+$": {
+          "$ref": "resolver/set.json"
+        }
+      }
+    },
+    "modifiers": {
+      "title": "Modifiers",
+      "type": "object",
+      "description": "Definition of modifiers. A modifier allows for conditional inclusion of token values via contexts.",
+      "patternProperties": {
+        "^.+$": {
+          "$ref": "resolver/modifier.json"
+        }
+      }
+    },
+    "resolutionOrder": {
+      "title": "Resolution Order",
+      "$ref": "resolver/resolutionOrder.json"
+    },
+    "$defs": {
+      "title": "Definitions",
+      "type": "object",
+      "description": "Optional definitions that tools MAY support but MUST NOT throw an error when encountered."
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "title": "DTCG Format Schema",
+  "description": "JSON Schema for the Design Tokens Community Group (DTCG) Format specification.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri-reference",
+      "description": "URI reference to this JSON schema.",
+      "$comment": "$schema is not part of the official DTCG specification."
+    },
+    "$type": {
+      "$ref": "format/tokenType.json",
+      "description": "The type for tokens in this group (inherited by nested tokens unless overridden)"
+    },
+    "$description": {
+      "type": "string",
+      "description": "A plain text description of the group"
+    },
+    "$extensions": {
+      "type": "object",
+      "description": "Vendor-specific extensions"
+    },
+    "$extends": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/curlyBraceReference"
+        },
+        {
+          "$ref": "#/definitions/jsonPointerReference"
+        }
+      ],
+      "description": "Reference to another group to inherit tokens and properties from"
+    },
+    "$deprecated": {
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "Whether this group is deprecated"
+    },
+    "$root": {
+      "description": "Root token for this group. The $root token provides a base value for the group while allowing for variants or extensions.",
+      "$ref": "format/token.json"
+    }
+  },
+  "patternProperties": {
+    "^[^${}.][^{}.]*$": {
+      "description": "Nested groups and tokens (see #/definitions/tokenOrGroupName for pattern definition)",
+      "$ref": "format/groupOrToken.json"
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "tokenOrGroupName": {
+      "title": "Token or Group Name",
+      "type": "string",
+      "pattern": "^[^${}.][^{}.]*$",
+      "description": "Valid token/group names: must not start with $ and must not contain {, }, or ."
+    },
+    "curlyBraceReference": {
+      "title": "Curly Brace Reference",
+      "type": "string",
+      "pattern": "^\\{[^${}.][^{}.]*(\\.[^${}.][^{}.]*)*\\}$",
+      "description": "Curly brace reference (e.g., '{tokenName}' or '{group.nested.token}')"
+    },
+    "jsonPointerReference": {
+      "title": "JSON Pointer Reference",
+      "type": "string",
+      "pattern": "^#/",
+      "format": "json-pointer-uri-fragment",
+      "description": "JSON Pointer reference (RFC 6901) to a location in the document (e.g., '#/path/to/target')"
+    },
+    "jsonPointerReferenceObject": {
+      "title": "JSON Pointer Reference Object",
+      "type": "object",
+      "properties": {
+        "$ref": {
+          "$ref": "#/definitions/jsonPointerReference"
+        }
+      },
+      "required": ["$ref"],
+      "additionalProperties": false,
+      "description": "Object containing a JSON Pointer reference for property-level references"
+    },
+    "tokenValueReference": {
+      "title": "Token Value Reference",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/curlyBraceReference"
+        },
+        {
+          "$ref": "#/definitions/jsonPointerReferenceObject"
+        }
+      ],
+      "description": "A reference to a token value using either curly brace syntax or JSON Pointer syntax"
+    }
+  }
+}
