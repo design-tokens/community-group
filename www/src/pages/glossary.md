@@ -18,6 +18,7 @@ The value of `color.text.primary` is `#000000`, because it references `color.pal
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "color": {
     "palette": {
       "black": {

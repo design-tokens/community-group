@@ -19,6 +19,7 @@ The `$value` property can then be used to specify the details of the color, The 
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {
@@ -56,6 +57,7 @@ The `none` keyword MAY be used in the `components` array to indicate that a comp
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "White": {
     "$type": "color",
     "$value": {
@@ -76,6 +78,7 @@ Contrast this with the following example where the Hue is specified as `0`:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "White": {
     "$type": "color",
     "$value": {
@@ -338,7 +341,7 @@ The following values are supported for the `colorSpace` property. The `component
 
 <aside class="ednote" title="How does this conform to CSS Color Module 4?">
 <p>To provide a logically consistent approach without creating ambiguity around the format, this spec takes the following approach:</p>
-<ul> 
+<ul>
 <li>If CSS Color Module 4 allows a color space to be referenced by <strong>both</strong> a named function (like <code>srgb()</code>) <strong>and</strong> a keyword in the <code>color()</code> function, use the format intended for the <code>color()</code> function.</li>
 <li>If CSS Color Module 4 only defines a color space <strong>either</strong> as a named function (like <code>hwb()</code>) <strong>or</strong> a keyword in the <code>color()</code> function (like <code>rec-2020</code>), use the syntax indicated.</li>
 <li>If CSS Color Module 4 allows <strong>both</strong> unit values (like <code>50</code>) <strong>and</strong> percentages (like <code>50%</code>) for a component, use the unit value.</li>
@@ -362,6 +365,7 @@ sRGB was the standard color space for all CSS colors before CSS Color Module 4. 
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {
@@ -394,6 +398,7 @@ sRGB linear is a linearized version of sRGB. It is used in some design tools to 
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {
@@ -426,6 +431,7 @@ HSL is a [=color model=] that is a polar transformation of sRGB, supported as ea
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {
@@ -458,6 +464,7 @@ Another [=color model=], a polar transformation of sRGB.
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {
@@ -492,6 +499,7 @@ A and B are theoretically unbounded, but in practice don't exceed -160 to 160.
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {
@@ -526,6 +534,7 @@ The minimum value of C is `0`, which represents a neutral color (gray), and its 
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {
@@ -560,6 +569,7 @@ Like in CIELAB, A and B are theoretically unbounded, but in practice don't excee
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {
@@ -594,6 +604,7 @@ Like in LCH, the minimum value of Chroma is `0`, which represents a neutral colo
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {
@@ -626,6 +637,7 @@ Display P3 is a [=color space=] that is designed to be used in displays with a w
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {
@@ -658,6 +670,7 @@ A98 RGB is a color space that is designed to be used in displays with a wide col
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {
@@ -690,6 +703,7 @@ ProPhoto RGB is a color space that is designed to be used in displays with a wid
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {
@@ -723,6 +737,7 @@ Rec 2020 is a color space that is designed to be used in displays with a wide co
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {
@@ -755,6 +770,7 @@ XYZ-D65 is a color space that is designed to be able to represent all colors tha
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {
@@ -787,6 +803,7 @@ XYZ-D50 is similar to XYZ-D65, but uses the D50 illuminant.
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Hot pink": {
     "$type": "color",
     "$value": {

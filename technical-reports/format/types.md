@@ -29,6 +29,7 @@ For example:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "spacing-stack-0": {
     "$value": {
       "value": 0,
@@ -71,6 +72,7 @@ For example:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Primary font": {
     "$value": "Comic Sans MS",
     "$type": "fontFamily"
@@ -111,6 +113,7 @@ Example:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "font-weight-default": {
     "$value": 350,
     "$type": "fontWeight"
@@ -139,6 +142,7 @@ For example:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Duration-Quick": {
     "$value": {
       "value": 100,
@@ -169,6 +173,7 @@ For example:
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "Accelerate": {
     "$value": [0.5, 0, 1, 1],
     "$type": "cubicBezier"
@@ -190,6 +195,7 @@ Represents a number. Numbers can be positive, negative and have fractions. Examp
 
 ```json
 {
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
   "line-height-large": {
     "$value": 2.3,
     "$type": "number"
