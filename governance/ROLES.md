@@ -41,7 +41,7 @@
 
 - Merge Tier 1 changes immediately
 - Approve Tier 2-4 changes per framework
-- Request changes or block PRs with rationale
+- Request changes or block Pull Requests with rationale
 
 **Accountability**:
 
