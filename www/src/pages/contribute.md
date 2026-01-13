@@ -21,7 +21,7 @@ For full role definitions, see the [Roles documentation](https://github.com/desi
 
 ### Contributing as an active contributor
 
-You are passionate about design tokens and want to help the DTCG shape the spec for any of its modules. Participate in our ongoing [discussions on GitHub](https://github.com/design-tokens/community-group/issues) or contact us on our official [discussion channels](#discussion-channels).
+You are passionate about design tokens and want to help the Design Tokens Community Group shape the spec for any of its modules. Participate in our ongoing [discussions on GitHub](https://github.com/design-tokens/community-group/issues) or contact us on our official [discussion channels](#discussion-channels).
 
 **Become an active contributor by**:
 
