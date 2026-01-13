@@ -4,7 +4,7 @@
 
 ## Overview
 
-This framework implements a tiered decision-making system that matches the approval process to the impact of the change. This removes the need for full consensus on every decision while maintaining community input for significant changes.
+The Decision-Making Framework implements a tiered decision-making system that matches the approval process to the impact of the change in order to remove the need for full consensus on every decision while maintaining community input for significant changes.
 
 ## Core Principles
 
