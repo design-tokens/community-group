@@ -32,7 +32,7 @@
 
 **Responsibilities**:
 
-- Review PRs within 1 week
+- Review Pull Requests within 1 week
 - Approve changes based on tier requirements
 - Attend monthly editor sync (minimum)
 - Own or support at least one spec area
