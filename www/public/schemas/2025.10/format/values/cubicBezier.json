@@ -36,7 +36,7 @@
           "maximum": 1
         },
         {
-          "$ref": "../../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -48,7 +48,7 @@
           "type": "number"
         },
         {
-          "$ref": "../../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     }

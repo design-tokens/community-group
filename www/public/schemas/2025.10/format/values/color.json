@@ -45,7 +45,7 @@
           "maximum": 1
         },
         {
-          "$ref": "../../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -80,7 +80,7 @@
           "const": "none"
         },
         {
-          "$ref": "../../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -98,7 +98,7 @@
           "const": "none"
         },
         {
-          "$ref": "../../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -116,7 +116,7 @@
           "const": "none"
         },
         {
-          "$ref": "../../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -133,7 +133,7 @@
           "const": "none"
         },
         {
-          "$ref": "../../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -149,7 +149,7 @@
           "const": "none"
         },
         {
-          "$ref": "../../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
