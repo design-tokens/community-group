@@ -12,7 +12,7 @@
           "type": "number"
         },
         {
-          "$ref": "../../format.json#/definitions/tokenValueReference"
+          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
