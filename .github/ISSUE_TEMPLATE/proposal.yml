@@ -25,6 +25,7 @@ body:
         - First Editor’s Draft
         - Second Editor’s Draft
         - Third Editor’s Draft
+        - 2025.10 (current stable version)
     validations:
       required: true
   - type: textarea
