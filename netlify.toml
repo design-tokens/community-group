@@ -15,3 +15,9 @@
   pretty_urls = true
 [build.processing.images]
   compress = true
+
+# Serve JSON Schema files with the correct MIME type
+[[headers]]
+  for = "/schemas/**/*.json"
+  [headers.values]
+    Content-Type = "application/schema+json"
