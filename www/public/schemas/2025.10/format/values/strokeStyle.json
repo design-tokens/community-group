@@ -22,19 +22,26 @@
       "type": "object",
       "properties": {
         "dashArray": {
-          "type": "array",
           "description": "Array of dimension values specifying lengths of alternating dashes and gaps",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "dimension.json"
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "dimension.json"
+                  },
+                  {
+                    "$ref": "../../format.json#/definitions/tokenValueReference"
+                  }
+                ]
               },
-              {
-                "$ref": "../../format.json#/definitions/tokenValueReference"
-              }
-            ]
-          },
-          "minItems": 1
+              "minItems": 1
+            },
+            {
+              "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+            }
+          ]
         },
         "lineCap": {
           "description": "Line cap style, same meaning as SVG stroke-linecap attribute",

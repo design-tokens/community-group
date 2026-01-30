@@ -34,7 +34,14 @@
     },
     "components": {
       "description": "Array of color components. The number and meaning of components depend on the color space. Each component can be a number or the 'none' keyword.",
-      "type": "array"
+      "oneOf": [
+        {
+          "type": "array"
+        },
+        {
+          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+        }
+      ]
     },
     "alpha": {
       "description": "The alpha (transparency) value of the color. 0 is fully transparent, 1 is fully opaque. If omitted, defaults to 1.",
@@ -200,7 +207,8 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "srgb" }
+          "colorSpace": { "const": "srgb" },
+          "components": { "type": "array" }
         }
       },
       "then": {
@@ -214,7 +222,8 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "srgb-linear" }
+          "colorSpace": { "const": "srgb-linear" },
+          "components": { "type": "array" }
         }
       },
       "then": {
@@ -228,7 +237,8 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "display-p3" }
+          "colorSpace": { "const": "display-p3" },
+          "components": { "type": "array" }
         }
       },
       "then": {
@@ -242,7 +252,8 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "a98-rgb" }
+          "colorSpace": { "const": "a98-rgb" },
+          "components": { "type": "array" }
         }
       },
       "then": {
@@ -256,7 +267,8 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "prophoto-rgb" }
+          "colorSpace": { "const": "prophoto-rgb" },
+          "components": { "type": "array" }
         }
       },
       "then": {
@@ -270,7 +282,8 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "rec2020" }
+          "colorSpace": { "const": "rec2020" },
+          "components": { "type": "array" }
         }
       },
       "then": {
@@ -284,7 +297,8 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "xyz-d65" }
+          "colorSpace": { "const": "xyz-d65" },
+          "components": { "type": "array" }
         }
       },
       "then": {
@@ -298,7 +312,8 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "xyz-d50" }
+          "colorSpace": { "const": "xyz-d50" },
+          "components": { "type": "array" }
         }
       },
       "then": {
@@ -312,7 +327,8 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "hsl" }
+          "colorSpace": { "const": "hsl" },
+          "components": { "type": "array" }
         }
       },
       "then": {
@@ -342,7 +358,8 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "hwb" }
+          "colorSpace": { "const": "hwb" },
+          "components": { "type": "array" }
         }
       },
       "then": {
@@ -372,7 +389,8 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "lab" }
+          "colorSpace": { "const": "lab" },
+          "components": { "type": "array" }
         }
       },
       "then": {
@@ -402,7 +420,8 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "lch" }
+          "colorSpace": { "const": "lch" },
+          "components": { "type": "array" }
         }
       },
       "then": {
@@ -432,7 +451,8 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "oklab" }
+          "colorSpace": { "const": "oklab" },
+          "components": { "type": "array" }
         }
       },
       "then": {
@@ -462,7 +482,8 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "oklch" }
+          "colorSpace": { "const": "oklch" },
+          "components": { "type": "array" }
         }
       },
       "then": {
