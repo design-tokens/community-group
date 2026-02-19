@@ -479,7 +479,7 @@ Another [=color model=], a polar transformation of sRGB.
 
 </aside>
 
-For more information on the HWB color space, see [HWB — A More Intuitive Hue-Based Color Model](http://alvyray.com/Papers/CG/HWB_JGTv208.pdf).
+For more information on the HWB color space, see [HWB — A More Intuitive Hue-Based Color Model](https://alvyray.com/Papers/CG/HWB_JGTv208.pdf).
 
 ### CIELAB
 
