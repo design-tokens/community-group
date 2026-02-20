@@ -100,7 +100,9 @@ While both examples will render as white, the first example is more explicit abo
 The following values are supported for the `colorSpace` property. The `components` array will vary depending on the color space.
 
 <aside class="ednote" title="Syntax for expressing ranges">
-<p>In this table, brackets <code>[]</code> indicate that an extrema are included, parentheses <code>()</code> indicate that the <a href="https://en.wikipedia.org/wiki/Maximum_and_minimum">extrema</a> are excluded. For example, in the HSL color space, hue is in the range of <a href="https://www.w3.org/TR/css-color-4/#hue-syntax">[0 - 360)</a>, which means that <code>0</code> MAY be used but <code>360</code> MUST NOT be used.</p>
+
+In this table, brackets `[]` indicate that [extrema](https://en.wikipedia.org/wiki/Maximum_and_minimum) are _included_, parentheses `()` indicate that the extrema are _excluded_. For example, in the HSL color space, hue is in the range of [[0 - 360)](https://www.w3.org/TR/css-color-4/#hue-syntax), which means that `0` MAY be used but `360` MUST NOT be used.
+
 </aside>
 
 <table class="data">
@@ -324,6 +326,7 @@ The following values are supported for the `colorSpace` property. The `component
         </tr>
     </tbody>
 </table>
+
 <div>
   <span><span id="fn-1">*</span> In CIELAB, A and B are unbounded but in practice don't exceed -160 to 160</span><br />
   <span><span id="fn-2">**</span> In LCH, C is unbounded but in practice doesn't exceed 230</span><br />
@@ -332,21 +335,27 @@ The following values are supported for the `colorSpace` property. The `component
 </div>
 
 <aside class="ednote" title="Precision in examples">
-<p>The examples below have varying degrees of precision (i.e. numbers after the decimal). This is done to ensure that the <code>fallback</code> color is exactly the same as the defined color when converted to HEX. In practice, the numbers used to define each component can have any degree of precision.</p>
+
+The examples below have varying degrees of precision (i.e. numbers after the decimal). This is done to ensure that the `fallback` color is exactly the same as the defined color when converted to HEX. In practice, the numbers used to define each component can have any degree of precision.
+
 </aside>
 
 <aside class="ednote" title="Optional values in examples">
-<p>The examples below are given with all optional values (alpha, hex) included for the purpose of completeness. Defining the alpha property for fully-opaque colors is not required, see <a href="#format">#format</a>.</p>
+
+The examples below are given with all optional values (alpha, hex) included for the purpose of completeness. Defining the alpha property for fully-opaque colors is not required, see [Format](#format).
+
 </aside>
 
 <aside class="ednote" title="How does this conform to CSS Color Module 4?">
-<p>To provide a logically consistent approach without creating ambiguity around the format, this spec takes the following approach:</p>
-<ul>
-<li>If CSS Color Module 4 allows a color space to be referenced by <strong>both</strong> a named function (like <code>srgb()</code>) <strong>and</strong> a keyword in the <code>color()</code> function, use the format intended for the <code>color()</code> function.</li>
-<li>If CSS Color Module 4 only defines a color space <strong>either</strong> as a named function (like <code>hwb()</code>) <strong>or</strong> a keyword in the <code>color()</code> function (like <code>rec-2020</code>), use the syntax indicated.</li>
-<li>If CSS Color Module 4 allows <strong>both</strong> unit values (like <code>50</code>) <strong>and</strong> percentages (like <code>50%</code>) for a component, use the unit value.</li>
-</ul>
-<p>Using this spec as a reference allows us to focus on the design and implementation of the tokens themselves, rather than the underlying color science.</p>
+
+To provide a logically consistent approach without creating ambiguity around the format, this spec takes the following approach:
+
+- If CSS Color Module 4 allows a color space to be referenced by **both** a named function (like `srgb()`) **and** a keyword in the `color()` function, use the format intended for the `color()` function.
+- If CSS Color Module 4 only defines a color space **either** as a named function (like `hwb()`) **or** a keyword in the `color()` function (like `rec-2020`), use the syntax indicated.
+- If CSS Color Module 4 allows **both** unit values (like `50`) **and** percentages (like `50%`) for a component, use the unit value.
+
+Using this spec as a reference allows us to focus on the design and implementation of the tokens themselves, rather than the underlying color science.
+
 </aside>
 
 ### sRGB
