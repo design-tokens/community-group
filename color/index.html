@@ -192,8 +192,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "dtcg-logo"
     }
   ],
-  "publishISODate": "2026-01-13T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 13 January 2026"
+  "publishISODate": "2026-02-20T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 20 February 2026"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft">
 <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://www.w3.org/StyleSheets/TR/2021/dark.css"></head>
@@ -204,7 +204,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Design Tokens Color Module 2025.10</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2026-01-13">13 January 2026</time>
+      <time class="dt-published" datetime="2026-02-20">20 February 2026</time>
     </p>
     <dl>
       
@@ -430,7 +430,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </section></section></section><section id="supported-color-spaces"><div class="header-wrapper"><h3 id="x4-2-supported-color-spaces"><bdi class="secno">4.2 </bdi>Supported Color spaces</h3><a class="self-link" href="#supported-color-spaces" aria-label="Permalink for Section 4.2"></a></div>
 <p>The following values are supported for the <code>colorSpace</code> property. The <code>components</code> array will vary depending on the color space.</p>
 <div class="note" id="issue-container-generatedID-0"><div role="heading" class="ednote-title marker" id="h-ednote-0" aria-level="4"><span>Editor's note</span><span class="issue-label">: Syntax for expressing ranges</span></div><aside class="">
-<p>In this table, brackets <code>[]</code> indicate that an extrema are included, parentheses <code>()</code> indicate that the <a href="https://en.wikipedia.org/wiki/Maximum_and_minimum">extrema</a> are excluded. For example, in the HSL color space, hue is in the range of <a href="https://www.w3.org/TR/css-color-4/#hue-syntax">[0 - 360)</a>, which means that <code>0</code> <em class="rfc2119">MAY</em> be used but <code>360</code> <em class="rfc2119">MUST NOT</em> be used.</p>
+
+<p>In this table, brackets <code>[]</code> indicate that <a href="https://en.wikipedia.org/wiki/Maximum_and_minimum">extrema</a> are <em>included</em>, parentheses <code>()</code> indicate that the extrema are <em>excluded</em>. For example, in the HSL color space, hue is in the range of [<a href="https://www.w3.org/TR/css-color-4/#hue-syntax">0 - 360)</a>, which means that <code>0</code> <em class="rfc2119">MAY</em> be used but <code>360</code> <em class="rfc2119">MUST NOT</em> be used.</p>
 </aside></div>
 
 <table class="data">
@@ -654,6 +655,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         </tr>
     </tbody>
 </table>
+
 <div>
   <span><span id="fn-1">*</span> In CIELAB, A and B are unbounded but in practice don't exceed -160 to 160</span><br>
   <span><span id="fn-2">**</span> In LCH, C is unbounded but in practice doesn't exceed 230</span><br>
@@ -662,14 +664,17 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </div>
 
 <div class="note" id="issue-container-generatedID-1"><div role="heading" class="ednote-title marker" id="h-ednote-1" aria-level="4"><span>Editor's note</span><span class="issue-label">: Precision in examples</span></div><aside class="">
+
 <p>The examples below have varying degrees of precision (i.e. numbers after the decimal). This is done to ensure that the <code>fallback</code> color is exactly the same as the defined color when converted to HEX. In practice, the numbers used to define each component can have any degree of precision.</p>
 </aside></div>
 
 <div class="note" id="issue-container-generatedID-2"><div role="heading" class="ednote-title marker" id="h-ednote-2" aria-level="4"><span>Editor's note</span><span class="issue-label">: Optional values in examples</span></div><aside class="">
-<p>The examples below are given with all optional values (alpha, hex) included for the purpose of completeness. Defining the alpha property for fully-opaque colors is not required, see <a href="#format">#format</a>.</p>
+
+<p>The examples below are given with all optional values (alpha, hex) included for the purpose of completeness. Defining the alpha property for fully-opaque colors is not required, see <a href="#format">Format</a>.</p>
 </aside></div>
 
 <div class="note" id="issue-container-generatedID-3"><div role="heading" class="ednote-title marker" id="h-ednote-3" aria-level="4"><span>Editor's note</span><span class="issue-label">: How does this conform to CSS Color Module 4?</span></div><aside class="">
+
 <p>To provide a logically consistent approach without creating ambiguity around the format, this spec takes the following approach:</p>
 <ul>
 <li>If CSS Color Module 4 allows a color space to be referenced by <strong>both</strong> a named function (like <code>srgb()</code>) <strong>and</strong> a keyword in the <code>color()</code> function, use the format intended for the <code>color()</code> function.</li>
@@ -794,7 +799,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </code></pre>
 </aside>
 
-<p>For more information on the HWB color space, see <a href="http://alvyray.com/Papers/CG/HWB_JGTv208.pdf">HWB —&nbsp;A More Intuitive Hue-Based Color Model</a>.</p>
+<p>For more information on the HWB color space, see <a href="https://alvyray.com/Papers/CG/HWB_JGTv208.pdf">HWB —&nbsp;A More Intuitive Hue-Based Color Model</a>.</p>
 </section></section><section id="cielab"><div class="header-wrapper"><h4 id="x4-2-5-cielab"><bdi class="secno">4.2.5 </bdi>CIELAB</h4><a class="self-link" href="#cielab" aria-label="Permalink for Section 4.2.5"></a></div>
 <p>CIELAB is a color space that is designed to be perceptually uniform.</p>
 <section id="components-3"><div class="header-wrapper"><h5 id="x4-2-5-1-components"><bdi class="secno">4.2.5.1 </bdi>Components</h5><a class="self-link" href="#components-3" aria-label="Permalink for Section 4.2.5.1"></a></div>
