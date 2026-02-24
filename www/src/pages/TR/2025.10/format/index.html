@@ -989,7 +989,7 @@ $font-size: 16px;
 </tr>
 </tbody></table>
 </section><section id="extensions-0"><div class="header-wrapper"><h4 id="x6-3-2-extensions"><bdi class="secno">6.3.2 </bdi><code>$extensions</code></h4><a class="self-link" href="#extensions-0" aria-label="Permalink for Section 6.3.2"></a></div>
-<p>Groups <em class="rfc2119">MAY</em> include an optional <a href="design-token#extensions"><code>$extensions</code></a> property where tools <em class="rfc2119">MAY</em> add proprietary, user-, team- or vendor-specific data. Each tool <em class="rfc2119">MUST</em> use a vendor-specific key whose value <em class="rfc2119">MAY</em> be any valid JSON data.</p>
+<p>Groups <em class="rfc2119">MAY</em> include an optional <a href="#extensions"><code>$extensions</code></a> property where tools <em class="rfc2119">MAY</em> add proprietary, user-, team- or vendor-specific data. Each tool <em class="rfc2119">MUST</em> use a vendor-specific key whose value <em class="rfc2119">MAY</em> be any valid JSON data.</p>
 </section></section><section id="extending-groups"><div class="header-wrapper"><h3 id="x6-4-extending-groups"><bdi class="secno">6.4 </bdi>Extending Groups</h3><a class="self-link" href="#extending-groups" aria-label="Permalink for Section 6.4"></a></div>
 <p>Groups <em class="rfc2119">MAY</em> include an optional <code>$extends</code> property to inherit tokens and properties from another group. <code>$extends</code> <em class="rfc2119">MUST NOT</em> reference a token. The <code>$extends</code> property is syntactic sugar for JSON Schema's <code>$ref</code> keyword and follows the same semantic behavior as defined in [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-schema-2020-12" title="JSON Schema: A Media Type for Describing JSON Documents. Draft 2020-12">json-schema-2020-12</a></cite>].</p>
 <aside class="example" id="example-group-extension"><div class="marker">
@@ -2583,7 +2583,7 @@ $brand-typeface-secondary: 'Times New Roman';
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
-<p>A design token whose type happens to be a composite type is sometimes also called a composite (design) token. Besides their type, there is nothing special about composite tokens. They can have all the other additional properties like <a href="design-token#description"><code>$description</code></a> or <a href="design-token#extensions"><code>$extensions</code></a>. They can also be referenced by other design tokens.</p>
+<p>A design token whose type happens to be a composite type is sometimes also called a composite (design) token. Besides their type, there is nothing special about composite tokens. They can have all the other additional properties like <a href="design-token#description"><code>$description</code></a> or <a href="#extensions"><code>$extensions</code></a>. They can also be referenced by other design tokens.</p>
 <aside class="example" id="example-composite-token-example"><div class="marker">
     <a class="self-link" href="#example-composite-token-example">Example<bdi> 45</bdi></a><span class="example-title">: Composite token example</span>
   </div>

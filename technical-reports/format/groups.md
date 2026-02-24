@@ -139,7 +139,7 @@ Groups MAY include an optional `$deprecated` property to mark the entire group a
 
 ### `$extensions`
 
-Groups MAY include an optional [`$extensions`](design-token#extensions) property where tools MAY add proprietary, user-, team- or vendor-specific data. Each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
+Groups MAY include an optional [`$extensions`](#extensions) property where tools MAY add proprietary, user-, team- or vendor-specific data. Each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
 
 ## Extending Groups
 
