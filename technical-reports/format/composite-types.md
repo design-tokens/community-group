@@ -332,8 +332,8 @@ Represents a border style. The `$type` property MUST be set to the string `borde
 
 Represents a animated transition between two states. The `$type` property MUST be set to the string `transition`. The value MUST be an object with the following properties:
 
-- `duration`: The duration of the transition. The value of this property MUST be a valid [duration](types#duration) value or a reference to a duration token.
-- `delay`: The time to wait before the transition begins. The value of this property MUST be a valid [duration](types#duration) value or a reference to a duration token.
+- `duration`: The duration of the transition. The value of this property MUST be a valid [duration](#duration) value or a reference to a duration token.
+- `delay`: The time to wait before the transition begins. The value of this property MUST be a valid [duration](#duration) value or a reference to a duration token.
 - `timingFunction`: The timing function of the transition. The value of this property MUST be a valid [cubic Bézier curve](types#cubic-bezier) value or a reference to a cubic Bézier curve token.
 
 <aside class="example" title="Transition composite token examples">
