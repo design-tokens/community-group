@@ -277,7 +277,7 @@ Some [=design tools=] like Figma don't support inset, outset or double style lin
 
 Represents a border style. The `$type` property MUST be set to the string `border`. The value MUST be an object with the following properties:
 
-- `color`: The color of the border. The value of this property MUST be a valid [color value](types#color) or a reference to a color token.
+- `color`: The color of the border. The value of this property MUST be a valid [color value](#color) or a reference to a color token.
 - `width`: The width or thickness of the border. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `style`: The border's style. The value of this property MUST be a valid [stroke style value](#stroke-style) or a reference to a stroke style token.
 
@@ -371,7 +371,7 @@ When the value is an array, each element must be either an explicit shadow objec
 
 Each shadow object (whether explicit or referenced) MUST have the following properties:
 
-- `color`: The color of the shadow. The value of this property MUST be a valid [color value](types#color) or a reference to a color token.
+- `color`: The color of the shadow. The value of this property MUST be a valid [color value](#color) or a reference to a color token.
 - `offsetX`: The horizontal offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `offsetY`: The vertical offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `blur`: The blur radius that is applied to the shadow. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
@@ -480,7 +480,7 @@ Represents a color gradient. The `$type` property MUST be set to the string `gra
 
 Each gradient stop object (whether explicit or referenced) MUST have the following structure:
 
-- `color`: The color value at the stop's position on the gradient. The value of this property MUST be a valid [color value](types#color) or a reference to a color token.
+- `color`: The color value at the stop's position on the gradient. The value of this property MUST be a valid [color value](#color) or a reference to a color token.
 - `position`: The position of the stop along the gradient's axis. The value of this property MUST be a valid number value or reference to a number token. The number values must be in the range [0, 1], where 0 represents the start position of the gradient's axis and 1 the end position. If a number value outside of that range is given, it MUST be considered as if it were clamped to the range [0, 1]. For example, a value of 42 should be treated as if it were 1, i.e. the end position of the gradient axis. Similarly, a value of -99 should be treated as if it were 0, i.e. the start position of the gradient axis.
 
 If there are no stops at the very beginning or end of the gradient axis (i.e. with `position` 0 or 1, respectively), then the color from the stop closest to each end should be extended to that end of the axis.

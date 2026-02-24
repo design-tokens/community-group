@@ -2807,7 +2807,7 @@ $brand-typeface-secondary: 'Times New Roman';
 </section></section><section id="border"><div class="header-wrapper"><h3 id="x9-4-border"><bdi class="secno">9.4 </bdi>Border</h3><a class="self-link" href="#border" aria-label="Permalink for Section 9.4"></a></div>
 <p>Represents a border style. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>border</code>. The value <em class="rfc2119">MUST</em> be an object with the following properties:</p>
 <ul>
-<li><code>color</code>: The color of the border. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#color">color value</a> or a reference to a color token.</li>
+<li><code>color</code>: The color of the border. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#color">color value</a> or a reference to a color token.</li>
 <li><code>width</code>: The width or thickness of the border. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
 <li><code>style</code>: The border's style. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#stroke-style">stroke style value</a> or a reference to a stroke style token.</li>
 </ul>
@@ -2896,7 +2896,7 @@ $brand-typeface-secondary: 'Times New Roman';
 <p>When the value is an array, each element must be either an explicit shadow object or a reference to another shadow token. References in the array resolve to single shadow objects and do not cause array flattening.</p>
 <p>Each shadow object (whether explicit or referenced) <em class="rfc2119">MUST</em> have the following properties:</p>
 <ul>
-<li><code>color</code>: The color of the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#color">color value</a> or a reference to a color token.</li>
+<li><code>color</code>: The color of the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#color">color value</a> or a reference to a color token.</li>
 <li><code>offsetX</code>: The horizontal offset that shadow has from the element it is applied to. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
 <li><code>offsetY</code>: The vertical offset that shadow has from the element it is applied to. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
 <li><code>blur</code>: The blur radius that is applied to the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
@@ -3001,7 +3001,7 @@ $brand-typeface-secondary: 'Times New Roman';
 <p>Represents a color gradient. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>gradient</code>. The value <em class="rfc2119">MUST</em> be an array of gradient stop objects and/or references to gradient tokens. Each element in the array must be either an explicit gradient stop object or a reference to a gradient token. References resolve to single gradient objects and do not cause array flattening.</p>
 <p>Each gradient stop object (whether explicit or referenced) <em class="rfc2119">MUST</em> have the following structure:</p>
 <ul>
-<li><code>color</code>: The color value at the stop's position on the gradient. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#color">color value</a> or a reference to a color token.</li>
+<li><code>color</code>: The color value at the stop's position on the gradient. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#color">color value</a> or a reference to a color token.</li>
 <li><code>position</code>: The position of the stop along the gradient's axis. The value of this property <em class="rfc2119">MUST</em> be a valid number value or reference to a number token. The number values must be in the range [0, 1], where 0 represents the start position of the gradient's axis and 1 the end position. If a number value outside of that range is given, it <em class="rfc2119">MUST</em> be considered as if it were clamped to the range [0, 1]. For example, a value of 42 should be treated as if it were 1, i.e. the end position of the gradient axis. Similarly, a value of -99 should be treated as if it were 0, i.e. the start position of the gradient axis.</li>
 </ul>
 <p>If there are no stops at the very beginning or end of the gradient axis (i.e. with <code>position</code> 0 or 1, respectively), then the color from the stop closest to each end should be extended to that end of the axis.</p>
