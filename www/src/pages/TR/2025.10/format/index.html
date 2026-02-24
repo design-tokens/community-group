@@ -824,7 +824,7 @@ $font-size: 16px;
     <section id="groups"><div class="header-wrapper"><h2 id="x6-groups"><bdi class="secno">6. </bdi>Groups</h2><a class="self-link" href="#groups" aria-label="Permalink for Section 6."></a></div>
 <p>Groups organize design tokens into logical collections and provide a hierarchical structure for token files. Groups are arbitrary and tools <em class="rfc2119">SHOULD NOT</em> use them to infer the type or purpose of design tokens.</p>
 <section id="group-structure"><div class="header-wrapper"><h3 id="x6-1-group-structure"><bdi class="secno">6.1 </bdi>Group Structure</h3><a class="self-link" href="#group-structure" aria-label="Permalink for Section 6.1"></a></div>
-<p>A group is identified as a JSON object that does NOT contain a <a href="design-token#name-and-value"><code>$value</code></a> property. Groups <em class="rfc2119">MAY</em> contain:</p>
+<p>A group is identified as a JSON object that does NOT contain a <a href="#name-and-value"><code>$value</code></a> property. Groups <em class="rfc2119">MAY</em> contain:</p>
 <ul>
 <li><strong>Child tokens</strong> - Objects with a <code>$value</code> property</li>
 <li><strong>Nested groups</strong> - Objects without a <code>$value</code> property</li>

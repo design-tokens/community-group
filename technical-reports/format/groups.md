@@ -4,7 +4,7 @@ Groups organize design tokens into logical collections and provide a hierarchica
 
 ## Group Structure
 
-A group is identified as a JSON object that does NOT contain a [`$value`](design-token#name-and-value) property. Groups MAY contain:
+A group is identified as a JSON object that does NOT contain a [`$value`](#name-and-value) property. Groups MAY contain:
 
 - **Child tokens** - Objects with a `$value` property
 - **Nested groups** - Objects without a `$value` property
