@@ -824,7 +824,7 @@ $font-size: 16px;
     <section id="groups"><div class="header-wrapper"><h2 id="x6-groups"><bdi class="secno">6. </bdi>Groups</h2><a class="self-link" href="#groups" aria-label="Permalink for Section 6."></a></div>
 <p>Groups organize design tokens into logical collections and provide a hierarchical structure for token files. Groups are arbitrary and tools <em class="rfc2119">SHOULD NOT</em> use them to infer the type or purpose of design tokens.</p>
 <section id="group-structure"><div class="header-wrapper"><h3 id="x6-1-group-structure"><bdi class="secno">6.1 </bdi>Group Structure</h3><a class="self-link" href="#group-structure" aria-label="Permalink for Section 6.1"></a></div>
-<p>A group is identified as a JSON object that does NOT contain a <a href="design-token#name-and-value"><code>$value</code></a> property. Groups <em class="rfc2119">MAY</em> contain:</p>
+<p>A group is identified as a JSON object that does NOT contain a <a href="#name-and-value"><code>$value</code></a> property. Groups <em class="rfc2119">MAY</em> contain:</p>
 <ul>
 <li><strong>Child tokens</strong> - Objects with a <code>$value</code> property</li>
 <li><strong>Nested groups</strong> - Objects without a <code>$value</code> property</li>
@@ -989,7 +989,7 @@ $font-size: 16px;
 </tr>
 </tbody></table>
 </section><section id="extensions-0"><div class="header-wrapper"><h4 id="x6-3-2-extensions"><bdi class="secno">6.3.2 </bdi><code>$extensions</code></h4><a class="self-link" href="#extensions-0" aria-label="Permalink for Section 6.3.2"></a></div>
-<p>Groups <em class="rfc2119">MAY</em> include an optional <a href="design-token#extensions"><code>$extensions</code></a> property where tools <em class="rfc2119">MAY</em> add proprietary, user-, team- or vendor-specific data. Each tool <em class="rfc2119">MUST</em> use a vendor-specific key whose value <em class="rfc2119">MAY</em> be any valid JSON data.</p>
+<p>Groups <em class="rfc2119">MAY</em> include an optional <a href="#extensions"><code>$extensions</code></a> property where tools <em class="rfc2119">MAY</em> add proprietary, user-, team- or vendor-specific data. Each tool <em class="rfc2119">MUST</em> use a vendor-specific key whose value <em class="rfc2119">MAY</em> be any valid JSON data.</p>
 </section></section><section id="extending-groups"><div class="header-wrapper"><h3 id="x6-4-extending-groups"><bdi class="secno">6.4 </bdi>Extending Groups</h3><a class="self-link" href="#extending-groups" aria-label="Permalink for Section 6.4"></a></div>
 <p>Groups <em class="rfc2119">MAY</em> include an optional <code>$extends</code> property to inherit tokens and properties from another group. <code>$extends</code> <em class="rfc2119">MUST NOT</em> reference a token. The <code>$extends</code> property is syntactic sugar for JSON Schema's <code>$ref</code> keyword and follows the same semantic behavior as defined in [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-schema-2020-12" title="JSON Schema: A Media Type for Describing JSON Documents. Draft 2020-12">json-schema-2020-12</a></cite>].</p>
 <aside class="example" id="example-group-extension"><div class="marker">
@@ -1431,7 +1431,7 @@ Objects without a <code>$value</code> property are interpreted as groups by defi
 </section><section id="type-inheritance"><div class="header-wrapper"><h4 id="x6-7-3-type-inheritance"><bdi class="secno">6.7.3 </bdi>Type Inheritance</h4><a class="self-link" href="#type-inheritance" aria-label="Permalink for Section 6.7.3"></a></div>
 <p>Type resolution follows these rules in order of precedence:</p>
 <ol>
-<li><strong>Token's explicit <a href="design-token#type"><code>$type</code></a> property</strong> (highest precedence)</li>
+<li><strong>Token's explicit <a href="#type"><code>$type</code></a> property</strong> (highest precedence)</li>
 <li><strong>Resolved group's <code>$type</code> property</strong> (after extension resolution)</li>
 <li><strong>Parent group's <code>$type</code> property</strong> (walking up the hierarchy)</li>
 <li><strong>Token is invalid</strong> if no type can be determined</li>
@@ -2521,7 +2521,7 @@ $brand-typeface-secondary: 'Times New Roman';
 </aside>
 
 </section><section id="number"><div class="header-wrapper"><h3 id="x8-7-number"><bdi class="secno">8.7 </bdi>Number</h3><a class="self-link" href="#number" aria-label="Permalink for Section 8.7"></a></div>
-<p>Represents a number. Numbers can be positive, negative and have fractions. Example uses for number tokens are <a href="composite-types#gradient">gradient stop positions</a> or unitless line heights. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>number</code>. The value <em class="rfc2119">MUST</em> be a JSON number value.</p>
+<p>Represents a number. Numbers can be positive, negative and have fractions. Example uses for number tokens are <a href="#gradient">gradient stop positions</a> or unitless line heights. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>number</code>. The value <em class="rfc2119">MUST</em> be a JSON number value.</p>
 <aside class="example" id="example-44"><div class="marker">
     <a class="self-link" href="#example-44">Example<bdi> 44</bdi></a>
   </div>
@@ -2551,7 +2551,7 @@ $brand-typeface-secondary: 'Times New Roman';
 
     <section id="composite-types"><div class="header-wrapper"><h2 id="x9-composite-types"><bdi class="secno">9. </bdi>Composite types</h2><a class="self-link" href="#composite-types" aria-label="Permalink for Section 9."></a></div>
 <p>The types defined in the previous chapters such as color and dimension all have singular values. For example, the value of a color token is <em>one</em> color. However, there are other aspects of UI designs that are a combination of multiple values. For instance, a shadow style is a combination of a color, X &amp; Y offsets, a blur radius and a spread radius.</p>
-<p>Every shadow style has the exact same parts (color, X &amp; Y offsets, etc.), but their respective values will differ. Furthermore, each part's value (which is also known as a "sub-value") is always of the same type. A shadow's color must always be a <a href="#color">color</a> value, its X offset must always be a <a href="types#dimension">dimension</a> value, and so on. Shadow styles are therefore combinations of values <em>that follow a pre-defined structure</em>. In other words, shadow styles are themselves a type. Types like this are called <strong>composite types</strong>.</p>
+<p>Every shadow style has the exact same parts (color, X &amp; Y offsets, etc.), but their respective values will differ. Furthermore, each part's value (which is also known as a "sub-value") is always of the same type. A shadow's color must always be a <a href="#color">color</a> value, its X offset must always be a <a href="#dimension">dimension</a> value, and so on. Shadow styles are therefore combinations of values <em>that follow a pre-defined structure</em>. In other words, shadow styles are themselves a type. Types like this are called <strong>composite types</strong>.</p>
 <p>Specifically, a composite type has the following characteristics:</p>
 <ul>
 <li>Its value is an object or array, potentially containing nested objects or arrays, following a pre-defined structure where the properties of the (nested) object(s) or the elements of the (nested) arrays are sub-values.</li>
@@ -2583,7 +2583,7 @@ $brand-typeface-secondary: 'Times New Roman';
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
-<p>A design token whose type happens to be a composite type is sometimes also called a composite (design) token. Besides their type, there is nothing special about composite tokens. They can have all the other additional properties like <a href="design-token#description"><code>$description</code></a> or <a href="design-token#extensions"><code>$extensions</code></a>. They can also be referenced by other design tokens.</p>
+<p>A design token whose type happens to be a composite type is sometimes also called a composite (design) token. Besides their type, there is nothing special about composite tokens. They can have all the other additional properties like <a href="#description"><code>$description</code></a> or <a href="#extensions"><code>$extensions</code></a>. They can also be referenced by other design tokens.</p>
 <aside class="example" id="example-composite-token-example"><div class="marker">
     <a class="self-link" href="#example-composite-token-example">Example<bdi> 45</bdi></a><span class="example-title">: Composite token example</span>
   </div>
@@ -2713,7 +2713,7 @@ $brand-typeface-secondary: 'Times New Roman';
 </section><section id="object-value"><div class="header-wrapper"><h4 id="x9-3-2-object-value"><bdi class="secno">9.3.2 </bdi>Object value</h4><a class="self-link" href="#object-value" aria-label="Permalink for Section 9.3.2"></a></div>
 <p>Object stroke style values <em class="rfc2119">MUST</em> have the following properties:</p>
 <ul>
-<li><code>dashArray</code>: An array of <a href="types#dimension">dimension values</a> and/or references to dimension tokens, which specify the lengths of alternating dashes and gaps. Each element in the array must be either an explicit dimension value or a reference to a dimension token. If an odd number of values is provided, then the list of values is repeated to yield an even number of values.</li>
+<li><code>dashArray</code>: An array of <a href="#dimension">dimension values</a> and/or references to dimension tokens, which specify the lengths of alternating dashes and gaps. Each element in the array must be either an explicit dimension value or a reference to a dimension token. If an odd number of values is provided, then the list of values is repeated to yield an even number of values.</li>
 <li><code>lineCap</code>: One of the following pre-defined string values: <code>"round"</code>, <code>"butt"</code> or <code>"square"</code>. These values have the same meaning as those of <a href="https://www.w3.org/TR/SVG11/painting.html#StrokeLinecapProperty">the <code>stroke-linecap</code> attribute in SVG</a>.</li>
 </ul>
 <aside class="example" id="example-object-stroke-style-example"><div class="marker">
@@ -2807,8 +2807,8 @@ $brand-typeface-secondary: 'Times New Roman';
 </section></section><section id="border"><div class="header-wrapper"><h3 id="x9-4-border"><bdi class="secno">9.4 </bdi>Border</h3><a class="self-link" href="#border" aria-label="Permalink for Section 9.4"></a></div>
 <p>Represents a border style. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>border</code>. The value <em class="rfc2119">MUST</em> be an object with the following properties:</p>
 <ul>
-<li><code>color</code>: The color of the border. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#color">color value</a> or a reference to a color token.</li>
-<li><code>width</code>: The width or thickness of the border. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>color</code>: The color of the border. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#color">color value</a> or a reference to a color token.</li>
+<li><code>width</code>: The width or thickness of the border. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
 <li><code>style</code>: The border's style. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#stroke-style">stroke style value</a> or a reference to a stroke style token.</li>
 </ul>
 <aside class="example" id="example-border-composite-token-examples"><div class="marker">
@@ -2860,9 +2860,9 @@ $brand-typeface-secondary: 'Times New Roman';
 </section><section id="transition"><div class="header-wrapper"><h3 id="x9-5-transition"><bdi class="secno">9.5 </bdi>Transition</h3><a class="self-link" href="#transition" aria-label="Permalink for Section 9.5"></a></div>
 <p>Represents a animated transition between two states. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>transition</code>. The value <em class="rfc2119">MUST</em> be an object with the following properties:</p>
 <ul>
-<li><code>duration</code>: The duration of the transition. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#duration">duration</a> value or a reference to a duration token.</li>
-<li><code>delay</code>: The time to wait before the transition begins. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#duration">duration</a> value or a reference to a duration token.</li>
-<li><code>timingFunction</code>: The timing function of the transition. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#cubic-bezier">cubic Bézier curve</a> value or a reference to a cubic Bézier curve token.</li>
+<li><code>duration</code>: The duration of the transition. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#duration">duration</a> value or a reference to a duration token.</li>
+<li><code>delay</code>: The time to wait before the transition begins. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#duration">duration</a> value or a reference to a duration token.</li>
+<li><code>timingFunction</code>: The timing function of the transition. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#cubic-bezier">cubic Bézier curve</a> value or a reference to a cubic Bézier curve token.</li>
 </ul>
 <aside class="example" id="example-transition-composite-token-examples"><div class="marker">
     <a class="self-link" href="#example-transition-composite-token-examples">Example<bdi> 53</bdi></a><span class="example-title">: Transition composite token examples</span>
@@ -2896,11 +2896,11 @@ $brand-typeface-secondary: 'Times New Roman';
 <p>When the value is an array, each element must be either an explicit shadow object or a reference to another shadow token. References in the array resolve to single shadow objects and do not cause array flattening.</p>
 <p>Each shadow object (whether explicit or referenced) <em class="rfc2119">MUST</em> have the following properties:</p>
 <ul>
-<li><code>color</code>: The color of the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#color">color value</a> or a reference to a color token.</li>
-<li><code>offsetX</code>: The horizontal offset that shadow has from the element it is applied to. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#dimension">dimension value</a> or a reference to a dimension token.</li>
-<li><code>offsetY</code>: The vertical offset that shadow has from the element it is applied to. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#dimension">dimension value</a> or a reference to a dimension token.</li>
-<li><code>blur</code>: The blur radius that is applied to the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#dimension">dimension value</a> or a reference to a dimension token.</li>
-<li><code>spread</code>: The amount by which to expand or contract the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>color</code>: The color of the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#color">color value</a> or a reference to a color token.</li>
+<li><code>offsetX</code>: The horizontal offset that shadow has from the element it is applied to. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>offsetY</code>: The vertical offset that shadow has from the element it is applied to. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>blur</code>: The blur radius that is applied to the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>spread</code>: The amount by which to expand or contract the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
 <li><code>inset</code>: (optional) Whether this shadow is inside the containing shape (“inner shadow”), rather than a “drop shadow” or “box shadow” which is rendered outside the container (default, or <code>false</code>).</li>
 </ul>
 <aside class="example" id="example-shadow-token-example"><div class="marker">
@@ -3001,7 +3001,7 @@ $brand-typeface-secondary: 'Times New Roman';
 <p>Represents a color gradient. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>gradient</code>. The value <em class="rfc2119">MUST</em> be an array of gradient stop objects and/or references to gradient tokens. Each element in the array must be either an explicit gradient stop object or a reference to a gradient token. References resolve to single gradient objects and do not cause array flattening.</p>
 <p>Each gradient stop object (whether explicit or referenced) <em class="rfc2119">MUST</em> have the following structure:</p>
 <ul>
-<li><code>color</code>: The color value at the stop's position on the gradient. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#color">color value</a> or a reference to a color token.</li>
+<li><code>color</code>: The color value at the stop's position on the gradient. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#color">color value</a> or a reference to a color token.</li>
 <li><code>position</code>: The position of the stop along the gradient's axis. The value of this property <em class="rfc2119">MUST</em> be a valid number value or reference to a number token. The number values must be in the range [0, 1], where 0 represents the start position of the gradient's axis and 1 the end position. If a number value outside of that range is given, it <em class="rfc2119">MUST</em> be considered as if it were clamped to the range [0, 1]. For example, a value of 42 should be treated as if it were 1, i.e. the end position of the gradient axis. Similarly, a value of -99 should be treated as if it were 0, i.e. the start position of the gradient axis.</li>
 </ul>
 <p>If there are no stops at the very beginning or end of the gradient axis (i.e. with <code>position</code> 0 or 1, respectively), then the color from the stop closest to each end should be extended to that end of the axis.</p>
@@ -3155,11 +3155,11 @@ $brand-typeface-secondary: 'Times New Roman';
 </section><section id="typography"><div class="header-wrapper"><h3 id="x9-8-typography"><bdi class="secno">9.8 </bdi>Typography</h3><a class="self-link" href="#typography" aria-label="Permalink for Section 9.8"></a></div>
 <p>Represents a typographic style. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>typography</code>. The value <em class="rfc2119">MUST</em> be an object with the following properties:</p>
 <ul>
-<li><code>fontFamily</code>: The typography's font. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#font-family">font family value</a> or a reference to a font family token.</li>
-<li><code>fontSize</code>: The size of the typography. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#dimension">dimension value</a> or a reference to a dimension token.</li>
-<li><code>fontWeight</code>: The weight of the typography. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#font-weight">font weight</a> or a reference to a font weight token.</li>
-<li><code>letterSpacing</code>: The horizontal spacing between characters. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#dimension">dimension value</a> or a reference to a dimension token.</li>
-<li><code>lineHeight</code>: The vertical spacing between lines of typography. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#number">number value</a> or a reference to a number token. The number <em class="rfc2119">SHOULD</em> be interpreted as a multiplier of the <code>fontSize</code>.</li>
+<li><code>fontFamily</code>: The typography's font. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#font-family">font family value</a> or a reference to a font family token.</li>
+<li><code>fontSize</code>: The size of the typography. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>fontWeight</code>: The weight of the typography. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#font-weight">font weight</a> or a reference to a font weight token.</li>
+<li><code>letterSpacing</code>: The horizontal spacing between characters. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>lineHeight</code>: The vertical spacing between lines of typography. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#number">number value</a> or a reference to a number token. The number <em class="rfc2119">SHOULD</em> be interpreted as a multiplier of the <code>fontSize</code>.</li>
 </ul>
 <aside class="example" id="example-typography-composite-token-examples"><div class="marker">
     <a class="self-link" href="#example-typography-composite-token-examples">Example<bdi> 58</bdi></a><span class="example-title">: Typography composite token examples</span>

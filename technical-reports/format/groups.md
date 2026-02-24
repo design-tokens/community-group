@@ -4,7 +4,7 @@ Groups organize design tokens into logical collections and provide a hierarchica
 
 ## Group Structure
 
-A group is identified as a JSON object that does NOT contain a [`$value`](design-token#name-and-value) property. Groups MAY contain:
+A group is identified as a JSON object that does NOT contain a [`$value`](#name-and-value) property. Groups MAY contain:
 
 - **Child tokens** - Objects with a `$value` property
 - **Nested groups** - Objects without a `$value` property
@@ -139,7 +139,7 @@ Groups MAY include an optional `$deprecated` property to mark the entire group a
 
 ### `$extensions`
 
-Groups MAY include an optional [`$extensions`](design-token#extensions) property where tools MAY add proprietary, user-, team- or vendor-specific data. Each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
+Groups MAY include an optional [`$extensions`](#extensions) property where tools MAY add proprietary, user-, team- or vendor-specific data. Each tool MUST use a vendor-specific key whose value MAY be any valid JSON data.
 
 ## Extending Groups
 
@@ -577,7 +577,7 @@ Examples:
 
 Type resolution follows these rules in order of precedence:
 
-1. **Token's explicit [`$type`](design-token#type) property** (highest precedence)
+1. **Token's explicit [`$type`](#type) property** (highest precedence)
 2. **Resolved group's `$type` property** (after extension resolution)
 3. **Parent group's `$type` property** (walking up the hierarchy)
 4. **Token is invalid** if no type can be determined
