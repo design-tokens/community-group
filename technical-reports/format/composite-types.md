@@ -334,7 +334,7 @@ Represents a animated transition between two states. The `$type` property MUST b
 
 - `duration`: The duration of the transition. The value of this property MUST be a valid [duration](#duration) value or a reference to a duration token.
 - `delay`: The time to wait before the transition begins. The value of this property MUST be a valid [duration](#duration) value or a reference to a duration token.
-- `timingFunction`: The timing function of the transition. The value of this property MUST be a valid [cubic Bézier curve](types#cubic-bezier) value or a reference to a cubic Bézier curve token.
+- `timingFunction`: The timing function of the transition. The value of this property MUST be a valid [cubic Bézier curve](#cubic-bezier) value or a reference to a cubic Bézier curve token.
 
 <aside class="example" title="Transition composite token examples">
 
