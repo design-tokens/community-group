@@ -644,7 +644,7 @@ Represents a typographic style. The `$type` property MUST be set to the string `
 
 - `fontFamily`: The typography's font. The value of this property MUST be a valid [font family value](#font-family) or a reference to a font family token.
 - `fontSize`: The size of the typography. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `fontWeight`: The weight of the typography. The value of this property MUST be a valid [font weight](types#font-weight) or a reference to a font weight token.
+- `fontWeight`: The weight of the typography. The value of this property MUST be a valid [font weight](#font-weight) or a reference to a font weight token.
 - `letterSpacing`: The horizontal spacing between characters. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `lineHeight`: The vertical spacing between lines of typography. The value of this property MUST be a valid [number value](types#number) or a reference to a number token. The number SHOULD be interpreted as a multiplier of the `fontSize`.
 
