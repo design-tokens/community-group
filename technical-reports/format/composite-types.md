@@ -41,7 +41,7 @@ For example, a shadow token with an array value can mix references to other shad
 }
 ```
 
-A design token whose type happens to be a composite type is sometimes also called a composite (design) token. Besides their type, there is nothing special about composite tokens. They can have all the other additional properties like [`$description`](design-token#description) or [`$extensions`](#extensions). They can also be referenced by other design tokens.
+A design token whose type happens to be a composite type is sometimes also called a composite (design) token. Besides their type, there is nothing special about composite tokens. They can have all the other additional properties like [`$description`](#description) or [`$extensions`](#extensions). They can also be referenced by other design tokens.
 
 <aside class="example" title="Composite token example">
 
