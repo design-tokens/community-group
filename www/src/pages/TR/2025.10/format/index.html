@@ -2551,7 +2551,7 @@ $brand-typeface-secondary: 'Times New Roman';
 
     <section id="composite-types"><div class="header-wrapper"><h2 id="x9-composite-types"><bdi class="secno">9. </bdi>Composite types</h2><a class="self-link" href="#composite-types" aria-label="Permalink for Section 9."></a></div>
 <p>The types defined in the previous chapters such as color and dimension all have singular values. For example, the value of a color token is <em>one</em> color. However, there are other aspects of UI designs that are a combination of multiple values. For instance, a shadow style is a combination of a color, X &amp; Y offsets, a blur radius and a spread radius.</p>
-<p>Every shadow style has the exact same parts (color, X &amp; Y offsets, etc.), but their respective values will differ. Furthermore, each part's value (which is also known as a "sub-value") is always of the same type. A shadow's color must always be a <a href="#color">color</a> value, its X offset must always be a <a href="types#dimension">dimension</a> value, and so on. Shadow styles are therefore combinations of values <em>that follow a pre-defined structure</em>. In other words, shadow styles are themselves a type. Types like this are called <strong>composite types</strong>.</p>
+<p>Every shadow style has the exact same parts (color, X &amp; Y offsets, etc.), but their respective values will differ. Furthermore, each part's value (which is also known as a "sub-value") is always of the same type. A shadow's color must always be a <a href="#color">color</a> value, its X offset must always be a <a href="#dimension">dimension</a> value, and so on. Shadow styles are therefore combinations of values <em>that follow a pre-defined structure</em>. In other words, shadow styles are themselves a type. Types like this are called <strong>composite types</strong>.</p>
 <p>Specifically, a composite type has the following characteristics:</p>
 <ul>
 <li>Its value is an object or array, potentially containing nested objects or arrays, following a pre-defined structure where the properties of the (nested) object(s) or the elements of the (nested) arrays are sub-values.</li>
@@ -2713,7 +2713,7 @@ $brand-typeface-secondary: 'Times New Roman';
 </section><section id="object-value"><div class="header-wrapper"><h4 id="x9-3-2-object-value"><bdi class="secno">9.3.2 </bdi>Object value</h4><a class="self-link" href="#object-value" aria-label="Permalink for Section 9.3.2"></a></div>
 <p>Object stroke style values <em class="rfc2119">MUST</em> have the following properties:</p>
 <ul>
-<li><code>dashArray</code>: An array of <a href="types#dimension">dimension values</a> and/or references to dimension tokens, which specify the lengths of alternating dashes and gaps. Each element in the array must be either an explicit dimension value or a reference to a dimension token. If an odd number of values is provided, then the list of values is repeated to yield an even number of values.</li>
+<li><code>dashArray</code>: An array of <a href="#dimension">dimension values</a> and/or references to dimension tokens, which specify the lengths of alternating dashes and gaps. Each element in the array must be either an explicit dimension value or a reference to a dimension token. If an odd number of values is provided, then the list of values is repeated to yield an even number of values.</li>
 <li><code>lineCap</code>: One of the following pre-defined string values: <code>"round"</code>, <code>"butt"</code> or <code>"square"</code>. These values have the same meaning as those of <a href="https://www.w3.org/TR/SVG11/painting.html#StrokeLinecapProperty">the <code>stroke-linecap</code> attribute in SVG</a>.</li>
 </ul>
 <aside class="example" id="example-object-stroke-style-example"><div class="marker">
@@ -2808,7 +2808,7 @@ $brand-typeface-secondary: 'Times New Roman';
 <p>Represents a border style. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>border</code>. The value <em class="rfc2119">MUST</em> be an object with the following properties:</p>
 <ul>
 <li><code>color</code>: The color of the border. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#color">color value</a> or a reference to a color token.</li>
-<li><code>width</code>: The width or thickness of the border. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>width</code>: The width or thickness of the border. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
 <li><code>style</code>: The border's style. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#stroke-style">stroke style value</a> or a reference to a stroke style token.</li>
 </ul>
 <aside class="example" id="example-border-composite-token-examples"><div class="marker">
@@ -2897,10 +2897,10 @@ $brand-typeface-secondary: 'Times New Roman';
 <p>Each shadow object (whether explicit or referenced) <em class="rfc2119">MUST</em> have the following properties:</p>
 <ul>
 <li><code>color</code>: The color of the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#color">color value</a> or a reference to a color token.</li>
-<li><code>offsetX</code>: The horizontal offset that shadow has from the element it is applied to. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#dimension">dimension value</a> or a reference to a dimension token.</li>
-<li><code>offsetY</code>: The vertical offset that shadow has from the element it is applied to. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#dimension">dimension value</a> or a reference to a dimension token.</li>
-<li><code>blur</code>: The blur radius that is applied to the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#dimension">dimension value</a> or a reference to a dimension token.</li>
-<li><code>spread</code>: The amount by which to expand or contract the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>offsetX</code>: The horizontal offset that shadow has from the element it is applied to. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>offsetY</code>: The vertical offset that shadow has from the element it is applied to. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>blur</code>: The blur radius that is applied to the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>spread</code>: The amount by which to expand or contract the shadow. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
 <li><code>inset</code>: (optional) Whether this shadow is inside the containing shape (“inner shadow”), rather than a “drop shadow” or “box shadow” which is rendered outside the container (default, or <code>false</code>).</li>
 </ul>
 <aside class="example" id="example-shadow-token-example"><div class="marker">
@@ -3156,9 +3156,9 @@ $brand-typeface-secondary: 'Times New Roman';
 <p>Represents a typographic style. The <code>$type</code> property <em class="rfc2119">MUST</em> be set to the string <code>typography</code>. The value <em class="rfc2119">MUST</em> be an object with the following properties:</p>
 <ul>
 <li><code>fontFamily</code>: The typography's font. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#font-family">font family value</a> or a reference to a font family token.</li>
-<li><code>fontSize</code>: The size of the typography. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>fontSize</code>: The size of the typography. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
 <li><code>fontWeight</code>: The weight of the typography. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#font-weight">font weight</a> or a reference to a font weight token.</li>
-<li><code>letterSpacing</code>: The horizontal spacing between characters. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#dimension">dimension value</a> or a reference to a dimension token.</li>
+<li><code>letterSpacing</code>: The horizontal spacing between characters. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="#dimension">dimension value</a> or a reference to a dimension token.</li>
 <li><code>lineHeight</code>: The vertical spacing between lines of typography. The value of this property <em class="rfc2119">MUST</em> be a valid <a href="types#number">number value</a> or a reference to a number token. The number <em class="rfc2119">SHOULD</em> be interpreted as a multiplier of the <code>fontSize</code>.</li>
 </ul>
 <aside class="example" id="example-typography-composite-token-examples"><div class="marker">

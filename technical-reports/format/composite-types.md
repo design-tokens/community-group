@@ -2,7 +2,7 @@
 
 The types defined in the previous chapters such as color and dimension all have singular values. For example, the value of a color token is _one_ color. However, there are other aspects of UI designs that are a combination of multiple values. For instance, a shadow style is a combination of a color, X & Y offsets, a blur radius and a spread radius.
 
-Every shadow style has the exact same parts (color, X & Y offsets, etc.), but their respective values will differ. Furthermore, each part's value (which is also known as a "sub-value") is always of the same type. A shadow's color must always be a [color](#color) value, its X offset must always be a [dimension](types#dimension) value, and so on. Shadow styles are therefore combinations of values _that follow a pre-defined structure_. In other words, shadow styles are themselves a type. Types like this are called **composite types**.
+Every shadow style has the exact same parts (color, X & Y offsets, etc.), but their respective values will differ. Furthermore, each part's value (which is also known as a "sub-value") is always of the same type. A shadow's color must always be a [color](#color) value, its X offset must always be a [dimension](#dimension) value, and so on. Shadow styles are therefore combinations of values _that follow a pre-defined structure_. In other words, shadow styles are themselves a type. Types like this are called **composite types**.
 
 Specifically, a composite type has the following characteristics:
 
@@ -176,7 +176,7 @@ These values have the same meaning as the equivalent ["line style" values in CSS
 
 Object stroke style values MUST have the following properties:
 
-- `dashArray`: An array of [dimension values](types#dimension) and/or references to dimension tokens, which specify the lengths of alternating dashes and gaps. Each element in the array must be either an explicit dimension value or a reference to a dimension token. If an odd number of values is provided, then the list of values is repeated to yield an even number of values.
+- `dashArray`: An array of [dimension values](#dimension) and/or references to dimension tokens, which specify the lengths of alternating dashes and gaps. Each element in the array must be either an explicit dimension value or a reference to a dimension token. If an odd number of values is provided, then the list of values is repeated to yield an even number of values.
 - `lineCap`: One of the following pre-defined string values: `"round"`, `"butt"` or `"square"`. These values have the same meaning as those of [the `stroke-linecap` attribute in SVG](https://www.w3.org/TR/SVG11/painting.html#StrokeLinecapProperty).
 
 <aside class="example" title="Object stroke style example">
@@ -278,7 +278,7 @@ Some [=design tools=] like Figma don't support inset, outset or double style lin
 Represents a border style. The `$type` property MUST be set to the string `border`. The value MUST be an object with the following properties:
 
 - `color`: The color of the border. The value of this property MUST be a valid [color value](types#color) or a reference to a color token.
-- `width`: The width or thickness of the border. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
+- `width`: The width or thickness of the border. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `style`: The border's style. The value of this property MUST be a valid [stroke style value](#stroke-style) or a reference to a stroke style token.
 
 <aside class="example" title="Border composite token examples">
@@ -372,10 +372,10 @@ When the value is an array, each element must be either an explicit shadow objec
 Each shadow object (whether explicit or referenced) MUST have the following properties:
 
 - `color`: The color of the shadow. The value of this property MUST be a valid [color value](types#color) or a reference to a color token.
-- `offsetX`: The horizontal offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
-- `offsetY`: The vertical offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
-- `blur`: The blur radius that is applied to the shadow. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
-- `spread`: The amount by which to expand or contract the shadow. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
+- `offsetX`: The horizontal offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `offsetY`: The vertical offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `blur`: The blur radius that is applied to the shadow. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
+- `spread`: The amount by which to expand or contract the shadow. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `inset`: (optional) Whether this shadow is inside the containing shape (“inner shadow”), rather than a “drop shadow” or “box shadow” which is rendered outside the container (default, or `false`).
 
 <aside class="example" title="Shadow token example">
@@ -643,9 +643,9 @@ Describes a color token called "brand-primary", which is referenced as the mid-p
 Represents a typographic style. The `$type` property MUST be set to the string `typography`. The value MUST be an object with the following properties:
 
 - `fontFamily`: The typography's font. The value of this property MUST be a valid [font family value](types#font-family) or a reference to a font family token.
-- `fontSize`: The size of the typography. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
+- `fontSize`: The size of the typography. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `fontWeight`: The weight of the typography. The value of this property MUST be a valid [font weight](types#font-weight) or a reference to a font weight token.
-- `letterSpacing`: The horizontal spacing between characters. The value of this property MUST be a valid [dimension value](types#dimension) or a reference to a dimension token.
+- `letterSpacing`: The horizontal spacing between characters. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `lineHeight`: The vertical spacing between lines of typography. The value of this property MUST be a valid [number value](types#number) or a reference to a number token. The number SHOULD be interpreted as a multiplier of the `fontSize`.
 
 <aside class="example" title="Typography composite token examples">
