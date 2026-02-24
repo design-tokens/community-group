@@ -26,3 +26,6 @@ pnpm-debug.log*
 .idea/
 
 .history/
+
+# astro-broken-link-checker
+broken-links.log

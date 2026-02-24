@@ -31,6 +31,7 @@
     "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.16.4",
+    "astro-broken-links-checker": "^1.0.6",
     "astro-icon": "^1.1.5",
     "astro-pagefind": "^1.8.5",
     "astro-robots-txt": "^1.0.0",

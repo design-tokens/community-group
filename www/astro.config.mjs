@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import pagefind from 'astro-pagefind';
 import sitemap from '@astrojs/sitemap';
 import preact from '@astrojs/preact';
+import astroBrokenLinksChecker from 'astro-broken-links-checker';
 import robotsTxt from 'astro-robots-txt';
 import icon from 'astro-icon';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -14,6 +15,12 @@ import rehypeAutoToc from './md-plugins/rehype-auto-toc.js';
 export default defineConfig({
   site: 'https://www.designtokens.org/',
   integrations: [
+    astroBrokenLinksChecker({
+      checkExternalLinks: false,
+      cacheExternalLinks: true,
+      throwError: true,
+      linkCheckerDir: '.link-checker',
+    }),
     sitemap(),
     robotsTxt(),
     icon({ iconDir: 'src/assets/vectors' }),
