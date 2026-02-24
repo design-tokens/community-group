@@ -642,7 +642,7 @@ Describes a color token called "brand-primary", which is referenced as the mid-p
 
 Represents a typographic style. The `$type` property MUST be set to the string `typography`. The value MUST be an object with the following properties:
 
-- `fontFamily`: The typography's font. The value of this property MUST be a valid [font family value](types#font-family) or a reference to a font family token.
+- `fontFamily`: The typography's font. The value of this property MUST be a valid [font family value](#font-family) or a reference to a font family token.
 - `fontSize`: The size of the typography. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `fontWeight`: The weight of the typography. The value of this property MUST be a valid [font weight](types#font-weight) or a reference to a font weight token.
 - `letterSpacing`: The horizontal spacing between characters. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
