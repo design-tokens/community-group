@@ -577,7 +577,7 @@ Examples:
 
 Type resolution follows these rules in order of precedence:
 
-1. **Token's explicit [`$type`](design-token#type) property** (highest precedence)
+1. **Token's explicit [`$type`](#type) property** (highest precedence)
 2. **Resolved group's `$type` property** (after extension resolution)
 3. **Parent group's `$type` property** (walking up the hierarchy)
 4. **Token is invalid** if no type can be determined
