@@ -33,3 +33,4 @@ ignorePaths:
 ignoreRegExpList:
   - <!--.*--> # ignore HTML comments
   - '@[A-Za-z0-9-_]+' # ignore social handles
+  - '"[a-z0-9-]+"' # ignore SLUGS
