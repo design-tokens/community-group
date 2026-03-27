@@ -33,6 +33,7 @@ orcid
 pagefind
 prophoto-rgb
 respec
+roundtable
 secno
 shiki
 sotd
