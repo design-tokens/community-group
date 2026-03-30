@@ -675,6 +675,7 @@ This specification is designed to be backward compatible with existing design to
     "field": {
       "width": { "$value": { "value": 100, "unit": "%" } },
       "background": {
+        "$type": "color",
         "$value": {
           "colorSpace": "srgb",
           "components": [1, 1, 1],
