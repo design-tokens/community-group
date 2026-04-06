@@ -40,7 +40,7 @@
     "rehype-slug": "^6.0.0",
     "remark-directive": "^4.0.0",
     "sharp": "^0.34.5",
-    "vite": "^7.2.6",
+    "vite": "^7.3.2",
     "vitest": "^4.0.15",
     "zod": "^4.1.13"
   }
