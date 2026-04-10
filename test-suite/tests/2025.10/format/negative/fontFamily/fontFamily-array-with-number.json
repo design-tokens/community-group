@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Font family array must contain only strings, not numbers",
+  "invalid-fontFamily": {
+    "$type": "fontFamily",
+    "$value": ["Arial", 123, "sans-serif"]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Border missing required width property",
+  "invalid-border": {
+    "$type": "border",
+    "$value": {
+      "color": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      },
+      "style": "solid"
+    }
+  }
+}

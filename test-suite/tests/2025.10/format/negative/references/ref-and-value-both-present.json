@@ -1,0 +1,21 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Token cannot have both $ref and $value",
+  "colors": {
+    "color": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      }
+    }
+  },
+  "invalid-color": {
+    "$ref": "#/colors/color/$value",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 0, 0]
+    },
+    "$type": "color"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: JSON Pointer references only the numeric value of a dimension, not the complete object",
+  "dimensions": {
+    "dimension": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      }
+    }
+  },
+  "invalid-dimension": {
+    "$ref": "#/dimensions/dimension/$value/value",
+    "$type": "dimension"
+  }
+}

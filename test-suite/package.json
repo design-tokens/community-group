@@ -1,0 +1,16 @@
+{
+  "name": "@dtcg/test-suite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Conformance test fixtures for the DTCG Format and Resolver specifications",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/design-tokens/community-group.git",
+    "directory": "test-suite"
+  },
+  "scripts": {
+    "lint": "prettier . --check",
+    "format": "prettier . --format --write"
+  }
+}

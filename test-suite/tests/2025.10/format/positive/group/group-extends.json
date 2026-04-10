@@ -1,0 +1,28 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Group using $extends to inherit tokens",
+  "base-button": {
+    "$type": "color",
+    "background": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      }
+    },
+    "text": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      }
+    }
+  },
+  "primary-button": {
+    "$extends": "{base-button}",
+    "background": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      }
+    }
+  }
+}

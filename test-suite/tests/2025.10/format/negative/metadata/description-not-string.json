@@ -1,0 +1,12 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Token $description must be a string, not a number",
+  "invalid-color": {
+    "$description": 123,
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 0, 0]
+    }
+  }
+}

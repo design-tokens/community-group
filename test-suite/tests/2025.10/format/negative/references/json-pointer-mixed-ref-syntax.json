@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Mixing JSON Pointer and curly brace reference syntax",
+  "invalid-color": {
+    "$ref": "#/colors/{srgb-color}/$value",
+    "$type": "color"
+  }
+}

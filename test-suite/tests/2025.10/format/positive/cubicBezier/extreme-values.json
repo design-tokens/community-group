@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Cubic Bezier with Y values outside [0, 1] range",
+  "cubicBezier": {
+    "$type": "cubicBezier",
+    "$value": [0.68, -0.55, 0.265, 1.55]
+  }
+}

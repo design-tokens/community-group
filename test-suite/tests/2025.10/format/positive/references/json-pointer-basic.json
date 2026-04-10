@@ -1,0 +1,19 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: JSON Pointer reference using $ref",
+  "colors": {
+    "$type": "color",
+    "blue": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      }
+    }
+  },
+  "semantic": {
+    "primary": {
+      "$type": "color",
+      "$ref": "#/colors/blue/$value"
+    }
+  }
+}

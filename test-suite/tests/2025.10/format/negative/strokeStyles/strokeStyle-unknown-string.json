@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: 'wavy' is not a valid stroke style string value",
+  "invalid-strokeStyle": {
+    "$type": "strokeStyle",
+    "$value": "wavy"
+  }
+}

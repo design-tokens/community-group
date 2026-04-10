@@ -1,0 +1,10 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Number value must be a plain number, not an object",
+  "invalid-number": {
+    "$type": "number",
+    "$value": {
+      "value": 1.5
+    }
+  }
+}

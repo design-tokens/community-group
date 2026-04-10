@@ -1,0 +1,37 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Shadow color references a dimension value instead of a color",
+  "dimensions": {
+    "dimension": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      }
+    }
+  },
+  "invalid-shadow": {
+    "$type": "shadow",
+    "$value": {
+      "color": {
+        "$ref": "#/dimensions/dimension/$value"
+      },
+      "offsetX": {
+        "value": 0,
+        "unit": "px"
+      },
+      "offsetY": {
+        "value": 0,
+        "unit": "px"
+      },
+      "blur": {
+        "value": 0,
+        "unit": "px"
+      },
+      "spread": {
+        "value": 0,
+        "unit": "px"
+      }
+    }
+  }
+}

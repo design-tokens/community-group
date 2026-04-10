@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: OKLCH hue must be in range [0, 360), value 360 is excluded",
+  "invalid-color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "oklch",
+      "components": [0.5, 0.1, 360]
+    }
+  }
+}

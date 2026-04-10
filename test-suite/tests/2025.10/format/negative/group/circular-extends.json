@@ -1,0 +1,24 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Groups cannot have circular $extends references",
+  "circular-extends-a": {
+    "$extends": "{circular-extends-b}",
+    "token": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      }
+    }
+  },
+  "circular-extends-b": {
+    "$extends": "{circular-extends-a}",
+    "token": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      }
+    }
+  }
+}

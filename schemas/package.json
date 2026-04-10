@@ -11,6 +11,7 @@
   },
   "scripts": {
     "build": "tsx scripts/bundle.ts",
+    "test": "vitest run",
     "lint": "prettier . --check && pnpm run typecheck",
     "format": "prettier . --write",
     "typecheck": "tsc --noEmit"
@@ -18,8 +19,12 @@
   "devDependencies": {
     "@hyperjump/json-schema": "^1.14.3",
     "@types/node": "^25.4.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
     "prettier": "^3.7.4",
     "tsx": "^4.19.4",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^4.0.15",
+    "vscode-json-languageservice": "^5.7.2"
   }
 }

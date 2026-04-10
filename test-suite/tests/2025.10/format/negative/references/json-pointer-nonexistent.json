@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: JSON Pointer to non-existent path",
+  "invalid-color": {
+    "$ref": "#/does/not/exist",
+    "$type": "color"
+  }
+}

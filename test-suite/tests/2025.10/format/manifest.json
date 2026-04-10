@@ -1,0 +1,1808 @@
+{
+  "name": "Format Specification Tests",
+  "description": "Validation tests for DTCG token format",
+  "version": "2025.10",
+  "schemaId": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "tests": [
+    {
+      "id": "border-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "Basic border composite token",
+      "purpose": "Verifies that a simple border token with color, width, and style properties is valid",
+      "input": "positive/borders/border-basic.json",
+      "features": ["border", "composite"]
+    },
+    {
+      "id": "border-custom-dash",
+      "type": "PositiveEvaluationTest",
+      "name": "Border with custom dash stroke style",
+      "purpose": "Verifies that a border token can use a custom dash pattern stroke style",
+      "input": "positive/borders/border-custom-dash.json",
+      "features": ["border", "strokeStyle", "composite"]
+    },
+    {
+      "id": "border-dashed",
+      "type": "PositiveEvaluationTest",
+      "name": "Border with dashed stroke style",
+      "purpose": "Verifies that a border token can use the 'dashed' stroke style keyword",
+      "input": "positive/borders/border-dashed.json",
+      "features": ["border", "strokeStyle", "composite"]
+    },
+    {
+      "id": "color-srgb-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "Basic sRGB color token",
+      "purpose": "Verifies that a simple color token with sRGB color space is valid",
+      "input": "positive/colors/srgb-basic.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "color-srgb-with-alpha",
+      "type": "PositiveEvaluationTest",
+      "name": "sRGB color with alpha transparency",
+      "purpose": "Verifies that a color token with alpha transparency channel is valid",
+      "input": "positive/colors/srgb-with-alpha.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "color-srgb-linear",
+      "type": "PositiveEvaluationTest",
+      "name": "sRGB linear color space",
+      "purpose": "Verifies that the srgb-linear color space is supported",
+      "input": "positive/colors/srgb-linear.json",
+      "features": ["color", "srgb-linear"]
+    },
+    {
+      "id": "color-hsl-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "HSL color space",
+      "purpose": "Verifies that HSL (Hue, Saturation, Lightness) color space is supported",
+      "input": "positive/colors/hsl-basic.json",
+      "features": ["color", "hsl"]
+    },
+    {
+      "id": "color-hsl-with-none",
+      "type": "PositiveEvaluationTest",
+      "name": "HSL color with 'none' keyword",
+      "purpose": "Verifies that 'none' keyword can be used for color components (achromatic colors)",
+      "input": "positive/colors/hsl-with-none.json",
+      "features": ["color", "hsl"]
+    },
+    {
+      "id": "color-hwb-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "HWB color space",
+      "purpose": "Verifies that HWB (Hue, Whiteness, Blackness) color space is supported",
+      "input": "positive/colors/hwb-basic.json",
+      "features": ["color", "hwb"]
+    },
+    {
+      "id": "color-lab-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "LAB color space",
+      "purpose": "Verifies that LAB color space is supported",
+      "input": "positive/colors/lab-basic.json",
+      "features": ["color", "lab"]
+    },
+    {
+      "id": "color-lch-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "LCH color space",
+      "purpose": "Verifies that LCH (Lightness, Chroma, Hue) color space is supported",
+      "input": "positive/colors/lch-basic.json",
+      "features": ["color", "lch"]
+    },
+    {
+      "id": "color-oklab-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "OKLAB perceptual color space",
+      "purpose": "Verifies that OKLAB perceptual color space is supported",
+      "input": "positive/colors/oklab-basic.json",
+      "features": ["color", "oklab"]
+    },
+    {
+      "id": "color-oklch-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "OKLCH color space",
+      "purpose": "Verifies that OKLCH color space is supported",
+      "input": "positive/colors/oklch-basic.json",
+      "features": ["color", "oklch"]
+    },
+    {
+      "id": "color-display-p3",
+      "type": "PositiveEvaluationTest",
+      "name": "Display P3 wide gamut color space",
+      "purpose": "Verifies that Display P3 wide gamut color space is supported",
+      "input": "positive/colors/display-p3.json",
+      "features": ["color", "display-p3"]
+    },
+    {
+      "id": "color-rec2020",
+      "type": "PositiveEvaluationTest",
+      "name": "Rec2020 color space",
+      "purpose": "Verifies that Rec2020 color space is supported",
+      "input": "positive/colors/rec2020.json",
+      "features": ["color", "rec2020"]
+    },
+    {
+      "id": "color-prophoto-rgb",
+      "type": "PositiveEvaluationTest",
+      "name": "ProPhoto RGB color space",
+      "purpose": "Verifies that ProPhoto RGB color space is supported",
+      "input": "positive/colors/prophoto-rgb.json",
+      "features": ["color", "prophoto-rgb"]
+    },
+    {
+      "id": "color-a98-rgb",
+      "type": "PositiveEvaluationTest",
+      "name": "Adobe RGB 1998 color space",
+      "purpose": "Verifies that Adobe RGB 1998 (a98-rgb) color space is supported",
+      "input": "positive/colors/a98-rgb.json",
+      "features": ["color", "a98-rgb"]
+    },
+    {
+      "id": "color-xyz-d50",
+      "type": "PositiveEvaluationTest",
+      "name": "XYZ D50 color space",
+      "purpose": "Verifies that XYZ with D50 illuminant color space is supported",
+      "input": "positive/colors/xyz-d50.json",
+      "features": ["color", "xyz-d50"]
+    },
+    {
+      "id": "color-xyz-d65",
+      "type": "PositiveEvaluationTest",
+      "name": "XYZ D65 color space",
+      "purpose": "Verifies that XYZ with D65 illuminant color space is supported",
+      "input": "positive/colors/xyz-d65.json",
+      "features": ["color", "xyz-d65"]
+    },
+    {
+      "id": "color-alpha-fully-transparent",
+      "type": "PositiveEvaluationTest",
+      "name": "Color with fully transparent alpha",
+      "purpose": "Verifies that alpha value of 0 (fully transparent) is valid",
+      "input": "positive/colors/alpha-fully-transparent.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "cubicBezier-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "Basic cubic Bezier easing function",
+      "purpose": "Verifies that a cubic Bezier easing function with four control points is valid",
+      "input": "positive/cubicBezier/basic.json",
+      "features": ["cubicBezier"]
+    },
+    {
+      "id": "cubicBezier-extreme-values",
+      "type": "PositiveEvaluationTest",
+      "name": "Cubic Bezier with extreme Y values",
+      "purpose": "Verifies that cubic Bezier functions can have Y values outside [0,1] range",
+      "input": "positive/cubicBezier/extreme-values.json",
+      "features": ["cubicBezier"]
+    },
+    {
+      "id": "dimension-px-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "Dimension with pixel unit",
+      "purpose": "Verifies that dimensions with 'px' unit are valid",
+      "input": "positive/dimensions/px-basic.json",
+      "features": ["dimension"]
+    },
+    {
+      "id": "dimension-rem-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "Dimension with rem unit",
+      "purpose": "Verifies that dimensions with 'rem' unit are valid",
+      "input": "positive/dimensions/rem-basic.json",
+      "features": ["dimension"]
+    },
+    {
+      "id": "dimension-fractional-value",
+      "type": "PositiveEvaluationTest",
+      "name": "Dimension with fractional value",
+      "purpose": "Verifies that dimensions can have fractional/decimal values",
+      "input": "positive/dimensions/fractional-value.json",
+      "features": ["dimension"]
+    },
+    {
+      "id": "dimension-zero-value",
+      "type": "PositiveEvaluationTest",
+      "name": "Dimension with zero value",
+      "purpose": "Verifies that dimensions can have a value of zero",
+      "input": "positive/dimensions/zero-value.json",
+      "features": ["dimension"]
+    },
+    {
+      "id": "dimension-extreme-values",
+      "type": "PositiveEvaluationTest",
+      "name": "Dimension with extreme values",
+      "purpose": "Verifies that dimensions support very large or very small numeric values",
+      "input": "positive/dimensions/extreme-dimension-values.json",
+      "features": ["dimension"]
+    },
+    {
+      "id": "duration-milliseconds",
+      "type": "PositiveEvaluationTest",
+      "name": "Duration in milliseconds",
+      "purpose": "Verifies that durations with 'ms' unit are valid",
+      "input": "positive/durations/milliseconds.json",
+      "features": ["duration"]
+    },
+    {
+      "id": "duration-seconds",
+      "type": "PositiveEvaluationTest",
+      "name": "Duration in seconds",
+      "purpose": "Verifies that durations with 's' unit are valid",
+      "input": "positive/durations/seconds.json",
+      "features": ["duration"]
+    },
+    {
+      "id": "duration-fractional-seconds",
+      "type": "PositiveEvaluationTest",
+      "name": "Duration with fractional seconds",
+      "purpose": "Verifies that durations can have fractional/decimal values",
+      "input": "positive/durations/fractional-seconds.json",
+      "features": ["duration"]
+    },
+    {
+      "id": "duration-zero-ms",
+      "type": "PositiveEvaluationTest",
+      "name": "Duration with zero milliseconds",
+      "purpose": "Verifies that durations can have a value of zero",
+      "input": "positive/durations/zero-ms.json",
+      "features": ["duration"]
+    },
+    {
+      "id": "fontFamily-string",
+      "type": "PositiveEvaluationTest",
+      "name": "Font family as single string",
+      "purpose": "Verifies that font family can be specified as a single string value",
+      "input": "positive/fontFamily/family-string.json",
+      "features": ["fontFamily"]
+    },
+    {
+      "id": "fontFamily-array",
+      "type": "PositiveEvaluationTest",
+      "name": "Font family as array with fallbacks",
+      "purpose": "Verifies that font family can be specified as an array with multiple fallback fonts",
+      "input": "positive/fontFamily/family-array.json",
+      "features": ["fontFamily"]
+    },
+    {
+      "id": "fontFamily-single-element",
+      "type": "PositiveEvaluationTest",
+      "name": "Font family as single-element array",
+      "purpose": "Verifies that font family can be an array with just one element",
+      "input": "positive/fontFamily/family-single-element.json",
+      "features": ["fontFamily"]
+    },
+    {
+      "id": "fontWeight-numeric",
+      "type": "PositiveEvaluationTest",
+      "name": "Font weight as numeric value",
+      "purpose": "Verifies that font weight can be specified as a numeric value (1-1000)",
+      "input": "positive/fontWeight/weight-numeric.json",
+      "features": ["fontWeight"]
+    },
+    {
+      "id": "fontWeight-string",
+      "type": "PositiveEvaluationTest",
+      "name": "Font weight as string keyword",
+      "purpose": "Verifies that font weight can be specified using standard CSS keyword strings",
+      "input": "positive/fontWeight/weight-string.json",
+      "features": ["fontWeight"]
+    },
+    {
+      "id": "fontWeight-thin",
+      "type": "PositiveEvaluationTest",
+      "name": "Font weight 'thin' keyword",
+      "purpose": "Verifies that 'thin' is a valid font weight keyword",
+      "input": "positive/fontWeight/weight-thin.json",
+      "features": ["fontWeight"]
+    },
+    {
+      "id": "fontWeight-hairline",
+      "type": "PositiveEvaluationTest",
+      "name": "Font weight 'hairline' keyword",
+      "purpose": "Verifies that 'hairline' is a valid font weight keyword",
+      "input": "positive/fontWeight/weight-hairline.json",
+      "features": ["fontWeight"]
+    },
+    {
+      "id": "fontWeight-extra-bold",
+      "type": "PositiveEvaluationTest",
+      "name": "Font weight 'extra-bold' keyword",
+      "purpose": "Verifies that 'extra-bold' is a valid font weight keyword",
+      "input": "positive/fontWeight/weight-extra-bold.json",
+      "features": ["fontWeight"]
+    },
+    {
+      "id": "fontWeight-black",
+      "type": "PositiveEvaluationTest",
+      "name": "Font weight 'black' keyword",
+      "purpose": "Verifies that 'black' is a valid font weight keyword",
+      "input": "positive/fontWeight/weight-black.json",
+      "features": ["fontWeight"]
+    },
+    {
+      "id": "fontWeight-ultra-black",
+      "type": "PositiveEvaluationTest",
+      "name": "Font weight 'ultra-black' keyword",
+      "purpose": "Verifies that 'ultra-black' is a valid font weight keyword",
+      "input": "positive/fontWeight/weight-ultra-black.json",
+      "features": ["fontWeight"]
+    },
+    {
+      "id": "fontWeight-extreme",
+      "type": "PositiveEvaluationTest",
+      "name": "Font weight extreme numeric values",
+      "purpose": "Verifies that font weight supports minimum (1) and maximum (1000) numeric values",
+      "input": "positive/fontWeight/extreme-font-weights.json",
+      "features": ["fontWeight"]
+    },
+    {
+      "id": "gradient-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "Basic gradient with two stops",
+      "purpose": "Verifies that a simple gradient with two color stops is valid",
+      "input": "positive/gradients/gradient-basic.json",
+      "features": ["gradient", "composite"]
+    },
+    {
+      "id": "gradient-three-stop",
+      "type": "PositiveEvaluationTest",
+      "name": "Gradient with three stops",
+      "purpose": "Verifies that gradients can have more than two color stops",
+      "input": "positive/gradients/gradient-three-stop.json",
+      "features": ["gradient", "composite"]
+    },
+    {
+      "id": "gradient-single-stop",
+      "type": "PositiveEvaluationTest",
+      "name": "Gradient with single stop",
+      "purpose": "Verifies that a gradient can have a single color stop",
+      "input": "positive/gradients/gradient-single-stop.json",
+      "features": ["gradient", "composite"]
+    },
+    {
+      "id": "gradient-missing-start",
+      "type": "PositiveEvaluationTest",
+      "name": "Gradient with positions not starting at 0",
+      "purpose": "Verifies that gradient stop positions don't need to start at 0",
+      "input": "positive/gradients/gradient-missing-start.json",
+      "features": ["gradient", "composite"]
+    },
+    {
+      "id": "group-nested-groups",
+      "type": "PositiveEvaluationTest",
+      "name": "Nested token groups",
+      "purpose": "Verifies that token groups can be nested within other groups",
+      "input": "positive/group/nested-groups.json",
+      "features": ["groups"]
+    },
+    {
+      "id": "group-empty-group",
+      "type": "PositiveEvaluationTest",
+      "name": "Empty token group",
+      "purpose": "Verifies that empty groups without tokens are valid",
+      "input": "positive/group/empty-group.json",
+      "features": ["groups"]
+    },
+    {
+      "id": "group-root-token",
+      "type": "PositiveEvaluationTest",
+      "name": "Token at root level",
+      "purpose": "Verifies that tokens can exist at the root level without being in a group",
+      "input": "positive/group/root-token.json",
+      "features": ["groups"]
+    },
+    {
+      "id": "group-type-inheritance",
+      "type": "PositiveEvaluationTest",
+      "name": "Type inheritance from parent group",
+      "purpose": "Verifies that tokens inherit $type from their parent group",
+      "input": "positive/group/type-inheritance.json",
+      "features": ["groups", "type-inheritance", "preprocessing-required"]
+    },
+    {
+      "id": "group-extends",
+      "type": "PositiveEvaluationTest",
+      "name": "Group with $extends",
+      "purpose": "Verifies that groups can use $extends to inherit tokens from another group",
+      "input": "positive/group/group-extends.json",
+      "features": ["groups", "extends", "preprocessing-required"]
+    },
+    {
+      "id": "group-extends-nested-override",
+      "type": "PositiveEvaluationTest",
+      "name": "Group $extends with nested override",
+      "purpose": "Verifies that extending groups can override individual tokens from the parent",
+      "input": "positive/group/extends-nested-override.json",
+      "features": ["groups", "extends", "preprocessing-required"]
+    },
+    {
+      "id": "group-multi-level-extends",
+      "type": "PositiveEvaluationTest",
+      "name": "Multi-level $extends inheritance",
+      "purpose": "Verifies that groups can extend other groups that themselves extend groups",
+      "input": "positive/group/multi-level-extends.json",
+      "features": ["groups", "extends", "preprocessing-required"]
+    },
+    {
+      "id": "metadata-deprecated-boolean",
+      "type": "PositiveEvaluationTest",
+      "name": "Token with $deprecated as boolean",
+      "purpose": "Verifies that tokens can be marked deprecated using a boolean value",
+      "input": "positive/metadata/deprecated-boolean.json",
+      "features": ["metadata"]
+    },
+    {
+      "id": "metadata-deprecated-string",
+      "type": "PositiveEvaluationTest",
+      "name": "Token with $deprecated as string",
+      "purpose": "Verifies that tokens can use a string to provide deprecation message",
+      "input": "positive/metadata/deprecated-string.json",
+      "features": ["metadata"]
+    },
+    {
+      "id": "metadata-with-extensions",
+      "type": "PositiveEvaluationTest",
+      "name": "Token with $extensions",
+      "purpose": "Verifies that tokens can include custom extension data via $extensions",
+      "input": "positive/metadata/with-extensions.json",
+      "features": ["metadata"]
+    },
+    {
+      "id": "number-positive",
+      "type": "PositiveEvaluationTest",
+      "name": "Positive number",
+      "purpose": "Verifies that positive numeric values are valid for number tokens",
+      "input": "positive/numbers/positive.json",
+      "features": ["number"]
+    },
+    {
+      "id": "number-negative",
+      "type": "PositiveEvaluationTest",
+      "name": "Negative number",
+      "purpose": "Verifies that negative numeric values are valid for number tokens",
+      "input": "positive/numbers/negative.json",
+      "features": ["number"]
+    },
+    {
+      "id": "number-zero",
+      "type": "PositiveEvaluationTest",
+      "name": "Zero number",
+      "purpose": "Verifies that zero is a valid value for number tokens",
+      "input": "positive/numbers/zero.json",
+      "features": ["number"]
+    },
+    {
+      "id": "reference-curly-brace-alias",
+      "type": "PositiveEvaluationTest",
+      "name": "Curly brace reference (alias)",
+      "purpose": "Verifies that tokens can reference other tokens using curly brace syntax {token.path}",
+      "input": "positive/references/curly-brace-alias.json",
+      "features": ["references", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "JSON Pointer reference",
+      "purpose": "Verifies that tokens can reference other tokens using JSON Pointer syntax via $ref",
+      "input": "positive/references/json-pointer-basic.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-subproperty",
+      "type": "PositiveEvaluationTest",
+      "name": "JSON Pointer to token subproperty",
+      "purpose": "Verifies that JSON Pointer can reference specific subproperties of a token",
+      "input": "positive/references/json-pointer-subproperty.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-color-components-array-ref",
+      "type": "PositiveEvaluationTest",
+      "name": "JSON Pointer to entire color components array",
+      "purpose": "Verifies that JSON Pointer can reference an entire components array within a color token value",
+      "input": "positive/references/color-components-array-ref.json",
+      "features": [
+        "references",
+        "json-pointer",
+        "color",
+        "preprocessing-required"
+      ]
+    },
+    {
+      "id": "reference-strokestyle-dasharray-ref",
+      "type": "PositiveEvaluationTest",
+      "name": "JSON Pointer to entire strokeStyle dashArray",
+      "purpose": "Verifies that JSON Pointer can reference an entire dashArray within a strokeStyle token value",
+      "input": "positive/references/strokestyle-dasharray-ref.json",
+      "features": [
+        "references",
+        "json-pointer",
+        "strokeStyle",
+        "preprocessing-required"
+      ]
+    },
+    {
+      "id": "reference-color-components-ref-hsl",
+      "type": "PositiveEvaluationTest",
+      "name": "JSON Pointer to entire HSL color components array",
+      "purpose": "Verifies that JSON Pointer can reference an entire components array within an HSL color token without triggering color-space-specific component validation",
+      "input": "positive/references/color-components-ref-hsl.json",
+      "features": ["references", "json-pointer", "color", "hsl"]
+    },
+    {
+      "id": "reference-chained-reference",
+      "type": "PositiveEvaluationTest",
+      "name": "Chained reference",
+      "purpose": "Verifies that references can point to tokens that themselves contain references",
+      "input": "positive/references/chained-reference.json",
+      "features": ["references", "preprocessing-required"]
+    },
+    {
+      "id": "reference-composite-with-refs",
+      "type": "PositiveEvaluationTest",
+      "name": "Composite token with references",
+      "purpose": "Verifies that composite token properties can reference other tokens",
+      "input": "positive/references/composite-with-refs.json",
+      "features": ["references", "composite", "preprocessing-required"]
+    },
+    {
+      "id": "reference-composite-subvalue-refs",
+      "type": "PositiveEvaluationTest",
+      "name": "Reference to composite subvalue",
+      "purpose": "Verifies that references can point to specific subvalues within composite tokens",
+      "input": "positive/references/composite-subvalue-refs.json",
+      "features": [
+        "references",
+        "composite",
+        "json-pointer",
+        "preprocessing-required"
+      ]
+    },
+    {
+      "id": "reference-nested-composite-refs",
+      "type": "PositiveEvaluationTest",
+      "name": "Nested composite references",
+      "purpose": "Verifies that composite tokens can reference other composite tokens with nested references",
+      "input": "positive/references/nested-composite-refs.json",
+      "features": ["references", "composite", "preprocessing-required"]
+    },
+    {
+      "id": "reference-cross-composite-refs",
+      "type": "PositiveEvaluationTest",
+      "name": "Cross-composite references",
+      "purpose": "Verifies that different properties in a composite can reference different source tokens",
+      "input": "positive/references/cross-composite-refs.json",
+      "features": ["references", "composite", "preprocessing-required"]
+    },
+    {
+      "id": "reference-multi-source-composite",
+      "type": "PositiveEvaluationTest",
+      "name": "Composite with multiple reference sources",
+      "purpose": "Verifies that composite tokens can build values from multiple referenced sources",
+      "input": "positive/references/multi-source-composite.json",
+      "features": ["references", "composite", "preprocessing-required"]
+    },
+    {
+      "id": "reference-gradient-array-refs",
+      "type": "PositiveEvaluationTest",
+      "name": "Gradient with array element references",
+      "purpose": "Verifies that array elements in gradient stops can contain references",
+      "input": "positive/references/gradient-array-refs.json",
+      "features": [
+        "references",
+        "gradient",
+        "composite",
+        "preprocessing-required"
+      ]
+    },
+    {
+      "id": "reference-typography-property-refs",
+      "type": "PositiveEvaluationTest",
+      "name": "Typography with property references",
+      "purpose": "Verifies that typography token properties can reference other tokens",
+      "input": "positive/references/typography-property-refs.json",
+      "features": [
+        "references",
+        "typography",
+        "composite",
+        "preprocessing-required"
+      ]
+    },
+    {
+      "id": "shadow-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "Basic shadow composite token",
+      "purpose": "Verifies that a simple shadow token with all required properties is valid",
+      "input": "positive/shadows/shadow-basic.json",
+      "features": ["shadow", "composite"]
+    },
+    {
+      "id": "shadow-array",
+      "type": "PositiveEvaluationTest",
+      "name": "Shadow as array (multiple shadows)",
+      "purpose": "Verifies that shadow tokens can be specified as an array for multiple shadows",
+      "input": "positive/shadows/shadow-array.json",
+      "features": ["shadow", "composite"]
+    },
+    {
+      "id": "shadow-with-inset",
+      "type": "PositiveEvaluationTest",
+      "name": "Shadow with inset property",
+      "purpose": "Verifies that shadow tokens can include the optional inset property",
+      "input": "positive/shadows/shadow-with-inset.json",
+      "features": ["shadow", "composite"]
+    },
+    {
+      "id": "strokeStyle-solid",
+      "type": "PositiveEvaluationTest",
+      "name": "Solid stroke style",
+      "purpose": "Verifies that 'solid' is a valid stroke style string value",
+      "input": "positive/strokeStyles/solid.json",
+      "features": ["strokeStyle"]
+    },
+    {
+      "id": "strokeStyle-dashed",
+      "type": "PositiveEvaluationTest",
+      "name": "Dashed stroke style",
+      "purpose": "Verifies that 'dashed' is a valid stroke style string value",
+      "input": "positive/strokeStyles/dashed.json",
+      "features": ["strokeStyle"]
+    },
+    {
+      "id": "strokeStyle-dotted",
+      "type": "PositiveEvaluationTest",
+      "name": "Dotted stroke style",
+      "purpose": "Verifies that 'dotted' is a valid stroke style string value",
+      "input": "positive/strokeStyles/dotted.json",
+      "features": ["strokeStyle"]
+    },
+    {
+      "id": "strokeStyle-double",
+      "type": "PositiveEvaluationTest",
+      "name": "Double stroke style",
+      "purpose": "Verifies that 'double' is a valid stroke style string value",
+      "input": "positive/strokeStyles/double.json",
+      "features": ["strokeStyle"]
+    },
+    {
+      "id": "strokeStyle-groove",
+      "type": "PositiveEvaluationTest",
+      "name": "Groove stroke style",
+      "purpose": "Verifies that 'groove' is a valid stroke style string value",
+      "input": "positive/strokeStyles/groove.json",
+      "features": ["strokeStyle"]
+    },
+    {
+      "id": "strokeStyle-ridge",
+      "type": "PositiveEvaluationTest",
+      "name": "Ridge stroke style",
+      "purpose": "Verifies that 'ridge' is a valid stroke style string value",
+      "input": "positive/strokeStyles/ridge.json",
+      "features": ["strokeStyle"]
+    },
+    {
+      "id": "strokeStyle-inset",
+      "type": "PositiveEvaluationTest",
+      "name": "Inset stroke style",
+      "purpose": "Verifies that 'inset' is a valid stroke style string value",
+      "input": "positive/strokeStyles/inset.json",
+      "features": ["strokeStyle"]
+    },
+    {
+      "id": "strokeStyle-outset",
+      "type": "PositiveEvaluationTest",
+      "name": "Outset stroke style",
+      "purpose": "Verifies that 'outset' is a valid stroke style string value",
+      "input": "positive/strokeStyles/outset.json",
+      "features": ["strokeStyle"]
+    },
+    {
+      "id": "strokeStyle-custom-dash",
+      "type": "PositiveEvaluationTest",
+      "name": "Custom dash stroke style",
+      "purpose": "Verifies that stroke style can use a custom dash pattern with dashArray and lineCap",
+      "input": "positive/strokeStyles/custom-dash.json",
+      "features": ["strokeStyle", "composite"]
+    },
+    {
+      "id": "strokeStyle-custom-dash-butt-cap",
+      "type": "PositiveEvaluationTest",
+      "name": "Custom dash with butt line cap",
+      "purpose": "Verifies that 'butt' is a valid lineCap value for custom dash patterns",
+      "input": "positive/strokeStyles/custom-dash-butt-cap.json",
+      "features": ["strokeStyle", "composite"]
+    },
+    {
+      "id": "strokeStyle-custom-dash-square-cap",
+      "type": "PositiveEvaluationTest",
+      "name": "Custom dash with square line cap",
+      "purpose": "Verifies that 'square' is a valid lineCap value for custom dash patterns",
+      "input": "positive/strokeStyles/custom-dash-square-cap.json",
+      "features": ["strokeStyle", "composite"]
+    },
+    {
+      "id": "transition-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "Basic transition composite token",
+      "purpose": "Verifies that a simple transition token with duration, delay, and timing function is valid",
+      "input": "positive/transitions/transition-basic.json",
+      "features": ["transition", "composite"]
+    },
+    {
+      "id": "transition-with-delay",
+      "type": "PositiveEvaluationTest",
+      "name": "Transition with non-zero delay",
+      "purpose": "Verifies that transition tokens can have a non-zero delay value",
+      "input": "positive/transitions/transition-with-delay.json",
+      "features": ["transition", "composite"]
+    },
+    {
+      "id": "typography-basic",
+      "type": "PositiveEvaluationTest",
+      "name": "Basic typography composite token",
+      "purpose": "Verifies that a typography token with all required properties is valid",
+      "input": "positive/typography/typography-basic.json",
+      "features": ["typography", "composite"]
+    },
+    {
+      "id": "typography-string-weight",
+      "type": "PositiveEvaluationTest",
+      "name": "Typography with string font weight",
+      "purpose": "Verifies that typography tokens can use string keywords for fontWeight",
+      "input": "positive/typography/typography-string-weight.json",
+      "features": ["typography", "composite"]
+    },
+    {
+      "id": "typography-rem-fontsize",
+      "type": "PositiveEvaluationTest",
+      "name": "Typography with rem font size",
+      "purpose": "Verifies that typography fontSize can use rem units",
+      "input": "positive/typography/typography-rem-fontsize.json",
+      "features": ["typography", "composite"]
+    },
+    {
+      "id": "typography-negative-letterspacing",
+      "type": "PositiveEvaluationTest",
+      "name": "Typography with negative letter spacing",
+      "purpose": "Verifies that typography letterSpacing can have negative values",
+      "input": "positive/typography/typography-negative-letterspacing.json",
+      "features": ["typography", "composite"]
+    },
+    {
+      "id": "border-composite-color-wrong-type",
+      "type": "NegativeEvaluationTest",
+      "name": "Border with wrong color type",
+      "purpose": "Verifies that border color must be a valid color object, not another type",
+      "input": "negative/borders/border-composite-color-wrong-type.json",
+      "features": ["border", "composite"]
+    },
+    {
+      "id": "border-missing-color",
+      "type": "NegativeEvaluationTest",
+      "name": "Border missing color property",
+      "purpose": "Verifies that border tokens must include the color property",
+      "input": "negative/borders/border-missing-color.json",
+      "features": ["border", "composite"]
+    },
+    {
+      "id": "border-missing-style",
+      "type": "NegativeEvaluationTest",
+      "name": "Border missing style property",
+      "purpose": "Verifies that border tokens must include the style property",
+      "input": "negative/borders/border-missing-style.json",
+      "features": ["border", "composite"]
+    },
+    {
+      "id": "border-missing-width",
+      "type": "NegativeEvaluationTest",
+      "name": "Border missing width property",
+      "purpose": "Verifies that border tokens must include the width property",
+      "input": "negative/borders/border-missing-width.json",
+      "features": ["border", "composite"]
+    },
+    {
+      "id": "border-style-wrong-type",
+      "type": "NegativeEvaluationTest",
+      "name": "Border with invalid style type",
+      "purpose": "Verifies that border style must be a valid strokeStyle value or reference",
+      "input": "negative/borders/border-style-wrong-type.json",
+      "features": ["border", "composite"]
+    },
+    {
+      "id": "border-wrong-color-type",
+      "type": "NegativeEvaluationTest",
+      "name": "Border with string instead of color object",
+      "purpose": "Verifies that border color cannot be a simple string value",
+      "input": "negative/borders/border-wrong-color-type.json",
+      "features": ["border", "composite"]
+    },
+    {
+      "id": "color-alpha-out-of-range",
+      "type": "NegativeEvaluationTest",
+      "name": "Color with alpha out of valid range",
+      "purpose": "Verifies that alpha values must be between 0 and 1 inclusive",
+      "input": "negative/colors/color-alpha-out-of-range.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "color-component-out-of-range",
+      "type": "NegativeEvaluationTest",
+      "name": "Color with component out of valid range",
+      "purpose": "Verifies that color components must be within their valid ranges for the color space",
+      "input": "negative/colors/color-component-out-of-range.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "color-components-not-array",
+      "type": "NegativeEvaluationTest",
+      "name": "Color with components as non-array",
+      "purpose": "Verifies that color components must be an array, not another type",
+      "input": "negative/colors/color-components-not-array.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "color-hex-not-string",
+      "type": "NegativeEvaluationTest",
+      "name": "Color with hex as non-string",
+      "purpose": "Verifies that the optional hex property must be a string value",
+      "input": "negative/colors/color-hex-not-string.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "color-hex-with-alpha",
+      "type": "NegativeEvaluationTest",
+      "name": "Color hex includes alpha channel",
+      "purpose": "Verifies that hex values should not include alpha channel (use alpha property instead)",
+      "input": "negative/colors/color-hex-with-alpha.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "color-hex-wrong-format",
+      "type": "NegativeEvaluationTest",
+      "name": "Color with malformed hex value",
+      "purpose": "Verifies that hex values must follow the correct format (#RRGGBB)",
+      "input": "negative/colors/color-hex-wrong-format.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "color-missing-colorSpace",
+      "type": "NegativeEvaluationTest",
+      "name": "Color missing colorSpace property",
+      "purpose": "Verifies that color tokens must specify a colorSpace",
+      "input": "negative/colors/color-missing-colorSpace.json",
+      "features": ["color"]
+    },
+    {
+      "id": "color-missing-components",
+      "type": "NegativeEvaluationTest",
+      "name": "Color missing components array",
+      "purpose": "Verifies that color tokens must include the components array",
+      "input": "negative/colors/color-missing-components.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "color-mixed-none-and-invalid",
+      "type": "NegativeEvaluationTest",
+      "name": "Color with 'none' and invalid value",
+      "purpose": "Verifies that mixing 'none' keyword with invalid values is not allowed",
+      "input": "negative/colors/color-mixed-none-and-invalid.json",
+      "features": ["color", "hsl"]
+    },
+    {
+      "id": "color-negative-alpha",
+      "type": "NegativeEvaluationTest",
+      "name": "Color with negative alpha value",
+      "purpose": "Verifies that alpha values cannot be negative",
+      "input": "negative/colors/color-negative-alpha.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "color-negative-component",
+      "type": "NegativeEvaluationTest",
+      "name": "Color with negative component value",
+      "purpose": "Verifies that color components cannot be negative when not allowed by color space",
+      "input": "negative/colors/color-negative-component.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "color-unknown-colorSpace",
+      "type": "NegativeEvaluationTest",
+      "name": "Color with unsupported color space",
+      "purpose": "Verifies that only supported color spaces are allowed",
+      "input": "negative/colors/color-unknown-colorSpace.json",
+      "features": ["color"]
+    },
+    {
+      "id": "color-wrong-component-count",
+      "type": "NegativeEvaluationTest",
+      "name": "Color with wrong number of components",
+      "purpose": "Verifies that colors must have exactly 3 components for the color space",
+      "input": "negative/colors/color-wrong-component-count.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "color-hsl-hue-equals-360",
+      "type": "NegativeEvaluationTest",
+      "name": "HSL color with hue equal to 360",
+      "purpose": "Verifies that HSL hue must be in range [0, 360), not including 360",
+      "input": "negative/colors/color-hsl-hue-equals-360.json",
+      "features": ["color", "hsl"]
+    },
+    {
+      "id": "color-hsl-negative-lightness",
+      "type": "NegativeEvaluationTest",
+      "name": "HSL color with negative lightness",
+      "purpose": "Verifies that HSL lightness cannot be negative",
+      "input": "negative/colors/color-hsl-negative-lightness.json",
+      "features": ["color", "hsl"]
+    },
+    {
+      "id": "color-hsl-saturation-over-100",
+      "type": "NegativeEvaluationTest",
+      "name": "HSL color with saturation over 100",
+      "purpose": "Verifies that HSL saturation must be in range [0, 100]",
+      "input": "negative/colors/color-hsl-saturation-over-100.json",
+      "features": ["color", "hsl"]
+    },
+    {
+      "id": "color-lab-lightness-over-100",
+      "type": "NegativeEvaluationTest",
+      "name": "LAB color with lightness over 100",
+      "purpose": "Verifies that LAB lightness must be in range [0, 100]",
+      "input": "negative/colors/color-lab-lightness-over-100.json",
+      "features": ["color", "lab"]
+    },
+    {
+      "id": "color-lch-negative-chroma",
+      "type": "NegativeEvaluationTest",
+      "name": "LCH color with negative chroma",
+      "purpose": "Verifies that LCH chroma cannot be negative",
+      "input": "negative/colors/color-lch-negative-chroma.json",
+      "features": ["color", "lch"]
+    },
+    {
+      "id": "color-oklab-lightness-over-1",
+      "type": "NegativeEvaluationTest",
+      "name": "OKLAB color with lightness over 1",
+      "purpose": "Verifies that OKLAB lightness must be in range [0, 1]",
+      "input": "negative/colors/color-oklab-lightness-over-1.json",
+      "features": ["color", "oklab"]
+    },
+    {
+      "id": "color-oklch-hue-equals-360",
+      "type": "NegativeEvaluationTest",
+      "name": "OKLCH color with hue equal to 360",
+      "purpose": "Verifies that OKLCH hue must be in range [0, 360), not including 360",
+      "input": "negative/colors/color-oklch-hue-equals-360.json",
+      "features": ["color", "oklch"]
+    },
+    {
+      "id": "cubicBezier-negative-x",
+      "type": "NegativeEvaluationTest",
+      "name": "Cubic Bezier with negative X value",
+      "purpose": "Verifies that cubic Bezier X values must be in range [0, 1]",
+      "input": "negative/cubicBezier/cubicBezier-negative-x.json",
+      "features": ["cubicBezier"]
+    },
+    {
+      "id": "cubicBezier-string-value",
+      "type": "NegativeEvaluationTest",
+      "name": "Cubic Bezier with string value",
+      "purpose": "Verifies that cubic Bezier values must be numeric, not strings",
+      "input": "negative/cubicBezier/cubicBezier-string-value.json",
+      "features": ["cubicBezier"]
+    },
+    {
+      "id": "cubicBezier-wrong-length",
+      "type": "NegativeEvaluationTest",
+      "name": "Cubic Bezier with wrong array length",
+      "purpose": "Verifies that cubic Bezier must have exactly 4 values",
+      "input": "negative/cubicBezier/cubicBezier-wrong-length.json",
+      "features": ["cubicBezier"]
+    },
+    {
+      "id": "cubicBezier-x-out-of-range",
+      "type": "NegativeEvaluationTest",
+      "name": "Cubic Bezier with X value out of range",
+      "purpose": "Verifies that cubic Bezier X values (positions 0 and 2) must be in [0, 1]",
+      "input": "negative/cubicBezier/cubicBezier-x-out-of-range.json",
+      "features": ["cubicBezier"]
+    },
+    {
+      "id": "dimension-missing-unit",
+      "type": "NegativeEvaluationTest",
+      "name": "Dimension missing unit property",
+      "purpose": "Verifies that dimension tokens must include the unit property",
+      "input": "negative/dimensions/dimension-missing-unit.json",
+      "features": ["dimension"]
+    },
+    {
+      "id": "dimension-missing-value",
+      "type": "NegativeEvaluationTest",
+      "name": "Dimension missing value property",
+      "purpose": "Verifies that dimension tokens must include the value property",
+      "input": "negative/dimensions/dimension-missing-value.json",
+      "features": ["dimension"]
+    },
+    {
+      "id": "dimension-string-value",
+      "type": "NegativeEvaluationTest",
+      "name": "Dimension with string instead of number",
+      "purpose": "Verifies that dimension value must be a number, not a string",
+      "input": "negative/dimensions/dimension-string-value.json",
+      "features": ["dimension"]
+    },
+    {
+      "id": "dimension-wrong-unit",
+      "type": "NegativeEvaluationTest",
+      "name": "Dimension with unsupported unit",
+      "purpose": "Verifies that only 'px' and 'rem' units are supported for dimensions",
+      "input": "negative/dimensions/dimension-wrong-unit.json",
+      "features": ["dimension"]
+    },
+    {
+      "id": "duration-missing-unit",
+      "type": "NegativeEvaluationTest",
+      "name": "Duration missing unit property",
+      "purpose": "Verifies that duration tokens must include the unit property",
+      "input": "negative/durations/duration-missing-unit.json",
+      "features": ["duration"]
+    },
+    {
+      "id": "duration-missing-value",
+      "type": "NegativeEvaluationTest",
+      "name": "Duration missing value property",
+      "purpose": "Verifies that duration tokens must include the value property",
+      "input": "negative/durations/duration-missing-value.json",
+      "features": ["duration"]
+    },
+    {
+      "id": "duration-wrong-unit",
+      "type": "NegativeEvaluationTest",
+      "name": "Duration with unsupported unit",
+      "purpose": "Verifies that only 'ms' and 's' units are supported for durations",
+      "input": "negative/durations/duration-wrong-unit.json",
+      "features": ["duration"]
+    },
+    {
+      "id": "fontFamily-array-with-number",
+      "type": "NegativeEvaluationTest",
+      "name": "Font family array containing number",
+      "purpose": "Verifies that font family arrays can only contain strings, not numbers",
+      "input": "negative/fontFamily/fontFamily-array-with-number.json",
+      "features": ["fontFamily"]
+    },
+    {
+      "id": "fontFamily-number",
+      "type": "NegativeEvaluationTest",
+      "name": "Font family as number",
+      "purpose": "Verifies that font family must be a string or array, not a number",
+      "input": "negative/fontFamily/fontFamily-number.json",
+      "features": ["fontFamily"]
+    },
+    {
+      "id": "fontWeight-out-of-range-high",
+      "type": "NegativeEvaluationTest",
+      "name": "Font weight numeric value too high",
+      "purpose": "Verifies that numeric font weight cannot exceed 1000",
+      "input": "negative/fontWeight/fontWeight-out-of-range-high.json",
+      "features": ["fontWeight"]
+    },
+    {
+      "id": "fontWeight-out-of-range-low",
+      "type": "NegativeEvaluationTest",
+      "name": "Font weight numeric value too low",
+      "purpose": "Verifies that numeric font weight cannot be less than 1",
+      "input": "negative/fontWeight/fontWeight-out-of-range-low.json",
+      "features": ["fontWeight"]
+    },
+    {
+      "id": "fontWeight-unknown-string",
+      "type": "NegativeEvaluationTest",
+      "name": "Font weight with unsupported string keyword",
+      "purpose": "Verifies that only valid font weight keyword strings are allowed",
+      "input": "negative/fontWeight/fontWeight-unknown-string.json",
+      "features": ["fontWeight"]
+    },
+    {
+      "id": "fontWeight-wrong-case",
+      "type": "NegativeEvaluationTest",
+      "name": "Font weight keyword with wrong case",
+      "purpose": "Verifies that font weight keywords are case-sensitive",
+      "input": "negative/fontWeight/fontWeight-wrong-case.json",
+      "features": ["fontWeight"]
+    },
+    {
+      "id": "gradient-empty-array",
+      "type": "NegativeEvaluationTest",
+      "name": "Gradient with empty array",
+      "purpose": "Verifies that gradient arrays cannot be empty",
+      "input": "negative/gradients/gradient-empty-array.json",
+      "features": ["gradient", "composite"]
+    },
+    {
+      "id": "gradient-missing-color",
+      "type": "NegativeEvaluationTest",
+      "name": "Gradient stop missing color",
+      "purpose": "Verifies that each gradient stop must include a color property",
+      "input": "negative/gradients/gradient-missing-color.json",
+      "features": ["gradient", "composite"]
+    },
+    {
+      "id": "gradient-missing-position",
+      "type": "NegativeEvaluationTest",
+      "name": "Gradient stop missing position",
+      "purpose": "Verifies that each gradient stop must include a position property",
+      "input": "negative/gradients/gradient-missing-position.json",
+      "features": ["gradient", "composite"]
+    },
+    {
+      "id": "gradient-position-string",
+      "type": "NegativeEvaluationTest",
+      "name": "Gradient stop with string position",
+      "purpose": "Verifies that gradient stop position must be a number, not a string",
+      "input": "negative/gradients/gradient-position-string.json",
+      "features": ["gradient", "composite"]
+    },
+    {
+      "id": "group-both-value-and-children",
+      "type": "NegativeEvaluationTest",
+      "name": "Object with both $value and child tokens",
+      "purpose": "Verifies that an object cannot have both $value (token) and child properties (group)",
+      "input": "negative/group/both-value-and-children.json",
+      "features": ["groups"]
+    },
+    {
+      "id": "group-circular-extends",
+      "type": "NegativeEvaluationTest",
+      "name": "Circular $extends reference",
+      "purpose": "Verifies that $extends cannot create circular references between groups",
+      "input": "negative/group/circular-extends.json",
+      "features": ["groups", "extends", "preprocessing-required"]
+    },
+    {
+      "id": "group-extends-nonexistent",
+      "type": "NegativeEvaluationTest",
+      "name": "Group extends non-existent group",
+      "purpose": "Verifies that $extends must reference an existing group",
+      "input": "negative/group/extends-nonexistent.json",
+      "features": ["groups", "extends", "preprocessing-required"]
+    },
+    {
+      "id": "group-extends-token",
+      "type": "NegativeEvaluationTest",
+      "name": "Group extends a token instead of group",
+      "purpose": "Verifies that $extends must reference a group, not a token",
+      "input": "negative/group/extends-token.json",
+      "features": ["groups", "extends", "preprocessing-required"]
+    },
+    {
+      "id": "metadata-type-not-string",
+      "type": "NegativeEvaluationTest",
+      "name": "$type is not a string",
+      "purpose": "Verifies that $type must be a string value, not an array or other type",
+      "input": "negative/metadata/type-not-string.json",
+      "features": ["metadata"]
+    },
+    {
+      "id": "metadata-deprecated-number",
+      "type": "NegativeEvaluationTest",
+      "name": "Token $deprecated as number",
+      "purpose": "Verifies that $deprecated must be a boolean or string, not a number",
+      "input": "negative/metadata/deprecated-number.json",
+      "features": ["metadata"]
+    },
+    {
+      "id": "metadata-deprecated-object",
+      "type": "NegativeEvaluationTest",
+      "name": "Token $deprecated as object",
+      "purpose": "Verifies that $deprecated must be a boolean or string, not an object",
+      "input": "negative/metadata/deprecated-object.json",
+      "features": ["metadata"]
+    },
+    {
+      "id": "metadata-description-not-string",
+      "type": "NegativeEvaluationTest",
+      "name": "Token $description is not a string",
+      "purpose": "Verifies that $description must be a string value",
+      "input": "negative/metadata/description-not-string.json",
+      "features": ["metadata"]
+    },
+    {
+      "id": "metadata-extensions-not-object",
+      "type": "NegativeEvaluationTest",
+      "name": "Token $extensions is not an object",
+      "purpose": "Verifies that $extensions must be an object",
+      "input": "negative/metadata/extensions-not-object.json",
+      "features": ["metadata"]
+    },
+    {
+      "id": "metadata-extra-properties-in-token",
+      "type": "NegativeEvaluationTest",
+      "name": "Token with extra non-$ properties",
+      "purpose": "Verifies that tokens cannot have additional properties besides $type, $value, and metadata",
+      "input": "negative/metadata/extra-properties-in-token.json",
+      "features": ["metadata"]
+    },
+    {
+      "id": "metadata-token-missing-type",
+      "type": "NegativeEvaluationTest",
+      "name": "Token missing $type",
+      "purpose": "Verifies that tokens must have a $type (either explicit or inherited)",
+      "input": "negative/metadata/token-missing-type.json",
+      "features": ["metadata", "type-inheritance", "preprocessing-required"]
+    },
+    {
+      "id": "metadata-type-unknown",
+      "type": "NegativeEvaluationTest",
+      "name": "Token with unsupported $type",
+      "purpose": "Verifies that only valid token types are allowed",
+      "input": "negative/metadata/type-unknown.json",
+      "features": ["metadata"]
+    },
+    {
+      "id": "metadata-value-null",
+      "type": "NegativeEvaluationTest",
+      "name": "Token with null $value",
+      "purpose": "Verifies that $value cannot be null",
+      "input": "negative/metadata/value-null.json",
+      "features": ["metadata"]
+    },
+    {
+      "id": "number-object",
+      "type": "NegativeEvaluationTest",
+      "name": "Number token with object value",
+      "purpose": "Verifies that number tokens must have a numeric value, not an object",
+      "input": "negative/numbers/number-object.json",
+      "features": ["number"]
+    },
+    {
+      "id": "number-string",
+      "type": "NegativeEvaluationTest",
+      "name": "Number token with string value",
+      "purpose": "Verifies that number tokens must have a numeric value, not a string",
+      "input": "negative/numbers/number-string.json",
+      "features": ["number"]
+    },
+    {
+      "id": "reference-circular-reference-chain",
+      "type": "NegativeEvaluationTest",
+      "name": "Circular reference chain",
+      "purpose": "Verifies that references cannot create circular dependency chains",
+      "input": "negative/references/circular-reference-chain.json",
+      "features": ["references", "preprocessing-required"]
+    },
+    {
+      "id": "reference-composite-json-pointer-missing-required",
+      "type": "NegativeEvaluationTest",
+      "name": "Composite with JSON pointer missing required property",
+      "purpose": "Verifies that JSON pointer references in composites must point to complete required values",
+      "input": "negative/references/composite-json-pointer-missing-required.json",
+      "features": [
+        "references",
+        "composite",
+        "json-pointer",
+        "preprocessing-required"
+      ]
+    },
+    {
+      "id": "reference-composite-ref-to-number-for-dimension",
+      "type": "NegativeEvaluationTest",
+      "name": "Composite dimension referencing number token",
+      "purpose": "Verifies that composite dimension properties cannot reference plain number tokens",
+      "input": "negative/references/composite-ref-to-number-for-dimension.json",
+      "features": ["references", "composite", "preprocessing-required"]
+    },
+    {
+      "id": "reference-composite-ref-to-partial-color",
+      "type": "NegativeEvaluationTest",
+      "name": "Composite referencing incomplete color",
+      "purpose": "Verifies that references to color subproperties must result in valid complete colors",
+      "input": "negative/references/composite-ref-to-partial-color.json",
+      "features": ["references", "composite", "preprocessing-required"]
+    },
+    {
+      "id": "reference-composite-ref-wrong-subvalue-type",
+      "type": "NegativeEvaluationTest",
+      "name": "Composite reference to wrong subvalue type",
+      "purpose": "Verifies that composite property references must point to values of the correct type",
+      "input": "negative/references/composite-ref-wrong-subvalue-type.json",
+      "features": ["references", "composite", "preprocessing-required"]
+    },
+    {
+      "id": "reference-gradient-ref-to-non-gradient-stop",
+      "type": "NegativeEvaluationTest",
+      "name": "Gradient stop referencing non-stop object",
+      "purpose": "Verifies that gradient stop references must point to valid gradient stop objects",
+      "input": "negative/references/gradient-ref-to-non-gradient-stop.json",
+      "features": ["references", "gradient", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-array-as-string",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer treating array index as string",
+      "purpose": "Verifies that array indices in JSON pointer must be numeric",
+      "input": "negative/references/json-pointer-array-as-string.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-circular-with-ref",
+      "type": "NegativeEvaluationTest",
+      "name": "Circular JSON pointer self-reference",
+      "purpose": "Verifies that $ref cannot create a circular reference back to itself",
+      "input": "negative/references/json-pointer-circular-with-ref.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-double-slash",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer with double slash",
+      "purpose": "Verifies that JSON pointer paths cannot have double slashes",
+      "input": "negative/references/json-pointer-double-slash.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-empty-path",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer with empty path",
+      "purpose": "Verifies that JSON pointer must have a valid path after the hash",
+      "input": "negative/references/json-pointer-empty-path.json",
+      "features": ["references", "json-pointer"]
+    },
+    {
+      "id": "reference-json-pointer-incomplete-dimension",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer to incomplete dimension",
+      "purpose": "Verifies that JSON pointer references must point to complete valid values",
+      "input": "negative/references/json-pointer-incomplete-dimension.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-malformed-syntax",
+      "type": "NegativeEvaluationTest",
+      "name": "Malformed JSON pointer syntax",
+      "purpose": "Verifies that JSON pointer must follow correct RFC 6901 syntax",
+      "input": "negative/references/json-pointer-malformed-syntax.json",
+      "features": ["references", "json-pointer"]
+    },
+    {
+      "id": "reference-json-pointer-missing-hash",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer missing # prefix",
+      "purpose": "Verifies that JSON pointers must start with # for document-relative references",
+      "input": "negative/references/json-pointer-missing-hash.json",
+      "features": ["references", "json-pointer"]
+    },
+    {
+      "id": "reference-json-pointer-missing-value",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer to missing value",
+      "purpose": "Verifies that JSON pointer must point to an existing value",
+      "input": "negative/references/json-pointer-missing-value.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-mixed-ref-syntax",
+      "type": "NegativeEvaluationTest",
+      "name": "Mixed curly brace and JSON pointer syntax",
+      "purpose": "Verifies that curly brace and JSON pointer reference syntaxes cannot be mixed",
+      "input": "negative/references/json-pointer-mixed-ref-syntax.json",
+      "features": ["references", "json-pointer"]
+    },
+    {
+      "id": "reference-json-pointer-negative-array-index",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer with negative array index",
+      "purpose": "Verifies that array indices in JSON pointer cannot be negative",
+      "input": "negative/references/json-pointer-negative-array-index.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-nonexistent",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer to non-existent path",
+      "purpose": "Verifies that JSON pointer must point to an existing path in the document",
+      "input": "negative/references/json-pointer-nonexistent.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-space-in-path",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer with unescaped space",
+      "purpose": "Verifies that spaces in JSON pointer paths must be properly escaped",
+      "input": "negative/references/json-pointer-space-in-path.json",
+      "features": ["references", "json-pointer"]
+    },
+    {
+      "id": "reference-json-pointer-to-description",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer to $description metadata",
+      "purpose": "Verifies that JSON pointers cannot reference metadata properties like $description",
+      "input": "negative/references/json-pointer-to-description.json",
+      "features": [
+        "references",
+        "json-pointer",
+        "metadata",
+        "preprocessing-required"
+      ]
+    },
+    {
+      "id": "reference-json-pointer-to-group",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer to group instead of token",
+      "purpose": "Verifies that JSON pointers must reference tokens, not groups",
+      "input": "negative/references/json-pointer-to-group.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-to-metadata",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer to metadata property",
+      "purpose": "Verifies that JSON pointers cannot reference metadata properties",
+      "input": "negative/references/json-pointer-to-metadata.json",
+      "features": [
+        "references",
+        "json-pointer",
+        "metadata",
+        "preprocessing-required"
+      ]
+    },
+    {
+      "id": "reference-json-pointer-trailing-slash",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer with trailing slash",
+      "purpose": "Verifies that JSON pointer paths should not have trailing slashes",
+      "input": "negative/references/json-pointer-trailing-slash.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-type-mismatch",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer type mismatch",
+      "purpose": "Verifies that JSON pointer references must point to values of matching types",
+      "input": "negative/references/json-pointer-type-mismatch.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-wrong-array-index",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer with out-of-bounds array index",
+      "purpose": "Verifies that array indices in JSON pointer must be within array bounds",
+      "input": "negative/references/json-pointer-wrong-array-index.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-wrong-property",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer to non-existent property",
+      "purpose": "Verifies that JSON pointer must reference existing object properties",
+      "input": "negative/references/json-pointer-wrong-property.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-json-pointer-wrong-separator",
+      "type": "NegativeEvaluationTest",
+      "name": "JSON pointer with wrong path separator",
+      "purpose": "Verifies that JSON pointer must use forward slash as path separator",
+      "input": "negative/references/json-pointer-wrong-separator.json",
+      "features": ["references", "json-pointer", "preprocessing-required"]
+    },
+    {
+      "id": "reference-ref-and-value-both-present",
+      "type": "NegativeEvaluationTest",
+      "name": "Token with both $ref and $value",
+      "purpose": "Verifies that tokens cannot have both $ref and $value properties simultaneously",
+      "input": "negative/references/ref-and-value-both-present.json",
+      "features": ["references"]
+    },
+    {
+      "id": "reference-empty",
+      "type": "NegativeEvaluationTest",
+      "name": "Empty reference string",
+      "purpose": "Verifies that reference strings cannot be empty",
+      "input": "negative/references/reference-empty.json",
+      "features": ["references"]
+    },
+    {
+      "id": "reference-nonexistent",
+      "type": "NegativeEvaluationTest",
+      "name": "Reference to non-existent token",
+      "purpose": "Verifies that references must point to existing tokens",
+      "input": "negative/references/reference-nonexistent.json",
+      "features": ["references", "preprocessing-required"]
+    },
+    {
+      "id": "reference-syntax-missing-brace",
+      "type": "NegativeEvaluationTest",
+      "name": "Reference with missing closing brace",
+      "purpose": "Verifies that curly brace references must have matching braces",
+      "input": "negative/references/reference-syntax-missing-brace.json",
+      "features": ["references"]
+    },
+    {
+      "id": "reference-to-wrong-subvalue",
+      "type": "NegativeEvaluationTest",
+      "name": "Reference to wrong composite subvalue",
+      "purpose": "Verifies that references to composite subvalues must point to valid properties",
+      "input": "negative/references/reference-to-wrong-subvalue.json",
+      "features": ["references", "preprocessing-required"]
+    },
+    {
+      "id": "reference-type-mismatch",
+      "type": "NegativeEvaluationTest",
+      "name": "Reference with type mismatch",
+      "purpose": "Verifies that references must point to tokens of compatible types",
+      "input": "negative/references/reference-type-mismatch.json",
+      "features": ["references", "preprocessing-required"]
+    },
+    {
+      "id": "reference-with-spaces",
+      "type": "NegativeEvaluationTest",
+      "name": "Reference with spaces in path",
+      "purpose": "Verifies handling of spaces in reference paths",
+      "input": "negative/references/reference-with-spaces.json",
+      "features": ["references", "preprocessing-required"]
+    },
+    {
+      "id": "reference-self-reference",
+      "type": "NegativeEvaluationTest",
+      "name": "Token referencing itself",
+      "purpose": "Verifies that tokens cannot reference themselves",
+      "input": "negative/references/self-reference.json",
+      "features": ["references", "preprocessing-required"]
+    },
+    {
+      "id": "reference-stroke-dashArray-ref-wrong-type",
+      "type": "NegativeEvaluationTest",
+      "name": "Stroke dashArray referencing wrong type",
+      "purpose": "Verifies that strokeStyle dashArray references must point to dimension arrays",
+      "input": "negative/references/stroke-dashArray-ref-wrong-type.json",
+      "features": ["references", "strokeStyle", "preprocessing-required"]
+    },
+    {
+      "id": "reference-dimension-curly-brace-in-subvalue",
+      "type": "NegativeEvaluationTest",
+      "name": "Dimension with curly brace reference in sub-value",
+      "purpose": "Verifies that curly brace references are not allowed in sub-values of non-composite dimension tokens",
+      "input": "negative/references/dimension-curly-brace-in-subvalue.json",
+      "features": ["references", "dimension"]
+    },
+    {
+      "id": "reference-color-curly-brace-in-subvalue",
+      "type": "NegativeEvaluationTest",
+      "name": "Color with curly brace reference in sub-value",
+      "purpose": "Verifies that curly brace references are not allowed in sub-values of non-composite color tokens",
+      "input": "negative/references/color-curly-brace-in-subvalue.json",
+      "features": ["references", "color"]
+    },
+    {
+      "id": "reference-duration-curly-brace-in-subvalue",
+      "type": "NegativeEvaluationTest",
+      "name": "Duration with curly brace reference in sub-value",
+      "purpose": "Verifies that curly brace references are not allowed in sub-values of non-composite duration tokens",
+      "input": "negative/references/duration-curly-brace-in-subvalue.json",
+      "features": ["references", "duration"]
+    },
+    {
+      "id": "reference-cubicBezier-curly-brace-in-subvalue",
+      "type": "NegativeEvaluationTest",
+      "name": "Cubic Bezier with curly brace reference in sub-value",
+      "purpose": "Verifies that curly brace references are not allowed in sub-values of non-composite cubicBezier tokens",
+      "input": "negative/references/cubicBezier-curly-brace-in-subvalue.json",
+      "features": ["references", "cubicBezier"]
+    },
+    {
+      "id": "shadow-array-with-non-object",
+      "type": "NegativeEvaluationTest",
+      "name": "Shadow array containing non-object",
+      "purpose": "Verifies that shadow arrays can only contain shadow objects",
+      "input": "negative/shadows/shadow-array-with-non-object.json",
+      "features": ["shadow", "composite"]
+    },
+    {
+      "id": "shadow-missing-blur",
+      "type": "NegativeEvaluationTest",
+      "name": "Shadow missing blur property",
+      "purpose": "Verifies that shadow tokens must include the blur property",
+      "input": "negative/shadows/shadow-missing-blur.json",
+      "features": ["shadow", "composite"]
+    },
+    {
+      "id": "shadow-missing-color",
+      "type": "NegativeEvaluationTest",
+      "name": "Shadow missing color property",
+      "purpose": "Verifies that shadow tokens must include the color property",
+      "input": "negative/shadows/shadow-missing-color.json",
+      "features": ["shadow", "composite"]
+    },
+    {
+      "id": "shadow-missing-offsetX",
+      "type": "NegativeEvaluationTest",
+      "name": "Shadow missing offsetX property",
+      "purpose": "Verifies that shadow tokens must include the offsetX property",
+      "input": "negative/shadows/shadow-missing-offsetX.json",
+      "features": ["shadow", "composite"]
+    },
+    {
+      "id": "shadow-missing-offsetY",
+      "type": "NegativeEvaluationTest",
+      "name": "Shadow missing offsetY property",
+      "purpose": "Verifies that shadow tokens must include the offsetY property",
+      "input": "negative/shadows/shadow-missing-offsetY.json",
+      "features": ["shadow", "composite"]
+    },
+    {
+      "id": "shadow-missing-spread",
+      "type": "NegativeEvaluationTest",
+      "name": "Shadow missing spread property",
+      "purpose": "Verifies that shadow tokens must include the spread property",
+      "input": "negative/shadows/shadow-missing-spread.json",
+      "features": ["shadow", "composite"]
+    },
+    {
+      "id": "shadow-wrong-inset-type",
+      "type": "NegativeEvaluationTest",
+      "name": "Shadow with non-boolean inset",
+      "purpose": "Verifies that shadow inset property must be a boolean value",
+      "input": "negative/shadows/shadow-wrong-inset-type.json",
+      "features": ["shadow", "composite"]
+    },
+    {
+      "id": "strokeStyle-dashArray-non-dimension",
+      "type": "NegativeEvaluationTest",
+      "name": "Stroke dashArray with non-dimension values",
+      "purpose": "Verifies that dashArray elements must be dimension objects",
+      "input": "negative/strokeStyles/strokeStyle-dashArray-non-dimension.json",
+      "features": ["strokeStyle", "composite"]
+    },
+    {
+      "id": "strokeStyle-empty-dashArray",
+      "type": "NegativeEvaluationTest",
+      "name": "Stroke with empty dashArray",
+      "purpose": "Verifies that dashArray cannot be empty when specified",
+      "input": "negative/strokeStyles/strokeStyle-empty-dashArray.json",
+      "features": ["strokeStyle", "composite"]
+    },
+    {
+      "id": "strokeStyle-missing-dashArray",
+      "type": "NegativeEvaluationTest",
+      "name": "Custom stroke style missing dashArray",
+      "purpose": "Verifies that custom stroke styles must include dashArray property",
+      "input": "negative/strokeStyles/strokeStyle-missing-dashArray.json",
+      "features": ["strokeStyle", "composite"]
+    },
+    {
+      "id": "strokeStyle-missing-lineCap",
+      "type": "NegativeEvaluationTest",
+      "name": "Custom stroke style missing lineCap",
+      "purpose": "Verifies that custom stroke styles must include lineCap property",
+      "input": "negative/strokeStyles/strokeStyle-missing-lineCap.json",
+      "features": ["strokeStyle", "composite"]
+    },
+    {
+      "id": "strokeStyle-unknown-string",
+      "type": "NegativeEvaluationTest",
+      "name": "Stroke style with unsupported string value",
+      "purpose": "Verifies that only valid stroke style keyword strings are allowed",
+      "input": "negative/strokeStyles/strokeStyle-unknown-string.json",
+      "features": ["strokeStyle"]
+    },
+    {
+      "id": "strokeStyle-wrong-lineCap",
+      "type": "NegativeEvaluationTest",
+      "name": "Stroke style with invalid lineCap value",
+      "purpose": "Verifies that lineCap must be 'round', 'butt', or 'square'",
+      "input": "negative/strokeStyles/strokeStyle-wrong-lineCap.json",
+      "features": ["strokeStyle", "composite"]
+    },
+    {
+      "id": "token-name-curly-brace",
+      "type": "NegativeEvaluationTest",
+      "name": "Token name containing curly brace",
+      "purpose": "Verifies that token names cannot contain curly braces { or }",
+      "input": "negative/token-name/token-name-curly-brace.json",
+      "features": ["token-name"]
+    },
+    {
+      "id": "token-name-period",
+      "type": "NegativeEvaluationTest",
+      "name": "Token name containing period",
+      "purpose": "Verifies that token names cannot contain periods (reserved for path separator)",
+      "input": "negative/token-name/token-name-period.json",
+      "features": ["token-name"]
+    },
+    {
+      "id": "token-name-starts-with-dollar",
+      "type": "NegativeEvaluationTest",
+      "name": "Token name starting with $",
+      "purpose": "Verifies that token names cannot start with $ (reserved for DTCG keywords)",
+      "input": "negative/token-name/token-name-starts-with-dollar.json",
+      "features": ["token-name"]
+    },
+    {
+      "id": "transition-missing-delay",
+      "type": "NegativeEvaluationTest",
+      "name": "Transition missing delay property",
+      "purpose": "Verifies that transition tokens must include the delay property",
+      "input": "negative/transitions/transition-missing-delay.json",
+      "features": ["transition", "composite"]
+    },
+    {
+      "id": "transition-missing-duration",
+      "type": "NegativeEvaluationTest",
+      "name": "Transition missing duration property",
+      "purpose": "Verifies that transition tokens must include the duration property",
+      "input": "negative/transitions/transition-missing-duration.json",
+      "features": ["transition", "composite"]
+    },
+    {
+      "id": "transition-missing-timingFunction",
+      "type": "NegativeEvaluationTest",
+      "name": "Transition missing timingFunction property",
+      "purpose": "Verifies that transition tokens must include the timingFunction property",
+      "input": "negative/transitions/transition-missing-timingFunction.json",
+      "features": ["transition", "composite"]
+    },
+    {
+      "id": "typography-composite-dimension-wrong-type",
+      "type": "NegativeEvaluationTest",
+      "name": "Typography with wrong dimension property type",
+      "purpose": "Verifies that typography dimension properties must be valid dimension objects",
+      "input": "negative/typography/typography-composite-dimension-wrong-type.json",
+      "features": ["typography", "composite"]
+    },
+    {
+      "id": "typography-lineHeight-wrong-type",
+      "type": "NegativeEvaluationTest",
+      "name": "Typography with invalid lineHeight type",
+      "purpose": "Verifies that typography lineHeight must be a number",
+      "input": "negative/typography/typography-lineHeight-wrong-type.json",
+      "features": ["typography", "composite"]
+    },
+    {
+      "id": "typography-missing-fontFamily",
+      "type": "NegativeEvaluationTest",
+      "name": "Typography missing fontFamily property",
+      "purpose": "Verifies that typography tokens must include the fontFamily property",
+      "input": "negative/typography/typography-missing-fontFamily.json",
+      "features": ["typography", "composite"]
+    },
+    {
+      "id": "typography-missing-fontSize",
+      "type": "NegativeEvaluationTest",
+      "name": "Typography missing fontSize property",
+      "purpose": "Verifies that typography tokens must include the fontSize property",
+      "input": "negative/typography/typography-missing-fontSize.json",
+      "features": ["typography", "composite"]
+    },
+    {
+      "id": "typography-missing-fontWeight",
+      "type": "NegativeEvaluationTest",
+      "name": "Typography missing fontWeight property",
+      "purpose": "Verifies that typography tokens must include the fontWeight property",
+      "input": "negative/typography/typography-missing-fontWeight.json",
+      "features": ["typography", "composite"]
+    },
+    {
+      "id": "typography-missing-letterSpacing",
+      "type": "NegativeEvaluationTest",
+      "name": "Typography missing letterSpacing property",
+      "purpose": "Verifies that typography tokens must include the letterSpacing property",
+      "input": "negative/typography/typography-missing-letterSpacing.json",
+      "features": ["typography", "composite"]
+    },
+    {
+      "id": "typography-missing-lineHeight",
+      "type": "NegativeEvaluationTest",
+      "name": "Typography missing lineHeight property",
+      "purpose": "Verifies that typography tokens must include the lineHeight property",
+      "input": "negative/typography/typography-missing-lineHeight.json",
+      "features": ["typography", "composite"]
+    }
+  ]
+}

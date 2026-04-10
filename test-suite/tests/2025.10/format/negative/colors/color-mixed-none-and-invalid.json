@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Component must be a number or 'none', not an arbitrary string",
+  "invalid-color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "hsl",
+      "components": ["none", "not-a-number", 50]
+    }
+  }
+}

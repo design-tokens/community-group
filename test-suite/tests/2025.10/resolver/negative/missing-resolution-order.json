@@ -1,0 +1,5 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "description": "NEGATIVE: Missing required resolutionOrder property",
+  "version": "2025.10"
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: JSON Pointer with only hash, no path",
+  "invalid-color": {
+    "$ref": "#",
+    "$type": "color"
+  }
+}

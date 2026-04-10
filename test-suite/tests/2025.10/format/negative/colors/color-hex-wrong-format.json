@@ -1,0 +1,12 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Hex fallback must be 6-digit format, not 3-digit",
+  "invalid-color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 0, 0],
+      "hex": "#f00"
+    }
+  }
+}

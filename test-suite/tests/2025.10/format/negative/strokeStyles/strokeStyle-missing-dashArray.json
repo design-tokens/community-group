@@ -1,0 +1,10 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Object stroke style missing required dashArray property",
+  "invalid-strokeStyle": {
+    "$type": "strokeStyle",
+    "$value": {
+      "lineCap": "round"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Gradient stop missing required color property",
+  "invalid-gradient": {
+    "$type": "gradient",
+    "$value": [
+      {
+        "position": 0
+      },
+      {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0]
+        },
+        "position": 1
+      }
+    ]
+  }
+}

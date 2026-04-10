@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Color in LAB color space",
+  "color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "lab",
+      "components": [60.17, 93.54, -60.5]
+    }
+  }
+}

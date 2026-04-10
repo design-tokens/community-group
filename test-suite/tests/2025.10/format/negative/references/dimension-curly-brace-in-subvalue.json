@@ -1,0 +1,17 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Curly brace reference in sub-value of non-composite dimension token",
+  "numbers": {
+    "number": {
+      "$type": "number",
+      "$value": 16
+    }
+  },
+  "invalid-dimension": {
+    "$type": "dimension",
+    "$value": {
+      "value": "{numbers.number}",
+      "unit": "px"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Color in xyz-d65 color space",
+  "color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "xyz-d65",
+      "components": [0.5929, 0.2848, 0.9699]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Font family as single-element array",
+  "fontFamily": {
+    "$type": "fontFamily",
+    "$value": ["Monaco"]
+  }
+}

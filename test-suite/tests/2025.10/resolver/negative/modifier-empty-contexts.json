@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "description": "NEGATIVE: Modifier with empty contexts object",
+  "version": "2025.10",
+  "modifiers": {
+    "theme": {
+      "contexts": {}
+    }
+  },
+  "resolutionOrder": [{ "$ref": "#/modifiers/theme" }]
+}

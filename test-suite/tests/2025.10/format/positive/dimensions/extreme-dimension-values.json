@@ -1,0 +1,20 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Very large and very small dimension values",
+  "dimensions": {
+    "large": {
+      "$type": "dimension",
+      "$value": {
+        "value": 9999.99,
+        "unit": "px"
+      }
+    },
+    "tiny": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.001,
+        "unit": "rem"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Alpha must be in range [0, 1], value 1.5 exceeds maximum",
+  "invalid-color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 0, 0],
+      "alpha": 1.5
+    }
+  }
+}

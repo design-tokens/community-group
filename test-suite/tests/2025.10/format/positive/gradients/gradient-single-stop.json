@@ -1,0 +1,16 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Gradient with a single color stop",
+  "gradient": {
+    "$type": "gradient",
+    "$value": [
+      {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0]
+        },
+        "position": 0.5
+      }
+    ]
+  }
+}
