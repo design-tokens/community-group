@@ -29,17 +29,17 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "dimension.json"
+                    "$ref": "https://www.designtokens.org/schemas/2025.10/format/values/dimension.json"
                   },
                   {
-                    "$ref": "../../format.json#/definitions/tokenValueReference"
+                    "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
                   }
                 ]
               },
               "minItems": 1
             },
             {
-              "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/jsonPointerReferenceObject"
             }
           ]
         },
@@ -51,7 +51,7 @@
               "enum": ["round", "butt", "square"]
             },
             {
-              "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/jsonPointerReferenceObject"
             }
           ]
         }

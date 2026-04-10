@@ -33,7 +33,7 @@
       "description": "Definition of sets. A set is a collection of design tokens in DTCG format.",
       "patternProperties": {
         "^.+$": {
-          "$ref": "resolver/set.json"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/resolver/set.json"
         }
       }
     },
@@ -43,13 +43,13 @@
       "description": "Definition of modifiers. A modifier allows for conditional inclusion of token values via contexts.",
       "patternProperties": {
         "^.+$": {
-          "$ref": "resolver/modifier.json"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/resolver/modifier.json"
         }
       }
     },
     "resolutionOrder": {
       "title": "Resolution Order",
-      "$ref": "resolver/resolutionOrder.json"
+      "$ref": "https://www.designtokens.org/schemas/2025.10/resolver/resolutionOrder.json"
     },
     "$defs": {
       "title": "Definitions",

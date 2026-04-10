@@ -9,10 +9,10 @@
       "description": "The typography's font",
       "oneOf": [
         {
-          "$ref": "fontFamily.json"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format/values/fontFamily.json"
         },
         {
-          "$ref": "../../format.json#/definitions/tokenValueReference"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -20,10 +20,10 @@
       "description": "The size of the typography",
       "oneOf": [
         {
-          "$ref": "dimension.json"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format/values/dimension.json"
         },
         {
-          "$ref": "../../format.json#/definitions/tokenValueReference"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -31,10 +31,10 @@
       "description": "The weight of the typography",
       "oneOf": [
         {
-          "$ref": "fontWeight.json"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format/values/fontWeight.json"
         },
         {
-          "$ref": "../../format.json#/definitions/tokenValueReference"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -42,10 +42,10 @@
       "description": "The horizontal spacing between characters",
       "oneOf": [
         {
-          "$ref": "dimension.json"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format/values/dimension.json"
         },
         {
-          "$ref": "../../format.json#/definitions/tokenValueReference"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
         }
       ]
     },
@@ -53,10 +53,10 @@
       "description": "The vertical spacing between lines of typography (interpreted as a multiplier of fontSize)",
       "oneOf": [
         {
-          "$ref": "number.json"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format/values/number.json"
         },
         {
-          "$ref": "../../format.json#/definitions/tokenValueReference"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
         }
       ]
     }
