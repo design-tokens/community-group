@@ -10,6 +10,8 @@ interface Props {
 
 <Base {...Astro.props}>
   <style lang="scss" is:global>
+    @use '../assets/css/01-utils/tokens/text-styles' as *;
+
     .md-content {
       max-width: 65ch;
 

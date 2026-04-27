@@ -1,4 +1,4 @@
-// @use '../../assets/css/01-utils/mixins/text-styles' as *;
+@use "../../assets/css/01-utils/tokens/text-styles" as *;
 
 .text-heading1 {
   @include text-heading1;
