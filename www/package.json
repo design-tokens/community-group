@@ -19,11 +19,10 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@monaco-editor/react": "^4.7.0",
     "fast-deep-equal": "^3.1.3",
     "monaco-editor": "^0.55.1",
-    "nanoid": "^5.1.6",
-    "preact": "11.0.0-beta.0"
+    "nanoid": "^5.1.9",
+    "preact": "10.29.1"
   },
   "devDependencies": {
     "@astrojs/mdx": "^5.0.4",
@@ -41,7 +40,7 @@
     "remark-directive": "^4.0.0",
     "sass": "^1.99.0",
     "sharp": "^0.34.5",
-    "vite": "^7.3.2",
+    "vite": "^8.0.10",
     "vitest": "^4.0.15",
     "zod": "^4.1.13"
   }

@@ -45,5 +45,8 @@ export default defineConfig({
     css: {
       transformer: 'lightningcss',
     },
+    resolve: {
+      noExternal: ['monaco-editor'],
+    },
   },
 });
