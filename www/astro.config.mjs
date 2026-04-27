@@ -44,13 +44,6 @@ export default defineConfig({
   vite: {
     css: {
       transformer: 'lightningcss',
-      preprocessorOptions: {
-        scss: {
-          additionalData: `
-            @use './src/assets/css/01-utils/tokens.scss' as *;
-          `,
-        },
-      },
     },
   },
 });

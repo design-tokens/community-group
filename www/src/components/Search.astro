@@ -14,6 +14,8 @@ import { Icon } from 'astro-icon/components';
 </button>
 
 <style lang="scss">
+  @use '../assets/css/01-utils/tokens/text-styles' as *;
+
   .search-btn {
     @include text-xs;
     --border-color: var(--color-border);
