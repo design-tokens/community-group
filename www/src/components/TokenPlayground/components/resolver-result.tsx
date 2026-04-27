@@ -1,6 +1,14 @@
-import { DiffEditor } from '@monaco-editor/react';
+import { editor as monacoEditor } from 'monaco-editor';
 import eq from 'fast-deep-equal';
-import { type Dispatch, type StateUpdater, useMemo } from 'preact/hooks';
+import {
+  type Dispatch,
+  type StateUpdater,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'preact/hooks';
 import { DEFAULT_MONACO_OPTIONS } from '../lib/monaco.js';
 import type { Modifier, ResolverImpl } from '../lib/types.js';
 import { diffTokens, flatten, prettyJSON } from '../lib/utils.js';
@@ -22,6 +30,27 @@ export default function ResolverResult({
   defaultInput,
   setInput,
 }: ResolverResultProps) {
+  const [diffEditor, setDiffEditor] = useState<monacoEditor.IDiffEditor | null>(
+    null,
+  );
+  const monacoEl = useRef(null);
+
+  // mount: setup
+  useLayoutEffect(() => {
+    setDiffEditor((prev) => {
+      if (prev) return prev;
+      return monacoEditor.createDiffEditor(monacoEl.current!, {
+        ...DEFAULT_MONACO_OPTIONS,
+        originalEditable: false,
+        readOnly: true,
+        renderGutterMenu: false,
+        renderSideBySide: false,
+      });
+    });
+    return () => diffEditor?.dispose();
+  }, [monacoEl.current]);
+
+  // generate diff based on input, and if user has modified any code
   const finalTokens = useMemo(() => {
     if (!Object.keys(input).length) {
       return { original: '', modified: '' };
@@ -36,6 +65,15 @@ export default function ResolverResult({
     }
     return diffTokens(prettyJSON(actual), modified);
   }, [resolver, input]);
+
+  // update diff
+  useEffect(() => {
+    if (!diffEditor) return;
+    diffEditor.setModel({
+      original: monacoEditor.createModel(finalTokens.original, 'json'),
+      modified: monacoEditor.createModel(finalTokens.modified, 'json'),
+    });
+  }, [diffEditor, finalTokens]);
 
   return (
     <div class={s.container}>
@@ -59,17 +97,7 @@ export default function ResolverResult({
       </div>
 
       <section class={s.final}>
-        <DiffEditor
-          theme="vs-dark"
-          options={{
-            ...DEFAULT_MONACO_OPTIONS,
-            renderGutterMenu: false,
-            renderSideBySide: false,
-          }}
-          keepCurrentOriginalModel={false}
-          original={finalTokens.original}
-          modified={finalTokens.modified}
-        />
+        <div class={s.editor} ref={monacoEl} />
       </section>
     </div>
   );

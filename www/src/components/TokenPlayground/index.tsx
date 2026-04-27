@@ -4,7 +4,7 @@ import { ZodError } from 'zod/v4';
 import Nav from './components/nav.js';
 import { createResolver } from './lib/create-resolver.js';
 import type { Modifier, Preset, Resolver, ResolverImpl } from './lib/types.js';
-import Editor, { useEditor } from './components/editor.js';
+import Editor from './components/editor.js';
 import ResolverResult from './components/resolver-result.js';
 import { prettyJSON } from './lib/utils.js';
 import s from './index.module.css';
@@ -115,8 +115,6 @@ export default function TokenPlayground() {
     }
   }, [files, errors, preset]);
 
-  const { loaded } = useEditor();
-
   if (!Object.keys(files).length) {
     return (
       <div role="status" class={s.loading}>
@@ -141,38 +139,36 @@ export default function TokenPlayground() {
         {errors[currentFile] ? (
           <div class={s.editorError}>{errors[currentFile]}</div>
         ) : null}
-        {loaded && (
-          <Editor
-            path={
-              `${preset}/${currentFile}` // prefixing with preset prevents conflicts between files like resolver.json
+        <Editor
+          path={
+            `${preset}/${currentFile}` // prefixing with preset prevents conflicts between files like resolver.json
+          }
+          defaultValue={files[currentFile]}
+          onChange={(_changes, contents) => {
+            try {
+              setErrors((value) => ({ ...value, [currentFile]: undefined }));
+              const tryResolver = resolverFromFiles({
+                ...files,
+                [currentFile]: JSON.parse(contents),
+              });
+              tryResolver.apply(input); // TODO: improve resolver to be able to throw errors earlier
+              setFiles((value) => ({ ...value, [currentFile]: contents }));
+            } catch (err) {
+              console.error(err);
+              const message =
+                err instanceof ZodError &&
+                Array.isArray(JSON.parse(err.message))
+                  ? JSON.parse(err.message)
+                      .map((e) => e.message)
+                      .join('\n')
+                  : String(err);
+              setErrors((value) => ({ ...value, [currentFile]: message }));
             }
-            defaultValue={files[currentFile]}
-            onChange={(contents) => {
-              try {
-                setErrors((value) => ({ ...value, [currentFile]: undefined }));
-                const tryResolver = resolverFromFiles({
-                  ...files,
-                  [currentFile]: JSON.parse(contents),
-                });
-                tryResolver.apply(input); // TODO: improve resolver to be able to throw errors earlier
-                setFiles((value) => ({ ...value, [currentFile]: contents }));
-              } catch (err) {
-                console.error(err);
-                const message =
-                  err instanceof ZodError &&
-                  Array.isArray(JSON.parse(err.message))
-                    ? JSON.parse(err.message)
-                        .map((e) => e.message)
-                        .join('\n')
-                    : String(err);
-                setErrors((value) => ({ ...value, [currentFile]: message }));
-              }
-            }}
-          />
-        )}
+          }}
+        />
       </div>
       <div class={s.resolverResult}>
-        {loaded && resolver && (
+        {resolver && (
           <ResolverResult
             resolver={resolver}
             modifiers={modifiers}

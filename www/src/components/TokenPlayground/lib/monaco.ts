@@ -2,6 +2,7 @@ import type * as monaco from 'monaco-editor';
 
 export const DEFAULT_MONACO_OPTIONS: monaco.editor.IStandaloneEditorConstructionOptions =
   {
+    theme: 'vs-dark',
     detectIndentation: true,
     fontFamily: 'Fragment Mono',
     fontSize: 11,
