@@ -89,6 +89,7 @@ A tool for visual design creation and editing.
 - UXPin
 - Sketch
 - Figma
+- Penpot
 - Marvel
 
 ### Documentation tool
@@ -244,4 +245,4 @@ Generic term describing the most common way (but not the only way) a design toke
 
 ### Vendor
 
-Company shipping design tool(s), in a position to implement the design token specification, such as Adobe, Framer, UXPin, Figma, Sketch, and many others.
+Company shipping design tool(s), in a position to implement the design token specification, such as Adobe, Framer, UXPin, Figma, Penpot, Sketch, and many others.
