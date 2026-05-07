@@ -43,6 +43,7 @@ For example:
   - [UXPin](https://www.uxpin.com/)
   - [Sketch](https://www.sketch.com/)
   - [Figma](https://www.figma.com/)
+  - [Penpot](https://penpot.app/)
   - ...
 
 ## <dfn>Translation tool</dfn>
