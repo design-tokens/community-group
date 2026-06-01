@@ -25,7 +25,8 @@ The value of `color.text.base` is black, because it references `color.palette.bl
         "$type": "color",
         "$value": {
           "colorSpace": "srgb",
-          "components": [0, 0, 0]
+          "components": [0, 0, 0],
+          "hex": "#000000"
         }
       }
     },
