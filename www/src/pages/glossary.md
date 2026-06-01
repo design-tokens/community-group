@@ -14,7 +14,7 @@ A token value that is a reference to another token.
 
 #### Example
 
-The value of `color.text.primary` is `#000000`, because it references `color.palette.black`:
+The value of `color.text.base` is black, because it references `color.palette.black`:
 
 ```json
 {
@@ -23,12 +23,15 @@ The value of `color.text.primary` is `#000000`, because it references `color.pal
     "palette": {
       "black": {
         "$type": "color",
-        "$value": "#000000"
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "hex": "#000000"
+        }
       }
     },
     "text": {
-      "primary": {
-        "$type": "color",
+      "base": {
         "$value": "{color.palette.black}"
       }
     }
