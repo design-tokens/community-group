@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import { getW3FormattedDate, getFormattedDate } from '@/utils/date.utils';
+import Base from '@/layouts/Base.astro';
+import Text from '@/components/Text/Text.astro';
+import Stack from '@/components/Stack/Stack.astro';
+import { Icon } from 'astro-icon/components';
+
+const title = 'Blog';
+
+const posts = await getCollection('posts');
+const w3c = await getCollection('w3c');
+
+const sortedPosts = [...posts, ...w3c].sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+<Base title={title}>
+  <Stack as="ul" gap={12} axis="y" class="blog-list u-list-style:none">
+    {
+      sortedPosts.map((post) => (
+        <li>
+          <Stack as="article" gap={2} class="article">
+            {post.collection === 'w3c' ? (
+              <a href={post.data.url} target="_blank">
+                {post.data.title}
+                <Icon
+                  name="external"
+                  aria-label="External link"
+                  role="graphics-symbol img"
+                />
+              </a>
+            ) : (
+              <a href={`/blog/${post.id}`}>{post.data.title}</a>
+            )}
+            <Text as="p" variant="sm">
+              <time datetime={getW3FormattedDate(post.data.date)}>
+                {getFormattedDate(post.data.date)}
+              </time>
+            </Text>
+          </Stack>
+        </li>
+      ))
+    }
+  </Stack>
+</Base>
+
+<style lang="scss">
+  .article {
+    p {
+      margin: 0;
+    }
+  }
+
+  .blog-list {
+    margin: 0;
+    padding: 0;
+  }
+</style>

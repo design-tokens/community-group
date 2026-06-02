@@ -5,6 +5,11 @@
   height: 100%;
 }
 
+.editor {
+  height: 100%;
+  width: 100%;
+}
+
 .modifiers {
   border: none;
   align-items: center;
@@ -32,9 +37,4 @@
 .final {
   display: flex;
   flex: 1 0 auto;
-
-  > * {
-    height: 100%;
-    width: 100%;
-  }
 }

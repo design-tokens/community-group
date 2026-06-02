@@ -53,6 +53,8 @@ const url = new URL(Astro.request.url);
 </header>
 
 <style lang="scss">
+  @use '../assets/css/01-utils/tokens/text-styles' as *;
+
   .header {
     align-items: center;
     background-color: var(--color-bg);
