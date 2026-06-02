@@ -25,7 +25,7 @@ importers:
         version: 0.14.1
       puppeteer:
         specifier: ^24.32.0
-        version: 24.32.0(typescript@5.9.2)
+        version: 24.32.0(typescript@6.0.3)
 
   schemas:
     devDependencies:
@@ -35,9 +35,15 @@ importers:
       '@types/node':
         specifier: ^25.4.0
         version: 25.9.1
+      prettier:
+        specifier: ^3.7.4
+        version: 3.7.4
       tsx:
         specifier: ^4.19.4
         version: 4.22.4
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
 
   technical-reports:
     devDependencies:
@@ -49,7 +55,7 @@ importers:
         version: 3.0.0
       respec:
         specifier: ^35.6.1
-        version: 35.6.1(typescript@5.9.2)
+        version: 35.6.1(typescript@6.0.3)
 
   www:
     dependencies:
@@ -3657,6 +3663,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  typescript@6.0.3:
+    resolution: {integrity: sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   ufo@1.6.3:
     resolution: {integrity: sha512-yDJTmhydvl5lJzBmy/hyOAA0d+aqCBuwl818haVdYCRrWV84o7YyeVm4QlVHStqNrrJSTb6jKuFAVqAFsr+K3Q==}
 
@@ -5776,14 +5787,14 @@ snapshots:
 
   core-util-is@1.0.3: {}
 
-  cosmiconfig@9.0.0(typescript@5.9.2):
+  cosmiconfig@9.0.0(typescript@6.0.3):
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.1
       js-yaml: 4.1.1
       parse-json: 5.2.0
     optionalDependencies:
-      typescript: 5.9.2
+      typescript: 6.0.3
 
   crossws@0.3.5:
     dependencies:
@@ -7542,11 +7553,11 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  puppeteer@24.32.0(typescript@5.9.2):
+  puppeteer@24.32.0(typescript@6.0.3):
     dependencies:
       '@puppeteer/browsers': 2.11.0
       chromium-bidi: 11.0.0(devtools-protocol@0.0.1534754)
-      cosmiconfig: 9.0.0(typescript@5.9.2)
+      cosmiconfig: 9.0.0(typescript@6.0.3)
       devtools-protocol: 0.0.1534754
       puppeteer-core: 24.32.0
       typed-query-selector: 2.12.0
@@ -7729,12 +7740,12 @@ snapshots:
 
   resolve-from@5.0.0: {}
 
-  respec@35.6.1(typescript@5.9.2):
+  respec@35.6.1(typescript@6.0.3):
     dependencies:
       colors: 1.4.0
       finalhandler: 2.1.1
       marked: 12.0.2
-      puppeteer: 24.32.0(typescript@5.9.2)
+      puppeteer: 24.32.0(typescript@6.0.3)
       sade: 1.8.1
       serve-static: 2.2.0
     transitivePeerDependencies:
@@ -8178,6 +8189,8 @@ snapshots:
 
   typescript@5.9.2:
     optional: true
+
+  typescript@6.0.3: {}
 
   ufo@1.6.3: {}
 

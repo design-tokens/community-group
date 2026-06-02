@@ -11,12 +11,15 @@
   },
   "scripts": {
     "build": "tsx scripts/bundle.ts",
-    "lint": "prettier . --check",
-    "format": "prettier . --format --write"
+    "lint": "prettier . --check && pnpm run typecheck",
+    "format": "prettier . --write",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@hyperjump/json-schema": "^1.14.3",
     "@types/node": "^25.4.0",
-    "tsx": "^4.19.4"
+    "prettier": "^3.7.4",
+    "tsx": "^4.19.4",
+    "typescript": "^6.0.3"
   }
 }

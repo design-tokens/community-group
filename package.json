@@ -11,7 +11,7 @@
   "license": "SEE LICENSE.md",
   "packageManager": "pnpm@10.23.0",
   "scripts": {
-    "build": "pnpm run build:tr && pnpm run build:schemas && pnpm run build:www",
+    "build": "pnpm run build:tr && pnpm run build:www",
     "build:tr": "pnpm --filter @dtcg/tr run build",
     "build:schemas": "pnpm --filter @dtcg/schemas run build",
     "build:www": "pnpm --filter @dtcg/www run build",

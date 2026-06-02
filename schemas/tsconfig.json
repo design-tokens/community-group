@@ -9,7 +9,8 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "allowJs": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": ["node"]
   },
   "include": ["scripts/**/*.ts", "tests/**/*.ts"],
   "exclude": ["node_modules", "dist"]

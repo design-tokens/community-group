@@ -13,8 +13,6 @@ import {
   readdirSync,
   statSync,
   mkdirSync,
-  rmSync,
-  existsSync,
 } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -82,18 +80,22 @@ function findJsonFiles(dir: string): string[] {
  * so the bundler can resolve cross-file `$ref`s by `$id`.
  *
  * @param sourceDir - The directory containing the split source schemas.
- * @returns The number of schema files found.
+ * @returns The number of schemas registered.
  */
 function registerAllSchemas(sourceDir: string): number {
   const files = findJsonFiles(sourceDir);
+  let registeredCount = 0;
+
   for (const file of files) {
     const schema: SchemaObject = JSON.parse(readFileSync(file, 'utf-8'));
     if (typeof schema.$id === 'string') {
       registerSchema(schema, schema.$id);
+      registeredCount += 1;
       console.log(`  Registered: ${schema.$id}`);
     }
   }
-  return files.length;
+
+  return registeredCount;
 }
 
 /**
@@ -128,22 +130,6 @@ async function bundleSchema(
   }
 }
 
-/**
- * Remove all subdirectories from a directory.
- *
- * @param dir - The directory to clean.
- */
-function cleanDirectory(dir: string): void {
-  if (!existsSync(dir)) return;
-  for (const entry of readdirSync(dir)) {
-    const fullPath = join(dir, entry);
-    if (statSync(fullPath).isDirectory()) {
-      console.log(`  Removing: ${fullPath}`);
-      rmSync(fullPath, { recursive: true });
-    }
-  }
-}
-
 async function main(): Promise<void> {
   for (const { version, entrySchemas } of config.versions) {
     console.log(`\n=== Version ${version} ===`);
@@ -153,15 +139,9 @@ async function main(): Promise<void> {
       join(ROOT_DIR, dir, version),
     );
 
-    console.log('\nCleaning output directories...');
-    for (const dir of outputDirs) {
-      mkdirSync(dir, { recursive: true });
-      cleanDirectory(dir);
-    }
-
     console.log('\nRegistering source schemas...');
     const count = registerAllSchemas(sourceDir);
-    console.log(`Registered ${count} schema files.`);
+    console.log(`Registered ${count} schemas.`);
 
     for (const { id, filename } of entrySchemas) {
       await bundleSchema(id, filename, outputDirs);
