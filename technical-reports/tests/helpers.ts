@@ -79,7 +79,7 @@ export interface ExtractedExample {
   lang: 'json' | 'jsonc';
   /** Raw content of the code block (between the fences). */
   raw: string;
-  /** Whether the block contains JSONC features (comments/trailing commas). */
+  /** Whether the block contains supported JSONC-only features. */
   hasJsoncFeatures: boolean;
   /** The `$schema` value if declared in the block. */
   schema: string | undefined;
@@ -90,6 +90,27 @@ export interface ExtractedExample {
   /** Detected schema type key from config, or `undefined` for unclassified. */
   detectedType: string | undefined;
 }
+
+/** Result of resolving an example to a validation schema. */
+export type SchemaResolution =
+  | {
+      /** The example can be validated against a known schema. */
+      status: 'resolved';
+      /** Canonical `$id` of the schema. */
+      schemaId: string;
+      /** Absolute path to the bundled schema file. */
+      schemaPath: string;
+    }
+  | {
+      /** The example declares `$schema`, but it is not configured. */
+      status: 'unknown-schema';
+      /** The unrecognized `$schema` value from the example. */
+      schema: string;
+    }
+  | {
+      /** The example has no `$schema` and did not match detection rules. */
+      status: 'unclassified';
+    };
 
 // ---------------------------------------------------------------------------
 // Config loading
@@ -204,13 +225,17 @@ function extractBlocksFromFile(
       currentAsideTitle = undefined;
     }
 
-    if (!inBlock && /^```jsonc?\s*$/.test(line)) {
+    // Markdown permits up to three leading spaces before a fenced code block.
+    // The info string may also include extra metadata after the language tag,
+    // e.g. ```json title="Example". Capture only the language for validation.
+    const openingFenceMatch = line.match(/^ {0,3}```(jsonc?)(?:\s+.*)?$/);
+    if (!inBlock && openingFenceMatch) {
       inBlock = true;
-      blockLang = line.includes('jsonc') ? 'jsonc' : 'json';
+      blockLang = openingFenceMatch[1] === 'jsonc' ? 'jsonc' : 'json';
       blockFenceLine = i + 1; // 1-based line of the opening fence
       blockLines = [];
       blockIndex++;
-    } else if (inBlock && line.trim() === '```') {
+    } else if (inBlock && /^ {0,3}```\s*$/.test(line)) {
       inBlock = false;
       const raw = blockLines.join('\n');
 
@@ -241,13 +266,14 @@ function extractBlocksFromFile(
 }
 
 /**
- * Detect whether a block contains JSONC-only features.
+ * Detect whether a block contains supported JSONC-only features.
  *
  * Tries strict `JSON.parse()` first. If that fails but `jsonc-parser`
- * succeeds, the block contains comments and/or trailing commas.
+ * succeeds without allowing trailing commas, the block contains supported
+ * JSONC features such as comments.
  *
  * @param raw - The raw code block content.
- * @returns `true` if the block contains JSONC features (comments or trailing commas).
+ * @returns `true` if the block contains supported JSONC features.
  */
 function detectJsoncFeatures(raw: string): boolean {
   try {
@@ -256,7 +282,7 @@ function detectJsoncFeatures(raw: string): boolean {
   } catch {
     const errors: ParseError[] = [];
     parseJsonc(raw, errors, { allowTrailingComma: false });
-    // Parseable as JSONC but not as strict JSON → has JSONC features
+    // Parseable as supported JSONC but not as strict JSON → has JSONC features
     return errors.length === 0;
   }
 }
@@ -337,6 +363,58 @@ export function formatAjvErrors(
     .join('\n\n');
 }
 
+/**
+ * Format JSONC parse errors with line/column and source context.
+ *
+ * `jsonc-parser` reports byte offsets, which are hard to act on in markdown
+ * examples. This groups parser errors by offset and adds line/column context
+ * with a concise reason.
+ *
+ * @param raw - The raw code block content.
+ * @param errors - JSONC parser errors.
+ * @param sourceStartLine - 1-based source line of the opening code fence.
+ * @returns A formatted multi-line error report.
+ */
+export function formatJsoncParseErrors(
+  raw: string,
+  errors: ParseError[],
+  sourceStartLine: number,
+): string {
+  if (errors.length === 0) return '  (no errors)';
+
+  const grouped = new Map<number, ParseError[]>();
+  for (const error of errors) {
+    const group = grouped.get(error.offset) ?? [];
+    group.push(error);
+    grouped.set(error.offset, group);
+  }
+
+  return [...grouped.entries()]
+    .map(([offset, group]) => {
+      const codes = group
+        .map((error) => printParseErrorCode(error.error))
+        .join(', ');
+
+      const prefix = raw.slice(0, offset);
+      const previousNonWhitespace = prefix.match(/\S(?=\s*$)/);
+      const isTrailingComma = previousNonWhitespace?.[0] === ',';
+      const markerOffset = isTrailingComma
+        ? (previousNonWhitespace.index ?? offset)
+        : offset;
+      const beforeMarker = raw.slice(0, markerOffset).split('\n');
+      const line = beforeMarker.length;
+      const column = beforeMarker[beforeMarker.length - 1].length + 1;
+      const sourceLine = sourceStartLine + line;
+      const reason = isTrailingComma ? 'Trailing comma' : codes;
+
+      return (
+        `  Line ${sourceLine}, column ${column} ` +
+        `(block line ${line}): ${reason}`
+      );
+    })
+    .join('\n\n');
+}
+
 // ---------------------------------------------------------------------------
 // Exclusion helpers
 // ---------------------------------------------------------------------------
@@ -414,36 +492,38 @@ export function failureMessage(
  *
  * @param block - The extracted example to resolve a schema for.
  * @param config - The loaded tests config containing detection rules.
- * @returns The schema ID and file path, or `undefined` for unclassified blocks.
+ * @returns A schema resolution result describing whether validation is possible.
  */
 export function resolveSchema(
   block: ExtractedExample,
   config: ExamplesConfig,
-): { schemaId: string; schemaPath: string } | undefined {
-  // Explicit $schema declared in the block
+): SchemaResolution {
+  // Explicit $schema declared in the block. Unknown explicit schemas are
+  // reported separately so typos do not silently downgrade to parse-only tests.
   if (block.schema) {
     for (const rule of Object.values(config.detection)) {
       if (rule.schema.id === block.schema) {
         return {
+          status: 'resolved',
           schemaId: rule.schema.id,
           schemaPath: join(CONFIG_DIR, config.schemaDir, rule.schema.filename),
         };
       }
     }
-    // Unknown $schema URL — cannot validate
-    return undefined;
+    return { status: 'unknown-schema', schema: block.schema };
   }
 
   // Detection-based classification
   if (block.detectedType) {
     const rule = config.detection[block.detectedType];
     return {
+      status: 'resolved',
       schemaId: rule.schema.id,
       schemaPath: join(CONFIG_DIR, config.schemaDir, rule.schema.filename),
     };
   }
 
-  return undefined;
+  return { status: 'unclassified' };
 }
 
 // ---------------------------------------------------------------------------

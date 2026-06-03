@@ -25,8 +25,8 @@ import {
   formatLabel,
   failureMessage,
   formatAjvErrors,
+  formatJsoncParseErrors,
   parseJsonc,
-  printParseErrorCode,
   type ParseError,
 } from './helpers.js';
 
@@ -82,12 +82,11 @@ for (const [file, blocks] of byFile) {
       // Tier 1: Parseable as JSONC
       it(`${label} — parses as valid JSONC`, () => {
         if (parseErrors.length > 0) {
-          const errorDetails = parseErrors
-            .map(
-              (e) =>
-                `  Offset ${e.offset}: ${printParseErrorCode(e.error)} (length: ${e.length})`,
-            )
-            .join('\n');
+          const errorDetails = formatJsoncParseErrors(
+            block.raw,
+            parseErrors,
+            block.line,
+          );
           expect.fail(
             failureMessage(block, `JSONC parse errors:\n${errorDetails}`),
           );
@@ -100,8 +99,8 @@ for (const [file, blocks] of byFile) {
           expect.fail(
             failureMessage(
               block,
-              `Block is tagged \`json\` but contains JSONC features ` +
-                `(comments or trailing commas). Change the tag to \`jsonc\`.`,
+              `Block is tagged \`json\` but contains JSONC features. ` +
+                `Change the tag to \`jsonc\`.`,
             ),
           );
         });
@@ -109,7 +108,19 @@ for (const [file, blocks] of byFile) {
 
       // Tier 3: Schema validation
       const resolved = resolveSchema(block, config);
-      if (resolved) {
+      if (resolved.status === 'unknown-schema') {
+        it(`${label} — uses a known $schema`, () => {
+          expect.fail(
+            failureMessage(
+              block,
+              `Unknown $schema: ${resolved.schema}\n` +
+                `Add it to tests.config.json if intentional, or fix the URL.`,
+            ),
+          );
+        });
+      }
+
+      if (resolved.status === 'resolved') {
         const source = block.schema
           ? '$schema field'
           : `detected signals (${block.detectedType})`;
