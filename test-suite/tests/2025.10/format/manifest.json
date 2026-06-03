@@ -1222,11 +1222,11 @@
       "features": ["metadata"]
     },
     {
-      "id": "metadata-extra-properties-in-token",
+      "id": "metadata-unsupported-dollar-property",
       "type": "NegativeEvaluationTest",
-      "name": "Token with extra non-$ properties",
-      "purpose": "Verifies that tokens cannot have additional properties besides $type, $value, and metadata",
-      "input": "negative/metadata/extra-properties-in-token.json",
+      "name": "Token with unsupported $-prefixed metadata property",
+      "purpose": "Verifies that tokens cannot have unsupported $-prefixed metadata properties besides the defined metadata fields",
+      "input": "negative/metadata/unsupported-dollar-property.json",
       "features": ["metadata"]
     },
     {

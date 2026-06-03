@@ -170,7 +170,7 @@ export interface ValidationResult {
 export interface GenerateTestsOptions {
   /**
    * Test case IDs to exclude from the generated suite.
-   * Matching tests are silently omitted rather than skipped.
+   * Matching tests are omitted rather than skipped.
    */
   excludeIds?: string[];
 }
@@ -221,10 +221,17 @@ export function generateTests(
 
         const schemaPath = join(DIST_DIR, version, entry.filename);
 
-        const testCases = subManifest.tests.filter(
-          (t) =>
-            !t.features?.includes('preprocessing-required') &&
-            !excludeIdSet.has(t.id),
+        const excludedTestCases = subManifest.tests.filter((t) =>
+          excludeIdSet.has(t.id),
+        );
+        const includedTestCases = subManifest.tests.filter(
+          (t) => !excludeIdSet.has(t.id),
+        );
+        const testCases = includedTestCases.filter(
+          (t) => !t.features?.includes('preprocessing-required'),
+        );
+        const preprocessingRequiredTestCases = includedTestCases.filter((t) =>
+          t.features?.includes('preprocessing-required'),
         );
 
         const ctx: ValidateContext = { subManifest, schemaPath, manifestDir };
@@ -245,6 +252,16 @@ export function generateTests(
               ),
             ).toBe(shouldBeValid);
           });
+
+          it.skip.each(preprocessingRequiredTestCases)(
+            '$name (requires preprocessing)',
+            () => {},
+          );
+
+          it.skip.each(excludedTestCases)(
+            '$name (excluded by validator)',
+            () => {},
+          );
         });
       }
     });
