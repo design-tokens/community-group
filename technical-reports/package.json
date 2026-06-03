@@ -2,6 +2,7 @@
   "name": "@dtcg/tr",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "description": "Technical reports for the design tokens specification.",
   "repository": {
     "type": "git",
@@ -9,6 +10,7 @@
     "directory": "technical-reports"
   },
   "scripts": {
+    "test": "vitest run",
     "build": "pnpm run mkdirs && pnpm --filter @dtcg/tr run \"/^build:.*/\"",
     "build:index": "respec index.html ../www/src/pages/TR/drafts/index.html --port 3001 --localhost --disable-sandbox",
     "build:format": "respec format/index.html ../www/src/pages/TR/drafts/format/index.html --port 3002 --localhost --disable-sandbox",
@@ -30,8 +32,13 @@
     "validate:resolver": "respec --localhost resolver/index.html --haltonerror --haltonwarn"
   },
   "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
     "chokidar": "^4.0.3",
     "chokidar-cli": "^3.0.0",
-    "respec": "^35.6.1"
+    "glob": "^11.0.0",
+    "jsonc-parser": "^3.3.1",
+    "respec": "^35.6.1",
+    "vitest": "^4.0.15"
   }
 }

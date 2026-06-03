@@ -44,4 +44,5 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
+      - run: pnpm run build:schemas
       - run: pnpm run test
