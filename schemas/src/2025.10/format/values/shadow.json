@@ -16,7 +16,7 @@
             "$ref": "#/definitions/shadowObject"
           },
           {
-            "$ref": "../../format.json#/definitions/tokenValueReference"
+            "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
           }
         ]
       },
@@ -32,10 +32,10 @@
           "description": "The color of the shadow",
           "oneOf": [
             {
-              "$ref": "color.json"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format/values/color.json"
             },
             {
-              "$ref": "../../format.json#/definitions/tokenValueReference"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
             }
           ]
         },
@@ -43,10 +43,10 @@
           "description": "The horizontal offset that shadow has from the element it is applied to",
           "oneOf": [
             {
-              "$ref": "dimension.json"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format/values/dimension.json"
             },
             {
-              "$ref": "../../format.json#/definitions/tokenValueReference"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
             }
           ]
         },
@@ -54,10 +54,10 @@
           "description": "The vertical offset that shadow has from the element it is applied to",
           "oneOf": [
             {
-              "$ref": "dimension.json"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format/values/dimension.json"
             },
             {
-              "$ref": "../../format.json#/definitions/tokenValueReference"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
             }
           ]
         },
@@ -65,10 +65,10 @@
           "description": "The blur radius that is applied to the shadow",
           "oneOf": [
             {
-              "$ref": "dimension.json"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format/values/dimension.json"
             },
             {
-              "$ref": "../../format.json#/definitions/tokenValueReference"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
             }
           ]
         },
@@ -76,10 +76,10 @@
           "description": "The amount by which to expand or contract the shadow",
           "oneOf": [
             {
-              "$ref": "dimension.json"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format/values/dimension.json"
             },
             {
-              "$ref": "../../format.json#/definitions/tokenValueReference"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
             }
           ]
         },
@@ -90,7 +90,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/jsonPointerReferenceObject"
             }
           ]
         }

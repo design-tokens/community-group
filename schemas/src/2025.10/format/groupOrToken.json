@@ -5,10 +5,10 @@
   "description": "A group or a token in the DTCG specification. A token is identified by the presence of a $value property, while a group is any object without a $value property.",
   "oneOf": [
     {
-      "$ref": "group.json"
+      "$ref": "https://www.designtokens.org/schemas/2025.10/format/group.json"
     },
     {
-      "$ref": "token.json"
+      "$ref": "https://www.designtokens.org/schemas/2025.10/format/token.json"
     }
   ]
 }

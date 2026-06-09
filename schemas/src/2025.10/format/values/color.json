@@ -28,7 +28,7 @@
           ]
         },
         {
-          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -39,7 +39,7 @@
           "type": "array"
         },
         {
-          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -52,7 +52,7 @@
           "maximum": 1
         },
         {
-          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -65,7 +65,7 @@
           "pattern": "^#[0-9a-fA-F]{6}$"
         },
         {
-          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     }
@@ -87,7 +87,7 @@
           "const": "none"
         },
         {
-          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -105,7 +105,7 @@
           "const": "none"
         },
         {
-          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -123,7 +123,7 @@
           "const": "none"
         },
         {
-          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -140,7 +140,7 @@
           "const": "none"
         },
         {
-          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -156,7 +156,7 @@
           "const": "none"
         },
         {
-          "$ref": "../../format.json#/definitions/jsonPointerReferenceObject"
+          "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/jsonPointerReferenceObject"
         }
       ]
     },
@@ -207,8 +207,12 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "srgb" },
-          "components": { "type": "array" }
+          "colorSpace": {
+            "const": "srgb"
+          },
+          "components": {
+            "type": "array"
+          }
         }
       },
       "then": {
@@ -222,8 +226,12 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "srgb-linear" },
-          "components": { "type": "array" }
+          "colorSpace": {
+            "const": "srgb-linear"
+          },
+          "components": {
+            "type": "array"
+          }
         }
       },
       "then": {
@@ -237,8 +245,12 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "display-p3" },
-          "components": { "type": "array" }
+          "colorSpace": {
+            "const": "display-p3"
+          },
+          "components": {
+            "type": "array"
+          }
         }
       },
       "then": {
@@ -252,8 +264,12 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "a98-rgb" },
-          "components": { "type": "array" }
+          "colorSpace": {
+            "const": "a98-rgb"
+          },
+          "components": {
+            "type": "array"
+          }
         }
       },
       "then": {
@@ -267,8 +283,12 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "prophoto-rgb" },
-          "components": { "type": "array" }
+          "colorSpace": {
+            "const": "prophoto-rgb"
+          },
+          "components": {
+            "type": "array"
+          }
         }
       },
       "then": {
@@ -282,8 +302,12 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "rec2020" },
-          "components": { "type": "array" }
+          "colorSpace": {
+            "const": "rec2020"
+          },
+          "components": {
+            "type": "array"
+          }
         }
       },
       "then": {
@@ -297,8 +321,12 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "xyz-d65" },
-          "components": { "type": "array" }
+          "colorSpace": {
+            "const": "xyz-d65"
+          },
+          "components": {
+            "type": "array"
+          }
         }
       },
       "then": {
@@ -312,8 +340,12 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "xyz-d50" },
-          "components": { "type": "array" }
+          "colorSpace": {
+            "const": "xyz-d50"
+          },
+          "components": {
+            "type": "array"
+          }
         }
       },
       "then": {
@@ -327,8 +359,12 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "hsl" },
-          "components": { "type": "array" }
+          "colorSpace": {
+            "const": "hsl"
+          },
+          "components": {
+            "type": "array"
+          }
         }
       },
       "then": {
@@ -358,8 +394,12 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "hwb" },
-          "components": { "type": "array" }
+          "colorSpace": {
+            "const": "hwb"
+          },
+          "components": {
+            "type": "array"
+          }
         }
       },
       "then": {
@@ -389,8 +429,12 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "lab" },
-          "components": { "type": "array" }
+          "colorSpace": {
+            "const": "lab"
+          },
+          "components": {
+            "type": "array"
+          }
         }
       },
       "then": {
@@ -420,8 +464,12 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "lch" },
-          "components": { "type": "array" }
+          "colorSpace": {
+            "const": "lch"
+          },
+          "components": {
+            "type": "array"
+          }
         }
       },
       "then": {
@@ -451,8 +499,12 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "oklab" },
-          "components": { "type": "array" }
+          "colorSpace": {
+            "const": "oklab"
+          },
+          "components": {
+            "type": "array"
+          }
         }
       },
       "then": {
@@ -482,8 +534,12 @@
     {
       "if": {
         "properties": {
-          "colorSpace": { "const": "oklch" },
-          "components": { "type": "array" }
+          "colorSpace": {
+            "const": "oklch"
+          },
+          "components": {
+            "type": "array"
+          }
         }
       },
       "then": {

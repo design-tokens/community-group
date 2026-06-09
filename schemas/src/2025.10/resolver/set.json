@@ -60,7 +60,7 @@
             "$ref": "#/definitions/referenceObjectForSets"
           },
           {
-            "$ref": "../format.json",
+            "$ref": "https://www.designtokens.org/schemas/2025.10/format.json",
             "description": "Inline design tokens in DTCG format"
           }
         ]

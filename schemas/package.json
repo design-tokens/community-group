@@ -1,0 +1,25 @@
+{
+  "name": "@dtcg/schemas",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "JSON Schemas for the Design Tokens Community Group (DTCG) specifications",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/design-tokens/community-group.git",
+    "directory": "schemas"
+  },
+  "scripts": {
+    "build": "tsx scripts/bundle.ts",
+    "lint": "prettier . --check && pnpm run typecheck",
+    "format": "prettier . --write",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@hyperjump/json-schema": "^1.14.3",
+    "@types/node": "^25.4.0",
+    "prettier": "^3.7.4",
+    "tsx": "^4.19.4",
+    "typescript": "^6.0.3"
+  }
+}

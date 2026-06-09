@@ -12,7 +12,7 @@
       "$comment": "$schema is not part of the official DTCG specification."
     },
     "$type": {
-      "$ref": "format/tokenType.json",
+      "$ref": "https://www.designtokens.org/schemas/2025.10/format/tokenType.json",
       "description": "The type for tokens in this group (inherited by nested tokens unless overridden)"
     },
     "$description": {
@@ -47,13 +47,13 @@
     },
     "$root": {
       "description": "Root token for this group. The $root token provides a base value for the group while allowing for variants or extensions.",
-      "$ref": "format/token.json"
+      "$ref": "https://www.designtokens.org/schemas/2025.10/format/token.json"
     }
   },
   "patternProperties": {
     "^[^${}.][^{}.]*$": {
       "description": "Nested groups and tokens (see #/definitions/tokenOrGroupName for pattern definition)",
-      "$ref": "format/groupOrToken.json"
+      "$ref": "https://www.designtokens.org/schemas/2025.10/format/groupOrToken.json"
     }
   },
   "additionalProperties": false,

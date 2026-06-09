@@ -38,7 +38,7 @@
           },
           "sources": {
             "title": "Sources",
-            "$ref": "set.json#/definitions/tokenSourcesForSets",
+            "$ref": "https://www.designtokens.org/schemas/2025.10/resolver/set.json#/definitions/tokenSourcesForSets",
             "description": "An array of token sources. Can contain reference objects pointing to JSON files, inline token definitions, or any combination. If the array declares multiple sources, they will be merged in array order, meaning if a token is declared multiple times, the last occurrence in the array will be the final value."
           },
           "$extensions": {
@@ -79,7 +79,7 @@
             "minProperties": 2,
             "patternProperties": {
               "^.+$": {
-                "$ref": "modifier.json#/definitions/tokenSourcesForModifiers",
+                "$ref": "https://www.designtokens.org/schemas/2025.10/resolver/modifier.json#/definitions/tokenSourcesForModifiers",
                 "description": "An array of token sources for this context. Can contain reference objects pointing to JSON files, inline token definitions, or any combination. If the array declares multiple sources, they will be merged in array order, meaning if a token is declared multiple times, the last occurrence in the array will be the final value."
               }
             },

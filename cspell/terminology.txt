@@ -21,6 +21,7 @@ ednote
 eldef
 figno
 frontmatter
+hyperjump
 implementability
 indextable
 lightningcss

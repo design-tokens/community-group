@@ -10,7 +10,7 @@
         "$ref": "#/definitions/gradientStop"
       },
       {
-        "$ref": "../../format.json#/definitions/tokenValueReference"
+        "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
       }
     ]
   },
@@ -24,10 +24,10 @@
           "description": "The color value at the stop's position on the gradient",
           "oneOf": [
             {
-              "$ref": "color.json"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format/values/color.json"
             },
             {
-              "$ref": "../../format.json#/definitions/tokenValueReference"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
             }
           ]
         },
@@ -40,7 +40,7 @@
               "maximum": 1
             },
             {
-              "$ref": "../../format.json#/definitions/tokenValueReference"
+              "$ref": "https://www.designtokens.org/schemas/2025.10/format.json#/definitions/tokenValueReference"
             }
           ]
         }
