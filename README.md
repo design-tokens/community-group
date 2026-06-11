@@ -107,6 +107,10 @@ Here's an overview of all of the published versions of this draft specification:
 
 See [CONTRIBUTING.md](https://github.com/design-tokens/community-group/blob/main/CONTRIBUTING.md).
 
+## Community chat
+
+Join the [official DTCG Discord server](https://discord.gg/fkK6ZUXRkp) for real-time community discussion.
+
 ---
 
 We acknowledge that the format specification is only part of an ecosystem, supporting methods and practices that relate to scaling design tokens:
