@@ -23,22 +23,29 @@ jobs:
           commit_message = os.environ.get("COMMIT_MESSAGE", "")
           commit_lines = commit_message.splitlines()
           commit_title = commit_lines[0] if commit_lines else ""
+          compare_url = os.environ.get("COMPARE_URL", "")
+          author = os.environ.get("AUTHOR", "Unknown")
+          timestamp = os.environ.get("TIMESTAMP", "")
 
-          print(json.dumps({
-              "embeds": [{
-                  "title": "New update pushed to main",
-                  "description": commit_title,
-                  "url": os.environ["COMPARE_URL"],
-                  "color": 5732594,
-                  "fields": [{
-                      "name": "Author",
-                      "value": os.environ["AUTHOR"],
-                      "inline": True,
-                  }],
-                  "footer": {"text": "GitHub Push"},
-                  "timestamp": os.environ["TIMESTAMP"],
-              }]
-          }))
+          embed = {
+              "title": "New update pushed to main",
+              "description": commit_title,
+              "color": 5732594,
+              "fields": [{
+                  "name": "Author",
+                  "value": author,
+                  "inline": True,
+              }],
+              "footer": {"text": "GitHub Push"},
+          }
+
+          if compare_url:
+              embed["url"] = compare_url
+
+          if timestamp:
+              embed["timestamp"] = timestamp
+
+          print(json.dumps({"embeds": [embed]}))
           PY
           )
 
