@@ -1,1 +1,5 @@
 blank_issues_enabled: false
+contact_links:
+  - name: 💬 Community chat (Discord)
+    url: https://discord.gg/fkK6ZUXRkp
+    about: For general questions or discussion, join the official DTCG Discord server.

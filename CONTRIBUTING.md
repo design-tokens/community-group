@@ -24,6 +24,12 @@ If you added a contributor by mistake, you can remove them in a comment with:
 If you are making a pull request on behalf of someone else but you had no part in designing the
 feature, you can remove yourself with the above syntax.
 
+## Community discussion
+
+For real-time community chat, join the [official DTCG Discord server](https://discord.gg/fkK6ZUXRkp).
+
+For bug reports, specification proposals, and concrete repo changes, please use [GitHub issues](https://github.com/design-tokens/community-group/issues).
+
 ## Local development
 
 The following section is for previewing designtokens.org and the technical reports on your local machine.

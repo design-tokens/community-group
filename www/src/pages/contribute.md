@@ -47,6 +47,7 @@ If you'd like to have an impact on this specification but don't have the privile
 
 ## Discussion channels
 
+- [Official DTCG Discord server](https://discord.gg/fkK6ZUXRkp) for real-time community chat
 - [Official DTCG X account: @DesignTokens](https://x.com/DesignTokens)
 - [Official DTCG Bluesky account: @designtokens.org](https://bsky.app/profile/designtokens.org)
 - [Official DTCG LinkedIn account](https://www.linkedin.com/company/design-tokens-community-group/)

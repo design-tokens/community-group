@@ -59,6 +59,8 @@ Types of feedback (all are welcome)
 
 Join the official [W3C Design Tokens Community Group](https://www.w3.org/community/design-tokens/): Participate in formal specification development discussions, attend group meetings and calls, contribute to the working drafts and proposals, and influence the direction of the specification.
 
+Join the [official DTCG Discord server](https://discord.gg/fkK6ZUXRkp) for real-time community chat and informal discussion.
+
 Learn more on how to [contribute](../contribute/).
 
 ## What tools support this?
@@ -131,4 +133,4 @@ Please reach out in our various official and social channels:
 - Got a question about the [DTCG Website?](https://github.com/design-tokens/community-group/issues)
 - Got a question about the [DTCG Specifications?](https://github.com/design-tokens/community-group/issues)
 - Reach out to the official [W3C Design Tokens Community Group](https://www.w3.org/community/design-tokens/)
-- Connect with DTCG on [LinkedIn](https://www.linkedin.com/company/design-tokens-community-group), [X](https://x.com/DesignTokens), [Bluesky](https://bsky.app/profile/designtokens.org), [Open Collective](https://opencollective.com/design-tokens)
+- Connect with DTCG on [Discord](https://discord.gg/fkK6ZUXRkp), [LinkedIn](https://www.linkedin.com/company/design-tokens-community-group), [X](https://x.com/DesignTokens), [Bluesky](https://bsky.app/profile/designtokens.org), [Open Collective](https://opencollective.com/design-tokens)

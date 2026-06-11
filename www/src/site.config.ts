@@ -28,6 +28,11 @@ export const menu = {
       icon: 'github',
     },
     {
+      path: 'https://discord.gg/fkK6ZUXRkp',
+      title: 'Discord',
+      icon: 'discord',
+    },
+    {
       path: 'https://www.w3.org/community/design-tokens',
       title: 'W3C Community Group',
       icon: 'w3c',
