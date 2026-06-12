@@ -22,9 +22,9 @@ jobs:
 
           commit_message = os.environ.get("COMMIT_MESSAGE", "")
           commit_lines = commit_message.splitlines()
-          commit_title = commit_lines[0] if commit_lines else ""
+          commit_title = (commit_lines[0] if commit_lines else "")[:4096]
           compare_url = os.environ.get("COMPARE_URL", "")
-          author = os.environ.get("AUTHOR", "Unknown")
+          author = (os.environ.get("AUTHOR") or "").strip() or "Unknown"
           timestamp = os.environ.get("TIMESTAMP", "")
 
           embed = {
