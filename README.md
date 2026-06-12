@@ -103,7 +103,7 @@ Here's an overview of all of the published versions of this specification:
 | first-editors-draft   | www.designtokens.org/TR/first-editors-draft/       | 2021-09-23 | Draft        |
 | preview               | www.designtokens.org/TR/drafts/                    | —          | Experimental |
 
-> Note: tools can use the date as a version number to signify compliance. For example: `20251028`.
+> Note: tools can use the date as a version number to signify compliance. For example: `2025.10`.
 
 ## Contributing
 
