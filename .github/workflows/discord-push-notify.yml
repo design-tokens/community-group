@@ -2,7 +2,7 @@ name: Discord Push Notification
 
 on:
   push:
-    branches: [main]
+    branches: [main, copilot/fix-notify-discord-job]
 
 jobs:
   notify-discord:
