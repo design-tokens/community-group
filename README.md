@@ -17,7 +17,7 @@ The DTCG's goal is to provide standards upon which products and design tools can
 We believe that a common way to share design tokens will unlock efficiency opportunities for plugins, design system teams, product teams, and end-users of design tools.
 
 - [Full charter](https://github.com/design-tokens/community-group/blob/main/CHARTER.md)
-- [Living technical reports drafts](https://www.designtokens.org/TR/drafts/) ([Instructions for editing technical reports](./technical-reports/README.md))
+- [Technical reports](https://www.designtokens.org/technical-reports/) ([Instructions for editing technical reports](./technical-reports/README.md))
 - [Format Module meeting notes](https://docs.google.com/document/d/1sfiVmnIxgeiA20JJ4IOkm8da_CM9hTnsL2gpzO8vEOM/edit?usp=sharing)
 
 ## Principles
@@ -93,15 +93,17 @@ As vendors adopt the specification and new requirements appear, the community gr
 
 ## Versions
 
-Here's an overview of all of the published versions of this draft specification:
+Here's an overview of all of the published versions of this specification:
 
-| name            | url                                           | date       |
-| --------------- | --------------------------------------------- | ---------- |
-| editors-draft/1 | www.designtokens.org/TR/first-editors-draft/  | 2021-09-23 |
-| editors-draft/2 | www.designtokens.org/TR/second-editors-draft/ | 2022-06-14 |
-| living-draft    | www.designtokens.org/TR/drafts/               | 2025-04-18 |
+| name                  | url                                                | date       | status       |
+| --------------------- | -------------------------------------------------- | ---------- | ------------ |
+| 2025.10               | www.designtokens.org/TR/2025.10/                   | 2025-10-28 | Stable       |
+| third-editors-draft   | www.designtokens.org/TR/third-editors-draft/       | 2025-07-21 | Draft        |
+| second-editors-draft  | www.designtokens.org/TR/second-editors-draft/      | 2022-06-14 | Draft        |
+| first-editors-draft   | www.designtokens.org/TR/first-editors-draft/       | 2021-09-23 | Draft        |
+| preview               | www.designtokens.org/TR/drafts/                    | —          | Experimental |
 
-> Note: tools can use the date as a version number to signify compliance. For example: `20250418`.
+> Note: tools can use the date as a version number to signify compliance. For example: `20251028`.
 
 ## Contributing
 
