@@ -17,6 +17,7 @@ jobs:
           TIMESTAMP: ${{ github.event.head_commit.timestamp }}
         run: |
           PAYLOAD=$(python3 - <<'PY'
+          from datetime import datetime, timezone
           import json
           import os
 
@@ -26,6 +27,19 @@ jobs:
           compare_url = os.environ.get("COMPARE_URL", "")
           author = (os.environ.get("AUTHOR") or "").strip() or "Unknown"
           timestamp = os.environ.get("TIMESTAMP", "")
+
+          normalized_timestamp = ""
+          if timestamp:
+              try:
+                  normalized_timestamp = (
+                      datetime.fromisoformat(timestamp)
+                      .astimezone(timezone.utc)
+                      .replace(microsecond=0)
+                      .isoformat()
+                      .replace("+00:00", "Z")
+                  )
+              except ValueError:
+                  normalized_timestamp = ""
 
           embed = {
               "title": "New update pushed to main",
@@ -42,8 +56,8 @@ jobs:
           if compare_url:
               embed["url"] = compare_url
 
-          if timestamp:
-              embed["timestamp"] = timestamp
+          if normalized_timestamp:
+              embed["timestamp"] = normalized_timestamp
 
           print(json.dumps({"embeds": [embed]}))
           PY
