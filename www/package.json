@@ -29,7 +29,7 @@
     "@astrojs/preact": "^5.1.2",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
-    "astro": "^6.1.10",
+    "astro": "^6.4.6",
     "astro-broken-links-checker": "^1.0.6",
     "astro-icon": "^1.1.5",
     "astro-pagefind": "^1.8.5",
