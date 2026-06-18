@@ -1,6 +1,5 @@
 CIELAB
 cmyk
-customising
 DTCG
 FOIC
 FOIT

@@ -166,7 +166,7 @@ export interface ValidationResult {
   errorDetails: string;
 }
 
-/** Options for customising test generation. */
+/** Options for customizing test generation. */
 export interface GenerateTestsOptions {
   /**
    * Test case IDs to exclude from the generated suite.
