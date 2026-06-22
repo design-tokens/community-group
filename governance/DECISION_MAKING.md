@@ -41,7 +41,7 @@ Bug fixes, clarifying examples, small non-conflicting additions, updating refere
 #### Process
 
 - Create a Pull Request with the `standard-change` label
-- Post PR link and a brief summary to the DTCG Slack channel and the email list.
+- Post PR link and a brief summary to the DTCG Discord and the email list.
 - 3-week comment period
 - Need approval from 2 editors
 - No unresolved objections from editors
@@ -61,7 +61,7 @@ New specification modules, major breaking changes, architectural decisions, depr
 - Create formal proposal in `/proposals` directory
 - Add `major-decision` label
 - Include the RFC (Request For Comments) summary (problem, solution, impact, alternatives)
-- Announce the formal proposal in Slack, GitHub Discussions, and the email list (using the RFC summary).
+- Announce the formal proposal in Discord, GitHub Discussions, and the email list (using the RFC summary).
 - 4-week RFC period with at least one public meeting
 - Author creates response document addressing feedback
 - 1-week voting period (need 2/3 majority of editors). The result of the vote and a record of editor attendance/voting will be published per the Communication and Transparency section.
@@ -78,13 +78,15 @@ New specification modules, major breaking changes, architectural decisions, depr
 
 To ensure the community is informed and can participate effectively, all key group activities and decisions will follow a clear communication process.
 
-- **Meeting Announcements:** Agendas and a meeting announcement will be shared on Slack\* and the email list at least 24 hours in advance of any scheduled general or focused working session.
+- **Meeting Announcements:** Agendas and a meeting announcement will be shared on Discord\* and the email list at least 24 hours in advance of any scheduled general or focused working session.
 - **Meeting Notes and Minutes:**
   - Notes for all general and focused working sessions will be finalized and posted to the GitHub repository within 48 hours of the meeting conclusion.
   - A summary of the notes, along with a direct link, will be distributed to the email list shortly after posting to GitHub.
 - **Contribution and Attendance Records (Transparency):**
   - Attendance at meetings (for Active Contributor qualification) and formal voting records (for Tier 3 decisions) will be tracked transparently and made available in a publicly accessible record in the GitHub repository.
 - **Quarterly Communication Roll-up:** The Chair will send a monthly update to the email list summarizing key actions, upcoming decisions, and progress across all specification modules.
+
+\*The DTCG Discord is the group's primary real-time chat space. You can join via the permanent invite: https://discord.gg/fkK6ZUXRkp
 
 ## Objection Handling
 

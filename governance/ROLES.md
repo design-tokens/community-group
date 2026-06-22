@@ -51,6 +51,12 @@
 
 **Current Editors**:
 
+- Louis Chenais
+- Matt Ström-Awn (@ilikescience)
+- Drew Powers (@drwpow)
+- Kathleen McMahon (@resource11)
+- Donna Vitan (@donnavitan)
+
 ---
 
 ## Module Lead
