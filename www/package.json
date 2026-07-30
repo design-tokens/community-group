@@ -27,7 +27,7 @@
   "devDependencies": {
     "@astrojs/mdx": "^5.0.4",
     "@astrojs/preact": "^5.1.2",
-    "@astrojs/rss": "^4.0.18",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.2",
     "astro": "^6.1.10",
     "astro-broken-links-checker": "^1.0.6",
