@@ -54,8 +54,8 @@ importers:
         specifier: ^4.0.15
         version: 4.1.0(@types/node@25.9.1)(vite@8.0.16(@types/node@25.9.1)(esbuild@0.28.0)(sass@1.99.0)(tsx@4.22.4)(yaml@2.8.2))
       vscode-json-languageservice:
-        specifier: ^5.7.2
-        version: 5.7.2
+        specifier: ^6.0.0-next.2
+        version: 6.0.0-next.2
 
   technical-reports:
     devDependencies:
@@ -2870,8 +2870,8 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  jsonc-parser@3.3.1:
-    resolution: {integrity: sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ==}
+  jsonc-parser@4.0.0-next.1:
+    resolution: {integrity: sha512-hHbZBY6wf/jvnF9bGTJ0VN3c73ch4VEHalHBPlKVnga5hnYOPNz8RDGS2lLivA8a0HAlfCJiJ9NEbbpKz6+zgg==}
 
   just-curry-it@5.3.0:
     resolution: {integrity: sha512-silMIRiFjUWlfaDhkgSzpuAyQ6EX/o09Eu8ZBfmFwQMbax7+LQzeIU2CBrICT6Ne4l86ITCGvUCBpCubWYy0Yw==}
@@ -4287,8 +4287,8 @@ packages:
       jsdom:
         optional: true
 
-  vscode-json-languageservice@5.7.2:
-    resolution: {integrity: sha512-WtKRDtJfFEmLrgtu+ODexOHm/6/krRF0k6t+uvkKIKW1Jh9ZIyxZQwJJwB3qhrEgvAxa37zbUg+vn+UyUK/U2w==}
+  vscode-json-languageservice@6.0.0-next.2:
+    resolution: {integrity: sha512-eq5p35un/ZPTI/6pQW3qYPsHSEmKkZVdBK9zMoB/9uM0KRqbTq2HMoCr8raei+/4pfqDoLqazbiscUy20eJ7MA==}
 
   vscode-languageserver-textdocument@1.0.12:
     resolution: {integrity: sha512-cxWNPesCnQCcMPeenjKKsOCKQZ/L6Tv19DTRIGuLWe32lyzWhihGVJ/rcckZXJxfdKCFvRLS3fpBIsV/ZGX4zA==}
@@ -7150,7 +7150,7 @@ snapshots:
 
   json5@2.2.3: {}
 
-  jsonc-parser@3.3.1: {}
+  jsonc-parser@4.0.0-next.1: {}
 
   just-curry-it@5.3.0: {}
 
@@ -9012,10 +9012,10 @@ snapshots:
     transitivePeerDependencies:
       - msw
 
-  vscode-json-languageservice@5.7.2:
+  vscode-json-languageservice@6.0.0-next.2:
     dependencies:
       '@vscode/l10n': 0.0.18
-      jsonc-parser: 3.3.1
+      jsonc-parser: 4.0.0-next.1
       vscode-languageserver-textdocument: 1.0.12
       vscode-languageserver-types: 3.18.0
       vscode-uri: 3.1.0

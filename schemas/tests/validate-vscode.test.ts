@@ -51,16 +51,7 @@ function formatDiagnostics(diagnostics: Diagnostic[]): string {
     .join('\n\n');
 }
 
-// SKIPPED: The bundled schemas use $id-based $ref references which the
-// VS Code JSON language service does not resolve correctly. It treats
-// all unresolved $refs as errors, causing every test to produce spurious
-// diagnostics regardless of fixture validity.
-//
-// See: https://github.com/microsoft/vscode-json-languageservice/issues/224
-//
-// This should be unskipped once the fix lands:
-// https://github.com/microsoft/vscode-json-languageservice/pull/308
-describe.skip('vscode-json-languageservice', () => {
+describe('vscode-json-languageservice', () => {
   generateTests(
     async (testCase: TestCase, fixturePath: string, ctx: ValidateContext) => {
       const schema = loadJson<JSONSchema>(
