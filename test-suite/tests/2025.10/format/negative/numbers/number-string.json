@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Number value must be a JSON number, not a string",
+  "invalid-number": {
+    "$type": "number",
+    "$value": "1.5"
+  }
+}

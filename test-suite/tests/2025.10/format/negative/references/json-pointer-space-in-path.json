@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: JSON Pointer with unencoded space in path",
+  "invalid-color": {
+    "$ref": "#/colors/token with spaces/$value",
+    "$type": "color"
+  }
+}

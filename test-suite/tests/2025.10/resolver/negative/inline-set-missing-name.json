@@ -1,0 +1,21 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "description": "NEGATIVE: Inline set missing required name property",
+  "version": "2025.10",
+  "resolutionOrder": [
+    {
+      "type": "set",
+      "sources": [
+        {
+          "color": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [0, 0, 0]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Minimum and maximum numeric font weight values",
+  "fontWeights": {
+    "min": {
+      "$type": "fontWeight",
+      "$value": 1
+    },
+    "max": {
+      "$type": "fontWeight",
+      "$value": 1000
+    }
+  }
+}

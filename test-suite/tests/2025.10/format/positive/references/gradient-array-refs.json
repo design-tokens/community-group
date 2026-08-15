@@ -1,0 +1,35 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: JSON Pointer references to gradient array elements",
+  "base-gradient": {
+    "$type": "gradient",
+    "$value": [
+      {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0]
+        },
+        "position": 0
+      },
+      {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0]
+        },
+        "position": 1
+      }
+    ]
+  },
+  "color-from-gradient-start": {
+    "$type": "color",
+    "$ref": "#/base-gradient/$value/0/color"
+  },
+  "color-from-gradient-end": {
+    "$type": "color",
+    "$ref": "#/base-gradient/$value/1/color"
+  },
+  "position-from-gradient": {
+    "$type": "number",
+    "$ref": "#/base-gradient/$value/1/position"
+  }
+}

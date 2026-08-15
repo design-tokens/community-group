@@ -1,0 +1,39 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "description": "POSITIVE: Modifier context with an empty sources array",
+  "version": "2025.10",
+  "sets": {
+    "base": {
+      "sources": [
+        {
+          "color": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [0, 0, 0]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "modifiers": {
+    "debug": {
+      "contexts": {
+        "off": [],
+        "on": [
+          {
+            "number": {
+              "$type": "number",
+              "$value": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  "resolutionOrder": [
+    { "$ref": "#/sets/base" },
+    { "$ref": "#/modifiers/debug" }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "description": "NEGATIVE: Inline modifier missing required type property",
+  "version": "2025.10",
+  "resolutionOrder": [
+    {
+      "name": "theme",
+      "contexts": {
+        "light": [
+          {
+            "color": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [0, 0, 0]
+              }
+            }
+          }
+        ],
+        "dark": [
+          {
+            "color": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [0, 0, 0]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

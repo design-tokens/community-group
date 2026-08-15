@@ -1,0 +1,45 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "description": "POSITIVE: Modifier context referencing a set via $ref",
+  "version": "2025.10",
+  "sets": {
+    "baseSize": {
+      "sources": [
+        {
+          "dimension": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0,
+              "unit": "px"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "modifiers": {
+    "size": {
+      "contexts": {
+        "small": [
+          { "$ref": "#/sets/baseSize" },
+          {
+            "number": {
+              "$type": "number",
+              "$value": 0
+            }
+          }
+        ],
+        "large": [
+          { "$ref": "#/sets/baseSize" },
+          {
+            "number": {
+              "$type": "number",
+              "$value": 0
+            }
+          }
+        ]
+      }
+    }
+  },
+  "resolutionOrder": [{ "$ref": "#/modifiers/size" }]
+}

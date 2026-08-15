@@ -1,0 +1,16 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Circular reference chain between tokens",
+  "circular-reference-chain-1": {
+    "$type": "dimension",
+    "$value": "{circular-reference-chain-2}"
+  },
+  "circular-reference-chain-2": {
+    "$type": "dimension",
+    "$value": "{circular-reference-chain-3}"
+  },
+  "circular-reference-chain-3": {
+    "$type": "dimension",
+    "$value": "{circular-reference-chain-1}"
+  }
+}

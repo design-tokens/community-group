@@ -1,0 +1,10 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Color value missing required components array",
+  "invalid-color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb"
+    }
+  }
+}

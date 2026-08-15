@@ -1,0 +1,22 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: JSON Pointer reference to entire strokeStyle dashArray",
+  "strokeStyles": {
+    "$type": "strokeStyle",
+    "base": {
+      "$value": {
+        "dashArray": [
+          { "value": 0, "unit": "px" },
+          { "value": 0, "unit": "px" }
+        ],
+        "lineCap": "round"
+      }
+    },
+    "derived": {
+      "$value": {
+        "dashArray": { "$ref": "#/strokeStyles/base/$value/dashArray" },
+        "lineCap": "butt"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Curly brace reference in sub-value of non-composite duration token",
+  "numbers": {
+    "number": {
+      "$type": "number",
+      "$value": 200
+    }
+  },
+  "invalid-duration": {
+    "$type": "duration",
+    "$value": {
+      "value": "{numbers.number}",
+      "unit": "ms"
+    }
+  }
+}

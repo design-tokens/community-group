@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: JSON Pointer with double slashes",
+  "invalid-color": {
+    "$ref": "#/colors//primary/$value",
+    "$type": "color"
+  }
+}

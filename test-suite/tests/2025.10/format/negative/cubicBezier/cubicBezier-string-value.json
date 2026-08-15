@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Cubic Bezier values must be numbers, not strings",
+  "invalid-cubicBezier": {
+    "$type": "cubicBezier",
+    "$value": ["0.42", "0", "0.58", "1"]
+  }
+}

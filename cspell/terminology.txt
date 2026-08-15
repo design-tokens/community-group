@@ -1,4 +1,5 @@
 CIELAB
+cmyk
 DTCG
 FOIC
 FOIT
@@ -20,13 +21,17 @@ dtcg
 ednote
 eldef
 figno
+fontsize
 frontmatter
 hyperjump
 implementability
 indextable
+languageservice
+letterspacing
 lightningcss
 kebabify
 namespacing
+Neue
 monaco
 oklab
 oklch
@@ -35,6 +40,11 @@ pagefind
 prophoto-rgb
 respec
 roundtable
+strokestyle
+subproperty
+subproperties
+subvalue
+subvalues
 secno
 shiki
 sotd
@@ -42,6 +52,7 @@ subnav
 theming
 toch
 tocsidebar
+unskipped
 unbuilt
 wireframing
 workstreams

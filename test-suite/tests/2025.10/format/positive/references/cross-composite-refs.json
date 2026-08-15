@@ -1,0 +1,45 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Composite tokens reusing sub-values from other composite tokens",
+  "base-shadow": {
+    "$type": "shadow",
+    "$value": {
+      "color": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      },
+      "offsetX": {
+        "value": 0,
+        "unit": "px"
+      },
+      "offsetY": {
+        "value": 0,
+        "unit": "px"
+      },
+      "blur": {
+        "value": 0,
+        "unit": "px"
+      },
+      "spread": {
+        "value": 0,
+        "unit": "px"
+      }
+    }
+  },
+  "border-reusing-shadow-color": {
+    "$type": "border",
+    "$value": {
+      "color": {
+        "$ref": "#/base-shadow/$value/color"
+      },
+      "width": {
+        "$ref": "#/base-shadow/$value/spread"
+      },
+      "style": "solid"
+    }
+  },
+  "dimension-from-shadow": {
+    "$type": "dimension",
+    "$ref": "#/base-shadow/$value/offsetY"
+  }
+}

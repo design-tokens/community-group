@@ -1,0 +1,18 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Border style must be string or strokeStyle object, not number",
+  "invalid-border": {
+    "$type": "border",
+    "$value": {
+      "color": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      },
+      "width": {
+        "value": 0,
+        "unit": "px"
+      },
+      "style": 1
+    }
+  }
+}

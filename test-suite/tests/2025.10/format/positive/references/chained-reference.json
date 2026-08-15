@@ -1,0 +1,25 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Chained reference (reference to a reference)",
+  "colors": {
+    "$type": "color",
+    "blue": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      }
+    }
+  },
+  "semantic": {
+    "primary": {
+      "$type": "color",
+      "$value": "{colors.blue}"
+    }
+  },
+  "aliases": {
+    "brand": {
+      "$type": "color",
+      "$value": "{semantic.primary}"
+    }
+  }
+}

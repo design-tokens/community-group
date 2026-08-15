@@ -1,0 +1,51 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Extracting individual properties from typography via JSON Pointer",
+  "base-typography": {
+    "$type": "typography",
+    "$value": {
+      "fontFamily": "sans-serif",
+      "fontSize": {
+        "value": 0,
+        "unit": "px"
+      },
+      "fontWeight": 400,
+      "letterSpacing": {
+        "value": 0,
+        "unit": "px"
+      },
+      "lineHeight": 0
+    }
+  },
+  "extracted-font-family": {
+    "$type": "fontFamily",
+    "$ref": "#/base-typography/$value/fontFamily"
+  },
+  "extracted-font-size": {
+    "$type": "dimension",
+    "$ref": "#/base-typography/$value/fontSize"
+  },
+  "extracted-line-height": {
+    "$type": "number",
+    "$ref": "#/base-typography/$value/lineHeight"
+  },
+  "typography-inheriting-parts": {
+    "$type": "typography",
+    "$value": {
+      "fontFamily": {
+        "$ref": "#/base-typography/$value/fontFamily"
+      },
+      "fontSize": {
+        "value": 0,
+        "unit": "px"
+      },
+      "fontWeight": 700,
+      "letterSpacing": {
+        "$ref": "#/base-typography/$value/letterSpacing"
+      },
+      "lineHeight": {
+        "$ref": "#/base-typography/$value/lineHeight"
+      }
+    }
+  }
+}
