@@ -1,0 +1,21 @@
+{
+  "sources": ["../format/**/*.md", "../color/**/*.md", "../resolver/**/*.md"],
+  "schemaDir": "../../schemas/dist/2025.10",
+  "detection": {
+    "format": {
+      "schema": {
+        "id": "https://www.designtokens.org/schemas/2025.10/format.json",
+        "filename": "format.json"
+      },
+      "signals": ["$value", "$type"]
+    },
+    "resolver": {
+      "schema": {
+        "id": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+        "filename": "resolver.json"
+      },
+      "signals": ["sets", "modifiers", "resolutionOrder"]
+    }
+  },
+  "exclude": []
+}
