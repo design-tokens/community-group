@@ -508,9 +508,9 @@ Objects without a `$value` property are interpreted as groups by definition. Thi
 
 ## References and JSON Pointer Integration
 
-The current [token reference syntax](#references-and-json-pointer-integration) using curly braces (`{group.token}`) is maintained for backward compatibility and developer ergonomics. However, tools MAY also support JSON Pointer notation for advanced use cases.
+The current [token reference syntax](#references-and-json-pointer-integration) using curly braces (`{group.token}`) is maintained for backward compatibility and developer ergonomics. However, tools MUST also support JSON Pointer notation for advanced use cases.
 
-### Current Reference Syntax (Recommended)
+### Current Reference Syntax
 
 <aside class="example" title="Current reference syntax">
 
