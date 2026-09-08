@@ -48,7 +48,7 @@ In this example, `{colors.blue}` resolves to the entire color object `{"colorSpa
 
 ### JSON Pointer Syntax (Required Support)
 
-For advanced use cases requiring access to specific properties within token values or other parts of the document structure, tokens MUST support JSON Pointer notation as defined by [[rfc6901]], using the `$ref` property. Tools implementing this specification MUST support JSON Pointer syntax.
+For advanced use cases requiring access to specific properties within token values or other parts of the document structure, tools MUST support JSON Pointer notation as defined by [[rfc6901]], using the `$ref` property. Tools implementing this specification MUST support JSON Pointer syntax.
 
 <aside class="example">
 
