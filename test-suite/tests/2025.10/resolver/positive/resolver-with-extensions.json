@@ -1,0 +1,62 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "description": "POSITIVE: $extensions on sets and modifiers",
+  "version": "2025.10",
+  "sets": {
+    "colors": {
+      "sources": [
+        {
+          "color": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [0, 0, 0]
+            }
+          }
+        }
+      ],
+      "$extensions": {
+        "com.example.tool": {
+          "version": "1.0.0"
+        }
+      }
+    }
+  },
+  "modifiers": {
+    "theme": {
+      "contexts": {
+        "light": [
+          {
+            "color": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [0, 0, 0]
+              }
+            }
+          }
+        ],
+        "dark": [
+          {
+            "color": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [0, 0, 0]
+              }
+            }
+          }
+        ]
+      },
+      "$extensions": {
+        "com.example.tool": {
+          "modeId": "theme-123"
+        }
+      }
+    }
+  },
+  "resolutionOrder": [
+    { "$ref": "#/sets/colors" },
+    { "$ref": "#/modifiers/theme" }
+  ]
+}

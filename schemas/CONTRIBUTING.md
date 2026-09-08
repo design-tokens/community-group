@@ -4,10 +4,11 @@ This guide covers how to add a new version of the DTCG schemas alongside the exi
 
 ## Prerequisites
 
-Make sure you can build the current schemas first:
+Make sure you can build and test the current schemas first:
 
 ```sh
 pnpm --filter @dtcg/schemas run build
+pnpm --filter @dtcg/schemas run test
 ```
 
 ## Steps
@@ -74,13 +75,24 @@ Add a new entry to the `versions` array:
 
 The build script reads this config to know which versions to bundle.
 
-### 6. Build
+### 6. Add test fixtures
+
+Create a matching version directory in the test suite:
+
+```
+test-suite/tests/<new-version>/
+```
+
+Each version needs its own `manifest.json` and sub-manifests pointing to fixtures. See the [test-suite CONTRIBUTING guide](../test-suite/CONTRIBUTING.md) for fixture and manifest rules.
+
+### 7. Build and test
 
 ```sh
 pnpm --filter @dtcg/schemas run build
+pnpm --filter @dtcg/schemas run test
 ```
 
-The build bundles each entry schema into a single self-contained file under `dist/<new-version>/` and copies it to `www/public/schemas/<new-version>/`.
+The build bundles each entry schema into a single self-contained file under `dist/<new-version>/` and copies it to `www/public/schemas/<new-version>/`. The tests validate the bundled schemas against the test-suite fixtures.
 
 ## Structure reference
 

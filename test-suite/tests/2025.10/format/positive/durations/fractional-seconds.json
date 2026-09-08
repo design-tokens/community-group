@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Duration with fractional seconds",
+  "duration": {
+    "$type": "duration",
+    "$value": {
+      "value": 2.5,
+      "unit": "s"
+    }
+  }
+}

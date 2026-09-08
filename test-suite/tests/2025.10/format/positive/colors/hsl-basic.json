@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Color in HSL color space",
+  "color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [180, 50, 50]
+    }
+  }
+}

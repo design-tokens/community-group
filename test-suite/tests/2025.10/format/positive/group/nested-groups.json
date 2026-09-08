@@ -1,0 +1,19 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Deeply nested groups with type inheritance",
+  "colors": {
+    "$type": "color",
+    "nested": {
+      "deep": {
+        "veryDeep": {
+          "color": {
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [0, 0, 0]
+            }
+          }
+        }
+      }
+    }
+  }
+}

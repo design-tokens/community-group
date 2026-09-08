@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Dimension with rem unit",
+  "dimension": {
+    "$type": "dimension",
+    "$value": {
+      "value": 2,
+      "unit": "rem"
+    }
+  }
+}

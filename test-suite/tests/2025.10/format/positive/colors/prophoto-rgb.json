@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Color in prophoto-rgb color space",
+  "color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "prophoto-rgb",
+      "components": [0.7, 0.3, 0.9]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Token has no $type and is not in a group with $type",
+  "invalid-color": {
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 0, 0]
+    }
+  }
+}

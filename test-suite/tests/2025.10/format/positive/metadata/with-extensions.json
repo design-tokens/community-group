@@ -1,0 +1,16 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Token with $extensions for tool-specific metadata",
+  "color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 0, 0]
+    },
+    "$extensions": {
+      "com.example.tool": {
+        "customProperty": "value"
+      }
+    }
+  }
+}

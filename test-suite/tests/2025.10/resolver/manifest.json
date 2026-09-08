@@ -1,0 +1,266 @@
+{
+  "name": "Resolver Specification Tests",
+  "description": "Validation tests for DTCG resolver (token set composition)",
+  "version": "2025.10",
+  "schemaId": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "tests": [
+    {
+      "id": "minimal-resolver",
+      "type": "PositiveEvaluationTest",
+      "name": "Minimal resolver configuration",
+      "purpose": "Verifies that a minimal resolver with an inline set and required properties is valid",
+      "input": "positive/minimal-resolver.json",
+      "features": ["sets", "inline", "resolution-order"]
+    },
+    {
+      "id": "resolver-with-sets",
+      "type": "PositiveEvaluationTest",
+      "name": "Resolver with multiple sets",
+      "purpose": "Verifies that a resolver can define and reference multiple named sets with metadata",
+      "input": "positive/resolver-with-sets.json",
+      "features": ["sets", "resolution-order", "reference", "metadata"]
+    },
+    {
+      "id": "resolver-with-inline-set",
+      "type": "PositiveEvaluationTest",
+      "name": "Resolver with inline set definition",
+      "purpose": "Verifies that a set can be defined inline within the resolutionOrder array",
+      "input": "positive/resolver-with-inline-set.json",
+      "features": ["sets", "inline", "resolution-order"]
+    },
+    {
+      "id": "resolver-with-modifiers",
+      "type": "PositiveEvaluationTest",
+      "name": "Resolver with set and modifier",
+      "purpose": "Verifies that a resolver can define and use both sets and modifiers with multiple contexts",
+      "input": "positive/resolver-with-modifiers.json",
+      "features": [
+        "sets",
+        "modifiers",
+        "contexts",
+        "resolution-order",
+        "reference"
+      ]
+    },
+    {
+      "id": "resolver-with-inline-modifier",
+      "type": "PositiveEvaluationTest",
+      "name": "Resolver with inline modifier definition",
+      "purpose": "Verifies that a modifier can be defined inline within the resolutionOrder array",
+      "input": "positive/resolver-with-inline-modifier.json",
+      "features": ["modifiers", "inline", "contexts", "resolution-order"]
+    },
+    {
+      "id": "resolver-with-multiple-modifiers",
+      "type": "PositiveEvaluationTest",
+      "name": "Resolver with multiple modifiers",
+      "purpose": "Verifies that multiple modifiers can be defined and referenced in the resolution order",
+      "input": "positive/resolver-with-multiple-modifiers.json",
+      "features": ["modifiers", "contexts", "resolution-order", "reference"]
+    },
+    {
+      "id": "resolver-modifier-referencing-set",
+      "type": "PositiveEvaluationTest",
+      "name": "Modifier context referencing a set",
+      "purpose": "Verifies that a modifier's context can reference a set using $ref",
+      "input": "positive/resolver-modifier-referencing-set.json",
+      "features": [
+        "modifiers",
+        "sets",
+        "contexts",
+        "reference",
+        "resolution-order"
+      ]
+    },
+    {
+      "id": "resolver-with-empty-context-array",
+      "type": "PositiveEvaluationTest",
+      "name": "Modifier with empty context array",
+      "purpose": "Verifies that a modifier context can have an empty array of sources",
+      "input": "positive/resolver-with-empty-context-array.json",
+      "features": ["modifiers", "contexts", "sets", "resolution-order"]
+    },
+    {
+      "id": "resolver-with-defs",
+      "type": "PositiveEvaluationTest",
+      "name": "Resolver with $defs property",
+      "purpose": "Verifies that the optional $defs property is allowed at the root level for custom definitions",
+      "input": "positive/resolver-with-defs.json",
+      "features": ["metadata", "sets", "resolution-order"]
+    },
+    {
+      "id": "resolver-with-extensions",
+      "type": "PositiveEvaluationTest",
+      "name": "Resolver with $extensions on sets and modifiers",
+      "purpose": "Verifies that $extensions can be used on sets and modifiers for tool-specific metadata",
+      "input": "positive/resolver-with-extensions.json",
+      "features": [
+        "sets",
+        "modifiers",
+        "metadata",
+        "contexts",
+        "resolution-order"
+      ]
+    },
+    {
+      "id": "missing-version",
+      "type": "NegativeEvaluationTest",
+      "name": "Resolver missing version property",
+      "purpose": "Verifies that a resolver without a version property is invalid",
+      "input": "negative/missing-version.json",
+      "features": ["metadata"]
+    },
+    {
+      "id": "wrong-version",
+      "type": "NegativeEvaluationTest",
+      "name": "Resolver with incorrect version",
+      "purpose": "Verifies that a resolver with a version other than '2025.10' is invalid",
+      "input": "negative/wrong-version.json",
+      "features": ["metadata"]
+    },
+    {
+      "id": "missing-resolution-order",
+      "type": "NegativeEvaluationTest",
+      "name": "Resolver missing resolutionOrder",
+      "purpose": "Verifies that a resolver without a resolutionOrder property is invalid",
+      "input": "negative/missing-resolution-order.json",
+      "features": ["resolution-order"]
+    },
+    {
+      "id": "empty-resolution-order",
+      "type": "NegativeEvaluationTest",
+      "name": "Resolver with empty resolutionOrder",
+      "purpose": "Verifies that a resolver with an empty resolutionOrder array is invalid",
+      "input": "negative/empty-resolution-order.json",
+      "features": ["resolution-order"]
+    },
+    {
+      "id": "duplicate-names-in-resolution-order",
+      "type": "NegativeEvaluationTest",
+      "name": "Duplicate names in resolutionOrder",
+      "purpose": "Verifies that using the same name twice in the resolutionOrder is invalid",
+      "input": "negative/duplicate-names-in-resolution-order.json",
+      "features": ["resolution-order", "inline", "preprocessing-required"]
+    },
+    {
+      "id": "reference-to-resolution-order-item",
+      "type": "NegativeEvaluationTest",
+      "name": "Invalid reference to resolutionOrder item",
+      "purpose": "Verifies that $ref cannot point to items within the resolutionOrder array itself",
+      "input": "negative/reference-to-resolution-order-item.json",
+      "features": ["reference", "resolution-order"]
+    },
+    {
+      "id": "inline-set-missing-type",
+      "type": "NegativeEvaluationTest",
+      "name": "Inline set missing type property",
+      "purpose": "Verifies that an inline set definition must include the type property set to 'set'",
+      "input": "negative/inline-set-missing-type.json",
+      "features": ["sets", "inline", "resolution-order"]
+    },
+    {
+      "id": "inline-set-missing-name",
+      "type": "NegativeEvaluationTest",
+      "name": "Inline set missing name property",
+      "purpose": "Verifies that an inline set definition must include a name property",
+      "input": "negative/inline-set-missing-name.json",
+      "features": ["sets", "inline", "resolution-order"]
+    },
+    {
+      "id": "set-missing-sources",
+      "type": "NegativeEvaluationTest",
+      "name": "Set missing sources property",
+      "purpose": "Verifies that a set definition must include a sources property",
+      "input": "negative/set-missing-sources.json",
+      "features": ["sets"]
+    },
+    {
+      "id": "set-with-additional-properties",
+      "type": "NegativeEvaluationTest",
+      "name": "Set with unexpected additional properties",
+      "purpose": "Verifies that sets cannot have properties beyond the defined schema",
+      "input": "negative/set-with-additional-properties.json",
+      "features": ["sets"]
+    },
+    {
+      "id": "set-referencing-modifier",
+      "type": "NegativeEvaluationTest",
+      "name": "Set sources referencing a modifier",
+      "purpose": "Verifies that a set's sources cannot reference a modifier (only sets or tokens)",
+      "input": "negative/set-referencing-modifier.json",
+      "features": ["sets", "reference"]
+    },
+    {
+      "id": "inline-modifier-missing-type",
+      "type": "NegativeEvaluationTest",
+      "name": "Inline modifier missing type property",
+      "purpose": "Verifies that an inline modifier definition must include the type property set to 'modifier'",
+      "input": "negative/inline-modifier-missing-type.json",
+      "features": ["modifiers", "inline", "resolution-order"]
+    },
+    {
+      "id": "inline-modifier-missing-name",
+      "type": "NegativeEvaluationTest",
+      "name": "Inline modifier missing name property",
+      "purpose": "Verifies that an inline modifier definition must include a name property",
+      "input": "negative/inline-modifier-missing-name.json",
+      "features": ["modifiers", "inline", "resolution-order"]
+    },
+    {
+      "id": "modifier-missing-contexts",
+      "type": "NegativeEvaluationTest",
+      "name": "Modifier missing contexts property",
+      "purpose": "Verifies that a modifier definition must include a contexts property",
+      "input": "negative/modifier-missing-contexts.json",
+      "features": ["modifiers", "contexts"]
+    },
+    {
+      "id": "modifier-empty-contexts",
+      "type": "NegativeEvaluationTest",
+      "name": "Modifier with empty contexts object",
+      "purpose": "Verifies that a modifier's contexts object cannot be empty (must have at least 2 contexts)",
+      "input": "negative/modifier-empty-contexts.json",
+      "features": ["modifiers", "contexts"]
+    },
+    {
+      "id": "modifier-single-context",
+      "type": "NegativeEvaluationTest",
+      "name": "Modifier with only one context",
+      "purpose": "Verifies that a modifier must have at least 2 contexts (minimum requirement for variation)",
+      "input": "negative/modifier-single-context.json",
+      "features": ["modifiers", "contexts"]
+    },
+    {
+      "id": "modifier-with-additional-properties",
+      "type": "NegativeEvaluationTest",
+      "name": "Modifier with unexpected additional properties",
+      "purpose": "Verifies that modifiers cannot have properties beyond the defined schema",
+      "input": "negative/modifier-with-additional-properties.json",
+      "features": ["modifiers"]
+    },
+    {
+      "id": "modifier-referencing-modifier",
+      "type": "NegativeEvaluationTest",
+      "name": "Modifier context referencing another modifier",
+      "purpose": "Verifies that a modifier's context cannot reference another modifier (only sets or tokens)",
+      "input": "negative/modifier-referencing-modifier.json",
+      "features": ["modifiers", "contexts", "reference"]
+    },
+    {
+      "id": "circular-reference-in-sets",
+      "type": "NegativeEvaluationTest",
+      "name": "Circular reference between sets",
+      "purpose": "Verifies that circular dependencies between sets are invalid",
+      "input": "negative/circular-reference-in-sets.json",
+      "features": ["sets", "reference", "preprocessing-required"]
+    },
+    {
+      "id": "root-with-additional-properties",
+      "type": "NegativeEvaluationTest",
+      "name": "Root level with unexpected properties",
+      "purpose": "Verifies that the root resolver object cannot have properties beyond the defined schema",
+      "input": "negative/root-with-additional-properties.json",
+      "features": ["metadata"]
+    }
+  ]
+}

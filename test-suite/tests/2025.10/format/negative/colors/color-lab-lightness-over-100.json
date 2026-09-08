@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: LAB lightness must be in range [0, 100], value 150 exceeds maximum",
+  "invalid-color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "lab",
+      "components": [150, 0, 0]
+    }
+  }
+}

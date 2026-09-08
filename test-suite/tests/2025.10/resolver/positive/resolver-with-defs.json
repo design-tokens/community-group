@@ -1,0 +1,26 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "description": "POSITIVE: Resolver with $defs property",
+  "version": "2025.10",
+  "sets": {
+    "colors": {
+      "sources": [
+        {
+          "color": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [0, 0, 0]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "resolutionOrder": [{ "$ref": "#/sets/colors" }],
+  "$defs": {
+    "someDefinition": {
+      "example": "custom definition"
+    }
+  }
+}

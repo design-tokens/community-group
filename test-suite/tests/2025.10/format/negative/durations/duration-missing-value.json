@@ -1,0 +1,10 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Duration missing required value property",
+  "invalid-duration": {
+    "$type": "duration",
+    "$value": {
+      "unit": "ms"
+    }
+  }
+}

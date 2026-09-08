@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Color in a98-rgb color space",
+  "color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "a98-rgb",
+      "components": [0.8, 0.2, 0.6]
+    }
+  }
+}

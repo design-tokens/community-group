@@ -1,0 +1,16 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: lineCap must be 'round', 'butt', or 'square'",
+  "invalid-strokeStyle": {
+    "$type": "strokeStyle",
+    "$value": {
+      "dashArray": [
+        {
+          "value": 0,
+          "unit": "px"
+        }
+      ],
+      "lineCap": "beveled"
+    }
+  }
+}

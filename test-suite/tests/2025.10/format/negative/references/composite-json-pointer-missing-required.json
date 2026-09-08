@@ -1,0 +1,25 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Composite token uses $ref but is missing other required properties",
+  "colors": {
+    "color": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      }
+    }
+  },
+  "invalid-shadow": {
+    "$type": "shadow",
+    "$value": {
+      "color": {
+        "$ref": "#/colors/color/$value"
+      },
+      "offsetX": {
+        "value": 0,
+        "unit": "px"
+      }
+    }
+  }
+}

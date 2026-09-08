@@ -1,0 +1,21 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Gradient array element references a non-gradient-stop structure",
+  "colors": {
+    "color": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      }
+    }
+  },
+  "invalid-gradient": {
+    "$type": "gradient",
+    "$value": [
+      {
+        "$ref": "#/colors/color/$value"
+      }
+    ]
+  }
+}

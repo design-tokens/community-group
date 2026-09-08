@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Token $value cannot be null",
+  "invalid-color": {
+    "$type": "color",
+    "$value": null
+  }
+}

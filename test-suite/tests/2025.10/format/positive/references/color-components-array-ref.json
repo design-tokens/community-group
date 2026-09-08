@@ -1,0 +1,19 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: JSON Pointer reference to entire color components array",
+  "colors": {
+    "$type": "color",
+    "base": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      }
+    },
+    "derived": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": { "$ref": "#/colors/base/$value/components" }
+      }
+    }
+  }
+}

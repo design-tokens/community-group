@@ -1,0 +1,9 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "description": "NEGATIVE: Modifier missing required contexts property",
+  "version": "2025.10",
+  "modifiers": {
+    "theme": {}
+  },
+  "resolutionOrder": [{ "$ref": "#/modifiers/theme" }]
+}

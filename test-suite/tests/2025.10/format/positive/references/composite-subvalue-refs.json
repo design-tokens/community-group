@@ -1,0 +1,41 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: JSON Pointer references to sub-values of composite tokens",
+  "base-shadow": {
+    "$type": "shadow",
+    "$value": {
+      "color": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      },
+      "offsetX": {
+        "value": 0,
+        "unit": "px"
+      },
+      "offsetY": {
+        "value": 0,
+        "unit": "px"
+      },
+      "blur": {
+        "value": 0,
+        "unit": "px"
+      },
+      "spread": {
+        "value": 0,
+        "unit": "px"
+      }
+    }
+  },
+  "shadow-color-only": {
+    "$type": "color",
+    "$ref": "#/base-shadow/$value/color"
+  },
+  "shadow-blur-only": {
+    "$type": "dimension",
+    "$ref": "#/base-shadow/$value/blur"
+  },
+  "shadow-offsetX-value": {
+    "$type": "number",
+    "$ref": "#/base-shadow/$value/offsetX/value"
+  }
+}

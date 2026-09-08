@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Color in display-p3 wide gamut color space",
+  "color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "display-p3",
+      "components": [1, 0.5, 0]
+    }
+  }
+}

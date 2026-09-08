@@ -1,0 +1,91 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Composite token assembled from multiple source tokens",
+  "base-gradient": {
+    "$type": "gradient",
+    "$value": [
+      {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0]
+        },
+        "position": 0
+      },
+      {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0]
+        },
+        "position": 1
+      }
+    ]
+  },
+  "base-border": {
+    "$type": "border",
+    "$value": {
+      "color": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      },
+      "width": {
+        "value": 0,
+        "unit": "px"
+      },
+      "style": {
+        "dashArray": [
+          {
+            "value": 0,
+            "unit": "px"
+          }
+        ],
+        "lineCap": "round"
+      }
+    }
+  },
+  "base-shadow": {
+    "$type": "shadow",
+    "$value": {
+      "color": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      },
+      "offsetX": {
+        "value": 0,
+        "unit": "px"
+      },
+      "offsetY": {
+        "value": 0,
+        "unit": "px"
+      },
+      "blur": {
+        "value": 0,
+        "unit": "px"
+      },
+      "spread": {
+        "value": 0,
+        "unit": "px"
+      }
+    }
+  },
+  "complex-shadow-from-multiple-sources": {
+    "$type": "shadow",
+    "$value": {
+      "color": {
+        "$ref": "#/base-gradient/$value/0/color"
+      },
+      "offsetX": {
+        "$ref": "#/base-border/$value/width"
+      },
+      "offsetY": {
+        "$ref": "#/base-shadow/$value/offsetY"
+      },
+      "blur": {
+        "$ref": "#/base-border/$value/style/dashArray/0"
+      },
+      "spread": {
+        "value": 0,
+        "unit": "px"
+      }
+    }
+  }
+}

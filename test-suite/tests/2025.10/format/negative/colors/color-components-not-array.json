@@ -1,0 +1,15 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Color components must be an array, not an object",
+  "invalid-color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": {
+        "red": 1,
+        "green": 0,
+        "blue": 0
+      }
+    }
+  }
+}

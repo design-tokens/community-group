@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Cubic Bezier X coordinates must be in range [0, 1], value 1.5 exceeds maximum",
+  "invalid-cubicBezier": {
+    "$type": "cubicBezier",
+    "$value": [1.5, 0, 0.58, 1]
+  }
+}

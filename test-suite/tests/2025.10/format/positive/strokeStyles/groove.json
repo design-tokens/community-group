@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Stroke style 'groove' keyword",
+  "strokeStyle": {
+    "$type": "strokeStyle",
+    "$value": "groove"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Gradient value cannot be an empty array",
+  "invalid-gradient": {
+    "$type": "gradient",
+    "$value": []
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Font weight 'hairline' keyword",
+  "fontWeight": {
+    "$type": "fontWeight",
+    "$value": "hairline"
+  }
+}

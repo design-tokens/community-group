@@ -1,0 +1,17 @@
+{
+  "name": "Design Tokens Test Suite",
+  "description": "Test fixtures for DTCG format and resolver specifications.",
+  "version": "2025.10",
+  "manifests": [
+    {
+      "id": "format",
+      "file": "format/manifest.json",
+      "description": "Tests for the Design Tokens Format specification"
+    },
+    {
+      "id": "resolver",
+      "file": "resolver/manifest.json",
+      "description": "Tests for the Design Tokens Resolver specification"
+    }
+  ]
+}

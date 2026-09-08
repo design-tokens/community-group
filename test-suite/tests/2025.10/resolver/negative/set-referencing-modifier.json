@@ -1,0 +1,39 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "description": "NEGATIVE: Set sources cannot reference a modifier",
+  "version": "2025.10",
+  "sets": {
+    "colors": {
+      "sources": [{ "$ref": "#/modifiers/theme" }]
+    }
+  },
+  "modifiers": {
+    "theme": {
+      "contexts": {
+        "light": [
+          {
+            "color": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [0, 0, 0]
+              }
+            }
+          }
+        ],
+        "dark": [
+          {
+            "color": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [0, 0, 0]
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "resolutionOrder": [{ "$ref": "#/sets/colors" }]
+}

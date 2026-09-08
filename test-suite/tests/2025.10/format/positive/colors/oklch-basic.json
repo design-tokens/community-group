@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Color in OKLCH color space",
+  "color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "oklch",
+      "components": [0.7016, 0.3225, 328.363]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Only 'px' and 'rem' are valid dimension units, 'em' is not supported",
+  "invalid-dimension": {
+    "$type": "dimension",
+    "$value": {
+      "value": 16,
+      "unit": "em"
+    }
+  }
+}

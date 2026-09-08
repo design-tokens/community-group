@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: 'cmyk' is not a supported color space",
+  "invalid-color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "cmyk",
+      "components": [0, 100, 100, 0]
+    }
+  }
+}

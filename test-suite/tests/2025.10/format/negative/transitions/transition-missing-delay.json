@@ -1,0 +1,14 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Transition missing required delay property",
+  "invalid-transition": {
+    "$type": "transition",
+    "$value": {
+      "duration": {
+        "value": 0,
+        "unit": "ms"
+      },
+      "timingFunction": [0, 0, 1, 1]
+    }
+  }
+}

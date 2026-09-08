@@ -1,0 +1,16 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Typography missing required fontSize property",
+  "invalid-typography": {
+    "$type": "typography",
+    "$value": {
+      "fontFamily": "sans-serif",
+      "fontWeight": 400,
+      "letterSpacing": {
+        "value": 0,
+        "unit": "px"
+      },
+      "lineHeight": 0
+    }
+  }
+}

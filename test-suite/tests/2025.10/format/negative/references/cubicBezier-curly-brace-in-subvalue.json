@@ -1,0 +1,14 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Curly brace reference in sub-value of non-composite cubicBezier token",
+  "numbers": {
+    "number": {
+      "$type": "number",
+      "$value": 0.5
+    }
+  },
+  "invalid-cubicBezier": {
+    "$type": "cubicBezier",
+    "$value": ["{numbers.number}", 0, 1, 1]
+  }
+}

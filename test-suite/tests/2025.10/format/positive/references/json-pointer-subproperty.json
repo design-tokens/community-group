@@ -1,0 +1,19 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: JSON Pointer to a sub-property within a token value",
+  "colors": {
+    "$type": "color",
+    "color": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      }
+    }
+  },
+  "numbers": {
+    "component": {
+      "$type": "number",
+      "$ref": "#/colors/color/$value/components/0"
+    }
+  }
+}

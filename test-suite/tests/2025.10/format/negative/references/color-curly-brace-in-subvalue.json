@@ -1,0 +1,18 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Curly brace reference in sub-value of non-composite color token",
+  "numbers": {
+    "alpha": {
+      "$type": "number",
+      "$value": 0.5
+    }
+  },
+  "invalid-color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [0, 0, 0],
+      "alpha": "{numbers.alpha}"
+    }
+  }
+}

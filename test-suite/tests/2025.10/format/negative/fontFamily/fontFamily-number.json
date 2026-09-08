@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Font family must be a string or array of strings, not a number",
+  "invalid-fontFamily": {
+    "$type": "fontFamily",
+    "$value": 123
+  }
+}

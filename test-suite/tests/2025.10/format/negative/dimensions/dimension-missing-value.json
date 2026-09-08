@@ -1,0 +1,10 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Dimension missing required value property",
+  "invalid-dimension": {
+    "$type": "dimension",
+    "$value": {
+      "unit": "px"
+    }
+  }
+}

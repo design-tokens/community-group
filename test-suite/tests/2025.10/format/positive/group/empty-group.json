@@ -1,0 +1,5 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Empty group without any tokens",
+  "empty-group": {}
+}

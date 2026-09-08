@@ -1,0 +1,14 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "description": "NEGATIVE: Circular reference between sets",
+  "version": "2025.10",
+  "sets": {
+    "a": {
+      "sources": [{ "$ref": "#/sets/b" }]
+    },
+    "b": {
+      "sources": [{ "$ref": "#/sets/a" }]
+    }
+  },
+  "resolutionOrder": [{ "$ref": "#/sets/a" }]
+}

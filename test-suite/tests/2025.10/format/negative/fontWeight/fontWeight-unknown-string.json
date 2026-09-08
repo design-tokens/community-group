@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: 'super-bold' is not a valid font weight keyword",
+  "invalid-fontWeight": {
+    "$type": "fontWeight",
+    "$value": "super-bold"
+  }
+}

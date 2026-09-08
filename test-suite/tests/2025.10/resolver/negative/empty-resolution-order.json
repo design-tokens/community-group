@@ -1,0 +1,6 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "description": "NEGATIVE: Empty resolutionOrder array",
+  "version": "2025.10",
+  "resolutionOrder": []
+}

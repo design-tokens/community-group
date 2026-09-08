@@ -1,0 +1,19 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: JSON Pointer reference to entire color components array with HSL color space",
+  "colors": {
+    "$type": "color",
+    "base": {
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [120, 50, 50]
+      }
+    },
+    "derived": {
+      "$value": {
+        "colorSpace": "hsl",
+        "components": { "$ref": "#/colors/base/$value/components" }
+      }
+    }
+  }
+}

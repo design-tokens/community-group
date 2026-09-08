@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Duration in milliseconds",
+  "duration": {
+    "$type": "duration",
+    "$value": {
+      "value": 300,
+      "unit": "ms"
+    }
+  }
+}

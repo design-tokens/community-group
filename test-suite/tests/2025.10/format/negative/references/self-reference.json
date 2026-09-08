@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "NEGATIVE: Token references itself directly",
+  "self-reference": {
+    "$type": "color",
+    "$value": "{self-reference}"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Color in rec2020 color space",
+  "color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "rec2020",
+      "components": [0.6, 0.8, 0.4]
+    }
+  }
+}

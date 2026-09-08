@@ -1,0 +1,30 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Border with custom dash array stroke style",
+  "border": {
+    "$type": "border",
+    "$value": {
+      "color": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0]
+      },
+      "width": {
+        "value": 0,
+        "unit": "px"
+      },
+      "style": {
+        "dashArray": [
+          {
+            "value": 8,
+            "unit": "px"
+          },
+          {
+            "value": 4,
+            "unit": "px"
+          }
+        ],
+        "lineCap": "round"
+      }
+    }
+  }
+}
