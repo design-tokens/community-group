@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 37.0.0">
+<meta name="generator" content="ReSpec 37.3.6">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 dfn{cursor:pointer}
@@ -59,7 +59,7 @@ a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
 #issue-summary>ul{column-count:2}
-#issue-summary li{list-style:none;display:inline-block}
+#issue-summary li{list-style:none}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
 details.respec-tests-details>*{padding-right:2em}
 details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
@@ -69,11 +69,11 @@ details.respec-tests-details>li{padding-left:1em}
 .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
 .header-wrapper{display:flex;align-items:baseline}
-:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2):has(+a.self-link){position:relative;left:-.5em}
-:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
-:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3,h4,h5,h6):not(:where(#toc>h2,#abstract>h2,#sotd>h2,.head>h2)):has(+a.self-link){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(:where(#toch2))+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.8;text-decoration:none}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§"}
 :is(h2,h3)+a.self-link{top:-.2em}
-:is(h4,h5,h6)+a.self-link::before{color:#000}
+:is(h2,h3)+a.self-link::before{color:var(--heading-text)}
 @media (max-width:767px){
 dd{margin-left:0}
 }
@@ -190,11 +190,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "dtcg-logo"
     }
   ],
-  "publishISODate": "2026-05-07T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 07 May 2026"
+  "publishISODate": "2026-09-08T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 08 September 2026"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft">
-<link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://www.w3.org/StyleSheets/TR/2021/dark.css"></head>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)"></head>
 
   <body class="h-entry informative"><div class="head">
     <p class="logos"><a class="logo" href="https://www.designtokens.org"><img crossorigin="" alt="Design Tokens Community Group" height="128" id="dtcg-logo" src="/assets/dtcg-logo-on-color.svg" width="128">
@@ -202,21 +202,21 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">Design Tokens Technical Reports 2025.10</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2026-05-07">07 May 2026</time>
+      <time class="dt-published" datetime="2026-09-08">08 September 2026</time>
     </p>
     <dl>
       
       <dt>Latest published version:</dt><dd>
-              <a href="https://www.designtokens.org/TR/2025.10/">https://www.designtokens.org/TR/2025.10/</a>
-            </dd>
+                <a href="https://www.designtokens.org/TR/2025.10/">https://www.designtokens.org/TR/2025.10/</a>
+              </dd>
       
       
       
       
       
       <dt>
-              Editors:
-            </dt><dd class="editor p-author h-card vcard">
+                Editors:
+              </dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://bsky.app/profile/lucho.cool">Louis Chenais</a>
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://x.com/mikekamminga">Mike Kamminga</a>
@@ -231,8 +231,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </dd>
       
       <dt>
-              Authors:
-            </dt><dd class="editor p-author h-card vcard">
+                Authors:
+              </dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://x.com/dbanksDesign">Daniel Banks</a>
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://github.com/esthercheran">Esther Cheran</a>
@@ -288,10 +288,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <a href="https://www.w3.org/groups/cg/design-tokens">Design Tokens Community Group</a>. It is not a W3C Standard nor is it
       on the W3C Standards Track.
       
-            Please note that under the
-            <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
-            there is a limited opt-out and other conditions apply.
-          
+              Please note that under the
+              <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
+              there is a limited opt-out and other conditions apply.
+            
       Learn more about
       <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
     </p>
@@ -309,8 +309,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </p>
     <p>
     <a href="https://github.com/design-tokens/community-group/issues/">GitHub Issues</a> are preferred for
-          discussion of this specification.
-        
+            discussion of this specification.
+          
     
   </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#modules"><bdi class="secno">1. </bdi>Modules</a></li><li class="tocline"><a class="tocxref" href="#resources"><bdi class="secno">2. </bdi>Resources</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">A. </bdi>Acknowledgements</a></li></ol></nav>
     <section id="modules"><div class="header-wrapper"><h2 id="x1-modules"><bdi class="secno">1. </bdi>Modules</h2><a class="self-link" href="#modules" aria-label="Permalink for Section 1."></a></div>
@@ -334,7 +334,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       
       <p>
         We'd also like to thank the following contributors:
-        <span id="gh-contributors">360Creators, adamstankiewicz, adekunleoduye, aeons, apollonian, applinist, blackfalcon, bomberstudios, c1rrus, chasemccoy, ChucKN0risK, Claude, Copilot, dbanksdesign, dev-nicolaos, dflynn15, dgtlntv, donnavitan, dontcallmedom, drwpow, dzhavat, EisenbergEffect, EvanLovely, ffriedl89, gcaaa31928, guylepage3, honzatmn, ilikescience, ivnmaksimovic, jina, jonnyl, jorenbroekema, julien-deramond, kaelig, kevinmpowell, Kilian, kizu, kvnsmth, laat, lauthieb, literalpie, lukasoppermann, malangcat, marcedwards, marcoscv-work, mark-tomlinson-dev, mattfelten, mikekamminga, mirisuzanne, mrginglymus, nagueva, NeoPhi, nicolaibach, origami-z, PavelLaptev, raunaqgupta, resource11, robintindale, scips, sghoweri, sturobson, TrySound, vostrik, and zavalit</span>.
+        <span id="gh-contributors">360Creators, adamstankiewicz, adekunleoduye, aeons, apollonian, applinist, blackfalcon, bomberstudios, c1rrus, chasemccoy, ChucKN0risK, Claude, Copilot, dbanksdesign, dev-nicolaos, dflynn15, dgtlntv, donnavitan, dontcallmedom, drwpow, dzhavat, EisenbergEffect, EvanLovely, ffriedl89, gcaaa31928, guylepage3, honzatmn, ilikescience, IvanTheGeek, ivnmaksimovic, jina, jonnyl, jorenbroekema, julien-deramond, kaelig, kevinmpowell, Kilian, kizu, kvnsmth, laat, lauthieb, literalpie, lukasoppermann, malangcat, marcedwards, marcoscv-work, mark-tomlinson-dev, mattfelten, mikekamminga, mirisuzanne, mrginglymus, nagueva, NeoPhi, nicolaibach, origami-z, PavelLaptev, raunaqgupta, resource11, robintindale, scips, sghoweri, sturobson, TrySound, vostrik, and zavalit</span>.
       </p>
     </section>
   
@@ -398,7 +398,7 @@ function getHighlightColor(target) {
   if (HL_COLORS.get("respec-hl-c1") === true) return "respec-hl-c1";
 
   // otherwise get some other available color
-  return HL_COLORS.keys().find(c => HL_COLORS.get(c)) || "respec-hl-c1";
+  return [...HL_COLORS.keys()].find(c => HL_COLORS.get(c)) || "respec-hl-c1";
 }
 
 /**
