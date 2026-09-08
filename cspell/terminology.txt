@@ -32,6 +32,7 @@ oklab
 oklch
 orcid
 pagefind
+parseable
 prophoto-rgb
 respec
 roundtable
