@@ -426,7 +426,7 @@ This is very likely to create an invalid reference, no matter if it appears in [
 
 #### Ordering of sets and modifiers
 
-The `resolutionOrder` array allows for any ordering of sets and modifiers to the user’s choosing. However, in the scenario that many sets must appear after the modifiers to resolve conflicts, it is likely a [smell](https://en.wikipedia.org/wiki/Code_smell) of unpredictable and brittle token organization. Ideally, modifiers handle conditional values so well they require few or no overrides (see [orthogonality](#orthogonality)). In practical terms, this means that
+The `resolutionOrder` array allows for any ordering of sets and modifiers to the user's choosing. However, in the scenario that many sets must appear after the modifiers to resolve conflicts, it is likely a [smell](https://en.wikipedia.org/wiki/Code_smell) of unpredictable and brittle token organization. Ideally, modifiers handle conditional values so well they require few or no overrides (see [orthogonality](#orthogonality)). In practical terms, this means that sets should generally appear before modifiers in the resolution order, with only minimal override sets appearing after modifiers when absolutely necessary.
 
 </section>
 
