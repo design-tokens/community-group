@@ -1,0 +1,13 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: 6-digit hex fallback alongside a separate alpha value",
+  "color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [1, 0, 1],
+      "alpha": 0.5,
+      "hex": "#ff00ff"
+    }
+  }
+}

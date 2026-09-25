@@ -165,6 +165,38 @@
       "features": ["color", "srgb"]
     },
     {
+      "id": "color-srgb-with-hex",
+      "type": "PositiveEvaluationTest",
+      "name": "sRGB color with hex fallback",
+      "purpose": "Verifies that a color may carry an optional 6-digit hex fallback",
+      "input": "positive/colors/srgb-with-hex.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "color-oklch-with-hex",
+      "type": "PositiveEvaluationTest",
+      "name": "OKLCH color with hex fallback",
+      "purpose": "Verifies that a color in a non-sRGB color space may carry an sRGB hex fallback",
+      "input": "positive/colors/oklch-with-hex.json",
+      "features": ["color", "oklch"]
+    },
+    {
+      "id": "color-srgb-with-alpha-and-hex",
+      "type": "PositiveEvaluationTest",
+      "name": "Hex fallback alongside alpha",
+      "purpose": "Verifies that a 6-digit hex fallback is valid when alpha is given as its own property",
+      "input": "positive/colors/srgb-with-alpha-and-hex.json",
+      "features": ["color", "srgb"]
+    },
+    {
+      "id": "color-hex-uppercase",
+      "type": "PositiveEvaluationTest",
+      "name": "Hex fallback with uppercase digits",
+      "purpose": "Verifies that hex digits are case-insensitive, as in CSS hex color notation",
+      "input": "positive/colors/hex-uppercase.json",
+      "features": ["color", "srgb"]
+    },
+    {
       "id": "cubicBezier-basic",
       "type": "PositiveEvaluationTest",
       "name": "Basic cubic Bezier easing function",

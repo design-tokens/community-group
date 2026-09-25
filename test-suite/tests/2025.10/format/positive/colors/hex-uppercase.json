@@ -1,0 +1,12 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "POSITIVE: Hex fallback with uppercase digits",
+  "color": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [1, 0, 1],
+      "hex": "#FF00FF"
+    }
+  }
+}
