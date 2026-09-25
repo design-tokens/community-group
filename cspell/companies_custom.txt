@@ -18,6 +18,7 @@ Pinterest
 TELUS
 Theo
 Toolabs
+Veritheme
 Webstudio
 Zeplin
 zeroheight
