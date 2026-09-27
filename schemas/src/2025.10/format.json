@@ -67,8 +67,8 @@
     "curlyBraceReference": {
       "title": "Curly Brace Reference",
       "type": "string",
-      "pattern": "^\\{[^${}.][^{}.]*(\\.[^${}.][^{}.]*)*\\}$",
-      "description": "Curly brace reference (e.g., '{tokenName}' or '{group.nested.token}')"
+      "pattern": "^\\{(?:[^${}.][^{}.]*|\\$root)(?:\\.(?:[^${}.][^{}.]*|\\$root))*\\}$",
+      "description": "Curly brace reference (e.g., '{tokenName}', '{group.nested.token}', or '{group.$root}' referencing a group's root token)"
     },
     "jsonPointerReference": {
       "title": "JSON Pointer Reference",
