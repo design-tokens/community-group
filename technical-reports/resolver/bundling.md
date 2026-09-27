@@ -15,6 +15,7 @@ Given a resolver that references 5 files:
 ```json
 {
   "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "version": "2025.10",
   "sets": {
     "foundation": {
       "sources": [
@@ -47,9 +48,10 @@ Given a resolver that references 5 files:
 
 One could inline the contents, resulting in:
 
-```json
+```jsonc
 {
   "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "version": "2025.10",
   "sets": {
     "foundation": {
       "sources": [
@@ -112,9 +114,10 @@ The only downside of using `$defs` is some tools may choose to ignore it, as it 
 
 Given the same resolver [from the inlining section](#inlining-files), we can create a new top-level `$defs` key, and adding keys and values that correspond to filenames and its contents, respectively:
 
-```json
+```jsonc
 {
   "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "version": "2025.10",
   "sets": {
     "foundation": {
       "sources": [

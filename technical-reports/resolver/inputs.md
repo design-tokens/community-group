@@ -13,6 +13,7 @@ Given the following modifiers:
 ```json
 {
   "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "version": "2025.10",
   "resolutionOrder": [
     {
       "type": "modifier",
@@ -25,7 +26,7 @@ Given the following modifiers:
     {
       "type": "modifier",
       "name": "size",
-      "context": {
+      "contexts": {
         "default": [{ "$ref": "size/default.json" }],
         "large": [{ "$ref": "size/large.json" }]
       }
@@ -33,7 +34,7 @@ Given the following modifiers:
     {
       "type": "modifier",
       "name": "beta",
-      "context": {
+      "contexts": {
         "false": [],
         "true": [{ "$ref": "beta.json" }]
       },
@@ -85,8 +86,8 @@ tokenTool.loadResolver(
   /* Input */
   {
     theme: 'dark',
-    size: 'default',
-  },
+    size: 'default'
+  }
 );
 ```
 

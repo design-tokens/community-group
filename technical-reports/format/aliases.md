@@ -157,7 +157,7 @@ References MUST NOT be circular. If a design token file contains circular refere
 
 <aside class="example">
 
-```json
+```jsonc
 {
   "a": { "$value": "{b}" },
   "b": { "$value": "{c}" },
@@ -179,7 +179,7 @@ JSON Pointer syntax enables references to specific properties within composite t
 
 <aside class="example" title="Color Component References">
 
-```json
+```jsonc
 {
   "base": {
     "blue": {
@@ -278,6 +278,7 @@ In this example:
         "fontFamily": ["Helvetica", "Arial", "sans-serif"],
         "fontSize": { "value": 16, "unit": "px" },
         "fontWeight": 400,
+        "letterSpacing": { "value": 0, "unit": "px" },
         "lineHeight": 1.5
       },
       "$type": "typography"
@@ -289,6 +290,7 @@ In this example:
         "fontFamily": { "$ref": "#/base/text/$value/fontFamily" },
         "fontSize": { "value": 32, "unit": "px" },
         "fontWeight": 700,
+        "letterSpacing": { "value": 0, "unit": "px" },
         "lineHeight": { "$ref": "#/base/text/$value/lineHeight" }
       },
       "$type": "typography"
@@ -298,6 +300,7 @@ In this example:
         "fontFamily": { "$ref": "#/base/text/$value/fontFamily" },
         "fontSize": { "value": 24, "unit": "px" },
         "fontWeight": 600,
+        "letterSpacing": { "value": 0, "unit": "px" },
         "lineHeight": { "$ref": "#/base/text/$value/lineHeight" }
       },
       "$type": "typography"

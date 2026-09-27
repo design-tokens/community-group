@@ -123,13 +123,10 @@ Here's [an example of a composite shadow token](https://design-tokens.github.io/
     "$type": "shadow",
     "$value": {
       "color": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [0, 0, 0],
-          "alpha": 0.5,
-          "hex": "#000000"
-        }
+        "colorSpace": "srgb",
+        "components": [0, 0, 0],
+        "alpha": 0.5,
+        "hex": "#000000"
       },
       "offsetX": { "value": 0.5, "unit": "rem" },
       "offsetY": { "value": 0.5, "unit": "rem" },

@@ -39,6 +39,7 @@ If the array declares multiple sources, they will be merged in array order, mean
 ```json
 {
   "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "version": "2025.10",
   "sets": {
     "color": {
       "description": "Color tokens",
@@ -64,7 +65,8 @@ If the array declares multiple sources, they will be merged in array order, mean
         }
       ]
     }
-  }
+  },
+  "resolutionOrder": [{ "$ref": "#/sets/color" }, { "$ref": "#/sets/size" }]
 }
 ```
 
@@ -89,6 +91,7 @@ A modifier MAY reference a [set](#sets) inside a context value. However a modifi
 ```json
 {
   "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "version": "2025.10",
   "modifiers": {
     "theme": {
       "description": "Color theme",
@@ -96,7 +99,7 @@ A modifier MAY reference a [set](#sets) inside a context value. However a modifi
         "light": [{ "$ref": "theme/light.json" }],
         "lightHighContrast": [
           { "$ref": "theme/light.json" },
-          { "$ref": "theme/dark-high-contrast.json" }
+          { "$ref": "theme/light-high-contrast.json" }
         ],
         "dark": [{ "$ref": "theme/dark.json" }],
         "darkHighContrast": [
@@ -106,7 +109,8 @@ A modifier MAY reference a [set](#sets) inside a context value. However a modifi
       },
       "default": "light"
     }
-  }
+  },
+  "resolutionOrder": [{ "$ref": "#/modifiers/theme" }]
 }
 ```
 
@@ -119,6 +123,7 @@ A modifier MAY reference a [set](#sets) inside a context value. This is equivale
 ```json
 {
   "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "version": "2025.10",
   "sets": {
     "baseSize": {
       "sources": [{ "$ref": "size/base.json" }]
@@ -145,19 +150,19 @@ A modifier MAY reference a [set](#sets) inside a context value. This is equivale
         ]
       }
     }
-  }
+  },
+  "resolutionOrder": [{ "$ref": "#/modifiers/size" }]
 }
 ```
 
 Is equivalent to:
 
-```json
+```jsonc
 {
   "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "version": "2025.10",
   "sets": {
-    "baseSize": {
-      // …
-    }
+    // "baseSize": { … }
   },
   "modifiers": {
     "size": {
@@ -180,7 +185,8 @@ Is equivalent to:
         ]
       }
     }
-  }
+  },
+  "resolutionOrder": [{ "$ref": "#/modifiers/size" }]
 }
 ```
 
@@ -216,6 +222,7 @@ Given a `resolutionOrder` that consists of multiple sets and modifiers:
 ```json
 {
   "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "version": "2025.10",
   "sets": {
     "size": {
       "sources": [{ "$ref": "foundation/size.json" }]
@@ -234,7 +241,7 @@ Given a `resolutionOrder` that consists of multiple sets and modifiers:
         "light": [{ "$ref": "theme/light.json" }],
         "lightHighContrast": [
           { "$ref": "theme/light.json" },
-          { "$ref": "theme/dark-high-contrast.json" }
+          { "$ref": "theme/light-high-contrast.json" }
         ],
         "dark": [{ "$ref": "theme/dark.json" }],
         "darkHighContrast": [
@@ -322,9 +329,10 @@ In case of any conflict, the last occurrence of a design token produces the fina
 
 Modifiers MAY contain empty context arrays:
 
-```json
+```jsonc
 {
   "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "version": "2025.10",
   "modifiers": {
     // …
     "debug": {
@@ -368,6 +376,7 @@ When sets and modifiers appear in their respective root level `sets` and `modifi
 ```json
 {
   "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "version": "2025.10",
   "resolutionOrder": [
     {
       "type": "set",
@@ -382,7 +391,7 @@ When sets and modifiers appear in their respective root level `sets` and `modifi
     {
       "type": "set",
       "name": "Animation",
-      "sources": [{ "$ref": "#/sets/Animation" }]
+      "sources": [{ "$ref": "foundation/animation.json" }]
     },
     {
       "type": "modifier",
@@ -392,7 +401,7 @@ When sets and modifiers appear in their respective root level `sets` and `modifi
         "light": [{ "$ref": "theme/light.json" }],
         "lightHighContrast": [
           { "$ref": "theme/light.json" },
-          { "$ref": "theme/dark-high-contrast.json" }
+          { "$ref": "theme/light-high-contrast.json" }
         ],
         "dark": [{ "$ref": "theme/dark.json" }],
         "darkHighContrast": [
@@ -579,6 +588,7 @@ Here is an example where a set contains arbitrary metadata for the `figma.com` v
 ```json
 {
   "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "version": "2025.10",
   "sets": {
     "color": {
       "sources": [
@@ -592,7 +602,8 @@ Here is an example where a set contains arbitrary metadata for the `figma.com` v
         }
       }
     }
-  }
+  },
+  "resolutionOrder": [{ "$ref": "#/sets/color" }]
 }
 ```
 

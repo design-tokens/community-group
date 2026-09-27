@@ -29,8 +29,8 @@ Groups support root tokens using the reserved name `$root` as the token name:
         "$value": {
           "colorSpace": "srgb",
           "components": [0.867, 0, 0],
-          "hex": "#dd0000",
-        },
+          "hex": "#dd0000"
+        }
         // {color.accent.$root} resolves to {"colorSpace": "srgb", "components": [0.867, 0, 0], "hex": "#dd0000"} (the root token)
         // {color.accent} is an invalid token reference (refers to a group, not a token)
       },
@@ -39,19 +39,19 @@ Groups support root tokens using the reserved name `$root` as the token name:
         "$value": {
           "colorSpace": "srgb",
           "components": [1, 0.133, 0.133],
-          "hex": "#ff2222",
-        },
+          "hex": "#ff2222"
+        }
       },
       "dark": {
         "$type": "color",
         "$value": {
           "colorSpace": "srgb",
           "components": [0.667, 0, 0],
-          "hex": "#aa0000",
-        },
-      },
-    },
-  },
+          "hex": "#aa0000"
+        }
+      }
+    }
+  }
 }
 ```
 
@@ -82,8 +82,8 @@ Groups MAY include the following properties:
     },
     "padding": {
       /* tokens */
-    },
-  },
+    }
+  }
 }
 ```
 
@@ -119,7 +119,19 @@ Groups MAY include the following properties:
           "hex": "#00cc66"
         }
       },
-      "warning": { "$type": "string", "$value": "amber" }
+      "warning": {
+        "$type": "gradient",
+        "$value": [
+          {
+            "color": { "colorSpace": "srgb", "components": [1, 0.749, 0] },
+            "position": 0
+          },
+          {
+            "color": { "colorSpace": "srgb", "components": [1, 0.5, 0] },
+            "position": 1
+          }
+        ]
+      }
     }
   }
 }
@@ -270,23 +282,28 @@ Group extension follows **deep merge** behavior where local properties override 
     "field": {
       "width": {
         "$type": "dimension",
-        "$value": { "value": 12, "unit": "rem" },
+        "$value": { "value": 12, "unit": "rem" }
       },
       "background": {
+        "$type": "color",
         "$value": {
           "colorSpace": "srgb",
           "components": [1, 1, 1],
-          "hex": "#ffffff",
-        },
-      },
-    },
+          "hex": "#ffffff"
+        }
+      }
+    }
   },
   "input-amount": {
     "$extends": "{input}",
     "field": {
-      "width": { "$value": "100px" }, // Overrides field.width completely
-    },
-  },
+      // Overrides field.width completely
+      "width": {
+        "$type": "dimension",
+        "$value": { "value": 100, "unit": "px" }
+      }
+    }
+  }
 }
 ```
 
@@ -296,14 +313,14 @@ Group extension follows **deep merge** behavior where local properties override 
 
 | Token              | Final Value                                                                                        |
 | :----------------- | :------------------------------------------------------------------------------------------------- |
-| `field.width`      | `"100px"` (local override wins)                                                                    |
+| `field.width`      | `{"value": 100, "unit": "px"}` (local override wins)                                               |
 | `field.background` | `{"colorSpace": "srgb", "components": [1, 1, 1], "hex": "#ffffff"}` (inherited, no local override) |
 
 **Multi-level Override Example:**
 
 <aside class="example" title="Multi-level override">
 
-```json
+```jsonc
 {
   "base": {
     "color": {
@@ -364,12 +381,12 @@ Groups MUST NOT create circular inheritance chains. The following patterns are *
   "button": {
     "color": {
       "$type": "color",
-      "$value": { "colorSpace": "srgb", "components": [0.4, 0.2, 0.6] },
+      "$value": { "colorSpace": "srgb", "components": [0.4, 0.2, 0.6] }
     },
     "secondary": {
-      "$extends": "{button}", // ❌ Invalid: circular reference
-    },
-  },
+      "$extends": "{button}" // ❌ Invalid: circular reference
+    }
+  }
 }
 ```
 
@@ -383,16 +400,16 @@ Groups MUST NOT create circular inheritance chains. The following patterns are *
     "$extends": "{groupB}",
     "token": {
       "$value": 1,
-      "$type": "number",
-    },
+      "$type": "number"
+    }
   },
   "groupB": {
     "$extends": "{groupA}", // ❌ Invalid: circular reference
     "token": {
       "$value": 2,
-      "$type": "number",
-    },
-  },
+      "$type": "number"
+    }
+  }
 }
 ```
 
@@ -410,29 +427,29 @@ Groups MUST NOT create circular inheritance chains. The following patterns are *
       "$value": {
         "colorSpace": "srgb",
         "components": [0, 1, 1],
-        "hex": "#00ffff",
-      },
+        "hex": "#00ffff"
+      }
     },
     "border": {
       "$type": "border",
       "$value": {
         "width": { "value": 1, "unit": "px" },
         "style": "solid",
-        "color": "{button.color}",
-      },
-    },
+        "color": "{button.color}"
+      }
+    }
   },
   "button-secondary": {
     "$extends": "{button}", // ✅ Valid: references parent group
     "color": {
       "$type": "color",
-      "$value": { "colorSpace": "srgb", "components": [0.4, 0.4, 0.4] },
-    },
+      "$value": { "colorSpace": "srgb", "components": [0.4, 0.4, 0.4] }
+    }
   },
   "button-large": {
     "$extends": "{button}", // ✅ Valid: siblings can reference same parent
-    "padding": { "$value": { "value": 16, "unit": "px" } },
-  },
+    "padding": { "$type": "dimension", "$value": { "value": 16, "unit": "px" } }
+  }
 }
 ```
 
@@ -517,6 +534,7 @@ The current [token reference syntax](#references-and-json-pointer-integration) u
 ```json
 {
   "base": {
+    "$type": "color",
     "$value": {
       "colorSpace": "srgb",
       "components": [0, 0.4, 0.8],
@@ -538,6 +556,7 @@ Tools MUST support JSON Pointer references as defined by [[rfc6901]], using the 
 ```json
 {
   "base": {
+    "$type": "color",
     "$value": {
       "colorSpace": "srgb",
       "components": [0, 0.4, 0.8],
@@ -595,15 +614,15 @@ Since `$extends` follows JSON Schema `$ref` semantics, type inheritance behavior
       "$value": {
         "colorSpace": "srgb",
         "components": [0, 0.4, 0.8],
-        "hex": "#0066cc",
-      },
-    },
+        "hex": "#0066cc"
+      }
+    }
   },
   "extended": {
     "$extends": "{base}",
     "$type": "dimension", // Local constraint
-    "spacing": { "$value": { "value": 16, "unit": "px" } },
-  },
+    "spacing": { "$value": { "value": 16, "unit": "px" } }
+  }
 }
 ```
 
@@ -627,7 +646,7 @@ Circular reference detection for `$extends` follows the same requirements as JSO
 {
   "a": { "$extends": "{b}" },
   "b": { "$extends": "{c}" },
-  "c": { "$extends": "{a}" }, // Creates circular reference: a → b → c → a
+  "c": { "$extends": "{a}" } // Creates circular reference: a → b → c → a
 }
 ```
 
@@ -673,7 +692,7 @@ This specification is designed to be backward compatible with existing design to
   "input": {
     "$type": "dimension",
     "field": {
-      "width": { "$value": { "value": 100, "unit": "%" } },
+      "width": { "$value": { "value": 20, "unit": "rem" } },
       "background": {
         "$type": "color",
         "$value": {
