@@ -485,6 +485,14 @@
       "features": ["references", "preprocessing-required"]
     },
     {
+      "id": "reference-curly-brace-root-token",
+      "type": "PositiveEvaluationTest",
+      "name": "Curly brace reference to a $root token",
+      "purpose": "Verifies that curly brace references can point to a group's $root token (e.g., {group.$root})",
+      "input": "positive/references/curly-brace-root-token.json",
+      "features": ["references", "preprocessing-required"]
+    },
+    {
       "id": "reference-json-pointer-basic",
       "type": "PositiveEvaluationTest",
       "name": "JSON Pointer reference",
