@@ -376,7 +376,7 @@ Each shadow object (whether explicit or referenced) MUST have the following prop
 - `offsetY`: The vertical offset that shadow has from the element it is applied to. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `blur`: The blur radius that is applied to the shadow. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
 - `spread`: The amount by which to expand or contract the shadow. The value of this property MUST be a valid [dimension value](#dimension) or a reference to a dimension token.
-- `inset`: (optional) Whether this shadow is inside the containing shape (“inner shadow”), rather than a “drop shadow” or “box shadow” which is rendered outside the container (default, or `false`).
+- `inset`: (optional) Whether this shadow is inside the containing shape (“inner shadow”), rather than a “drop shadow” or “box shadow” which is rendered outside the container (`true` or `false`, defaults to `false`).
 
 <aside class="example" title="Shadow token example">
 
