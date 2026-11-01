@@ -138,8 +138,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0(@types/node@25.9.1)(vite@8.0.16(@types/node@25.9.1)(esbuild@0.28.0)(sass@1.99.0)(tsx@4.22.4)(yaml@2.8.2))
       zod:
-        specifier: ^4.1.13
-        version: 4.1.13
+        specifier: ^4.6.6
+        version: 4.6.6
 
 packages:
 
@@ -848,6 +848,9 @@ packages:
   '@hyperjump/json-pointer@1.1.2':
     resolution: {integrity: sha512-zPNgu1zdhtjQHFNLGzvEsLDsLOEvhRj6u6ktIQmlz7YPESv5uF8SnAe3Dq0oL6gZ6OGWSLq2n7pphRNF6Hpg6w==}
 
+  '@hyperjump/json-pointer@1.1.3':
+    resolution: {integrity: sha512-GVSs+wzefSO5VOEVMuOz118MDJrJtMdm8h+2vlghzMG/5QpboTSQ12gaMKvGQo7S4oPMw9rCyFWNAJ9DUEdA5Q==}
+
   '@hyperjump/json-schema-formats@1.0.1':
     resolution: {integrity: sha512-qvcIxysnMfcPxyPSFFzzo28o2BN1CNT5b0tQXNUP0kaFpvptQNDg8SCLvlnMg2sYxuiuqna8+azGBaBthiskAw==}
 
@@ -862,8 +865,8 @@ packages:
   '@hyperjump/uri@1.3.4':
     resolution: {integrity: sha512-aUVWwu2GtC/cU4DwdTM+b+5jjboM6wft6vNg1+7pUTk/nNRNaBYcYhaEnCir9eRLBbkcGPkiEO7XRUlcDkxj4Q==}
 
-  '@hyperjump/uri@1.3.6':
-    resolution: {integrity: sha512-9a2/wOIp666Veq1a8QctYPRtyFHH0p1yw8Nt/DEf06M+eDpwBpeuc2rGqqjBthENTOy1NyJ/xhSiDtkjU5LfKA==}
+  '@hyperjump/uri@1.4.0':
+    resolution: {integrity: sha512-A6eBnSLNb6GdJHnYnA0sDutV950mWNmmlWgASwIoZvXqtXcYKBeEhbGrXpHeyHHInC/LHVt8zNanILp2S2oRXg==}
 
   '@iconify/tools@4.2.0':
     resolution: {integrity: sha512-WRxPva/ipxYkqZd1+CkEAQmd86dQmrwH0vwK89gmp2Kh2WyyVw57XbPng0NehP3x4V1LzLsXUneP1uMfTMZmUA==}
@@ -4488,14 +4491,8 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.1.13:
-    resolution: {integrity: sha512-AvvthqfqrAhNH9dnfmrfKzX5upOdjUVJYFqNSlkmGf64gRaTzlPwz99IHYnVs28qYAybvAlBV+H7pn0saFY4Ig==}
-
-  zod@4.3.6:
-    resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
-
-  zod@4.4.3:
-    resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
+  zod@4.6.6:
+    resolution: {integrity: sha512-4UmzQUF5fxvfcYHlbjBmejU+w+hbDnWFx4aS8kBx7nPBHcO2SqPbpAG8snbdg+Xse4pRefR98hgjFgIMCI/UhA==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -4595,13 +4592,13 @@ snapshots:
     dependencies:
       fast-xml-parser: 5.10.1
       piccolore: 0.1.3
-      zod: 4.4.3
+      zod: 4.6.6
 
   '@astrojs/sitemap@3.7.2':
     dependencies:
       sitemap: 9.0.1
       stream-replace-string: 2.0.0
-      zod: 4.3.6
+      zod: 4.6.6
 
   '@astrojs/telemetry@3.3.1':
     dependencies:
@@ -5155,12 +5152,14 @@ snapshots:
 
   '@hyperjump/browser@1.3.1':
     dependencies:
-      '@hyperjump/json-pointer': 1.1.2
-      '@hyperjump/uri': 1.3.6
+      '@hyperjump/json-pointer': 1.1.3
+      '@hyperjump/uri': 1.4.0
       content-type: 1.0.5
       just-curry-it: 5.3.0
 
   '@hyperjump/json-pointer@1.1.2': {}
+
+  '@hyperjump/json-pointer@1.1.3': {}
 
   '@hyperjump/json-schema-formats@1.0.1':
     dependencies:
@@ -5183,7 +5182,7 @@ snapshots:
 
   '@hyperjump/uri@1.3.4': {}
 
-  '@hyperjump/uri@1.3.6': {}
+  '@hyperjump/uri@1.4.0': {}
 
   '@iconify/tools@4.2.0':
     dependencies:
@@ -6149,7 +6148,7 @@ snapshots:
       vitefu: 1.1.3(vite@7.3.5(@types/node@25.9.1)(lightningcss@1.30.2)(sass@1.99.0)(tsx@4.22.4)(yaml@2.8.2))
       xxhash-wasm: 1.1.0
       yargs-parser: 22.0.0
-      zod: 4.4.3
+      zod: 4.6.6
     optionalDependencies:
       sharp: 0.34.5
     transitivePeerDependencies:
@@ -9201,10 +9200,6 @@ snapshots:
 
   zod@3.25.76: {}
 
-  zod@4.1.13: {}
-
-  zod@4.3.6: {}
-
-  zod@4.4.3: {}
+  zod@4.6.6: {}
 
   zwitch@2.0.4: {}
