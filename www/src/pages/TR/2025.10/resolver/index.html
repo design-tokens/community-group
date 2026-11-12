@@ -1268,6 +1268,7 @@ tokenTool.<span class="hljs-title function_">loadResolver</span>(
 
 <p>Given a resolver that references 5 files:</p>
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"version"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"2025.10"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"sets"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"foundation"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"sources"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
@@ -1299,6 +1300,7 @@ tokenTool.<span class="hljs-title function_">loadResolver</span>(
 </code></pre>
 <p>One could inline the contents, resulting in:</p>
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"version"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"2025.10"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"sets"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"foundation"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"sources"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
@@ -1356,6 +1358,7 @@ tokenTool.<span class="hljs-title function_">loadResolver</span>(
 
 <p>Given the same resolver <a href="#inlining-files">from the inlining section</a>, we can create a new top-level <code>$defs</code> key, and adding keys and values that correspond to filenames and its contents, respectively:</p>
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"version"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"2025.10"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"sets"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"foundation"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"sources"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
